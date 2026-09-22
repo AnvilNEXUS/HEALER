@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3 Secrets to Restoring Yang Energy | Bilingual Interactive Reader</title>
-  <!-- Google Fonts -->
+  <title>Healer Series | Bilingual Academic Health Immersion</title>
+  
+  <!-- Google Fonts matching the reader suite -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <!-- Tailwind CSS CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS with Dark Mode Support -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
@@ -21,13 +24,14 @@
           },
           colors: {
             brand: {
-              50: '#fbf7f0',
-              100: '#f4ecd9',
-              200: '#e8d7b3',
-              500: '#b45309',
-              600: '#92400e',
-              800: '#78350f',
-              900: '#451a03'
+              50: '#fdf8f0',
+              100: '#faecd6',
+              200: '#f4d5aa',
+              500: '#c05621',
+              600: '#9c4221',
+              700: '#7b341e',
+              800: '#652b19',
+              900: '#431407'
             }
           }
         }
@@ -35,871 +39,315 @@
     }
   </script>
   <style>
-    /* Smooth Transitions & Card Interactive State */
-    .fade-in {
-      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    .fade-enter {
+      animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .card-transition {
-      transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    /* Hide scrollbar for clean UI while allowing scroll */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    .smooth-transition {
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.25s ease, transform 0.2s ease;
     }
   </style>
 </head>
-<body class="bg-stone-50 text-stone-800 font-sans antialiased min-h-screen selection:bg-amber-200 selection:text-stone-900">
+<body class="bg-stone-50 dark:bg-stone-950 text-stone-800 dark:text-stone-100 font-sans antialiased min-h-screen selection:bg-amber-200 dark:selection:bg-amber-800 selection:text-stone-900 dark:selection:text-amber-50 smooth-transition flex flex-col justify-between">
 
-  <!-- Top Sticky Navigation Bar -->
-  <header id="top-nav" class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-stone-200 shadow-sm transition-all duration-200">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
+  <!-- Persistent Top Navigation Bar -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-stone-900/95 backdrop-blur border-b border-stone-200 dark:border-stone-800 shadow-sm smooth-transition">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
       
-      <!-- Back Navigation / Home Brand -->
-      <div class="flex items-center gap-2">
-        <button id="nav-back-btn" onclick="navigateTo('overview')" class="hidden items-center gap-2 px-3 py-2 rounded-xl text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors text-sm font-semibold">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-          <span>Overview</span>
-        </button>
-        <span id="nav-brand" class="flex items-center gap-2 text-amber-800 font-display font-bold tracking-wider text-base sm:text-lg">
-          <span class="w-2.5 h-2.5 rounded-full bg-amber-600 animate-pulse"></span>
-          SOVRÆG LECTURE
+      <!-- Brand Logo / Hub Title -->
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="flex items-center gap-2.5 text-amber-800 dark:text-amber-400 font-display font-bold tracking-wider text-sm sm:text-base">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-600 dark:bg-amber-400 animate-pulse"></span>
+          SOVRÆG PEDAGOGY
+        </a>
+        <span class="hidden sm:inline text-stone-300 dark:text-stone-700">|</span>
+        <span class="hidden sm:inline text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">
+          HEALER SERIES
         </span>
       </div>
 
-      <!-- Quick Actions -->
+      <!-- Action Cluster -->
       <div class="flex items-center gap-2 sm:gap-3">
-        <!-- Global Section Language Flip (Visible on reading pages) -->
-        <button id="global-toggle-btn" onclick="toggleAllParagraphs()" class="hidden items-center gap-1.5 px-3 py-1.5 rounded-lg border border-amber-600/30 bg-amber-50 text-amber-900 hover:bg-amber-100 transition-colors text-xs sm:text-sm font-medium">
-          <svg class="w-4 h-4 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
-          <span id="global-toggle-label">Toggle All (VI/EN)</span>
+        <!-- Global Card Title Switcher -->
+        <button onclick="toggleAllCardTitles()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-700 transition-colors text-xs font-semibold shadow-sm">
+          <span>🌐 Headings:</span>
+          <span id="global-lang-label" class="font-bold text-amber-700 dark:text-amber-400">EN</span>
         </button>
 
-        <!-- Glossary Jump -->
-        <button onclick="navigateTo('glossary')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-stone-900 text-stone-100 hover:bg-stone-800 transition-colors text-xs sm:text-sm font-medium shadow-sm">
-          <span>📖</span>
-          <span class="hidden sm:inline">Learner</span> Glossary
+        <!-- Theme Toggle (Light / Dark) -->
+        <button id="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode" class="p-2 rounded-xl text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+          <svg id="theme-icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          <svg id="theme-icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
         </button>
       </div>
 
     </div>
   </header>
 
-  <!-- Main View Router Container -->
-  <main id="app-root" class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-    <!-- Dynamic Views will inject here -->
+  <!-- Main Content Viewport -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 w-full">
+    
+    <!-- Hero / Master Title Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-4 mb-14 fade-enter">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100/80 dark:bg-amber-950/60 border border-amber-300/60 dark:border-amber-700/50 text-amber-900 dark:text-amber-300 text-xs font-bold tracking-widest uppercase">
+        <span>Curated Educational Corpus</span>
+      </div>
+      
+      <h1 class="text-3xl sm:text-5xl font-black font-display text-stone-900 dark:text-white tracking-tight leading-tight">
+        HEALER KNOWLEDGE REPOSITORY
+      </h1>
+      
+      <p class="text-lg sm:text-2xl font-serif text-amber-800 dark:text-amber-400 font-medium">
+        Hệ Thống Tri Thức Phục Hồi &amp; Trường Thọ Tế Bào
+      </p>
+
+      <p class="text-sm sm:text-base text-stone-600 dark:text-stone-400 max-w-2xl mx-auto pt-1 leading-relaxed">
+        Upper-Intermediate (B2) and Advanced (C1) bilingual immersion modules integrating Eastern meridian wisdom, chronobiology, and cellular longevity science.
+      </p>
+    </div>
+
+    <!-- Repository Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+
+      <!-- CARD 1: YANG ENERGY -->
+      <article class="group relative bg-white dark:bg-stone-900 rounded-3xl p-6 sm:p-7 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:border-amber-500/60 dark:hover:border-amber-500/60 smooth-transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-4">
+            <span class="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-extrabold tracking-wider bg-amber-100/70 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-900/60">
+              MODULE 01
+            </span>
+            <button onclick="toggleCardLang('m1')" title="Toggle Title Language" class="px-2 py-0.5 rounded-full text-[11px] font-bold border border-stone-200 dark:border-stone-700 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors">
+              <span id="badge-m1">EN</span> ⇄
+            </button>
+          </div>
+
+          <span class="text-xs uppercase font-bold tracking-widest text-stone-400 dark:text-stone-500 block mb-2">
+            Holistic Physiology
+          </span>
+
+          <h2 id="title-m1" class="text-xl font-bold font-serif text-stone-900 dark:text-white leading-snug group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors mb-2">
+            3 Secrets to Restoring Yang Energy from the Shoulder Area
+          </h2>
+
+          <p id="sub-m1" class="text-xs font-serif italic text-amber-700 dark:text-amber-400 mb-3">
+            3 Bí Mật Phục Hồi Dương Khí Từ Vùng Vai Ít Ai Ngờ!
+          </p>
+
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+            Exploring holistic Eastern meridian physiology, acupoint thermal therapy, and mechanical postural decompression to unblock stagnant qi and clear deep cold pathogens.
+          </p>
+        </div>
+
+        <div>
+          <div class="py-3 px-3.5 rounded-2xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-800 flex items-center justify-between text-xs text-stone-500 dark:text-stone-400 mb-5">
+            <span>📚 11 Chapters</span>
+            <span>•</span>
+            <span>📖 28 Lexicon Terms</span>
+          </div>
+
+          <a href="./3%20SECRETS%20TO%20RESTORING%20YANG%20ENERGY.html" class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-stone-900 dark:bg-stone-100 hover:bg-amber-600 dark:hover:bg-amber-500 text-white dark:text-stone-950 font-bold text-xs uppercase tracking-wider transition-colors shadow-sm">
+            <span>Study Module</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 2: JAPANESE HABITS -->
+      <article class="group relative bg-white dark:bg-stone-900 rounded-3xl p-6 sm:p-7 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:border-amber-500/60 dark:hover:border-amber-500/60 smooth-transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-4">
+            <span class="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-extrabold tracking-wider bg-rose-100/70 dark:bg-rose-950/70 text-rose-800 dark:text-rose-300 border border-rose-200 dark:border-rose-900/60">
+              MODULE 02
+            </span>
+            <button onclick="toggleCardLang('m2')" title="Toggle Title Language" class="px-2 py-0.5 rounded-full text-[11px] font-bold border border-stone-200 dark:border-stone-700 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors">
+              <span id="badge-m2">EN</span> ⇄
+            </button>
+          </div>
+
+          <span class="text-xs uppercase font-bold tracking-widest text-stone-400 dark:text-stone-500 block mb-2">
+            Circadian Biology
+          </span>
+
+          <h2 id="title-m2" class="text-xl font-bold font-serif text-stone-900 dark:text-white leading-snug group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors mb-2">
+            5 Japanese Habits to Banish Belly Fat After 50
+          </h2>
+
+          <p id="sub-m2" class="text-xs font-serif italic text-amber-700 dark:text-amber-400 mb-3">
+            5 Thói Quen Của Người Nhật Giúp Loại Bỏ Mỡ Bụng Sau Tuổi 50
+          </p>
+
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+            Investigating hormonal redistribution, cortisol awakening surges, adenosine clearance ("Ma"), and the synergistic power of optic-flow gentle morning walks.
+          </p>
+        </div>
+
+        <div>
+          <div class="py-3 px-3.5 rounded-2xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-800 flex items-center justify-between text-xs text-stone-500 dark:text-stone-400 mb-5">
+            <span>📚 8 Chapters</span>
+            <span>•</span>
+            <span>📖 34 Lexicon Terms</span>
+          </div>
+
+          <a href="./5%20JAPANESE%20HABITS%20TO%20BANISH%20BELLY%20FAT%20AFTER%2050.html" class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-stone-900 dark:bg-stone-100 hover:bg-amber-600 dark:hover:bg-amber-500 text-white dark:text-stone-950 font-bold text-xs uppercase tracking-wider transition-colors shadow-sm">
+            <span>Study Module</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 3: TELOMERES -->
+      <article class="group relative bg-white dark:bg-stone-900 rounded-3xl p-6 sm:p-7 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:border-amber-500/60 dark:hover:border-amber-500/60 smooth-transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-4">
+            <span class="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-extrabold tracking-wider bg-teal-100/70 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-200 dark:border-teal-900/60">
+              MODULE 03
+            </span>
+            <button onclick="toggleCardLang('m3')" title="Toggle Title Language" class="px-2 py-0.5 rounded-full text-[11px] font-bold border border-stone-200 dark:border-stone-700 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors">
+              <span id="badge-m3">EN</span> ⇄
+            </button>
+          </div>
+
+          <span class="text-xs uppercase font-bold tracking-widest text-stone-400 dark:text-stone-500 block mb-2">
+            Longevity Science
+          </span>
+
+          <h2 id="title-m3" class="text-xl font-bold font-serif text-stone-900 dark:text-white leading-snug group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors mb-2">
+            Cellular Age Hacking: The Science of Telomeres
+          </h2>
+
+          <p id="sub-m3" class="text-xs font-serif italic text-amber-700 dark:text-amber-400 mb-3">
+            Hack Tuổi Tế Bào: Khoa Học Về Telomere
+          </p>
+
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+            Grounded in Nobel Prize-winning medicine examining chromosome end-replication, the Hayflick limit, telomerase mechanisms, and four lifestyle pillars for cellular rejuvenation.
+          </p>
+        </div>
+
+        <div>
+          <div class="py-3 px-3.5 rounded-2xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-800 flex items-center justify-between text-xs text-stone-500 dark:text-stone-400 mb-5">
+            <span>📚 12 Modules</span>
+            <span>•</span>
+            <span>📖 32 Lexicon Terms</span>
+          </div>
+
+          <a href="./CELLULAR%20AGE%20HACKING%20-%20THE%20SCIENCE%20OF%20TELOMERES.html" class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-stone-900 dark:bg-stone-100 hover:bg-amber-600 dark:hover:bg-amber-500 text-white dark:text-stone-950 font-bold text-xs uppercase tracking-wider transition-colors shadow-sm">
+            <span>Study Module</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
   </main>
 
-  <footer class="mt-20 border-t border-stone-200 py-10 text-center text-stone-500 text-xs sm:text-sm">
-    <p class="font-medium text-stone-600">Alchemosaic Open Learning Commons • Bilingual Pedagogy Series</p>
-    <p class="mt-1">English B2/C1 Academic Vocabulary Diagnostic & Immersion Environment</p>
+  <!-- Persistent Standard Footer -->
+  <footer class="mt-20 border-t border-stone-200 dark:border-stone-800 py-10 text-center text-stone-500 dark:text-stone-400 text-xs sm:text-sm smooth-transition">
+    <p class="font-medium text-stone-700 dark:text-stone-300">Alchemosaic Open Learning Commons • Self-Sovereign Education Series</p>
+    <p class="mt-1">Healer Knowledge Stack • Upper-Intermediate (B2) &amp; Advanced (C1) Academic Health Immersion</p>
   </footer>
 
-  <!-- Application Logic & Verbatim Data Store -->
+  <!-- Interactivity Script -->
   <script>
-    /**
-     * VERBATIM CONTENT STORE (Exact text from SUMMARY Tab)
-     */
-    const DOCUMENT_DATA = {
-      meta: {
-        title_en: "3 SECRETS TO RESTORING YANG ENERGY FROM THE SHOULDER AREA",
-        title_vi: "3 BÍ MẬT PHỤC HỒI DƯƠNG KHÍ TỪ VÙNG VAI ÍT AI NGỜ!",
-        subtitle_en: "Interactive Bilingual Academic Edition with Clause-by-Clause Immersion and B2+ Lexicon",
-        subtitle_vi: "Ấn bản tương tác song ngữ với bộ từ điển học thuật nâng cao B2+"
+    const MODULE_DATA = {
+      m1: {
+        enTitle: "3 Secrets to Restoring Yang Energy from the Shoulder Area",
+        viTitle: "3 Bí Mật Phục Hồi Dương Khí Từ Vùng Vai Ít Ai Ngờ!",
+        enSub: "A structured bilingual guide exploring holistic Eastern meridian physiology.",
+        viSub: "Tài liệu học thuật song ngữ chuyên sâu về kinh lạc Đông y và giải tỏa áp lực tư thế."
       },
-      sections: [
-        {
-          id: "section-1",
-          num: "01",
-          title_vi: "1. Bả Vai – Điểm Khởi Đầu Của Tổn Thương Và Nguyên Khí Suy Kiệt",
-          title_en: "1. The Shoulder Blades: The Origin of Damage and Depleted Vital Qi",
-          paragraphs: [
-            {
-              vi: "Bả vai là vùng cơ thể thường bị xem nhẹ nhưng lại chính là nơi hàn khí âm ỉ tích tụ, làm suy kiệt dương khí và nguyên khí từng ngày. Những cơn đau mỏi, tê nhức từ bả vai lan xuống cánh tay không chỉ cản trở cử động mà còn làm gián đoạn giấc ngủ, kéo theo tình trạng mệt mỏi, suy nhược tinh thần và khiến vận khí u ám.",
-              en: "The shoulder area is frequently dismissed as minor, yet it serves as the primary gateway where cold pathogens accumulate and silently deplete primordial qi and Yang energy daily. Lingering aches and radiating numbness not only restrict arm mobility but also compromise sleep, triggering chronic exhaustion, emotional instability, and a steady decline in vitality."
-            },
-            {
-              vi: "Việc phục hồi vùng vai không đòi hỏi giải pháp kỳ diệu to lớn mà bắt đầu từ ba động tác dưỡng sinh cổ nhân chưa đầy 5 phút mỗi ngày ngay tại nhà. Những bài tập này giúp khơi thông các huyệt đạo lạnh buốt, đưa dương khí trở lại từng thớ cơ và đánh thức năng lượng sống tiềm ẩn của cơ thể.",
-              en: "Revitalizing this long-strained area does not require complex interventions, but rather three daily movements rooted in ancient life-nurturing wisdom that take under five minutes at home. By practicing these exercises, one can summon Yang energy back into chilled muscle layers and blocked acupoints to restore genuine life energy."
-            }
-          ]
-        },
-        {
-          id: "section-2",
-          num: "02",
-          title_vi: "2. Giao Lộ Giữa Thể Xác Và Hàn Khí",
-          title_en: "2. The Crossroads of Physical Burdens and Cold Pathogens",
-          paragraphs: [
-            {
-              vi: "Theo quan niệm cổ truyền, bả vai là giao lộ giữa gánh nặng thể xác và hàn khí, nơi kết tụ những cảm xúc kìm nén, tư thế sai lệch cùng âu lo chưa được giải tỏa. Khi bả vai tổn thương, dòng chảy khí huyết lập tức đình trệ, làm gián đoạn quá trình tự phục hồi tự nhiên, khiến dương khí không đủ sưởi ấm tế bào và dẫn tới sa sút tinh thần lẫn suy giảm trí nhớ.",
-              en: "Traditional wisdom views the shoulders as an intricate crossroads of physical strain and cold pathogens, harboring suppressed emotions, postural distortions, and unreleased worries. When this junction is compromised, the systemic flow of qi and blood halts, impeding cellular warmth, disrupting natural recovery, and leading to cognitive and emotional exhaustion."
-            },
-            {
-              vi: "Hàn khí và nguyên khí là hai thế lực âm dương không đội trời chung; khi hàn khí cư ngụ lâu ngày, nguyên khí tất yếu bị xua đuổi như căn phòng tối khóa kín ánh sáng. Để mở lại cánh cửa năng lượng này, người bệnh chỉ cần sự kiên nhẫn, thấu hiểu cơ thể và áp dụng đúng phương pháp vận động để giải phóng bế tắc.",
-              en: "Cold pathogens and primordial vitality represent opposing Yin-Yang forces that cannot share the same space; chronic cold in the shoulders inevitably drives out life-sustaining Yang. Unlocking this stagnant state does not require intricate tools, but rather patient self-awareness and targeted physical practices to reopen the energetic channels of the body."
-            }
-          ]
-        },
-        {
-          id: "section-3",
-          num: "03",
-          title_vi: "3. Cái Giếng Ngầm Tích Tụ Hàn Khí Nơi Bả Vai",
-          title_en: "3. The Subterranean Well Accumulating Cold Pathogens",
-          paragraphs: [
-            {
-              vi: "Bả vai giống như một cái giếng ngầm nằm khuất sau lưng, dễ trở thành vũng nước tù đọng bùn lạnh và rác rưởi nếu khí huyết không được lưu thông thường xuyên. Cổ nhân có câu \"phong tà nhập thể, tất tu ư kiên\", chỉ ra rằng gió lạnh khi xâm nhập sẽ tìm đến bả vai đầu tiên vì đây là vùng giao thoa sơ hở, vừa chịu lạnh bên ngoài vừa phải thầm gánh mọi áp lực công việc.",
-              en: "Located out of sight, the upper back acts like a subterranean well that gathers frigid sludge and cold pathogens when circulation remains dormant. As ancient wisdom notes, pathogenic wind instinctively invades the shoulders first, targeting an exposed anatomical bridge that continuously shoulders emotional tension and environmental chill."
-            },
-            {
-              vi: "Cơn đau nhức thực chất là giai đoạn giữa sau chuỗi ngày dài ngồi lì bất động, ngủ sai tư thế và thiếu hụt dương khí để chống lại thời tiết. Nếu không được giải phóng kịp thời, hàn khí tại vai sẽ ngăn cản khí huyết lên não, gây uể oải, mất ngủ, cáu gắt và kích hoạt chuỗi suy sụp trầm trọng về cả thể chất lẫn tinh thần.",
-              en: "Noticeable shoulder pain is an intermediate stage following prolonged physical stillness, poor sleep posture, and depleted defensive Yang. Left unaddressed, trapped cold obstructs the ascent of qi and blood to the brain, precipitating chronic fatigue, irritability, cognitive lapses, and progressive systemic decline."
-            }
-          ]
-        },
-        {
-          id: "section-4",
-          num: "04",
-          title_vi: "4. Thượng Dương Chi Khiếu Và Sự Mất Quân Bình Âm Dương",
-          title_en: "4. The Upper Yang Aperture and the Yin-Yang Imbalance",
-          paragraphs: [
-            {
-              vi: "Bả vai còn được coi là \"thượng dương chi khiếu\" – cửa ngõ đưa dương khí thăng hoa từ đan điền qua lưng để sưởi ấm toàn cơ thể. Khi vùng vai tê cứng, dòng dương khí bị đứt đoạn khiến các lớp cơ và huyết quản bên trong lạnh buốt, sinh ra cảm giác châm chích như kim đâm và làm cho cả thân lẫn tâm luôn trong trạng thái nặng nề.",
-              en: "Designated as the \"Upper Yang Aperture,\" the shoulder region serves as a crucial conduit where Yang energy ascends from the dantian to warm and vitalize the entire body. An energetic obstruction here severs internal circuitry, inducing a deep marrow chill and casting a pervasive heaviness across both mind and body."
-            },
-            {
-              vi: "Hiện tượng đau vai thực chất là hồi chuông cảnh báo sự mất quân bình âm dương toàn diện do lối sống thiếu điều độ gây nên. Thay vì chỉ dựa vào thuốc giảm đau hay dầu nóng bề mặt, việc phục hồi đòi hỏi điều chỉnh tư thế, điều hòa hơi thở và khôi phục sự cân bằng nội tại của toàn bộ hệ sinh thái cơ thể.",
-              en: "Shoulder aches are distress signals indicating a broader Yin-Yang disequilibrium rather than isolated structural lesions. Lasting recovery cannot be achieved through topical balms or painkillers alone, but requires realigning posture, regulating the breath, and restoring dynamic balance across the entire bodily ecosystem."
-            }
-          ]
-        },
-        {
-          id: "section-5",
-          num: "05",
-          title_vi: "5. Tĩnh Quá Sinh Hàn: Cạm Bẫy Của Sự Bất Động",
-          title_en: "5. Excessive Stillness Breeds Cold: The Trap of Inactivity",
-          paragraphs: [
-            {
-              vi: "Quy luật tự nhiên chỉ rõ tĩnh quá sinh hàn, trong đó vận động thuộc dương và bất động thuộc âm. Thói quen ngồi lì hàng giờ trước máy tính hoặc cúi đầu dùng điện thoại giữ cơ bả vai trong trạng thái co cứng kéo dài, biến nơi này thành hầm tối giam giữ khí lạnh và làm gián đoạn nút giao giữa dương khí đi lên và huyết mạch đi xuống.",
-              en: "Excessive stillness breeds cold, associating immobility with stagnant Yin and movement with vibrant Yang. Prolonged sedentary habits—such as endless screen time and forward head postures—lock the shoulder musculature in continuous tension, creating a frigid reservoir devoid of vital spirit."
-            },
-            {
-              vi: "Sự bế tắc cục bộ tại vai kéo theo chứng hay quên, đau đầu âm ỉ và cảm xúc bất ổn do cột sống cổ và tuần hoàn lên não bị ảnh hưởng. Để khắc phục, chỉ cần thực hiện các động tác vươn vai, xoay cổ nhẹ nhàng vài phút mỗi giờ nhằm kích hoạt lại dòng dương khí và đưa cơ thể trở lại trạng thái vận hành tự nhiên.",
-              en: "Because the shoulders act as a vital relay station, upper-body immobility misaligns the neck, impairs cranial circulation, and triggers persistent headaches, brain fog, and emotional volatility. Brief, periodic stretching and gentle neck rotations throughout the day suffice to reintroduce movement, summoning Yang energy back into circulation."
-            }
-          ]
-        },
-        {
-          id: "section-6",
-          num: "06",
-          title_vi: "Bí Quyết 1: Gọi Dương Khí Về Bằng Liệu Pháp Nhiệt",
-          title_en: "Secret 1: Summoning Yang Energy Back Through Heat Therapy",
-          paragraphs: [
-            {
-              vi: "Liệu pháp nhiệt là cách nhẹ nhàng nhất để đánh thức dương khí, nhưng đòi hỏi phải thực hiện đúng lúc và đúng vị trí huyệt đạo. Việc chườm nóng ngắt quãng hay dán cao tùy tiện chỉ làm ấm bề mặt da trong khi các lớp cơ sâu vẫn tắc nghẽn, thậm chí có thể khiến cơn đau tái phát dữ dội hơn.",
-              en: "Thermal therapy offers a gentle method to revive dormant Yang energy, provided it is applied systematically to proper acupoints rather than through arbitrary heating pads. Indiscriminate warming merely soothes superficial skin layers while leaving deep-seated muscular cold untouched, often provoking rebound discomfort."
-            },
-            {
-              vi: "Thời điểm chườm lý tưởng là vào buổi tối bằng túi vải chứa muối biển, ngải cứu và gừng khô rang nóng đặt lên huyệt Phong Trì và Kiên Tỉnh. Hơi ấm điều độ sẽ làm giãn nở mao mạch, khai thông kinh lạc, làm tan băng giá vùng vai và mời gọi nguyên khí trở về sưởi ấm thân thể trước giấc ngủ.",
-              en: "The optimal practice involves placing a warm cloth pouch of roasted sea salt, mugwort, and dried ginger over the Fengchi and Jianjing acupoints in the evening. This focused heat dilates constricted capillaries, clears channel obstructions, melts deep tension, and restores restful sleep by drawing vital warmth inward."
-            }
-          ]
-        },
-        {
-          id: "section-7",
-          num: "07",
-          title_vi: "Bí Quyết 2: Động Tác Vươn Vai Đầu Hàng Mở Lối Cho Thần Khí",
-          title_en: "Secret 2: The \"Surrender Stretch\" to Open Pathways for Vital Spirit",
-          paragraphs: [
-            {
-              vi: "Động tác \"vươn vai đầu hàng\" mang tinh thần buông xả, giải phóng những áp lực dồn nén để tạo lối đi cho dòng thần khí lưu chuyển. Bằng cách đứng hoặc ngồi thẳng lưng, đưa hai tay lên cao với lòng bàn tay hướng về phía trước, lồng ngực và cột sống được kéo giãn hoàn toàn trong từng nhịp thở chậm sâu.",
-              en: "The \"Surrender Stretch\" embodies conscious release and letting go, creating internal pathways for accumulated stagnation to disperse and vital spirit to circulate. By sitting or standing tall and raising both arms overhead with palms facing forward, the practitioner expands the chest, decompresses the spine, and deepens respiration."
-            },
-            {
-              vi: "Tư thế này hỗ trợ hút khí từ đan điền tỏa lên ngực, vai và đầu, làm mềm các điểm tắc nghẽn hình thành do thói quen ngồi gò bó. Nên thực hành bài tập vào sáng sớm khi vừa thức dậy hoặc sau mỗi 30 phút làm việc để đánh thức năng lượng sống và giúp tinh thần luôn tỉnh thức.",
-              en: "This expansive posture draws Yang qi upward from the dantian through the upper extremities, dissolving chronic tension born of prolonged sitting. Practicing this posture upon waking or every half hour at work serves as an empowering ritual to awaken vital energy and align with natural vitality."
-            }
-          ]
-        },
-        {
-          id: "section-8",
-          num: "08",
-          title_vi: "Bí Quyết 3: Liệu Pháp Tắm Vai 3 Phút Bằng Nước Nóng",
-          title_en: "Secret 3: The 3-Minute Hot Water Shower Therapy for the Shoulders",
-          paragraphs: [
-            {
-              vi: "Liệu pháp tắm vai 3 phút mỗi tối sử dụng dòng nước ấm vừa phải như một nghi thức phục hồi nhằm tiễn biệt hàn khí tích tụ suốt ngày dài. Quy trình gồm ba bước: phút đầu xối nước vòng tròn quanh bả vai để làm mềm các bó cơ; phút thứ hai đưa nước lên xuống theo chiều kinh lạc; phút cuối cùng đưa nước ngang qua hai vai để điều hòa cân bằng âm dương.",
-              en: "The 3-minute evening shower therapy employs moderately warm water as a nightly restorative ritual to dissolve accumulated daytime chill. The protocol unfolds in three stages: circular water motions during the first minute to unbind tight musculature, vertical streams in the second minute to stimulate meridian pathways, and horizontal sweeps in the third minute to harmonize bilateral balance."
-            },
-            {
-              vi: "Nhiệt độ nước giúp giãn mạch, thúc đẩy tuần hoàn máu và phá tan những ổ hàn tụ nhỏ, mang lại cảm giác nhẹ nhõm như rũ bỏ lớp áo giáp nặng nề. Cần lưu ý không dùng nước quá nóng, không tắm quá lâu và tuyệt đối không thực hiện khi cơ thể đang rét run để tránh đẩy hàn khí xâm nhập sâu hơn.",
-              en: "This focused application widens capillaries and disperses subtle cold pockets, leaving the upper back supple and relieved of chronic heaviness. Caution is advised against using scalding water, showering excessively long, or bathing while shivering, as abrupt thermal shifts can scatter Yang qi and drive exterior cold deeper."
-            }
-          ]
-        },
-        {
-          id: "section-9",
-          num: "09",
-          title_vi: "Động Tác Giải Phóng: Giãn Cơ Khung Cửa",
-          title_en: "The Releasing Movement: The Doorframe Stretch",
-          paragraphs: [
-            {
-              vi: "Giãn cơ khung cửa là động tác giải phóng mạnh mẽ giúp mở lối thoát cho khí tù đọng sau khi đã được làm mềm bởi nhiệt. Bằng cách bám hai tay vào khung cửa ngang tầm vai rồi từ từ nghiêng người về phía trước, lồng ngực được mở rộng, các cơ bả vai ép lại và toàn bộ vùng thân trên được tháo gỡ cảm giác gò bó.",
-              en: "The Doorframe Stretch serves as a powerful releasing technique that vents stagnant qi once deep muscular rigidity has been softened by heat. By gripping a sturdy doorway at shoulder height and leaning the torso forward, the chest broadens and the shoulder blades draw together, shedding persistent physical tension."
-            },
-            {
-              vi: "Bài tập này đóng vai trò như nhịp thở của vùng vai, kích hoạt các cơ liên sườn dẫn khí vào tim phổi và làm tan biến cảm giác đau cứng. Nhờ tính tiện lợi có thể thực hiện mọi lúc mọi nơi, động tác giúp tích lũy từng khe thở nhỏ hàng ngày để nuôi dưỡng một vùng vai thông suốt.",
-              en: "Functioning as deep respiration for the upper body, this stretch engages intercostal pathways connecting to the heart and lungs while dissolving trapped numbness. Requiring no equipment and easily performed during brief pauses throughout the day, it cultivates physical openness that permits primordial qi to circulate freely."
-            }
-          ]
-        },
-        {
-          id: "section-10",
-          num: "10",
-          title_vi: "Tam Trụ Dưỡng Sinh: Dưỡng Tâm – Dưỡng Khí – Dưỡng Sinh",
-          title_en: "The Three Pillars of Nourishing Life: Cultivating the Mind, Qi, and Daily Habits",
-          paragraphs: [
-            {
-              vi: "Phục hồi nguyên khí lâu dài đòi hỏi sự kết hợp đồng bộ giữa dưỡng tâm, dưỡng khí và dưỡng sinh. Dưỡng tâm là gốc rễ vì bả vai là nơi lưu giữ cảm xúc; khi giận dữ hay lo âu, cơ vai sẽ co thắt, do đó cần học cách thở chậm, mỉm cười và giữ tâm an tĩnh để vai luôn mềm mại.",
-              en: "Sustaining restored vitality requires unifying three core pillars: cultivating the mind, cultivating qi, and cultivating daily lifestyle habits. Nurturing the mind is foundational because the shoulders physically store emotional distress; releasing anger and anxiety through mindful stillness prevents internal tension from hardening the muscles."
-            },
-            {
-              vi: "Dưỡng khí tập trung vào việc hít sâu bằng mũi và thở ra chậm dài bằng miệng để xoa dịu hệ thần kinh và duy trì dòng chảy dương khí liên tục. Thói quen thở sâu giúp giải tỏa áp lực bên trong, ngăn vùng vai bị quá tải như một cây cầu dây chịu lực.",
-              en: "Cultivating qi relies on deep nasal inhalations followed by prolonged oral exhalations to soothe the nervous system and sustain an unbroken stream of Yang energy. Breathing deeply dismantles internal pressure and relieves the upper back from operating like an overloaded suspension bridge."
-            },
-            {
-              vi: "Dưỡng sinh bao gồm việc tránh ăn đồ lạnh vào ban đêm, không tắm quá muộn khi dương khí đã rút vào trong và duy trì giấc ngủ sâu đúng giờ. Tiết kiệm năng lượng và loại bỏ những thói quen hao tổn vô nghĩa là cách khôn ngoan nhất để bảo toàn nguyên khí.",
-              en: "Cultivating daily habits demands abstaining from late-night chilled food, avoiding late baths when Yang retreats inward, and prioritizing restorative, timely sleep. True wellness lies in conserving vital resources and shielding the body from unnecessary depletion to preserve light, supple shoulders."
-            }
-          ]
-        },
-        {
-          id: "section-11",
-          num: "11",
-          title_vi: "Lời Kết Và Cam Kết Phục Hồi Thần Khí",
-          title_en: "Conclusion and Commitment to Restoring Vital Spirit",
-          paragraphs: [
-            {
-              vi: "Chăm sóc bả vai không phải là giải pháp tạm thời mà là một tiến trình sống giúp con người lắng nghe và kết nối lại với chính mình. Đau vai là tín hiệu cảnh báo lối sống đã lệch nhịp tự nhiên; việc nhận biết những dấu hiệu mỏi mệt nhỏ nhất từ sớm sẽ giúp ngăn chặn sự suy sụp lớn của thể chất và tinh thần.",
-              en: "Tending to the shoulder area is not a temporary remedy, but an ongoing lifestyle philosophy that reunites body and mind with natural rhythms. Shoulder discomfort serves as an early distress signal of systemic imbalance; listening to subtle aches allows one to arrest severe vitality depletion before chronic ailments consolidate."
-            },
-            {
-              vi: "Không cần đến thuốc quý hay lý thuyết y học phức tạp, cơ thể chỉ cần sự kiên nhẫn và vài phút vận động tỉnh thức mỗi ngày. Dành 5 phút yêu thương và giải phóng bả vai đúng cách sẽ mang lại 24 giờ nhẹ nhõm, giúp phục hồi trọn vẹn dương khí và năng lượng sống.",
-              en: "Lasting vitality demands neither rare medicines nor complicated medical doctrines, but merely patient awareness and mindful daily movement. Committing just five minutes each day to open and care for the shoulders rewards the body with twenty-four hours of renewed lightness, mental clarity, and unhindered vitality."
-            }
-          ]
-        }
-      ],
-      glossary: [
-        {
-          term: "Pathogen",
-          pos: "noun",
-          definition: "A specific causative agent of disease or bodily disharmony, such as a bacterium, virus, or in traditional paradigms, an environmental factor like cold or dampness.",
-          simple: "An external sickness-causing element or cold energy that invades and damages the body.",
-          context: "...where cold pathogens accumulate and silently deplete primordial qi...",
-          vi: "Tà khí / Mầm bệnh / Hàn tà"
-        },
-        {
-          term: "Primordial",
-          pos: "adjective",
-          definition: "Existing at or from the very beginning of time; fundamental, innate, and constitutive of raw vitality.",
-          simple: "The original, deepest life-energy you are born with.",
-          context: "...silently deplete primordial qi and Yang energy daily.",
-          vi: "Nguyên sơ / Nguyên thủy (Nguyên khí)"
-        },
-        {
-          term: "Postural",
-          pos: "adjective",
-          definition: "Relating to or affecting the habitual posture, alignment, or skeletal stance of the body.",
-          simple: "Related to how you sit, stand, and hold your spine.",
-          context: "...harboring suppressed emotions, postural distortions, and unreleased worries.",
-          vi: "(Thuộc về) Tư thế cơ thể"
-        },
-        {
-          term: "Stagnant",
-          pos: "adjective",
-          definition: "Showing no movement, current, or circulation; stagnant fluid or energy often fosters decay or blockage.",
-          simple: "Stuck, motionless, or clogged like dirty, unmoving water.",
-          context: "Unlocking this stagnant state does not require intricate tools...",
-          vi: "Trì trệ / Tù đọng / Bế tắc"
-        },
-        {
-          term: "Subterranean",
-          pos: "adjective",
-          definition: "Existing, situated, or operating below the surface of the earth; hidden from overt sight.",
-          simple: "Lying deep below the visible surface, like an underground well.",
-          context: "Located out of sight, the upper back acts like a subterranean well...",
-          vi: "Ngầm dưới đất / Sâu kín trong cơ thể"
-        },
-        {
-          term: "Aperture",
-          pos: "noun",
-          definition: "An opening, orifice, or portal through which energy, light, or matter is permitted to ascend or transmit.",
-          simple: "A doorway or channel opening in the body.",
-          context: "Designated as the 'Upper Yang Aperture,' the shoulder region serves as a crucial conduit...",
-          vi: "Khiếu (cửa ngõ / huyệt khiếu)"
-        },
-        {
-          term: "Conduit",
-          pos: "noun",
-          definition: "A natural or artificial channel through which fluids, currents, or systemic flows are transmitted.",
-          simple: "A pipe or passageway that carries energy from one place to another.",
-          context: "...the shoulder region serves as a crucial conduit where Yang energy ascends...",
-          vi: "Kênh dẫn / Đường truyền"
-        },
-        {
-          term: "Disequilibrium",
-          pos: "noun",
-          definition: "A loss or absence of dynamic balance, equilibrium, or proportional stability within a system.",
-          simple: "An uneven, unbalanced condition where systems fall out of harmony.",
-          context: "Shoulder aches are distress signals indicating a broader Yin-Yang disequilibrium...",
-          vi: "Sự mất quân bình / Mất cân bằng"
-        },
-        {
-          term: "Sedentary",
-          pos: "adjective",
-          definition: "Characterized by or requiring much sitting and little to no energetic physical movement.",
-          simple: "Staying in one chair or posture without active movement for a long time.",
-          context: "Prolonged sedentary habits—such as endless screen time...",
-          vi: "Thụ động / Ngồi lì một chỗ"
-        },
-        {
-          term: "Indiscriminate",
-          pos: "adjective",
-          definition: "Done without careful distinction, systemic judgment, or targeted methodology.",
-          simple: "Applied randomly and casually without understanding the proper spots.",
-          context: "Indiscriminate warming merely soothes superficial skin layers...",
-          vi: "Tùy tiện / Không chọn lọc / Thiếu cân nhắc"
-        },
-        {
-          term: "Capillary",
-          pos: "noun",
-          definition: "The finest branching blood vessels that form an intricate network exchanging oxygen and nutrients at the cellular boundary.",
-          simple: "Microscopic blood vessels deep inside tissues.",
-          context: "This focused heat dilates constricted capillaries, clears channel obstructions...",
-          vi: "Mao mạch (mạch máu siêu nhỏ)"
-        },
-        {
-          term: "Decompress",
-          pos: "verb",
-          definition: "To relieve or reduce mechanical pressure, compaction, or structural compaction across spinal discs.",
-          simple: "To stretch out and take heavy crushing weight off the spine.",
-          context: "...the practitioner expands the chest, decompresses the spine, and deepens respiration.",
-          vi: "Giải nén / Kéo giãn giảm áp lực"
-        },
-        {
-          term: "Bilateral",
-          pos: "adjective",
-          definition: "Affecting, reciprocal between, or situated on both the left and right anatomical planes.",
-          simple: "Involving both the left side and right side together.",
-          context: "...sweeps in the third minute to harmonize bilateral balance.",
-          vi: "Song phương / Cân bằng hai bên thân"
-        },
-        {
-          term: "Intercostal",
-          pos: "adjective",
-          definition: "Situated or occurring between the ribs, referring specifically to breathing musculature and fascial pathways.",
-          simple: "Located in the rib cage muscles that open your lungs.",
-          context: "...this stretch engages intercostal pathways connecting to the heart and lungs...",
-          vi: "Liên sườn (giữa các xương sườn)"
-        },
-        {
-          term: "Downregulate",
-          pos: "verb",
-          definition: "To quiet, slow, or attenuate physiological or neural arousal, transitioning into a parasympathetic restful state.",
-          simple: "To turn down stress and soothe an over-excited nervous system.",
-          context: "...exhalations to soothe the nervous system and sustain an unbroken stream...",
-          vi: "Làm dịu / Hạ nhiệt căng thẳng hệ thần kinh"
-        },
-        {
-          term: "Consolidate",
-          pos: "verb",
-          definition: "To settle, harden, or become solidly established and stubbornly entrenched over time.",
-          simple: "To become permanently set, firm, and difficult to reverse.",
-          context: "...before chronic ailments consolidate.",
-          vi: "Ăn sâu / Định hình thành bệnh mãn tính"
-        }
-      ]
+      m2: {
+        enTitle: "5 Japanese Habits to Banish Belly Fat After 50",
+        viTitle: "5 Thói Quen Của Người Nhật Giúp Loại Bỏ Mỡ Bụng Sau Tuổi 50",
+        enSub: "Investigating hormonal redistribution, circadian biology, and metabolic rebalancing.",
+        viSub: "Cơ chế tái phân bổ nội tiết tố, nhịp sinh học và phương pháp cân bằng chuyển hóa."
+      },
+      m3: {
+        enTitle: "Cellular Age Hacking: The Science of Telomeres",
+        viTitle: "Hack Tuổi Tế Bào: Khoa Học Về Telomere",
+        enSub: "Nobel Prize-winning longevity science on DNA replication limits and cellular rejuvenation.",
+        viSub: "Khoa học trường thọ thực chứng về giới hạn sao chép DNA và 4 trụ cột lối sống bảo vệ tế bào."
+      }
     };
 
-    /**
-     * APP STATE MANAGEMENT
-     */
-    const AppState = {
-      view: 'overview', // 'overview', 'glossary', or 'section-X'
-      cardHeadingLangs: {}, // Stores 'en' or 'vi' for individual overview cards
-      paragraphCardLangs: {}, // Key: "secId-paraIdx", Value: 'en' or 'vi'
-      currentSectionTitleLang: 'en'
+    const cardLangState = {
+      m1: 'EN',
+      m2: 'EN',
+      m3: 'EN'
     };
 
-    // Initialize Card Heading States
-    DOCUMENT_DATA.sections.forEach((sec, idx) => {
-      AppState.cardHeadingLangs[sec.id] = 'en';
-      sec.paragraphs.forEach((_, pIdx) => {
-        AppState.paragraphCardLangs[`${sec.id}-${pIdx}`] = 'en';
-      });
-    });
+    let globalHeadingLang = 'EN';
 
-    /**
-     * ROUTER & NAVIGATION
-     */
-    function initRouter() {
-      window.addEventListener('hashchange', handleHashChange);
-      handleHashChange();
-    }
-
-    function handleHashChange() {
-      const hash = window.location.hash.replace('#', '') || 'overview';
-      AppState.view = hash;
-      renderApp();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function navigateTo(route) {
-      window.location.hash = route;
-    }
-
-    /**
-     * RENDER DISPATCHER
-     */
-    function renderApp() {
-      const root = document.getElementById('app-root');
-      const navBackBtn = document.getElementById('nav-back-btn');
-      const globalToggleBtn = document.getElementById('global-toggle-btn');
-      const navBrand = document.getElementById('nav-brand');
-
-      if (AppState.view === 'overview') {
-        navBackBtn.classList.add('hidden');
-        globalToggleBtn.classList.add('hidden');
-        navBrand.classList.remove('hidden');
-        root.innerHTML = renderOverviewPage();
-      } else if (AppState.view === 'glossary') {
-        navBackBtn.classList.remove('hidden');
-        navBackBtn.classList.add('inline-flex');
-        globalToggleBtn.classList.add('hidden');
-        navBrand.classList.add('hidden');
-        root.innerHTML = renderGlossaryPage();
-      } else if (AppState.view.startsWith('section-')) {
-        navBackBtn.classList.remove('hidden');
-        navBackBtn.classList.add('inline-flex');
-        globalToggleBtn.classList.remove('hidden');
-        globalToggleBtn.classList.add('inline-flex');
-        navBrand.classList.add('hidden');
-        root.innerHTML = renderSectionPage(AppState.view);
-      }
-    }
-
-    /**
-     * VIEW 1: OVERVIEW & TITLE HUB
-     */
-    function renderOverviewPage() {
-      const cardsHtml = DOCUMENT_DATA.sections.map((sec, idx) => {
-        const lang = AppState.cardHeadingLangs[sec.id] || 'en';
-        const displayTitle = lang === 'en' ? sec.title_en : sec.title_vi;
-        const previewText = sec.paragraphs[0].en.slice(0, 140) + '...';
-
-        return `
-          <div onclick="navigateTo('${sec.id}')" 
-               class="group relative bg-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:shadow-md hover:border-amber-400/60 cursor-pointer card-transition flex flex-col justify-between">
-            
-            <div>
-              <div class="flex items-center justify-between gap-3 mb-4">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold tracking-wider bg-stone-100 text-stone-600 group-hover:bg-amber-100 group-hover:text-amber-800 transition-colors">
-                  SECTION ${sec.num}
-                </span>
-
-                <!-- StopPropagation button for quick flip on card heading -->
-                <button onclick="toggleCardHeaderLanguage(event, '${sec.id}')" 
-                        title="Toggle EN/VI Heading"
-                        class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition-transform active:scale-95 border border-stone-200">
-                  <span class="${lang === 'en' ? 'text-amber-700 font-bold' : 'text-stone-400'}">EN</span>
-                  <span class="text-stone-300">/</span>
-                  <span class="${lang === 'vi' ? 'text-emerald-700 font-bold' : 'text-stone-400'}">VI</span>
-                </button>
-              </div>
-
-              <h2 id="card-title-${sec.id}" class="text-lg sm:text-xl font-bold font-serif text-stone-900 leading-snug group-hover:text-amber-900 transition-colors">
-                ${displayTitle}
-              </h2>
-
-              <p class="mt-3 text-sm text-stone-500 line-clamp-3 leading-relaxed">
-                ${previewText}
-              </p>
-            </div>
-
-            <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-amber-700 group-hover:text-amber-800">
-              <span class="flex items-center gap-1">2 Bilingual Paragraphs</span>
-              <span class="flex items-center gap-1 group-hover:translate-x-1 transition-transform">Read Study Module →</span>
-            </div>
-
-          </div>
-        `;
-      }).join('');
-
-      return `
-        <div class="fade-in space-y-12">
-          
-          <!-- Master Title Banner -->
-          <div class="text-center max-w-3xl mx-auto space-y-4 pt-4 pb-2">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100/70 border border-amber-300/40 text-amber-900 text-xs font-semibold tracking-wider uppercase">
-              <span>Ancient Vitality & Postural Rehabilitation</span>
-            </div>
-            
-            <h1 class="text-3xl sm:text-5xl font-black font-display text-stone-900 tracking-tight leading-tight">
-              ${DOCUMENT_DATA.meta.title_en}
-            </h1>
-            
-            <p class="text-xl sm:text-2xl font-serif text-amber-800/90 font-medium">
-              ${DOCUMENT_DATA.meta.title_vi}
-            </p>
-
-            <p class="text-base text-stone-600 max-w-2xl mx-auto pt-2 leading-relaxed">
-              ${DOCUMENT_DATA.meta.subtitle_en}
-            </p>
-          </div>
-
-          <!-- Featured Action Banner: Glossary Access -->
-          <div onclick="navigateTo('glossary')" 
-               class="cursor-pointer group relative overflow-hidden rounded-2xl bg-gradient-to-r from-stone-900 via-stone-800 to-amber-950 text-stone-100 p-6 sm:p-8 shadow-md hover:shadow-xl transition-all">
-            <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-              <div class="space-y-2">
-                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold tracking-wide uppercase">
-                  B2 / C1 English Lexicon
-                </span>
-                <h3 class="text-2xl font-bold font-serif">Academic & Anatomical Vocabulary Bank</h3>
-                <p class="text-sm text-stone-300 max-w-xl leading-relaxed">
-                  Master 16 critical terms extracted directly from this lecture—with standard definitions, simplified explanations, and Vietnamese equivalents.
-                </p>
-              </div>
-              <span class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-amber-500 text-stone-950 font-bold text-sm hover:bg-amber-400 transition-colors shrink-0 shadow">
-                Open Glossary (${DOCUMENT_DATA.glossary.length} Terms) →
-              </span>
-            </div>
-          </div>
-
-          <!-- Section Grid -->
-          <div>
-            <div class="flex items-center justify-between mb-6 pb-2 border-b border-stone-200">
-              <h3 class="text-xs uppercase tracking-widest font-bold text-stone-500">Document Sections (${DOCUMENT_DATA.sections.length} Chapters)</h3>
-              <span class="text-xs text-stone-400">Click card to study • Use EN/VI toggle on cards</span>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-              ${cardsHtml}
-            </div>
-          </div>
-
-        </div>
-      `;
-    }
-
-    /**
-     * VIEW 2: SECTION STUDY VIEW (Pages 2 through N)
-     */
-    function renderSectionPage(sectionId) {
-      const secIdx = DOCUMENT_DATA.sections.findIndex(s => s.id === sectionId);
-      if (secIdx === -1) return `<div class="p-12 text-center">Section not found. <a href="#overview" class="text-amber-600 underline">Return to overview</a></div>`;
-
-      const sec = DOCUMENT_DATA.sections[secIdx];
-      const prevSec = DOCUMENT_DATA.sections[secIdx - 1];
-      const nextSec = DOCUMENT_DATA.sections[secIdx + 1];
-
-      // Current section title in chosen active title language
-      const titleLang = AppState.currentSectionTitleLang;
-      const activeTitle = titleLang === 'en' ? sec.title_en : sec.title_vi;
-
-      const paragraphsHtml = sec.paragraphs.map((p, pIdx) => {
-        const key = `${sec.id}-${pIdx}`;
-        const currentLang = AppState.paragraphCardLangs[key] || 'en';
-        const isEn = currentLang === 'en';
-        const textContent = isEn ? p.en : p.vi;
-
-        return `
-          <div id="para-card-${pIdx}" 
-               onclick="toggleParagraphLang('${sec.id}', ${pIdx})"
-               tabindex="0"
-               role="button"
-               aria-label="Click to flip paragraph between English and Vietnamese"
-               class="group relative bg-white border border-stone-200/90 hover:border-amber-400/80 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md cursor-pointer transition-all duration-300">
-            
-            <!-- Card Meta Toolbar -->
-            <div class="flex items-center justify-between mb-4 pb-3 border-b border-stone-100">
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-bold uppercase tracking-wider text-stone-400">Clause ${pIdx + 1}</span>
-                <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold ${isEn ? 'bg-sky-50 text-sky-700 border border-sky-200' : 'bg-emerald-50 text-emerald-800 border border-emerald-200'}">
-                  ${isEn ? 'EN Active' : 'VI Bản Dịch'}
-                </span>
-              </div>
-
-              <div class="flex items-center gap-2">
-                <span class="text-xs text-stone-400 group-hover:text-amber-700 transition-colors hidden sm:inline">
-                  Click anywhere to flip
-                </span>
-                <button onclick="event.stopPropagation(); toggleParagraphLang('${sec.id}', ${pIdx})" 
-                        class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-stone-100 hover:bg-amber-100 text-stone-700 hover:text-amber-900 border border-stone-200 transition-colors flex items-center gap-1">
-                  <span>🔄</span>
-                  <span>Flip to ${isEn ? 'Tiếng Việt' : 'English'}</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Paragraph Content (Large, Presentation-Ready Typography) -->
-            <div class="fade-in">
-              <p class="font-serif text-lg sm:text-[21px] text-stone-800 leading-[1.8] sm:leading-[1.85] tracking-normal font-normal">
-                ${textContent}
-              </p>
-            </div>
-
-            <!-- Quick Flip Hint for Mobile -->
-            <div class="mt-4 pt-3 flex items-center justify-between text-xs text-stone-400 sm:hidden">
-              <span>Touch card to flip language</span>
-              <span class="font-medium text-amber-700">${isEn ? 'Show Vietnamese →' : 'Show English →'}</span>
-            </div>
-
-          </div>
-        `;
-      }).join('');
-
-      return `
-        <div class="fade-in space-y-10">
-
-          <!-- Section Header Banner -->
-          <div class="space-y-4 pb-4 border-b border-stone-200">
-            
-            <div class="flex flex-wrap items-center justify-between gap-3">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-200/80 text-stone-700 text-xs font-bold tracking-wider">
-                SECTION ${sec.num} OF ${DOCUMENT_DATA.sections.length}
-              </span>
-
-              <!-- Section Title Language Toggle Button -->
-              <button onclick="toggleSectionTitleLanguage()" 
-                      class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-stone-300 bg-white hover:bg-stone-50 text-xs sm:text-sm font-semibold text-stone-700 shadow-sm transition-all">
-                <span>🌐 Title Lang:</span>
-                <span class="font-bold text-amber-700">${titleLang === 'en' ? 'EN (English)' : 'VI (Tiếng Việt)'}</span>
-                <span class="text-stone-400">↺</span>
-              </button>
-            </div>
-
-            <h1 class="text-2xl sm:text-4xl font-extrabold font-serif text-stone-900 leading-tight">
-              ${activeTitle}
-            </h1>
-
-            <p class="text-sm sm:text-base text-stone-500 font-sans italic">
-              ${titleLang === 'en' ? sec.title_vi : sec.title_en}
-            </p>
-
-          </div>
-
-          <!-- Instruction Pill -->
-          <div class="bg-amber-50/70 border border-amber-200/80 rounded-xl p-3.5 px-5 flex items-center justify-between gap-4 text-xs sm:text-sm text-amber-900">
-            <div class="flex items-center gap-2">
-              <span>💡</span>
-              <span><strong>Immersion Tip:</strong> Click any paragraph card below to flip between authentic English prose and verbatim Vietnamese translation.</span>
-            </div>
-            <button onclick="toggleAllParagraphs()" class="underline font-bold hover:text-amber-700 shrink-0">
-              Flip All Cards
-            </button>
-          </div>
-
-          <!-- Paragraphs Stack -->
-          <div class="space-y-6">
-            ${paragraphsHtml}
-          </div>
-
-          <!-- Section Footer Navigation Bar -->
-          <div class="pt-8 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-            
-            <div>
-              ${prevSec ? `
-                <button onclick="navigateTo('${prevSec.id}')" class="w-full sm:w-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-stone-300 bg-white hover:bg-stone-100 text-stone-700 font-semibold text-sm transition-colors shadow-sm">
-                  ← Previous (${prevSec.num})
-                </button>
-              ` : `<div class="text-xs text-stone-400">Beginning of Document</div>`}
-            </div>
-
-            <button onclick="navigateTo('overview')" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 font-semibold text-sm transition-colors">
-              Table of Contents
-            </button>
-
-            <div>
-              ${nextSec ? `
-                <button onclick="navigateTo('${nextSec.id}')" class="w-full sm:w-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-sm transition-colors shadow-sm">
-                  Next Section (${nextSec.num}) →
-                </button>
-              ` : `
-                <button onclick="navigateTo('glossary')" class="w-full sm:w-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-semibold text-sm transition-colors shadow-sm">
-                  Study Glossary →
-                </button>
-              `}
-            </div>
-
-          </div>
-
-        </div>
-      `;
-    }
-
-    /**
-     * VIEW 3: INTERACTIVE LEARNER GLOSSARY
-     */
-    function renderGlossaryPage() {
-      const glossaryItemsHtml = DOCUMENT_DATA.glossary.map((item, idx) => {
-        return `
-          <div class="bg-white border border-stone-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-            
-            <div class="space-y-3">
-              
-              <!-- Term & Part of Speech -->
-              <div class="flex items-baseline justify-between gap-2 flex-wrap">
-                <div class="flex items-center gap-2">
-                  <h3 class="text-xl font-bold font-serif text-stone-900 tracking-tight">${item.term}</h3>
-                  <span class="italic text-xs font-medium text-stone-500 bg-stone-100 px-2 py-0.5 rounded">
-                    ${item.pos}
-                  </span>
-                </div>
-                <span class="text-xs font-mono font-bold text-stone-400">#${idx + 1}</span>
-              </div>
-
-              <!-- Contextual / Academic Definition -->
-              <p class="text-sm text-stone-700 leading-relaxed">
-                <span class="font-semibold text-stone-900">Definition:</span> ${item.definition}
-              </p>
-
-              <!-- Plain English Explanation (B1/B2 Friendly) -->
-              <div class="bg-amber-50/70 border-l-2 border-amber-500 p-3 rounded-r-lg text-xs leading-relaxed text-amber-950">
-                <span class="font-bold text-amber-900">In other words:</span> ${item.simple}
-              </div>
-
-              <!-- Example in Context -->
-              <div class="text-xs text-stone-500 italic bg-stone-50 p-3 rounded-lg border border-stone-100">
-                "${item.context}"
-              </div>
-
-            </div>
-
-            <!-- Vietnamese Equivalent Toggle Section -->
-            <div class="mt-5 pt-4 border-t border-stone-100">
-              <button onclick="toggleGlossaryVi(${idx})" 
-                      id="glossary-btn-${idx}"
-                      class="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold text-xs transition-colors">
-                <span>👁️ Reveal Vietnamese</span>
-              </button>
-
-              <div id="glossary-vi-${idx}" class="hidden mt-3 p-2.5 bg-emerald-50 text-emerald-950 border border-emerald-200 rounded-lg text-xs font-bold text-center fade-in">
-                ${item.vi}
-              </div>
-            </div>
-
-          </div>
-        `;
-      }).join('');
-
-      return `
-        <div class="fade-in space-y-8">
-          
-          <div class="space-y-3 text-center sm:text-left">
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-200/80 text-stone-800 text-xs font-bold uppercase tracking-wider">
-              Educational Resource Bank
-            </div>
-            <h1 class="text-3xl sm:text-4xl font-black font-display text-stone-900">
-              Interactive Learner Glossary
-            </h1>
-            <p class="text-stone-600 text-base max-w-2xl leading-relaxed">
-              Curated for Upper-Intermediate (B2) and Advanced (C1) English learners. These 16 terms unpack physiological concepts, traditional Asian medicine metaphysics, and academic argument transitions.
-            </p>
-          </div>
-
-          <!-- Vocabulary Cards Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-            ${glossaryItemsHtml}
-          </div>
-
-          <!-- Back to Document Hub -->
-          <div class="pt-8 text-center">
-            <button onclick="navigateTo('overview')" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-stone-900 hover:bg-stone-800 text-stone-100 font-bold text-sm shadow transition-colors">
-              ← Return to Document Hub
-            </button>
-          </div>
-
-        </div>
-      `;
-    }
-
-    /**
-     * INTERACTION HANDLERS
-     */
-
-    // Toggle individual overview card heading between EN and VI
-    function toggleCardHeaderLanguage(event, sectionId) {
-      event.stopPropagation();
-      const current = AppState.cardHeadingLangs[sectionId] || 'en';
-      const next = current === 'en' ? 'vi' : 'en';
-      AppState.cardHeadingLangs[sectionId] = next;
-
-      const sec = DOCUMENT_DATA.sections.find(s => s.id === sectionId);
-      const titleEl = document.getElementById(`card-title-${sectionId}`);
-      if (titleEl && sec) {
-        titleEl.textContent = next === 'en' ? sec.title_en : sec.title_vi;
-      }
-      renderApp();
-    }
-
-    // Toggle active reading section title language
-    function toggleSectionTitleLanguage() {
-      AppState.currentSectionTitleLang = AppState.currentSectionTitleLang === 'en' ? 'vi' : 'en';
-      renderApp();
-    }
-
-    // Toggle an individual paragraph card between EN and VI
-    function toggleParagraphLang(sectionId, paraIdx) {
-      const key = `${sectionId}-${paraIdx}`;
-      const current = AppState.paragraphCardLangs[key] || 'en';
-      AppState.paragraphCardLangs[key] = current === 'en' ? 'vi' : 'en';
-      renderApp();
-    }
-
-    // Toggle all paragraph cards in current active section at once
-    function toggleAllParagraphs() {
-      if (!AppState.view.startsWith('section-')) return;
-      const sec = DOCUMENT_DATA.sections.find(s => s.id === AppState.view);
-      if (!sec) return;
-
-      // Determine prevailing state: if first card is EN, flip all to VI; else all to EN
-      const firstKey = `${sec.id}-0`;
-      const currentFirst = AppState.paragraphCardLangs[firstKey] || 'en';
-      const targetLang = currentFirst === 'en' ? 'vi' : 'en';
-
-      sec.paragraphs.forEach((_, pIdx) => {
-        AppState.paragraphCardLangs[`${sec.id}-${pIdx}`] = targetLang;
-      });
-
-      renderApp();
-    }
-
-    // Reveal/Hide Vietnamese translation for a glossary term
-    function toggleGlossaryVi(idx) {
-      const viBox = document.getElementById(`glossary-vi-${idx}`);
-      const btn = document.getElementById(`glossary-btn-${idx}`);
-      if (!viBox || !btn) return;
-
-      if (viBox.classList.contains('hidden')) {
-        viBox.classList.remove('hidden');
-        btn.innerHTML = '<span>✕ Hide Vietnamese</span>';
-        btn.classList.add('bg-emerald-100', 'text-emerald-900');
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+        updateThemeIcons(true);
       } else {
-        viBox.classList.add('hidden');
-        btn.innerHTML = '<span>👁️ Reveal Vietnamese</span>';
-        btn.classList.remove('bg-emerald-100', 'text-emerald-900');
+        document.documentElement.classList.remove('dark');
+        updateThemeIcons(false);
       }
     }
 
-    // Initialize application on page load
-    window.addEventListener('DOMContentLoaded', initRouter);
+    function toggleDarkMode() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeIcons(isDark);
+    }
+
+    function updateThemeIcons(isDark) {
+      const sun = document.getElementById('theme-icon-sun');
+      const moon = document.getElementById('theme-icon-moon');
+      if (!sun || !moon) return;
+
+      if (isDark) {
+        sun.classList.remove('hidden');
+        moon.classList.add('hidden');
+      } else {
+        sun.classList.add('hidden');
+        moon.classList.remove('hidden');
+      }
+    }
+
+    function toggleCardLang(modKey) {
+      const current = cardLangState[modKey];
+      const next = current === 'EN' ? 'VI' : 'EN';
+      cardLangState[modKey] = next;
+
+      const titleEl = document.getElementById(`title-${modKey}`);
+      const subEl = document.getElementById(`sub-${modKey}`);
+      const badgeEl = document.getElementById(`badge-${modKey}`);
+
+      if (next === 'VI') {
+        titleEl.textContent = MODULE_DATA[modKey].viTitle;
+        subEl.textContent = MODULE_DATA[modKey].enTitle;
+        badgeEl.textContent = 'VI';
+      } else {
+        titleEl.textContent = MODULE_DATA[modKey].enTitle;
+        subEl.textContent = MODULE_DATA[modKey].viTitle;
+        badgeEl.textContent = 'EN';
+      }
+    }
+
+    function toggleAllCardTitles() {
+      globalHeadingLang = globalHeadingLang === 'EN' ? 'VI' : 'EN';
+      document.getElementById('global-lang-label').textContent = globalHeadingLang;
+
+      ['m1', 'm2', 'm3'].forEach(key => {
+        cardLangState[key] = globalHeadingLang === 'VI' ? 'EN' : 'VI';
+        toggleCardLang(key);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+    });
   </script>
 </body>
 </html>
