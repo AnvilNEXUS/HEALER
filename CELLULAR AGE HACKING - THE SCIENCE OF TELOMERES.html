@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cellular Age Hacking: The Science of Telomeres | Hack Tuổi Tế Bào</title>
+  
+  <!-- Google Fonts: Inter & Plus Jakarta Sans for high legibility presentation mode -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+              950: '#022c22',
+            },
+            bio: {
+              teal: '#0d9488',
+              cyan: '#06b6d4',
+              amber: '#f59e0b',
+              purple: '#8b5cf6',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom presentation typography sizes */
+    .text-reading-base {
+      font-size: 1.125rem; /* 18px */
+      line-height: 1.8;
+    }
+    .text-reading-lg {
+      font-size: 1.25rem; /* 20px */
+      line-height: 1.85;
+    }
+    .text-reading-xl {
+      font-size: 1.375rem; /* 22px */
+      line-height: 1.9;
+    }
+
+    /* Flip card perspective & transitions */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .card-face-enter {
+      animation: fadeInScale 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: translateY(6px) scale(0.99);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Gradient glow accents */
+    .hero-glow {
+      background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 80%);
+    }
+    .dark .hero-glow {
+      background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.18) 0%, rgba(6, 182, 212, 0.08) 55%, transparent 85%);
+    }
+
+    /* Clean custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #94a3b8;
+      border-radius: 9999px;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+      background: #334155;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans min-h-screen antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
+  
+  <!-- Sticky Global Navigation Bar -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/85 dark:bg-slate-900/85 border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Left side: Brand or Back Button -->
+      <div class="flex items-center gap-3">
+        <button id="nav-back-btn" onclick="navigateTo('overview')" class="hidden items-center gap-2 px-3 py-1.5 text-sm font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 hover:text-brand-600 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all active:scale-95 shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          <span class="hidden sm:inline">Overview</span>
+          <span class="sm:hidden">Back</span>
+        </button>
+
+        <a href="#overview" class="flex items-center gap-2.5 group">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-teal-600 flex items-center justify-center text-white font-black text-sm shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+            Ω
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-sm tracking-tight leading-tight text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+              Telomere Science
+            </span>
+            <span class="text-[10px] font-medium text-slate-500 dark:text-slate-400 leading-tight">
+              Bilingual Learning Hub
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Center: Breadcrumb indicator (visible on reading/glossary views) -->
+      <div id="nav-breadcrumb" class="hidden md:flex items-center text-xs font-medium text-slate-500 dark:text-slate-400 truncate max-w-xs">
+        <span class="truncate" id="breadcrumb-title">Section</span>
+      </div>
+
+      <!-- Right Controls: Language Toggle, Glossary Jump, Text Resizer, Theme Toggle, Sound Toggle -->
+      <div class="flex items-center gap-1.5 sm:gap-2">
+        
+        <!-- Global EN / VI Language Switcher -->
+        <button id="global-lang-btn" onclick="toggleGlobalLanguage()" title="Toggle Global Default Language (EN/VI)" class="flex items-center text-xs font-bold rounded-lg border border-slate-300 dark:border-slate-700 overflow-hidden shadow-sm transition-all active:scale-95">
+          <span id="badge-en" class="px-2 py-1 bg-brand-500 text-white transition-colors">EN</span>
+          <span id="badge-vi" class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors">VI</span>
+        </button>
+
+        <!-- Quick Jump to Glossary -->
+        <button id="nav-glossary-btn" onclick="navigateTo('glossary')" title="Academic Learner Glossary" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800/60 hover:bg-brand-100 dark:hover:bg-brand-900/50 transition-all active:scale-95">
+          <svg class="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+          <span class="hidden sm:inline">Glossary (32)</span>
+          <span class="sm:hidden">Vocab</span>
+        </button>
+
+        <!-- Text Size Adjuster (A- / A+) for accessibility presentation -->
+        <div class="hidden sm:flex items-center border border-slate-300 dark:border-slate-700 rounded-lg overflow-hidden text-xs font-semibold text-slate-600 dark:text-slate-300">
+          <button onclick="adjustTextSize(-1)" class="px-2 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-800" title="Decrease font size">A-</button>
+          <button onclick="adjustTextSize(1)" class="px-2 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 border-l border-slate-300 dark:border-slate-700" title="Increase font size">A+</button>
+        </div>
+
+        <!-- Audio Effects Toggle -->
+        <button id="audio-toggle-btn" onclick="toggleAudio()" title="Sound Effects" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <svg id="icon-sound-on" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+          </svg>
+          <svg id="icon-sound-off" class="w-4 h-4 hidden text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z m12-4l4 4m0-4l-4 4"/>
+          </svg>
+        </button>
+
+        <!-- Dark / Light Mode Toggle -->
+        <button id="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <svg id="icon-sun" class="w-4 h-4 hidden dark:block text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+          <svg id="icon-moon" class="w-4 h-4 block dark:hidden text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+    <!-- ========================================================================= -->
+    <!-- VIEW 1: OVERVIEW & TITLE NAVIGATION HUB                                   -->
+    <!-- ========================================================================= -->
+    <section id="view-overview" class="block">
+      
+      <!-- Hero Banner with Bilingual Document Title -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-b from-white to-slate-100 dark:from-slate-900 dark:to-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-xl mb-10 hero-glow">
+        <div class="relative z-10 max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-100 dark:bg-brand-900/50 text-brand-800 dark:text-brand-300 border border-brand-200 dark:border-brand-700/50 mb-4">
+            <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+            Nobel Prize–Winning Longevity Science
+          </div>
+          
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15] mb-3">
+            CELLULAR AGE HACKING:
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-teal-500 to-cyan-500 dark:from-brand-400 dark:via-teal-300 dark:to-cyan-400 block">
+              THE SCIENCE OF TELOMERES
+            </span>
+          </h1>
+
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-700 dark:text-slate-300 tracking-tight mb-4">
+            HACK TUỔI TẾ BÀO: <span class="text-brand-600 dark:text-brand-400 font-semibold">KHOA HỌC VỀ TELOMERE</span>
+          </h2>
+
+          <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed mb-6">
+            A comprehensive bilingual exploration of biological countdown clocks, DNA replication limits, telomerase mechanisms, and the four proven lifestyle pillars that decelerate cellular aging.
+          </p>
+
+          <!-- Quick Action Bar -->
+          <div class="flex flex-wrap items-center gap-3">
+            <button onclick="navigateTo('section-1')" class="px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-lg shadow-brand-600/30 transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
+              <span>Start Reading Section 1</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </button>
+
+            <button onclick="navigateTo('glossary')" class="px-5 py-3 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 hover:border-brand-500 font-bold text-sm shadow-sm transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+              <span>Explore Learner Glossary (32 Terms)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Decorative Biological Ring Diagram -->
+        <div class="hidden lg:block absolute -right-12 -bottom-12 w-80 h-80 rounded-full border-[18px] border-brand-500/10 dark:border-brand-400/10 pointer-events-none">
+          <div class="w-full h-full rounded-full border-[10px] border-dashed border-teal-500/20 animate-spin" style="animation-duration: 90s;"></div>
+        </div>
+      </div>
+
+      <div class="mb-8 flex items-center justify-between">
+        <div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Document Sections (12 Modules)</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Click any card to read verbatim bilingual paragraphs. Use the corner EN/VI button to preview Vietnamese headings.</p>
+        </div>
+        <button onclick="flipAllOverviewTitles()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          Switch All Headings (EN ⇄ VI)
+        </button>
+      </div>
+
+      <!-- Section Cards Grid -->
+      <div id="overview-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
+        <!-- Rendered dynamically via JavaScript for zero duplication -->
+      </div>
+
+      <!-- Interactive Glossary Featured Banner -->
+      <div onclick="navigateTo('glossary')" class="cursor-pointer group relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white p-6 sm:p-8 shadow-lg shadow-teal-500/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-white/20 text-white backdrop-blur-sm mb-2">
+              <span>B2 / C1 Vocabulary Engine</span>
+            </div>
+            <h4 class="text-2xl font-extrabold tracking-tight mb-1">Interactive Academic Glossary</h4>
+            <p class="text-emerald-100 text-sm max-w-xl">
+              Master 32 biological, biochemical, and medical terms extracted directly from this lecture. Includes clear plain-English explanations, context quotes, and hidden Vietnamese equivalents.
+            </p>
+          </div>
+          <div class="flex-shrink-0">
+            <span class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-emerald-800 font-bold text-sm shadow-md group-hover:bg-emerald-50 transition-colors">
+              Open Glossary
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- VIEW 2: SECTION READING PAGE (DYNAMICALLY POPULATED)                      -->
+    <!-- ========================================================================= -->
+    <section id="view-reading" class="hidden">
+      <!-- Section Header -->
+      <div class="mb-8 pb-6 border-b border-slate-200 dark:border-slate-800">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+            <span id="reading-sec-number" class="px-2.5 py-0.5 rounded-md bg-brand-100 dark:bg-brand-950/80 border border-brand-200 dark:border-brand-800">SECTION 1</span>
+            <span>CELLULAR AGE HACKING</span>
+          </div>
+
+          <!-- Section Controls: Flip All Paragraphs & View Mode -->
+          <div class="flex items-center gap-2">
+            <button id="reading-lang-toggle" onclick="toggleCurrentSectionTitleLang()" class="text-xs font-semibold px-2.5 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center gap-1.5 shadow-sm">
+              <svg class="w-3.5 h-3.5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+              </svg>
+              <span id="reading-lang-label">Heading: English</span>
+            </button>
+
+            <button onclick="flipAllSectionParagraphs()" class="text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-brand-600 hover:bg-brand-700 text-white transition-colors flex items-center gap-1.5 shadow-sm active:scale-95">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+              </svg>
+              <span>Flip All (Lật tất cả)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Section Title (Clickable or Toggled) -->
+        <h2 id="reading-sec-title-main" class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-2">
+          The Telomere Biological Clock
+        </h2>
+        <h3 id="reading-sec-title-sub" class="text-lg sm:text-xl font-medium text-slate-500 dark:text-slate-400">
+          Chiếc đồng hồ sinh học Telomere
+        </h3>
+      </div>
+
+      <!-- Instructional Tip -->
+      <div class="mb-6 p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm text-slate-600 dark:text-slate-400 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="text-brand-500 font-bold">💡 Interactive Tip:</span>
+          <span>Click any paragraph card or press the corner button to flip smoothly between verbatim English & Vietnamese translations.</span>
+        </div>
+        <span class="hidden sm:inline-block text-[11px] font-mono px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-500">Zero Jitter Mode</span>
+      </div>
+
+      <div id="reading-paragraphs-container" class="space-y-6 mb-10">
+        <!-- Paragraph Cards rendered dynamically -->
+      </div>
+
+      <!-- Bottom Reading Navigation (Prev / Next Section) -->
+      <div class="pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between gap-4">
+        <button id="btn-prev-section" onclick="navigateAdjacentSection(-1)" class="px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm flex items-center gap-2 transition-all active:scale-95 shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          <span class="hidden sm:inline">Previous Section</span>
+          <span class="sm:hidden">Prev</span>
+        </button>
+
+        <button onclick="navigateTo('overview')" class="px-3 py-2 text-xs font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 underline">
+          Table of Contents
+        </button>
+
+        <button id="btn-next-section" onclick="navigateAdjacentSection(1)" class="px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm flex items-center gap-2 transition-all active:scale-95 shadow-md shadow-brand-600/20">
+          <span class="hidden sm:inline">Next Section</span>
+          <span class="sm:hidden">Next</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- VIEW 3: INTERACTIVE LEARNER GLOSSARY (PAGE 13)                            -->
+    <!-- ========================================================================= -->
+    <section id="view-glossary" class="hidden">
+      <!-- Glossary Header -->
+      <div class="mb-8 pb-6 border-b border-slate-200 dark:border-slate-800">
+        <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-2">
+          <span class="px-2.5 py-0.5 rounded-md bg-brand-100 dark:bg-brand-950/80 border border-brand-200 dark:border-brand-800">B2 / C1 VOCABULARY ENGINE</span>
+          <span>32 Specialised Terms</span>
+        </div>
+        
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
+          Academic Learner Glossary
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+          Master high-yield biological, cellular, and clinical terminology extracted directly from the lecture summary. Explore academic definitions, simplified plain-English explanations, and context quotes.
+        </p>
+
+        <!-- Search & Filter Controls -->
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <div class="relative flex-1">
+            <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <input 
+              type="text" 
+              id="glossary-search-input"
+              oninput="filterGlossary()" 
+              placeholder="Search target terms, keywords, definitions..." 
+              class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all shadow-sm"
+            >
+          </div>
+
+          <button onclick="toggleAllGlossaryVietnamese()" class="px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold border border-slate-300 dark:border-slate-700 transition-colors flex items-center justify-center gap-1.5 shadow-sm">
+            <svg class="w-3.5 h-3.5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+            <span id="btn-glossary-reveal-all-label">Reveal All Vietnamese</span>
+          </button>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="mt-4 flex flex-wrap gap-1.5" id="glossary-categories">
+          <button onclick="setCategoryFilter('all')" class="cat-pill active px-3 py-1 rounded-lg text-xs font-semibold bg-brand-600 text-white transition-colors" data-cat="all">All (32)</button>
+          <button onclick="setCategoryFilter('Genetics')" class="cat-pill px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" data-cat="Genetics">Genetics</button>
+          <button onclick="setCategoryFilter('Biochemistry')" class="cat-pill px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" data-cat="Biochemistry">Biochemistry</button>
+          <button onclick="setCategoryFilter('Cellular Biology')" class="cat-pill px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" data-cat="Cellular Biology">Cellular Biology</button>
+          <button onclick="setCategoryFilter('Pathophysiology')" class="cat-pill px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" data-cat="Pathophysiology">Pathology</button>
+          <button onclick="setCategoryFilter('Lifestyle')" class="cat-pill px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" data-cat="Lifestyle">Lifestyle</button>
+        </div>
+      </div>
+
+      <div id="glossary-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+        <!-- Rendered dynamically -->
+      </div>
+      
+      <!-- Back to Top Button -->
+      <div class="text-center">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-xs font-bold text-slate-600 dark:text-slate-300 transition-colors">
+          ↑ Back to Top of Glossary
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 transition-colors duration-300">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span>
+        <span>Based on <strong>Nobel Prize in Physiology or Medicine (2009)</strong> &amp; Modern Longevity Research</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Bilingual Learner Edition</span>
+        <span>•</span>
+        <button onclick="navigateTo('overview')" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium">Overview</button>
+        <span>•</span>
+        <button onclick="navigateTo('glossary')" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium">Glossary</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT DATA AND APPLICATION LOGIC                                     -->
+  <!-- ========================================================================= -->
+  <script>
+    // Complete, exact verbatim English and Vietnamese content pairs from the Summary document
+    const SECTIONS = [
+      {
+        id: 1,
+        slug: "the-telomere-biological-clock",
+        num: "1",
+        titleEn: "The Telomere Biological Clock",
+        titleVi: "Chiếc đồng hồ sinh học Telomere",
+        paragraphs: [
+          {
+            pNum: 1,
+            vi: "Sâu bên trong mỗi tế bào cơ thể tồn tại một chiếc đồng hồ sinh học âm thầm đếm ngược để quyết định tốc độ lão hóa, mang tên telomere. Được mệnh danh là \"cầu nối của sự sống\", telomere bảo vệ cấu trúc gen nhưng sẽ ngắn dần theo thời gian và sự phân chia tế bào.",
+            en: "Deep within our cells ticks a silent biological countdown clock that dictates our pace of aging, known as the telomere. Dubbed the \"bridges of life,\" telomeres preserve our genetic code but naturally shorten with time and progressive cellular division."
+          },
+          {
+            pNum: 2,
+            vi: "Nghiên cứu về cơ chế bảo vệ của telomere và sự lão hóa là một lĩnh vực y học thực chứng đột phá từng đoạt giải Nobel. Hiểu rõ bản chất của chiếc đồng hồ sinh học này giúp chúng ta nhận ra khả năng can thiệp để làm chậm quá trình già hóa và nâng cao sức khỏe dài lâu.",
+            en: "This biological relationship between telomeres and aging is grounded in Nobel Prize-winning medical science rather than speculative theory. Unlocking the mechanisms behind this biological clock empowers us to take proactive measures to decelerate cellular decline and support lasting longevity."
+          }
+        ]
+      },
+      {
+        id: 2,
+        slug: "the-nature-and-role-of-telomeres",
+        num: "2",
+        titleEn: "The Nature and Role of Telomeres",
+        titleVi: "Bản chất và vai trò của Telomere",
+        paragraphs: [
+          {
+            pNum: 1,
+            vi: "Bộ gen người gồm 46 nhiễm sắc thể, giống như một bộ sách chứa đựng toàn bộ thông tin sinh học cần được sao chép hoàn hảo qua hàng tỷ lần phân chia tế bào mỗi ngày. Telomere chính là những đoạn DNA lặp lại không mang mã gen, nằm ở hai đầu mút của mỗi nhiễm sắc thể để bảo vệ dữ liệu di truyền trung tâm.",
+            en: "The human genome consists of 46 chromosomes, functioning like an instructional library that must replicate flawlessly across billions of daily cell divisions. Telomeres are specialized, non-coding repetitive DNA sequences capping the ends of each chromosome to protect internal genetic data."
+          },
+          {
+            pNum: 2,
+            vi: "Được ví như những chiếc mũ bảo hiểm hoặc trang giấy trắng đệm ở đầu và cuối mỗi chương sách, telomere ngăn chặn tình trạng xơ rách và đứt gãy gen thiết yếu khi sao chép. Nếu không có telomere, thông tin di truyền quan trọng sẽ hao hụt dần sau mỗi chu kỳ phân bào, khiến tế bào nhanh chóng rối loạn chức năng.",
+            en: "Serving as cellular aglets, protective helmets, or blank margins at the borders of each chromosome, telomeres prevent essential genes from fraying or degrading during replication. Without these buffers, crucial genetic instructions would be shaved away with each division, leading to rapid cellular failure."
+          }
+        ]
+      },
+      {
+        id: 3,
+        slug: "the-end-replication-problem-and-telomere-shortening",
+        num: "3",
+        titleEn: "The End-Replication Problem and Telomere Shortening",
+        titleVi: "Vấn đề sao chép ở đoạn cuối và sự ngắn dần của Telomere",
+        paragraphs: [
+          {
+            pNum: 1,
+            vi: "Enzyme sao chép DNA polymerase đòi hỏi các đoạn mồi RNA để khởi động tổng hợp, để lại một khoảng trống nhỏ ở tận cùng đầu mút không thể sao chép khi mồi bị gỡ bỏ. Cơ chế này được gọi là \"vấn đề sao chép ở đoạn cuối\", khiến telomere bị ngắn dần đi sau mỗi lần phân bào như một quy luật tự nhiên.",
+            en: "Because DNA polymerase requires an RNA primer to initiate replication, a tiny gap remains uncopied at the terminal tip once the primer is excised. This biological limitation, known as the \"end-replication problem,\" causes telomeres to inevitably shorten with every single round of cell division."
+          },
+          {
+            pNum: 2,
+            vi: "Khi telomere ngắn đến ngưỡng Hayflick, tế bào kích hoạt tín hiệu báo nguy và rơi vào trạng thái lão hóa ngừng phân chia (cellular senescence). Các tế bào lão hóa này âm thầm tiết ra các chất gây viêm gây hại mô xung quanh, làm suy yếu hệ miễn dịch và gia tăng nguy cơ mắc bệnh tuổi già. Công trình làm sáng tỏ cơ chế này đã đem về giải Nobel Y học năm 2009 cho Elizabeth Blackburn, Carol Greider và Jack Szostak.",
+            en: "Once telomeres reach the critical Hayflick limit, cells enter cellular senescence—a state of permanent growth arrest. Rather than dying, these senescent cells secrete inflammatory factors that damage surrounding tissues and accelerate age-related disease, a breakthrough discovery honored with the 2009 Nobel Prize in Physiology or Medicine awarded to Blackburn, Greider, and Szostak."
+          }
+        ]
+      },
+      {
+        id: 4,
+        slug: "the-telomerase-enzyme-mechanism-of-action",
+        num: "4",
+        titleEn: "The Telomerase Enzyme: Mechanism of Action",
+        titleVi: "Cơ chế hoạt động của Enzyme Telomerase",
+        paragraphs: [
+          {
+            pNum: 1,
+            vi: "Telomerase được xem là enzyme bất tử với khả năng duy trì và kéo dài các đầu mút telomere. Đóng vai trò như một người thợ sửa chữa chuyên cần, enzyme này tái bổ sung các trình tự DNA lặp lại đã mất sau quá trình sao chép, cho phép tế bào tiếp tục chu kỳ phân chia an toàn.",
+            en: "Telomerase functions as a cellular maintenance enzyme capable of preserving and lengthening worn telomeres. Operating like a dedicated repair crew, it synthesizes and reattaches lost repetitive DNA segments to chromosome ends, enabling cells to replicate without eroding vital genetic information."
+          },
+          {
+            pNum: 2,
+            vi: "Mặc dù mang tiềm năng duy trì sự trẻ hóa tế bào, hoạt tính của telomerase lại bị ức chế hoặc duy trì ở mức cực kỳ thấp trong hầu hết các tế bào soma trưởng thành. Đây là một cơ chế kiểm soát tiến hóa chặt chẽ của tự nhiên nhằm ngăn ngừa tình trạng tăng sinh tế bào vô độ.",
+            en: "Despite this regenerative potential, telomerase expression is heavily suppressed or kept at baseline levels across normal adult somatic cells. This strict biological safeguard evolved to prevent unchecked, runaway cellular proliferation."
+          }
+        ]
+      },
+      {
+        id: 5,
+        slug: "telomerase-distribution-and-the-cancer-paradox",
+        num: "5",
+        titleEn: "Telomerase Distribution and the Cancer Paradox",
+        titleVi: "Phân bố Telomerase và nguy cơ ung thư",
+        paragraphs: [
+          {
+            pNum: 1,
+            vi: "Telomerase hoạt động rất mạnh trong tế bào mầm sinh sản nhằm truyền lại bộ gen toàn vẹn cho thế hệ sau, cũng như trong tế bào gốc để phục vụ quá trình biệt hóa và tái tạo mô liên tục. Nhờ đó, các dòng tế bào thiết yếu này duy trì được độ dài telomere cần thiết cho sự sống.",
+            en: "Telomerase remains robustly active in germline cells to ensure intact chromosomes are passed to offspring, as well as in adult stem cells to support continuous tissue repair and regeneration. This sustained enzymatic activity protects these essential cellular lineages from premature senescence."
+          },
+          {
+            pNum: 2,
+            vi: "Tuy nhiên, khoảng 85% đến 90% khối u ung thư ác tính đã kích hoạt lại telomerase để vượt qua giới hạn Hayflick và trở nên bất tử. Do đó, telomerase là con dao hai lưỡi: rút ngắn telomere giúp kìm hãm khối u, trong khi bảo tồn telomere lại cần thiết để ngăn ngừa thoái hóa mô.",
+            en: "Conversely, roughly 85% to 90% of human cancers hijack telomerase to bypass natural replicative boundaries and achieve malignant immortality. Telomerase thus represents a double-edged sword: telomere attrition suppresses potential tumors, whereas telomere maintenance is vital for ongoing organ regeneration."
+          }
+        ]
+      },
+      {
+        id: 6,
+        slug: "telomere-length-and-chronic-diseases",
+        num: "6",
+        titleEn: "Telomere Length and Chronic Diseases",
+        titleVi: "Độ dài Telomere và bệnh lý mãn tính",
+        paragraphs: [
+          {
+            pNum: 1,
+            vi: "Độ dài telomere tỷ lệ nghịch với nguy cơ mắc các bệnh lý mãn tính của tuổi già như tim mạch, xơ vữa động mạch, nhồi máu cơ tim và đái tháo đường tuýp 2. Telomere ngắn cũng liên quan chặt chẽ đến sự suy thoái miễn dịch và các rối loạn thoái hóa thần kinh như Alzheimer và Parkinson.",
+            en: "Shorter telomeres correlate strongly with a higher vulnerability to chronic conditions, including atherosclerosis, hypertension, myocardial infarction, and type 2 diabetes. Telomere exhaustion also drives impaired immune responses and correlates with neurodegenerative disorders such as Alzheimer's and Parkinson's."
+          },
+          {
+            pNum: 2,
+            vi: "Theo nghiên cứu công bố trên tạp chí y khoa The Lancet, những người sở hữu telomere dài hơn có xu hướng sống thọ hơn và giảm đáng kể tỷ lệ tử vong do bệnh tim mạch hoặc nhiễm trùng. Độ dài telomere phản ánh lối sống thực tế ở cấp độ tế bào, một thước đo hoàn toàn có thể cải thiện được bằng các thói quen chủ động.",
+            en: "A landmark study in The Lancet established that older adults with longer telomeres experience higher life expectancy and significantly lower mortality from cardiovascular diseases and infections. Rather than an unchangeable fate, telomere length serves as a cellular mirror reflecting environmental and lifestyle exposures that we can actively influence."
+          }
+        ]
+      },
+      {
+        id: 7,
+        slug: "overview-of-the-four-lifestyle-pillars",
+        num: "7",
+        titleEn: "Overview of the Four Lifestyle Pillars",
+        titleVi: "Tổng quan 4 trụ cột lối sống bảo vệ Telomere",
+        paragraphs: [
+          {
+            pNum: 1,
+            vi: "Cộng đồng khoa học xác nhận rằng con người hoàn toàn có thể làm chậm quá trình ngắn lại của telomere và bảo vệ tế bào thông qua việc điều chỉnh lối sống hằng ngày. Hành vi sinh hoạt đóng vai trò quyết định trong việc bảo vệ DNA trước các tổn thương bên trong cơ thể.",
+            en: "Medical research demonstrates that we can actively decelerate telomere attrition and nurture cellular vitality through deliberate lifestyle interventions. Daily behavioral choices exert direct, quantifiable effects on telomere dynamics."
+          },
+          {
+            pNum: 2,
+            vi: "Bốn trụ cột chính bao gồm: dinh dưỡng thông minh, vận động thể chất khoa học, kiểm soát căng thẳng tâm lý và đảm bảo giấc ngủ chất lượng. Sự kết hợp đồng bộ các yếu tố này tạo nên môi trường nội sinh tối ưu cho sự phục hồi tế bào.",
+            en: "The protective lifestyle model rests upon four core pillars: smart nutrition, consistent physical exercise, targeted stress reduction, and restorative sleep. Together, these practices establish an internal environment that sustains genetic integrity."
+          }
+        ]
+      },
+      {
+        id: 8,
+        slug: "pillar-1-smart-nutrition",
+        num: "8",
+        titleEn: "Pillar 1: Smart Nutrition",
+        titleVi: "Trụ cột 1: Dinh dưỡng thông minh",
+        paragraphs: [
+          {
+            pNum: 1,
+            vi: "Viêm mạn tính và stress oxy hóa là hai tác nhân hủy hoại hàng đầu làm tổn thương cấu trúc DNA và bào mòn telomere nhanh chóng. Chế độ ăn bảo vệ telomere tập trung vào việc trung hòa các gốc tự do và làm dịu phản ứng viêm toàn thân.",
+            en: "Systemic inflammation and oxidative stress are the primary cellular drivers that erode telomeres and inflict DNA damage. A telomere-supportive nutrition strategy focuses directly on extinguishing inflammatory pathways and quenching free radicals."
+          },
+          {
+            pNum: 2,
+            vi: "Nên ưu tiên thực phẩm giàu chất chống oxy hóa như rau củ quả đa sắc màu, các loại cá béo giàu omega-3 (cá hồi, cá trích, cá mòi), ngũ cốc nguyên hạt và các loại hạt họ đậu. Ngược lại, cần cắt giảm tối đa thực phẩm chế biến sẵn, thức ăn nhanh chiên rán, thịt đỏ và đường tinh luyện.",
+            en: "Dietary priorities should include antioxidant-rich colorful produce, omega-3 fatty acids from oily fish, whole grains, and nutrient-dense legumes. Conversely, ultra-processed products, fried street foods, excess red and processed meats, and refined sugars should be minimized."
+          }
+        ]
+      },
+      {
+        id: 9,
+        slug: "pillar-2-exercise-to-recharge-telomeres",
+        num: "9",
+        titleEn: "Pillar 2: Exercise to Recharge Telomeres",
+        titleVi: "Trụ cột 2: Vận động nạp năng lượng cho Telomere",
+        paragraphs: [
+          {
+            pNum: 1,
+            vi: "Hoạt động thể chất thường xuyên giúp tăng sinh enzyme chống oxy hóa nội sinh, kích thích hoạt tính telomerase và tối ưu hóa hiệu suất làm việc của ty thể. Người duy trì cường độ vận động cao sở hữu tuổi tế bào sinh học trẻ hơn tới 9 năm so với nhóm ít vận động.",
+            en: "Regular physical exercise enhances endogenous antioxidant defense, upregulates telomerase activity, and optimizes mitochondrial efficiency to curb reactive species. Highly active individuals have been shown to maintain a biological cellular age up to nine years younger than sedentary peers."
+          },
+          {
+            pNum: 2,
+            vi: "Mục tiêu khuyến nghị là tối thiểu 150 phút thể thao vừa phải (đi bộ nhanh, đạp xe) hoặc 75 phút cường độ cao (chạy bộ, HIIT) mỗi tuần, kết hợp hai buổi rèn luyện sức bền như nâng tạ hoặc yoga. Tính nhất quán và sự gắn bó lâu dài là yếu tố cốt lõi mang lại hiệu quả bảo vệ tế bào.",
+            en: "Public health guidance recommends at least 150 minutes of moderate aerobic training or 75 minutes of vigorous exercise weekly, paired with two weekly resistance sessions. Consistency in manageable, enjoyable movement forms the bedrock of long-term cellular preservation."
+          }
+        ]
+      },
+      {
+        id: 10,
+        slug: "pillar-3-stress-management-a-mental-shield",
+        num: "10",
+        titleEn: "Pillar 3: Stress Management – A Mental Shield",
+        titleVi: "Trụ cột 3: Quản lý căng thẳng - Lá chắn tinh thần",
+        paragraphs: [
+          {
+            pNum: 1,
+            vi: "Căng thẳng tâm lý mạn tính kích thích bài tiết cortisol kéo dài, đẩy mạnh phản ứng viêm và bào mòn telomere một cách nhanh chóng. Nghiên cứu của Elizabeth Blackburn ghi nhận những phụ nữ chịu áp lực chăm sóc con bệnh mạn tính bị lão hóa tế bào sớm tương đương một thập kỷ.",
+            en: "Chronic psychological distress floods the body with sustained cortisol, provoking systemic inflammation and accelerating telomere degradation. Pioneering research led by Elizabeth Blackburn revealed that mothers experiencing high perceived stress exhibited telomeric erosion equivalent to roughly a decade of accelerated aging."
+          },
+          {
+            pNum: 2,
+            vi: "Cách thức chúng ta phản ứng trước nghịch cảnh mang tính quyết định đến sự suy thoái của telomere. Xây dựng lá chắn tinh thần qua việc thiền định 10–15 phút mỗi ngày, tập yoga, thái cực quyền và tăng cường kết nối xã hội ấm áp giúp hạ mức cortisol và bảo vệ enzyme telomerase.",
+            en: "A person's internal coping response plays a central role in mitigating this biological toll. Implementing daily mindfulness, practicing yoga or Tai Chi, and fostering rich social relationships actively blunt stress-induced cortisol and shield telomeres."
+          }
+        ]
+      },
+      {
+        id: 11,
+        slug: "pillar-4-quality-sleep-and-lifestyle-commitment",
+        num: "11",
+        titleEn: "Pillar 4: Quality Sleep and Lifestyle Commitment",
+        titleVi: "Trụ cột 4: Giấc ngủ chất lượng và cam kết bền vững",
+        paragraphs: [
+          {
+            pNum: 1,
+            vi: "Ngủ ít hơn 6 tiếng mỗi đêm hoặc giấc ngủ chập chờn gây tổn hại nghiêm trọng đến telomere do làm gián đoạn chu trình sửa chữa DNA tự nhiên. Để tối ưu hóa giấc ngủ, cần giữ giờ giấc ngủ thức ổn định, tạo không gian phòng ngủ tối mát, hạn chế ánh sáng xanh từ thiết bị điện tử và tránh cồn hay caffeine vào buổi tối.",
+            en: "Routinely sleeping fewer than six hours per night or suffering fragmented rest impairs critical DNA repair pathways and accelerates telomere attrition. Good sleep hygiene requires a consistent schedule, a dark, cool sleeping space, digital screen curfews, and evening moderation of alcohol and caffeine."
+          },
+          {
+            pNum: 2,
+            vi: "Bảo vệ telomere không dựa vào viên thuốc kỳ diệu nào mà đòi hỏi sự cam kết đồng bộ với cả bốn trụ cột: ăn đúng, tập đều, sống an và ngủ sâu. Đây là nền tảng khoa học thực chứng giúp chúng ta chủ động điều chỉnh tốc độ lão hóa sinh học.",
+            en: "Telomere protection relies on no single magic pill; it demands an integrated, sustained commitment across nutrition, exercise, stress control, and deep sleep. This holistic framework forms the core science behind slowing biological aging."
+          }
+        ]
+      },
+      {
+        id: 12,
+        slug: "message-from-health-and-modern-medicine",
+        num: "12",
+        titleEn: "Message from Health & Modern Medicine",
+        titleVi: "Thông điệp từ Sức Khỏe & Y Học Hiện Đại",
+        paragraphs: [
+          {
+            pNum: 1,
+            vi: "Lão hóa là tiến trình sinh học tất yếu, nhưng tốc độ diễn ra của nó nằm trong tầm kiểm soát của chính chúng ta. Khoa học hiện đại đã chứng minh con người không phải là nạn nhân thụ động của thời gian, mà hoàn toàn có thể tự viết nên câu chuyện tuổi thọ thông qua các lựa chọn sinh hoạt mỗi ngày.",
+            en: "While chronological aging remains an inevitable natural process, its biological pace is fundamentally adjustable. Modern research confirms that we are not passive victims of the clock; our daily physical, dietary, and psychological choices actively determine our longevity."
+          },
+          {
+            pNum: 2,
+            vi: "Bảo vệ telomere khởi nguồn từ những thói quen giản dị: ưu tiên rau xanh, leo cầu thang bộ, hít thở sâu giải tỏa áp lực và ngủ sớm hơn. Cuộc cách mạng chống lão hóa thực thụ bắt đầu từ sự hiểu biết và ý thức chủ động chăm sóc sức khỏe của mỗi cá nhân.",
+            en: "Preserving telomeres begins with deliberate daily actions: prioritizing whole foods, taking daily walks, breathing deeply during moments of tension, and protecting restorative sleep. The true anti-aging revolution resides in personal awareness and proactive self-care."
+          }
+        ]
+      }
+    ];
+
+    // 32 high-yield terms extracted directly from the lecture summary
+    const GLOSSARY = [
+      {
+        id: 1,
+        term: "Telomere",
+        pos: "noun",
+        category: "Genetics",
+        defEn: "A specialized, non-coding repetitive DNA sequence capping each eukaryotic chromosome end to safeguard genome integrity during replication.",
+        plainEn: "The protective caps at the ends of your chromosomes—just like the plastic tips on shoelaces that prevent them from unraveling.",
+        quote: "Deep within our cells ticks a silent biological countdown clock that dictates our pace of aging, known as the telomere.",
+        vi: "Telomere (đoạn trình tự DNA lặp lại chuyên biệt ở hai đầu mút nhiễm sắc thể giúp bảo vệ thông tin di truyền)."
+      },
+      {
+        id: 2,
+        term: "Decelerate",
+        pos: "verb",
+        category: "Lifestyle",
+        defEn: "To reduce the speed or rate of progression of a physiological or biological process.",
+        plainEn: "To slow down something that is moving or happening too fast.",
+        quote: "Unlocking the mechanisms behind this biological clock empowers us to take proactive measures to decelerate cellular decline.",
+        vi: "Làm chậm lại / Giảm tốc độ (quá trình lão hóa tế bào)."
+      },
+      {
+        id: 3,
+        term: "Genome",
+        pos: "noun",
+        category: "Genetics",
+        defEn: "The complete set of genes or genetic material present in a cell or organism.",
+        plainEn: "The entire biological instruction manual and recipe book that makes you who you are.",
+        quote: "The human genome consists of 46 chromosomes, functioning like an instructional library.",
+        vi: "Bộ gen (toàn bộ vật chất di truyền chứa trong tế bào sinh vật)."
+      },
+      {
+        id: 4,
+        term: "Non-coding",
+        pos: "adjective",
+        category: "Genetics",
+        defEn: "Referring to DNA sequences that do not encode proteins, often performing structural or regulatory functions.",
+        plainEn: "Parts of DNA that don't build proteins directly, but serve as protective spacers or switches.",
+        quote: "Telomeres are specialized, non-coding repetitive DNA sequences capping the ends of each chromosome.",
+        vi: "Không mã hóa (trình tự DNA không chứa thông tin tổng hợp protein)."
+      },
+      {
+        id: 5,
+        term: "Aglet",
+        pos: "noun",
+        category: "Biochemistry",
+        defEn: "The plastic or metal sheath covering the tip of a lace, used metaphorically for telomeres capping chromosome ends.",
+        plainEn: "The little plastic piece at the very end of your shoelace that keeps it from fraying.",
+        quote: "Serving as cellular aglets, protective helmets, or blank margins at the borders of each chromosome.",
+        vi: "Đầu bọc dây giày (hình tượng ẩn dụ cho cấu trúc telomere ở đầu mút nhiễm sắc thể)."
+      },
+      {
+        id: 6,
+        term: "Fray",
+        pos: "verb",
+        category: "Biochemistry",
+        defEn: "To unravel or become worn at the edge through continuous strain, friction, or repeated cellular division.",
+        plainEn: "To come apart at the edges, like an old piece of rope or worn fabric.",
+        quote: "Telomeres prevent essential genes from fraying or degrading during replication.",
+        vi: "Xơ rách / Tưa rách (tổn thương cấu trúc đầu mút DNA)."
+      },
+      {
+        id: 7,
+        term: "End-replication problem",
+        pos: "noun",
+        category: "Cellular Biology",
+        defEn: "The inherent inability of linear DNA polymerases to fully duplicate the extreme lagging ends of linear chromosomes without RNA primers.",
+        plainEn: "The biological quirk where cell machinery cannot copy the very last millimeter of DNA every time a cell divides.",
+        quote: "This biological limitation, known as the 'end-replication problem,' causes telomeres to inevitably shorten.",
+        vi: "Vấn đề sao chép ở đoạn cuối (hạn chế sinh học khiến đầu mút nhiễm sắc thể ngắn dần sau mỗi lần nhân đôi)."
+      },
+      {
+        id: 8,
+        term: "Excised",
+        pos: "verb / adjective",
+        category: "Cellular Biology",
+        defEn: "Removed or cut out completely by enzymatic surgical cleavage during DNA processing.",
+        plainEn: "Cut out and thrown away once its temporary job is finished.",
+        quote: "A tiny gap remains uncopied at the terminal tip once the primer is excised.",
+        vi: "Bị cắt bỏ / Gỡ bỏ (đoạn mồi RNA sau khi hoàn tất mồi sao chép)."
+      },
+      {
+        id: 9,
+        term: "Hayflick limit",
+        pos: "noun",
+        category: "Cellular Biology",
+        defEn: "The predetermined maximum number of times normal somatic cells can divide in culture (typically 40–60 divisions) before cell division permanently stops.",
+        plainEn: "The natural speed limit or expiration date on how many times a normal human cell can divide.",
+        quote: "Once telomeres reach the critical Hayflick limit, cells enter cellular senescence.",
+        vi: "Giới hạn Hayflick (ngưỡng số lần phân chia tối đa của tế bào soma trước khi ngừng nhân đôi)."
+      },
+      {
+        id: 10,
+        term: "Cellular senescence",
+        pos: "noun",
+        category: "Cellular Biology",
+        defEn: "A state of stable, irreversible cell-cycle arrest provoked by telomere attrition or severe genomic stress.",
+        plainEn: "Cellular retirement—the cell stops dividing forever, but lingers and can release irritating chemicals.",
+        quote: "Cells enter cellular senescence—a state of permanent growth arrest.",
+        vi: "Sự lão hóa tế bào (trạng thái tế bào ngừng phân chia vĩnh viễn nhưng vẫn tồn tại)."
+      },
+      {
+        id: 11,
+        term: "Pro-inflammatory",
+        pos: "adjective",
+        category: "Pathophysiology",
+        defEn: "Promoting, exacerbating, or triggering inflammatory responses throughout local tissues or the vascular system.",
+        plainEn: "Something that sparks or fans the flames of irritation and swelling inside bodily tissues.",
+        quote: "Rather than dying, these senescent cells secrete inflammatory factors that damage surrounding tissues.",
+        vi: "Gây viêm / Thúc đẩy phản ứng viêm mô."
+      },
+      {
+        id: 12,
+        term: "Telomerase",
+        pos: "noun",
+        category: "Biochemistry",
+        defEn: "A ribonucleoprotein reverse transcriptase enzyme that synthesizes telomeric DNA repeat sequences to extend chromosome ends.",
+        plainEn: "A special cellular repair crew that adds back lost DNA to lengthen worn chromosome tips.",
+        quote: "Telomerase functions as a cellular maintenance enzyme capable of preserving and lengthening worn telomeres.",
+        vi: "Enzyme Telomerase (enzyme kéo dài và tái cấu trúc các đầu mút telomere)."
+      },
+      {
+        id: 13,
+        term: "Somatic cells",
+        pos: "noun",
+        category: "Cellular Biology",
+        defEn: "Any biological cells forming the body of a multicellular organism other than reproductive germ cells or undifferentiated stem cells.",
+        plainEn: "Regular body cells—like your skin, liver, heart, and muscle cells—excluding sperm and egg cells.",
+        quote: "Telomerase expression is heavily suppressed or kept at baseline levels across normal adult somatic cells.",
+        vi: "Tế bào soma (các tế bào sinh dưỡng cấu tạo nên cơ thể, không phải tế bào sinh dục)."
+      },
+      {
+        id: 14,
+        term: "Proliferation",
+        pos: "noun",
+        category: "Cellular Biology",
+        defEn: "Rapid and repeated reproduction or multiplication of cells by division.",
+        plainEn: "Fast, exponential growth and multiplying of cells.",
+        quote: "This strict biological safeguard evolved to prevent unchecked, runaway cellular proliferation.",
+        vi: "Sự tăng sinh / Nhân đôi tế bào liên tục."
+      },
+      {
+        id: 15,
+        term: "Germline cells",
+        pos: "noun",
+        category: "Genetics",
+        defEn: "The reproductive cells (spermatozoa and ova) containing genetic material that is passed on directly to biological descendants.",
+        plainEn: "The sperm and egg cells responsible for passing your DNA to future generations.",
+        quote: "Telomerase remains robustly active in germline cells to ensure intact chromosomes are passed to offspring.",
+        vi: "Tế bào mầm sinh sản (tinh trùng và trứng truyền bộ gen sang đời sau)."
+      },
+      {
+        id: 16,
+        term: "Attrition",
+        pos: "noun",
+        category: "Biochemistry",
+        defEn: "The process of gradually reducing the strength, length, or quantity of something through continuous wear and tear.",
+        plainEn: "The slow wearing away and erosion of something over a long period.",
+        quote: "Telomere attrition suppresses potential tumors, whereas telomere maintenance is vital for ongoing organ regeneration.",
+        vi: "Sự bào mòn / Sự hao hụt dần theo thời gian."
+      },
+      {
+        id: 17,
+        term: "Double-edged sword",
+        pos: "idiom / noun",
+        category: "Pathophysiology",
+        defEn: "A situation, mechanism, or tool that offers significant benefits while concurrently harboring severe potential drawbacks or perils.",
+        plainEn: "A solution that helps with one problem but can create a dangerous new hazard if misapplied.",
+        quote: "Telomerase thus represents a double-edged sword: telomere attrition suppresses potential tumors, whereas maintenance is vital.",
+        vi: "Con dao hai lưỡi (cơ chế mang lại cả lợi ích to lớn lẫn nguy cơ tiềm ẩn)."
+      },
+      {
+        id: 18,
+        term: "Hijack",
+        pos: "verb",
+        category: "Pathophysiology",
+        defEn: "To illicitly take control of, redirect, or subvert a normal physiological process for unauthorized or malignant purposes.",
+        plainEn: "To take over a machine or system and use it for your own rogue purpose.",
+        quote: "Roughly 85% to 90% of human cancers hijack telomerase to bypass natural replicative boundaries.",
+        vi: "Thâu tóm / Chiếm đoạt trái phép cơ chế sinh học."
+      },
+      {
+        id: 19,
+        term: "Atherosclerosis",
+        pos: "noun",
+        category: "Pathophysiology",
+        defEn: "A cardiovascular disease characterized by the narrowing and hardening of arteries due to the build-up of fibrofatty atheromatous plaques.",
+        plainEn: "Clogged and hardened arteries caused by accumulated fat and inflammatory cholesterol plaques.",
+        quote: "Shorter telomeres correlate strongly with a higher vulnerability to chronic conditions, including atherosclerosis.",
+        vi: "Xơ vữa động mạch (tình trạng thành động mạch bị xơ cứng và hẹp do mảng bám mỡ)."
+      },
+      {
+        id: 20,
+        term: "Myocardial infarction",
+        pos: "noun",
+        category: "Pathophysiology",
+        defEn: "Necrosis of myocardial tissue caused by an acute disruption of coronary arterial blood supply; clinical term for a heart attack.",
+        plainEn: "A heart attack—when blood flow to a section of the heart muscle gets blocked.",
+        quote: "Elevated risk of atherosclerosis, hypertension, and myocardial infarction.",
+        vi: "Nhồi máu cơ tim (tổn thương hoại tử cơ tim do thiếu máu nuôi cấp tính)."
+      },
+      {
+        id: 21,
+        term: "Neurodegenerative",
+        pos: "adjective",
+        category: "Pathophysiology",
+        defEn: "Pertaining to progressive structural or functional decay and eventual death of neurons within the central nervous system.",
+        plainEn: "Describing conditions where brain cells slowly decline, break down, and die over time.",
+        quote: "Telomere exhaustion correlates with neurodegenerative disorders such as Alzheimer's and Parkinson's.",
+        vi: "Thoái hóa thần kinh (các bệnh lý làm suy giảm dần tế bào thần kinh não bộ)."
+      },
+      {
+        id: 22,
+        term: "Vulnerability",
+        pos: "noun",
+        category: "Lifestyle",
+        defEn: "The state of being exposed to the possibility of being attacked, damaged, or contracting illness.",
+        plainEn: "Weakness or openness to getting hurt or developing disease.",
+        quote: "Shorter telomeres correlate strongly with a higher vulnerability to chronic conditions.",
+        vi: "Tính dễ bị tổn thương / Nguy cơ cao mắc bệnh."
+      },
+      {
+        id: 23,
+        term: "Oxidative stress",
+        pos: "noun",
+        category: "Biochemistry",
+        defEn: "A physiological state in which reactive oxygen species (ROS) overwhelm the endogenous antioxidant defenses, damaging cellular macromolecules.",
+        plainEn: "Biological rusting—when harmful free radicals outnumber the protective antioxidants in your body.",
+        quote: "Systemic inflammation and oxidative stress are the primary cellular drivers that erode telomeres.",
+        vi: "Stress oxy hóa (mất cân bằng giữa các gốc tự do hủy hoại và chất chống oxy hóa bảo vệ)."
+      },
+      {
+        id: 24,
+        term: "Free radicals",
+        pos: "noun",
+        category: "Biochemistry",
+        defEn: "Highly reactive, unstable molecular fragments possessing an unpaired electron that indiscriminately oxidize cellular structures.",
+        plainEn: "Unstable, rogue chemical particles that bounce around inside cells, stealing electrons and damaging DNA.",
+        quote: "A telomere-supportive nutrition strategy focuses directly on quenching free radicals.",
+        vi: "Gốc tự do (các phân tử không ổn định gây tổn hại cấu trúc tế bào và DNA)."
+      },
+      {
+        id: 25,
+        term: "Quench",
+        pos: "verb",
+        category: "Biochemistry",
+        defEn: "To suppress, extinguish, or neutralize chemical reactivity, particularly neutralizing reactive oxygen radicals.",
+        plainEn: "To put out a fire or neutralize a volatile spark before it causes damage.",
+        quote: "Extinguishing inflammatory pathways and quenching free radicals.",
+        vi: "Trung hòa / Dập tắt hoạt tính gây hại của các gốc tự do."
+      },
+      {
+        id: 26,
+        term: "Endogenous",
+        pos: "adjective",
+        category: "Biochemistry",
+        defEn: "Originating, growing, or synthesized from within an organism or cell rather than imported from external sources.",
+        plainEn: "Made naturally inside your own body, not taken from an external supplement or food.",
+        quote: "Regular physical exercise enhances endogenous antioxidant defense.",
+        vi: "Nội sinh (tự sinh ra hoặc tự tổng hợp bên trong cơ thể)."
+      },
+      {
+        id: 27,
+        term: "Upregulate",
+        pos: "verb",
+        category: "Biochemistry",
+        defEn: "To increase the rate of gene transcription or elevate enzymatic activity in response to an external stimulus.",
+        plainEn: "To turn up the volume dial on a specific protein or enzyme so it works harder.",
+        quote: "Upregulates telomerase activity, and optimizes mitochondrial efficiency.",
+        vi: "Tăng điều hòa / Kích thích tăng cường hoạt tính sinh học."
+      },
+      {
+        id: 28,
+        term: "Mitochondrial efficiency",
+        pos: "noun",
+        category: "Cellular Biology",
+        defEn: "The optimal capacity of mitochondria to synthesize cellular ATP while minimizing waste leakage of reactive oxygen species.",
+        plainEn: "How cleanly and effectively your cellular batteries turn food into energy without creating toxic smoke.",
+        quote: "Optimizes mitochondrial efficiency to curb reactive species.",
+        vi: "Hiệu suất hoạt động của ty thể (nhà máy năng lượng tế bào)."
+      },
+      {
+        id: 29,
+        term: "Cortisol",
+        pos: "noun",
+        category: "Pathophysiology",
+        defEn: "A glucocorticoid steroid hormone released by the adrenal cortex in response to chronic physical or psychological stress.",
+        plainEn: "The body's primary stress hormone; helpful in quick emergencies, but toxic when elevated long-term.",
+        quote: "Chronic psychological distress floods the body with sustained cortisol, provoking systemic inflammation.",
+        vi: "Hormone Cortisol (hormone tuyến thượng thận tiết ra khi căng thẳng kéo dài)."
+      },
+      {
+        id: 30,
+        term: "Mitigate",
+        pos: "verb",
+        category: "Lifestyle",
+        defEn: "To make less severe, harmful, intense, or painful; to alleviate.",
+        plainEn: "To soften the blow or reduce the negative impact of something harsh.",
+        quote: "A person's internal coping response plays a central role in mitigating this biological toll.",
+        vi: "Giảm nhẹ / Làm dịu tác động có hại."
+      },
+      {
+        id: 31,
+        term: "Restorative",
+        pos: "adjective",
+        category: "Lifestyle",
+        defEn: "Having the ability to restore biological health, repair damaged tissues, or replenish cellular energy reserves.",
+        plainEn: "Refreshing and healing, giving you back your strength and youth.",
+        quote: "The protective lifestyle model rests upon four core pillars: smart nutrition, consistent physical exercise, targeted stress reduction, and restorative sleep.",
+        vi: "Phục hồi / Tái tạo năng lượng và cấu trúc sinh học."
+      },
+      {
+        id: 32,
+        term: "Chronological aging",
+        pos: "noun",
+        category: "Lifestyle",
+        defEn: "The passage of calendar time since an organism's birth, distinct from biological aging which reflects physiological health and cellular integrity.",
+        plainEn: "The number of birthdays you celebrate, as opposed to how old your cells actually look and act.",
+        quote: "While chronological aging remains an inevitable natural process, its biological pace is fundamentally adjustable.",
+        vi: "Lão hóa theo thời gian / Tuổi theo năm sinh (phân biệt với tuổi sinh học của tế bào)."
+      }
+    ];
+
+    let currentView = 'overview';
+    let currentSectionId = 1;
+    let globalDefaultLang = 'EN'; // 'EN' or 'VI'
+    let readingHeadingsLang = 'EN'; // Tracks section reading title display
+    let overviewTitlesLang = 'EN';
+    let textSizeIndex = 0; // -1: base, 0: lg (20px default), 1: xl (22px)
+    let audioEnabled = true;
+    let audioCtx = null;
+    let currentCategoryFilter = 'all';
+    let glossaryAllRevealed = false;
+
+    // Track paragraph flip states: { [secId]: { [pIndex]: 'EN' | 'VI' } }
+    const paragraphStates = {};
+
+    function initAudio() {
+      if (!audioCtx) {
+        try {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) {
+            audioCtx = new AudioContext();
+          }
+        } catch (e) {
+          console.warn("Web Audio API not supported", e);
+        }
+      }
+    }
+
+    function playSound(type = 'click') {
+      if (!audioEnabled) return;
+      initAudio();
+      if (!audioCtx) return;
+
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        const now = audioCtx.currentTime;
+
+        if (type === 'click') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(650, now);
+          osc.frequency.exponentialRampToValueAtTime(320, now + 0.05);
+          gain.gain.setValueAtTime(0.04, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+          osc.start(now);
+          osc.stop(now + 0.05);
+        } else if (type === 'flip') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(300, now);
+          osc.frequency.exponentialRampToValueAtTime(540, now + 0.09);
+          gain.gain.setValueAtTime(0.05, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+          osc.start(now);
+          osc.stop(now + 0.09);
+        } else if (type === 'nav') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(440, now);
+          osc.frequency.exponentialRampToValueAtTime(880, now + 0.07);
+          gain.gain.setValueAtTime(0.03, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
+          osc.start(now);
+          osc.stop(now + 0.07);
+        }
+      } catch (err) {
+        // Fail silently
+      }
+    }
+
+    function toggleAudio() {
+      audioEnabled = !audioEnabled;
+      document.getElementById('icon-sound-on').classList.toggle('hidden', !audioEnabled);
+      document.getElementById('icon-sound-off').classList.toggle('hidden', audioEnabled);
+      if (audioEnabled) playSound('click');
+    }
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('telomere_theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('telomere_theme', isDark ? 'dark' : 'light');
+      playSound('click');
+    }
+
+    function adjustTextSize(delta) {
+      textSizeIndex = Math.max(-1, Math.min(1, textSizeIndex + delta));
+      applyTextSize();
+      playSound('click');
+    }
+
+    function applyTextSize() {
+      const container = document.getElementById('reading-paragraphs-container');
+      if (!container) return;
+      container.classList.remove('text-reading-base', 'text-reading-lg', 'text-reading-xl');
+      if (textSizeIndex === -1) {
+        container.classList.add('text-reading-base');
+      } else if (textSizeIndex === 0) {
+        container.classList.add('text-reading-lg');
+      } else {
+        container.classList.add('text-reading-xl');
+      }
+    }
+
+    function navigateTo(targetHash) {
+      window.location.hash = targetHash;
+    }
+
+    function handleRouting() {
+      const hash = window.location.hash.replace('#', '') || 'overview';
+      const navBackBtn = document.getElementById('nav-back-btn');
+      const breadcrumb = document.getElementById('nav-breadcrumb');
+      const breadcrumbTitle = document.getElementById('breadcrumb-title');
+
+      // Hide all main view sections
+      document.getElementById('view-overview').classList.add('hidden');
+      document.getElementById('view-reading').classList.add('hidden');
+      document.getElementById('view-glossary').classList.add('hidden');
+
+      if (hash === 'overview') {
+        currentView = 'overview';
+        document.getElementById('view-overview').classList.remove('hidden');
+        navBackBtn.classList.add('hidden');
+        breadcrumb.classList.add('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === 'glossary') {
+        currentView = 'glossary';
+        document.getElementById('view-glossary').classList.remove('hidden');
+        navBackBtn.classList.remove('hidden');
+        navBackBtn.classList.add('flex');
+        breadcrumb.classList.remove('hidden');
+        breadcrumbTitle.textContent = "Glossary (32 Academic Terms)";
+        renderGlossary();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash.startsWith('section-')) {
+        currentView = 'reading';
+        const secId = parseInt(hash.split('-')[1], 10);
+        if (secId >= 1 && secId <= 12) {
+          currentSectionId = secId;
+          document.getElementById('view-reading').classList.remove('hidden');
+          navBackBtn.classList.remove('hidden');
+          navBackBtn.classList.add('flex');
+          breadcrumb.classList.remove('hidden');
+          
+          const sec = SECTIONS.find(s => s.id === currentSectionId);
+          breadcrumbTitle.textContent = `Sec ${sec.num}: ${sec.titleEn}`;
+          
+          renderSectionReadingPage(sec);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          navigateTo('overview');
+        }
+      } else {
+        navigateTo('overview');
+      }
+      playSound('nav');
+    }
+
+    window.addEventListener('hashchange', handleRouting);
+
+    function renderOverviewGrid() {
+      const grid = document.getElementById('overview-grid');
+      grid.innerHTML = '';
+
+      SECTIONS.forEach((sec) => {
+        const card = document.createElement('div');
+        card.className = "group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-brand-500/50 dark:hover:border-brand-500/50 transition-all duration-200 cursor-pointer flex flex-col justify-between";
+        card.id = `overview-card-${sec.id}`;
+        
+        // Full card click navigates to section
+        card.onclick = () => {
+          navigateTo(`section-${sec.id}`);
+        };
+
+        const activeTitle = overviewTitlesLang === 'EN' ? sec.titleEn : sec.titleVi;
+        const subTitle = overviewTitlesLang === 'EN' ? sec.titleVi : sec.titleEn;
+        const previewSnippet = sec.paragraphs[0].en.slice(0, 115) + '...';
+
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-extrabold tracking-wide bg-brand-50 dark:bg-brand-950/70 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800/60">
+                SECTION ${sec.num}
+              </span>
+
+              <!-- EN/VI Flip Corner Button (with stopPropagation) -->
+              <button 
+                type="button" 
+                onclick="toggleOverviewCardTitle(event, ${sec.id})" 
+                title="Switch heading between English and Vietnamese"
+                class="px-2 py-0.5 rounded-md text-[11px] font-bold border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-brand-50 hover:text-brand-600 dark:hover:bg-slate-700 transition-colors shadow-xs"
+              >
+                <span id="card-lang-badge-${sec.id}">${overviewTitlesLang}</span> ⇄
+              </button>
+            </div>
+
+            <h4 id="card-title-main-${sec.id}" class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-1">
+              ${activeTitle}
+            </h4>
+
+            <p id="card-title-sub-${sec.id}" class="text-xs font-medium text-slate-500 dark:text-slate-400 italic mb-3">
+              ${subTitle}
+            </p>
+
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed mb-4">
+              "${previewSnippet}"
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs font-semibold text-brand-600 dark:text-brand-400">
+            <span class="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+              <svg class="w-3.5 h-3.5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+              2 Verbatim Paragraphs
+            </span>
+            <span class="inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Read Section →
+            </span>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    function toggleOverviewCardTitle(event, secId) {
+      event.stopPropagation(); // Do not trigger card navigation
+      playSound('flip');
+      const sec = SECTIONS.find(s => s.id === secId);
+      if (!sec) return;
+
+      const mainTitleEl = document.getElementById(`card-title-main-${secId}`);
+      const subTitleEl = document.getElementById(`card-title-sub-${secId}`);
+      const badgeEl = document.getElementById(`card-lang-badge-${secId}`);
+
+      const isCurrentEn = badgeEl.textContent.trim() === 'EN';
+      if (isCurrentEn) {
+        mainTitleEl.textContent = sec.titleVi;
+        subTitleEl.textContent = sec.titleEn;
+        badgeEl.textContent = 'VI';
+      } else {
+        mainTitleEl.textContent = sec.titleEn;
+        subTitleEl.textContent = sec.titleVi;
+        badgeEl.textContent = 'EN';
+      }
+    }
+
+    function flipAllOverviewTitles() {
+      overviewTitlesLang = overviewTitlesLang === 'EN' ? 'VI' : 'EN';
+      renderOverviewGrid();
+      playSound('flip');
+    }
+
+    function renderSectionReadingPage(sec) {
+      document.getElementById('reading-sec-number').textContent = `SECTION ${sec.num}`;
+
+      // Set section titles based on preference
+      updateSectionHeadingLabels(sec);
+
+      // Render interactive paragraph cards
+      const container = document.getElementById('reading-paragraphs-container');
+      container.innerHTML = '';
+      applyTextSize();
+
+      if (!paragraphStates[sec.id]) {
+        paragraphStates[sec.id] = {};
+        sec.paragraphs.forEach((p, idx) => {
+          // Initialize to global default language
+          paragraphStates[sec.id][idx] = globalDefaultLang;
+        });
+      }
+
+      sec.paragraphs.forEach((p, pIndex) => {
+        const currentLang = paragraphStates[sec.id][pIndex] || globalDefaultLang;
+        const card = createParagraphCard(sec.id, p, pIndex, currentLang);
+        container.appendChild(card);
+      });
+
+      // Update Prev / Next Buttons state
+      const prevBtn = document.getElementById('btn-prev-section');
+      const nextBtn = document.getElementById('btn-next-section');
+
+      prevBtn.disabled = sec.id === 1;
+      prevBtn.classList.toggle('opacity-50', sec.id === 1);
+      prevBtn.classList.toggle('cursor-not-allowed', sec.id === 1);
+
+      nextBtn.disabled = sec.id === 12;
+      nextBtn.classList.toggle('opacity-50', sec.id === 12);
+      nextBtn.classList.toggle('cursor-not-allowed', sec.id === 12);
+    }
+
+    function updateSectionHeadingLabels(sec) {
+      const mainTitle = document.getElementById('reading-sec-title-main');
+      const subTitle = document.getElementById('reading-sec-title-sub');
+      const langLabel = document.getElementById('reading-lang-label');
+
+      if (readingHeadingsLang === 'EN') {
+        mainTitle.textContent = sec.titleEn;
+        subTitle.textContent = sec.titleVi;
+        langLabel.textContent = "Heading: English";
+      } else {
+        mainTitle.textContent = sec.titleVi;
+        subTitle.textContent = sec.titleEn;
+        langLabel.textContent = "Tiêu đề: Tiếng Việt";
+      }
+    }
+
+    function toggleCurrentSectionTitleLang() {
+      readingHeadingsLang = readingHeadingsLang === 'EN' ? 'VI' : 'EN';
+      const sec = SECTIONS.find(s => s.id === currentSectionId);
+      if (sec) updateSectionHeadingLabels(sec);
+      playSound('flip');
+    }
+
+    function createParagraphCard(secId, p, pIndex, activeLang) {
+      const card = document.createElement('div');
+      card.id = `para-card-${secId}-${pIndex}`;
+      card.className = "group relative rounded-2xl p-6 sm:p-8 border transition-all duration-300 shadow-sm cursor-pointer select-text bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-brand-500/60 dark:hover:border-brand-500/60 hover:shadow-md";
+
+      const isEn = activeLang === 'EN';
+      const activeText = isEn ? p.en : p.vi;
+      const otherLangLabel = isEn ? "Reveal Vietnamese / Xem Tiếng Việt" : "Switch to English / Xem Tiếng Anh";
+
+      card.innerHTML = `
+        <!-- Card Header: Index badge, active language status, and toggle trigger -->
+        <div class="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-100 dark:border-slate-800/80">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${isEn ? 'bg-brand-100 text-brand-800 dark:bg-brand-950 dark:text-brand-300' : 'bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300'}">
+              ${p.pNum}
+            </span>
+            <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+              Paragraph ${p.pNum} of 2
+            </span>
+            <span id="badge-lang-${secId}-${pIndex}" class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase ${isEn ? 'bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/70 dark:text-emerald-300 dark:border-emerald-800' : 'bg-cyan-50 text-cyan-700 border border-cyan-200 dark:bg-cyan-950/70 dark:text-cyan-300 dark:border-cyan-800'}">
+              ${activeLang}
+            </span>
+          </div>
+
+          <!-- Flip Button -->
+          <button 
+            type="button" 
+            onclick="handleParagraphCardFlip(event, ${secId}, ${pIndex})"
+            class="px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 border transition-all shadow-xs ${isEn ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-700 hover:bg-brand-50 hover:text-brand-700 dark:hover:bg-slate-700' : 'bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 border-brand-200 dark:border-brand-800 hover:bg-brand-100'}"
+          >
+            <svg class="w-3.5 h-3.5 text-brand-500 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+            <span id="btn-text-${secId}-${pIndex}">${otherLangLabel}</span>
+          </button>
+        </div>
+
+        <!-- Card Content: Dynamic Height with smooth cross-fade animation -->
+        <div id="para-content-${secId}-${pIndex}" class="card-face-enter text-slate-800 dark:text-slate-100 leading-relaxed font-normal tracking-normal transition-opacity duration-200">
+          ${activeText}
+        </div>
+
+        <!-- Subtle Click-to-flip hint bar -->
+        <div class="mt-4 pt-3 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 select-none">
+          <span class="flex items-center gap-1">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
+            </svg>
+            Click card anywhere to toggle language
+          </span>
+          <span class="italic font-mono">${isEn ? 'Verbatim English' : 'Bản dịch Tiếng Việt chính xác'}</span>
+        </div>
+      `;
+
+      // Clicking anywhere on card toggles language
+      card.onclick = (e) => {
+        // If clicking on text selection or flip button, let default action proceed
+        if (window.getSelection().toString().length > 0) return;
+        handleParagraphCardFlip(e, secId, pIndex);
+      };
+
+      return card;
+    }
+
+    function handleParagraphCardFlip(event, secId, pIndex) {
+      if (event) event.stopPropagation();
+      playSound('flip');
+
+      const sec = SECTIONS.find(s => s.id === secId);
+      if (!sec) return;
+      const p = sec.paragraphs[pIndex];
+
+      const currentLang = paragraphStates[secId][pIndex] || 'EN';
+      const newLang = currentLang === 'EN' ? 'VI' : 'EN';
+      paragraphStates[secId][pIndex] = newLang;
+
+      const contentEl = document.getElementById(`para-content-${secId}-${pIndex}`);
+      const badgeEl = document.getElementById(`badge-lang-${secId}-${pIndex}`);
+      const btnTextEl = document.getElementById(`btn-text-${secId}-${pIndex}`);
+
+      if (contentEl) {
+        // Smooth fade-scale animation
+        contentEl.classList.remove('card-face-enter');
+        void contentEl.offsetWidth; // trigger reflow
+        contentEl.classList.add('card-face-enter');
+
+        contentEl.innerHTML = newLang === 'EN' ? p.en : p.vi;
+      }
+
+      if (badgeEl) {
+        badgeEl.textContent = newLang;
+        if (newLang === 'EN') {
+          badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-extrabold uppercase bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/70 dark:text-emerald-300 dark:border-emerald-800";
+        } else {
+          badgeEl.className = "px-2 py-0.5 rounded text-[10px] font-extrabold uppercase bg-cyan-50 text-cyan-700 border border-cyan-200 dark:bg-cyan-950/70 dark:text-cyan-300 dark:border-cyan-800";
+        }
+      }
+
+      if (btnTextEl) {
+        btnTextEl.textContent = newLang === 'EN' ? "Reveal Vietnamese / Xem Tiếng Việt" : "Switch to English / Xem Tiếng Anh";
+      }
+    }
+
+    function flipAllSectionParagraphs() {
+      const sec = SECTIONS.find(s => s.id === currentSectionId);
+      if (!sec) return;
+
+      // Determine majority state; if any EN, flip all to VI, else flip all to EN
+      let hasEn = false;
+      sec.paragraphs.forEach((p, idx) => {
+        if (paragraphStates[sec.id][idx] === 'EN') hasEn = true;
+      });
+
+      const targetLang = hasEn ? 'VI' : 'EN';
+      sec.paragraphs.forEach((p, idx) => {
+        paragraphStates[sec.id][idx] = targetLang;
+      });
+
+      renderSectionReadingPage(sec);
+      playSound('flip');
+    }
+
+    function navigateAdjacentSection(direction) {
+      const nextId = currentSectionId + direction;
+      if (nextId >= 1 && nextId <= 12) {
+        navigateTo(`section-${nextId}`);
+      }
+    }
+
+    function toggleGlobalLanguage() {
+      globalDefaultLang = globalDefaultLang === 'EN' ? 'VI' : 'EN';
+      const badgeEn = document.getElementById('badge-en');
+      const badgeVi = document.getElementById('badge-vi');
+
+      if (globalDefaultLang === 'EN') {
+        badgeEn.className = "px-2 py-1 bg-brand-500 text-white transition-colors";
+        badgeVi.className = "px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors";
+      } else {
+        badgeVi.className = "px-2 py-1 bg-brand-500 text-white transition-colors";
+        badgeEn.className = "px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors";
+      }
+
+      // Update overview titles to match
+      overviewTitlesLang = globalDefaultLang;
+      readingHeadingsLang = globalDefaultLang;
+      renderOverviewGrid();
+
+      // If currently on reading page, flip paragraphs to match
+      if (currentView === 'reading') {
+        const sec = SECTIONS.find(s => s.id === currentSectionId);
+        if (sec) {
+          sec.paragraphs.forEach((p, idx) => {
+            paragraphStates[sec.id][idx] = globalDefaultLang;
+          });
+          renderSectionReadingPage(sec);
+        }
+      }
+      playSound('click');
+    }
+
+    function renderGlossary() {
+      const grid = document.getElementById('glossary-cards-grid');
+      const searchInput = document.getElementById('glossary-search-input');
+      const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+
+      grid.innerHTML = '';
+
+      const filtered = GLOSSARY.filter(item => {
+        const matchesCategory = currentCategoryFilter === 'all' || item.category === currentCategoryFilter;
+        const matchesQuery = !query || 
+          item.term.toLowerCase().includes(query) ||
+          item.defEn.toLowerCase().includes(query) ||
+          item.plainEn.toLowerCase().includes(query) ||
+          item.vi.toLowerCase().includes(query);
+        return matchesCategory && matchesQuery;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-400 dark:text-slate-500">
+            <svg class="w-12 h-12 mx-auto mb-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <p class="text-base font-semibold">No specialized terms found</p>
+            <p class="text-xs mt-1">Try another search keyword or clear category filters.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.id = `glossary-card-${item.id}`;
+        card.className = "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between";
+
+        const isViRevealed = item.isRevealed || glossaryAllRevealed;
+
+        card.innerHTML = `
+          <div>
+            <!-- Term header -->
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <div>
+                <h4 class="text-lg font-bold text-slate-900 dark:text-white tracking-tight">
+                  ${item.term}
+                </h4>
+                <span class="text-xs font-mono font-medium text-slate-500 dark:text-slate-400 italic">
+                  ${item.pos}
+                </span>
+              </div>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                ${item.category}
+              </span>
+            </div>
+
+            <!-- Academic Definition -->
+            <div class="mb-3">
+              <span class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500 block mb-0.5">Academic Definition</span>
+              <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                ${item.defEn}
+              </p>
+            </div>
+
+            <!-- Plain English Explanation -->
+            <div class="mb-3 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+              <span class="font-bold text-brand-600 dark:text-brand-400">In other words:</span> ${item.plainEn}
+            </div>
+
+            <!-- Context Quote -->
+            <div class="mb-4">
+              <span class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500 block mb-0.5">Example in Context</span>
+              <blockquote class="text-xs text-slate-500 dark:text-slate-400 italic border-l-2 border-brand-500/40 pl-2.5 leading-relaxed">
+                "${item.quote}"
+              </blockquote>
+            </div>
+          </div>
+
+          <!-- Vietnamese Translation Toggle -->
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800">
+            <div id="vi-box-${item.id}" class="${isViRevealed ? 'block' : 'hidden'} p-2.5 mb-2 rounded-xl bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800 text-xs font-medium text-teal-900 dark:text-teal-200">
+              <span class="font-bold text-teal-700 dark:text-teal-300">Nghĩa tiếng Việt:</span>
+              <p class="mt-0.5">${item.vi}</p>
+            </div>
+
+            <button 
+              type="button" 
+              onclick="toggleSingleGlossaryVi(${item.id})"
+              class="w-full py-1.5 px-3 rounded-lg text-xs font-bold border transition-colors flex items-center justify-center gap-1.5 shadow-xs ${isViRevealed ? 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-200' : 'bg-brand-50 dark:bg-brand-950/70 text-brand-700 dark:text-brand-300 border-brand-200 dark:border-brand-800 hover:bg-brand-100'}"
+            >
+              <svg class="w-3.5 h-3.5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <span id="vi-btn-label-${item.id}">
+                ${isViRevealed ? 'Hide Vietnamese / Ẩn nghĩa' : 'Reveal Vietnamese / Xem nghĩa'}
+              </span>
+            </button>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    function filterGlossary() {
+      renderGlossary();
+    }
+
+    function setCategoryFilter(category) {
+      currentCategoryFilter = category;
+      document.querySelectorAll('#glossary-categories .cat-pill').forEach(pill => {
+        if (pill.dataset.cat === category) {
+          pill.className = "cat-pill active px-3 py-1 rounded-lg text-xs font-semibold bg-brand-600 text-white transition-colors";
+        } else {
+          pill.className = "cat-pill px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors";
+        }
+      });
+      renderGlossary();
+      playSound('click');
+    }
+
+    function toggleSingleGlossaryVi(termId) {
+      const term = GLOSSARY.find(t => t.id === termId);
+      if (!term) return;
+      term.isRevealed = !term.isRevealed;
+      
+      const box = document.getElementById(`vi-box-${termId}`);
+      const btnLabel = document.getElementById(`vi-btn-label-${termId}`);
+
+      if (box && btnLabel) {
+        if (term.isRevealed) {
+          box.classList.remove('hidden');
+          box.classList.add('block');
+          btnLabel.textContent = "Hide Vietnamese / Ẩn nghĩa";
+        } else {
+          box.classList.remove('block');
+          box.classList.add('hidden');
+          btnLabel.textContent = "Reveal Vietnamese / Xem nghĩa";
+        }
+      }
+      playSound('flip');
+    }
+
+    function toggleAllGlossaryVietnamese() {
+      glossaryAllRevealed = !glossaryAllRevealed;
+      GLOSSARY.forEach(term => {
+        term.isRevealed = glossaryAllRevealed;
+      });
+
+      const label = document.getElementById('btn-glossary-reveal-all-label');
+      if (label) {
+        label.textContent = glossaryAllRevealed ? "Hide All Vietnamese" : "Reveal All Vietnamese";
+      }
+
+      renderGlossary();
+      playSound('flip');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      renderOverviewGrid();
+      handleRouting();
+    });
+  </script>
+</body>
+</html>
