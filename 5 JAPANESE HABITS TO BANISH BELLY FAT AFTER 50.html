@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Japanese Habits to Banish Belly Fat After 50 | Bilingual Academic Reader</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS with Dark Mode Support -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+            display: ['Cinzel', 'serif']
+          },
+          colors: {
+            brand: {
+              50: '#fdf8f0',
+              100: '#faecd6',
+              200: '#f4d5aa',
+              500: '#c05621',
+              600: '#9c4221',
+              700: '#7b341e',
+              800: '#652b19',
+              900: '#431407'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .fade-enter {
+      animation: fadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .smooth-transition {
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.25s ease, transform 0.2s ease;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-stone-50 dark:bg-stone-950 text-stone-800 dark:text-stone-100 font-sans antialiased min-h-screen selection:bg-amber-200 dark:selection:bg-amber-800 selection:text-stone-900 dark:selection:text-amber-50 smooth-transition">
+
+  <!-- Persistent Top Navigation Bar -->
+  <header id="top-nav" class="sticky top-0 z-40 bg-white/95 dark:bg-stone-900/95 backdrop-blur border-b border-stone-200 dark:border-stone-800 shadow-sm smooth-transition">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
+      
+      <!-- Back to Overview / App Title -->
+      <div class="flex items-center gap-2">
+        <button id="nav-back-btn" onclick="navigateTo('overview')" class="hidden items-center gap-2 px-3 py-2 rounded-xl text-stone-600 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors text-sm font-semibold">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span>← Back to Overview</span>
+        </button>
+        <span id="nav-brand" class="flex items-center gap-2 text-amber-800 dark:text-amber-400 font-display font-bold tracking-wider text-sm sm:text-base">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-600 dark:bg-amber-400 animate-pulse"></span>
+          SOVRÆG PEDAGOGY
+        </span>
+      </div>
+
+      <!-- Action Cluster -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Section Flip All Toggle (Contextual) -->
+        <button id="global-toggle-btn" onclick="toggleAllParagraphs()" class="hidden items-center gap-1.5 px-3 py-1.5 rounded-lg border border-amber-500/30 bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/60 transition-colors text-xs sm:text-sm font-medium">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+          <span id="global-toggle-label">Flip All (EN/VI)</span>
+        </button>
+
+        <!-- Glossary Jump -->
+        <button onclick="navigateTo('glossary')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-stone-900 dark:bg-stone-100 text-stone-100 dark:text-stone-900 hover:bg-stone-800 dark:hover:bg-white transition-colors text-xs sm:text-sm font-semibold shadow-sm">
+          <span>📖</span>
+          <span class="hidden sm:inline">Learner</span> Glossary
+        </button>
+
+        <!-- Theme Toggle (Light / Dark) -->
+        <button id="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode" class="p-2 rounded-xl text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg id="theme-icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg id="theme-icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Content Viewport -->
+  <main id="app-root" class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <!-- Dynamic SPA Views Rendered Here -->
+  </main>
+
+  <footer class="mt-20 border-t border-stone-200 dark:border-stone-800 py-10 text-center text-stone-500 dark:text-stone-400 text-xs sm:text-sm">
+    <p class="font-medium text-stone-700 dark:text-stone-300">Alchemosaic Open Learning Commons • Self-Sovereign Education Series</p>
+    <p class="mt-1">Upper-Intermediate (B2) & Advanced (C1) Academic Health Immersion</p>
+  </footer>
+
+  <!-- Complete Script & Verbatim Document Data -->
+  <script>
+    /**
+     * VERBATIM CONTENT EXTRACT FROM SUMMARY TAB
+     */
+    const DOCUMENT_DATA = {
+      meta: {
+        title_en: "5 JAPANESE HABITS TO BANISH BELLY FAT AFTER 50",
+        title_vi: "5 THÓI QUEN CỦA NGƯỜI NHẬT GIÚP LOẠI BỎ MỠ BỤNG SAU TUỔI 50",
+        subtitle_en: "A structured bilingual academic guide investigating hormonal redistribution, circadian biology, and metabolic rebalancing.",
+        subtitle_vi: "Tài liệu học thuật song ngữ chuyên sâu về cơ chế tái phân bổ nội tiết tố, nhịp sinh học và phương pháp cân bằng chuyển hóa tự nhiên."
+      },
+      sections: [
+        {
+          id: "section-1",
+          num: "01",
+          title_vi: "1. Bản Chất Sinh Học Của Mỡ Bụng Sau Tuổi 50",
+          title_en: "1. The Biology of Belly Fat After 50",
+          paragraphs: [
+            {
+              vi: "Nhiều người sau tuổi 50 dù ăn uống lành mạnh, cắt giảm đường và tập luyện chăm chỉ như ở độ tuổi 30 nhưng cân nặng và vòng bụng vẫn không hề thuyên giảm. Ngành chăm sóc sức khỏe thường bỏ qua một sự thật cốt lõi: sự bế tắc này không bắt nguồn từ việc thiếu ý chí hay sai sót cá nhân, mà do bản chất sinh học của cơ thể đã thay đổi hoàn toàn sau tuổi 50. Cấu trúc nội tiết tố ở độ tuổi này vận hành dựa trên những cơ chế khác biệt, khiến các chiến lược giảm cân thời trẻ không còn mang lại kết quả.",
+              en: "Many individuals over 50 find that despite cutting sugar, eating clean, and exercising with strategies from their 30s, their waistlines remain unchanged. This struggle is not a personal failure of willpower, but an inherent biological shift. After 50, the body operates under an entirely different hormonal framework, rendering once-effective diet and workout routines obsolete because the underlying biochemical drivers of fat storage have fundamentally changed."
+            },
+            {
+              vi: "Lớp mỡ tích tụ quanh vùng eo sau tuổi 50 không chỉ chịu sự chi phối của cortisol mà còn bị tác động sâu sắc bởi một loại hormone thứ hai. Trong khi phụ nữ phương Tây ít khi nghe nhắc đến loại hormone này trong việc kiểm soát mỡ thừa, phụ nữ Nhật Bản đã làm chủ nó qua nhiều thế hệ nhờ năm thói quen hàng ngày cụ thể. Những thói quen này dựa trên nền tảng khoa học hiện đại, hoàn toàn miễn phí và bắt đầu phát huy tác dụng ngay khi được áp dụng để thiết lập lại sự cân bằng cơ thể.",
+              en: "The accumulation of deep midsection fat after 50 is driven not just by cortisol, but by a secondary hormone that works against the abdomen. While largely overlooked in Western fitness circles, this hormonal dynamic has been successfully managed in Japan for generations through five zero-cost daily habits. Backed by modern science, these simple routines address the true biological roots of stubborn belly fat."
+            }
+          ]
+        },
+        {
+          id: "section-2",
+          num: "02",
+          title_vi: "2. Cơ Chế Cortisol Và Sự Tái Phân Bổ Nội Tiết Tố Estrogen",
+          title_en: "2. Cortisol and Estrogen Redistribution",
+          paragraphs: [
+            {
+              vi: "Sau tuổi 50, phản ứng thức tỉnh cortisol—mức tăng vọt khoảng 50% trong vòng 30 phút sau khi thức dậy—vẫn tiếp diễn đều đặn và phát tín hiệu cho cơ thể ưu tiên tích trữ mỡ nội tạng quanh các cơ quan ổ bụng. Tuy nhiên, cortisol không còn hoạt động đơn độc; sự suy giảm mạnh mẽ của estrogen trong thời kỳ tiền mãn kinh và mãn kinh đã làm thay đổi toàn bộ phương trình chuyển hóa. Trong những năm tháng sinh sản, estrogen từng định hướng mỡ dự trữ chủ yếu ở hông, đùi và phần thân dưới để bảo vệ vòng eo.",
+              en: "The Cortisol Awakening Response—a 50% hormonal surge within 30 minutes of waking—remains fully active after 50, continuously signaling the body to store deep visceral fat around abdominal organs. However, the critical shift occurs because cortisol no longer operates alone; it is now profoundly influenced by the sharp decline of estrogen during perimenopause and menopause. Throughout reproductive years, estrogen systematically directed fat distribution toward the hips, thighs, and lower body, shielding the waistline."
+            },
+            {
+              vi: "Khi lượng estrogen sụt giảm, chỉ thị lưu trữ mỡ của cơ thể dịch chuyển từ ngoại vi vào vùng bụng trung tâm. Nghiên cứu chỉ ra rằng sự dịch chuyển mỡ này tương quan trực tiếp với nồng độ estrogen sụt giảm chứ không phải do lượng calo nạp vào hay mức độ vận động. Do đó, việc áp dụng chế độ ăn kiêng kham khổ hay tập luyện kiệt sức ở tuổi 50 là đánh sai trận chiến; ngược lại, người Nhật duy trì tỷ lệ béo bụng mãn kinh rất thấp nhờ lối sống điều hòa đồng thời quá trình chuyển hóa cortisol và estrogen.",
+              en: "Once estrogen drops, the body’s hormonal instructions shift, turning the abdomen into the primary storage site. Clinical research demonstrates that this central fat redistribution is directly driven by estrogen depletion rather than caloric intake or physical inactivity. Combating this shift with restrictive diets or grueling workouts targets the wrong problem, whereas Japanese daily practices maintain low rates of menopausal weight gain by regulating both cortisol and estrogen metabolism simultaneously."
+            }
+          ]
+        },
+        {
+          id: "section-3",
+          num: "03",
+          title_vi: "Thói Quen 1: Asa No Mizu – Nước Buổi Sáng",
+          title_en: "Habit 1: Asa no Mizu – Morning Water",
+          paragraphs: [
+            {
+              vi: "Nhiều phụ nữ trên 50 tuổi thường có thói quen uống cà phê ngay khi thức dậy, vào đúng thời điểm cơ thể đang mất nước sau giấc ngủ dài và cortisol đang ở đỉnh điểm. Nạp caffeine vào một cơ thể thiếu nước không chỉ khuếch đại mức tăng vọt cortisol mà còn làm suy giảm khả năng chuyển hóa và đào thải các chất chuyển hóa estrogen của gan. Một lá gan hoạt động kém hiệu quả do thiếu nước sẽ khiến mất cân bằng nội tiết tố thêm trầm trọng, đẩy nhanh quá trình tích trữ mỡ ở vùng trung tâm.",
+              en: "Reaching for coffee immediately upon waking after age 50 introduces caffeine into a system that is naturally dehydrated and experiencing peak cortisol levels. This habit severely amplifies the morning cortisol spike and compromises the liver's ability to metabolize and clear spent estrogen metabolites. Inefficient hormone clearance by a dehydrated liver exacerbates systemic imbalance, accelerating postmenopausal abdominal fat storage."
+            },
+            {
+              vi: "Người Nhật áp dụng thói quen \"Asa no mizu\"—uống một ly nước ấm ngay sau khi thức dậy, thường kết hợp một chút muối biển và nước cốt chanh tươi. Muối biển giúp bổ sung natri và magie đã tiêu hao qua đêm, trong khi vitamin C từ chanh và magie đóng vai trò làm dịu hệ thần kinh, giảm thiểu các đợt tăng vọt cortisol do căng thẳng. Thói quen hai phút này gửi tín hiệu an toàn đến cơ thể trước khi ngày mới bắt đầu, giúp tối ưu hóa chức năng gan và giảm tín hiệu tích trữ mỡ.",
+              en: "The Japanese practice of Asa no mizu offers a simple antidote: drinking a glass of warm water upon rising, often infused with a pinch of sea salt and a squeeze of fresh lemon. Sea salt replenishes electrolytes like magnesium and sodium, while vitamin C and magnesium naturally blunt cortisol surges. This two-minute morning ritual hydrates the liver, reassures the nervous system that the body is safe, and restores hormonal equilibrium before any daily stressors arise."
+            }
+          ]
+        },
+        {
+          id: "section-4",
+          num: "04",
+          title_vi: "Thói Quen 2: Đón Ánh Sáng Buổi Sáng Và Nhịp Sinh Học",
+          title_en: "Habit 2: Morning Light and Circadian Rhythms",
+          paragraphs: [
+            {
+              vi: "Sau tuổi 50, quá trình sản xuất melatonin suy giảm tự nhiên, khiến chất lượng giấc ngủ phụ thuộc chặt chẽ vào thời điểm tiếp xúc với ánh sáng mặt trời buổi sáng. Ánh sáng tự nhiên chiếu vào võng mạc trong vòng 30 đến 60 phút đầu sau khi thức dậy là yếu tố chủ chốt kích hoạt sản xuất serotonin. Lượng serotonin tạo ra vào ban ngày chính là nguyên liệu cần thiết để não bộ tổng hợp melatonin vào ban đêm, mang lại giấc ngủ sâu và phục hồi.",
+              en: "Natural melatonin production declines after 50, making sleep quality heavily dependent on the timing of morning light exposure. Direct outdoor sunlight entering the retinas within the first 30 to 60 minutes of waking stimulates serotonin synthesis, which serves as the direct biochemical precursor for nightly melatonin production. Depriving the eyes of morning light stalls serotonin synthesis, causing fragmented, shallow sleep that triggers erratic cortisol spikes and increased visceral fat storage the following day."
+            },
+            {
+              vi: "Thiếu ánh sáng buổi sáng sẽ dẫn đến thiếu hụt melatonin, khiến giấc ngủ nông và chập chờn, từ đó làm gia tăng đột biến đường cong cortisol vào sáng hôm sau và thúc đẩy tích tụ mỡ nội tạng. Phụ nữ Nhật Bản giải quyết điều này bằng thói quen đi dạo nhẹ nhàng buổi sáng (sanpo) từ 5 đến 10 phút ngoài trời để mắt tiếp nhận ánh sáng tự nhiên. Đây là biện pháp can thiệp không dùng thuốc hiệu quả nhất nhằm thiết lập lại nhịp sinh học, bảo vệ giấc ngủ và kiểm soát vòng eo sau tuổi 50.",
+              en: "In Japan, millions of women integrate this biological requirement through sanpo—a relaxed morning walk embraced simply to absorb ambient outdoor light for 5 to 10 minutes. By synchronizing circadian rhythms without screens or window filters, this quick outdoor exposure resets the body's master clock, optimizes sleep depth, and naturally protects against age-related abdominal weight gain."
+            }
+          ]
+        },
+        {
+          id: "section-5",
+          num: "05",
+          title_vi: "Thói Quen 3: Khái Niệm \"Ma\" – Trì Hoãn Caffeine Trong 90 Phút",
+          title_en: "Habit 3: The Concept of \"Ma\" – Delaying Caffeine for 90 Minutes",
+          paragraphs: [
+            {
+              vi: "Khi mới thức dậy, não bộ bão hòa adenosine—chất tạo cảm giác lờ đờ mà cơ thể cần khoảng 90 phút để đào thải tự nhiên. Uống cà phê quá sớm sẽ chặn các thụ thể adenosine thay vì loại bỏ chúng, khiến lượng adenosine bị dồn ứ lại. Khi caffeine hết tác dụng vào đầu giờ chiều, lượng adenosine tồn đọng này ồ ạt gắn vào thụ thể, gây ra sự sụt giảm năng lượng nghiêm trọng và buộc cơ thể phải giải phóng cortisol để bù đắp.",
+              en: "Upon waking, the brain is saturated with adenosine, a compound creating morning grogginess that the body naturally flushes over 90 minutes. Consuming caffeine too early temporarily blocks these receptors rather than clearing adenosine, causing it to accumulate. Once caffeine wears off in the mid-afternoon, this backlog floods the receptors, provoking a severe energy crash that triggers an emergency cortisol spike."
+            },
+            {
+              vi: "Ở tuổi 50, do thiếu hụt vùng đệm estrogen, đợt tăng vọt cortisol vào buổi chiều này biến sự mệt mỏi thành một đợt tích trữ mỡ bụng. Áp dụng triết lý \"Ma\"—khoảng dừng có chủ ý giữa các hành động—đồng nghĩa với việc chờ đợi 90 đến 120 phút sau khi thức dậy mới dùng caffeine. Khoảng nghỉ này cho phép cơ thể hoàn tất chu trình thức tỉnh tự nhiên, mang lại nguồn năng lượng bền bỉ, loại bỏ cơn sụt giảm buổi chiều và ngăn ngừa tích lũy mỡ thừa.",
+              en: "After 50, because diminished estrogen no longer cushions the body against cortisol's metabolic effects, that afternoon crash becomes an active belly-fat-storing event. Applying the Japanese concept of ma—an intentional pause—means delaying coffee intake for 90 to 120 minutes after waking. This allows adenosine to clear naturally and morning light to set your biological rhythm, providing clean, sustained vitality without hormonal backlash."
+            }
+          ]
+        },
+        {
+          id: "section-6",
+          num: "06",
+          title_vi: "Thói Quen 4: Sanpo – Đi Bộ Thư Thả Thay Vì Tập Luyện Cường Độ Cao Buổi Sáng",
+          title_en: "Habit 4: Sanpo – Gentle Walking Instead of Morning High-Intensity Workouts",
+          paragraphs: [
+            {
+              vi: "Tập luyện cường độ cao vào sáng sớm khi mức cortisol tự nhiên đang ở đỉnh điểm sẽ làm tăng thêm áp lực thể chất lên trạng thái căng thẳng nội tiết tố vốn có. Các bài tập nặng vào buổi sáng có thể duy trì mức cortisol tăng cao suốt 4 giờ sau khi kết thúc buổi tập. Ở tuổi 50, khi không còn lớp đệm estrogen bảo vệ, 4 giờ cortisol tăng cao trở thành 4 giờ cơ thể phát tín hiệu tích trữ mỡ bụng với tốc độ nhanh hơn.",
+              en: "Performing high-intensity workouts first thing in the morning layers physical stress directly on top of a naturally peaked cortisol baseline. Research shows that intense morning exercise can keep cortisol elevated for up to four hours post-workout. While earlier in life estrogen buffered cortisol's fat-storing instructions, postmenopausal physiology lacks this shield, turning those four hours of heightened cortisol into prolonged abdominal fat accumulation."
+            },
+            {
+              vi: "Thay vào đó, người Nhật áp dụng \"Sanpo\"—đi bộ thư thả ngoài trời từ 20 đến 30 phút. Trải nghiệm cảnh vật lướt qua tầm nhìn ngoại vi (dòng chảy thị giác - Optic Flow) giúp xoa dịu hạch hạnh nhân và hạ thấp nồng độ cortisol, qua đó vô hiệu hóa tín hiệu tích trữ mỡ. Các bài tập cường độ cao hoặc rèn luyện sức mạnh nên được chuyển sang buổi chiều khi cortisol đã hạ thấp tự nhiên để tối ưu hóa hiệu quả thể lực mà không gây tổn hại nội tiết tố.",
+              en: "The Japanese counter this with sanpo, an unhurried 20-to-30-minute outdoor stroll. Walking outside stimulates \"optic flow\"—the visual experience of surroundings moving past peripheral vision—which calms the amygdala, de-escalates systemic cortisol, and dampens fat-storage signals. Strenuous strength or conditioning workouts should be shifted to the afternoon, when cortisol naturally drops, allowing the body to gain strength without hormonal penalties."
+            }
+          ]
+        },
+        {
+          id: "section-7",
+          num: "07",
+          title_vi: "Thói Quen 5: Sejaku & Shokuhin – Tĩnh Lặng Buổi Sáng Và Triết Lý Ẩm Thực",
+          title_en: "Habit 5: Sejaku & Shokuhin – Morning Serenity and Food as Medicine",
+          paragraphs: [
+            {
+              vi: "Nguyên tắc \"Sejaku\" khuyên bạn nên đặt điện thoại xuống trong 30 phút đầu tiên sau khi thức dậy. Tiếp nhận thông tin từ màn hình vào sáng sớm sẽ kích hoạt các đợt tăng vọt dopamine và cortisol, đẩy hệ thần kinh từ trạng thái hồi phục sang cảnh giác. Sau tuổi 50, khi hệ thần kinh nhạy cảm hơn do thiếu vắng estrogen, việc kiểm tra điện thoại sớm sẽ thiết lập một ngưỡng dopamine nền cao hơn, khiến cơ thể luôn rơi vào trạng thái căng thẳng và đòi hỏi nhiều cortisol suốt cả ngày.",
+              en: "The first pillar, sejaku (morning stillness), advises leaving your smartphone untouched for the first 30 minutes after rising. Early-morning screen exposure generates immediate micro-spikes of dopamine and cortisol, flipping the nervous system from rest to hypervigilance. After 50, lacking estrogen's calming buffer, this screen-induced cortisol spike raises baseline dopamine requirements, demanding continuous urgency and elevated stress hormones throughout the day."
+            },
+            {
+              vi: "Nguyên tắc \"Shokuhin\" bổ trợ qua việc coi thức ăn như thuốc chữa bệnh với ba thực phẩm chủ lực: Miso chứa isoflavone giúp cân bằng hoạt động estrogen và giảm triệu chứng mãn kinh; Trà xanh giàu EGCG hỗ trợ gan chuyển hóa và đào thải các chất chuyển hóa estrogen dư thừa; Thực phẩm lên men (natto, dưa muối) nuôi dưỡng hệ vi sinh đường ruột để điều hòa estrogen. Ba thực phẩm phổ biến này kết hợp cùng sự tĩnh lặng buổi sáng giúp phụ nữ Nhật Bản kiểm soát cân nặng vùng trung tâm hiệu quả.",
+              en: "The complementary pillar, shokuhin (food as medicine), incorporates three daily functional staples: Miso provides dietary isoflavones that gently bind estrogen receptors to stabilize postmenopausal hormone levels; Green tea delivers EGCG to optimize liver detoxification of spent estrogen; Fermented foods (natto, pickles) enrich the gut microbiome to govern estrogen processing. These accessible, nutrient-dense foods work alongside morning tranquility to naturally suppress abdominal fat storage."
+            }
+          ]
+        },
+        {
+          id: "section-8",
+          num: "08",
+          title_vi: "Đúc Kết Và Thông Điệp",
+          title_en: "Summary and Final Thoughts",
+          paragraphs: [
+            {
+              vi: "Năm thói quen của người Nhật hoàn toàn miễn phí và không đòi hỏi chế độ ăn kiêng hà khắc hay sự kỷ luật cực đoan: uống nước ấm trước cà phê, đón ánh sáng tự nhiên trong 30 phút đầu, trì hoãn caffeine 90 phút, đi bộ nhẹ nhàng thay vì tập nặng buổi sáng, và duy trì 30 phút tĩnh lặng không điện thoại kết hợp với thực phẩm chức năng truyền thống. Những thói quen này vận hành như một chu trình đồng bộ giúp tối ưu hóa quá trình chuyển hóa cortisol và estrogen.",
+              en: "The five Japanese daily habits require zero cost, no gym memberships, and no extreme dieting: drinking warm water before coffee, stepping into morning light within 30 minutes, delaying caffeine for 90 minutes, choosing gentle walking over morning HIIT, and practicing 30 minutes of screen-free serenity paired with functional foods like miso and green tea. Together, they form an effortless, synergistic system that balances cortisol and estrogen metabolism."
+            },
+            {
+              vi: "Mỡ bụng sau tuổi 50 không phải do sự lười biếng hay lối sống tồi tệ, mà là hệ quả của sự dịch chuyển nội tiết tố tự nhiên mà cơ thể chưa được đáp ứng đúng cách. Phụ nữ Nhật Bản duy trì vòng eo ổn định không phải nhờ cố gắng nhiều hơn, mà vì họ kiên trì thực hiện đúng năm thói quen thuận theo nhịp sinh học mỗi ngày. Bằng cách áp dụng những điều chỉnh nhỏ nhưng chuẩn xác này, bạn hoàn toàn có thể hợp tác với cơ chế sinh học của cơ thể để lấy lại sự cân bằng.",
+              en: "Abdominal fat after 50 is not an issue of poor discipline, but a biological consequence of hormonal redistribution that willpower alone cannot solve. Japanese women protect their waistlines not by straining harder, but by aligning their mornings with biological and hormonal rhythms. By implementing these five simple habits consistently starting tomorrow, you can work with your biology rather than against it to reclaim your vitality."
+            }
+          ]
+        }
+      ],
+      glossary: [
+        {
+          term: "Inherent",
+          pos: "adjective",
+          definition: "Existing in something as a permanent, essential, or characteristic attribute.",
+          simple: "A natural, built-in part of something that cannot be separated from it.",
+          context: "This struggle is not a personal failure of willpower, but an inherent biological shift.",
+          vi: "Vốn có / Bản chất cố hữu"
+        },
+        {
+          term: "Obsolete",
+          pos: "adjective",
+          definition: "No longer produced or used; out of date and no longer effective.",
+          simple: "Outdated and no longer working because circumstances have changed.",
+          context: "...rendering once-effective diet and workout routines obsolete...",
+          vi: "Lỗi thời / Không còn hiệu quả"
+        },
+        {
+          term: "Biochemical",
+          pos: "adjective",
+          definition: "Relating to the chemical processes and substances that occur within living organisms.",
+          simple: "Related to the natural chemical reactions and hormones inside your body.",
+          context: "...because the underlying biochemical drivers of fat storage have fundamentally changed.",
+          vi: "(Thuộc về) Hóa sinh"
+        },
+        {
+          term: "Midsection",
+          pos: "noun",
+          definition: "The middle part of the human torso, especially the area around the waist and abdomen.",
+          simple: "The middle area of your body, around your stomach and waist.",
+          context: "The accumulation of deep midsection fat after 50 is driven not just by cortisol...",
+          vi: "Vùng eo / Vùng giữa thân"
+        },
+        {
+          term: "Visceral Fat",
+          pos: "noun",
+          definition: "Fat tissue stored deep within the abdominal cavity, wrapping around major internal organs.",
+          simple: "Deep belly fat that wraps around your liver, stomach, and intestines.",
+          context: "...continuously signaling the body to store deep visceral fat around abdominal organs.",
+          vi: "Mỡ nội tạng"
+        },
+        {
+          term: "Perimenopause",
+          pos: "noun",
+          definition: "The transitional phase leading up to menopause, characterized by fluctuating and declining hormone levels.",
+          simple: "The natural multi-year stage before menopause when female hormones begin to drop.",
+          context: "...influenced by the sharp decline of estrogen during perimenopause and menopause.",
+          vi: "Thời kỳ tiền mãn kinh"
+        },
+        {
+          term: "Redistribution",
+          pos: "noun",
+          definition: "The process of altering the allocation or physical distribution of resources or biological tissues.",
+          simple: "Moving things to different places, such as fat moving from the hips to the belly.",
+          context: "Cortisol and Estrogen Redistribution / Clinical research demonstrates that this central fat redistribution...",
+          vi: "Sự tái phân bổ / Sự dịch chuyển phân bố"
+        },
+        {
+          term: "Depletion",
+          pos: "noun",
+          definition: "A severe reduction in the quantity or reservoir of an essential substance.",
+          simple: "The state of being emptied out or heavily used up.",
+          context: "...directly driven by estrogen depletion rather than caloric intake...",
+          vi: "Sự sụt giảm nghiêm trọng / Sự cạn kiệt"
+        },
+        {
+          term: "Grueling",
+          pos: "adjective",
+          definition: "Extremely tiring, demanding, and physically punishing.",
+          simple: "Exhausting and hard enough to push your body to its absolute limits.",
+          context: "Combating this shift with restrictive diets or grueling workouts targets the wrong problem...",
+          vi: "Kiệt sức / Cực nhọc, khắc nghiệt"
+        },
+        {
+          term: "Dehydrated",
+          pos: "adjective",
+          definition: "Lacking sufficient water content in tissues and circulation to sustain optimal cellular function.",
+          simple: "Not having enough water in your body to function properly.",
+          context: "...introduces caffeine into a system that is naturally dehydrated...",
+          vi: "Mất nước / Thiếu hụt nước"
+        },
+        {
+          term: "Metabolite",
+          pos: "noun",
+          definition: "A substance formed in or necessary for metabolism, particularly the spent breakdown products of hormones.",
+          simple: "The leftover broken-down chemical pieces after the body uses a hormone or food.",
+          context: "...compromises the liver's ability to metabolize and clear spent estrogen metabolites.",
+          vi: "Chất chuyển hóa"
+        },
+        {
+          term: "Exacerbate",
+          pos: "verb",
+          definition: "To make a problem, disease, or physiological imbalance significantly worse or more severe.",
+          simple: "To make a bad situation even worse.",
+          context: "Inefficient hormone clearance by a dehydrated liver exacerbates systemic imbalance...",
+          vi: "Làm trầm trọng thêm"
+        },
+        {
+          term: "Antidote",
+          pos: "noun",
+          definition: "Something that counteracts an unpleasant, harmful, or toxic physiological condition.",
+          simple: "A natural remedy or solution that fixes a negative effect.",
+          context: "The Japanese practice of Asa no mizu offers a simple antidote...",
+          vi: "Biện pháp hóa giải / Phương thuốc giải"
+        },
+        {
+          term: "Replenish",
+          pos: "verb",
+          definition: "To fill something up again; to restore a depleted stock or physiological supply.",
+          simple: "To put back and refill what has been used up.",
+          context: "Sea salt replenishes electrolytes like magnesium and sodium...",
+          vi: "Bổ sung / Tái nạp lại"
+        },
+        {
+          term: "Blunt",
+          pos: "verb",
+          definition: "To weaken, soften, or reduce the force, sharpness, or amplitude of a physical spike or surge.",
+          simple: "To reduce the harshness or stop a sharp sudden spike.",
+          context: "...while vitamin C and magnesium naturally blunt cortisol surges.",
+          vi: "Làm dịu / Giảm thiểu mức tăng vọt"
+        },
+        {
+          term: "Circadian Rhythm",
+          pos: "noun",
+          definition: "The natural internal process that regulates the 24-hour cycle of sleeping, waking, and hormone production.",
+          simple: "Your body's natural 24-hour internal biological clock.",
+          context: "By synchronizing circadian rhythms without screens or window filters...",
+          vi: "Nhịp sinh học 24 giờ"
+        },
+        {
+          term: "Retinas",
+          pos: "noun",
+          definition: "The light-sensitive layers at the back of the eyeball that trigger nerve impulses to the brain.",
+          simple: "The light-catching sensors inside your eyes that signal your brain clock.",
+          context: "Direct outdoor sunlight entering the retinas within the first 30 to 60 minutes...",
+          vi: "Võng mạc mắt"
+        },
+        {
+          term: "Synthesis",
+          pos: "noun",
+          definition: "The biological or chemical production of complex chemical compounds from simpler ones.",
+          simple: "The making of new vital chemicals and hormones inside the body.",
+          context: "...stimulates serotonin synthesis, which serves as the direct biochemical precursor...",
+          vi: "Sự tổng hợp (hóa sinh)"
+        },
+        {
+          term: "Precursor",
+          pos: "noun",
+          definition: "A substance or compound from which another biological substance is formed.",
+          simple: "The building block or starter ingredient needed to make another chemical.",
+          context: "...which serves as the direct biochemical precursor for nightly melatonin production.",
+          vi: "Tiền chất / Chất tiền thân"
+        },
+        {
+          term: "Fragmented",
+          pos: "adjective",
+          definition: "Broken into disconnected, incomplete, or discontinuous fragments.",
+          simple: "Interrupted and broken up into restless, shallow pieces instead of solid sleep.",
+          context: "...causing fragmented, shallow sleep that triggers erratic cortisol spikes...",
+          vi: "Bị chia cắt / Chập chờn, đứt quãng"
+        },
+        {
+          term: "Saturated",
+          pos: "adjective",
+          definition: "Holding as much of a substance as can be absorbed; completely soaked or filled.",
+          simple: "Completely full or soaked with a chemical so no more can fit.",
+          context: "Upon waking, the brain is saturated with adenosine...",
+          vi: "Bão hòa / Tràn ngập"
+        },
+        {
+          term: "Backlog",
+          pos: "noun",
+          definition: "An accumulation of uncompleted work or unprocessed biological material that builds up over time.",
+          simple: "A trapped pile of unprocessed chemicals waiting to rush through.",
+          context: "Once caffeine wears off in the mid-afternoon, this backlog floods the receptors...",
+          vi: "Lượng tồn đọng / Sự ứ đọng"
+        },
+        {
+          term: "Mitigate",
+          pos: "verb",
+          definition: "To make something bad less severe, serious, painful, or damaging.",
+          simple: "To soften or lessen the negative impact of something harmful.",
+          context: "...stripped away the natural shock absorber that once mitigated cortisol's impact on belly fat.",
+          vi: "Làm giảm nhẹ / Hạn chế tác hại"
+        },
+        {
+          term: "Backlash",
+          pos: "noun",
+          definition: "A strong, adverse, or unanticipated rebound reaction to an earlier action or substance.",
+          simple: "A negative rebound reaction or crash following an artificial boost.",
+          context: "...providing clean, sustained vitality without hormonal backlash.",
+          vi: "Phản ứng ngược / Tác động tiêu cực dội lại"
+        },
+        {
+          term: "Postmenopausal",
+          pos: "adjective",
+          definition: "Occurring in or relating to the period of life following the permanent cessation of menstrual cycles.",
+          simple: "The phase of life after menopause has fully occurred.",
+          context: "...postmenopausal physiology lacks this shield, turning those four hours...",
+          vi: "Hậu mãn kinh"
+        },
+        {
+          term: "Peripheral Vision",
+          pos: "noun",
+          definition: "The visual field seen out of the side of the eye when looking straight ahead.",
+          simple: "The side view of your vision outside the center where you look.",
+          context: "...the visual experience of surroundings moving past peripheral vision...",
+          vi: "Tầm nhìn ngoại vi / Thị trường ngoại vi"
+        },
+        {
+          term: "Amygdala",
+          pos: "noun",
+          definition: "An almond-shaped cluster of nuclei located deep within the temporal lobe, governing fear, threat detection, and emotional stress responses.",
+          simple: "The alarm and danger sensor inside your brain that triggers stress.",
+          context: "...which calms the amygdala, de-escalates systemic cortisol...",
+          vi: "Hạch hạnh nhân (trung tâm xử lý cảm xúc sợ hãi)"
+        },
+        {
+          term: "De-escalate",
+          pos: "verb",
+          definition: "To diminish the intensity, severity, or urgency of an aroused physiological stress state.",
+          simple: "To turn down or cool off high stress levels.",
+          context: "...calms the amygdala, de-escalates systemic cortisol, and dampens fat-storage signals.",
+          vi: "Hạ nhiệt / Giảm mức độ căng thẳng"
+        },
+        {
+          term: "Strenuous",
+          pos: "adjective",
+          definition: "Requiring or using great exertion, physical strength, and intense energy expenditure.",
+          simple: "Very heavy, intense, and physically hard on your muscles.",
+          context: "Strenuous strength or conditioning workouts should be shifted to the afternoon...",
+          vi: "Căng thẳng / Đòi hỏi thể lực nặng"
+        },
+        {
+          term: "Hypervigilance",
+          pos: "noun",
+          definition: "A state of heightened sensory sensitivity accompanied by an exaggerated behavioral readiness to respond to threats.",
+          simple: "Being constantly on high alert, jumpy, and stressed out.",
+          context: "...flipping the nervous system from rest to hypervigilance.",
+          vi: "Trạng thái cảnh giác cao độ / Căng thẳng phòng vệ"
+        },
+        {
+          term: "Baseline",
+          pos: "noun",
+          definition: "A minimum starting point or baseline metric used for physiological comparison.",
+          simple: "Your normal starting foundation level before changes occur.",
+          context: "...this screen-induced cortisol spike raises baseline dopamine requirements...",
+          vi: "Mức cơ sở / Ngưỡng nền tảng"
+        },
+        {
+          term: "Isoflavone",
+          pos: "noun",
+          definition: "A class of naturally occurring phytoestrogens found in soybeans and legumes that exert weak estrogenic or anti-estrogenic effects in humans.",
+          simple: "Plant-based compounds found in soybeans that gently mimic estrogen.",
+          context: "Miso provides dietary isoflavones that gently bind estrogen receptors...",
+          vi: "Hợp chất Isoflavone (Phytoestrogen)"
+        },
+        {
+          term: "Detoxification",
+          pos: "noun",
+          definition: "The physiological or medicinal removal of toxic substances, spent hormones, and metabolic wastes, primarily performed by the liver.",
+          simple: "The liver's natural work of cleaning out old hormones and metabolic waste.",
+          context: "...Green tea delivers EGCG to optimize liver detoxification of spent estrogen...",
+          vi: "Quá trình thanh lọc / Giải độc gan"
+        },
+        {
+          term: "Synergistic",
+          pos: "adjective",
+          definition: "Relating to the interaction of elements that when combined produce a total effect greater than the sum of the individual elements.",
+          simple: "Working together so that all parts combine to create a much bigger result.",
+          context: "Together, they form an effortless, synergistic system that balances cortisol and estrogen metabolism.",
+          vi: "Có tính cộng hưởng / Đồng vận"
+        }
+      ]
+    };
+
+    /**
+     * REACTIVE STATE STORE
+     */
+    const AppState = {
+      view: 'overview',
+      cardHeadingLangs: {},
+      paragraphCardLangs: {},
+      currentSectionTitleLang: 'en'
+    };
+
+    // Initialize Card Heading & Paragraph Toggle States
+    DOCUMENT_DATA.sections.forEach((sec) => {
+      AppState.cardHeadingLangs[sec.id] = 'en';
+      sec.paragraphs.forEach((_, pIdx) => {
+        AppState.paragraphCardLangs[`${sec.id}-${pIdx}`] = 'en';
+      });
+    });
+
+    /**
+     * THEME (LIGHT/DARK) MANAGER
+     */
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+        updateThemeIcons(true);
+      } else {
+        document.documentElement.classList.remove('dark');
+        updateThemeIcons(false);
+      }
+    }
+
+    function toggleDarkMode() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeIcons(isDark);
+    }
+
+    function updateThemeIcons(isDark) {
+      const sun = document.getElementById('theme-icon-sun');
+      const moon = document.getElementById('theme-icon-moon');
+      if (!sun || !moon) return;
+
+      if (isDark) {
+        sun.classList.remove('hidden');
+        moon.classList.add('hidden');
+      } else {
+        sun.classList.add('hidden');
+        moon.classList.remove('hidden');
+      }
+    }
+
+    /**
+     * SPA ROUTER
+     */
+    function initRouter() {
+      window.addEventListener('hashchange', handleHashChange);
+      handleHashChange();
+    }
+
+    function handleHashChange() {
+      const hash = window.location.hash.replace('#', '').trim() || 'overview';
+      AppState.view = hash;
+      renderApp();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function navigateTo(route) {
+      window.location.hash = route;
+    }
+
+    /**
+     * RENDER ENGINE
+     */
+    function renderApp() {
+      const root = document.getElementById('app-root');
+      const navBackBtn = document.getElementById('nav-back-btn');
+      const globalToggleBtn = document.getElementById('global-toggle-btn');
+      const navBrand = document.getElementById('nav-brand');
+
+      if (AppState.view === 'overview') {
+        navBackBtn.classList.add('hidden');
+        navBackBtn.classList.remove('inline-flex');
+        globalToggleBtn.classList.add('hidden');
+        globalToggleBtn.classList.remove('inline-flex');
+        navBrand.classList.remove('hidden');
+        root.innerHTML = renderOverviewPage();
+      } else if (AppState.view === 'glossary') {
+        navBackBtn.classList.remove('hidden');
+        navBackBtn.classList.add('inline-flex');
+        globalToggleBtn.classList.add('hidden');
+        globalToggleBtn.classList.remove('inline-flex');
+        navBrand.classList.add('hidden');
+        root.innerHTML = renderGlossaryPage();
+      } else if (AppState.view.startsWith('section-')) {
+        navBackBtn.classList.remove('hidden');
+        navBackBtn.classList.add('inline-flex');
+        globalToggleBtn.classList.remove('hidden');
+        globalToggleBtn.classList.add('inline-flex');
+        navBrand.classList.add('hidden');
+        root.innerHTML = renderSectionPage(AppState.view);
+      }
+    }
+
+    /**
+     * VIEW: OVERVIEW & TITLE HUB
+     */
+    function renderOverviewPage() {
+      const cardsHtml = DOCUMENT_DATA.sections.map((sec) => {
+        const lang = AppState.cardHeadingLangs[sec.id] || 'en';
+        const displayTitle = lang === 'en' ? sec.title_en : sec.title_vi;
+        const excerpt = sec.paragraphs[0].en.slice(0, 140) + '...';
+
+        return `
+          <div onclick="navigateTo('${sec.id}')" 
+               class="group relative bg-white dark:bg-stone-900 rounded-2xl p-6 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-amber-500/60 dark:hover:border-amber-500/60 cursor-pointer smooth-transition flex flex-col justify-between">
+            
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-4">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold tracking-wider bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 group-hover:bg-amber-100 dark:group-hover:bg-amber-950/60 group-hover:text-amber-800 dark:group-hover:text-amber-300 transition-colors">
+                  CHAPTER ${sec.num}
+                </span>
+
+                <!-- Isolated Heading Flip Button -->
+                <button onclick="toggleCardHeaderLanguage(event, '${sec.id}')" 
+                        title="Flip title language without opening"
+                        class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700 transition-transform active:scale-95">
+                  <span class="${lang === 'en' ? 'text-amber-600 dark:text-amber-400 font-bold' : 'text-stone-400 dark:text-stone-500'}">EN</span>
+                  <span class="text-stone-300 dark:text-stone-600">/</span>
+                  <span class="${lang === 'vi' ? 'text-emerald-600 dark:text-emerald-400 font-bold' : 'text-stone-400 dark:text-stone-500'}">VI</span>
+                </button>
+              </div>
+
+              <h2 id="card-title-${sec.id}" class="text-lg sm:text-xl font-bold font-serif text-stone-900 dark:text-white leading-snug group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors">
+                ${displayTitle}
+              </h2>
+
+              <p class="mt-3 text-sm text-stone-500 dark:text-stone-400 line-clamp-3 leading-relaxed">
+                ${excerpt}
+              </p>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-stone-100 dark:border-stone-800/80 flex items-center justify-between text-xs font-semibold text-amber-700 dark:text-amber-400 group-hover:text-amber-800 dark:group-hover:text-amber-300">
+              <span>${sec.paragraphs.length} Parallel Clauses</span>
+              <span class="flex items-center gap-1 group-hover:translate-x-1 transition-transform">Read Chapter →</span>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="fade-enter space-y-12">
+          
+          <!-- Master Title Header -->
+          <div class="text-center max-w-3xl mx-auto space-y-4 pt-4 pb-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100/80 dark:bg-amber-950/60 border border-amber-300/60 dark:border-amber-700/50 text-amber-900 dark:text-amber-300 text-xs font-semibold tracking-wider uppercase">
+              <span>Metabolic Physiology & Longevity Science</span>
+            </div>
+            
+            <h1 class="text-3xl sm:text-5xl font-black font-display text-stone-900 dark:text-white tracking-tight leading-tight">
+              ${DOCUMENT_DATA.meta.title_en}
+            </h1>
+            
+            <p class="text-xl sm:text-2xl font-serif text-amber-800 dark:text-amber-400 font-medium">
+              ${DOCUMENT_DATA.meta.title_vi}
+            </p>
+
+            <p class="text-base text-stone-600 dark:text-stone-400 max-w-2xl mx-auto pt-2 leading-relaxed">
+              ${DOCUMENT_DATA.meta.subtitle_en}
+            </p>
+          </div>
+
+          <!-- Featured Glossary Hub Banner -->
+          <div onclick="navigateTo('glossary')" 
+               class="cursor-pointer group relative overflow-hidden rounded-3xl bg-gradient-to-r from-stone-900 via-stone-800 to-amber-950 dark:from-stone-900 dark:via-amber-950/60 dark:to-stone-900 text-stone-100 p-6 sm:p-8 shadow-md hover:shadow-xl smooth-transition border border-stone-800 dark:border-stone-700">
+            <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+              <div class="space-y-2">
+                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold tracking-wide uppercase">
+                  B2 / C1 Academic Lexicon Bank
+                </span>
+                <h3 class="text-2xl font-bold font-serif">Comprehensive Academic & Anatomical Glossary</h3>
+                <p class="text-sm text-stone-300 max-w-xl leading-relaxed">
+                  Master ${DOCUMENT_DATA.glossary.length} specialized biochemical, neurological, and physiological concepts—with contextual definitions, simplified explanations, and Vietnamese equivalents.
+                </p>
+              </div>
+              <span class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm transition-colors shrink-0 shadow">
+                Explore Glossary (${DOCUMENT_DATA.glossary.length} Terms) →
+              </span>
+            </div>
+          </div>
+
+          <!-- Section Grid Container -->
+          <div>
+            <div class="flex items-center justify-between mb-6 pb-2 border-b border-stone-200 dark:border-stone-800">
+              <h3 class="text-xs uppercase tracking-widest font-bold text-stone-500 dark:text-stone-400">Chapters (${DOCUMENT_DATA.sections.length} Sections)</h3>
+              <span class="text-xs text-stone-400 dark:text-stone-500">Click card body to study • Use EN/VI to flip title</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              ${cardsHtml}
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
+
+    /**
+     * VIEW: SECTION STUDY PAGES (Pages 2 through N)
+     */
+    function renderSectionPage(sectionId) {
+      const secIdx = DOCUMENT_DATA.sections.findIndex(s => s.id === sectionId);
+      if (secIdx === -1) return `<div class="p-12 text-center">Section not found. <a href="#overview" class="text-amber-600 underline">Return to overview</a></div>`;
+
+      const sec = DOCUMENT_DATA.sections[secIdx];
+      const prevSec = DOCUMENT_DATA.sections[secIdx - 1];
+      const nextSec = DOCUMENT_DATA.sections[secIdx + 1];
+
+      const titleLang = AppState.currentSectionTitleLang;
+      const activeTitle = titleLang === 'en' ? sec.title_en : sec.title_vi;
+      const subTitle = titleLang === 'en' ? sec.title_vi : sec.title_en;
+
+      const paragraphsHtml = sec.paragraphs.map((p, pIdx) => {
+        const key = `${sec.id}-${pIdx}`;
+        const currentLang = AppState.paragraphCardLangs[key] || 'en';
+        const isEn = currentLang === 'en';
+        const textContent = isEn ? p.en : p.vi;
+
+        return `
+          <div id="para-card-${pIdx}" 
+               onclick="toggleParagraphLang('${sec.id}', ${pIdx})"
+               tabindex="0"
+               role="button"
+               aria-label="Click to flip paragraph between English and Vietnamese"
+               class="group relative bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 hover:border-amber-400 dark:hover:border-amber-500/70 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md cursor-pointer smooth-transition">
+            
+            <!-- Card Meta Toolbar -->
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-stone-100 dark:border-stone-800">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-stone-400 dark:text-stone-500">Clause ${pIdx + 1}</span>
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold ${isEn ? 'bg-sky-50 dark:bg-sky-950/50 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800' : 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800'}">
+                  ${isEn ? 'EN Text' : 'VI Bản Dịch'}
+                </span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-stone-400 dark:text-stone-500 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors hidden sm:inline">
+                  Click card to flip
+                </span>
+                <button onclick="event.stopPropagation(); toggleParagraphLang('${sec.id}', ${pIdx})" 
+                        class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-stone-100 dark:bg-stone-800 hover:bg-amber-100 dark:hover:bg-amber-950/70 text-stone-700 dark:text-stone-300 hover:text-amber-900 dark:hover:text-amber-300 border border-stone-200 dark:border-stone-700 transition-colors flex items-center gap-1">
+                  <span>🔄</span>
+                  <span>Flip to ${isEn ? 'Tiếng Việt' : 'English'}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Paragraph Large Display Typography -->
+            <div class="fade-enter">
+              <p class="font-serif text-lg sm:text-[21px] text-stone-800 dark:text-stone-100 leading-[1.8] sm:leading-[1.85] tracking-normal font-normal">
+                ${textContent}
+              </p>
+            </div>
+
+            <!-- Touch Hint -->
+            <div class="mt-4 pt-3 flex items-center justify-between text-xs text-stone-400 dark:text-stone-500 sm:hidden border-t border-stone-50 dark:border-stone-800/60">
+              <span>Tap to toggle translation</span>
+              <span class="font-medium text-amber-700 dark:text-amber-400">${isEn ? 'Show Vietnamese →' : 'Show English →'}</span>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="fade-enter space-y-10">
+
+          <!-- Section Banner -->
+          <div class="space-y-4 pb-4 border-b border-stone-200 dark:border-stone-800">
+            
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-200/80 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-bold tracking-wider">
+                CHAPTER ${sec.num} OF ${DOCUMENT_DATA.sections.length}
+              </span>
+
+              <!-- Section Title Language Toggle -->
+              <button onclick="toggleSectionTitleLanguage()" 
+                      class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 hover:bg-stone-50 dark:hover:bg-stone-800 text-xs sm:text-sm font-semibold text-stone-700 dark:text-stone-300 shadow-sm transition-all">
+                <span>🌐 Title Lang:</span>
+                <span class="font-bold text-amber-700 dark:text-amber-400">${titleLang === 'en' ? 'EN (English)' : 'VI (Tiếng Việt)'}</span>
+                <span class="text-stone-400 dark:text-stone-500">↺</span>
+              </button>
+            </div>
+
+            <h1 class="text-2xl sm:text-4xl font-extrabold font-serif text-stone-900 dark:text-white leading-tight">
+              ${activeTitle}
+            </h1>
+
+            <p class="text-sm sm:text-base text-stone-500 dark:text-stone-400 font-sans italic">
+              ${subTitle}
+            </p>
+
+          </div>
+
+          <!-- Immersion Bar -->
+          <div class="bg-amber-50/80 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-800/60 rounded-2xl p-4 px-5 flex items-center justify-between gap-4 text-xs sm:text-sm text-amber-900 dark:text-amber-200">
+            <div class="flex items-center gap-2">
+              <span>💡</span>
+              <span><strong>Immersion Tip:</strong> Click any card body to flip between original English prose and Vietnamese translation.</span>
+            </div>
+            <button onclick="toggleAllParagraphs()" class="underline font-bold hover:text-amber-700 dark:hover:text-amber-300 shrink-0">
+              Flip All Cards
+            </button>
+          </div>
+
+          <!-- Paragraph Cards Stack -->
+          <div class="space-y-6">
+            ${paragraphsHtml}
+          </div>
+
+          <!-- Section Footer Navigation Bar -->
+          <div class="pt-8 border-t border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            
+            <div>
+              ${prevSec ? `
+                <button onclick="navigateTo('${prevSec.id}')" class="w-full sm:w-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 font-semibold text-sm transition-colors shadow-sm">
+                  ← Previous (${prevSec.num})
+                </button>
+              ` : `<div class="text-xs text-stone-400 dark:text-stone-600">Beginning of Document</div>`}
+            </div>
+
+            <button onclick="navigateTo('overview')" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200 font-semibold text-sm transition-colors">
+              Table of Contents
+            </button>
+
+            <div>
+              ${nextSec ? `
+                <button onclick="navigateTo('${nextSec.id}')" class="w-full sm:w-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-sm transition-colors shadow-sm">
+                  Next Section (${nextSec.num}) →
+                </button>
+              ` : `
+                <button onclick="navigateTo('glossary')" class="w-full sm:w-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-stone-900 dark:bg-stone-100 hover:bg-stone-800 dark:hover:bg-white text-white dark:text-stone-950 font-semibold text-sm transition-colors shadow-sm">
+                  Explore Full Glossary →
+                </button>
+              `}
+            </div>
+
+          </div>
+
+        </div>
+      `;
+    }
+
+    /**
+     * VIEW: INTERACTIVE LEARNER GLOSSARY (34 High-Yield Terms)
+     */
+    function renderGlossaryPage() {
+      const glossaryItemsHtml = DOCUMENT_DATA.glossary.map((item, idx) => {
+        return `
+          <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-6 shadow-sm hover:shadow-md smooth-transition flex flex-col justify-between">
+            
+            <div class="space-y-3">
+              
+              <!-- Term & Part of Speech -->
+              <div class="flex items-baseline justify-between gap-2 flex-wrap">
+                <div class="flex items-center gap-2">
+                  <h3 class="text-xl font-bold font-serif text-stone-900 dark:text-white tracking-tight">${item.term}</h3>
+                  <span class="italic text-xs font-medium text-stone-500 dark:text-stone-400 bg-stone-100 dark:bg-stone-800 px-2 py-0.5 rounded">
+                    ${item.pos}
+                  </span>
+                </div>
+                <span class="text-xs font-mono font-bold text-stone-400 dark:text-stone-500">#${String(idx + 1).padStart(2, '0')}</span>
+              </div>
+
+              <!-- Contextual / Academic Definition -->
+              <p class="text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
+                <strong class="text-stone-900 dark:text-white">Academic Definition:</strong> ${item.definition}
+              </p>
+
+              <!-- Simplified Explanation -->
+              <div class="bg-amber-50/80 dark:bg-amber-950/40 border-l-2 border-amber-500 dark:border-amber-400 p-3 rounded-r-lg text-xs leading-relaxed text-amber-950 dark:text-amber-200">
+                <span class="font-bold text-amber-900 dark:text-amber-300">In other words:</span> ${item.simple}
+              </div>
+
+              <!-- Example In Context -->
+              <div class="text-xs text-stone-500 dark:text-stone-400 italic bg-stone-50 dark:bg-stone-800/60 p-3 rounded-lg border border-stone-100 dark:border-stone-800">
+                "${item.context}"
+              </div>
+
+            </div>
+
+            <!-- Reveal Vietnamese Toggle -->
+            <div class="mt-5 pt-4 border-t border-stone-100 dark:border-stone-800">
+              <button onclick="toggleGlossaryVi(${idx})" 
+                      id="glossary-btn-${idx}"
+                      class="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 font-semibold text-xs transition-colors">
+                <span>👁️ Reveal Vietnamese</span>
+              </button>
+
+              <div id="glossary-vi-${idx}" class="hidden mt-3 p-2.5 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-950 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800 rounded-lg text-xs font-bold text-center fade-enter">
+                ${item.vi}
+              </div>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="fade-enter space-y-8">
+          
+          <div class="space-y-3 text-center sm:text-left">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-200 dark:bg-stone-800 text-stone-800 dark:text-stone-200 text-xs font-bold uppercase tracking-wider">
+              Educational Lexicon Repository
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black font-display text-stone-900 dark:text-white">
+              Interactive Learner Glossary
+            </h1>
+            <p class="text-stone-600 dark:text-stone-400 text-base max-w-2xl leading-relaxed">
+              Curated bank of ${DOCUMENT_DATA.glossary.length} specialized academic terms, neurological phenomena, and biochemical expressions calibrated for B2 and C1 English learners.
+            </p>
+          </div>
+
+          <!-- Term Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            ${glossaryItemsHtml}
+          </div>
+
+          <!-- Return Footer -->
+          <div class="pt-8 text-center">
+            <button onclick="navigateTo('overview')" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-stone-900 dark:bg-stone-100 hover:bg-stone-800 dark:hover:bg-white text-stone-100 dark:text-stone-900 font-bold text-sm shadow transition-colors">
+              ← Return to Table of Contents
+            </button>
+          </div>
+
+        </div>
+      `;
+    }
+
+    /**
+     * INTERACTIVITY HANDLERS
+     */
+
+    // Toggle individual card heading on overview page
+    function toggleCardHeaderLanguage(event, sectionId) {
+      event.stopPropagation();
+      const current = AppState.cardHeadingLangs[sectionId] || 'en';
+      const next = current === 'en' ? 'vi' : 'en';
+      AppState.cardHeadingLangs[sectionId] = next;
+
+      const sec = DOCUMENT_DATA.sections.find(s => s.id === sectionId);
+      const titleEl = document.getElementById(`card-title-${sectionId}`);
+      if (titleEl && sec) {
+        titleEl.textContent = next === 'en' ? sec.title_en : sec.title_vi;
+      }
+      renderApp();
+    }
+
+    // Toggle section title language on study page
+    function toggleSectionTitleLanguage() {
+      AppState.currentSectionTitleLang = AppState.currentSectionTitleLang === 'en' ? 'vi' : 'en';
+      renderApp();
+    }
+
+    // Toggle single paragraph card between EN and VI
+    function toggleParagraphLang(sectionId, paraIdx) {
+      const key = `${sectionId}-${paraIdx}`;
+      const current = AppState.paragraphCardLangs[key] || 'en';
+      AppState.paragraphCardLangs[key] = current === 'en' ? 'vi' : 'en';
+      renderApp();
+    }
+
+    // Flip all paragraph cards within the active section
+    function toggleAllParagraphs() {
+      if (!AppState.view.startsWith('section-')) return;
+      const sec = DOCUMENT_DATA.sections.find(s => s.id === AppState.view);
+      if (!sec) return;
+
+      const firstKey = `${sec.id}-0`;
+      const currentFirst = AppState.paragraphCardLangs[firstKey] || 'en';
+      const targetLang = currentFirst === 'en' ? 'vi' : 'en';
+
+      sec.paragraphs.forEach((_, pIdx) => {
+        AppState.paragraphCardLangs[`${sec.id}-${pIdx}`] = targetLang;
+      });
+
+      renderApp();
+    }
+
+    // Toggle Vietnamese translation for a glossary term
+    function toggleGlossaryVi(idx) {
+      const viBox = document.getElementById(`glossary-vi-${idx}`);
+      const btn = document.getElementById(`glossary-btn-${idx}`);
+      if (!viBox || !btn) return;
+
+      if (viBox.classList.contains('hidden')) {
+        viBox.classList.remove('hidden');
+        btn.innerHTML = '<span>✕ Hide Vietnamese</span>';
+        btn.classList.add('bg-emerald-100', 'dark:bg-emerald-900', 'text-emerald-900', 'dark:text-emerald-100');
+      } else {
+        viBox.classList.add('hidden');
+        btn.innerHTML = '<span>👁️ Reveal Vietnamese</span>';
+        btn.classList.remove('bg-emerald-100', 'dark:bg-emerald-900', 'text-emerald-900', 'dark:text-emerald-100');
+      }
+    }
+
+    // Initialization routine
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      initRouter();
+    });
+  </script>
+</body>
+</html>
