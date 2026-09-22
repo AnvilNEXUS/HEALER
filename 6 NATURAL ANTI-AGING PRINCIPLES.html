@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6 Natural Anti-Aging Principles | Bilingual Scientific Explorer</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans for UI & Inter for High-Legibility Body Text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            },
+            accent: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Card Flip & Interactive Transitions */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .card-inner {
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .card-flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+    }
+    
+    /* Smooth Pulse Animation for Audio Speaking */
+    @keyframes soundwave {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
+    }
+    .wave-bar:nth-child(1) { animation: soundwave 1s ease-in-out infinite; }
+    .wave-bar:nth-child(2) { animation: soundwave 0.8s ease-in-out infinite 0.2s; }
+    .wave-bar:nth-child(3) { animation: soundwave 1.1s ease-in-out infinite 0.4s; }
+
+    /* Custom Glassmorphism */
+    .glass-nav {
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, 0.3);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(100, 116, 139, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased min-h-screen transition-colors duration-300 flex flex-col">
+
+  <!-- Top Reading Progress Indicator -->
+  <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-indigo-600 z-50 transition-all duration-150 w-0"></div>
+
+  <!-- Persistent Master Navigation Bar -->
+  <header class="sticky top-0 z-40 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/85 dark:bg-slate-900/85 glass-nav transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+      
+      <!-- Left: Brand / Home Link -->
+      <div class="flex items-center gap-3">
+        <a href="#overview" class="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-lg p-1">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-extrabold text-sm sm:text-base tracking-tight leading-none text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>Longevity Science</span>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">EN / VI</span>
+            </div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 hidden sm:block">6 Natural Anti-Aging Principles</p>
+          </div>
+        </a>
+
+        <!-- Subpage Dynamic Back Button -->
+        <a id="nav-back-btn" href="#overview" class="hidden items-center gap-1.5 ml-2 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          <span>Back to Hub</span>
+        </a>
+      </div>
+
+      <!-- Right Action Bar -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Global English/Vietnamese Flip Mode Toggle -->
+        <button id="global-lang-toggle" title="Switch default language across all text cards" class="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-emerald-500 dark:hover:border-emerald-400 shadow-sm transition-all">
+          <span class="text-slate-400 dark:text-slate-500 text-[11px]">Default:</span>
+          <span id="global-lang-label" class="text-emerald-600 dark:text-emerald-400 font-bold">English (EN)</span>
+          <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+          </svg>
+        </button>
+
+        <!-- Reading Mode Toggle (Flip Card vs Bilingual Side-by-Side) -->
+        <button id="view-mode-toggle" title="Toggle between interactive flip cards or side-by-side comparison" class="hidden sm:flex items-center gap-1.5 text-xs font-medium px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-emerald-600 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
+          </svg>
+          <span id="view-mode-label">Flip Mode</span>
+        </button>
+
+        <!-- Glossary Quick Jump Link -->
+        <a href="#glossary" id="nav-glossary-btn" class="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 transition-all">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+          <span class="hidden md:inline">Glossary</span>
+          <span class="text-[10px] bg-emerald-200 dark:bg-emerald-800 px-1.5 py-0.2 rounded-full font-bold">30</span>
+        </a>
+
+        <!-- Dark / Light Theme Toggle -->
+        <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          <svg id="theme-icon-dark" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg id="theme-icon-light" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Dynamic View Container -->
+  <main id="app-root" class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 py-8 transition-opacity duration-300">
+    <!-- Populated dynamically via JavaScript SPA Router -->
+  </main>
+
+  <!-- Interactive Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Audio Pronunciation Floating Control (Active during TTS speech) -->
+  <div id="tts-controller" class="fixed bottom-5 left-5 z-50 hidden bg-slate-900 text-white dark:bg-emerald-950 dark:border dark:border-emerald-800 shadow-2xl rounded-full px-4 py-2.5 flex items-center gap-3 transition-all animate-bounce">
+    <div class="flex items-end gap-0.5 h-4 w-5">
+      <div class="wave-bar w-1 bg-emerald-400 rounded-full"></div>
+      <div class="wave-bar w-1 bg-teal-300 rounded-full"></div>
+      <div class="wave-bar w-1 bg-emerald-500 rounded-full"></div>
+    </div>
+    <span id="tts-label" class="text-xs font-semibold">Speaking English...</span>
+    <button id="tts-stop-btn" class="text-slate-400 hover:text-white ml-2 text-xs font-bold px-2 py-0.5 rounded-full bg-slate-800 dark:bg-emerald-900 hover:bg-red-600 transition-colors">
+      Stop
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800/80 bg-white/50 dark:bg-slate-900/50 py-8 text-center text-xs text-slate-500 dark:text-slate-400 mt-auto">
+    <div class="max-w-4xl mx-auto px-4 space-y-2">
+      <p class="font-medium">6 Natural Anti-Aging Principles – Proven by Modern Science & Blue Zones</p>
+      <p>Scientific Bilingual Explorer & Instructional Language Learning Environment | Built with Vanilla JS & Tailwind CSS</p>
+    </div>
+  </footer>
+
+  <script>
+    /* Complete Verbatim Document Data Structure */
+    const SECTIONS = [
+      {
+        id: "intro",
+        num: "01",
+        titleEN: "Introduction: The Aging Revolution",
+        titleVI: "Lời Mở Đầu: Cuộc Cách Mạng Trong Nghiên Cứu Lão Hóa",
+        badge: "Scientific Foundations",
+        readTime: "4 min read",
+        summaryEN: "Discover why genetics accounts for only 25% of longevity while 75% rests upon daily lifestyle decisions and biological interventions.",
+        summaryVI: "Khám phá vì sao gen di truyền chỉ quyết định 25% tuổi thọ, còn 75% phụ thuộc vào lối sống và các can thiệp sinh học chủ động.",
+        paragraphs: [
+          {
+            pNum: 1,
+            labelEN: "Life Expectancy vs. Healthspan",
+            labelVI: "Tuổi thọ trung bình và Tuổi thọ khỏe mạnh",
+            en: "Human average life expectancy has increased significantly over the past century, from about 50 years old at the beginning of the 20th century to over 70 years old today. However, what most of us desire is not just to live long, but to live healthy and youthful until our later years. Research on aging over the past two decades has made spectacular breakthroughs. Scientists have discovered that the aging process is not entirely determined by genes as we once thought. In fact, genetic factors account for only about 25%. The remaining 75% depends on our lifestyle, environment, and daily choices.",
+            vi: "Tuổi thọ trung bình của con người đã tăng đáng kể trong một thế kỷ qua, từ khoảng 50 tuổi vào đầu thế kỷ 20 lên hơn 70 tuổi hiện nay. Tuy nhiên, điều mà hầu hết chúng ta mong muốn không chỉ là sống lâu mà là sống khỏe mạnh và trẻ trung đến những năm tháng cuối đời. Nghiên cứu về lão hóa trong hai thập kỷ qua đã có những bước đột phá ngoạn mục. Các nhà khoa học đã khám phá ra rằng quá trình lão hóa không hoàn toàn do gen quyết định như chúng ta từng nghĩ. Thực tế yếu tố di truyền chỉ chiếm khoảng 25%. Còn lại 75% phụ thuộc vào lối sống, môi trường và những lựa chọn hàng ngày của chúng ta."
+          },
+          {
+            pNum: 2,
+            labelEN: "The Goal of Modern Medicine",
+            labelVI: "Mục tiêu của Y học Hiện đại",
+            en: "The concept of successful aging or healthspan is becoming the goal of modern medicine. This is not merely about preventing wrinkles on the skin, but about maintaining the function of every cell and every organ in the body in the most optimal state possible.",
+            vi: "Khái niệm về lão hóa thành công hay tuổi thọ khỏe mạnh đang trở thành mục tiêu của y học hiện đại. Đây không chỉ đơn thuần là việc ngăn chặn các nếp nhăn trên da mà là việc duy trì chức năng của từng tế bào, từng cơ quan trong cơ thể ở trạng thái tối ưu nhất có thể."
+          },
+          {
+            pNum: 3,
+            labelEN: "Lessons from Global Blue Zones",
+            labelVI: "Điểm chung từ các Vùng Xanh thế giới",
+            en: "In regions known as blue zones around the world, where the proportion of people living long and healthy lives is highest, researchers have discovered remarkable commonalities. These are not complex secrets or magical pills, but simple living principles practiced consistently throughout life.",
+            vi: "Trong những vùng được gọi là vùng xanh hay blue zone trên thế giới, nơi có tỉ lệ người sống thọ và khỏe mạnh cao nhất, các nhà nghiên cứu đã phát hiện ra những điểm chung đáng chú ý. Đó không phải là những bí kí phức tạp hay thuốc thần kỳ mà là những nguyên tắc sống đơn giản nhưng được thực hiện một cách nhất quán trong suốt cuộc đời."
+          },
+          {
+            pNum: 4,
+            labelEN: "Proactive Biological Intervention",
+            labelVI: "Khả năng can thiệp tích cực vào quá trình lão hóa",
+            en: "Studies from the Harvard Medical School, Stanford University, and many leading research centers worldwide have confirmed that we can actively intervene in the aging process. This does not mean we can become immortal, but we can completely slow down the aging process and maintain health and vitality into the late years of life.",
+            vi: "Các nghiên cứu từ viện y khoa Harvard, Đại học Stanford và nhiều trung tâm nghiên cứu hàng đầu thế giới đã xác nhận rằng chúng ta có thể can thiệp tích cực vào quá trình lão hóa. Điều này không có nghĩa là chúng ta có thể trở nên bất tử, nhưng chúng ta hoàn toàn có thể làm chậm quá trình lão hóa và duy trì sức khỏe, sự năng động đến những năm tháng muộn màng của cuộc đời."
+          },
+          {
+            pNum: 5,
+            labelEN: "The 6 Scientifically Proven Principles",
+            labelVI: "Sáu nguyên tắc chống lão hóa từ bên trong",
+            en: "Below are six scientifically proven natural anti-aging principles that anyone can apply starting today to begin the journey of rejuvenating the body from within.",
+            vi: "Dưới đây là sáu nguyên tắc chống lão hóa tự nhiên được khoa học chứng minh mà bất kỳ ai cũng có thể áp dụng ngay từ hôm nay để bắt đầu hành trình trẻ hóa cơ thể từ bên trong."
+          }
+        ]
+      },
+      {
+        id: "part1",
+        num: "02",
+        titleEN: "Executive Summary & The Longevity Revolution",
+        titleVI: "Tóm Tắt Điều Hành & Cuộc Cách Mạng Khoa Học Lão Hóa",
+        badge: "Executive Brief",
+        readTime: "3 min read",
+        summaryEN: "A high-level synthesis of longevity findings from Harvard Medical School, Stanford, and worldwide Blue Zones surveys.",
+        summaryVI: "Bản tổng hợp đột phá y học từ Viện Y khoa Harvard, Đại học Stanford và khảo sát thực địa từ các Vùng Xanh trên thế giới.",
+        paragraphs: [
+          {
+            pNum: 1,
+            labelEN: "Executive Summary: 75% Lifestyle Rule",
+            labelVI: "Tóm Tắt Điều Hành: 75% Yếu Tố Lối Sống",
+            en: "Healthy life expectancy is not an accidental privilege or solely determined by genes (genetics accounts for only 25%). Up to 75% of aging and longevity depends on lifestyle, environment, and daily choices. This report synthesizes medical breakthroughs from Harvard Medical School, Stanford University, and empirical surveys from global Blue Zones to establish a comprehensive roadmap for cellular rejuvenation from within.",
+            vi: "Tuổi thọ khỏe mạnh không phải là đặc ân ngẫu nhiên hay do gen quyết định hoàn toàn (gen chỉ chiếm 25%). Có tới 75% quá trình lão hóa và tuổi thọ phụ thuộc vào lối sống, môi trường và các lựa chọn hàng ngày của bạn. Báo cáo này tổng hợp những đột phá y học từ Viện Y khoa Harvard, Đại học Stanford và khảo sát thực tế tại các Vùng Xanh trên thế giới để thiết lập một lộ trình toàn diện giúp trẻ hóa tế bào từ bên trong."
+          },
+          {
+            pNum: 2,
+            labelEN: "Part 1: Lifespan vs Healthspan Focus",
+            labelVI: "Phần 1: Trọng tâm Gia Tăng Tuổi Thọ Khỏe Mạnh",
+            en: "Over the past century, global average life expectancy has increased from 50 to over 70 years. However, the core goal of modern medicine is not merely extending chronological lifespan, but extending 'healthspan' — maintaining the optimal function of every cell and organ until the final years of life.",
+            vi: "Trong thế kỷ qua, tuổi thọ trung bình toàn cầu đã tăng từ 50 lên hơn 70 tuổi. Tuy nhiên, mục tiêu cốt lõi của y học hiện đại không đơn thuần là kéo dài số năm sống, mà là gia tăng 'tuổi thọ khỏe mạnh' (healthspan) — duy trì chức năng tối ưu của từng tế bào và cơ quan cho đến những năm tháng cuối đời."
+          },
+          {
+            pNum: 3,
+            labelEN: "Biological Intervention vs. Expensive Cosmetics",
+            labelVI: "Can Thiệp Sinh Học vs Mỹ Phẩm Đắt Tiền",
+            en: "Preventing aging does not rely on costly external cosmetics, but originates from proactive biological intervention into the 75% lifestyle component. Below are six scientifically proven golden principles that activate the body's natural rejuvenation mechanisms.",
+            vi: "Việc ngăn chặn lão hóa không nằm ở các loại mỹ phẩm đắt tiền bên ngoài, mà bắt nguồn từ việc can thiệp sinh học chủ động vào 75% yếu tố lối sống. Dưới đây là 6 nguyên tắc vàng đã được khoa học chứng minh giúp kích hoạt cơ chế trẻ hóa tự nhiên của cơ thể."
+          }
+        ]
+      },
+      {
+        id: "principle-1",
+        num: "03",
+        titleEN: "Principle 1: Protecting Chromosome Ends (Telomeres)",
+        titleVI: "Nguyên Tắc 1: Bảo Vệ Và Nuôi Dưỡng Đầu Mút Nhiễm Sắc Thể (Telomer)",
+        badge: "Nobel Prize Science",
+        readTime: "4 min read",
+        summaryEN: "Telomeres act like shoelace caps protecting our DNA. Learn how antioxidant nutrition and stress control keep telomeres long and youthful.",
+        summaryVI: "Telomer như lớp bọc đầu dây giày bảo vệ nhiễm sắc thể. Khám phá cách dinh dưỡng chống oxy hóa và giảm căng thẳng giúp duy trì độ dài telomer.",
+        paragraphs: [
+          {
+            pNum: 1,
+            labelEN: "Biological Nature of Telomeres",
+            labelVI: "Bản chất sinh học của Telomer",
+            en: "Telomeres sit at the terminal ends of chromosomes, acting like the plastic tips on shoelaces that prevent chromosomes from fraying when cells divide. With every cell division, telomeres shorten; when they become too short, cells cease dividing and enter senescence (2009 Nobel Prize in Physiology or Medicine awarded to Elizabeth Blackburn, Carol Greider, and Jack Szostak).",
+            vi: "Telomer nằm ở tận cùng các nhiễm sắc thể, đóng vai trò như lớp nhựa bọc đầu dây giày, ngăn chặn nhiễm sắc thể bị tơi rách khi tế bào phân chia. Mỗi lần tế bào phân chia, telomer ngắn lại; khi quá ngắn, tế bào ngừng phân chia và lão hóa (Giải Nobel Y học 2009 thuộc về Elizabeth Blackburn, Carol Greider và Jack Szostak)."
+          },
+          {
+            pNum: 2,
+            labelEN: "Antioxidant Nutrition: 10 Biological Years Younger",
+            labelVI: "Dinh dưỡng chống oxy hóa: Trẻ hơn 10 năm sinh học",
+            en: "Leafy green vegetables, fresh fruits, vitamin C (oranges, guavas), vitamin E (almonds), and polyphenols (green tea) shield telomeres from oxidative damage. A landmark study published in the British Medical Journal (tracking over 5,000 individuals across 5 years) proved that a healthy lifestyle promotes significantly longer telomeres, equivalent to being 10 years younger biologically.",
+            vi: "Dinh dưỡng chống oxy hóa: Rau xanh, trái cây, vitamin C (cam, ổi), vitamin E (hạnh nhân) và polyphenol (trà xanh) bảo vệ telomer khỏi tổn thương. Một nghiên cứu trên tờ British Medical Journal (hơn 5.000 người trong 5 năm) chứng minh lối sống lành mạnh giúp telomer dài hơn, tương đương việc trẻ hơn 10 năm về mặt sinh học."
+          },
+          {
+            pNum: 3,
+            labelEN: "Stress Management: Reversing Cortisol Damage",
+            labelVI: "Quản lý căng thẳng: Đảo ngược tác hại của Cortisol",
+            en: "Chronic psychological stress triggers cortisol release, which actively attacks and rapidly shortens telomeres. Conversely, practicing regular meditation for 3 months has been proven to increase telomere length by up to 30%.",
+            vi: "Quản lý căng thẳng: Stress mãn tính kích hoạt cortisol tấn công và làm ngắn telomer nhanh chóng. Ngược lại, thiền định thường xuyên trong 3 tháng có thể làm tăng chiều dài telomer lên đến 30%."
+          }
+        ]
+      },
+      {
+        id: "principle-2",
+        num: "04",
+        titleEN: "Principle 2: Activating Cellular Self-Cleaning (Autophagy)",
+        titleVI: "Nguyên Tắc 2: Kích Hoạt Cơ Chế Tự Dọn Dẹp Tế Bào (Autophagy)",
+        badge: "Cellular Renewal",
+        readTime: "4 min read",
+        summaryEN: "How 16:8 intermittent fasting, polyphenol-rich foods, and high-intensity exercise stimulate the cell's Nobel-winning internal recycling mechanism.",
+        summaryVI: "Phương pháp nhịn ăn gián đoạn 16:8, thực phẩm hỗ trợ và vận động cường độ cao giúp kích hoạt cơ chế tự dọn dẹp tế bào đoạt giải Nobel.",
+        paragraphs: [
+          {
+            pNum: 1,
+            labelEN: "Biological Mechanism of Autophagy",
+            labelVI: "Bản chất sinh học của cơ chế Tự thực bào",
+            en: "Autophagy is the cell's internal self-recycling mechanism, discovered by Japanese scientist Yoshinori Ohsumi (2016 Nobel Prize in Physiology or Medicine). This process enables cells to autonomously digest and degrade damaged proteins and senescent cellular debris into fresh raw building materials, directly preventing chronic systemic inflammation.",
+            vi: "Bản chất sinh học: Autophagy (Tự thực bào) là cơ chế tự tái chế của tế bào, được phát hiện bởi nhà khoa học Yoshinori Ohsumi (Giải Nobel Y học 2016). Quá trình này giúp tế bào tự phân hủy các protein hư hỏng, tế bào già cỗi để tái tạo thành nguyên liệu mới, ngăn ngừa tình trạng viêm mãn tính."
+          },
+          {
+            pNum: 2,
+            labelEN: "Intermittent Fasting (16:8 Protocol)",
+            labelVI: "Nhịn ăn gián đoạn: Chu kỳ 16:8",
+            en: "Adopting a 16:8 intermittent fasting cycle (eating within an 8-hour window and fasting for 16 hours) depletes systemic glycogen stores and propels the body into an intense cellular cleanup mode (extending experimental animal lifespan by 20%).",
+            vi: "Nhịn ăn gián đoạn (Intermittent Fasting): Áp dụng chu kỳ 16:8 (ăn trong 8 tiếng, nhịn 16 tiếng) giúp cơ thể cạn kiệt glycogen và chuyển sang chế độ dọn dẹp tế bào mạnh mẽ (kéo dài tuổi thọ động vật thí nghiệm thêm 20%)."
+          },
+          {
+            pNum: 3,
+            labelEN: "Nutritional Activators & High-Intensity Movement",
+            labelVI: "Thực phẩm hỗ trợ & Vận động cường độ cao",
+            en: "Supportive nutrition includes green tea containing EGCG, turmeric rich in curcumin, tomatoes loaded with lycopene, and berries packed with anthocyanins. Furthermore, high-intensity exercise forces muscle tissue to mobilize intracellular energy reserves, vigorously triggering the autophagy cycle.",
+            vi: "Thực phẩm hỗ trợ & Vận động cường độ cao: Trà xanh chứa EGCG, nghệ chứa curcumin, cà chua chứa lycopene và quả mọng chứa anthocyanin. Vận động cường độ cao buộc cơ bắp huy động năng lượng từ bên trong, kích hoạt chu trình autophagy."
+          }
+        ]
+      },
+      {
+        id: "principle-3",
+        num: "05",
+        titleEN: "Principle 3: Natural Antioxidant Defense Matrix",
+        titleVI: "Nguyên Tắc 3: Chống Oxy Hóa Từ Thiên Nhiên",
+        badge: "Free Radical Defense",
+        readTime: "4 min read",
+        summaryEN: "Harness the power of Vitamin C + E synergy, Selenium from Brazil nuts, and polyphenols to neutralize damaging free radicals.",
+        summaryVI: "Tận dụng sức mạnh lá chắn Vitamin C & E, khoáng chất Selenium và polyphenol từ thực vật để vô hiệu hóa các gốc tự do gây lão hóa.",
+        paragraphs: [
+          {
+            pNum: 1,
+            labelEN: "Free Radicals & The Primary Vitamin Matrix",
+            labelVI: "Gốc tự do & Lá chắn Vitamin C & E",
+            en: "Normal cellular metabolism and environmental pollution continuously produce reactive free radicals that assault cell membranes and nuclear DNA. The body's primary natural defense combines Vitamin C & Vitamin E: working in synergy, they forge a virtually impregnable defensive shield safeguarding cellular membranes.",
+            vi: "Quá trình trao đổi chất và ô nhiễm môi trường sản sinh ra các gốc tự do (free radicals) tấn công màng tế bào và DNA. Hệ thống phòng thủ tự nhiên gồm Vitamin C & E: Khi kết hợp tạo thành lá chắn bảo vệ màng tế bào gần như bất khả xâm phạm."
+          },
+          {
+            pNum: 2,
+            labelEN: "Selenium: Powering Master Antioxidant Enzymes",
+            labelVI: "Selenium & Enzyme Glutathione Peroxidase",
+            en: "Selenium & Essential Minerals: Brazil nuts (eating merely 2 nuts per day supplies sufficient selenium for an entire week) activate the body's most formidable internal antioxidant enzyme: glutathione peroxidase.",
+            vi: "Selenium & Khoáng chất: Hạt Brazil (2 hạt mỗi ngày cung cấp đủ selenium cho cả tuần) kích hoạt enzyme chống oxy hóa mạnh nhất cơ thể (glutathione peroxidase)."
+          },
+          {
+            pNum: 3,
+            labelEN: "Polyphenols: Blueberries, Resveratrol & Green Tea",
+            labelVI: "Polyphenol & Flavonoid: Việt quất, Resveratrol & Trà xanh",
+            en: "Polyphenols & Flavonoids: Blueberries contain rich anthocyanins that protect cerebral tissue and delay cognitive decline by up to 2.5 years. Resveratrol in red grapes activates longevity pathways (best obtained from fresh grapes or standardized supplements to avoid alcohol harm). Green tea delivers EGCG with antioxidant activity 100 times stronger than vitamin C; a prospective study tracking 40,000 individuals demonstrated a 31% reduction in cardiovascular mortality.",
+            vi: "Polyphenol & Flavonoid: Việt quất (Blueberry) chứa anthocyanin bảo vệ não bộ, làm chậm suy giảm nhận thức đến 2,5 năm. Resveratrol tìm thấy trong nho đỏ và rượu vang (nên hấp thụ từ nho tươi hoặc thực phẩm bổ sung để tránh tác hại của cồn). Trà xanh chứa EGCG chống oxy hóa mạnh gấp 100 lần vitamin C; khảo sát trên 40.000 người cho thấy giảm 31% nguy cơ tử vong do bệnh tim mạch."
+          }
+        ]
+      },
+      {
+        id: "principle-4",
+        num: "06",
+        titleEN: "Principle 4: Balancing the Natural Hormone System",
+        titleVI: "Nguyên Tắc 4: Cân Bằng Hệ Thống Hormone Tự Nhiên",
+        badge: "Endocrine Optimization",
+        readTime: "4 min read",
+        summaryEN: "Master your circadian rhythm to optimize Growth Hormone and Melatonin, while curbing Insulin spikes and chronic Cortisol.",
+        summaryVI: "Tối ưu hóa nhịp sinh học để tăng tiết Hormone tăng trưởng và Melatonin, đồng thời kiểm soát độ nhạy Insulin và giảm tác hại của Cortisol.",
+        paragraphs: [
+          {
+            pNum: 1,
+            labelEN: "Growth Hormone (GH) & Deep Sleep Melatonin",
+            labelVI: "Hormone tăng trưởng (GH) & Melatonin trong giấc ngủ sâu",
+            en: "Growth Hormone (GH) & Melatonin: These critical restorative hormones are released at peak levels during deep sleep between 10:00 PM and 2:00 AM. Eliminating blue light exposure before bedtime and securing sufficient uninterrupted sleep repairs cellular tissue and effectively retards skin aging.",
+            vi: "Hormone tăng trưởng (GH) & Melatonin: Tiết ra mạnh nhất trong giấc ngủ sâu (22h00 - 02h00). Tránh ánh sáng xanh và ngủ đủ giấc giúp phục hồi mô và chống lão hóa da."
+          },
+          {
+            pNum: 2,
+            labelEN: "Insulin Sensitivity & Preventing AGEs Glycation",
+            labelVI: "Kiểm soát Insulin & Ngăn chặn quá trình đường hóa protein (AGEs)",
+            en: "Insulin Resistance: Insulin resistance produces chronically elevated blood glucose, accelerating protein glycation and generating destructive Advanced Glycation End-products (AGEs). It is vital to limit refined sugars, consume ample dietary fiber, and utilize cinnamon to dramatically enhance insulin sensitivity.",
+            vi: "Insulin: Kháng insulin dẫn đến đường huyết cao, đẩy nhanh quá trình đường hóa protein (AGEs). Cần hạn chế đường tinh luyện, bổ sung chất xơ và quế (cinnamon) để tăng độ nhạy insulin."
+          },
+          {
+            pNum: 3,
+            labelEN: "Cortisol Control & Circadian Darkness",
+            labelVI: "Kiểm soát Cortisol & Duy trì bóng tối cho Melatonin",
+            en: "Cortisol & Melatonin: Effectively manage stress to reduce chronic cortisol, which systematically degrades dermal collagen; simultaneously, preserve natural melatonin secretion by sleeping in complete, pitch-black darkness.",
+            vi: "Cortisol & Melatonin: Kiểm soát stress để giảm cortisol phá hủy collagen; duy trì melatonin tự nhiên bằng bóng tối khi ngủ."
+          }
+        ]
+      },
+      {
+        id: "principle-5",
+        num: "07",
+        titleEN: "Principle 5: Activating Longevity Genes (Sirtuins)",
+        titleVI: "Nguyên Tắc 5: Kích Hoạt Gen Trường Thọ (Sirtuins)",
+        badge: "Genetic Expression",
+        readTime: "4 min read",
+        summaryEN: "Harvard Professor David Sinclair's research: activating sirtuin longevity genes through caloric restriction, mimetics, and thermal hormesis.",
+        summaryVI: "Nghiên cứu đột phá từ GS. David Sinclair (Harvard): bật công tắc gen trường thọ sirtuins thông qua hạn chế calo, hợp chất bắt chước và liệu pháp nhiệt.",
+        paragraphs: [
+          {
+            pNum: 1,
+            labelEN: "Pioneering Research by David Sinclair",
+            labelVI: "Nghiên cứu tiên phong của Giáo sư David Sinclair (Harvard)",
+            en: "Pioneering research conducted by Professor David Sinclair at Harvard Medical School demonstrates that the sirtuin gene family can be actively switched on to substantially decelerate aging processes and even reverse established cellular markers of biological age.",
+            vi: "Nghiên cứu tiên phong của Giáo sư David Sinclair (Harvard) cho thấy nhóm gen sirtuins có thể được 'bật' lên để đảo ngược dấu hiệu tuổi tác và sửa chữa DNA hư tổn."
+          },
+          {
+            pNum: 2,
+            labelEN: "Caloric Restriction & Calorie-Restriction Mimetics",
+            labelVI: "Hạn chế calo có kiểm soát & Hợp chất bắt chước",
+            en: "Controlled Caloric Restriction: Moderately reducing daily caloric intake by 15–20% triggers robust sirtuin activation. Natural calorie-restriction mimetics such as resveratrol (found in red grapes), quercetin (in onions and apples), and fisetin (in strawberries) confer comparable benefits without extreme dietary deprivation.",
+            vi: "Hạn chế calo có kiểm soát: Giảm 15–20% calo tiêu thụ hàng ngày kích hoạt sirtuins hiệu quả. Hợp chất bắt chước (Mimetics) gồm resveratrol, quercetin và fisetin giúp kích thích gen trường thọ tương tự."
+          },
+          {
+            pNum: 3,
+            labelEN: "NAD+ Optimization & Thermal Hormesis",
+            labelVI: "Duy trì mức NAD+ & Liệu pháp kích thích nhiệt độ (Hormesis)",
+            en: "Sustaining NAD+ & Temperature Therapy: Resistance training, intermittent fasting, and controlled cold or heat exposure (cold plunge baths, traditional saunas) stimulate beneficial cellular hormesis, replenishing cellular NAD+ coenzymes and fortifying mitochondrial vigor.",
+            vi: "Duy trì NAD+ & Liệu pháp nhiệt độ: Tập luyện sức bền, nhịn ăn gián đoạn và tiếp xúc nhiệt độ lạnh (tắm lạnh, xông hơi sauna) kích hoạt cơ chế hồi đáp thích nghi (hormesis) và phục hồi năng lượng tế bào."
+          }
+        ]
+      },
+      {
+        id: "principle-6",
+        num: "08",
+        titleEN: "Principle 6: Building a Positive Social Network",
+        titleVI: "Nguyên Tắc 6: Xây Dựng Mạng Lưới Xã Hội Tích Cực",
+        badge: "Psychosocial Biology",
+        readTime: "4 min read",
+        summaryEN: "The 80-year Harvard Study reveals: warm relationships trigger oxytocin, reduce chronic inflammation, and protect health as powerfully as physical habits.",
+        summaryVI: "Nghiên cứu 80 năm của Harvard khẳng định: Mối quan hệ gắn kết kích thích oxytocin, giảm viêm và bảo vệ tuổi thọ mạnh mẽ ngang với lối sống thể chất.",
+        paragraphs: [
+          {
+            pNum: 1,
+            labelEN: "The 80-Year Harvard Study of Adult Development",
+            labelVI: "Nghiên cứu 80 năm của Harvard về Mối quan hệ",
+            en: "The landmark 80-year Harvard Study of Adult Development confirms: The quality of your interpersonal relationships is the single greatest determinant of enduring happiness and longevity. Chronic loneliness and social alienation inflict physical damage on health comparable to heavy smoking or clinical obesity.",
+            vi: "Nghiên cứu 80 năm của Harvard khẳng định: Chất lượng mối quan hệ quyết định hạnh phúc và tuổi thọ. Sự cô đơn gây tổn hại sức khỏe tương đương hút thuốc lá hay béo phì."
+          },
+          {
+            pNum: 2,
+            labelEN: "The Biological Power of Oxytocin",
+            labelVI: "Cơ chế sinh học: Tác dụng thần kỳ của Oxytocin",
+            en: "Biological Mechanism: Genuine social bonding stimulates the synthesis of oxytocin, a protective hormone that dampens systemic inflammation, reduces arterial blood pressure, and fortifies the immune system. Cultivating just 3 to 5 deeply trusted, high-quality relationships provides monumental protective benefits.",
+            vi: "Cơ chế: Kết nối xã hội kích thích sản sinh oxytocin (giảm viêm, hạ huyết áp). Chỉ cần 3-5 mối quan hệ chất lượng và lòng trắc ẩn (giúp đỡ người khác) làm giảm đáng kể nguy cơ tử vong và bệnh tim mạch."
+          },
+          {
+            pNum: 3,
+            labelEN: "Altruism & Helping Others (Mortality Reduced by 60%)",
+            labelVI: "Lòng trắc ẩn & Giúp đỡ cộng đồng (Giảm 60% nguy cơ tử vong)",
+            en: "Altruism and actively assisting others generate neurochemical rewards such as serotonin and dopamine. A long-term study from the University of Michigan tracking 423 couples over 5 years revealed that individuals who regularly supported and helped others experienced a 60% reduction in mortality risk compared to self-absorbed peers.",
+            vi: "Gắn kết & Giúp đỡ người khác: Khi cống hiến cho cộng đồng, cơ thể sản xuất serotonin và dopamin. Nghiên cứu từ Đại học Michigan theo dõi 423 cặp vợ chồng trong 5 năm cho thấy những người thường xuyên giúp đỡ người khác có nguy cơ tử vong giảm 60% so với người chỉ sống cho riêng mình."
+          }
+        ]
+      },
+      {
+        id: "skin-care",
+        num: "09",
+        titleEN: "Inner Skin Care: The Secret to Ageless Skin",
+        titleVI: "Chăm Sóc Da Từ Bên Trong: Bí Quyết Của Làn Da Không Tuổi",
+        badge: "Dermal Biology",
+        readTime: "4 min read",
+        summaryEN: "Skin mirrors your internal biological age. Optimize collagen synthesis with Vitamin C, hydration with Omega-3, and avoid glycation (AGEs).",
+        summaryVI: "Làn da phản chiếu tuổi sinh học bên trong. Tối ưu hóa tổng hợp collagen bằng Vitamin C, bảo vệ màng tế bào với Omega-3 và triệt tiêu AGEs từ đường.",
+        paragraphs: [
+          {
+            pNum: 1,
+            labelEN: "Collagen Depletion & Essential Vitamin C Synthesis",
+            labelVI: "Sự suy giảm Collagen & Vai trò thiết yếu của Vitamin C",
+            en: "Collagen & Vitamin C: Collagen accounts for 75% of skin dry weight, yet naturally declines at a rate of 1% per year starting from age 25. Vitamin C is biologically indispensable for collagen synthesis; supplementing adequate vitamin C has been clinically proven to enhance skin elasticity by 13% within 12 weeks while visibly diminishing fine wrinkles.",
+            vi: "Collagen & Vitamin C: Chiếm 75% trọng lượng da, giảm 1% mỗi năm từ tuổi 25. Vitamin C cần thiết để tổng hợp collagen (tăng độ đàn hồi da 13% sau 12 tuần bổ sung đều đặn)."
+          },
+          {
+            pNum: 2,
+            labelEN: "Omega-3 Hydration Barrier & Lycopene Internal Sunscreen",
+            labelVI: "Màng tế bào Omega-3 & Lá chắn chống tia UV từ Lycopene",
+            en: "Omega-3 & Lycopene: Omega-3 fatty acids (EPA & DHA from wild fish) preserve the cellular lipid barrier to lock in critical moisture, rendering skin supple and plump. Lycopene in cooked tomatoes provides documented internal photoprotection, safeguarding dermal cellular layers against solar ultraviolet radiation.",
+            vi: "Omega-3 & Lycopene: Giúp màng tế bào giữ nước, bảo vệ da khỏi tia UV từ bên trong. Licopen trong cà chua nấu chín được hấp thụ tốt gấp 3-5 lần so với cà chua sống."
+          },
+          {
+            pNum: 3,
+            labelEN: "Sugar Toxicity: The Cross-Linking of Collagen (AGEs)",
+            labelVI: "Tác hại của Đường: Quá trình hình thành AGEs làm giòn da",
+            en: "The Danger of Sugar (AGEs): Excessive dietary sugars bond with collagen and elastin through non-enzymatic glycation, generating Advanced Glycation End-products (AGEs). These toxic AGEs cross-link, stiffen, and embrittle collagen fibers, triggering deep wrinkles and irreversible skin sagging.",
+            vi: "Tác hại của Đường (AGEs): Đường dư thừa gắn kết với collagen tạo ra các sản phẩm cuối của quá trình đường hóa (AGEs), làm cứng và giòn sợi collagen, gây ra nếp nhăn và chảy xệ da nghiêm trọng."
+          }
+        ]
+      },
+      {
+        id: "blue-zones",
+        num: "10",
+        titleEN: "Lifestyle Lessons from the World's Blue Zones",
+        titleVI: "Bài Học Lối Sống Từ Các Vùng Xanh (Blue Zones)",
+        badge: "Field Longevity Models",
+        readTime: "5 min read",
+        summaryEN: "Five longevity epicenters—Okinawa, Sardinia, Nicoya, Ikaria, and Loma Linda—and their replicable daily practices.",
+        summaryVI: "Năm khu vực có tỷ lệ sống thọ trăm tuổi cao nhất thế giới: Okinawa, Sardinia, Nicoya, Ikaria, Loma Linda và các thói quen có thể áp dụng.",
+        paragraphs: [
+          {
+            pNum: 1,
+            labelEN: "1. Okinawa, Japan: Hara Hachi Bu & Ikigai",
+            labelVI: "1. Okinawa (Nhật Bản): Hara Hachi Bu & Ikigai",
+            en: "Okinawa (Japan): Residents practice 'Hara Hachi Bu' (eating until merely 80% full, naturally creating caloric restriction), cultivate their 'Ikigai' (a distinct reason for waking up each morning), and rely on 'Moai' (lifelong mutual support circles). Their traditional diet is centered on anthocyanin-packed purple sweet potatoes and mineral-dense seaweed.",
+            vi: "1. Okinawa (Nhật Bản): Triết lý Hara Hachi Bu (chỉ ăn no 80%), Ikigai (lý do thức dậy mỗi buổi sáng), Moai (nhóm bạn hỗ trợ trọn đời), ăn nhiều khoai lang tím giàu anthocyanin và tảo biển cung cấp khoáng chất."
+          },
+          {
+            pNum: 2,
+            labelEN: "2. Sardinia, Italy: Steep Terrain & Cannonau Wine",
+            labelVI: "2. Sardinia (Ý): Vận động sườn đồi dốc & Rượu vang Cannonau",
+            en: "Sardinia (Italy): Daily natural physical movement walking up and down mountainous slopes, moderate consumption of local polyphenol-rich Cannonau red wine exclusively during meals, and profound societal reverence for elders within multi-generational homes.",
+            vi: "2. Sardinia (Ý): Vận động tự nhiên qua địa hình đồi núi dốc mỗi ngày, uống rượu vang đỏ Cannonau vừa phải giàu resveratrol cùng bữa ăn, tôn trọng và tôn vinh người cao tuổi trong gia đình đa thế hệ."
+          },
+          {
+            pNum: 3,
+            labelEN: "3. Nicoya Peninsula, Costa Rica: Hard Water & Three Sisters Diet",
+            labelVI: "3. Bán đảo Nicoya (Costa Rica): Nước giàu khoáng chất & Bộ ba thực phẩm",
+            en: "Nicoya Peninsula (Costa Rica): Natural tap water rich in calcium and magnesium originating from volcanic aquifers, a nutritional triad ('The Three Sisters' of black beans, corn, and squash providing complete complementary amino acids), and a lifestyle synchronized with natural solar rhythms.",
+            vi: "3. Nicoya (Costa Rica): Nguồn nước tự nhiên giàu canxi và magie, bộ ba thực phẩm hoàn hảo (đậu đen, bắp, bí ngô) cung cấp đầy đủ axit amin, nhịp sống gắn liền với ánh sáng mặt trời."
+          },
+          {
+            pNum: 4,
+            labelEN: "4. Ikaria, Greece: Afternoon Siestas & Wild Anti-Inflammatory Teas",
+            labelVI: "4. Đảo Ikaria (Hy Lạp): Thói quen ngủ trưa & Trà thảo mộc",
+            en: "Ikaria (Greece): A scientific daily habit of 20 to 30-minute afternoon siestas (associated with a 37% decrease in cardiovascular mortality) alongside regular consumption of native wild herbal teas boasting immense anti-inflammatory and antioxidant potency.",
+            vi: "4. Ikaria (Hy Lạp): Thói quen ngủ trưa khoa học 20-30 phút (giảm 37% nguy cơ bệnh tim), sử dụng trà thảo dược địa phương (kinh giới, xô thơm) giàu chất chống viêm và chống oxy hóa."
+          },
+          {
+            pNum: 5,
+            labelEN: "5. Loma Linda, USA: Sabbath Rest & Whole-Food Plant Nutrition",
+            labelVI: "5. Loma Linda (Mỹ): Nghỉ ngơi Sabbath & Dinh dưỡng thuần thực vật",
+            en: "Loma Linda (California, USA): A tight-knit Seventh-day Adventist faith community with high emotional equilibrium, adherence to a whole-food plant-predominant diet, strict avoidance of smoking and alcohol, and observing a weekly sacred Sabbath—a day of total mental and physical restoration.",
+            vi: "5. Loma Linda (Mỹ): Cộng đồng Adventist với đời sống đức tin ổn định, chế độ ăn thuần thực vật hoặc ít thịt, kiêng thuốc lá rượu bia, và một ngày nghỉ ngơi tĩnh tâm tuyệt đối (Sabbath) mỗi tuần để phục hồi năng lượng."
+          }
+        ]
+      },
+      {
+        id: "conclusion",
+        num: "11",
+        titleEN: "Conclusion: The Rejuvenation Journey Starts Today",
+        titleVI: "Lời Kết: Hành Trình Trẻ Hóa Từ Hôm Nay",
+        badge: "Action Blueprint",
+        readTime: "3 min read",
+        summaryEN: "Aging is not an immutable fate. Take charge of the 75% lifestyle determinant with small, consistent daily upgrades.",
+        summaryVI: "Lão hóa không phải là bản án bất di bất dịch. Nắm giữ 75% quyền quyết định bằng những thay đổi nhỏ nhưng kiên trì mỗi ngày.",
+        paragraphs: [
+          {
+            pNum: 1,
+            labelEN: "75% of Your Biological Destiny in Your Hands",
+            labelVI: "75% Quyền quyết định tuổi sinh học nằm trong tay bạn",
+            en: "Aging is not an immutable biological sentence, but rather a malleable process. With 75% of longevity determination resting firmly in your hands, every single choice regarding nutrition, physical exertion, restorative sleep, and emotional peace today represents an invaluable investment in your future.",
+            vi: "Lão hóa không phải là một bản án cố định mà là một tiến trình có thể điều chỉnh. Với 75% quyền quyết định nằm trong tay bạn, mỗi lựa chọn về dinh dưỡng, vận động, giấc ngủ và tinh thần hôm nay chính là khoản đầu tư vô giá cho tương lai."
+          },
+          {
+            pNum: 2,
+            labelEN: "Small Shifts, Compound Results & Inner Radiance",
+            labelVI: "Thay đổi nhỏ, kết quả vững bền & Tỏa sáng từ bên trong",
+            en: "Begin with the smallest sustainable shifts, cultivate steady persistence, and allow your body to radiate youthful vigor naturally from within. No magical pill will ever replace the compounding power of a consistent healthy lifestyle; let modern science and time-tested principles guide your vitality forward.",
+            vi: "Hãy bắt đầu từ những thay đổi nhỏ nhất, kiên trì và để cơ thể tự nhiên tỏa sáng nguồn năng lượng trẻ trung từ bên trong. Không có viên thuốc thần kỳ nào có thể thay thế một lối sống lành mạnh; hãy để khoa học và quy luật tự nhiên dẫn lối cho sức khỏe của bạn."
+          }
+        ]
+      }
+    ];
+
+    /* Rich B2/C1 Academic Vocabulary Database (30 specialized terms) */
+    const GLOSSARY = [
+      {
+        term: "Healthspan",
+        pos: "noun",
+        category: "biology",
+        defEN: "The period of a person's life during which they are generally healthy, active, and free from serious or chronic debilitating disease.",
+        plainEN: "The total number of years you live in vibrant good health, not just the total years you stay alive on paper.",
+        context: "The core goal of modern medicine is not merely extending chronological lifespan, but extending healthspan.",
+        termVI: "Tuổi thọ khỏe mạnh",
+        meaningVI: "Khoảng thời gian trong đời mà một người duy trì thể trạng khỏe mạnh, minh mẫn và không mắc các bệnh mãn tính nặng nề."
+      },
+      {
+        term: "Telomere",
+        pos: "noun",
+        category: "biology",
+        defEN: "A repetitive nucleotide sequence at the terminal ends of chromosomes that protects them from degradation and irregular fusion during cell division.",
+        plainEN: "A tiny protective plastic cap at the tip of your DNA strands, like the plastic aglet on a shoelace.",
+        context: "Telomeres sit at the terminal ends of chromosomes, acting like the plastic tips on shoelaces that prevent chromosomes from fraying.",
+        termVI: "Đoạn mút nhiễm sắc thể (Telomer)",
+        meaningVI: "Cấu trúc bảo vệ nằm ở hai đầu mút của nhiễm sắc thể, ngắn lại sau mỗi lần tế bào phân chia."
+      },
+      {
+        term: "Senescence",
+        pos: "noun",
+        category: "biology",
+        defEN: "The condition or biological process of cellular deterioration with age, in which damaged cells irreversibly stop dividing but remain metabolically active.",
+        plainEN: "A state where worn-out 'zombie' cells refuse to divide or die, releasing inflammatory chemicals that damage nearby tissues.",
+        context: "When telomeres become critically short, cells cease dividing and enter senescence.",
+        termVI: "Sự lão hóa tế bào / Tình trạng già cỗi",
+        meaningVI: "Trạng thái tế bào ngừng phân chia vĩnh viễn do tổn thương hoặc telomer quá ngắn, gây viêm mô xung quanh."
+      },
+      {
+        term: "Autophagy",
+        pos: "noun",
+        category: "biology",
+        defEN: "An intracellular degradation and recycling system whereby cytoplasmic materials, broken organelles, and misfolded proteins are encapsulated in autophagosomes and digested by lysosomes.",
+        plainEN: "The body's self-cleaning garbage truck that dismantles cellular trash and recycles it into fresh raw materials.",
+        context: "Autophagy is the cell's internal recycling mechanism, discovered by Japanese scientist Yoshinori Ohsumi.",
+        termVI: "Cơ chế tự thực bào (Autophagy)",
+        meaningVI: "Quá trình tế bào tự tiêu hóa và tái chế các protein hư hỏng và bào quan già cỗi để tạo vật liệu mới."
+      },
+      {
+        term: "Glycogen",
+        pos: "noun",
+        category: "nutrition",
+        defEN: "A multibranched polysaccharide of glucose that functions as the secondary long-term form of energy storage in animal and fungal cells.",
+        plainEN: "The body's quick-access sugar fuel tank stored directly inside liver and muscle cells.",
+        context: "Practicing a 16:8 intermittent fasting cycle depletes glycogen stores and shifts the body into a potent cellular cleanup mode.",
+        termVI: "Đường dự trữ Glycogen",
+        meaningVI: "Dạng carbohydrate dự trữ năng lượng trong gan và cơ bắp, được cơ thể đốt hết trước khi kích hoạt dọn dẹp tế bào."
+      },
+      {
+        term: "Free Radicals",
+        pos: "noun phrase",
+        category: "nutrition",
+        defEN: "Unstable, highly reactive atoms or molecules with an unpaired electron that cause cellular oxidative damage by stealing electrons from lipids, proteins, and DNA.",
+        plainEN: "Microscopic biological bullets that bounce around uncontrollably inside cells, damaging critical genetic machinery.",
+        context: "Cellular metabolism and environmental pollution generate reactive free radicals that assault cell membranes and nuclear DNA.",
+        termVI: "Các gốc tự do",
+        meaningVI: "Các phân tử hoặc nguyên tử không ổn định có chứa electron chưa ghép cặp, tấn công màng tế bào và DNA."
+      },
+      {
+        term: "Oxidative Stress",
+        pos: "noun phrase",
+        category: "nutrition",
+        defEN: "A pathological state characterized by an imbalance between the systemic manifestation of reactive oxygen species (ROS) and a biological system's ability to detoxify the reactive intermediates.",
+        plainEN: "Cellular 'rusting' that occurs when harmful oxidative toxins overwhelm your body's natural antioxidant fire-extinguishers.",
+        context: "Leafy greens and vitamin-rich foods shield telomeres from oxidative stress and chronic tissue wear.",
+        termVI: "Căng thẳng oxy hóa (Oxidative Stress)",
+        meaningVI: "Hiện tượng mất cân bằng khi số lượng gốc tự do vượt quá khả năng trung hòa của các chất chống oxy hóa trong cơ thể."
+      },
+      {
+        term: "Glutathione Peroxidase",
+        pos: "noun",
+        category: "nutrition",
+        defEN: "A family of essential selenium-dependent intracellular antioxidant enzymes that catalyze the reduction of harmful hydrogen peroxide and organic hydroperoxides to water or alcohols.",
+        plainEN: "The body's most powerful built-in antioxidant engine, powered directly by dietary selenium.",
+        context: "Brazil nuts activate the body's most formidable internal antioxidant enzyme: glutathione peroxidase.",
+        termVI: "Enzyme Glutathione Peroxidase",
+        meaningVI: "Men chống oxy hóa nội sinh mạnh nhất cơ thể, có chứa selenium, giúp biến đổi các chất độc peroxide thành nước."
+      },
+      {
+        term: "Polyphenol",
+        pos: "noun",
+        category: "nutrition",
+        defEN: "A structural class of mainly natural organic compounds characterized by the presence of large multiples of phenol structural units, displaying potent radical-scavenging properties.",
+        plainEN: "Plant-derived defense nutrients that give fruits and teas their deep colors and protect our tissues from chronic inflammation.",
+        context: "The most potent antioxidants originate from the plant kingdom in the form of polyphenols and flavonoids.",
+        termVI: "Hợp chất sinh học Polyphenol",
+        meaningVI: "Nhóm vi chất dinh dưỡng tự nhiên có nhiều trong thực vật, có khả năng kháng viêm và chống oxy hóa vượt trội."
+      },
+      {
+        term: "Anthocyanin",
+        pos: "noun",
+        category: "nutrition",
+        defEN: "Water-soluble flavonoid vacuolar pigments that appear red, purple, blue, or black according to pH, exerting documented neuroprotective and cardiovascular benefits.",
+        plainEN: "The rich purple-blue pigment found in berries and Okinawan sweet potatoes that shields brain neurons from aging.",
+        context: "Blueberries pack concentrated anthocyanins that defend cerebral tissue, delaying cognitive decline by 2.5 years.",
+        termVI: "Sắc tố Anthocyanin",
+        meaningVI: "Chất màu thực vật thuộc nhóm flavonoid tạo màu tím hoặc xanh đậm cho quả mọng, giúp tăng cường trí nhớ và bảo vệ tim."
+      },
+      {
+        term: "Resveratrol",
+        pos: "noun",
+        category: "nutrition",
+        defEN: "A natural stilbenoid polyphenol produced by several plants in response to injury or pathogens, well-known for allosterically activating the SIRT1 longevity enzyme.",
+        plainEN: "A longevity-boosting compound found in the skins of red grapes that tells cells to enter defensive survival mode.",
+        context: "Resveratrol found in red grapes and wine activates longevity genes and preserves vascular flexibility.",
+        termVI: "Hoạt chất Resveratrol",
+        meaningVI: "Hợp chất chống oxy hóa tự nhiên trong vỏ nho đỏ, có khả năng kích hoạt nhóm gen trường thọ sirtuins."
+      },
+      {
+        term: "Epigallocatechin Gallate (EGCG)",
+        pos: "noun",
+        category: "nutrition",
+        defEN: "The most abundant and biologically active catechin polyphenol in green tea, possessing antioxidant activity approximately 100 times higher than vitamin C.",
+        plainEN: "The powerhouse antioxidant molecule in green tea that neutralizes free radicals and activates cellular self-cleansing.",
+        context: "Green tea delivers EGCG with antioxidant activity 100 times stronger than vitamin C, significantly cutting mortality risk.",
+        termVI: "Hoạt chất EGCG trong trà xanh",
+        meaningVI: "Dạng polyphenol dồi dào nhất trong lá trà xanh, có hoạt tính chống oxy hóa gấp 100 lần so với vitamin C."
+      },
+      {
+        term: "Human Growth Hormone (HGH)",
+        pos: "noun phrase",
+        category: "hormones",
+        defEN: "A peptide hormone synthesized by the anterior pituitary gland that stimulates cellular reproduction, somatic growth, tissue repair, and protein synthesis.",
+        plainEN: "The body's primary rejuvenation hormone that repairs muscles and organs, released mainly while you sleep soundly at night.",
+        context: "Growth Hormone (GH) is released at peak levels during deep sleep between 10:00 PM and 2:00 AM.",
+        termVI: "Hormone tăng trưởng (GH)",
+        meaningVI: "Hormone do tuyến yên tiết ra mạnh nhất vào giấc ngủ sâu ban đêm, chịu trách nhiệm tái tạo và phục hồi tế bào."
+      },
+      {
+        term: "Melatonin",
+        pos: "noun",
+        category: "hormones",
+        defEN: "A pleiotropic neurohormone synthesized by the pineal gland that synchronizes circadian cycles and acts as a direct scavenger of reactive oxygen and nitrogen species.",
+        plainEN: "The sleep hormone that cues your body to wind down in darkness and doubles as a nightly cellular detoxifier.",
+        context: "Preserve natural melatonin secretion by sleeping in complete, pitch-black darkness to protect dermal structure.",
+        termVI: "Hormone Melatonin",
+        meaningVI: "Hormone điều hòa chu kỳ giấc ngủ do tuyến tùng tiết ra trong bóng tối, đồng thời là chất chống oxy hóa ban đêm."
+      },
+      {
+        term: "Insulin Resistance",
+        pos: "noun phrase",
+        category: "hormones",
+        defEN: "A pathological metabolic condition in which target cells (liver, muscle, adipose) fail to respond appropriately to circulating insulin concentrations, triggering hyperinsulinemia.",
+        plainEN: "A condition where cells become numb to insulin's signals, leaving toxic levels of sugar floating in the blood.",
+        context: "Insulin resistance produces chronically elevated blood glucose, accelerating protein glycation and generating AGEs.",
+        termVI: "Đề kháng Insulin",
+        meaningVI: "Tình trạng các tế bào giảm độ nhạy cảm với hormone insulin, dẫn đến đường huyết tăng cao mãn tính."
+      },
+      {
+        term: "Advanced Glycation End-products (AGEs)",
+        pos: "noun phrase",
+        category: "biology",
+        defEN: "Proteins or lipids that become non-enzymatically glycated and oxidized after exposure to aldose sugars, resulting in stiff cross-linked molecular lattices.",
+        plainEN: "Harmful caramelized protein crusts formed when excess blood sugar glues to collagen fibers, making skin brittle and wrinkly.",
+        context: "Excessive dietary sugars bond with collagen, generating Advanced Glycation End-products (AGEs) that cause deep wrinkles.",
+        termVI: "Sản phẩm đường hóa nâng cao (AGEs)",
+        meaningVI: "Các hợp chất độc hại hình thành khi đường dư thừa liên kết với collagen, làm xơ cứng và đứt gãy sợi đàn hồi của da."
+      },
+      {
+        term: "Cortisol",
+        pos: "noun",
+        category: "hormones",
+        defEN: "A primary glucocorticoid steroid hormone released by the adrenal cortex in response to psychological or physiological stress, promoting catabolic pathways when chronically elevated.",
+        plainEN: "The body's primary emergency stress hormone that, when elevated for months, melts away collagen and shortens telomeres.",
+        context: "Chronic psychological stress triggers cortisol release, which actively attacks and rapidly shortens telomeres.",
+        termVI: "Hormone căng thẳng Cortisol",
+        meaningVI: "Hormone do vỏ tuyến thượng thận tiết ra khi gặp căng thẳng; nếu kéo dài sẽ làm teo collagen và suy giảm miễn dịch."
+      },
+      {
+        term: "Sirtuins",
+        pos: "noun plural",
+        category: "biology",
+        defEN: "A conserved family of seven NAD+-dependent deacetylase enzymes (SIRT1–SIRT7) that regulate epigenetic silencing, mitochondrial homeostasis, and genomic DNA repair.",
+        plainEN: "Master genetic longevity switches that protect your DNA from breaking down when food is scarce or when cells are challenged.",
+        context: "Pioneering research demonstrates that sirtuins can be actively switched on to reverse cellular markers of biological age.",
+        termVI: "Nhóm gen trường thọ Sirtuins",
+        meaningVI: "Họ enzyme phụ thuộc NAD+ đóng vai trò như các công tắc di truyền giúp sửa chữa tổn thương DNA và kéo dài tuổi thọ tế bào."
+      },
+      {
+        term: "Caloric Restriction",
+        pos: "noun phrase",
+        category: "nutrition",
+        defEN: "A nutritional intervention that reduces total caloric consumption by 15–40% below ad libitum intake without incurring malnutrition or deprivation of essential micronutrients.",
+        plainEN: "Eating slightly less total food each day while ensuring you still ingest all necessary vitamins and essential nutrients.",
+        context: "Moderately reducing daily caloric intake by 15–20% triggers robust sirtuin activation and prolongs healthspan.",
+        termVI: "Hạn chế Calo có kiểm soát",
+        meaningVI: "Chế độ giảm 15-20% lượng calo nạp vào hàng ngày nhưng vẫn đảm bảo đầy đủ dưỡng chất thiết yếu."
+      },
+      {
+        term: "Nicotinamide Adenine Dinucleotide (NAD+)",
+        pos: "noun",
+        category: "biology",
+        defEN: "A critical coenzyme present in all living cells that facilitates bioenergetic redox reactions and acts as an obligatory stoichiometric substrate for sirtuin deacetylases and PARP enzymes.",
+        plainEN: "The biological fuel that longevity genes (sirtuins) consume in order to perform vital DNA repairs.",
+        context: "Sustaining cellular NAD+ through endurance exercise and fasting preserves vital mitochondrial vigor.",
+        termVI: "Coenzyme NAD+",
+        meaningVI: "Phân tử đồng enzyme thiết yếu hiện diện trong mọi tế bào, là nhiên liệu bắt buộc để gen sirtuin hoạt động."
+      },
+      {
+        term: "Hormesis",
+        pos: "noun",
+        category: "biology",
+        defEN: "A biphasic dose-response phenomenon characterized by a low-dose stimulation or beneficial biological adaptation resulting from exposure to an otherwise mild acute stressor.",
+        plainEN: "The biological principle of 'what doesn't kill you makes your cells stronger'—such as brief cold showers, saunas, or intense exercise.",
+        context: "Controlled cold plunge baths and saunas stimulate beneficial cellular hormesis, replenishing cellular defenses.",
+        termVI: "Cơ chế thích nghi Hormesis",
+        meaningVI: "Hiện tượng sinh học mà một liều lượng căng thẳng nhẹ (nhiệt độ, nhịn ăn, tập luyện) kích thích cơ thể tự phục hồi mạnh mẽ hơn."
+      },
+      {
+        term: "Oxytocin",
+        pos: "noun",
+        category: "hormones",
+        defEN: "A nine-amino-acid neuropeptide and peptide hormone synthesized in the hypothalamus, known for mitigating sympathetic tone, reducing inflammation, and fostering human social bonding.",
+        plainEN: "The 'love and connection' hormone that floods your body when feeling safe among trusted friends, lowering blood pressure.",
+        context: "Social connection stimulates oxytocin synthesis, which dampens inflammation and reduces arterial pressure.",
+        termVI: "Hormone gắn kết Oxytocin",
+        meaningVI: "Hormone gắn kết xã hội do vùng dưới đồi tiết ra, có tác dụng hạ huyết áp, làm dịu thần kinh và giảm viêm mãn tính."
+      },
+      {
+        term: "Collagen",
+        pos: "noun",
+        category: "biology",
+        defEN: "The most abundant structural fibrous protein in extracellular matrix connective tissues, responsible for mechanical tensile strength, hydration retention, and skin firmness.",
+        plainEN: "The structural spring-matrix that holds skin, joints, and bones together, preventing wrinkles.",
+        context: "Collagen accounts for 75% of skin dry weight, yet naturally declines at a rate of 1% per year after age 25.",
+        termVI: "Protein sợi Collagen",
+        meaningVI: "Loại protein cấu trúc chính chiếm 75% trọng lượng khô của da, quyết định độ đàn hồi, săn chắc và mịn màng."
+      },
+      {
+        term: "Lycopene",
+        pos: "noun",
+        category: "nutrition",
+        defEN: "A symmetrical tetraterpene carotenoid hydrocarbon pigment predominantly found in tomatoes, possessing exceptionally high singlet-oxygen quenching capability.",
+        plainEN: "The bright red pigment in cooked tomatoes that functions as an internal sunscreen against damaging UV rays.",
+        context: "Lycopene in cooked tomatoes provides documented internal photoprotection against solar ultraviolet radiation.",
+        termVI: "Sắc tố Lycopene",
+        meaningVI: "Chất chống oxy hóa thuộc nhóm carotenoid trong cà chua chín, giúp bảo vệ tế bào da khỏi tia cực tím từ bên trong."
+      },
+      {
+        term: "Hara Hachi Bu",
+        pos: "idiom",
+        category: "lifestyle",
+        defEN: "A traditional Confucian dietary philosophy practiced by Okinawans that advises eating only until the stomach is eighty percent satiated.",
+        plainEN: "The golden mindful eating rule: push the plate away when you feel 80% satisfied rather than completely stuffed.",
+        context: "Residents practice 'Hara Hachi Bu' (eating until merely 80% full, naturally generating mild caloric restriction).",
+        termVI: "Triết lý Hara Hachi Bu (Ăn no 80%)",
+        meaningVI: "Nguyên tắc ăn uống cổ xưa của người Okinawa: ngừng ăn khi dạ dày đã đạt mức 80% độ no để tránh quá tải chuyển hóa."
+      },
+      {
+        term: "Ikigai",
+        pos: "noun",
+        category: "lifestyle",
+        defEN: "A Japanese existential concept referring to one's overarching sense of personal mission, purpose, and direction that makes life worthwhile and vibrant.",
+        plainEN: "Your unique life passion—the inspiring reason you smile and jump out of bed every morning.",
+        context: "Okinawans cultivate their 'Ikigai' (a distinct reason for waking up each morning), which alleviates psychological distress.",
+        termVI: "Lẽ sống Ikigai",
+        meaningVI: "Khái niệm sống của người Nhật chỉ lý do hiện hữu, mục đích sống rõ ràng mang lại niềm vui và ý nghĩa cuộc đời."
+      },
+      {
+        term: "Moai",
+        pos: "noun",
+        category: "lifestyle",
+        defEN: "An Okinawan social support structure wherein small groups of individuals are committed to providing lifelong mutual social, emotional, and financial backing.",
+        plainEN: "A tight circle of childhood friends pledged to support, protect, and accompany each other throughout their entire lives.",
+        context: "Okinawans rely on 'Moai' (lifelong mutual support circles), guaranteeing that no one ever experiences crushing loneliness.",
+        termVI: "Nhóm tương trợ Moai",
+        meaningVI: "Mạng lưới bạn bè thân thiết từ thuở nhỏ tại Okinawa, gắn kết và hỗ trợ lẫn nhau về tinh thần và xã hội đến trọn đời."
+      },
+      {
+        term: "Circadian Rhythm",
+        pos: "noun phrase",
+        category: "lifestyle",
+        defEN: "The endogenous, entrainable roughly 24-hour cycle of biochemical, physiological, and behavioral processes driven by the suprachiasmatic nucleus (SCN).",
+        plainEN: "The internal 24-hour master clock that tells every organ when to work, when to digest, and when to sleep.",
+        context: "Nicoyans lead a lifestyle synchronized with natural solar rhythms and daily light cycles.",
+        termVI: "Nhịp sinh học 24 giờ",
+        meaningVI: "Chu kỳ sinh học tự nhiên theo vòng quay 24 giờ của trái đất, điều khiển sự tiết hormone và tái tạo tế bào."
+      },
+      {
+        term: "Intermittent Fasting",
+        pos: "noun phrase",
+        category: "lifestyle",
+        defEN: "An umbrella term for diet schedules that cycle between voluntary periods of fasting and non-fasting within specific recurring temporal intervals.",
+        plainEN: "A scheduled eating routine where you eat all meals within an 8-hour window and give your digestive system a 16-hour rest.",
+        context: "Adopting a 16:8 intermittent fasting cycle depletes systemic glycogen stores and propels the body into cellular cleanup.",
+        termVI: "Nhịn ăn gián đoạn",
+        meaningVI: "Phương pháp phân chia thời gian ăn và nhịn một cách có kiểm soát (như 16:8) nhằm tối ưu hóa chức năng tế bào."
+      },
+      {
+        term: "Proline & Glycine",
+        pos: "noun phrase",
+        category: "biology",
+        defEN: "Two primary non-essential amino acids that form the distinctive repeating triple-helix helical structural backbone of collagen molecules.",
+        plainEN: "The two indispensable amino acid building blocks required by human cells to weave strong, supple collagen fibers.",
+        context: "Proline and glycine, the two foundational amino acids in collagen structure, are abundantly provided by slow-cooked bone broths.",
+        termVI: "Axit amin Proline & Glycine",
+        meaningVI: "Hai axit amin thiết yếu cấu thành nên chuỗi xoắn ba của sợi collagen, có nhiều trong nước hầm xương tự nhiên."
+      }
+    ];
+
+    /* Application State Manager */
+    const State = {
+      currentView: "overview", // 'overview' | 'intro' | 'part1' | 'principle-1' ... | 'glossary'
+      globalDefaultLang: "EN", // 'EN' | 'VI'
+      cardLanguages: {},       // map of sectionId_paragraphIndex -> 'EN' | 'VI'
+      headerLanguages: {},     // map of sectionId -> 'EN' | 'VI'
+      viewMode: "flip",        // 'flip' | 'dual'
+      activeCategory: "all",   // glossary filter
+      glossarySearch: "",      // glossary search string
+      revealedVocab: {},       // map of index -> boolean
+      theme: "light",
+      isSpeaking: false,
+      speechUtterance: null
+    };
+
+    /* Web Speech Synthesis Handler */
+    function speakText(text, lang = 'en-US') {
+      if (!('speechSynthesis' in window)) {
+        showToast("Speech synthesis is not supported on this browser.", "error");
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      utterance.rate = 0.95; // slightly slower for better pedagogical clarity
+      utterance.pitch = 1.0;
+
+      const ttsController = document.getElementById('tts-controller');
+      const ttsLabel = document.getElementById('tts-label');
+
+      utterance.onstart = () => {
+        State.isSpeaking = true;
+        if (ttsController) {
+          ttsController.classList.remove('hidden');
+          ttsLabel.innerText = lang.startsWith('vi') ? "Đang đọc Tiếng Việt..." : "Reading in English...";
+        }
+      };
+
+      utterance.onend = utterance.onerror = () => {
+        State.isSpeaking = false;
+        if (ttsController) {
+          ttsController.classList.add('hidden');
+        }
+      };
+
+      State.speechUtterance = utterance;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function stopSpeech() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      State.isSpeaking = false;
+      const ttsController = document.getElementById('tts-controller');
+      if (ttsController) ttsController.classList.add('hidden');
+    }
+
+    /* Toast Notification System (No alert() used) */
+    function showToast(message, type = "info") {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+      
+      const toast = document.createElement('div');
+      const colors = type === "error" 
+        ? "bg-rose-600 text-white" 
+        : type === "success" 
+        ? "bg-emerald-600 text-white" 
+        : "bg-slate-800 text-white dark:bg-slate-700";
+
+      toast.className = `px-4 py-2.5 rounded-xl shadow-xl text-xs font-semibold tracking-wide flex items-center gap-2 transform transition-all duration-300 translate-y-4 opacity-0 pointer-events-auto ${colors}`;
+      toast.innerHTML = `
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span>${message}</span>
+      `;
+
+      container.appendChild(toast);
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-4', 'opacity-0');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3200);
+    }
+
+    /* Theme Initializer */
+    function initTheme() {
+      const savedTheme = localStorage.getItem('longevity_theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      State.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      applyTheme();
+    }
+
+    function applyTheme() {
+      const html = document.documentElement;
+      const darkIcon = document.getElementById('theme-icon-dark');
+      const lightIcon = document.getElementById('theme-icon-light');
+
+      if (State.theme === 'dark') {
+        html.classList.add('dark');
+        darkIcon.classList.remove('hidden');
+        lightIcon.classList.add('hidden');
+      } else {
+        html.classList.remove('dark');
+        darkIcon.classList.add('hidden');
+        lightIcon.classList.remove('hidden');
+      }
+      localStorage.setItem('longevity_theme', State.theme);
+    }
+
+    function toggleTheme() {
+      State.theme = State.theme === 'dark' ? 'light' : 'dark';
+      applyTheme();
+    }
+
+    /* Router: View Switching */
+    function router() {
+      stopSpeech();
+      const hash = window.location.hash.replace('#', '').trim() || 'overview';
+      State.currentView = hash;
+
+      const appRoot = document.getElementById('app-root');
+      const navBackBtn = document.getElementById('nav-back-btn');
+      const readingProgress = document.getElementById('reading-progress');
+      
+      // Update persistent Nav Back button visibility
+      if (hash === 'overview') {
+        navBackBtn.classList.add('hidden');
+        navBackBtn.classList.remove('inline-flex');
+        if (readingProgress) readingProgress.style.width = '0%';
+      } else {
+        navBackBtn.classList.remove('hidden');
+        navBackBtn.classList.add('inline-flex');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Animate View Transition
+      appRoot.classList.add('opacity-0');
+      setTimeout(() => {
+        if (hash === 'overview') {
+          renderOverview(appRoot);
+        } else if (hash === 'glossary') {
+          renderGlossary(appRoot);
+        } else {
+          const section = SECTIONS.find(s => s.id === hash);
+          if (section) {
+            renderSection(appRoot, section);
+          } else {
+            renderOverview(appRoot);
+          }
+        }
+        appRoot.classList.remove('opacity-0');
+      }, 150);
+    }
+
+    /* Page 1: Render Overview Hub */
+    function renderOverview(root) {
+      root.innerHTML = `
+        <!-- Hero Header -->
+        <section class="mb-10 text-center relative py-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-300 dark:border-emerald-800">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            Scientific Longevity Blueprint & Blue Zones Insights
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-3 font-sans">
+            6 Natural Anti-Aging Principles
+          </h1>
+          <h2 class="text-xl sm:text-2xl font-medium text-emerald-600 dark:text-emerald-400 mb-4">
+            Báo Cáo Khoa Học: Chống Lão Hóa Tự Nhiên & Bí Quyết Từ Các Vùng Xanh
+          </h2>
+          <p class="max-w-2xl mx-auto text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+            A comprehensive bilingual exploration of peer-reviewed breakthroughs from Harvard Medical School, Stanford University, and the world's highest-density centenarian regions.
+          </p>
+
+          <!-- Core Metric Badges -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mt-8">
+            <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <div class="text-2xl font-black text-emerald-600 dark:text-emerald-400">75%</div>
+              <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">Lifestyle & Environment</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <div class="text-2xl font-black text-teal-600 dark:text-teal-400">25%</div>
+              <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">Genetic Contribution</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <div class="text-2xl font-black text-indigo-600 dark:text-indigo-400">6 Pillars</div>
+              <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">Proven Biological Axioms</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <div class="text-2xl font-black text-amber-500">5 Zones</div>
+              <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">Global Longevity Epicenters</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Featured Academic Glossary Banner -->
+        <div class="mb-10 p-6 rounded-3xl bg-gradient-to-r from-emerald-600 to-teal-700 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+          <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+          <div class="space-y-1.5 z-10 text-center md:text-left">
+            <div class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider bg-white/20 px-3 py-0.5 rounded-full backdrop-blur-sm">
+              <span>Interactive Learner Glossary</span>
+            </div>
+            <h3 class="text-2xl font-black">Master 30 Academic B2/C1 Scientific Terms</h3>
+            <p class="text-emerald-100 text-sm max-w-xl">
+              Equip yourself with precise medical vocabulary: Telomeres, Autophagy, Glycation, Sirtuins, Hormesis, and Okinawan lifestyle concepts with audio pronunciations.
+            </p>
+          </div>
+          <a href="#glossary" class="z-10 shrink-0 px-6 py-3 rounded-xl bg-white text-emerald-800 font-bold text-sm shadow-md hover:bg-emerald-50 active:scale-95 transition-all flex items-center gap-2">
+            <span>Explore Vocabulary Hub</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Section Reading Grid -->
+        <div class="mb-6 flex items-center justify-between">
+          <h3 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+            <span>Document Sections</span>
+            <span class="text-xs font-medium px-2 py-0.5 rounded-md bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400">11 Modules</span>
+          </h3>
+          <span class="text-xs text-slate-500">Tap cards to read • Click EN/VI badge to preview title translation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          ${SECTIONS.map((sec) => {
+            const isVI = State.headerLanguages[sec.id] === 'VI';
+            const displayTitle = isVI ? sec.titleVI : sec.titleEN;
+            const displaySummary = isVI ? sec.summaryVI : sec.summaryEN;
+
+            return `
+              <div onclick="window.location.hash='#${sec.id}'" class="group cursor-pointer rounded-2xl bg-white dark:bg-slate-900 p-6 border border-slate-200 dark:border-slate-800/90 shadow-sm hover:shadow-md hover:border-emerald-500/60 dark:hover:border-emerald-500/60 transition-all flex flex-col justify-between relative">
+                <div>
+                  <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="text-xs font-black tracking-widest text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/70 px-2.5 py-1 rounded-md">
+                      SECTION ${sec.num}
+                    </span>
+
+                    <!-- Language Preview Toggle on Card Corner -->
+                    <button 
+                      onclick="event.stopPropagation(); toggleCardHeaderLang('${sec.id}')" 
+                      title="Toggle title between English and Vietnamese"
+                      class="text-[11px] font-bold px-2 py-1 rounded-md border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:border-emerald-500 hover:text-emerald-600 transition-colors z-20 flex items-center gap-1">
+                      <span>${isVI ? 'VI' : 'EN'}</span>
+                      <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                      </svg>
+                    </button>
+                  </div>
+
+                  <h4 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-2">
+                    ${displayTitle}
+                  </h4>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2 mb-4">
+                    ${displaySummary}
+                  </p>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
+                  <div class="flex items-center gap-2">
+                    <span class="font-medium">${sec.paragraphs.length} paragraphs</span>
+                    <span>•</span>
+                    <span>${sec.readTime}</span>
+                  </div>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-semibold group-hover:translate-x-1 transition-transform">
+                    <span>Read now</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    function toggleCardHeaderLang(secId) {
+      State.headerLanguages[secId] = State.headerLanguages[secId] === 'VI' ? 'EN' : 'VI';
+      renderOverview(document.getElementById('app-root'));
+    }
+
+    /* Pages 2 through 11: Render Reading Section */
+    function renderSection(root, sec) {
+      const secIndex = SECTIONS.findIndex(s => s.id === sec.id);
+      const prevSec = secIndex > 0 ? SECTIONS[secIndex - 1] : null;
+      const nextSec = secIndex < SECTIONS.length - 1 ? SECTIONS[secIndex + 1] : null;
+      const isHeaderVI = State.headerLanguages[sec.id] === 'VI';
+
+      root.innerHTML = `
+        <!-- Sticky Sub-Nav Header with Breadcrumb and Actions -->
+        <div class="sticky top-16 z-30 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 bg-white/90 dark:bg-slate-900/90 glass-nav border-b border-slate-200/80 dark:border-slate-800/80 mb-8 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+            <a href="#overview" class="hover:text-emerald-600 transition-colors font-medium">Overview</a>
+            <span>/</span>
+            <span class="text-emerald-600 dark:text-emerald-400 font-semibold truncate max-w-[200px] sm:max-w-xs">
+              Section ${sec.num}: ${sec.titleEN}
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <!-- Flip All Paragraphs on this Page -->
+            <button onclick="toggleAllParagraphsInCurrentSection('${sec.id}')" class="text-xs font-semibold px-2.5 py-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-emerald-500 transition-colors">
+              Flip All Cards
+            </button>
+
+            <!-- Previous / Next Navigation Arrows -->
+            <div class="flex items-center gap-1 border-l border-slate-200 dark:border-slate-800 pl-2">
+              <button 
+                onclick="${prevSec ? `window.location.hash='#${prevSec.id}'` : ''}" 
+                ${!prevSec ? 'disabled class="opacity-40 cursor-not-allowed"' : 'class="hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"'}
+                title="${prevSec ? `Previous: ${prevSec.titleEN}` : 'No previous section'}"
+                class="p-1.5 rounded-lg transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <button 
+                onclick="${nextSec ? `window.location.hash='#${nextSec.id}'` : ''}" 
+                ${!nextSec ? 'disabled class="opacity-40 cursor-not-allowed"' : 'class="hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"'}
+                title="${nextSec ? `Next: ${nextSec.titleEN}` : 'No next section'}"
+                class="p-1.5 rounded-lg transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section Title Header Container -->
+        <div class="mb-10 max-w-4xl mx-auto">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs font-black tracking-wider uppercase px-2.5 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">
+              Section ${sec.num}
+            </span>
+            <span class="text-xs font-semibold text-slate-400 dark:text-slate-500">${sec.badge}</span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+            <div>
+              <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight font-sans">
+                ${isHeaderVI ? sec.titleVI : sec.titleEN}
+              </h1>
+              <p class="text-sm sm:text-base text-slate-500 dark:text-slate-400 mt-2 font-medium">
+                ${isHeaderVI ? sec.titleEN : sec.titleVI}
+              </p>
+            </div>
+
+            <!-- Inline Section Header Language Switch -->
+            <button 
+              onclick="toggleHeaderLang('${sec.id}')"
+              class="shrink-0 self-start text-xs font-bold px-3 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 shadow-sm transition-colors flex items-center gap-1.5">
+              <span>View in ${isHeaderVI ? 'English' : 'Tiếng Việt'}</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Paragraph Cards Container (Max Width 4xl, 18px-20px typography) -->
+        <div class="space-y-8 max-w-4xl mx-auto mb-16">
+          ${sec.paragraphs.map((p, pIdx) => {
+            const key = `${sec.id}_${pIdx}`;
+            // If user individually flipped this card, respect cardLanguages; else fall back to globalDefaultLang
+            const activeLang = State.cardLanguages[key] || State.globalDefaultLang;
+            const isVI = activeLang === "VI";
+
+            if (State.viewMode === "dual") {
+              // Dual / Side-by-Side Reading Layout
+              return `
+                <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+                  <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-slate-800">
+                    <span class="text-xs font-bold text-slate-400 tracking-wider uppercase">Paragraph ${p.pNum} • Dual Comparison</span>
+                    <button 
+                      onclick="speakText('${escapeForSpeech(p.en)}', 'en-US')" 
+                      title="Pronounce in English"
+                      class="flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 hover:text-emerald-600 dark:hover:bg-emerald-950 transition-colors">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+                      </svg>
+                      <span>Listen EN</span>
+                    </button>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                      <span class="text-xs font-black tracking-widest text-emerald-600 uppercase">English Original</span>
+                      <p class="font-body text-slate-900 dark:text-slate-100 text-lg sm:text-[19px] leading-[1.8] font-normal">
+                        ${p.en}
+                      </p>
+                    </div>
+                    <div class="space-y-2 border-t md:border-t-0 md:border-l border-slate-100 dark:border-slate-800 pt-4 md:pt-0 md:pl-6">
+                      <span class="text-xs font-black tracking-widest text-indigo-500 uppercase">Bản Dịch Tiếng Việt</span>
+                      <p class="font-body text-slate-800 dark:text-slate-200 text-lg sm:text-[19px] leading-[1.8] font-normal">
+                        ${p.vi}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              `;
+            }
+
+            // Interactive Flip / Transformation Card (Default Mode)
+            return `
+              <div 
+                id="card-${key}"
+                onclick="toggleSingleCardLang('${sec.id}', ${pIdx})"
+                class="group cursor-pointer rounded-3xl bg-white dark:bg-slate-900 border ${isVI ? 'border-indigo-400/80 dark:border-indigo-500/80 shadow-md' : 'border-slate-200 dark:border-slate-800 shadow-sm'} hover:shadow-lg transition-all duration-300 p-6 sm:p-8 relative">
+                
+                <!-- Card Header -->
+                <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-slate-800">
+                  <div class="flex items-center gap-2">
+                    <span class="text-xs font-extrabold tracking-wider uppercase text-slate-400">
+                      Paragraph ${p.pNum}
+                    </span>
+                    <span class="text-slate-300 dark:text-slate-700">•</span>
+                    <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">
+                      ${isVI ? p.labelVI : p.labelEN}
+                    </span>
+                  </div>
+
+                  <div class="flex items-center gap-2" onclick="event.stopPropagation()">
+                    <!-- Speech Reader Button -->
+                    <button 
+                      onclick="speakText('${escapeForSpeech(isVI ? p.vi : p.en)}', '${isVI ? 'vi-VN' : 'en-US'}')"
+                      title="Read aloud in ${isVI ? 'Vietnamese' : 'English'}"
+                      class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/80 transition-colors">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+                      </svg>
+                    </button>
+
+                    <!-- Active Language Badge & Switch Trigger -->
+                    <button 
+                      onclick="toggleSingleCardLang('${sec.id}', ${pIdx})"
+                      title="Click to flip translation"
+                      class="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full ${isVI ? 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-700' : 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700'} transition-transform active:scale-95 shadow-sm">
+                      <span>${isVI ? '🇻🇳 Tiếng Việt' : '🇺🇸 English'}</span>
+                      <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Card Body (Large High-Legibility Typography) -->
+                <div class="font-body text-slate-900 dark:text-slate-100 text-lg sm:text-[19px] leading-[1.8] font-normal transition-opacity duration-200">
+                  ${isVI ? p.vi : p.en}
+                </div>
+
+                <!-- Bottom Helper Hint -->
+                <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                  <span class="flex items-center gap-1 text-[11px]">
+                    <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
+                    </svg>
+                    <span>Tap card or button to reveal ${isVI ? 'English' : 'Tiếng Việt'}</span>
+                  </span>
+                  <button 
+                    onclick="event.stopPropagation(); copyParagraphText('${escapeForSpeech(isVI ? p.vi : p.en)}')"
+                    class="text-slate-400 hover:text-emerald-600 transition-colors p-1"
+                    title="Copy text to clipboard">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+
+        <!-- Section Navigation Footer -->
+        <div class="max-w-4xl mx-auto pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+          ${prevSec ? `
+            <a href="#${prevSec.id}" class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-left hover:border-emerald-500 shadow-sm transition-all group">
+              <span class="text-xs text-slate-400 block font-medium">← Previous Section</span>
+              <span class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 transition-colors">${prevSec.titleEN}</span>
+            </a>
+          ` : '<div></div>'}
+
+          ${nextSec ? `
+            <a href="#${nextSec.id}" class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-emerald-600 text-white text-right hover:bg-emerald-700 shadow-md shadow-emerald-600/20 transition-all group">
+              <span class="text-xs text-emerald-100 block font-medium">Next Section →</span>
+              <span class="text-sm font-bold">${nextSec.titleEN}</span>
+            </a>
+          ` : `
+            <a href="#glossary" class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-emerald-600 text-white text-right hover:bg-emerald-700 shadow-md transition-all">
+              <span class="text-xs text-emerald-100 block font-medium">Completed All Sections →</span>
+              <span class="text-sm font-bold">Open Academic Glossary</span>
+            </a>
+          `}
+        </div>
+      `;
+    }
+
+    function toggleHeaderLang(secId) {
+      State.headerLanguages[secId] = State.headerLanguages[secId] === 'VI' ? 'EN' : 'VI';
+      const sec = SECTIONS.find(s => s.id === secId);
+      if (sec) renderSection(document.getElementById('app-root'), sec);
+    }
+
+    function toggleSingleCardLang(secId, pIdx) {
+      const key = `${secId}_${pIdx}`;
+      const current = State.cardLanguages[key] || State.globalDefaultLang;
+      State.cardLanguages[key] = current === 'VI' ? 'EN' : 'VI';
+      
+      const sec = SECTIONS.find(s => s.id === secId);
+      if (sec) renderSection(document.getElementById('app-root'), sec);
+    }
+
+    function toggleAllParagraphsInCurrentSection(secId) {
+      const sec = SECTIONS.find(s => s.id === secId);
+      if (!sec) return;
+      
+      const sampleKey = `${secId}_0`;
+      const current = State.cardLanguages[sampleKey] || State.globalDefaultLang;
+      const targetLang = current === 'EN' ? 'VI' : 'EN';
+
+      sec.paragraphs.forEach((_, idx) => {
+        State.cardLanguages[`${secId}_${idx}`] = targetLang;
+      });
+
+      renderSection(document.getElementById('app-root'), sec);
+      showToast(`Switched all paragraphs to ${targetLang === 'VI' ? 'Tiếng Việt' : 'English'}`);
+    }
+
+    function copyParagraphText(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast("Copied paragraph to clipboard!", "success");
+      } catch (err) {
+        showToast("Failed to copy", "error");
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function escapeForSpeech(str) {
+      return str.replace(/'/g, "\\'").replace(/"/g, '&quot;').replace(/\n/g, ' ');
+    }
+
+    /* Final Page: Interactive Learner Glossary (30 Specialized Terms) */
+    function renderGlossary(root) {
+      const filteredTerms = GLOSSARY.filter(item => {
+        const matchesCategory = State.activeCategory === 'all' || item.category === State.activeCategory;
+        const q = State.glossarySearch.toLowerCase().trim();
+        const matchesQuery = !q || (
+          item.term.toLowerCase().includes(q) ||
+          item.defEN.toLowerCase().includes(q) ||
+          item.plainEN.toLowerCase().includes(q) ||
+          item.termVI.toLowerCase().includes(q) ||
+          item.meaningVI.toLowerCase().includes(q)
+        );
+        return matchesCategory && matchesQuery;
+      });
+
+      root.innerHTML = `
+        <div class="max-w-4xl mx-auto mb-10">
+          <div class="text-center mb-8">
+            <span class="text-xs font-extrabold tracking-widest uppercase px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">
+              Interactive Academic Lexicon
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-3 mb-2 font-sans">
+              Scientific Anti-Aging Glossary
+            </h1>
+            <p class="text-slate-600 dark:text-slate-400 text-sm max-w-2xl mx-auto">
+              30 B2/C1 terms, idioms, and biochemical concepts extracted verbatim from the report. Perfect for academic vocabulary retention, context application, and pronunciation.
+            </p>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div class="bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mb-8 space-y-4">
+            
+            <!-- Search Bar -->
+            <div class="relative">
+              <svg class="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              <input 
+                type="text" 
+                id="glossary-search-input"
+                value="${State.glossarySearch}"
+                oninput="handleGlossarySearch(this.value)"
+                placeholder="Search term, definition, or Vietnamese meaning (e.g. Sirtuin, Telomere, Ikigai)..." 
+                class="w-full pl-11 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              ${State.glossarySearch ? `
+                <button onclick="clearGlossarySearch()" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                  Clear
+                </button>
+              ` : ''}
+            </div>
+
+            <!-- Filter Chips & Master Actions -->
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+              <div class="flex flex-wrap items-center gap-1.5">
+                <button 
+                  onclick="setGlossaryCategory('all')" 
+                  class="text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors ${State.activeCategory === 'all' ? 'bg-emerald-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}">
+                  All (30)
+                </button>
+                <button 
+                  onclick="setGlossaryCategory('biology')" 
+                  class="text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors ${State.activeCategory === 'biology' ? 'bg-emerald-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}">
+                  Genetics & Biology (11)
+                </button>
+                <button 
+                  onclick="setGlossaryCategory('nutrition')" 
+                  class="text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors ${State.activeCategory === 'nutrition' ? 'bg-emerald-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}">
+                  Nutrition & Antioxidants (8)
+                </button>
+                <button 
+                  onclick="setGlossaryCategory('hormones')" 
+                  class="text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors ${State.activeCategory === 'hormones' ? 'bg-emerald-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}">
+                  Hormones (5)
+                </button>
+                <button 
+                  onclick="setGlossaryCategory('lifestyle')" 
+                  class="text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors ${State.activeCategory === 'lifestyle' ? 'bg-emerald-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}">
+                  Blue Zones & Habits (6)
+                </button>
+              </div>
+
+              <!-- Master Reveal All / Hide All Vietnamese -->
+              <div class="flex items-center gap-2">
+                <button onclick="toggleAllGlossaryTranslations(true)" class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 hover:underline">
+                  Reveal All VI
+                </button>
+                <span class="text-slate-300 dark:text-slate-700">•</span>
+                <button onclick="toggleAllGlossaryTranslations(false)" class="text-[11px] font-semibold text-slate-500 hover:underline">
+                  Hide All VI
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vocabulary Card Grid -->
+          <div class="grid grid-cols-1 gap-6">
+            ${filteredTerms.length > 0 ? filteredTerms.map((item) => {
+              const originalIndex = GLOSSARY.findIndex(g => g.term === item.term);
+              const isRevealed = State.revealedVocab[originalIndex] || false;
+
+              return `
+                <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-7 shadow-sm hover:shadow-md transition-all">
+                  
+                  <!-- Top Row: Term, Part of Speech, Pronounce -->
+                  <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-slate-100 dark:border-slate-800">
+                    <div class="flex items-center gap-2.5">
+                      <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+                        ${item.term}
+                      </h3>
+                      <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 italic">
+                        ${item.pos}
+                      </span>
+                      <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">
+                        ${item.category}
+                      </span>
+                    </div>
+
+                    <button 
+                      onclick="speakText('${item.term}. Definition: ${escapeForSpeech(item.defEN)}', 'en-US')"
+                      title="Listen to pronunciation & definition"
+                      class="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-50 hover:text-emerald-700 dark:hover:bg-emerald-950/80 transition-colors">
+                      <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+                      </svg>
+                      <span>Pronounce (EN)</span>
+                    </button>
+                  </div>
+
+                  <!-- Definitions -->
+                  <div class="space-y-3.5 mb-5 text-sm sm:text-base">
+                    <div>
+                      <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Academic Contextual Definition:</span>
+                      <p class="text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
+                        ${item.defEN}
+                      </p>
+                    </div>
+
+                    <div class="p-3.5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50">
+                      <span class="text-xs font-bold text-emerald-800 dark:text-emerald-300 uppercase tracking-wider block mb-0.5">In other words (B1/B2 Plain English):</span>
+                      <p class="text-emerald-950 dark:text-emerald-100 text-sm leading-relaxed">
+                        ${item.plainEN}
+                      </p>
+                    </div>
+
+                    <div>
+                      <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Excerpt from Report:</span>
+                      <blockquote class="italic text-slate-600 dark:text-slate-400 text-sm border-l-2 border-emerald-500 pl-3 py-0.5">
+                        "${item.context}"
+                      </blockquote>
+                    </div>
+                  </div>
+
+                  <!-- Vietnamese Translation (Toggleable) -->
+                  <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+                    ${isRevealed ? `
+                      <div class="p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeIn">
+                        <div>
+                          <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-1">Nghĩa Tiếng Việt:</div>
+                          <div class="text-base font-bold text-indigo-950 dark:text-indigo-100 mb-0.5">${item.termVI}</div>
+                          <p class="text-xs sm:text-sm text-indigo-900/80 dark:text-indigo-200/80 leading-relaxed">${item.meaningVI}</p>
+                        </div>
+                        <button 
+                          onclick="toggleVocabMeaning(${originalIndex})" 
+                          class="shrink-0 text-xs font-bold px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 hover:bg-indigo-100 transition-colors">
+                          Hide / Ẩn
+                        </button>
+                      </div>
+                    ` : `
+                      <button 
+                        onclick="toggleVocabMeaning(${originalIndex})" 
+                        class="w-full py-2.5 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        </svg>
+                        <span>Reveal Vietnamese / Xem nghĩa Tiếng Việt</span>
+                      </button>
+                    `}
+                  </div>
+
+                </div>
+              `;
+            }).join('') : `
+              <div class="text-center py-16 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
+                <p class="text-slate-500 dark:text-slate-400 text-sm">No vocabulary terms match your search filter.</p>
+                <button onclick="clearGlossarySearch()" class="mt-3 px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700">
+                  Reset Search Filter
+                </button>
+              </div>
+            `}
+          </div>
+        </div>
+      `;
+    }
+
+    function handleGlossarySearch(val) {
+      State.glossarySearch = val;
+      renderGlossary(document.getElementById('app-root'));
+    }
+
+    function clearGlossarySearch() {
+      State.glossarySearch = "";
+      renderGlossary(document.getElementById('app-root'));
+    }
+
+    function setGlossaryCategory(cat) {
+      State.activeCategory = cat;
+      renderGlossary(document.getElementById('app-root'));
+    }
+
+    function toggleVocabMeaning(idx) {
+      State.revealedVocab[idx] = !State.revealedVocab[idx];
+      renderGlossary(document.getElementById('app-root'));
+    }
+
+    function toggleAllGlossaryTranslations(show) {
+      GLOSSARY.forEach((_, idx) => {
+        State.revealedVocab[idx] = show;
+      });
+      renderGlossary(document.getElementById('app-root'));
+      showToast(show ? "Revealed all Vietnamese definitions" : "Hidden all Vietnamese definitions");
+    }
+
+    /* Global Language Toggle (Toggles default from EN to VI) */
+    function toggleGlobalDefaultLang() {
+      State.globalDefaultLang = State.globalDefaultLang === 'EN' ? 'VI' : 'EN';
+      
+      const label = document.getElementById('global-lang-label');
+      if (label) {
+        label.innerText = State.globalDefaultLang === 'EN' ? "English (EN)" : "Tiếng Việt (VI)";
+      }
+
+      // Reset individual overrides to follow global default
+      State.cardLanguages = {};
+      SECTIONS.forEach(s => {
+        State.headerLanguages[s.id] = State.globalDefaultLang;
+      });
+
+      router();
+      showToast(`Default language switched to ${State.globalDefaultLang === 'EN' ? 'English' : 'Tiếng Việt'}`);
+    }
+
+    /* Reading Mode Toggle (Flip Card vs Dual Side-by-Side) */
+    function toggleViewMode() {
+      State.viewMode = State.viewMode === 'flip' ? 'dual' : 'flip';
+      const label = document.getElementById('view-mode-label');
+      if (label) {
+        label.innerText = State.viewMode === 'flip' ? 'Flip Mode' : 'Dual Mode';
+      }
+      router();
+      showToast(`Switched view to ${State.viewMode === 'flip' ? 'Interactive Flip Cards' : 'Side-by-Side Comparison'}`);
+    }
+
+    /* Reading Progress Scroll Listener */
+    window.addEventListener('scroll', () => {
+      const progressBar = document.getElementById('reading-progress');
+      if (!progressBar) return;
+
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      progressBar.style.width = `${progress}%`;
+    });
+
+    /* Keyboard Navigation Shortcuts */
+    window.addEventListener('keydown', (e) => {
+      // Don't intercept if user is typing in the search box
+      if (document.activeElement && document.activeElement.tagName === 'INPUT') return;
+
+      if (e.key === 'Escape') {
+        stopSpeech();
+      }
+    });
+
+    /* App Initializer */
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+
+      // Wire theme button
+      document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+      // Wire global language toggle button
+      document.getElementById('global-lang-toggle').addEventListener('click', toggleGlobalDefaultLang);
+
+      // Wire view mode toggle button
+      document.getElementById('view-mode-toggle').addEventListener('click', toggleViewMode);
+
+      // Wire TTS stop button
+      document.getElementById('tts-stop-btn').addEventListener('click', stopSpeech);
+
+      // Hash Routing Listener
+      window.addEventListener('hashchange', router);
+
+      // Launch Initial View
+      router();
+    });
+  </script>
+</body>
+</html>
