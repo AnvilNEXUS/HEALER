@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0b0d17">
+  <title>Lana's Healing Sanctuary — 12 Steps to Mastery</title>
+
+  <style>
+    /* -------------------------------------------------------------
+       CSS VARIABLES & THEMES
+       ------------------------------------------------------------- */
+    :root {
+      --bg-primary: #0a0d18;
+      --bg-secondary: #13192c;
+      --bg-card: rgba(22, 29, 51, 0.85);
+      --bg-glass: rgba(14, 18, 33, 0.88);
+      --bg-subtle: rgba(255, 255, 255, 0.04);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.12);
+      --border-accent: rgba(168, 85, 247, 0.4);
+      
+      --accent-purple: #c084fc;
+      --accent-purple-glow: rgba(192, 132, 252, 0.35);
+      --accent-gold: #fbbf24;
+      --accent-cyan: #38bdf8;
+      --accent-rose: #fb7185;
+      --accent-emerald: #34d399;
+      
+      --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+      --hotspot-ring: rgba(192, 132, 252, 0.7);
+      --hotspot-bg: rgba(168, 85, 247, 0.18);
+      
+      --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body.light-theme {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.95);
+      --bg-glass: rgba(255, 255, 255, 0.92);
+      --bg-subtle: rgba(0, 0, 0, 0.03);
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --border-color: rgba(0, 0, 0, 0.09);
+      --border-accent: rgba(124, 58, 237, 0.35);
+      
+      --accent-purple: #7c3aed;
+      --accent-purple-glow: rgba(124, 58, 237, 0.2);
+      --accent-gold: #d97706;
+      --accent-cyan: #0284c7;
+      --accent-rose: #e11d48;
+      --accent-emerald: #059669;
+      
+      --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      --hotspot-ring: rgba(124, 58, 237, 0.85);
+      --hotspot-bg: rgba(124, 58, 237, 0.15);
+    }
+
+    /* -------------------------------------------------------------
+       BILINGUAL DISPLAY CONTROLS
+       ------------------------------------------------------------- */
+    body.lang-en .vn-content { display: none !important; }
+    body.lang-vn .en-content { display: none !important; }
+
+    /* -------------------------------------------------------------
+       BASE & RESET
+       ------------------------------------------------------------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      font-family: var(--font-stack);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.55;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* -------------------------------------------------------------
+       TOP SAFE-AREA NAVBAR (iOS STYLE)
+       ------------------------------------------------------------- */
+    .top-navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      padding-top: max(10px, env(safe-area-inset-top));
+      padding-bottom: 10px;
+      padding-left: max(14px, env(safe-area-inset-left));
+      padding-right: max(14px, env(safe-area-inset-right));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: calc(54px + max(10px, env(safe-area-inset-top)));
+    }
+
+    .nav-left, .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-center {
+      flex: 1;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: -0.2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 8px;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      min-width: 38px;
+      height: 36px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0 10px;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+    .nav-btn:active {
+      transform: scale(0.95);
+      background: var(--bg-secondary);
+    }
+
+    /* Segmented language switch */
+    .lang-switch {
+      display: inline-flex;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2px;
+      position: relative;
+    }
+
+    .lang-opt {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-opt.active {
+      background: var(--accent-purple);
+      color: #ffffff;
+      box-shadow: 0 2px 8px var(--accent-purple-glow);
+    }
+
+    /* -------------------------------------------------------------
+       BOTTOM NAVIGATION BAR (iOS SAFE AREA)
+       ------------------------------------------------------------- */
+    .bottom-navbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border-color);
+      padding-top: 8px;
+      padding-bottom: max(12px, env(safe-area-inset-bottom));
+      padding-left: max(14px, env(safe-area-inset-left));
+      padding-right: max(14px, env(safe-area-inset-right));
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .bottom-nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 12px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .bottom-nav-btn.active, .bottom-nav-btn:hover {
+      color: var(--accent-purple);
+    }
+    .bottom-nav-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2;
+    }
+
+    /* -------------------------------------------------------------
+       MAIN CONTENT CONTAINER
+       ------------------------------------------------------------- */
+    .app-viewport {
+      margin-top: calc(54px + max(10px, env(safe-area-inset-top)));
+      margin-bottom: calc(64px + max(12px, env(safe-area-inset-bottom)));
+      min-height: calc(100vh - 120px);
+      padding: 16px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .screen {
+      display: none;
+      animation: fadeIn 0.25s ease-out;
+    }
+    .screen.active-screen {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* -------------------------------------------------------------
+       MAP & HOTSPOTS STYLES
+       ------------------------------------------------------------- */
+    .map-header-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: var(--card-shadow);
+      text-align: center;
+    }
+    .map-header-card h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 4px;
+    }
+    .map-header-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .map-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 8px;
+    }
+    .pill-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .pill-btn:active {
+      transform: scale(0.96);
+    }
+
+    /* Interactive image map wrapper */
+    .curriculum-map-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.7);
+      border: 1px solid var(--border-accent);
+      background: #060810;
+      line-height: 0;
+    }
+
+    .curriculum-map-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    /* Hotspot absolute anchors */
+    .hotspot-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hotspot {
+      position: absolute;
+      pointer-events: auto;
+      border-radius: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 6px;
+      transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+      -webkit-tap-highlight-color: transparent;
+      text-decoration: none;
+    }
+
+    /* Hotspots active/visible state toggle */
+    .show-hotspots .hotspot {
+      background: var(--hotspot-bg);
+      border: 2px solid var(--hotspot-ring);
+      box-shadow: 0 0 16px var(--accent-purple-glow);
+    }
+
+    .hotspot:active, .hotspot:hover {
+      background: rgba(192, 132, 252, 0.35) !important;
+      border: 2px solid #ffffff !important;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.8) !important;
+      transform: scale(0.98);
+    }
+
+    .hotspot-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: #0b0f1e;
+      color: #f8fafc;
+      border: 1.5px solid var(--accent-purple);
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 800;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      transition: transform 0.2s;
+    }
+    .hotspot:active .hotspot-badge {
+      transform: scale(1.2);
+      background: var(--accent-purple);
+    }
+
+    /* -------------------------------------------------------------
+       SECTION / MODULE SCREENS
+       ------------------------------------------------------------- */
+    .module-hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .module-hero-card::after {
+      content: "";
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, var(--accent-purple-glow), transparent 70%);
+      pointer-events: none;
+    }
+
+    .step-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 12px;
+      background: rgba(168, 85, 247, 0.18);
+      color: var(--accent-purple);
+      border: 1px solid var(--border-accent);
+      margin-bottom: 8px;
+    }
+
+    .module-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+    }
+
+    .module-pillar {
+      font-size: 0.82rem;
+      color: var(--accent-gold);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .content-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 14px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent-cyan);
+      margin-bottom: 10px;
+    }
+    .section-label svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .content-body {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* Syllabus list item formatting */
+    .syllabus-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .syllabus-item {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .syllabus-item-title {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .syllabus-num {
+      color: var(--accent-purple);
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    .note-card {
+      border-left: 4px solid var(--accent-gold);
+      background: rgba(245, 158, 11, 0.08);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 12px;
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+    }
+    .note-card strong {
+      color: var(--accent-gold);
+    }
+
+    /* Screen Module Pager Controls */
+    .module-nav-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    .pager-btn {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .pager-btn:active {
+      transform: scale(0.96);
+      background: var(--bg-secondary);
+    }
+    .pager-btn.prev {
+      align-items: flex-start;
+      text-align: left;
+    }
+    .pager-btn.next {
+      align-items: flex-end;
+      text-align: right;
+    }
+    .pager-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .pager-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-purple);
+      margin-top: 2px;
+    }
+
+    /* -------------------------------------------------------------
+       QUICK JUMP DRAWER / MODAL
+       ------------------------------------------------------------- */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer-sheet {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 540px;
+      margin: 0 auto;
+      background: var(--bg-glass);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-top: 1px solid var(--border-color);
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      padding: 14px 16px max(20px, env(safe-area-inset-bottom));
+      z-index: 210;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .drawer-backdrop.open .drawer-sheet {
+      transform: translateY(0);
+    }
+
+    .drawer-handle {
+      width: 40px;
+      height: 4px;
+      background: var(--text-muted);
+      opacity: 0.5;
+      border-radius: 2px;
+      margin: 0 auto 12px;
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .drawer-title {
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .drawer-list {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-bottom: 16px;
+    }
+
+    .drawer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .drawer-item:active {
+      background: var(--accent-purple);
+      color: #fff;
+    }
+    .drawer-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    /* -------------------------------------------------------------
+       TABLE STYLES
+       ------------------------------------------------------------- */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      margin: 12px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+    th {
+      background: var(--bg-subtle);
+      font-weight: 700;
+      color: var(--accent-purple);
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
+</head>
+
+<body class="lang-en">
+
+  <!-- TOP HEADER (iOS GLASS) -->
+  <header class="top-navbar">
+    <div class="nav-left">
+      <button class="nav-btn" id="btn-back" onclick="navigateHome()" title="Back to Map">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span class="en-content">Map</span>
+        <span class="vn-content">Bản đồ</span>
+      </button>
+    </div>
+
+    <div class="nav-center" id="navbar-title">
+      <span class="en-content">12 Steps to Mastery</span>
+      <span class="vn-content">12 Bước Tinh Thông</span>
+    </div>
+
+    <div class="nav-right">
+      <!-- Dark/Light Mode Switch -->
+      <button class="nav-btn" id="btn-theme" onclick="toggleTheme()" title="Switch Theme">
+        <svg id="theme-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+
+      <!-- EN / VN Switch -->
+      <div class="lang-switch">
+        <button class="lang-opt active" id="opt-en" onclick="setLanguage('en')">EN</button>
+        <button class="lang-opt" id="opt-vn" onclick="setLanguage('vn')">VN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN VIEWPORT -->
+  <main class="app-viewport">
+
+    <!-- =========================================================
+         SCREEN: HOME / MAP WITH HOTSPOTS
+         ========================================================= -->
+    <div id="screen-home" class="screen active-screen">
+      <div class="map-header-card">
+        <h1>LANA’S HEALING SANCTUARY</h1>
+        <p class="en-content">Learner’s Guide: A 12-Component Curriculum for Beginners</p>
+        <p class="vn-content">Khung chương trình 12 học phần dành cho người mới bắt đầu</p>
+      </div>
+
+      <div class="map-toolbar">
+        <span class="pill-btn" onclick="toggleHotspots()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg>
+          <span class="en-content" id="txt-hotspot-en">Highlight Targets: ON</span>
+          <span class="vn-content" id="txt-hotspot-vn">Hiển thị điểm chạm: BẬT</span>
+        </span>
+
+        <button class="pill-btn" onclick="openDrawer()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+          <span class="en-content">List Index</span>
+          <span class="vn-content">Danh mục</span>
+        </button>
+      </div>
+
+      <!-- IMAGE MAP CONTAINER (CURRICULUM.jpeg IN ROOT DIRECTORY) -->
+      <div class="curriculum-map-wrapper show-hotspots" id="mapWrapper">
+        <img src="CURRICULUM.jpeg" alt="Lana's Healing Journey: 12 Steps to Mastery" id="curriculumImg" onerror="handleImageError()">
+
+        <!-- 12 PRECISE HOTSPOTS OVER THE 2-COLUMN, 6-ROW GRID -->
+        <div class="hotspot-overlay">
+          <!-- Row 1 -->
+          <a href="#module-1" class="hotspot" style="left: 8.5%; top: 10.2%; width: 40.5%; height: 13.8%;" title="1. Body Vessel Foundations">
+            <span class="hotspot-badge">1</span>
+          </a>
+          <a href="#module-2" class="hotspot" style="left: 51.0%; top: 10.2%; width: 40.5%; height: 13.8%;" title="2. Breathing for Chi">
+            <span class="hotspot-badge">2</span>
+          </a>
+
+          <!-- Row 2 -->
+          <a href="#module-3" class="hotspot" style="left: 8.5%; top: 24.8%; width: 40.5%; height: 13.8%;" title="3. Sacred Warrior: Muay Boran">
+            <span class="hotspot-badge">3</span>
+          </a>
+          <a href="#module-4" class="hotspot" style="left: 51.0%; top: 24.8%; width: 40.5%; height: 13.8%;" title="4. Bio-Energetic Nutrition">
+            <span class="hotspot-badge">4</span>
+          </a>
+
+          <!-- Row 3 -->
+          <a href="#module-5" class="hotspot" style="left: 8.5%; top: 39.4%; width: 40.5%; height: 13.8%;" title="5. Mind Matrix Rewiring">
+            <span class="hotspot-badge">5</span>
+          </a>
+          <a href="#module-6" class="hotspot" style="left: 51.0%; top: 39.4%; width: 40.5%; height: 13.8%;" title="6. Brainwave Harmony">
+            <span class="hotspot-badge">6</span>
+          </a>
+
+          <!-- Row 4 -->
+          <a href="#module-7" class="hotspot" style="left: 8.5%; top: 54.0%; width: 40.5%; height: 13.8%;" title="7. Emotional Liberation: Ho‘oponopono">
+            <span class="hotspot-badge">7</span>
+          </a>
+          <a href="#module-8" class="hotspot" style="left: 51.0%; top: 54.0%; width: 40.5%; height: 13.8%;" title="8. Heart Coherence Law">
+            <span class="hotspot-badge">8</span>
+          </a>
+
+          <!-- Row 5 -->
+          <a href="#module-9" class="hotspot" style="left: 8.5%; top: 68.6%; width: 40.5%; height: 13.8%;" title="9. Quantum Realities: Observer Effect">
+            <span class="hotspot-badge">9</span>
+          </a>
+          <a href="#module-10" class="hotspot" style="left: 51.0%; top: 68.6%; width: 40.5%; height: 13.8%;" title="10. Cosmic Geometry & Numerology">
+            <span class="hotspot-badge">10</span>
+          </a>
+
+          <!-- Row 6 -->
+          <a href="#module-11" class="hotspot" style="left: 8.5%; top: 83.2%; width: 40.5%; height: 13.8%;" title="11. Akashic Records Journey">
+            <span class="hotspot-badge">11</span>
+          </a>
+          <a href="#module-12" class="hotspot" style="left: 51.0%; top: 83.2%; width: 40.5%; height: 13.8%;" title="12. Sovereign Creator">
+            <span class="hotspot-badge">12</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Link to Sanctuary Introduction & 5 Pillars -->
+      <div style="margin-top: 16px; text-align: center;">
+        <button class="nav-btn" onclick="navigateTo('overview')" style="width: 100%; height: 44px; border-radius: 14px;">
+          <span class="en-content">📖 View Sanctuary Overview & Five Pillars Guide</span>
+          <span class="vn-content">📖 Xem Tổng Quan Nơi Bảo Tồn & Năm Trụ Cột</span>
+        </button>
+      </div>
+    </div>
+
+
+    <!-- =========================================================
+         SCREEN: OVERVIEW & CURRICULAR FRAMEWORK
+         ========================================================= -->
+    <div id="screen-overview" class="screen">
+      <div class="module-hero-card">
+        <span class="step-pill">SANCTUARY ORIENTATION</span>
+        <h2 class="module-title">
+          <span class="en-content">Curriculum Guide & Five Pillars</span>
+          <span class="vn-content">Tổng Quan Đề Cương & Năm Trụ Cột</span>
+        </h2>
+        <p class="module-pillar">
+          <span class="en-content">Theme: Understand yourself — Care for yourself — Live with intention</span>
+          <span class="vn-content">Chủ đề: Thấu hiểu bản thân — Chăm sóc bản thân — Sống có chủ đích</span>
+        </p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          <span class="en-content">Introduction & Approach</span>
+          <span class="vn-content">Giới Thiệu & Lăng Kính Tiếp Cận</span>
+        </div>
+        <div class="content-body">
+          <div class="en-content">
+            <p>Lana’s Healing Sanctuary integrates physical vessel care, conscious breathing, attentional training, emotional literacy, and purposeful self-reflection grounded across five foundational pillars[span_1](start_span)[span_1](end_span).</p>
+            <ul style="padding-left: 18px; margin-top: 8px;">
+              <li><strong>Scientific Knowledge:</strong> Verifiable, measurable subjects (nutritional biochemistry, neuro-electrical oscillation, physiology)[span_2](start_span)[span_2](end_span).</li>
+              <li><strong>Tradition and Philosophy:</strong> Historical paradigms developed to interpret consciousness and existential purpose[span_3](start_span)[span_3](end_span).</li>
+              <li><strong>Symbolism & Experience:</strong> Metaphors and reflective practices facilitating inner exploration without dogmatic coercion[span_4](start_span)[span_4](end_span).</li>
+            </ul>
+          </div>
+          <div class="vn-content">
+            <p>Lana’s Healing Sanctuary là không gian giáo dục tích hợp việc chăm sóc thể xác, hơi thở có ý thức, rèn luyện sự chú ý, hiểu biết cảm xúc và tự suy ngẫm có mục đích dựa trên năm trụ cột[span_5](start_span)[span_5](end_span).</p>
+            <ul style="padding-left: 18px; margin-top: 8px;">
+              <li><strong>Kiến thức Khoa học:</strong> Các chủ đề có thể kiểm chứng (hóa sinh dinh dưỡng, dao động điện-thần kinh, sinh lý)[span_6](start_span)[span_6](end_span).</li>
+              <li><strong>Truyền thống & Triết học:</strong> Các hệ hình lịch sử diễn giải ý thức và mục đích tồn tại[span_7](start_span)[span_7](end_span).</li>
+              <li><strong>Biểu tượng & Trải nghiệm:</strong> Ẩn dụ và thực hành suy ngẫm nhằm khám phá nội tâm mà không ép buộc giáo điều[span_8](start_span)[span_8](end_span).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label">
+          <span class="en-content">Course Format & Duration</span>
+          <span class="vn-content">Hình Thức & Thời Lượng</span>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en-content">Dimension</span><span class="vn-content">Hạng mục</span></th>
+                <th><span class="en-content">Specification</span><span class="vn-content">Quy cách</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><span class="en-content">Duration</span><span class="vn-content">Thời lượng</span></strong></td>
+                <td><span class="en-content">24 weeks total (2 weeks per component)[span_9](start_span)[span_9](end_span)</span><span class="vn-content">24 tuần (2 tuần cho mỗi học phần)[span_10](start_span)[span_10](end_span)</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en-content">Practice</span><span class="vn-content">Thực hành</span></strong></td>
+                <td><span class="en-content">10 to 20 minutes daily, 5 days per week[span_11](start_span)[span_11](end_span)</span><span class="vn-content">10 đến 20 phút mỗi ngày, 5 ngày mỗi tuần[span_12](start_span)[span_12](end_span)</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="en-content">Assessment</span><span class="vn-content">Đánh giá</span></strong></td>
+                <td><span class="en-content">Reflective journaling & safe habit integration[span_13](start_span)[span_13](end_span)</span><span class="vn-content">Nhật ký suy ngẫm & tích hợp thói quen an toàn[span_14](start_span)[span_14](end_span)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label">
+          <span class="en-content">Curriculum Alignment with Five Pillars</span>
+          <span class="vn-content">Sự Phù Hợp Với 5 Trụ Cột</span>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th><span class="en-content">Pillar</span><span class="vn-content">Trụ cột</span></th>
+                <th><span class="en-content">Corresponding Modules</span><span class="vn-content">Học phần tương ứng</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>I. Cosmic Architecture & Quantum</strong></td>
+                <td>Module 9, Module 10[span_15](start_span)[span_15](end_span)</td>
+              </tr>
+              <tr>
+                <td><strong>II. Physical Vessel & Vital Force</strong></td>
+                <td>Module 1, Module 2, Module 3, Module 4[span_16](start_span)[span_16](end_span)</td>
+              </tr>
+              <tr>
+                <td><strong>III. Mind Matrix & Emotional Clearing</strong></td>
+                <td>Module 5, Module 6, Module 7, Module 8[span_17](start_span)[span_17](end_span)</td>
+              </tr>
+              <tr>
+                <td><strong>IV. Fundamental Cosmic Laws</strong></td>
+                <td>Module 12 (ties to 5, 8, 9)[span_18](start_span)[span_18](end_span)</td>
+              </tr>
+              <tr>
+                <td><strong>V. Soul’s Evolution & Purpose</strong></td>
+                <td>Module 11, Module 12[span_19](start_span)[span_19](end_span)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="note-card">
+        <strong>⚠️ <span class="en-content">Clinical Safety Note</span><span class="vn-content">Lưu Ý An Toàn Lâm Sàng</span>:</strong>
+        <p class="en-content">This course is educational and self-care oriented; it is not a substitute for clinical diagnostics, psychotherapy, or medical intervention[span_20](start_span)[span_20](end_span). Halt any exercise causing dizziness or pain[span_21](start_span)[span_21](end_span).</p>
+        <p class="vn-content">Khóa học này hoàn toàn mang tính chất giáo dục và tự chăm sóc; đây không phải là phương pháp thay thế chẩn đoán y tế, trị liệu tâm lý hay can thiệp lâm sàng[span_22](start_span)[span_22](end_span). Lập tức dừng nếu chóng mặt hoặc đau[span_23](start_span)[span_23](end_span).</p>
+      </div>
+
+      <div style="margin-top: 20px; text-align: center;">
+        <button class="nav-btn" onclick="navigateTo('module-1')" style="width: 100%; height: 44px; border-radius: 14px;">
+          <span class="en-content">Begin Step 1: Body Vessel Foundations →</span>
+          <span class="vn-content">Bắt đầu Bước 1: Nền Tảng Thân Thể →</span>
+        </button>
+      </div>
+    </div>
+
+
+    <!-- =========================================================
+         SCREEN: MODULE 1
+         ========================================================= -->
+    <div id="screen-module-1" class="screen">
+      <div class="module-hero-card">
+        <span class="step-pill">STEP 01 / 12</span>
+        <h2 class="module-title">
+          <span class="en-content">Body Vessel Foundations</span>
+          <span class="vn-content">Nền Tảng Thân Thể</span>
+        </h2>
+        <p class="module-pillar">Pillar II: Physical Vessel & Vital Force[span_24](start_span)[span_24](end_span)</p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          <span class="en-content">Definition & Purpose</span>
+          <span class="vn-content">Định Nghĩa & Mục Đích</span>
+        </div>
+        <div class="content-body">
+          <p class="en-content">Treating the body as a “home” rather than an object to be forcefully altered cultivates somatic care[span_25](start_span)[span_25](end_span). This module establishes baseline somatic literacy, movement thresholds, and the biological need for recuperative rest[span_26](start_span)[span_26](end_span).</p>
+          <p class="vn-content">Coi cơ thể là một “ngôi nhà” thay vì một vật thể cần can thiệp ép buộc giúp nuôi dưỡng thái độ chăm sóc thân nghiệm[span_27](start_span)[span_27](end_span). Học phần này thiết lập hiểu biết nền tảng về cơ thể, ngưỡng chuyển động và nhu cầu sinh học cho nghỉ ngơi phục hồi[span_28](start_span)[span_28](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span class="en-content">Learning Outcomes</span>
+          <span class="vn-content">Kết Quả Học Tập</span>
+        </div>
+        <div class="content-body">
+          <p class="en-content">Identify key physiological signals, distinguish raw sensory data from subjective interpretations, and design an actionable, sustainable physical care plan[span_29](start_span)[span_29](end_span).</p>
+          <p class="vn-content">Nhận biết tín hiệu sinh lý quan trọng, phân biệt dữ liệu giác quan thô với diễn giải chủ quan, và thiết kế kế hoạch chăm sóc thể chất khả thi, bền vững[span_30](start_span)[span_30](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span class="en-content">Syllabus Breakdown</span>
+          <span class="vn-content">Đề Cương Bài Học</span>
+        </div>
+        <div class="syllabus-list">
+          <div class="syllabus-item">
+            <div class="syllabus-item-title"><span class="syllabus-num">01.</span> <span class="en-content">Listening to the Body</span><span class="vn-content">Lắng nghe Cơ thể</span></div>
+            <p class="en-content">Differentiate sensations (warmth, tension, fatigue) from narrative judgments[span_31](start_span)[span_31](end_span). Practice logging objective sensory observations[span_32](start_span)[span_32](end_span).</p>
+            <p class="vn-content">Phân biệt cảm giác (ấm áp, căng thẳng, mệt mỏi) với phán đoán câu chuyện[span_33](start_span)[span_33](end_span). Thực hành ghi nhận cảm giác khách quan[span_34](start_span)[span_34](end_span).</p>
+          </div>
+          <div class="syllabus-item">
+            <div class="syllabus-item-title"><span class="syllabus-num">02.</span> <span class="en-content">Somatic Awareness</span><span class="vn-content">Nhận thức Thân nghiệm</span></div>
+            <p class="en-content">Explore interoception and proprioception[span_35](start_span)[span_35](end_span). Cultivate intentional awareness of plantar ground contact and spinal alignment[span_36](start_span)[span_36](end_span).</p>
+            <p class="vn-content">Khám phá cảm giác nội cảm và bản thể[span_37](start_span)[span_37](end_span). Nhận thức tiếp xúc lòng bàn chân và sự thẳng hàng cột sống[span_38](start_span)[span_38](end_span).</p>
+          </div>
+          <div class="syllabus-item">
+            <div class="syllabus-item-title"><span class="syllabus-num">03.</span> <span class="en-content">Movement and Rest</span><span class="vn-content">Vận động và Nghỉ ngơi</span></div>
+            <p class="en-content">Low-impact functional mobility, joint lubrication, balance drills, and down-regulation practices[span_39](start_span)[span_39](end_span).</p>
+            <p class="vn-content">Vận động chức năng tác động thấp, bôi trơn khớp, thăng bằng và hạ điều hòa[span_40](start_span)[span_40](end_span).</p>
+          </div>
+          <div class="syllabus-item">
+            <div class="syllabus-item-title"><span class="syllabus-num">04.</span> <span class="en-content">Traditional Body Maps</span><span class="vn-content">Bản đồ Cơ thể Truyền thống</span></div>
+            <p class="en-content">Survey historical cross-cultural models (chakras, meridians) as culturally situated frameworks rather than anatomical structures[span_41](start_span)[span_41](end_span).</p>
+            <p class="vn-content">Khảo sát mô hình luân xa, kinh lạc như các khung văn hóa thay vì cấu trúc giải phẫu học[span_42](start_span)[span_42](end_span).</p>
+          </div>
+          <div class="syllabus-item">
+            <div class="syllabus-item-title"><span class="syllabus-num">05.</span> <span class="en-content">Observation Without Judgment</span><span class="vn-content">Quan sát Không Phán xét</span></div>
+            <p class="en-content">Analyze sleep hygiene and ergonomics[span_43](start_span)[span_43](end_span). Reject claims that facial features define character or destiny[span_44](start_span)[span_44](end_span).</p>
+            <p class="vn-content">Phân tích vệ sinh giấc ngủ và công thái học[span_45](start_span)[span_45](end_span). Bác bỏ quan điểm nhân tướng học định đoạt số phận[span_46](start_span)[span_46](end_span).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+          <span class="en-content">Practice & Completion</span>
+          <span class="vn-content">Thực Hành & Hoàn Thành</span>
+        </div>
+        <div class="content-body">
+          <p class="en-content">Maintain a 7-day somatic log: <em>“What sensations do I observe?”</em>, <em>“What does my body require right now?”</em>, and <em>“What small physical action will I take?”</em>[span_47](start_span)[span_47](end_span). Formulate 3 sustainable habits[span_48](start_span)[span_48](end_span).</p>
+          <p class="vn-content">Ghi chép nhật ký thân nghiệm 7 ngày: <em>“Tôi quan sát thấy cảm giác gì?”</em>, <em>“Cơ thể tôi đang cần gì?”</em>, <em>“Hành động nhỏ nào tôi sẽ làm?”</em>[span_49](start_span)[span_49](end_span). Xây dựng 3 thói quen bền vững[span_50](start_span)[span_50](end_span).</p>
+        </div>
+      </div>
+
+      <div class="module-nav-grid">
+        <a href="#home" class="pager-btn prev">
+          <span class="pager-sub">Overview</span>
+          <span class="pager-title">← Interactive Map</span>
+        </a>
+        <a href="#module-2" class="pager-btn next">
+          <span class="pager-sub">Next Step</span>
+          <span class="pager-title">02. Breathing for Chi →</span>
+        </a>
+      </div>
+    </div>
+
+
+    <!-- =========================================================
+         SCREEN: MODULE 2
+         ========================================================= -->
+    <div id="screen-module-2" class="screen">
+      <div class="module-hero-card">
+        <span class="step-pill">STEP 02 / 12</span>
+        <h2 class="module-title">
+          <span class="en-content">Breathing for Chi</span>
+          <span class="vn-content">Hơi Thở Cho Khí</span>
+        </h2>
+        <p class="module-pillar">Pillar II: Physical Vessel & Vital Force[span_51](start_span)[span_51](end_span)</p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Definition & Purpose</span><span class="vn-content">Định Nghĩa & Mục Đích</span></div>
+        <div class="content-body">
+          <p class="en-content">“Qi” functions in classical thought as vital animation[span_52](start_span)[span_52](end_span). This module pairs traditional breathwork with contemporary respiratory mechanics[span_53](start_span)[span_53](end_span). Sensations of heat or tingling are treated as neurological feedback, not mystical currents[span_54](start_span)[span_54](end_span).</p>
+          <p class="vn-content">“Khí” trong tư tưởng cổ điển là mô hình về sinh lực sống[span_55](start_span)[span_55](end_span). Học phần kết hợp thở truyền thống với cơ học hô hấp hiện đại[span_56](start_span)[span_56](end_span). Cảm giác ấm áp hay châm chích là phản hồi thần kinh chứ không phải dòng năng lượng siêu nhiên[span_57](start_span)[span_57](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Learning Outcomes</span><span class="vn-content">Kết Quả Học Tập</span></div>
+        <div class="content-body">
+          <p class="en-content">Articulate the context of qi and dantian, execute unforced diaphragmatic breathing, and recognize baseline autonomic indicators[span_58](start_span)[span_58](end_span).</p>
+          <p class="vn-content">Hiểu bối cảnh của khí và đan điền, thực hiện thở cơ hoành tự nhiên, và nhận biết các chỉ số hồi phục hô hấp tự chủ[span_59](start_span)[span_59](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Syllabus Breakdown</span><span class="vn-content">Đề Cương Bài Học</span></div>
+        <div class="syllabus-list">
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">01.</span> <span class="en-content">Respiratory Physiology</span><span class="vn-content">Sinh lý học Hô hấp</span></div><p class="en-content">Inhaled air circulates strictly in the pulmonary lungs, not entering the abdominal cavity[span_60](start_span)[span_60](end_span).</p><p class="vn-content">Không khí hít vào lưu thông trong phổi chứ không đi vào ổ bụng về mặt thể chất[span_61](start_span)[span_61](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">02.</span> <span class="en-content">Non-Interfering Observation</span><span class="vn-content">Quan sát Không Can thiệp</span></div><p class="en-content">Observe frequency and tidal volume without forcing arbitrary patterns[span_62](start_span)[span_62](end_span).</p><p class="vn-content">Quan sát nhịp và thể tích thở mà không gượng ép[span_63](start_span)[span_63](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">03.</span> <span class="en-content">Dantian Focus</span><span class="vn-content">Tập trung vào Đan điền</span></div><p class="en-content">Lower dantian as an internalized attentional focal point rather than anatomical organ[span_64](start_span)[span_64](end_span).</p><p class="vn-content">Đan điền dưới như điểm tập trung chú ý nội tâm thay vì cơ quan giải phẫu[span_65](start_span)[span_65](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">04.</span> <span class="en-content">Breath-Synchronized Movement</span><span class="vn-content">Chuyển động Đồng bộ Hơi thở</span></div><p class="en-content">Qigong coordination of slow arm articulation with steady breath[span_66](start_span)[span_66](end_span).</p><p class="vn-content">Khí công phối hợp động tác tay chậm rãi cùng nhịp thở[span_67](start_span)[span_67](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">05.</span> <span class="en-content">Physiological Ceilings</span><span class="vn-content">Ngưỡng giới hạn Sinh lý</span></div><p class="en-content">Avoid hyperventilation or extreme retention. Stop immediately if lightheaded[span_68](start_span)[span_68](end_span).</p><p class="vn-content">Tránh nín thở quá mức. Ngưng ngay nếu chóng mặt hoặc thiếu khí[span_69](start_span)[span_69](end_span).</p></div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Practice & Completion</span><span class="vn-content">Thực Hành & Hoàn Thành</span></div>
+        <p class="en-content">2 to 5 minutes daily seated observation with a gentle hand on the abdomen[span_70](start_span)[span_70](end_span). Identify two contraindications requiring immediate cessation[span_71](start_span)[span_71](end_span).</p>
+        <p class="vn-content">2 đến 5 phút quan sát mỗi ngày khi ngồi, tay đặt nhẹ lên bụng[span_72](start_span)[span_72](end_span). Nêu 2 dấu hiệu lâm sàng cần ngưng ngay[span_73](start_span)[span_73](end_span).</p>
+      </div>
+
+      <div class="module-nav-grid">
+        <a href="#module-1" class="pager-btn prev"><span class="pager-sub">Previous</span><span class="pager-title">← 01. Body Vessel</span></a>
+        <a href="#module-3" class="pager-btn next"><span class="pager-sub">Next</span><span class="pager-title">03. Muay Boran →</span></a>
+      </div>
+    </div>
+
+
+    <!-- =========================================================
+         SCREEN: MODULE 3
+         ========================================================= -->
+    <div id="screen-module-3" class="screen">
+      <div class="module-hero-card">
+        <span class="step-pill">STEP 03 / 12</span>
+        <h2 class="module-title">
+          <span class="en-content">Sacred Warrior: Muay Boran</span>
+          <span class="vn-content">Chiến Binh Thiêng Liêng: Muay Boran</span>
+        </h2>
+        <p class="module-pillar">Pillar II: Physical Vessel & Vital Force[span_74](start_span)[span_74](end_span)</p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Definition & Purpose</span><span class="vn-content">Định Nghĩa & Mục Đích</span></div>
+        <div class="content-body">
+          <p class="en-content">Muay Boran embodies Siamese martial traditions[span_75](start_span)[span_75](end_span). The “Sacred Warrior” is an archetype of disciplined self-mastery, personal restraint, ethical accountability, and mutual respect[span_76](start_span)[span_76](end_span).</p>
+          <p class="vn-content">Muay Boran đại diện cho võ thuật Xiêm La cổ truyền[span_77](start_span)[span_77](end_span). “Chiến binh Thiêng liêng” là hình mẫu của sự kỷ luật, kiềm chế, trách nhiệm đạo đức và tôn trọng[span_78](start_span)[span_78](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Learning Outcomes</span><span class="vn-content">Kết Quả Học Tập</span></div>
+        <div class="content-body">
+          <p class="en-content">Demonstrate martial discipline, execute entry-level stances and footwork safely, and delineate functional self-defense from reactive aggression[span_79](start_span)[span_79](end_span).</p>
+          <p class="vn-content">Thể hiện kỷ luật, thực hiện thế tấn và bộ pháp an toàn, phân định phòng thủ tự vệ với gây hấn hung bạo[span_80](start_span)[span_80](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Syllabus Breakdown</span><span class="vn-content">Đề Cương Bài Học</span></div>
+        <div class="syllabus-list">
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">01.</span> <span class="en-content">Cultural Lineage</span><span class="vn-content">Dòng truyền thừa Văn hóa</span></div><p class="en-content">Explore regional classical Thai lineages and teacher-student ethical traditions[span_81](start_span)[span_81](end_span).</p><p class="vn-content">Khám phá các phong cách khu vực và đạo đức tôn sư trọng đạo[span_82](start_span)[span_82](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">02.</span> <span class="en-content">Base Stability</span><span class="vn-content">Độ ổn định Nền tảng</span></div><p class="en-content">Dynamic weight distribution, center of mass integrity, and relaxed readiness[span_83](start_span)[span_83](end_span).</p><p class="vn-content">Phân phối trọng lượng linh hoạt và tư thế sẵn sàng thả lỏng[span_84](start_span)[span_84](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">03.</span> <span class="en-content">Locomotion & Perimeter</span><span class="vn-content">Di chuyển & Định hướng Không gian</span></div><p class="en-content">Linear and lateral footwork transitions prioritizing perimeter safety distances[span_85](start_span)[span_85](end_span).</p><p class="vn-content">Bộ pháp di chuyển thẳng và ngang ưu tiên khoảng cách an toàn[span_86](start_span)[span_86](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">04.</span> <span class="en-content">Attentional Presence</span><span class="vn-content">Hiện diện Chú ý & Cân bằng Cảm xúc</span></div><p class="en-content">Observe autonomic fight-or-flight triggers and cultivate deliberate pauses before kinetic response[span_87](start_span)[span_87](end_span).</p><p class="vn-content">Quan sát phản ứng chiến-hay-biến và tạo khoảng dừng trước khi hành động[span_88](start_span)[span_88](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">05.</span> <span class="en-content">Ethical De-escalation</span><span class="vn-content">Sức mạnh Đạo đức & Giảm leo thang</span></div><p class="en-content">Explicit consent in partner drills, boundary setting, and verbal de-escalation[span_89](start_span)[span_89](end_span).</p><p class="vn-content">Đồng thuận rõ ràng khi tập luyện và kỹ năng hạ nhiệt căng thẳng[span_90](start_span)[span_90](end_span).</p></div>
+        </div>
+      </div>
+
+      <div class="note-card">
+        <strong><span class="en-content">Note on Ancestral Lineage</span><span class="vn-content">Lưu ý về Năng lượng Tổ tiên</span>:</strong>
+        <p class="en-content">Explored symbolically as cultural and familial heritage, rather than a supernatural metaphysical endowment[span_91](start_span)[span_91](end_span).</p>
+        <p class="vn-content">Được hiểu theo nghĩa biểu tượng về di sản văn hóa, gia đình thay vì năng lực siêu nhiên[span_92](start_span)[span_92](end_span).</p>
+      </div>
+
+      <div class="module-nav-grid">
+        <a href="#module-2" class="pager-btn prev"><span class="pager-sub">Previous</span><span class="pager-title">← 02. Breathing</span></a>
+        <a href="#module-4" class="pager-btn next"><span class="pager-sub">Next</span><span class="pager-title">04. Nutrition →</span></a>
+      </div>
+    </div>
+
+
+    <!-- =========================================================
+         SCREEN: MODULE 4
+         ========================================================= -->
+    <div id="screen-module-4" class="screen">
+      <div class="module-hero-card">
+        <span class="step-pill">STEP 04 / 12</span>
+        <h2 class="module-title">
+          <span class="en-content">Bio-Energetic Nutrition</span>
+          <span class="vn-content">Dinh Dưỡng Năng Lượng Sinh Học</span>
+        </h2>
+        <p class="module-pillar">Pillar II: Physical Vessel & Vital Force[span_93](start_span)[span_93](end_span)</p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Definition & Purpose</span><span class="vn-content">Định Nghĩa & Mục Đích</span></div>
+        <div class="content-body">
+          <p class="en-content">Examines how calories and micronutrients fuel cellular life[span_94](start_span)[span_94](end_span). “Energy” is quantifiable biochemical Joules/calories[span_95](start_span)[span_95](end_span). “High-vibrational foods” is examined strictly as a cultural metaphor[span_96](start_span)[span_96](end_span).</p>
+          <p class="vn-content">Tìm hiểu cách calo và vi chất duy trì tế bào[span_97](start_span)[span_97](end_span). Năng lượng là đại lượng sinh hóa có thể đo lường[span_98](start_span)[span_98](end_span). Các thuật ngữ như “thức ăn rung động cao” là biểu tượng văn hóa[span_99](start_span)[span_99](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Syllabus Breakdown</span><span class="vn-content">Đề Cương Bài Học</span></div>
+        <div class="syllabus-list">
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">01.</span> <span class="en-content">Biochemical Essentials</span><span class="vn-content">Yếu tố Sinh hóa Thiết yếu</span></div><p class="en-content">Complex carbs, amino acids, essential fats, fiber, and hydration[span_100](start_span)[span_100](end_span).</p><p class="vn-content">Tinh bột phức, axit amin, chất béo tốt, chất xơ và nước[span_101](start_span)[span_101](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">02.</span> <span class="en-content">Plate Architecture</span><span class="vn-content">Cấu trúc Đĩa ăn</span></div><p class="en-content">Assembling balanced, accessible whole-food meals respecting local budgets[span_102](start_span)[span_102](end_span).</p><p class="vn-content">Lắp ráp bữa ăn cân bằng, tiết kiệm từ thực phẩm gần gũi[span_103](start_span)[span_103](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">03.</span> <span class="en-content">Mindful Consumption</span><span class="vn-content">Tiêu dùng Chánh niệm</span></div><p class="en-content">Pacing chewing, tasting nuances, and nervous-system satiety cues[span_104](start_span)[span_104](end_span).</p><p class="vn-content">Nhai chậm, cảm nhận hương vị và nhận biết tín hiệu no tự nhiên[span_105](start_span)[span_105](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">04.</span> <span class="en-content">Pragmatic Food Literacy</span><span class="vn-content">Hiểu biết Thực tế về Thực phẩm</span></div><p class="en-content">Interpreting labels and kitchen food safety standards[span_106](start_span)[span_106](end_span).</p><p class="vn-content">Đọc hiểu nhãn thành phần và bảo đảm an toàn vệ sinh thực phẩm[span_107](start_span)[span_107](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">05.</span> <span class="en-content">Critical Claim Analysis</span><span class="vn-content">Đánh giá Phản biện</span></div><p class="en-content">Deconstruct myths of “cellular detox” or “karmic clearing via diet[span_108](start_span)”[span_108](end_span). Follow WHO dietary guidelines[span_109](start_span)[span_109](end_span).</p><p class="vn-content">Giải mã chiêu trò “thanh lọc tế bào” hay “giải nghiệp qua ăn uống[span_110](start_span)”[span_110](end_span). Theo chuẩn WHO[span_111](start_span)[span_111](end_span).</p></div>
+        </div>
+      </div>
+
+      <div class="module-nav-grid">
+        <a href="#module-3" class="pager-btn prev"><span class="pager-sub">Previous</span><span class="pager-title">← 03. Muay Boran</span></a>
+        <a href="#module-5" class="pager-btn next"><span class="pager-sub">Next</span><span class="pager-title">05. Mind Matrix →</span></a>
+      </div>
+    </div>
+
+
+    <!-- =========================================================
+         SCREEN: MODULE 5
+         ========================================================= -->
+    <div id="screen-module-5" class="screen">
+      <div class="module-hero-card">
+        <span class="step-pill">STEP 05 / 12</span>
+        <h2 class="module-title">
+          <span class="en-content">Mind Matrix Rewiring</span>
+          <span class="vn-content">Tái Lập Trình Ma Trận Tâm Trí</span>
+        </h2>
+        <p class="module-pillar">Pillar III: Mind Matrix & Emotional Clearing[span_112](start_span)[span_112](end_span)</p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Definition & Purpose</span><span class="vn-content">Định Nghĩa & Mục Đích</span></div>
+        <div class="content-body">
+          <p class="en-content">The “Mind Matrix” explains internalized conditioning and cognitive schemas[span_113](start_span)[span_113](end_span). “Rewiring” signifies developing cognitive flexibility rather than thought suppression[span_114](start_span)[span_114](end_span).</p>
+          <p class="vn-content">“Ma trận Tâm trí” đại diện cho các điều kiện hóa và sơ đồ nhận thức tự động[span_115](start_span)[span_115](end_span). “Tái lập trình” là rèn luyện sự linh hoạt nhận thức thay vì đè nén suy nghĩ[span_116](start_span)[span_116](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Syllabus Breakdown</span><span class="vn-content">Đề Cương Bài Học</span></div>
+        <div class="syllabus-list">
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">01.</span> <span class="en-content">Cognitive Chain Analysis</span><span class="vn-content">Phân tích Chuỗi Nhận thức</span></div><p class="en-content">Cycle: Event → Appraisal → Affective State → Behavioral Response[span_117](start_span)[span_117](end_span). Differentiate objective reality from interpretation[span_118](start_span)[span_118](end_span).</p><p class="vn-content">Chu trình: Sự kiện → Đánh giá → Cảm xúc → Hành vi[span_119](start_span)[span_119](end_span). Phân biệt thực tế khách quan với suy diễn[span_120](start_span)[span_120](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">02.</span> <span class="en-content">Core Schemas</span><span class="vn-content">Các Sơ đồ Cốt lõi</span></div><p class="en-content">Uncover hidden perfectionism or conditional self-worth[span_121](start_span)[span_121](end_span).</p><p class="vn-content">Nhận diện chủ nghĩa hoàn hảo và giá trị bản thân có điều kiện[span_122](start_span)[span_122](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">03.</span> <span class="en-content">Habit Loops</span><span class="vn-content">Vòng lặp Thói quen</span></div><p class="en-content">Trigger → Routine → Reward micro-pivots[span_123](start_span)[span_123](end_span).</p><p class="vn-content">Kích hoạt → Thói quen → Phần thưởng để chuyển đổi vi mô[span_124](start_span)[span_124](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">04.</span> <span class="en-content">Reflective Inquiry</span><span class="vn-content">Truy vấn Phản chiếu</span></div><p class="en-content">Ask: “What empirical evidence confirms this?”, “What remains within my agency?[span_125](start_span)”[span_125](end_span).</p><p class="vn-content">Hỏi: “Bằng chứng nào xác nhận điều này?”, “Điều gì nằm trong quyền kiểm soát của tôi?[span_126](start_span)”[span_126](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">05.</span> <span class="en-content">Intuition vs. Speculation</span><span class="vn-content">Trực giác vs Suy đoán</span></div><p class="en-content">Distinguish grounded somatic empathy from unchecked social media speculation[span_127](start_span)[span_127](end_span).</p><p class="vn-content">Phân biệt thấu cảm thân nghiệm với các suy đoán vô căn cứ trên mạng[span_128](start_span)[span_128](end_span).</p></div>
+        </div>
+      </div>
+
+      <div class="module-nav-grid">
+        <a href="#module-4" class="pager-btn prev"><span class="pager-sub">Previous</span><span class="pager-title">← 04. Nutrition</span></a>
+        <a href="#module-6" class="pager-btn next"><span class="pager-sub">Next</span><span class="pager-title">06. Brainwaves →</span></a>
+      </div>
+    </div>
+
+
+    <!-- =========================================================
+         SCREEN: MODULE 6
+         ========================================================= -->
+    <div id="screen-module-6" class="screen">
+      <div class="module-hero-card">
+        <span class="step-pill">STEP 06 / 12</span>
+        <h2 class="module-title">
+          <span class="en-content">Brainwave Harmony</span>
+          <span class="vn-content">Sự Hài Hòa Sóng Não</span>
+        </h2>
+        <p class="module-pillar">Pillar III: Mind Matrix & Emotional Clearing[span_129](start_span)[span_129](end_span)</p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Definition & Purpose</span><span class="vn-content">Định Nghĩa & Mục Đích</span></div>
+        <div class="content-body">
+          <p class="en-content">Brainwaves are oscillatory electrical potentials recorded via EEG[span_130](start_span)[span_130](end_span). “Harmony” refers to the behavioral cultivation of focused attention and restorative rest[span_131](start_span)[span_131](end_span).</p>
+          <p class="vn-content">Sóng não là điện thế dao động đồng bộ ghi nhận qua EEG[span_132](start_span)[span_132](end_span). “Hài hòa” là sự rèn luyện chú ý và nghỉ ngơi sâu thay vì cố định một tần số tùy tiện[span_133](start_span)[span_133](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Syllabus Breakdown</span><span class="vn-content">Đề Cương Bài Học</span></div>
+        <div class="syllabus-list">
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">01.</span> <span class="en-content">Mechanisms of Clinical EEG</span><span class="vn-content">Cơ chế Điện não đồ</span></div><p class="en-content">How scalp electrodes measure aggregate cortical voltage[span_134](start_span)[span_134](end_span).</p><p class="vn-content">Cách điện cực đo lường biến thiên điện thế vỏ não[span_135](start_span)[span_135](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">02.</span> <span class="en-content">Primary Frequency Bands</span><span class="vn-content">Các Dải Tần số Chính</span></div><p class="en-content">Delta (0.5–4Hz), Theta (4–8Hz), Alpha (8–12Hz), Beta (12–30Hz), Gamma (>30Hz)[span_136](start_span)[span_136](end_span). Coexist continuously without spiritual hierarchy[span_137](start_span)[span_137](end_span).</p><p class="vn-content">Delta, Theta, Alpha, Beta, Gamma cùng tồn tại liên tục, không có thứ bậc tâm linh[span_138](start_span)[span_138](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">03.</span> <span class="en-content">Arousal & Sleep Architectures</span><span class="vn-content">Trạng thái Kích thích & Giấc ngủ</span></div><p class="en-content">Shifts during sleep cycles, resting alertness, and deep cognitive tasks[span_139](start_span)[span_139](end_span).</p><p class="vn-content">Sự thay đổi trong chu kỳ ngủ, tỉnh thức và tập trung sâu[span_140](start_span)[span_140](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">04.</span> <span class="en-content">Anchored Attention</span><span class="vn-content">Neo giữ Chú ý</span></div><p class="en-content">Train sustained focus on neutral anchors (auditory tones or breath)[span_141](start_span)[span_141](end_span).</p><p class="vn-content">Rèn luyện duy trì chú ý vào âm thanh hoặc hơi thở[span_142](start_span)[span_142](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">05.</span> <span class="en-content">Critical Consumer Analysis</span><span class="vn-content">Đánh giá Tiêu dùng Thông thái</span></div><p class="en-content">Evaluate binaural gadgets skeptically; device scores do not verify spiritual enlightenment[span_143](start_span)[span_143](end_span).</p><p class="vn-content">Tiếp cận thiết bị binaural thận trọng; điểm số thiết bị không biểu thị giác ngộ[span_144](start_span)[span_144](end_span).</p></div>
+        </div>
+      </div>
+
+      <div class="module-nav-grid">
+        <a href="#module-5" class="pager-btn prev"><span class="pager-sub">Previous</span><span class="pager-title">← 05. Mind Matrix</span></a>
+        <a href="#module-7" class="pager-btn next"><span class="pager-sub">Next</span><span class="pager-title">07. Ho‘oponopono →</span></a>
+      </div>
+    </div>
+
+
+    <!-- =========================================================
+         SCREEN: MODULE 7
+         ========================================================= -->
+    <div id="screen-module-7" class="screen">
+      <div class="module-hero-card">
+        <span class="step-pill">STEP 07 / 12</span>
+        <h2 class="module-title">
+          <span class="en-content">Emotional Liberation: Ho‘oponopono</span>
+          <span class="vn-content">Giải Phóng Cảm Xúc: Ho‘oponopono</span>
+        </h2>
+        <p class="module-pillar">Pillar III: Mind Matrix & Emotional Clearing[span_145](start_span)[span_145](end_span)</p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Definition & Purpose</span><span class="vn-content">Định Nghĩa & Mục Đích</span></div>
+        <div class="content-body">
+          <p class="en-content">Ho‘oponopono is an ancestral Hawaiian practice centered on reconciliation, balance, and restorative justice[span_146](start_span)[span_146](end_span). Demands cultural respect beyond commercial 4-phrase iterations[span_147](start_span)[span_147](end_span).</p>
+          <p class="vn-content">Ho‘oponopono là truyền thống Hawaii cổ xưa hướng đến hòa giải và công lý phục hồi[span_148](start_span)[span_148](end_span). Đòi hỏi sự tôn trọng văn hóa sâu sắc hơn là 4 câu thần chú thương mại[span_149](start_span)[span_149](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Syllabus Breakdown</span><span class="vn-content">Đề Cương Bài Học</span></div>
+        <div class="syllabus-list">
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">01.</span> <span class="en-content">Granular Emotional Literacy</span><span class="vn-content">Hiểu biết Cảm xúc Chi tiết</span></div><p class="en-content">Differentiate primary and secondary emotions beyond “I feel bad[span_150](start_span)”[span_150](end_span).</p><p class="vn-content">Nhận diện sắc thái cảm xúc cụ thể thay vì nói chung chung “tôi thấy tệ[span_151](start_span)”[span_151](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">02.</span> <span class="en-content">Needs Identification</span><span class="vn-content">Xác định Nhu cầu</span></div><p class="en-content">Connect emotional states with unmet needs for safety, autonomy, or rest[span_152](start_span)[span_152](end_span).</p><p class="vn-content">Kết nối cảm xúc với nhu cầu chưa được đáp ứng về an toàn, tự chủ, nghỉ ngơi[span_153](start_span)[span_153](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">03.</span> <span class="en-content">Accountability & Restitution</span><span class="vn-content">Trách nhiệm & Phục hồi Quan hệ</span></div><p class="en-content">Acknowledge personal mistakes without absorbing blame for others’ abuse[span_154](start_span)[span_154](end_span).</p><p class="vn-content">Nhận trách nhiệm bản thân mà không ôm lỗi từ hành vi bạo lực của người khác[span_155](start_span)[span_155](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">04.</span> <span class="en-content">Four Phrases as Prompts</span><span class="vn-content">Bốn Câu Nói Gợi ý Suy ngẫm</span></div><p class="en-content">“I am sorry,” “Please forgive me,” “Thank you,” “I love you” as contemplative prompts, not magic spells[span_156](start_span)[span_156](end_span).</p><p class="vn-content">Sử dụng 4 câu như lời gợi ý tự vấn, không phải câu thần chú xóa nghiệp tức thì[span_157](start_span)[span_157](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">05.</span> <span class="en-content">Healthy Boundaries</span><span class="vn-content">Ranh giới Lành mạnh</span></div><p class="en-content">Forgiveness does not require tolerating continued abuse or forced contact[span_158](start_span)[span_158](end_span).</p><p class="vn-content">Tha thứ không đồng nghĩa với việc cam chịu tiếp diễn bị ngược đãi hay ép buộc nối lại quan hệ[span_159](start_span)[span_159](end_span).</p></div>
+        </div>
+      </div>
+
+      <div class="module-nav-grid">
+        <a href="#module-6" class="pager-btn prev"><span class="pager-sub">Previous</span><span class="pager-title">← 06. Brainwaves</span></a>
+        <a href="#module-8" class="pager-btn next"><span class="pager-sub">Next</span><span class="pager-title">08. Heart Coherence →</span></a>
+      </div>
+    </div>
+
+
+    <!-- =========================================================
+         SCREEN: MODULE 8
+         ========================================================= -->
+    <div id="screen-module-8" class="screen">
+      <div class="module-hero-card">
+        <span class="step-pill">STEP 08 / 12</span>
+        <h2 class="module-title">
+          <span class="en-content">Heart Coherence Law</span>
+          <span class="vn-content">Quy Luật Tương Hợp Trái Tim</span>
+        </h2>
+        <p class="module-pillar">Pillar III: Mind Matrix & Emotional Clearing[span_160](start_span)[span_160](end_span)</p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Definition & Purpose</span><span class="vn-content">Định Nghĩa & Mục Đích</span></div>
+        <div class="content-body">
+          <p class="en-content">Denotes the physiological alignment of rhythmic respiration with autonomic regulation[span_161](start_span)[span_161](end_span). Does not substantiate a supernatural law compelling reality to obey personal desires[span_162](start_span)[span_162](end_span).</p>
+          <p class="vn-content">Sự đồng điệu sinh lý giữa nhịp thở nhịp nhàng với hệ thần kinh tự chủ[span_163](start_span)[span_163](end_span). Không phải quy luật siêu nhiên bắt vũ trụ phải phục tùng ý muốn cá nhân[span_164](start_span)[span_164](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Syllabus Breakdown</span><span class="vn-content">Đề Cương Bài Học</span></div>
+        <div class="syllabus-list">
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">01.</span> <span class="en-content">Cardiac Physiology & HRV</span><span class="vn-content">Sinh lý Tim mạch & HRV</span></div><p class="en-content">Heart Rate Variability (HRV) governed by sympathetic/parasympathetic tone[span_165](start_span)[span_165](end_span).</p><p class="vn-content">Độ biến thiên nhịp tim điều hòa bởi hệ giao cảm và phó giao cảm[span_166](start_span)[span_166](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">02.</span> <span class="en-content">Respiratory Sinus Arrhythmia</span><span class="vn-content">Loạn nhịp Xoang Hô hấp</span></div><p class="en-content">Treat biometric data as dynamic autonomic indicators, not total health scores[span_167](start_span)[span_167](end_span).</p><p class="vn-content">Xem dữ liệu sinh trắc học là dấu hiệu tự chủ linh hoạt thay vì thước đo sức khỏe tuyệt đối[span_168](start_span)[span_168](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">03.</span> <span class="en-content">The Deliberate Pause</span><span class="vn-content">Khoảng Dừng Có Chủ Đích</span></div><p class="en-content">3-step pause: notice tension, soften physical grip, breathe evenly, reasoned response[span_169](start_span)[span_169](end_span).</p><p class="vn-content">Can thiệp 3 bước: nhận diện căng thẳng, thả lỏng, thở đều, chọn phản ứng lý trí[span_170](start_span)[span_170](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">04.</span> <span class="en-content">Authentic Appreciation</span><span class="vn-content">Sự Biết Ơn Đích Thực</span></div><p class="en-content">Practice gratitude toward genuine life elements while rejecting toxic positivity[span_171](start_span)[span_171](end_span).</p><p class="vn-content">Biết ơn chân thực, tránh sự tích cực gượng ép/độc hại[span_172](start_span)[span_172](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">05.</span> <span class="en-content">Operationalizing Values</span><span class="vn-content">Vận hành các Giá trị</span></div><p class="en-content">Translate “I value compassion” into active listening and keeping commitments[span_173](start_span)[span_173](end_span).</p><p class="vn-content">Chuyển giá trị đạo đức thành hành vi cụ thể như lắng nghe và tôn trọng cam kết[span_174](start_span)[span_174](end_span).</p></div>
+        </div>
+      </div>
+
+      <div class="module-nav-grid">
+        <a href="#module-7" class="pager-btn prev"><span class="pager-sub">Previous</span><span class="pager-title">← 07. Ho‘oponopono</span></a>
+        <a href="#module-9" class="pager-btn next"><span class="pager-sub">Next</span><span class="pager-title">09. Quantum →</span></a>
+      </div>
+    </div>
+
+
+    <!-- =========================================================
+         SCREEN: MODULE 9
+         ========================================================= -->
+    <div id="screen-module-9" class="screen">
+      <div class="module-hero-card">
+        <span class="step-pill">STEP 09 / 12</span>
+        <h2 class="module-title">
+          <span class="en-content">Quantum Realities: Observer Effect</span>
+          <span class="vn-content">Thực Tại Lượng Tử: Hiệu Ứng Người Quan Sát</span>
+        </h2>
+        <p class="module-pillar">Pillar I: Cosmic Architecture & Quantum[span_175](start_span)[span_175](end_span)</p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Definition & Purpose</span><span class="vn-content">Định Nghĩa & Mục Đích</span></div>
+        <div class="content-body">
+          <p class="en-content">Equips learners to disentangle empirical physics from wellness marketing metaphors[span_176](start_span)[span_176](end_span). Distinguish physics from personal philosophical questions[span_177](start_span)[span_177](end_span).</p>
+          <p class="vn-content">Trang bị năng lực phân biệt vật lý thực nghiệm với các chiêu trò tiếp thị “chữa lành lượng tử[span_178](start_span)”[span_178](end_span). Phân định khoa học với câu hỏi triết học[span_179](start_span)[span_179](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Syllabus Breakdown</span><span class="vn-content">Đề Cương Bài Học</span></div>
+        <div class="syllabus-list">
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">01.</span> <span class="en-content">Quantum Foundations</span><span class="vn-content">Nền tảng Lượng tử</span></div><p class="en-content">Wave-particle duality and state reduction without math complexity[span_180](start_span)[span_180](end_span).</p><p class="vn-content">Lưỡng tính sóng-hạt và sự thu gọn trạng thái theo góc nhìn khoa học[span_181](start_span)[span_181](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">02.</span> <span class="en-content">The Meaning of “Observation”</span><span class="vn-content">Ý nghĩa của “Sự Quan sát”</span></div><p class="en-content">Thermodynamic detector interaction; physical observation does not require conscious human will[span_182](start_span)[span_182](end_span).</p><p class="vn-content">Đo lường là tương tác nhiệt động với thiết bị, không đòi hỏi ý thức con người mong muốn[span_183](start_span)[span_183](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">03.</span> <span class="en-content">Attentional Bias in Daily Life</span><span class="vn-content">Thiên kiến Chú ý Thường nhật</span></div><p class="en-content">How cognitive filters alter behavior—a psychological mechanism, not quantum magic[span_184](start_span)[span_184](end_span).</p><p class="vn-content">Bộ lọc chú ý thay đổi hành vi—đây là tâm lý học, không phải phép thuật hạ nguyên tử[span_185](start_span)[span_185](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">04.</span> <span class="en-content">Monism & Models</span><span class="vn-content">Thuyết Nhất nguyên & Mô hình</span></div><p class="en-content">Holographic metaphors vs empirical hypothesis separation[span_186](start_span)[span_186](end_span).</p><p class="vn-content">Tách biệt giả thuyết thực nghiệm khỏi các ẩn dụ biểu tượng[span_187](start_span)[span_187](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">05.</span> <span class="en-content">Critiquing Pseudoscience</span><span class="vn-content">Phê phán Giả khoa học</span></div><p class="en-content">Firmly reject claims that quantum mechanics enables thought-based cancer cures[span_188](start_span)[span_188](end_span).</p><p class="vn-content">Kiên quyết bác bỏ các tuyên bố cho rằng cơ học lượng tử giúp chữa ung thư bằng suy nghĩ[span_189](start_span)[span_189](end_span).</p></div>
+        </div>
+      </div>
+
+      <div class="module-nav-grid">
+        <a href="#module-8" class="pager-btn prev"><span class="pager-sub">Previous</span><span class="pager-title">← 08. Heart Coherence</span></a>
+        <a href="#module-10" class="pager-btn next"><span class="pager-sub">Next</span><span class="pager-title">10. Geometry →</span></a>
+      </div>
+    </div>
+
+
+    <!-- =========================================================
+         SCREEN: MODULE 10
+         ========================================================= -->
+    <div id="screen-module-10" class="screen">
+      <div class="module-hero-card">
+        <span class="step-pill">STEP 10 / 12</span>
+        <h2 class="module-title">
+          <span class="en-content">Cosmic Geometry & Numerology</span>
+          <span class="vn-content">Hình Học Vũ Trụ & Thần Số Học</span>
+        </h2>
+        <p class="module-pillar">Pillar I: Cosmic Architecture & Quantum[span_190](start_span)[span_190](end_span)</p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Definition & Purpose</span><span class="vn-content">Định Nghĩa & Mục Đích</span></div>
+        <div class="content-body">
+          <p class="en-content">Geometry studies mathematical spatial relations[span_191](start_span)[span_191](end_span). Sacred geometry applies symbolic meaning, while numerology assigns cultural significance to patterns[span_192](start_span)[span_192](end_span).</p>
+          <p class="vn-content">Hình học nghiên cứu các quan hệ toán học[span_193](start_span)[span_193](end_span). Hình học thiêng gán ý nghĩa biểu tượng và thần số học gán ý nghĩa văn hóa cho mẫu số[span_194](start_span)[span_194](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Syllabus Breakdown</span><span class="vn-content">Đề Cương Bài Học</span></div>
+        <div class="syllabus-list">
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">01.</span> <span class="en-content">Symmetry & Morphometry</span><span class="vn-content">Đối xứng & Hình thái học</span></div><p class="en-content">Tessellations, logarithmic spirals, and radial symmetry in nature and architecture[span_195](start_span)[span_195](end_span).</p><p class="vn-content">Mảng lát, xoắn ốc logarit và đối xứng trong tự nhiên, kiến trúc[span_196](start_span)[span_196](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">02.</span> <span class="en-content">Fractal Patterns</span><span class="vn-content">Mẫu Hình Fractal</span></div><p class="en-content">Mathematical self-similarity; avoid assuming all irregular forms are literal fractals[span_197](start_span)[span_197](end_span).</p><p class="vn-content">Tính tự tương đồng toán học; tránh ngộ nhận mọi hình gồ ghề đều là fractal[span_198](start_span)[span_198](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">03.</span> <span class="en-content">Cultural Geometries</span><span class="vn-content">Hình học Văn hóa</span></div><p class="en-content">Mandalas and yantras within their distinct spiritual and historical frameworks[span_199](start_span)[span_199](end_span).</p><p class="vn-content">Mạn-đà-la và yantra trong bối cảnh tâm linh đặc thù của từng truyền thống[span_200](start_span)[span_200](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">04.</span> <span class="en-content">Numerological Systems</span><span class="vn-content">Hệ thống Thần số học</span></div><p class="en-content">Modular reduction as reflective journaling prompts, not destiny determinism[span_201](start_span)[span_201](end_span).</p><p class="vn-content">Phép cộng rút gọn chữ số dùng làm gợi ý tự vấn, không phải tiên tri số mệnh[span_202](start_span)[span_202](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">05.</span> <span class="en-content">Spatial Ergonomics</span><span class="vn-content">Công thái học Không gian</span></div><p class="en-content">Apply design wisdom (such as Feng Shui) for lighting, airflow, and clutter reduction[span_203](start_span)[span_203](end_span).</p><p class="vn-content">Ứng dụng thiết kế (như Phong thủy) để tối ưu ánh sáng, luồng khí và tiện nghi[span_204](start_span)[span_204](end_span).</p></div>
+        </div>
+      </div>
+
+      <div class="module-nav-grid">
+        <a href="#module-9" class="pager-btn prev"><span class="pager-sub">Previous</span><span class="pager-title">← 09. Quantum</span></a>
+        <a href="#module-11" class="pager-btn next"><span class="pager-sub">Next</span><span class="pager-title">11. Akashic →</span></a>
+      </div>
+    </div>
+
+
+    <!-- =========================================================
+         SCREEN: MODULE 11
+         ========================================================= -->
+    <div id="screen-module-11" class="screen">
+      <div class="module-hero-card">
+        <span class="step-pill">STEP 11 / 12</span>
+        <h2 class="module-title">
+          <span class="en-content">Akashic Records Journey</span>
+          <span class="vn-content">Hành Trình Bản Ghi Akashic</span>
+        </h2>
+        <p class="module-pillar">Pillar V: Soul’s Evolution & Purpose[span_205](start_span)[span_205](end_span)</p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Definition & Purpose</span><span class="vn-content">Định Nghĩa & Mục Đích</span></div>
+        <div class="content-body">
+          <p class="en-content">Conceptualized in esoteric schools as an energetic repository of consciousness history[span_206](start_span)[span_206](end_span). Used here as an introspective framework for biographical narrative and values clarification[span_207](start_span)[span_207](end_span).</p>
+          <p class="vn-content">Được coi là kho lưu trữ năng lượng lịch sử ý thức trong các trường phái huyền bí[span_208](start_span)[span_208](end_span). Ở đây được dùng như khung tự vấn tiểu sử và xác lập giá trị[span_209](start_span)[span_209](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Syllabus Breakdown</span><span class="vn-content">Đề Cương Bài Học</span></div>
+        <div class="syllabus-list">
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">01.</span> <span class="en-content">Theosophical Lineage</span><span class="vn-content">Dòng dõi Thông thiên học</span></div><p class="en-content">19th-century origins; why meditative visions are personal, not empirical history[span_210](start_span)[span_210](end_span).</p><p class="vn-content">Nguồn gốc thế kỷ 19; hình dung thiền định không phải là bằng chứng lịch sử khách quan[span_211](start_span)[span_211](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">02.</span> <span class="en-content">Eschatological Perspectives</span><span class="vn-content">Góc nhìn Mạt thế luận</span></div><p class="en-content">Diverse cultural models of continuation and mortality studied with academic respect[span_212](start_span)[span_212](end_span).</p><p class="vn-content">Các mô hình luân hồi và sự tiếp nối tổ tiên được tìm hiểu với sự tôn trọng[span_213](start_span)[span_213](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">03.</span> <span class="en-content">Biographical Life Review</span><span class="vn-content">Nhìn lại Tiểu sử Cuộc đời</span></div><p class="en-content">Map personal milestones, support structures, and resilience narratives[span_214](start_span)[span_214](end_span).</p><p class="vn-content">Lập bản đồ bước ngoặt phát triển, điểm tựa xã hội và sự kiên cường bản thân[span_215](start_span)[span_215](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">04.</span> <span class="en-content">Values Archetypes</span><span class="vn-content">Hình mẫu Giá trị</span></div><p class="en-content">Use metaphorical motifs (like soul blueprints) to clarify ethics[span_216](start_span)[span_216](end_span).</p><p class="vn-content">Sử dụng ẩn dụ “bản thiết kế linh hồn” để làm rõ giá trị sống[span_217](start_span)[span_217](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">05.</span> <span class="en-content">Ethical Boundaries</span><span class="vn-content">Ranh giới Đạo đức</span></div><p class="en-content">Never use meditative visualization to make major medical decisions or accuse others of past harms[span_218](start_span)[span_218](end_span).</p><p class="vn-content">Không dùng hình dung thiền định để quyết định y khoa hay cáo buộc người khác về tiền kiếp[span_219](start_span)[span_219](end_span).</p></div>
+        </div>
+      </div>
+
+      <div class="module-nav-grid">
+        <a href="#module-10" class="pager-btn prev"><span class="pager-sub">Previous</span><span class="pager-title">← 10. Geometry</span></a>
+        <a href="#module-12" class="pager-btn next"><span class="pager-sub">Next</span><span class="pager-title">12. Sovereign Creator →</span></a>
+      </div>
+    </div>
+
+
+    <!-- =========================================================
+         SCREEN: MODULE 12
+         ========================================================= -->
+    <div id="screen-module-12" class="screen">
+      <div class="module-hero-card">
+        <span class="step-pill">STEP 12 / 12 — CAPSTONE</span>
+        <h2 class="module-title">
+          <span class="en-content">Sovereign Creator</span>
+          <span class="vn-content">Chủ Thể Sáng Tạo Tự Chủ</span>
+        </h2>
+        <p class="module-pillar">Pillar IV & V: Cosmic Laws & Purposeful Integration[span_220](start_span)[span_220](end_span)</p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Definition & Purpose</span><span class="vn-content">Định Nghĩa & Mục Đích</span></div>
+        <div class="content-body">
+          <p class="en-content">A Sovereign Creator exercises personal agency and accepts responsibility within their sphere of influence, without claiming unilateral control over external events[span_221](start_span)[span_221](end_span).</p>
+          <p class="vn-content">Chủ thể sáng tạo thực thi quyền chủ động cá nhân và nhận trách nhiệm trong tầm ảnh hưởng của mình, không ảo tưởng kiểm soát toàn năng ngoại cảnh[span_222](start_span)[span_222](end_span).</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label"><span class="en-content">Syllabus Breakdown</span><span class="vn-content">Đề Cương Bài Học</span></div>
+        <div class="syllabus-list">
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">01.</span> <span class="en-content">Law of Consciousness</span><span class="vn-content">Quy luật của Ý thức</span></div><p class="en-content">How perspectives shape daily habits; observe neutrally before action[span_223](start_span)[span_223](end_span).</p><p class="vn-content">Góc nhìn định hình thói quen; nuôi dưỡng quan sát không phán xét[span_224](start_span)[span_224](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">02.</span> <span class="en-content">Cause, Effect & Karma</span><span class="vn-content">Nhân, Quả và Nghiệp</span></div><p class="en-content">Physical cause-and-effect; reject the idea that illness or tragedy is deserved punishment[span_225](start_span)[span_225](end_span).</p><p class="vn-content">Nhân quả thực tế; bác bỏ quan niệm bệnh tật hay hoạn nạn là hình phạt quả báo đáng phải chịu[span_226](start_span)[span_226](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">03.</span> <span class="en-content">Polarity & Dynamic Balance</span><span class="vn-content">Tính Phân cực & Cân bằng</span></div><p class="en-content">Balance work and rest, autonomy and community[span_227](start_span)[span_227](end_span).</p><p class="vn-content">Cân bằng làm việc và nghỉ ngơi, tự chủ và cộng đồng[span_228](start_span)[span_228](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">04.</span> <span class="en-content">Intentional Alignment</span><span class="vn-content">Tính Chủ đích & Điều chỉnh</span></div><p class="en-content">Translate aspirations into sustained daily systems[span_229](start_span)[span_229](end_span).</p><p class="vn-content">Chuyển khát vọng thành thói quen kỷ luật bền bỉ mỗi ngày[span_230](start_span)[span_230](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">05.</span> <span class="en-content">Cycles of Growth</span><span class="vn-content">Chu kỳ Phát triển</span></div><p class="en-content">Normalize slower seasons as opportunities for integration rather than failure[span_231](start_span)[span_231](end_span).</p><p class="vn-content">Bình thường hóa giai đoạn chậm lại như cơ hội tích hợp thay vì thất bại[span_232](start_span)[span_232](end_span).</p></div>
+          <div class="syllabus-item"><div class="syllabus-item-title"><span class="syllabus-num">06.</span> <span class="en-content">Purpose & Civic Engagement</span><span class="vn-content">Mục đích & Tham gia Xã hội</span></div><p class="en-content">Practical avenues for social service; meaningful life does not require grandiose missions[span_233](start_span)[span_233](end_span).</p><p class="vn-content">Đóng góp thiết thực cho cộng đồng; cuộc sống ý nghĩa không cần sứ mệnh vĩ mô to tát[span_234](start_span)[span_234](end_span).</p></div>
+        </div>
+      </div>
+
+      <!-- CAPSTONE PROJECT CARD -->
+      <div class="content-card" style="border: 2px solid var(--accent-purple);">
+        <div class="section-label" style="color: var(--accent-purple);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <span class="en-content">Capstone Project: 30-Day Sanctuary Plan</span>
+          <span class="vn-content">Dự Án Tốt Nghiệp: Kế Hoạch 30 Ngày</span>
+        </div>
+        <div class="content-body">
+          <p class="en-content">Construct your personalized actionable life integration plan containing[span_235](start_span)[span_235](end_span):</p>
+          <p class="vn-content">Xây dựng kế hoạch tích hợp cuộc sống 30 ngày bao gồm[span_236](start_span)[span_236](end_span):</p>
+          <ul style="padding-left: 20px; margin-top: 8px;">
+            <li><span class="en-content">3 core values chosen to guide decisions[span_237](start_span)[span_237](end_span).</span><span class="vn-content">3 giá trị cốt lõi định hướng hành động[span_238](start_span)[span_238](end_span).</span></li>
+            <li><span class="en-content">1 sustainable physical mobility habit[span_239](start_span)[span_239](end_span).</span><span class="vn-content">1 thói quen vận động thể chất bền vững[span_240](start_span)[span_240](end_span).</span></li>
+            <li><span class="en-content">1 daily conscious breathing exercise[span_241](start_span)[span_241](end_span).</span><span class="vn-content">1 bài tập thở điều hòa hàng ngày[span_242](start_span)[span_242](end_span).</span></li>
+            <li><span class="en-content">1 structured method to process emotions[span_243](start_span)[span_243](end_span).</span><span class="vn-content">1 phương pháp xử lý cảm xúc có cấu trúc[span_244](start_span)[span_244](end_span).</span></li>
+            <li><span class="en-content">1 action for service or relationship building[span_245](start_span)[span_245](end_span).</span><span class="vn-content">1 hành động phục vụ hoặc kết nối cộng đồng[span_246](start_span)[span_246](end_span).</span></li>
+            <li><span class="en-content">1 clear boundary and social support contact[span_247](start_span)[span_247](end_span).</span><span class="vn-content">1 ranh giới rõ ràng và người đồng hành hỗ trợ[span_248](start_span)[span_248](end_span).</span></li>
+            <li><span class="en-content">A recurring weekly review date[span_249](start_span)[span_249](end_span).</span><span class="vn-content">1 buổi hẹn hàng tuần để đánh giá và điều chỉnh[span_250](start_span)[span_250](end_span).</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="module-nav-grid">
+        <a href="#module-11" class="pager-btn prev"><span class="pager-sub">Previous</span><span class="pager-title">← 11. Akashic</span></a>
+        <a href="#overview" class="pager-btn next"><span class="pager-sub">Completion</span><span class="pager-title">Graduation Guide →</span></a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- QUICK JUMP DRAWER (iOS SHEET) -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="closeDrawer(event)">
+    <div class="drawer-sheet">
+      <div class="drawer-handle"></div>
+      <div class="drawer-header">
+        <h3 class="drawer-title">
+          <span class="en-content">Select Curriculum Module</span>
+          <span class="vn-content">Chọn Học Phần</span>
+        </h3>
+        <button class="nav-btn" onclick="closeDrawer(event)">✕</button>
+      </div>
+
+      <div class="drawer-list">
+        <a href="#module-1" class="drawer-item" onclick="closeDrawer()"><span class="drawer-num">1</span> <span class="en-content">Body Vessel Foundations</span><span class="vn-content">Nền Tảng Thân Thể</span></a>
+        <a href="#module-2" class="drawer-item" onclick="closeDrawer()"><span class="drawer-num">2</span> <span class="en-content">Breathing for Chi</span><span class="vn-content">Hơi Thở Cho Khí</span></a>
+        <a href="#module-3" class="drawer-item" onclick="closeDrawer()"><span class="drawer-num">3</span> <span class="en-content">Sacred Warrior: Muay Boran</span><span class="vn-content">Chiến Binh Thiêng Liêng</span></a>
+        <a href="#module-4" class="drawer-item" onclick="closeDrawer()"><span class="drawer-num">4</span> <span class="en-content">Bio-Energetic Nutrition</span><span class="vn-content">Dinh Dưỡng Năng Lượng</span></a>
+        <a href="#module-5" class="drawer-item" onclick="closeDrawer()"><span class="drawer-num">5</span> <span class="en-content">Mind Matrix Rewiring</span><span class="vn-content">Tái Lập Trình Tâm Trí</span></a>
+        <a href="#module-6" class="drawer-item" onclick="closeDrawer()"><span class="drawer-num">6</span> <span class="en-content">Brainwave Harmony</span><span class="vn-content">Sự Hài Hòa Sóng Não</span></a>
+        <a href="#module-7" class="drawer-item" onclick="closeDrawer()"><span class="drawer-num">7</span> <span class="en-content">Emotional Liberation</span><span class="vn-content">Giải Phóng Cảm Xúc</span></a>
+        <a href="#module-8" class="drawer-item" onclick="closeDrawer()"><span class="drawer-num">8</span> <span class="en-content">Heart Coherence Law</span><span class="vn-content">Tương Hợp Trái Tim</span></a>
+        <a href="#module-9" class="drawer-item" onclick="closeDrawer()"><span class="drawer-num">9</span> <span class="en-content">Quantum Realities</span><span class="vn-content">Thực Tại Lượng Tử</span></a>
+        <a href="#module-10" class="drawer-item" onclick="closeDrawer()"><span class="drawer-num">10</span> <span class="en-content">Cosmic Geometry</span><span class="vn-content">Hình Học Vũ Trụ</span></a>
+        <a href="#module-11" class="drawer-item" onclick="closeDrawer()"><span class="drawer-num">11</span> <span class="en-content">Akashic Records Journey</span><span class="vn-content">Bản Ghi Akashic</span></a>
+        <a href="#module-12" class="drawer-item" onclick="closeDrawer()"><span class="drawer-num">12</span> <span class="en-content">Sovereign Creator</span><span class="vn-content">Chủ Thể Sáng Tạo</span></a>
+        <a href="#overview" class="drawer-item" onclick="closeDrawer()"><span class="drawer-num">ℹ</span> <span class="en-content">Sanctuary Framework & Pillars</span><span class="vn-content">Tổng Quan & Năm Trụ Cột</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAVBAR (iOS TAP BAR) -->
+  <nav class="bottom-navbar">
+    <button class="bottom-nav-btn" onclick="navigateHome()" id="bnav-map">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <span class="en-content">12 Steps Map</span>
+      <span class="vn-content">Bản đồ</span>
+    </button>
+
+    <button class="bottom-nav-btn" onclick="openDrawer()" id="bnav-index">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+      <span class="en-content">Modules</span>
+      <span class="vn-content">Học phần</span>
+    </button>
+
+    <button class="bottom-nav-btn" onclick="navigateTo('overview')" id="bnav-guide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      <span class="en-content">Guide</span>
+      <span class="vn-content">Hướng dẫn</span>
+    </button>
+  </nav>
+
+  <!-- -----------------------------------------------------------
+       JAVASCRIPT APP CONTROLLER
+       ----------------------------------------------------------- -->
+  <script>
+    // State variables
+    let currentLang = localStorage.getItem('lana_lang') || 'en';
+    let currentTheme = localStorage.getItem('lana_theme') || 'dark';
+    let hotspotsVisible = true;
+
+    // Module title mapping for top bar indicator
+    const moduleTitles = {
+      'home': { en: '12 Steps to Mastery', vn: '12 Bước Tinh Thông' },
+      'overview': { en: 'Sanctuary Overview', vn: 'Tổng Quan Nơi Bảo Tồn' },
+      'module-1': { en: '1. Body Vessel', vn: '1. Nền Tảng Thân Thể' },
+      'module-2': { en: '2. Breathing for Chi', vn: '2. Hơi Thở Cho Khí' },
+      'module-3': { en: '3. Muay Boran', vn: '3. Muay Boran' },
+      'module-4': { en: '4. Bio-Nutrition', vn: '4. Dinh Dưỡng' },
+      'module-5': { en: '5. Mind Matrix', vn: '5. Ma Trận Tâm Trí' },
+      'module-6': { en: '6. Brainwaves', vn: '6. Sóng Não' },
+      'module-7': { en: '7. Ho‘oponopono', vn: '7. Ho‘oponopono' },
+      'module-8': { en: '8. Heart Coherence', vn: '8. Tương Hợp Trái Tim' },
+      'module-9': { en: '9. Quantum Realities', vn: '9. Thực Tại Lượng Tử' },
+      'module-10': { en: '10. Cosmic Geometry', vn: '10. Hình Học Vũ Trụ' },
+      'module-11': { en: '11. Akashic Journey', vn: '11. Bản Ghi Akashic' },
+      'module-12': { en: '12. Sovereign Creator', vn: '12. Chủ Thể Sáng Tạo' }
+    };
+
+    // Initialize UI on DOM Ready
+    document.addEventListener('DOMContentLoaded', () => {
+      applyTheme(currentTheme);
+      setLanguage(currentLang);
+      handleHashRouting();
+      window.addEventListener('hashchange', handleHashRouting);
+    });
+
+    // Hash Router
+    function handleHashRouting() {
+      const hash = window.location.hash.replace('#', '') || 'home';
+      showScreen(hash);
+    }
+
+    function navigateTo(screenId) {
+      window.location.hash = '#' + screenId;
+    }
+
+    function navigateHome() {
+      navigateTo('home');
+    }
+
+    function showScreen(screenId) {
+      const targetId = 'screen-' + screenId;
+      const screens = document.querySelectorAll('.screen');
+      let targetScreen = document.getElementById(targetId);
+
+      if (!targetScreen) {
+        targetScreen = document.getElementById('screen-home');
+        screenId = 'home';
+      }
+
+      screens.forEach(s => s.classList.remove('active-screen'));
+      targetScreen.classList.add('active-screen');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+
+      // Update Top Bar Title
+      const titleData = moduleTitles[screenId] || moduleTitles['home'];
+      const navbarTitle = document.getElementById('navbar-title');
+      navbarTitle.innerHTML = `<span class="en-content">${titleData.en}</span><span class="vn-content">${titleData.vn}</span>`;
+
+      // Update Back Button display
+      const btnBack = document.getElementById('btn-back');
+      if (screenId === 'home') {
+        btnBack.style.opacity = '0.6';
+      } else {
+        btnBack.style.opacity = '1';
+      }
+
+      // Update bottom nav active state
+      document.querySelectorAll('.bottom-nav-btn').forEach(b => b.classList.remove('active'));
+      if (screenId === 'home') document.getElementById('bnav-map').classList.add('active');
+      else if (screenId === 'overview') document.getElementById('bnav-guide').classList.add('active');
+    }
+
+    // Language Toggle (EN / VN)
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('lana_lang', lang);
+      document.body.className = document.body.className.replace(/lang-(en|vn)/g, '');
+      document.body.classList.add('lang-' + lang);
+
+      document.getElementById('opt-en').classList.toggle('active', lang === 'en');
+      document.getElementById('opt-vn').classList.toggle('active', lang === 'vn');
+    }
+
+    // Theme Toggle (Dark / Light)
+    function toggleTheme() {
+      const newTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light';
+      applyTheme(newTheme);
+    }
+
+    function applyTheme(theme) {
+      currentTheme = theme;
+      localStorage.setItem('lana_theme', theme);
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f8fafc');
+        document.getElementById('btn-theme').innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+      } else {
+        document.body.classList.remove('light-theme');
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0a0d18');
+        document.getElementById('btn-theme').innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+      }
+    }
+
+    // Hotspot Overlay Highlights
+    function toggleHotspots() {
+      const wrapper = document.getElementById('mapWrapper');
+      hotspotsVisible = !hotspotsVisible;
+      wrapper.classList.toggle('show-hotspots', hotspotsVisible);
+      document.getElementById('txt-hotspot-en').textContent = `Highlight Targets: ${hotspotsVisible ? 'ON' : 'OFF'}`;
+      document.getElementById('txt-hotspot-vn').textContent = `Hiển thị điểm chạm: ${hotspotsVisible ? 'BẬT' : 'TẮT'}`;
+    }
+
+    // Quick Jump Drawer
+    function openDrawer() {
+      document.getElementById('drawerBackdrop').classList.add('open');
+    }
+    function closeDrawer(e) {
+      if (!e || e.target.id === 'drawerBackdrop' || e.target.closest('.drawer-item') || e.target.closest('button')) {
+        document.getElementById('drawerBackdrop').classList.remove('open');
+      }
+    }
+
+    // Fallback if image path needs reminder
+    function handleImageError() {
+      const img = document.getElementById('curriculumImg');
+      img.alt = 'Please ensure CURRICULUM.jpeg is placed in the same directory as this HTML file.';
+    }
+  </script>
+</body>
+</html>
