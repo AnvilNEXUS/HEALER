@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6 Signs You Have Entered the Fifth Dimension (5D) | Bilingual Learning Portal</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            mystic: {
+              50: '#f5f7fa',
+              100: '#e4e7eb',
+              200: '#cbd2d9',
+              300: '#9aa5b1',
+              400: '#52667a',
+              500: '#314354',
+              600: '#233040',
+              700: '#1b2430',
+              800: '#131a22',
+              900: '#0d1117',
+            },
+            ether: {
+              50: '#fdf4ff',
+              100: '#fae8ff',
+              200: '#f5d0fe',
+              300: '#f0abfc',
+              400: '#e879f9',
+              500: '#d946ef',
+              600: '#c026d3',
+              700: '#a21caf',
+              800: '#86198f',
+              900: '#701a75',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom utility animations and card flip effects */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    
+    /* Smooth transition presets */
+    .fade-enter {
+      animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Paragraph Card flip transition container */
+    .para-card-inner {
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .para-card-inner.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(156, 163, 175, 0.4);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(156, 163, 175, 0.7);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen font-sans transition-colors duration-300 flex flex-col antialiased selection:bg-purple-200 selection:text-purple-900 dark:selection:bg-purple-900 dark:selection:text-purple-200">
+
+  <!-- TOP PERSISTENT NAVIGATION BAR -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/85 dark:bg-slate-900/85 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+    <!-- Reading Progress Bar -->
+    <div id="scrollProgressBar" class="h-1 bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 w-0 transition-all duration-150"></div>
+    
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Left: Logo / Back Button -->
+      <div class="flex items-center gap-3">
+        <a id="navBackBtn" href="#overview" class="hidden items-center gap-2 text-sm font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all focus:outline-none focus:ring-2 focus:ring-purple-500">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="hidden sm:inline">Back to Overview</span>
+          <span class="sm:hidden">Overview</span>
+        </a>
+        <a href="#overview" class="flex items-center gap-2 group">
+          <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-bold flex items-center justify-center text-sm shadow-sm group-hover:scale-105 transition-transform">5D</span>
+          <span class="font-bold text-base sm:text-lg tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">Bilingual 5D</span>
+        </a>
+      </div>
+
+      <!-- Right: Action Controls -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Global EN/VI Mode Toggle -->
+        <button id="globalLangToggle" title="Toggle default view language" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm font-medium hover:border-purple-400 dark:hover:border-purple-500 transition-all shadow-sm">
+          <span class="text-purple-600 dark:text-purple-400 font-bold">LANG:</span>
+          <span id="globalLangLabel" class="font-semibold text-slate-900 dark:text-white">EN (English)</span>
+        </button>
+
+        <!-- Glossary Quick Jump -->
+        <a href="#glossary" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 text-xs sm:text-sm font-semibold transition-all border border-indigo-200/50 dark:border-indigo-800/50">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+          <span>Glossary</span>
+        </a>
+
+        <!-- Light / Dark Mode Toggle -->
+        <button id="themeToggle" aria-label="Toggle theme" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+          <!-- Sun Icon -->
+          <svg id="themeIconSun" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          <!-- Moon Icon -->
+          <svg id="themeIconMoon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP ROUTING CONTAINER -->
+  <main id="appContainer" class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <!-- Dynamic views injected here by router -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 py-8 text-center text-sm text-slate-500 dark:text-slate-400">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Interactive Bilingual Reader &bull; EN-01 / SRT-VN</span>
+      </div>
+      <p class="text-xs">Self-Contained Single-Page Application &bull; High-Yield B2/C1 Language Learning System</p>
+    </div>
+  </footer>
+
+  <!-- DATA & APPLICATION LOGIC -->
+  <script>
+    /* =========================================================================
+       DOCUMENT DATA STORE: FULL VERBATIM CONTENT FOR ALL 11 SECTIONS + GLOSSARY
+       ========================================================================= */
+    const appData = {
+      meta: {
+        title_en: "6 Signs You Have Entered the Fifth Dimension (5D)",
+        title_vn: "6 Dấu Hiệu Bạn Đã Bước Vào Chiều Không Gian Thứ Năm (5D)",
+        subtitle_en: "An interactive bilingual study experience exploring higher consciousness, spiritual discernment, and energetic awareness.",
+        subtitle_vn: "Trải nghiệm học tập song ngữ tương tác khám phá nhận thức cao hơn, sự tỉnh thức và lăng kính năng lượng."
+      },
+      sections: [
+        {
+          id: "section-1",
+          num: "01",
+          badge: "Overview",
+          title_en: "The Concept of the Fifth Dimension (5D)",
+          title_vn: "Khái Niệm Về Chiều Không Gian Thứ Năm (5D)",
+          desc_en: "Understanding 5D not as a physical realm or sci-fi fantasy, but as an internal vibrational state of consciousness and perceptual harmony.",
+          desc_vn: "Hiểu chiều không gian thứ năm không phải là cõi vật lý viễn tưởng, mà là trạng thái ý thức và tần số rung động hòa hợp nội tâm.",
+          paragraphs: [
+            {
+              en: "If there has ever been a moment when your inner world resonated with concepts like higher consciousness, spiritual awakening, or multi-dimensional reality, your intuition has likely recognized something your rational mind is still trying to interpret. Many people mistakenly believe the fifth dimension is a sci-fi fantasy, a distant cosmic station in outer space, or a scene from a science fiction film. In reality, it is a state of consciousness, a vibrational frequency, and a way the mind interprets reality.",
+              vi: "Nếu có một khoảnh khắc bạn chợt nhận thấy thế giới nội tâm của mình rung động trước những khái niệm như ý thức, sự thức tỉnh hay các chiều không gian, rất có thể trực giác của bạn đã nhận ra điều mà lý trí vẫn đang tìm cách diễn giải. Nhiều người thường lầm tưởng chiều không gian thứ năm là một khái niệm viễn tưởng, một trạm dừng xa xôi ngoài vũ trụ hay cảnh phim khoa học. Nhưng thực chất đó là một trạng thái ý thức, một tần số rung động và cách tâm trí diễn giải thực tại."
+            },
+            {
+              en: "While the third dimension keeps us tuned to a broadcast of fear, scarcity, and rigid binary boundaries between right and wrong, in the fifth dimension, separation dissolves to make way for a profound sense of connection and harmonious inner creation. Here are the specific signs that your consciousness has attuned to this frequency.",
+              vi: "Nếu chiều thứ ba giam giữ chúng ta trong chiếc radio phát đi nỗi sợ, sự khan hiếm, ranh giới nhị nguyên rạch ròi giữa đúng và sai thì ở chiều thứ năm sự chia cắt biến mất để nhường chỗ cho cảm giác kết nối và sáng tạo nội tại hài hòa. Dưới đây là những dấu hiệu cụ thể cho thấy ý thức của bạn đã chạm tới tần số này."
+            }
+          ]
+        },
+        {
+          id: "section-2",
+          num: "02",
+          badge: "Sign 1",
+          title_en: "1. Drama and Conflict No Longer Control You",
+          title_vn: "1. Những Màn Kịch Và Xung Đột Không Còn Chi Phối Được Bạn",
+          desc_en: "Moving from reactive emotional entanglement to the centered space of a calm, grounded observer.",
+          desc_vn: "Chuyển dịch từ sự cuốn theo kịch tính sang vị thế của một người quan sát tĩnh lặng, không đồng hóa cảm xúc.",
+          paragraphs: [
+            {
+              en: "Think back to family gatherings where people gossip and pass judgment on someone who isn't there, or a coworker who constantly drags you into petty drama. In the past, you might easily have been pulled in, only to walk away feeling drained and hollow. Today, that automatic reaction is gone.",
+              vi: "Hãy quan sát lại mỗi buổi sum họp gia đình nơi mọi người bắt đầu soi mói phán xét một ai đó vắng mặt hay một đồng nghiệp nơi công sở luôn lôi bạn vào những rắc rối vụn vặt. Trước đây bạn rất dễ bị cuốn theo để rồi nhận lại cảm giác kiệt sức và trống rỗng. Nhưng giờ đây, phản xạ đó biến mất."
+            },
+            {
+              en: "You still listen with empathy, but from the space of a calm, grounded observer rather than adopting someone else’s pain or anger as your own. This is not coldness or detachment; it is cognitive and spiritual maturity. In the third dimension, drama is the fuel that feeds the ego's need for significance. As your spiritual palate matures, you no longer crave that artificial sweetness. People around you might say you have changed, but in truth, you simply no longer react passively to surrounding chaos.",
+              vi: "Bạn vẫn lắng nghe bằng sự thấu hiểu nhưng với tâm thế của một người quan sát tĩnh lặng từ bên ngoài thay vì biến nỗi đau hay sự phẫn nộ của người khác thành của mình. Đây không phải sự lạnh lùng hay thờ ơ mà là sự trưởng thành về nhận thức. Ở chiều thứ ba, kịch tính là nhiên liệu để bản ngã cảm thấy mình quan trọng. Khi khẩu vị tinh thần thay đổi, bạn không còn thèm muốn thứ kẹo ngọt nhân tạo ấy nữa. Người xung quanh có thể bảo bạn đã thay đổi, nhưng thực chất bạn chỉ đơn giản là không còn phản ứng thụ động trước những hỗn loạn xung quanh."
+            }
+          ]
+        },
+        {
+          id: "section-3",
+          num: "03",
+          badge: "Sign 2",
+          title_en: "2. Perceiving Yourself and All Things Through the Lens of Energy",
+          title_vn: "2. Nhận Biết Bản Thân Và Vạn Vật Dưới Lăng Kính Năng Lượng",
+          desc_en: "Recognizing that thoughts, emotions, and presence carry palpable energetic weight and establishing centered boundaries.",
+          desc_vn: "Nhận biết cảm xúc và vạn vật dưới dạng năng lượng, chuyển hóa sự nhạy cảm thành siêu năng lực quan sát.",
+          paragraphs: [
+            {
+              en: "In 3D, the world is experienced as dense, separate matter: a table, a tree, or a person all stand apart from one another. Gradually, however, you begin to perceive the invisible thread linking everything together. You realize that emotions carry distinct weight. Certain people bring a sense of lightness, while others drain you simply by walking into the room.",
+              vi: "Ở chiều thứ ba, thế giới được nhìn nhận như những khối vật chất rắn chắc và tách biệt: cái bàn, cái cây hay con người đều đứng riêng rẽ. Nhưng dần dần bạn bắt đầu thấy một sợi dây liên kết vô hình nối liền tất cả. Bạn nhận ra cảm xúc cũng có trọng lượng riêng. Có những người mang lại cảm giác nhẹ nhõm nhưng cũng có những người khiến bạn cạn kiệt chỉ bằng sự hiện diện."
+            },
+            {
+              en: "You step into a space and instantly register the thick, suffocating tension, or intuitively perceive someone’s grief before they can utter a single word. There was a time when this sensitivity felt like a weakness, forcing you to put up defensive walls just to survive. In the fifth dimension, it becomes a perceptual superpower. Before stepping into any demanding environment, take a brief pause, inhale deeply three times, and remind yourself:",
+              vi: "Bạn bước vào một căn phòng và cảm nhận được ngay bầu không khí ngột ngạt co thắt lại hay trực giác thấy rõ nỗi đau của người đối diện trước khi họ kịp thốt nên lời. Từng có lúc sự nhạy cảm này bị xem là yếu đuối, buộc bạn phải dựng lên những bức tường phòng vệ để sinh tồn. Nhưng ở chiều thứ năm, đó là một năng lực quan sát. Trước khi bước vào bất kỳ không gian phức tạp nào, một khoảng dừng ngắn, hít sâu ba nhịp và tự nhắc nhở:"
+            },
+            {
+              en: "\"My energy is my own; I remain centered; I observe without absorbing.\"",
+              vi: "\"Năng lượng của tôi là của riêng tôi, tôi giữ vững sự tập trung, tôi quan sát mà không bị hấp thụ\""
+            },
+            {
+              en: "This allows you to perceive everything clearly without becoming drained or overwhelmed.",
+              vi: "Điều này sẽ giúp bạn nhận biết mọi thứ trọn vẹn mà không để bản thân bị cuốn trôi hay đồng hóa."
+            }
+          ]
+        },
+        {
+          id: "section-4",
+          num: "04",
+          badge: "Sign 3",
+          title_en: "3. Shifting Tolerance and Natural Cleansing",
+          title_vn: "3. Giới Hạn Chịu Đựng Thay Đổi Và Sự Thanh Lọc Tự Nhiên",
+          desc_en: "Systematic purification of relationships, lifestyle habits, and diet as old lower-vibrational frequencies cease to resonate.",
+          desc_vn: "Quá trình thanh lọc tự nhiên về thói quen, cơ thể và các mối quan hệ khi tần số nội tại không còn cộng hưởng tầng mức cũ.",
+          paragraphs: [
+            {
+              en: "At a certain point on this journey, you will find that you can no longer tolerate things you once endured with ease. Your living environment, long-standing habits, and social circles begin to undergo a systematic shift. People who once held central roles in your life may drift away, create distance, or take on different roles. Familiar foods feel heavy, accustomed environments suddenly feel stifling, and conversations that once seemed routine now leave your energy depleted.",
+              vi: "Đến một thời điểm trên hành trình này, bạn sẽ nhận ra mình không còn có thể chấp nhận những điều bản thân từng dễ dàng chịu đựng. Môi trường sống, các thói quen lâu năm và vòng tròn quan hệ bắt đầu biến chuyển có hệ thống. Có những người từng giữ vị trí quan trọng bỗng rời đi, xa cách hoặc thay đổi vai trò. Món ăn quen thuộc trở nên nặng nề, không gian thân quen bỗng thấy ngột ngạt và những cuộc trò chuyện trước đây vốn bình thường giờ lại khiến bạn cạn kiệt năng lượng."
+            },
+            {
+              en: "This experience is like tuning a radio to a new frequency: the old track simply isn't broadcast on this station anymore. As your internal frequency shifts, elements from your previous state naturally cease to resonate.",
+              vi: "Trải nghiệm này giống như khi chiếc đài radio dò sang một tần số mới: bản nhạc cũ đơn giản là không còn được phát trên làn sóng đó nữa. Khi tần số nội tại dịch chuyển, những gì thuộc về tầng mức trước đây sẽ tự động không còn cộng hưởng."
+            },
+            {
+              en: "This transformation is physically noticeable as well—a process often referred to as the purification of the crystalline body. Without force or strict rules, your body begins naturally rejecting heavy meats, processed foods, and excess salt and sugar. Instead, it asks for the light vitality of fresh vegetables, fruits, nuts, and clean water. This is not rigid dietary dogma; it is your energetic system communicating directly about what it truly needs.",
+              vi: "Sự biến chuyển diễn ra rõ rệt ngay trên cơ thể vật lý, nơi nhiều người gọi là quá trình thanh lọc của cơ thể tinh thể. Cơ thể bạn tự nhiên từ chối các loại thịt nặng, thực phẩm chế biến sẵn hay lượng muối và đường dư thừa mà không cần ai thúc ép. Thay vào đó, nó đòi hỏi sự nhẹ nhàng và sức sống từ rau củ, trái cây, các loại hạt và nước lọc. Đây không phải là một giáo điều ăn uống mà là cách hệ thống năng lượng phản hồi trực tiếp về những gì nó thực sự cần."
+            },
+            {
+              en: "The most difficult adjustments often involve personal relationships. When you no longer share the same vibration, maintaining certain dynamics causes deep emotional strain—even with lifelong friends or family. The grief of growing apart is real, but it is not a sign of failure; it is life reorganizing itself. In this new dimension, relationships no longer operate on obligation, routine, or fear of loneliness; they thrive purely on authentic resonance and mutual nourishment.",
+              vi: "Điều đau lòng nhất thường nằm ở các mối quan hệ. Khi không còn chung tần số, việc duy trì một số kết nối sẽ gây ra căng thẳng cảm xúc sâu sắc, ngay cả với những người bạn yêu thương nhất như gia đình hay bạn bè thân thiết lâu năm. Nỗi đau của sự xa cách là có thật nhưng đó không phải dấu hiệu của sự đổ vỡ, mà là sự sắp xếp lại của cuộc sống. Trong chiều không gian mới, các mối quan hệ không còn vận hành bằng nghĩa vụ, thói quen hay nỗi sợ cô đơn; chúng tồn tại dựa trên sự cộng hưởng chân thành và nuôi dưỡng lẫn nhau."
+            },
+            {
+              en: "When faced with the loneliness of this transitional phase, let this heartfelt truth ground you: Be grateful for the space opening up to welcome connections that genuinely align with who you are today.",
+              vi: "Đứng trước cảm giác cô đơn của giai đoạn chuyển giao, một lời tự nhủ chân thành từ đáy lòng sẽ là điểm tựa: Biết ơn vì không gian đang được mở ra để đón nhận những kết nối thực sự phù hợp với con người hiện tại của bạn."
+            }
+          ]
+        },
+        {
+          id: "section-5",
+          num: "05",
+          badge: "Sign 4",
+          title_en: "4. Intuition Transcending Data and Logic",
+          title_vn: "4. Tiếng Nói Trực Giác Vượt Lên Trên Dữ Liệu Và Lý Trí",
+          desc_en: "The awakening of an internal precision guidance system that senses truth before rational breakdown can occur.",
+          desc_vn: "Hệ thống định vị nội tại thức giấc vượt trên những bảng tính và lý trí thông thường.",
+          paragraphs: [
+            {
+              en: "While third-dimensional decisions rely on intellect, analysis, pros-and-cons lists, and spreadsheets, in the fifth dimension, an internal navigation system awakens with remarkable precision. There are truths no spreadsheet can capture, and aspects of human character no analytical breakdown can reveal. In these moments, your body senses the truth before your intellect understands it, and your heart grasps reality before your mind can dispute it.",
+              vi: "Nếu ở chiều thứ ba, mọi quyết định đều được giải quyết bằng lý trí, phân tích, so sánh ưu nhược điểm, logic và bảng số liệu thì ở chiều thứ năm, một hệ thống dẫn đường nội tại bắt đầu thức giấc với độ chính xác vượt trội. Có những chân lý không thể tìm thấy trên bất kỳ bảng tính nào và có những con người mà bản chất không thể nhìn ra qua lăng kính phân tích. Khi ấy, cơ thể bạn cảm nhận trước khi tâm trí kịp hiểu và trái tim nhận ra sự thật trước khi lý trí kịp phản bác."
+            },
+            {
+              en: "Sometimes someone speaks eloquently and persuasively, yet something in your gut tightens. Other times, an opportunity seems uncertain on paper, yet your entire intuition urges you forward. You simply know, without needing proof.",
+              vi: "Đôi khi ai đó nói điều gì nghe rất xuôi tai nhưng bên trong bạn bỗng thắt lại. Lại có những cơ hội chưa rõ ràng nhưng toàn bộ trực giác mách bảo bạn tiến bước. Bạn đơn giản là biết mà không cần bằng chứng chứng minh."
+            },
+            {
+              en: "This is your intuitive perception—a sixth sense reaching beyond what physical eyes can see. It is often accompanied by precognitive dreams, synchronicities unfolding in real time, or repeating numbers carrying meaningful messages.",
+              vi: "Đó là giác quan thứ sáu, khả năng cảm nhận siêu nhiên vượt ngoài những gì nhìn thấy bằng mắt thường. Nó thường đi kèm những giấc mơ báo trước, những điềm báo thành sự thật hay sự lặp lại liên tục của các con số mang thông điệp."
+            },
+            {
+              en: "A classic example is a woman who spent years in a relationship that seemed ideal on paper: a devoted partner, financial stability, and no overt conflict. Yet a quiet inner voice consistently warned her that something was misaligned. For years, she dismissed it as irrational. Only when she found the courage to honor that intuition did she realize it had been protecting her soul from emotional harm her logic could never have anticipated.",
+              vi: "Một trường hợp điển hình là câu chuyện về người phụ nữ gắn bó nhiều năm trong mối quan hệ tưởng chừng hoàn hảo: một đối tác tốt, tài chính vững vàng, không hề có xung đột rõ rệt. Thế nhưng một giọng nói rất khẽ bên trong liên tục báo động rằng có điều gì đó không ổn. Nhiều năm cô gạt đi vì cho rằng mình thiếu lý trí. Cho đến khi đủ dũng khí hành động theo cảm nhận ấy, cô mới nhận ra trực giác đã bảo vệ tâm hồn mình khỏi tổn thương mà lý trí hoàn toàn không thấy được."
+            },
+            {
+              en: "When you learn to trust your inner knowing before dissecting it, life ceases to be an uphill battle and becomes a smooth, rhythmic flow.",
+              vi: "Khi bạn học cách tin vào cảm nhận của bản thân trước khi đem ra mổ xẻ, cuộc sống ngừng là một cuộc tranh đấu căng thẳng để trở thành một dòng chảy trôi chảy nhịp nhàng và bình yên hơn."
+            }
+          ]
+        },
+        {
+          id: "section-6",
+          num: "06",
+          badge: "Sign 5",
+          title_en: "5. Ego Detachment and Awakening the Observer",
+          title_vn: "5. Sự Tách Rời Bản Ngã Và Đánh Thức Người Quan Sát",
+          desc_en: "Disidentifying from external labels and cultivating pure awareness through the serene, silent witness within.",
+          desc_vn: "Ngừng đồng nhất bản thân với danh tính tạm thời và đánh thức bản ngã cao hơn qua người quan sát tĩnh lặng.",
+          paragraphs: [
+            {
+              en: "This profound shift occurs when you stop identifying with temporary external personas. In 3D, human identity is built around job titles, social status, family roles, societal expectations, failures, and achievements. However solid they appear, these structures are simply constructs created by the ego.",
+              vi: "Biến chuyển sâu sắc này diễn ra khi bạn ngừng đồng nhất bản thân với danh tính tạm thời nơi thế giới bên ngoài. Trong chiều thứ ba, căn tính con người được định hình qua công việc, địa vị, vai trò gia đình, sự kỳ vọng của xã hội, những thất bại hay thành tựu đạt được. Dù có vẻ vững chắc, tất cả những cấu trúc đó chỉ là một ảo ảnh do cái tôi dựng nên."
+            },
+            {
+              en: "As your awareness deepens, you begin to experience a clear duality:\n• On one side is your everyday personality, with all its reactions, fears, and desires.\n• On the other side is the quiet observer standing just behind it.",
+              vi: "Khi nhận thức nâng cao, bạn bắt đầu tách mình ra làm hai:\n• Một bên là nhân cách đời thường với đủ mọi phản ứng, nỗi sợ, mong muốn.\n• Một bên là người quan sát tĩnh lặng đứng phía sau."
+            },
+            {
+              en: "That observer is pure consciousness, your higher self, the divine spark within you. When the observer steps forward, the ego loses its absolute grip. Criticism no longer crushes you, because you understand it does not define your essence. Praise and success no longer inflate you, because your core worth is never dependent on external outcomes. The fear of losing a job, social standing, or relationships begins to dissolve, because deep down, you know you transcend all of those things.",
+              vi: "Người quan sát đó chính là ý thức thuần khiết, bản ngã cao hơn hay tia sáng thiêng liêng bên trong bạn. Khi người quan sát xuất hiện, cái tôi mất dần quyền kiểm soát tuyệt đối. Lời chỉ trích không còn đánh gục bạn vì bạn hiểu nó không định nghĩa được bản chất của mình. Lời khen ngợi hay thành công không làm bạn tự mãn bởi giá trị cốt lõi không phụ thuộc vào kết quả bên ngoài. Nỗi sợ mất việc, mất vị thế hay mất các mối quan hệ dần lắng xuống vì sâu bên trong bạn biết mình vượt xa tất cả những thứ đó."
+            },
+            {
+              en: "This transition often brings a peculiar void. As drama, urgency, and the impulse to prove yourself subside, you may feel an odd emptiness, as if you’ve lost your footing. But this is not a loss; it is a necessary pause—like the silence between two musical notes that gives the melody its beauty. Within that stillness emerges a self-sustaining peace and wholeness, unlocking moments of unity where separation falls away, leaving only pure presence and love.",
+              vi: "Sự chuyển giao này thường kéo theo một khoảng trống kỳ lạ. Khi kịch tính, sự gấp gáp và nhu cầu chứng tỏ bản thân lắng xuống, bạn có thể cảm thấy hụt hẫng như vừa đánh mất chính mình. Nhưng đó không phải là mất mát mà là khoảng trống cần thiết, giống như khoảng lặng giữa hai nốt nhạc để tạo nên giai điệu hoàn chỉnh. Trong khoảng không ấy, một sự tĩnh lặng, trọn vẹn và bình an tự thân sẽ xuất hiện, mở ra những khoảnh khắc hợp nhất kỳ diệu nơi cảm giác chia cắt tan biến, chỉ còn lại sự toàn vẹn của tình yêu thuần túy."
+            },
+            {
+              en: "Just five minutes of total silence each morning—no phone, no music, no racing thoughts—is enough to open the door to this connection. It serves as an essential anchor before you encounter the sixth and most decisive sign.",
+              vi: "Chỉ cần 5 phút mỗi sáng tĩnh lặng hoàn toàn, không điện thoại, không âm nhạc, không suy nghĩ miên man, bạn đã có thể mở cánh cửa kết nối này. Đây là bước đệm vững chắc trước khi bước vào bài kiểm tra thứ sáu mang tính quyết định."
+            }
+          ]
+        },
+        {
+          id: "section-7",
+          num: "07",
+          badge: "Sign 6",
+          title_en: "6. Deep Sensing of Oneness & The Dissolution of the Veil of Illusion",
+          title_vn: "6. Cảm Nhận Sâu Sắc Sự Hợp Nhất Của Vạn Vật & Bức Màn Ảo Ảnh Bị Xóa Bỏ",
+          desc_en: "The ultimate milestone: living awareness that all life is woven of the same essence in an interconnected web of consciousness.",
+          desc_vn: "Dấu hiệu cốt tủy nhất: sự sụp đổ của bức màn ảo ảnh ngăn cách và trải nghiệm sống động về sự hợp nhất vạn vật.",
+          paragraphs: [
+            {
+              en: "Now we come to the sixth milestone: the final and most powerful test, the master key that makes every experience you have walked through suddenly fall into place. Pause here for a moment, because this is the heart of the matter.",
+              vi: "Và bây giờ chúng ta bước vào bài kiểm tra thứ sáu: thử thách cuối cùng mạnh mẽ nhất và cũng là chiếc chìa khóa khiến mọi mảnh ghép bạn từng trải qua bỗng nhiên sáng rõ như ban ngày. Hãy lắng lại một chút bởi đây chính là điều cốt tủy nhất."
+            },
+            {
+              en: "The sixth sign that your consciousness has shifted into the fifth dimension is that you deeply perceive the interconnectedness of all life. Boundaries of separation reveal themselves to be an illusion. And every event in the world suddenly takes on a profound significance you could never quite articulate before.",
+              vi: "Dấu hiệu thứ sáu cho thấy tâm thức của bạn đã thực sự dịch chuyển sang chiều không gian thứ năm: bạn bắt đầu cảm nhận sâu sắc rằng vạn vật trên đời đều gắn kết chặt chẽ với nhau. Ranh giới chia rẽ chỉ là một bức màn ảo ảnh. Và từng biến chuyển của thế giới bỗng mang một ý nghĩa đặc biệt mà trước đây bạn chẳng tài nào cắt nghĩa nổi."
+            },
+            {
+              en: "This goes far beyond social causes or worldly concerns; it is a visceral sensation felt in your very being:\n• It is hearing about the pain of a stranger you’ve never met and feeling an ache tighten in your own chest.\n• It is unconditional love flowing toward every branch, blade of grass, animal, and Mother Earth—feeling as though you are reuniting with parts of your own essence in different forms.\n• It is understanding that every thought, action, and ripple of energy you release does not end with you, but vibrates outward to touch every corner of the universe.",
+              vi: "Điều này vượt xa những phong trào xã hội hay mối bận tâm thời cuộc đơn thuần; nó là một rung cảm hiển hiện ngay trên da thịt bạn:\n• Đó là khoảnh khắc bạn nghe về nỗi đau của một người xa lạ chưa từng gặp mặt mà lồng ngực mình bỗng nhói buốt thắt lại.\n• Đó là tình yêu thương sâu thẳm vô điều kiện dành cho từng nhành cây, ngọn cỏ, muông thú và đất mẹ. Cảm giác như đang gặp lại một phần máu thịt của chính mình ẩn dưới những hình hài khác.\n• Bạn thấu suốt rằng từng ý niệm, từng việc bạn làm, từ nguồn năng lượng bạn tỏa ra không hề dừng lại ở bản thân mà đang rung động, lan tỏa và chạm đến từng góc nhỏ của vũ trụ này."
+            },
+            {
+              en: "In 3D, separation reigns supreme. You are you, I am I, a tree is a tree, an animal is an animal, and strangers are unrelated; everything is compartmentalized, separated, and labeled. From that illusion, humanity easily justifies causing harm: if they are separate from me, their suffering is not my concern; if nature is external to me, I can exploit it without consequence; if another person is my competitor, their success must be my failure.",
+              vi: "Ở không gian 3D, sự chia rẽ ngự trị gần như tuyệt đối. Bạn là bạn, tôi là tôi, cái cây là cái cây, con vật là con vật, người khác chỉ là người dưng; mọi thứ bị đóng khung, tách biệt và dán nhãn. Chính từ ảo tưởng đó, người ta dễ dàng biện minh cho những tổn thương gây ra cho nhau: nếu họ không phải là tôi, nỗi đau của họ chẳng can dự gì đến tôi; nếu thiên nhiên nằm ngoài tôi, tôi mặc sức khai thác mà chẳng mang hậu quả; nếu người kia là đối thủ thì thành công của họ ắt là thất bại của tôi."
+            },
+            {
+              en: "Yet upon entering the fifth dimension, that wall collapses—not through empty philosophical theory, but through direct, living experience. Awakened souls begin to tangibly experience what quantum physics points toward: all things are woven from the same energetic essence, vibrating within a unified field, continuously in communication. The separation seen by the physical eye is merely the appearance of dense matter; at the energetic core of existence, separation has never existed. An invisible web of consciousness embraces everything, and an awakened soul feels the heartbeat of that web every single day.",
+              vi: "Thế nhưng khi bước sang chiều thứ năm, bức tường ngăn cách ấy sụp đổ hoàn toàn, không phải bằng lý thuyết triết học sáo rỗng mà bằng chính trải nghiệm sống động từ bên trong. Những linh hồn thức tỉnh bắt đầu cảm nhận rất thật những gì vật lý lượng tử đã chứng minh: mọi thực thể đều dệt nên từ cùng một bản chất năng lượng, cùng dao động trong một trường thống nhất và không ngừng giao tiếp với nhau. Sự tách biệt mà mắt trần nhìn thấy chỉ là hình tướng của vật chất đậm đặc, còn ở tầng mức năng lượng sâu thẳm trong bản thể, chia cắt chưa bao giờ tồn tại. Có một mạng lưới ý thức vô hình ôm trọn vạn vật và một linh hồn thức tỉnh như bạn đang cảm nhận từng nhịp đập của mạng lưới ấy mỗi ngày."
+            },
+            {
+              en: "How does this look in daily life?\n• It is walking down the street and feeling an unexpected wave of warmth and love surge toward passing strangers.\n• It is standing quietly in nature beneath the shade of trees beside a calm river, bare feet touching the earth, feeling a bond that transcends everyday senses.\n• It is seeing someone shed a tear and having your heart comprehend their pain before your analytical mind can even process what occurred.\n• It is holding a pure thought of gratitude, forgiveness, and love, and almost visibly perceiving those peaceful ripples radiating outward, like ripples on a still lake greeting a drop of morning dew.",
+              vi: "Cảm giác đó hiển hiện ra sao giữa đời thường?\n• Đó là khi bạn bước đi trên phố và bỗng thấy một dòng chảy yêu thương ấm áp trào dâng hướng về những người qua đường xa lạ.\n• Đó là khi bạn đứng giữa thiên nhiên tĩnh lặng dưới bóng cây râm mát bên dòng sông êm đềm, đôi chân trần chạm vào đất mẹ và cảm nhận một sợi dây gắn kết vượt khỏi mọi giác quan thông thường.\n• Đó là khi bạn nhìn thấy ai đó rơi lệ và trái tim bạn đã kịp thấu cảm nỗi đau ấy trước cả khi lý trí kịp phân tích chuyện gì đang xảy ra.\n• Hay khi bạn khởi lên một ý nghĩ thuần khiết về lòng biết ơn, sự bao dung và tình thương mến, bạn gần như thấy rõ những gợn sóng năng lượng an lành ấy đang lan tỏa ra xung quanh như mặt hồ phẳng lặng vừa đón nhận một giọt sương."
+            },
+            {
+              en: "Fifth-dimensional souls come to understand a truth that transforms how they live: Your inner journey is never just personal. Every time you choose love over fear, empathy over judgment, and peace over pointless conflict, you directly uplift the collective field. You become a quiet lighthouse shifting the vibration of the planet. This is not poetic phrasing; it is an energetic reality recognized by frontier science and felt by millions of awakened souls across the globe.",
+              vi: "Những linh hồn chiều thứ năm hiểu ra một chân lý làm đảo lộn hoàn toàn cách họ sống: Hành trình nội tâm của bạn không bao giờ là chuyện riêng tư. Mỗi lần bạn chọn tình yêu thay vì sợ hãi, chọn thấu cảm thay vì phán xét, chọn bình yên thay vì những xung đột vô nghĩa, bạn đang trực tiếp nâng đỡ trường năng lượng của cả tập thể. Bạn chính là một ngọn hải đăng âm thầm thay đổi tần số rung động của hành tinh này. Đây không phải lời ví von văn vẻ mà là một thực tế năng lượng đang được khoa học tiên phong ghi nhận và hàng triệu tâm hồn thức tỉnh khắp thế giới cùng chung cảm ứng."
+            },
+            {
+              en: "Our Earth is entering an accelerated vibrational shift. With every 26,000-year cosmic cycle, the planet completes an evolutionary round, and right now, we are in the midst of an ascension window. The Earth's frequency is rising, creating a constant impulse urging humanity to awaken. That is why more and more people are feeling the exact same shifts you are. The number of awakened souls is growing every day, and that is why this message has reached you at this exact crossroad in your life.",
+              vi: "Trái Đất của chúng ta đang bước vào giai đoạn tăng tốc tần số. Cứ mỗi chu kỳ 26.000 năm của vũ trụ, hành tinh lại hoàn thành một vòng tiến hóa và ngay lúc này, chúng ta đang ở giữa ngưỡng cửa thăng lên. Rung động của đất mẹ dâng cao, tạo nên một lực đẩy liên tục thôi thúc con người bừng tỉnh. Đó là lý do vì sao ngày càng có nhiều người có cùng cảm giác với bạn. Số lượng linh hồn thức giấc đang tăng lên từng ngày và cũng là lý do vì sao thông điệp này tìm đến bạn ngay đúng khúc quanh này của cuộc đời."
+            },
+            {
+              en: "Nothing happens by chance. In this universe, there is only synchronicity—signposts from the vast field of consciousness. The fact that you have listened this far, and that these words resonate so deeply within you even if they are hard to put into speech, is a message from the cosmos: You have awakened. You know who you are, and it is time to walk forward with that sacred understanding.",
+              vi: "Không có gì là ngẫu nhiên cả. Trong vũ trụ chỉ có sự đồng bộ, những dấu hiệu chỉ đường từ trường ý thức bao la. Việc bạn lắng nghe đến tận đây, việc từng câu chữ này đang âm vang sâu sắc trong tâm khảm dù khó diễn tả thành lời chính là lời nhắn nhủ từ vũ trụ: Bạn đã nhận ra rồi. Bạn biết mình là ai và đã đến lúc bước đi với sự hiểu biết thiêng liêng ấy."
+            }
+          ]
+        },
+        {
+          id: "section-8",
+          num: "08",
+          badge: "Deep Reflection",
+          title_en: "Spiritual Homesickness & The Healing Mission",
+          title_vn: "Nỗi Niềm Hoài Hương Tâm Linh & Sứ Mệnh Chữa Lành",
+          desc_en: "Understanding the ache of longing for a non-physical home and navigating family relationships with unconditional compassion.",
+          desc_vn: "Thấu hiểu nỗi hoài hương về cội nguồn tâm linh và hóa giải những cô đơn, hiểu lầm nơi các mối quan hệ thân thuộc.",
+          paragraphs: [
+            {
+              en: "There is one more dimension to this sixth milestone that speaks directly to a quiet feeling you have carried for a long time: Fifth-dimensional souls often carry an indescribable homesickness. It is not nostalgia for a memory from this lifetime, but a distant recollection of a home beyond the physical realm—a place filled with pure light, where separation does not exist, and where love is the very air you breathe.",
+              vi: "Còn một điều nữa về bài kiểm tra thứ sáu này mà tôi muốn sẻ chia cùng bạn, một điều chạm thẳng vào nỗi niềm sâu kín bạn mang theo bấy lâu: Những linh hồn thuộc chiều thứ năm thường cất giấu một nỗi hoài hương khó gọi thành tên. Đó không phải là nỗi nhớ về một kỷ niệm trong kiếp sống này mà là ký ức xa xăm về một ngôi nhà không thuộc về cõi vật chất. Nơi ấy ngập tràn ánh sáng thuần khiết, không có chia lìa và tình yêu thương chính là bầu không khí để hít thở."
+            },
+            {
+              en: "That persistent longing without a physical destination is the echo of your spiritual origins. Your consciousness is remembering that you are not merely a physical body visiting this Earth for 70 or 80 years. You are a being of light who intentionally chose to incarnate at this exact moment—in this body, this family, and these exact circumstances. You came to bring something only you can offer:\n• To bring light where others are caught in darkness.\n• To anchor a high frequency where the surrounding energy is low.\n• To serve as a bridge uniting the visible realm with the unseen world.",
+              vi: "Nỗi khao khát khôn nguôi không có phương hướng địa lý ấy chính là tiếng vọng cội nguồn tâm linh của bạn. Tâm thức bạn đang nhớ lại rằng mình không chỉ là một thân xác ghé chơi chốn này 70 hay 80 năm. Bạn là một thực thể ánh sáng đã chủ động chọn hóa thân vào đúng thời khắc này trong thân thể này, gia đình này và hoàn cảnh cụ thể này. Bạn đến để mang lại những giá trị mà chỉ riêng bạn mới có thể trao đi:\n• Thắp sáng nơi người khác đang chìm trong u tối.\n• Giữ vững tần số cao nơi xung quanh đang chùng xuống.\n• Làm nhịp cầu nối liền cõi hữu hình với thế giới vô hình đầy màu nhiệm."
+            },
+            {
+              en: "Hear this with your whole heart: The burdens you have carried, the loneliness you have felt, the sense of alienation, your deep sensitivity, your unique worldview, and the spiritual experiences you could never share for fear of being judged—none of these are flaws. They are under no circumstances a sign that something is wrong with you. They are the signature of a fifth-dimensional soul whose eyes are open wider than the collective norm.",
+              vi: "Tôi mong bạn hãy lắng nghe điều này bằng cả trái tim: Gánh nặng bạn từng mang, nỗi cô đơn bạn từng nếm trải, cảm giác lạc lõng không thuộc về nơi này, sự nhạy cảm quá mức, cách nhìn đời khác biệt hay những trải nghiệm tâm linh chẳng thể tỏ cùng ai vì sợ người đời phán xét — tất cả những điều đó không phải là khiếm khuyết. Chúng tuyệt đối không phải dấu hiệu cho thấy bạn có vấn đề. Đó chính là ấn ký của một linh hồn chiều thứ năm mang đôi mắt rộng mở hơn số đông."
+            },
+            {
+              en: "Think of your family. They may love you deeply, yet remain unable to comprehend what you are going through. How many times have you tried opening up about your spiritual experiences, intuitive glimpses, or the sense that life holds far more than what meets the eye? At best, you were met with hesitant, confused looks. At worst, they dismissed you as impractical, eccentric, or detached from reality.",
+              vi: "Hãy nghĩ về gia đình bạn. Có thể họ rất yêu thương bạn nhưng lại chẳng thể hiểu nổi những gì bạn đang đi qua. Đã bao lần bạn thử mở lòng kể về những trải nghiệm tâm linh, những điềm báo bạn thấy hay cảm nhận rằng cuộc sống này còn chứa đựng nhiều tầng thực tại sâu xa hơn mắt trần? Kết quả tốt nhất bạn nhận lại có lẽ chỉ là những ánh nhìn ái ngại, xen lẫn mơ hồ. Còn tệ hơn, họ bảo bạn viển vông kỳ dị, sống trên mây và cần phải thực tế lại."
+            },
+            {
+              en: "You have had to carry a unique kind of pain: loving your family dearly, yet unable to reveal your authentic self around them. It is not the sting of betrayal or open conflict, but the quiet, lingering ache of having your core self misunderstood—feeling torn between living truthfully and being accepted, assuming that to belong, you must hide who you are. Many awakened souls have chosen to compartmentalize themselves: playing the role of an ordinary person at home, following familiar scripts, and quietly holding their loneliness in private spaces.",
+              vi: "Bạn đã phải gánh trên vai nỗi đau đặc biệt ấy: yêu thương người thân tha thiết nhưng không thể bộc lộ trọn vẹn con người mình trước mặt họ. Đó không phải vết thương của sự phản bội hay tranh cãi gay gắt mà là nỗi đau âm ỉ dai dẳng khi bản thể chân thật bị chối từ, khi phải giằng xé giữa việc sống thật hay được thấu hiểu, khi ngỡ rằng muốn thuộc về một nơi nào đó thì buộc phải giấu mình đi. Rất nhiều người thức tỉnh đã chọn cách tự chia cắt chính mình: về nhà thì đóng vai một người bình thường, nương theo những kịch bản được định sẵn rồi lặng lẽ ôm lấy nỗi cô đơn trong những khoảng trời riêng."
+            },
+            {
+              en: "You do not need to force anyone to understand you. Nor is it your job to awaken those who are not yet ready. The wisest love is often one that allows people to be as they are. You can love your family and friends for who they are, without needing them to validate your path. At the same time, you can live fully in your spiritual depth without requiring anyone’s permission or comprehension. Both can peacefully coexist. Loving them and staying true to yourself are not opposites. That is the true grace of the fifth dimension: boundless compassion without losing yourself.",
+              vi: "Nhưng bạn ơi, bạn không cần phải gồng mình bắt ép bất kỳ ai phải hiểu mình. Bạn cũng không mang trọng trách phải đánh thức những người chưa tới lúc sẵn sàng. Tình yêu thương trí tuệ nhất đôi khi lại là một tình yêu không cưỡng cầu. Bạn hoàn toàn có thể yêu thương gia đình, bạn bè đúng như bản chất vốn có của họ mà không cần họ phải thay đổi để thừa nhận con đường bạn đi. Đồng thời, bạn vẫn có thể sống trọn vẹn với chiều sâu tâm linh của mình mà chẳng cần ai cho phép hay thấu hiểu. Hai điều đó hoàn toàn có thể song hành an yên. Yêu thương họ và thành thật với chính mình không hề đối lập. Đó chính là sự bao dung của chiều thứ năm: trắc ẩn vô bờ mà không đánh mất bản ngã."
+            }
+          ]
+        },
+        {
+          id: "section-9",
+          num: "09",
+          badge: "Conscious Creation",
+          title_en: "The Mechanics of Creating Reality in the Fifth Dimension",
+          title_vn: "Cơ Chế Kiến Tạo Thực Tại Trong Chiều Thứ Năm",
+          desc_en: "How internal vibrational frequency mirrors external circumstance, accompanied by the 5-Minute Frequency Creation Practice.",
+          desc_vn: "Quy luật phản chiếu năng lượng và phương pháp thực hành 5 phút để kiến tạo thực tại mong muốn.",
+          paragraphs: [
+            {
+              en: "Here is what has long been overlooked: how the fifth dimension actually operates when shaping your reality.",
+              vi: "Và đây là điều từng bị che giấu suốt thời gian dài: cách chiều không gian thứ năm vận hành trong việc kiến tạo thực tại của bạn."
+            },
+            {
+              en: "In the third dimension, manifestation feels slow and exhausting. You long for something, you labor tirelessly for it, gaining it only to lose it. You often feel reality is something happening to you from the outside—an obstacle you must brace against, or leave to unpredictable fate.",
+              vi: "Ở chiều không gian 3D, sự hiển lộ diễn ra vô cùng chậm chạp và nhọc nhằn. Bạn mong mỏi điều gì đó, bạn lao tâm khổ tứ vì nó khi được khi mất. Bạn luôn có cảm giác thực tại là thứ gì đó nằm ngoài tầm với, một biến cố ập đến mà bạn phải gồng mình chống đỡ hay phó mặc cho may rủi của số phận."
+            },
+            {
+              en: "In the fifth dimension, the dynamic of creation changes entirely. You realize through direct experience that your internal state of consciousness is the fertile soil from which outer reality grows:\n• When your frequency vibrates in harmony with love, gratitude, trust, and openness, the universe responds with aligned people, opportunities, and circumstances.\n• Conversely, when you dwell in fear, scarcity, doubt, and emotional contraction, life reflects those exact states back to you.",
+              vi: "Nhưng ở chiều thứ năm, cuộc chơi kiến tạo đã hoàn toàn đổi khác. Bạn hiểu ra bằng chính trải nghiệm sống rằng trạng thái tâm thức bên trong mới chính là mảnh đất sản sinh ra thực tại bên ngoài:\n• Khi tần số của bạn rung động cùng nhịp với tình yêu, lòng biết ơn, niềm tin và sự cởi mở, vũ trụ sẽ hồi đáp bằng những con người, cơ hội và hoàn cảnh tương thích.\n• Ngược lại, khi bạn đắm chìm trong sợ hãi, thiếu thốn, hoài nghi và khép kín, cuộc đời cũng sẽ phản chiếu lại chính xác những trạng thái ấy."
+            },
+            {
+              en: "The universe is neither rewarding nor punishing you; it is simply operating by the law of reflection: reality is a mirror reflecting the frequency you broadcast.",
+              vi: "Không phải vũ trụ đang ban thưởng hay trừng phạt mà đó đơn giản là quy luật phản chiếu: thực tại chỉ là tấm gương soi bóng tần số bạn phát ra."
+            },
+            {
+              en: "Those stepping into the fifth dimension experience remarkable shifts: their intentions begin taking shape faster and with greater clarity than ever before. Not because of superstitious magic, but because their inner energy is in direct alignment with what they wish to experience. They have released enough fear to receive, cultivated enough gratitude to rest in abundance, and placed complete trust in the flow of life rather than trying to micromanage every step of the universe's design.",
+              vi: "Những người bước vào chiều thứ năm sẽ nhận thấy những phép màu kỳ lạ: mong ước của họ xuất hiện nhanh chóng và chuẩn xác hơn bao giờ hết. Không phải vì họ có bùa phép nhiệm màu mà vì trường năng lượng bên trong đã hòa làm một với điều họ muốn tạo ra. Họ đã buông bỏ đủ sợ hãi để đón nhận, tích lũy đủ lòng biết ơn để sống trong sự đủ đầy và đặt trọn niềm tin vào dòng chảy cuộc sống thay vì tìm cách kiểm soát từng ly từng tí những gì vũ trụ sắp đặt."
+            },
+            {
+              en: "Today, you can practice something very simple:\n1. Choose one genuine desire in your life—whether regarding health, relationships, career, or spiritual growth.\n2. Close your eyes. Instead of worrying about how to achieve it or dwelling on obstacles, ask yourself: \"How would I feel if this were already present right now?\"\n3. Hold that feeling of peace and fulfillment fully for five minutes. Without doubt, without forcing it—simply experiencing it from the perspective of having already received the gift.\n\nThat is the magnetic frequency that aligns all things—the natural magic of the fifth dimension.",
+              vi: "Ngày hôm nay, bạn có thể thực hành một điều vô cùng giản dị:\n1. Hãy chọn ra một điều duy nhất bạn khao khát trong đời về sức khỏe, tình cảm, công việc hay sự thăng tiến tâm linh.\n2. Nhắm mắt lại, thay vì loay hoay nghĩ cách làm sao để đạt được hay lo sợ chướng ngại, hãy tự hỏi: \"Mình sẽ cảm thấy thế nào nếu điều này đã hiện diện ngay lúc này?\"\n3. Hãy giữ trọn vẹn cảm xúc an vui viên mãn ấy trong 5 phút. Không nghi ngờ, không gượng gạo, chỉ đơn thuần cảm nhận từ tâm thế của người đã đón nhận món quà đó.\n\nChính đó là tần số hút vạn vật, là điều kỳ diệu thuần khiết của chiều thứ năm."
+            }
+          ]
+        },
+        {
+          id: "section-10",
+          num: "10",
+          badge: "Higher Purpose",
+          title_en: "The Mission of Awakened Souls",
+          title_vn: "Sứ Mệnh Của Những Linh Hồn Thức Tỉnh",
+          desc_en: "Serving as a steady lighthouse of peace and compassionate presence in an accelerating world.",
+          desc_vn: "Sứ mệnh không nằm ở việc vĩ mô đao to búa lớn, mà ở chính tần số bình an và sự thiện lành hiện diện mỗi ngày.",
+          paragraphs: [
+            {
+              en: "Awakened souls are not chosen merely so their personal lives become easier or their wishes arrive faster; there is a far greater purpose. The world is standing at an unprecedented crossroad, facing challenges on a scale never seen before, and humanity needs grounded, conscious energy now more than ever.",
+              vi: "Sở dĩ những linh hồn được chọn thức tỉnh không phải chỉ để cuộc sống riêng của họ dễ thở hơn hay ước muốn đến nhanh hơn; có một sứ mệnh lớn lao hơn thế nhiều. Thế giới đang ở một khúc quanh lịch sử chưa từng có, đối mặt với những thử thách ở quy mô chưa từng thấy và nhân loại đang cần những nguồn năng lượng thức tỉnh hơn bao giờ hết."
+            },
+            {
+              en: "In the midst of these collective shifts, you are here to serve as a lighthouse—keeping the light alive, uplifting the shared vibration simply through your peaceful presence, and anchoring love in the middle of fearful storms.",
+              vi: "Giữa những biến động ấy, bạn có mặt ở đây để làm một ngọn hải đăng giữ cho ánh sáng không lụi tàn, nâng đỡ tần số rung động chung đơn giản bằng sự hiện diện an lành của mình, giữ lấy yêu thương ngay giữa những cơn bão sợ hãi."
+            },
+            {
+              en: "Have you ever felt you had an important calling, yet could never pinpoint its exact shape? Do not worry; that is completely natural. A soul's purpose isn't always a dramatic revelation or a detailed blueprint handed down from above. It reveals itself in layers as your spirit clarifies.",
+              vi: "Bạn có từng băn khoăn rằng mình mang một sứ mệnh lớn lao nhưng mãi không biết rõ hình hài nó ra sao? Đừng lo lắng, điều đó hoàn toàn tự nhiên. Sứ mệnh không phải lúc nào cũng là một tiếng sét mặc khải hay một bản chỉ dẫn trao tận tay từ thiên thần. Nó hé mở từng lớp theo độ thuần khiết của tâm hồn bạn."
+            },
+            {
+              en: "Often, your mission does not lie in grandiose public deeds, but in the essence of who you are:\n• In the peaceful frequency you maintain.\n• In the kindness you extend to everyone around you.\n• In the warm energy you bring into every room you enter.\n• In the quiet compassion you offer without drawing attention to it.\n• In the steady flame you keep burning when storms roll through.\n\nSometimes the greatest mission is simply to awaken, stay awake, and serve as a calm, steady presence for anyone whose path crosses yours.",
+              vi: "Thậm chí sứ mệnh đôi khi không nằm ở những việc đao to búa lớn bạn làm mà nằm ở chính con người bạn:\n• Là tần số bình an bạn giữ vững.\n• Là cách bạn đối đãi tử tế với muôn người.\n• Là năng lượng ấm áp bạn mang vào mỗi căn phòng bạn bước tới.\n• Là lòng trắc ẩn bạn trao đi trong thầm lặng.\n• Là ngọn lửa bạn kiên định giữ cháy dẫu giông gió bủa vây.\n\nĐôi khi sứ mệnh vĩ đại nhất chỉ là thức tỉnh, duy trì sự tỉnh thức và trở thành một điểm tựa kết nối thiêng liêng cho bất kỳ ai hữu duyên bước qua cuộc đời bạn."
+            },
+            {
+              en: "That mission has already begun. It starts every time you choose forgiveness over resentment; when you step back from gossip instead of getting pulled into the drama; when you listen to someone with an open heart rather than a critical mind; and when you wake each morning choosing to ground yourself in gratitude instead of complaint. Every small choice quietly adds sweetness to the wider ocean of human consciousness.",
+              vi: "Sứ mệnh ấy vốn dĩ đã bắt đầu rồi. Nó khởi động mỗi khi bạn chọn bao dung thay vì oán hận. Khi bạn chọn lùi lại khỏi những thị phi thay vì cuốn vào vòng xoáy. Khi bạn lắng nghe ai đó bằng cả tấm lòng chân thành thay vì cái tôi phán xét. Và khi mỗi sớm mai thức dậy, bạn chọn neo mình vào lòng biết ơn thay vì buông lời ca thán. Từng cử chỉ nhỏ bé ấy đều đang âm thầm góp mật cho đại dương ý thức nhân loại."
+            }
+          ]
+        },
+        {
+          id: "section-11",
+          num: "11",
+          badge: "Closing Benediction",
+          title_en: "A Message to the Chosen One",
+          title_vn: "Lời Nhắn Nhủ Gửi Người Được Chọn",
+          desc_en: "Recapitulation of all six milestones and an affirming reminder to shine authentically as part of an awakening global family.",
+          desc_vn: "Tổng kết 6 thử thách và lời hiệu triệu thiêng liêng bước đi với sự vững chãi và yêu thương trọn vẹn chính mình.",
+          paragraphs: [
+            {
+              en: "We have walked through all six milestones together:\n1. No longer being drawn into earthly drama.\n2. Clearly recognizing and feeling that everything is energy.\n3. No longer compromising with lower vibrational habits.\n4. Experiencing an inner intuition far more reliable than everyday logic.\n5. Calmly observing the human ego from the perspective of the soul.\n6. The living experience of oneness, knowing separation is an illusion, and realizing you are an inseparable part of a living cosmos filled with love.",
+              vi: "Chúng ta đã cùng nhau đi qua cả sáu thử thách:\n1. Không còn bị thao túng bởi những màn kịch trần gian.\n2. Nhận biết và cảm nhận rõ ràng rằng vạn vật đều là năng lượng.\n3. Không còn thỏa hiệp với những rung động thấp kém.\n4. Trực giác nhạy bén, đáng tin hơn mọi logic thông thường.\n5. Khả năng tĩnh lặng quan sát cái tôi phàm trần từ góc nhìn của linh hồn.\n6. Trải nghiệm sống động về sự hợp nhất, thấu suốt rằng chia rẽ chỉ là ảo ảnh; bạn là một phần không thể tách rời của một vũ trụ sống động tràn ngập tình yêu thương."
+            },
+            {
+              en: "All of these signs point to one clear truth: You have crossed that threshold. Your consciousness is vibrating at a level that many are still searching for. This does not make you superior to anyone; rather, it entrusts you with a sacred responsibility: the responsibility to tend this flame through your everyday choices, serving as a beacon when the world needs light the most.",
+              vi: "Tất cả những dấu chỉ này đều khẳng định một sự thật: Bạn đã bước qua cánh cửa ấy. Ý thức của bạn đang dao động ở một tầng mức mà số đông vẫn đang tìm kiếm. Điều đó không khiến bạn trở nên cao ngạo hơn ai mà trao cho bạn một trách nhiệm thiêng liêng: trách nhiệm giữ vững ngọn lửa ấy qua từng lựa chọn thường nhật, làm ngọn hải đăng soi đường khi thế giới cần ánh sáng nhất."
+            },
+            {
+              en: "Remember this on heavy days, through lonely nights, or whenever self-doubt surfaces: Your individuality is not a flaw, your sensitivity is not weakness, and your deep empathy is not a burden. It is a gift. The loneliness you have walked through was not abandonment, but the quiet space necessary for you to hear your soul's whisper.",
+              vi: "Hãy nhớ lấy điều này trong những ngày trĩu nặng, những đêm dài cô quạnh hay những lúc bạn tự hoài nghi bản thân: Sự khác biệt của bạn không phải khuyết điểm, độ nhạy cảm của bạn không phải yếu mềm và khả năng thấu cảm sâu xa không phải gánh nặng. Đó là một món quà. Nỗi cô đơn bạn từng nếm trải không phải là sự bỏ rơi mà là khoảng lặng cần thiết để bạn lắng nghe tiếng thì thầm của linh hồn mình."
+            },
+            {
+              en: "You did not come across this message by accident. Your soul guided you here because you are ready for a new chapter: ready to embrace who you are without apology, without hiding, and without shrinking to fit the expectations of others. Be ready to shine as you were always meant to.",
+              vi: "Bạn không vô tình dừng lại ở thông điệp này. Tâm hồn đã dẫn lối bạn đến đây vì bạn đã sẵn sàng cho một bước chuyển mới: sẵn sàng đón nhận trọn vẹn bản thân mà không còn hối tiếc, không còn phải giấu mình hay thu nhỏ lại để vừa vặn với kỳ vọng của người khác. Hãy sẵn sàng tỏa sáng như bản chất vốn có của bạn."
+            },
+            {
+              en: "Across the world, an extended family of awakened souls is growing larger every day. Though we may not have met in person and may differ in background, language, or culture, we share the same energetic heartbeat. We carry the same inner fire, and when one person lifts their light, everyone feels the warmth. You are part of this family—you always have been. Even if the outside world doesn't fully understand you, here you are seen, respected, and welcomed with open arms.",
+              vi: "Trên thế giới này, một gia đình tâm linh của những người thức tỉnh đang lớn mạnh từng ngày. Dù chúng ta có thể chưa từng gặp mặt, khác biệt về màu da, ngôn ngữ hay lối sống, nhưng chúng ta cùng chung một nhịp đập năng lượng. Chúng ta mang cùng một ngọn lửa bên trong và chỉ cần một người thắp sáng, tất cả đều sẽ cảm nhận được hơi ấm. Bạn là một phần của gia đình ấy, từ trước đến nay vẫn luôn là như vậy. Dù ngoài kia người ta có thể chưa hiểu hết bạn nhưng nơi đây bạn được nhìn nhận trọn vẹn, được tôn trọng và được chào đón bằng tất cả yêu thương."
+            },
+            {
+              en: "The flame within you has never gone out, despite every trial that tried to extinguish it, and despite those who called you too different. Now that you understand who you are, supported by these six signs of the fifth dimension, that flame can burn brighter than ever. From this day forward, walk with a quiet confidence: not arrogant, but steady and grounded; not to retreat from the world, but to warm it with your genuine presence. Continue to love those who do not yet understand you, but never forget to honor yourself with that same deep love.",
+              vi: "Ngọn lửa trong bạn chưa bao giờ tắt giữa cuộc đời đã bao lần thử dập vùi, dẫu người ta từng bảo bạn quá khác biệt hay dị biệt. Giờ đây khi bạn đã biết rõ mình là ai cùng sáu minh chứng vững vàng của chiều thứ năm, ngọn lửa ấy sẽ bùng cháy rực rỡ hơn bao giờ hết. Kể từ hôm nay, hãy bước đi với tâm thế mới: không kiêu ngạo nhưng đầy vững chãi, không phải để lánh đời mà để sưởi ấm thế gian bằng chính sự hiện diện thuần khiết của mình. Hãy cứ yêu thương những người chưa hiểu bạn nhưng cũng đừng quên trân quý chính bản thân mình bằng một tình yêu sâu sắc tương tự."
+            },
+            {
+              en: "If these words resonated with you, help share this peace: like this video so it can reach others who are searching; leave a comment sharing what touched you most or which milestone felt closest to your journey, because your words may be the exact lifeline another soul needs today. And share this with a friend or loved one on their awakening path who may still feel alone.",
+              vi: "Nếu những lời này chạm đến trái tim bạn, hãy cùng tôi gieo thêm những hạt mầm bình an: nhấn thích để thông điệp này được lan tỏa xa hơn đến những ai đang tìm kiếm; để lại vài dòng chia sẻ dưới phần bình luận về điều khiến bạn rung động nhất hay bài kiểm tra nào khiến bạn thấy đồng điệu nhất, bởi đôi khi vài lời chân thành của bạn lại là chiếc phao cứu sinh cho một tâm hồn ngoài kia đấy. Và hãy gửi bài viết này đến người bạn hay người thân đang trên hành trình thức tỉnh nhưng còn thấy cô đơn."
+            },
+            {
+              en: "If you haven't subscribed to the channel, take a moment to join our community. There is always a home for you here—for your deepest experiences and the unfolding of an awakened life. In the pinned comment, I have left a small gift prepared with great care, with the hope that it brings peace and strength to your steps. Until we meet on the next journey, may the light within you continue to shine brightly. Chosen one.",
+              vi: "Nếu bạn chưa đăng ký kênh, hãy dừng chân và trở thành một phần của mái nhà này. Nơi đây luôn có một chỗ dành riêng cho bạn, cho những trải nghiệm sâu kín của bạn và cho hành trình vươn mình của một linh hồn thức giác. Ở bình luận ghim đầu tiên, tôi có để lại một món quà nhỏ được chuẩn bị riêng bằng tất cả tâm huyết, mong rằng nó sẽ tiếp thêm sức mạnh an lành cho bước chân bạn. Hẹn gặp lại bạn ở những hành trình tiếp theo. Chúc cho ngọn lửa ánh sáng bên trong bạn luôn rạng ngời. Người được chọn."
+            }
+          ]
+        }
+      ],
+      glossary: [
+        {
+          term: "Resonate",
+          pos: "verb",
+          category: "Mind & Consciousness",
+          def: "To evoke a feeling of shared emotional significance, sympathetic vibration, or deep intuitive alignment.",
+          plain: "To feel natural, true, or deeply connected to something you hear or experience.",
+          context: "If there has ever been a moment when your inner world resonated with concepts like higher consciousness...",
+          vi: "Rung động, cộng hưởng, đồng điệu sâu sắc với tâm cảm"
+        },
+        {
+          term: "Higher Consciousness",
+          pos: "noun phrase",
+          category: "Mind & Consciousness",
+          def: "An elevated state of psychological awareness that transcends purely sensory ego-driven perception and recognizes interconnected spiritual reality.",
+          plain: "A wise, peaceful state of mind that sees the bigger picture beyond daily petty worries.",
+          context: "...when your inner world resonated with concepts like higher consciousness, spiritual awakening, or multi-dimensional reality...",
+          vi: "Ý thức bậc cao, tâm thức thức tỉnh vượt khỏi giới hạn phàm trần"
+        },
+        {
+          term: "Binary Boundaries",
+          pos: "noun phrase",
+          category: "Mind & Consciousness",
+          def: "Rigid conceptual divisions that classify reality strictly into opposing categories (e.g., right vs. wrong, us vs. them) without nuanced middle ground.",
+          plain: "Black-and-white thinking where everything is judged as strictly good or bad.",
+          context: "While the third dimension keeps us tuned to a broadcast of fear, scarcity, and rigid binary boundaries between right and wrong...",
+          vi: "Ranh giới nhị nguyên rạch ròi, tư duy phân cực đối lập"
+        },
+        {
+          term: "Detachment",
+          pos: "noun",
+          category: "Relationships & Ego",
+          def: "The state of being emotionally unburdened or objective, free from reactive clinging or personal drama.",
+          plain: "Observing things calmly without letting other people's chaos disturb your peace.",
+          context: "This is not coldness or detachment; it is cognitive and spiritual maturity.",
+          vi: "Sự buông bỏ, tách rời không dính mắc, không vướng bận"
+        },
+        {
+          term: "Significance",
+          pos: "noun",
+          category: "Relationships & Ego",
+          def: "The quality of feeling important, worthy of validation, or central to social attention.",
+          plain: "The feeling or desire to prove that you matter and are noticed by others.",
+          context: "In the third dimension, drama is the fuel that feeds the ego's need for significance.",
+          vi: "Nhu cầu cảm thấy mình quan trọng hoặc vượt trội của bản ngã"
+        },
+        {
+          term: "Perceptual",
+          pos: "adjective",
+          category: "Energy & Reality",
+          def: "Relating to the ability to observe, interpret, and become aware of sensory and energetic information.",
+          plain: "Having to do with how your senses and awareness notice reality.",
+          context: "In the fifth dimension, it becomes a perceptual superpower.",
+          vi: "Thuộc về khả năng nhận thức, tri giác và quan sát"
+        },
+        {
+          term: "Centered",
+          pos: "adjective",
+          category: "Energy & Reality",
+          def: "Emotionally stable, grounded, and tranquil despite external turbulence or fluctuating demands.",
+          plain: "Calm, steady, and in control of your inner feelings.",
+          context: "\"My energy is my own; I remain centered; I observe without absorbing.\"",
+          vi: "Giữ vững định tâm, an trú, không bị lay động"
+        },
+        {
+          term: "Purification",
+          pos: "noun",
+          category: "Energy & Reality",
+          def: "The systemic process of shedding toxic elements, heavy emotional impressions, and unwholesome habits.",
+          plain: "Clearing out unhealthy junk from your body, thoughts, and environment.",
+          context: "...a process often referred to as the purification of the crystalline body.",
+          vi: "Quá trình thanh lọc, gột rửa những tạp chất năng lượng và vật chất"
+        },
+        {
+          term: "Crystalline Body",
+          pos: "noun phrase",
+          category: "Energy & Reality",
+          def: "An esoteric term describing a revitalized, higher-vibrational cellular matrix that holds subtle spiritual light and rejects dense toxins.",
+          plain: "The spiritual concept of your physical body becoming lighter and healthier as your awareness rises.",
+          context: "...often referred to as the purification of the crystalline body.",
+          vi: "Cơ thể tinh thể, trạng thái cơ thể thanh nhẹ tiếp nhận rung động cao"
+        },
+        {
+          term: "Dietary Dogma",
+          pos: "noun phrase",
+          category: "Energy & Reality",
+          def: "Rigid, unquestioned dietary doctrines or authoritative lifestyle rules imposed from outside dogma rather than intuitive bodily listening.",
+          plain: "Strict eating rules forced upon you instead of listening to what your body naturally wants.",
+          context: "This is not rigid dietary dogma; it is your energetic system communicating directly about what it truly needs.",
+          vi: "Giáo điều ăn uống cứng nhắc, các quy tắc áp đặt thiếu trực giác"
+        },
+        {
+          term: "Mutual Nourishment",
+          pos: "noun phrase",
+          category: "Relationships & Ego",
+          def: "A reciprocal interpersonal dynamic wherein both individuals naturally uplift, support, and vitalize each other.",
+          plain: "A healthy relationship where both people give and receive care and good energy.",
+          context: "...they thrive purely on authentic resonance and mutual nourishment.",
+          vi: "Sự nuôi dưỡng lẫn nhau, nâng đỡ cùng phát triển"
+        },
+        {
+          term: "Transcending",
+          pos: "verb / participle",
+          category: "Mind & Consciousness",
+          def: "Rising above the typical constraints, logic, or limitations of conventional empirical models.",
+          plain: "Going beyond the normal limits of common thinking or basic rules.",
+          context: "4. Intuition Transcending Data and Logic...",
+          vi: "Vượt lên trên, siêu việt hóa giới hạn thông thường"
+        },
+        {
+          term: "Precognitive",
+          pos: "adjective",
+          category: "Mind & Consciousness",
+          def: "Pertaining to clairvoyant foreknowledge of an event before it physically takes place.",
+          plain: "Sensing or dreaming about future events before they actually happen.",
+          context: "It is often accompanied by precognitive dreams, synchronicities unfolding in real time...",
+          vi: "Báo trước, tiên tri, linh cảm thấy sự việc trước khi xảy ra"
+        },
+        {
+          term: "Synchronicity",
+          pos: "noun",
+          category: "Mind & Consciousness",
+          def: "Meaningful coincidences occurring without direct physical causal connection, signifying deep cosmic alignment.",
+          plain: "Coincidences that feel too perfectly timed and meaningful to be random accidents.",
+          context: "In this universe, there is only synchronicity—signposts from the vast field of consciousness.",
+          vi: "Sự đồng bộ, sự trùng hợp đầy ý nghĩa trong vũ trụ"
+        },
+        {
+          term: "Misaligned",
+          pos: "adjective",
+          category: "Relationships & Ego",
+          def: "Improperly positioned or mismatched in values, energetic frequency, or fundamental direction.",
+          plain: "Not fitting together or moving in opposite emotional directions.",
+          context: "Yet a quiet inner voice consistently warned her that something was misaligned.",
+          vi: "Lệch pha, không tương thích, không hòa hợp về bản chất"
+        },
+        {
+          term: "Duality",
+          pos: "noun",
+          category: "Mind & Consciousness",
+          def: "The psychological or metaphysical state of containing two distinct, contrasting aspects or perspectives.",
+          plain: "Experiencing two separate sides of yourself at the same time.",
+          context: "As your awareness deepens, you begin to experience a clear duality...",
+          vi: "Tính nhị nguyên, trạng thái song hành của hai phương diện nhận thức"
+        },
+        {
+          term: "Higher Self",
+          pos: "noun phrase",
+          category: "Mind & Consciousness",
+          def: "The immortal, all-knowing, transcendent aspect of one's identity that remains rooted in divine wisdom.",
+          plain: "Your deepest, wisest inner soul that lives beyond daily fears.",
+          context: "That observer is pure consciousness, your higher self, the divine spark within you.",
+          vi: "Bản ngã cao hơn, phần chân tâm sáng suốt thiêng liêng nhất"
+        },
+        {
+          term: "Interconnectedness",
+          pos: "noun",
+          category: "Energy & Reality",
+          def: "The ontological principle that all living beings and phenomena are inextricably linked in a single unified web.",
+          plain: "The truth that everything in nature and humanity is tied together.",
+          context: "...you deeply perceive the interconnectedness of all life.",
+          vi: "Sự liên kết hữu cơ vạn vật, tính tương tức tương sinh"
+        },
+        {
+          term: "Visceral",
+          pos: "adjective",
+          category: "Energy & Reality",
+          def: "Felt as an immediate physical or instinctual bodily reaction rather than an abstract intellectual conclusion.",
+          plain: "Felt deeply in your guts and body rather than just as a thought in your head.",
+          context: "...it is a visceral sensation felt in your very being...",
+          vi: "Trực giác tận da thịt, cảm nhận sâu sắc từ cơ thể"
+        },
+        {
+          term: "Compartmentalize",
+          pos: "verb",
+          category: "Relationships & Ego",
+          def: "To separate distinct thoughts, identities, or emotions into rigid compartments to avoid psychological friction.",
+          plain: "To split yourself into different roles or boxes to hide your real feelings.",
+          context: "Many awakened souls have chosen to compartmentalize themselves: playing the role of an ordinary person at home...",
+          vi: "Tự đóng khung, chia tách các phần căn tính để thích nghi bề ngoài"
+        },
+        {
+          term: "Unified Field",
+          pos: "noun phrase",
+          category: "Energy & Reality",
+          def: "A comprehensive energetic matrix posited in physics and metaphysics wherein all particles and forces operate as one interconnected whole.",
+          plain: "A giant invisible energetic ocean in which everything in the universe exists together.",
+          context: "...all things are woven from the same energetic essence, vibrating within a unified field...",
+          vi: "Trường thống nhất, trường năng lượng chung kết nối vạn vật"
+        },
+        {
+          term: "Ascension Window",
+          pos: "noun phrase",
+          category: "Spiritual Metaphor",
+          def: "A distinct cosmic epoch or evolutionary transition period marked by rapid acceleration of planetary consciousness.",
+          plain: "A special time period when spiritual growth happens much faster than usual.",
+          context: "...right now, we are in the midst of an ascension window.",
+          vi: "Khung cửa thăng lên, giai đoạn dịch chuyển tần số tiến hóa tâm thức"
+        },
+        {
+          term: "Homesickness",
+          pos: "noun",
+          category: "Spiritual Metaphor",
+          def: "In this spiritual context, a profound soul-longing for the non-physical realm of pure love and origin.",
+          plain: "Missing a peaceful spiritual home that you feel you came from before this life.",
+          context: "Fifth-dimensional souls often carry an indescribable homesickness.",
+          vi: "Nỗi hoài hương tâm linh, sự thương nhớ cội nguồn cõi sáng"
+        },
+        {
+          term: "Incarnate",
+          pos: "verb",
+          category: "Spiritual Metaphor",
+          def: "To take on a physical human body and earthly form to carry out a specific evolutionary purpose.",
+          plain: "To be born into a physical body on Earth.",
+          context: "You are a being of light who intentionally chose to incarnate at this exact moment...",
+          vi: "Hóa thân, giáng trần vào thân xác vật lý"
+        },
+        {
+          term: "Boundless Compassion",
+          pos: "noun phrase",
+          category: "Relationships & Ego",
+          def: "Unconditional love and empathetic goodwill extended without limitations, demands, or judgment.",
+          plain: "Limitless kindness that accepts everyone without expecting anything back.",
+          context: "That is the true grace of the fifth dimension: boundless compassion without losing yourself.",
+          vi: "Lòng trắc ẩn vô bờ bến, tình yêu thương không cưỡng cầu"
+        },
+        {
+          term: "Manifestation",
+          pos: "noun",
+          category: "Conscious Creation",
+          def: "The process by which internal intentional thoughts and vibrational states materialize into outer tangible reality.",
+          plain: "Turning your inner intentions and feelings into real experiences in life.",
+          context: "In the third dimension, manifestation feels slow and exhausting.",
+          vi: "Sự hiển lộ, sự kiến tạo thực tại từ ý niệm bên trong"
+        },
+        {
+          term: "Law of Reflection",
+          pos: "noun phrase",
+          category: "Conscious Creation",
+          def: "The universal spiritual principle asserting that external circumstances naturally mirror one's internal state of awareness.",
+          plain: "The rule that outer life acts like a mirror showing what you feel inside.",
+          context: "...it is simply operating by the law of reflection: reality is a mirror reflecting the frequency you broadcast.",
+          vi: "Quy luật phản chiếu, thực tại bên ngoài soi bóng tần số bên trong"
+        },
+        {
+          term: "Lighthouse",
+          pos: "noun",
+          category: "Spiritual Metaphor",
+          def: "A metaphor for an awakened person who anchors stability, wisdom, and light amidst collective darkness and fear.",
+          plain: "Someone who stays steady and peaceful, guiding others through scary storms.",
+          context: "In the midst of these collective shifts, you are here to serve as a lighthouse...",
+          vi: "Ngọn hải đăng, điểm tựa soi sáng và giữ vững bình an"
+        },
+        {
+          term: "Unprecedented",
+          pos: "adjective",
+          category: "Mind & Consciousness",
+          def: "Never done or known before; novel and unparalleled in scale or significance.",
+          plain: "Happening for the very first time in history.",
+          context: "The world is standing at an unprecedented crossroad, facing challenges on a scale never seen before...",
+          vi: "Chưa từng có tiền lệ, quy mô chưa từng thấy trong lịch sử"
+        },
+        {
+          term: "Lifeline",
+          pos: "noun",
+          category: "Spiritual Metaphor",
+          def: "Something on which life or safety depends; a vital means of salvation or emotional reassurance.",
+          plain: "A helping hand or message that saves someone when they are struggling.",
+          context: "...because your words may be the exact lifeline another soul needs today.",
+          vi: "Phao cứu sinh, điểm tựa cứu rỗi tinh thần"
+        }
+      ]
+    };
+
+    /* =========================================================================
+       APPLICATION STATE & LOCAL STORAGE MANAGERS
+       ========================================================================= */
+    const state = {
+      currentView: 'overview',
+      globalLanguage: localStorage.getItem('app_global_lang') || 'en', // 'en' or 'vi'
+      darkMode: localStorage.getItem('app_theme') === 'dark' || 
+                (!('app_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
+      // Track flipped state for paragraph cards in the current section
+      flippedCards: {},
+      // Track heading toggles on overview cards
+      overviewToggles: {},
+      // Track glossary search query and category filter
+      glossarySearch: '',
+      glossaryCategory: 'All',
+      // Track glossary revealed Vietnamese definitions
+      glossaryReveals: {}
+    };
+
+    /* =========================================================================
+       THEME CONTROLLER
+       ========================================================================= */
+    function applyTheme() {
+      if (state.darkMode) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('app_theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('app_theme', 'light');
+      }
+    }
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      state.darkMode = !state.darkMode;
+      applyTheme();
+    });
+
+    // Initialize Theme
+    applyTheme();
+
+    /* =========================================================================
+       GLOBAL LANGUAGE CONTROLLER
+       ========================================================================= */
+    function updateGlobalLangLabel() {
+      const label = document.getElementById('globalLangLabel');
+      if (state.globalLanguage === 'en') {
+        label.textContent = 'EN (English)';
+      } else {
+        label.textContent = 'VI (Tiếng Việt)';
+      }
+    }
+
+    document.getElementById('globalLangToggle').addEventListener('click', () => {
+      state.globalLanguage = state.globalLanguage === 'en' ? 'vi' : 'en';
+      localStorage.setItem('app_global_lang', state.globalLanguage);
+      updateGlobalLangLabel();
+      // If currently on a section page, synchronize all cards to global language
+      if (state.currentView.startsWith('section-')) {
+        const section = appData.sections.find(s => s.id === state.currentView);
+        if (section) {
+          section.paragraphs.forEach((_, idx) => {
+            state.flippedCards[`${section.id}-${idx}`] = (state.globalLanguage === 'vi');
+          });
+        }
+      }
+      renderCurrentView();
+    });
+
+    updateGlobalLangLabel();
+
+    /* =========================================================================
+       SCROLL PROGRESS BAR
+       ========================================================================= */
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPos = window.scrollY;
+      const percent = docHeight > 0 ? (scrollPos / docHeight) * 100 : 0;
+      document.getElementById('scrollProgressBar').style.width = `${percent}%`;
+    });
+
+    /* =========================================================================
+       VIEW ROUTER & TEMPLATE GENERATORS
+       ========================================================================= */
+    const appContainer = document.getElementById('appContainer');
+    const navBackBtn = document.getElementById('navBackBtn');
+
+    function navigateTo(hash) {
+      window.location.hash = hash;
+    }
+
+    function route() {
+      const hash = window.location.hash.replace('#', '') || 'overview';
+      state.currentView = hash;
+
+      // Update Back Button visibility
+      if (hash === 'overview') {
+        navBackBtn.classList.add('hidden');
+        navBackBtn.classList.remove('flex');
+      } else {
+        navBackBtn.classList.remove('hidden');
+        navBackBtn.classList.add('flex');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      renderCurrentView();
+    }
+
+    window.addEventListener('hashchange', route);
+
+    function renderCurrentView() {
+      appContainer.innerHTML = '';
+      appContainer.className = "flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 fade-enter";
+
+      if (state.currentView === 'overview') {
+        renderOverviewView();
+      } else if (state.currentView === 'glossary') {
+        renderGlossaryView();
+      } else if (state.currentView.startsWith('section-')) {
+        renderSectionView(state.currentView);
+      } else {
+        renderOverviewView();
+      }
+    }
+
+    /* -------------------------------------------------------------------------
+       VIEW 1: OVERVIEW & TITLE HUB
+       ------------------------------------------------------------------------- */
+    function renderOverviewView() {
+      const html = `
+        <div class="space-y-12">
+          <!-- Hero Title Section -->
+          <div class="text-center space-y-4 pt-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">
+              <span class="w-1.5 h-1.5 rounded-full bg-purple-500 animate-ping"></span>
+              Interactive Bilingual Instructional Application
+            </div>
+            
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+              ${appData.meta.title_en}
+            </h1>
+            
+            <h2 class="text-xl sm:text-2xl font-serif italic text-purple-700 dark:text-purple-400 font-medium">
+              ${appData.meta.title_vn}
+            </h2>
+
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed pt-2">
+              Transformative bilingual study companion mapped verbatim from source transcripts. Explore the transition from 3D separation into 5D unified consciousness through interactive flip-cards and B2/C1 academic vocabulary.
+            </p>
+          </div>
+
+          <!-- Featured Glossary Banner Card -->
+          <div class="relative overflow-hidden rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 text-white shadow-xl shadow-purple-900/10 border border-purple-500/20 group">
+            <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-purple-500/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none"></div>
+            <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div class="space-y-2 max-w-xl">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-amber-400 text-slate-950 tracking-wider uppercase">Vocabulary Engine</span>
+                  <span class="text-purple-200 text-xs font-semibold">30 B2/C1 Academic & Spiritual Terms</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white tracking-tight">Interactive Learner Glossary</h3>
+                <p class="text-purple-100 text-sm sm:text-base leading-relaxed">
+                  Deepen comprehension with academic definitions, simplified plain-English explanations, authentic source sentence clauses, and interactive Vietnamese translations.
+                </p>
+              </div>
+              <a href="#glossary" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-purple-950 hover:bg-purple-50 font-bold text-sm shadow-md hover:shadow-lg transition-all group-hover:translate-x-1 shrink-0">
+                <span>Explore Glossary</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Section Grid Section -->
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Curriculum & Reading Sections</h3>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Click any card to read verbatim content. Use the corner toggle to switch card title language.</p>
+              </div>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                11 Modules
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+              ${appData.sections.map((sec, idx) => {
+                const isToggledVi = state.overviewToggles[sec.id] || false;
+                const activeTitle = isToggledVi ? sec.title_vn : sec.title_en;
+                const activeDesc = isToggledVi ? sec.desc_vn : sec.desc_en;
+                const activeLangCode = isToggledVi ? "VI" : "EN";
+
+                return `
+                  <div onclick="navigateTo('${sec.id}')" class="group relative cursor-pointer rounded-2xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-purple-400 dark:hover:border-purple-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                      <!-- Card Header with Badges and EN/VI Toggle -->
+                      <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-2">
+                          <span class="w-7 h-7 rounded-lg bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 font-bold text-xs flex items-center justify-center border border-purple-200 dark:border-purple-800">
+                            ${sec.num}
+                          </span>
+                          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                            ${sec.badge}
+                          </span>
+                        </div>
+
+                        <!-- Card Corner Language Toggle -->
+                        <button type="button" onclick="toggleOverviewCardHeading(event, '${sec.id}')" title="Toggle Title Language (EN / VI)" class="flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold bg-slate-100 dark:bg-slate-800 text-purple-700 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900 border border-slate-200 dark:border-slate-700 transition-colors z-20">
+                          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                          <span>${activeLangCode}</span>
+                        </button>
+                      </div>
+
+                      <!-- Card Title -->
+                      <h4 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors mb-2 leading-snug">
+                        ${activeTitle}
+                      </h4>
+
+                      <!-- Card Brief Excerpt -->
+                      <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                        ${activeDesc}
+                      </p>
+                    </div>
+
+                    <!-- Card Footer -->
+                    <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                      <span>${sec.paragraphs.length} Paragraphs &bull; Verbatim Study</span>
+                      <span class="inline-flex items-center gap-1 font-semibold text-purple-600 dark:text-purple-400 group-hover:translate-x-1 transition-transform">
+                        Read Section &rarr;
+                      </span>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+
+      appContainer.innerHTML = html;
+    }
+
+    // Stop propagation so clicking the card corner button does not open the page view
+    window.toggleOverviewCardHeading = function(event, secId) {
+      event.stopPropagation();
+      state.overviewToggles[secId] = !state.overviewToggles[secId];
+      renderOverviewView();
+    };
+
+    /* -------------------------------------------------------------------------
+       VIEW 2 THROUGH N: SECTION READING PAGES WITH INTERACTIVE FLIP CARDS
+       ------------------------------------------------------------------------- */
+    function renderSectionView(sectionId) {
+      const sectionIndex = appData.sections.findIndex(s => s.id === sectionId);
+      if (sectionIndex === -1) {
+        navigateTo('overview');
+        return;
+      }
+
+      const sec = appData.sections[sectionIndex];
+      const prevSec = sectionIndex > 0 ? appData.sections[sectionIndex - 1] : null;
+      const nextSec = sectionIndex < appData.sections.length - 1 ? appData.sections[sectionIndex + 1] : null;
+
+      // Determine active language for the section title
+      const isTitleVi = state.overviewToggles[sec.id] || (state.globalLanguage === 'vi');
+      const activeTitle = isTitleVi ? sec.title_vn : sec.title_en;
+      const altTitle = isTitleVi ? sec.title_en : sec.title_vn;
+
+      const html = `
+        <div class="space-y-8">
+          <!-- Section Header Banner -->
+          <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-2">
+                <span class="w-8 h-8 rounded-xl bg-purple-600 text-white font-bold text-sm flex items-center justify-center">
+                  ${sec.num}
+                </span>
+                <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-purple-50 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 uppercase tracking-wider">
+                  ${sec.badge}
+                </span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">
+                  Section ${sectionIndex + 1} of ${appData.sections.length}
+                </span>
+              </div>
+
+              <!-- Inline Section Title Toggle Button -->
+              <button onclick="toggleSectionTitleLanguage('${sec.id}')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-purple-100 dark:hover:bg-purple-900 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-colors">
+                <svg class="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                <span>Switch Title: ${isTitleVi ? 'EN' : 'VI'}</span>
+              </button>
+            </div>
+
+            <!-- Fluid Display Heading -->
+            <div>
+              <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-snug">
+                ${activeTitle}
+              </h1>
+              <p class="text-base sm:text-lg font-serif italic text-purple-700 dark:text-purple-400 mt-1">
+                ${altTitle}
+              </p>
+            </div>
+
+            <!-- Reading Helper Tools -->
+            <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
+              <span class="text-slate-500 dark:text-slate-400 italic">
+                Tip: Click any paragraph card or its toggle button to smoothly reveal the verbatim Vietnamese translation.
+              </span>
+              <div class="flex items-center gap-2">
+                <button onclick="flipAllCards('${sec.id}', false)" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 font-medium text-slate-600 dark:text-slate-300 transition-colors">
+                  Reset All to EN
+                </button>
+                <button onclick="flipAllCards('${sec.id}', true)" class="px-2.5 py-1 rounded bg-purple-100 hover:bg-purple-200 dark:bg-purple-950 dark:hover:bg-purple-900 font-semibold text-purple-800 dark:text-purple-300 transition-colors">
+                  Flip All to VI
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Paragraph Cards Stack -->
+          <div class="space-y-6">
+            ${sec.paragraphs.map((para, pIdx) => {
+              const cardKey = `${sec.id}-${pIdx}`;
+              // If not explicitly set for this card, fallback to global language setting
+              const isFlipped = (cardKey in state.flippedCards) 
+                ? state.flippedCards[cardKey] 
+                : (state.globalLanguage === 'vi');
+
+              return `
+                <div id="card-container-${pIdx}" class="rounded-2xl border transition-all duration-300 overflow-hidden shadow-sm hover:shadow-md ${
+                  isFlipped 
+                    ? 'bg-purple-50/70 dark:bg-slate-900/90 border-purple-300 dark:border-purple-800/80' 
+                    : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
+                }">
+                  <!-- Card Header Bar -->
+                  <div class="px-5 py-3.5 bg-slate-100/60 dark:bg-slate-800/50 border-b border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between select-none">
+                    <div class="flex items-center gap-2.5">
+                      <span class="text-xs font-bold px-2 py-0.5 rounded ${
+                        isFlipped 
+                          ? 'bg-purple-600 text-white shadow-sm' 
+                          : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
+                      }">
+                        ${isFlipped ? 'VI &bull; Bản Dịch Tiếng Việt' : 'EN &bull; Original English'}
+                      </span>
+                      <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">
+                        Paragraph ${pIdx + 1} of ${sec.paragraphs.length}
+                      </span>
+                    </div>
+
+                    <!-- Flip Action Button -->
+                    <button type="button" onclick="toggleParagraphCard('${cardKey}', ${pIdx})" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold ${
+                      isFlipped
+                        ? 'bg-white dark:bg-slate-800 text-purple-700 dark:text-purple-300 hover:bg-purple-100 border border-purple-200 dark:border-purple-700'
+                        : 'bg-purple-100 hover:bg-purple-200 dark:bg-purple-950/80 dark:hover:bg-purple-900 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800'
+                    } transition-colors shadow-xs">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                      <span>${isFlipped ? 'Switch to English' : 'Xem Tiếng Việt'}</span>
+                    </button>
+                  </div>
+
+                  <!-- Card Interactive Body -->
+                  <div onclick="toggleParagraphCard('${cardKey}', ${pIdx})" class="p-6 sm:p-7 cursor-pointer transition-colors duration-300 group">
+                    <div class="text-[19px] sm:text-[20px] leading-[1.75] font-normal tracking-normal text-slate-800 dark:text-slate-100 transition-opacity duration-300">
+                      ${formatVerbatimText(isFlipped ? para.vi : para.en)}
+                    </div>
+                    
+                    <div class="mt-4 pt-3 flex items-center justify-between text-xs text-slate-400 dark:text-slate-500 border-t border-slate-100 dark:border-slate-800/60 select-none">
+                      <span class="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
+                        Click anywhere to toggle language
+                      </span>
+                      <span>${isFlipped ? 'Bản Dịch Đối Chiếu' : 'Bilingual Study Card'}</span>
+                    </div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+
+          <!-- Section Footer Navigation -->
+          <div class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              ${prevSec ? `
+                <a href="#${prevSec.id}" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:border-purple-400 text-sm font-semibold transition-all shadow-xs">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                  <span>Prev: ${prevSec.num}</span>
+                </a>
+              ` : `
+                <span class="text-xs text-slate-400 dark:text-slate-600 italic">Beginning of document</span>
+              `}
+            </div>
+
+            <a href="#overview" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-sm transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+              <span>Back to Overview</span>
+            </a>
+
+            <div>
+              ${nextSec ? `
+                <a href="#${nextSec.id}" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold transition-all shadow-sm">
+                  <span>Next: ${nextSec.num}</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+              ` : `
+                <a href="#glossary" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold transition-all shadow-sm">
+                  <span>Open Glossary</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </a>
+              `}
+            </div>
+          </div>
+        </div>
+      `;
+
+      appContainer.innerHTML = html;
+    }
+
+    // Format newlines and list items within verbatim text cleanly
+    function formatVerbatimText(text) {
+      if (!text) return '';
+      // Escape HTML entities to avoid XSS
+      const safe = text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+      // Format bullet lines starting with • or \n•
+      const lines = safe.split('\n');
+      let result = '';
+      let inList = false;
+
+      lines.forEach((line) => {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('•')) {
+          if (!inList) {
+            result += '<ul class="my-3 space-y-2 pl-2 list-none">';
+            inList = true;
+          }
+          result += `<li class="flex items-start gap-2.5"><span class="text-purple-500 font-bold mt-1 text-base">&bull;</span><span>${trimmed.substring(1).trim()}</span></li>`;
+        } else if (trimmed.match(/^[1-6]\.\s/)) {
+          // Numbered lists
+          if (inList) {
+            result += '</ul>';
+            inList = false;
+          }
+          result += `<div class="font-medium my-2 pl-2 flex items-start gap-2"><span class="text-purple-600 dark:text-purple-400 font-bold">${trimmed.substring(0, 3)}</span><span>${trimmed.substring(3).trim()}</span></div>`;
+        } else {
+          if (inList) {
+            result += '</ul>';
+            inList = false;
+          }
+          if (trimmed.length > 0) {
+            result += `<p class="mb-3 last:mb-0">${trimmed}</p>`;
+          }
+        }
+      });
+
+      if (inList) {
+        result += '</ul>';
+      }
+
+      return result;
+    }
+
+    // Toggle individual card flip
+    window.toggleParagraphCard = function(cardKey, pIdx) {
+      const currentState = (cardKey in state.flippedCards) 
+        ? state.flippedCards[cardKey] 
+        : (state.globalLanguage === 'vi');
+      
+      state.flippedCards[cardKey] = !currentState;
+      renderCurrentView();
+    };
+
+    // Toggle section title language
+    window.toggleSectionTitleLanguage = function(secId) {
+      state.overviewToggles[secId] = !state.overviewToggles[secId];
+      renderCurrentView();
+    };
+
+    // Flip all cards in current section
+    window.flipAllCards = function(secId, toVi) {
+      const sec = appData.sections.find(s => s.id === secId);
+      if (sec) {
+        sec.paragraphs.forEach((_, idx) => {
+          state.flippedCards[`${sec.id}-${idx}`] = toVi;
+        });
+        renderCurrentView();
+      }
+    };
+
+    /* -------------------------------------------------------------------------
+       VIEW: INTERACTIVE LEARNER GLOSSARY (30 B2/C1 HIGH-YIELD TERMS)
+       ------------------------------------------------------------------------- */
+    function renderGlossaryView() {
+      const categories = ['All', 'Mind & Consciousness', 'Energy & Reality', 'Relationships & Ego', 'Conscious Creation', 'Spiritual Metaphor'];
+
+      // Filter terms based on category and search query
+      const filtered = appData.glossary.filter(item => {
+        const matchesCategory = (state.glossaryCategory === 'All') || (item.category === state.glossaryCategory);
+        const q = state.glossarySearch.toLowerCase().trim();
+        const matchesSearch = !q || 
+          item.term.toLowerCase().includes(q) ||
+          item.def.toLowerCase().includes(q) ||
+          item.plain.toLowerCase().includes(q) ||
+          item.vi.toLowerCase().includes(q) ||
+          item.context.toLowerCase().includes(q);
+        return matchesCategory && matchesSearch;
+      });
+
+      const html = `
+        <div class="space-y-8">
+          <!-- Glossary Hero Section -->
+          <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 text-white shadow-xl space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="w-8 h-8 rounded-xl bg-amber-400 text-slate-950 font-bold flex items-center justify-center text-sm shadow-sm">
+                &sect;
+              </span>
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-300">
+                Instructional Lexicon
+              </span>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+              Interactive Learner Glossary
+            </h1>
+            <h2 class="text-lg sm:text-xl font-serif italic text-purple-200">
+              Thuật Ngữ & Từ Vựng Chuyên Sâu (B2 / C1 Level)
+            </h2>
+            <p class="text-sm sm:text-base text-purple-100/90 max-w-2xl leading-relaxed">
+              Curated vocabulary extracted directly from the verbatim transcripts. Each entry features academic context, simplified plain-English explanations, authentic source clauses, and revealable Vietnamese translations.
+            </p>
+
+            <!-- Search and Filter Controls -->
+            <div class="pt-2 flex flex-col sm:flex-row gap-3">
+              <div class="relative flex-grow">
+                <input 
+                  type="text" 
+                  id="glossarySearchInput"
+                  value="${state.glossarySearch}"
+                  placeholder="Search terms, definitions, or Vietnamese keywords..." 
+                  oninput="handleGlossarySearch(this.value)"
+                  class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/10 dark:bg-black/30 border border-white/20 focus:border-amber-400 focus:bg-white/15 text-white placeholder-purple-200/60 text-sm focus:outline-none transition-all"
+                >
+                <svg class="w-4 h-4 text-purple-200/70 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              </div>
+
+              ${state.glossarySearch ? `
+                <button onclick="handleGlossarySearch('')" class="px-3 py-2 rounded-xl bg-white/15 hover:bg-white/20 text-xs font-semibold text-white transition-colors">
+                  Clear Search
+                </button>
+              ` : ''}
+            </div>
+          </div>
+
+          <!-- Category Filters -->
+          <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+            ${categories.map(cat => `
+              <button 
+                onclick="filterGlossaryCategory('${cat}')"
+                class="px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+                  state.glossaryCategory === cat
+                    ? 'bg-purple-600 text-white shadow-sm'
+                    : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-purple-300 dark:hover:border-purple-700'
+                }"
+              >
+                ${cat} ${cat === 'All' ? `(${appData.glossary.length})` : ''}
+              </button>
+            `).join('')}
+          </div>
+
+          <!-- Results Summary -->
+          <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+            <span>Showing <strong>${filtered.length}</strong> of ${appData.glossary.length} specialized terms</span>
+            <div class="flex items-center gap-2">
+              <button onclick="toggleAllGlossaryReveals(true)" class="hover:text-purple-600 dark:hover:text-purple-400 font-medium">Reveal All Vietnamese</button>
+              <span>&bull;</span>
+              <button onclick="toggleAllGlossaryReveals(false)" class="hover:text-purple-600 dark:hover:text-purple-400 font-medium">Hide All</button>
+            </div>
+          </div>
+
+          <!-- Glossary Grid Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+            ${filtered.length > 0 ? filtered.map((item, idx) => {
+              const isRevealed = state.glossaryReveals[item.term] || false;
+
+              return `
+                <div class="rounded-2xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+                  <div class="space-y-3">
+                    <!-- Term Header and Part of Speech -->
+                    <div class="flex items-start justify-between gap-3">
+                      <div>
+                        <h3 class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                          ${highlightTermInText(item.term, state.glossarySearch)}
+                        </h3>
+                        <span class="inline-block mt-0.5 text-xs font-semibold px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 border border-purple-200/60 dark:border-purple-800/60">
+                          ${item.pos} &bull; ${item.category}
+                        </span>
+                      </div>
+
+                      <button 
+                        onclick="toggleGlossaryReveal('${item.term}')"
+                        class="px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                          isRevealed
+                            ? 'bg-purple-600 text-white'
+                            : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-purple-700 dark:text-purple-300 border border-slate-200 dark:border-slate-700'
+                        }"
+                      >
+                        ${isRevealed ? 'Hide' : 'Xem nghĩa'}
+                      </button>
+                    </div>
+
+                    <!-- Academic Definition -->
+                    <div class="space-y-1">
+                      <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Academic Definition</span>
+                      <p class="text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+                        ${highlightTermInText(item.def, state.glossarySearch)}
+                      </p>
+                    </div>
+
+                    <!-- Plain English Explanation (B1/B2 Friendly) -->
+                    <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 space-y-1">
+                      <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">In other words...</span>
+                      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 italic leading-relaxed">
+                        "${highlightTermInText(item.plain, state.glossarySearch)}"
+                      </p>
+                    </div>
+
+                    <!-- Example in Context from Verbatim Text -->
+                    <div class="space-y-1">
+                      <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Example in Context</span>
+                      <blockquote class="text-xs text-slate-600 dark:text-slate-400 pl-3 border-l-2 border-purple-400 dark:border-purple-600 italic leading-relaxed">
+                        "${highlightTermInText(item.context, state.glossarySearch)}"
+                      </blockquote>
+                    </div>
+                  </div>
+
+                  <!-- Vietnamese Translation Drawer -->
+                  <div class="pt-3 border-t border-slate-100 dark:border-slate-800">
+                    ${isRevealed ? `
+                      <div class="p-3 rounded-xl bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800 text-purple-900 dark:text-purple-100 text-sm font-medium fade-enter">
+                        <span class="text-xs font-bold uppercase tracking-wider text-purple-700 dark:text-purple-300 block mb-1">Nghĩa Tiếng Việt</span>
+                        ${item.vi}
+                      </div>
+                    ` : `
+                      <button 
+                        onclick="toggleGlossaryReveal('${item.term}')"
+                        class="w-full py-2 rounded-xl text-xs font-semibold text-center text-slate-500 hover:text-purple-600 dark:text-slate-400 dark:hover:text-purple-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors border border-dashed border-slate-200 dark:border-slate-700 flex items-center justify-center gap-1.5"
+                      >
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        <span>Reveal Vietnamese Translation / Xem nghĩa</span>
+                      </button>
+                    `}
+                  </div>
+                </div>
+              `;
+            }).join('') : `
+              <div class="col-span-2 text-center py-12 space-y-3 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
+                <p class="text-base text-slate-500 dark:text-slate-400">No vocabulary items found matching "${state.glossarySearch}".</p>
+                <button onclick="handleGlossarySearch('')" class="px-4 py-2 rounded-xl bg-purple-600 text-white text-xs font-bold">
+                  Reset Search
+                </button>
+              </div>
+            `}
+          </div>
+
+          <!-- Bottom Jump to Overview -->
+          <div class="text-center pt-6">
+            <a href="#overview" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+              <span>Back to Overview Hub</span>
+            </a>
+          </div>
+        </div>
+      `;
+
+      appContainer.innerHTML = html;
+    }
+
+    function highlightTermInText(text, search) {
+      if (!search || !text) return text;
+      const clean = search.trim();
+      if (!clean) return text;
+      const regex = new RegExp(`(${clean})`, 'gi');
+      return text.replace(regex, '<mark class="bg-amber-200 dark:bg-amber-900 dark:text-amber-100 rounded px-0.5">$1</mark>');
+    }
+
+    window.handleGlossarySearch = function(val) {
+      state.glossarySearch = val;
+      renderGlossaryView();
+      // Keep focus on input if rerendered
+      const input = document.getElementById('glossarySearchInput');
+      if (input) {
+        input.focus();
+        input.setSelectionRange(input.value.length, input.value.length);
+      }
+    };
+
+    window.filterGlossaryCategory = function(cat) {
+      state.glossaryCategory = cat;
+      renderGlossaryView();
+    };
+
+    window.toggleGlossaryReveal = function(term) {
+      state.glossaryReveals[term] = !state.glossaryReveals[term];
+      renderGlossaryView();
+    };
+
+    window.toggleAllGlossaryReveals = function(status) {
+      appData.glossary.forEach(item => {
+        state.glossaryReveals[item.term] = status;
+      });
+      renderGlossaryView();
+    };
+
+    /* =========================================================================
+       INITIALIZATION
+       ========================================================================= */
+    window.addEventListener('DOMContentLoaded', () => {
+      route();
+    });
+    // In case DOM is already loaded
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      route();
+    }
+  </script>
+</body>
+</html>
