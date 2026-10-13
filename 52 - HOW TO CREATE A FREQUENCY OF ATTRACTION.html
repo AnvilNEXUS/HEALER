@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Frequency of Attraction & The Sound Debate | 432 Hz vs 528 Hz</title>
+  
+  <!-- Google Fonts: Inter and Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              800: '#0c4a6e',
+              900: '#082f49',
+            },
+            accent: {
+              500: '#8b5cf6',
+              600: '#7c3aed',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(156, 163, 175, 0.1);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(156, 163, 175, 0.4);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(156, 163, 175, 0.6);
+    }
+    
+    /* 3D Flip Card Container */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+
+    /* Subtle text glow for accent headers in dark mode */
+    .dark .glow-text {
+      text-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+    }
+    
+    /* Transition defaults */
+    .flip-card-inner {
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased min-h-screen flex flex-col transition-colors duration-300">
+
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/90 dark:bg-slate-900/90 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Left: Back button & Brand -->
+      <div class="flex items-center gap-3">
+        <a id="nav-back-btn" href="#overview" class="hidden items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          <span id="nav-back-text">Overview</span>
+        </a>
+
+        <a href="#overview" class="flex items-center gap-2 group">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white font-display font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
+            Ω
+          </div>
+          <div class="hidden sm:block">
+            <span class="font-display font-bold text-base sm:text-lg tracking-tight bg-gradient-to-r from-sky-600 to-indigo-600 dark:from-sky-400 dark:to-indigo-300 bg-clip-text text-transparent">
+              Frequency & Sound
+            </span>
+            <span class="block text-[11px] font-medium text-slate-500 dark:text-slate-400 leading-none">
+              Bilingual Reader • 432 Hz vs 528 Hz
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Center: Quick Section Switcher (Desktop/Tablet) -->
+      <div class="hidden md:flex items-center">
+        <div class="relative">
+          <select id="section-quick-select" class="appearance-none bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-medium pl-3 pr-8 py-2 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer max-w-xs truncate">
+            <!-- Populated via JS -->
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-500">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Action Toggles (Global Lang, Dual/Flip mode, Glossary link, Dark mode) -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Quick Link to Glossary -->
+        <a href="#glossary" id="nav-glossary-btn" class="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 transition-all">
+          <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+          <span class="hidden xs:inline">Glossary</span>
+          <span class="text-[10px] font-mono px-1.5 py-0.2 bg-indigo-200 dark:bg-indigo-800 rounded-full font-bold">32</span>
+        </a>
+
+        <!-- Global Language Switcher -->
+        <div class="flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-0.5 border border-slate-200 dark:border-slate-700">
+          <button id="btn-lang-en" class="px-2.5 py-1 text-xs font-bold rounded-md transition-all bg-white dark:bg-slate-700 text-sky-700 dark:text-sky-300 shadow-sm" title="Set English Default">
+            EN
+          </button>
+          <button id="btn-lang-vi" class="px-2.5 py-1 text-xs font-bold rounded-md transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" title="Set Vietnamese Default">
+            VI
+          </button>
+        </div>
+
+        <!-- Dark / Light Mode Toggle Button -->
+        <button id="btn-theme-toggle" class="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors" aria-label="Toggle Dark Mode">
+          <!-- Moon Icon (for Light Mode) -->
+          <svg id="icon-moon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <!-- Sun Icon (for Dark Mode) -->
+          <svg id="icon-sun" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <main id="app-container" class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+    <!-- Dynamic views injected here by router -->
+  </main>
+
+  <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="font-display font-semibold text-slate-700 dark:text-slate-300">Ba Universe Study Series</span>
+        <span>•</span>
+        <span>Verbatim Bilingual Edition</span>
+      </div>
+      <div>
+        <span>Tap any paragraph to flip language • Press </span>
+        <kbd class="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 font-mono text-[10px]">Alt + T</kbd>
+        <span> to toggle theme</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Box for copied/action events -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-4 py-2.5 rounded-xl shadow-xl text-sm font-medium flex items-center gap-2">
+    <svg class="w-4 h-4 text-emerald-400 dark:text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+    <span id="toast-text">Action completed</span>
+  </div>
+
+  <script>
+    /* Complete Verbatim Document Repository */
+    const appData = {
+      title: {
+        en: "The Frequency of Attraction & The Great Sound Debate: 432 Hz vs. 528 Hz",
+        vi: "Tần Số Thu Hút & Đại Cuộc Tranh Luận Âm Thanh: 432 Hz và 528 Hz"
+      },
+      parts: [
+        {
+          partNum: 1,
+          title: {
+            en: "Part 1: Unlocking the Frequency of Attraction & Inner Energy",
+            vi: "Phần 1: Khai Mở Tần Số Thu Hút & Năng Lượng Tự Thân"
+          },
+          desc: {
+            en: "Explore the energetic nature of the human body, David Hawkins' Map of Consciousness, biological friction, and the 5 foundational daily practices to anchor elevated vibrations.",
+            vi: "Khám phá bản chất năng lượng của cơ thể, Bản đồ ý thức David Hawkins, cơ chế sinh học và 5 thực hành cốt lõi để duy trì tần số cao."
+          }
+        },
+        {
+          partNum: 2,
+          title: {
+            en: "Part 2: Demystifying the Musical Frequency Debate: 432 Hz or 528 Hz?",
+            vi: "Phần 2: Giải Mã Tranh Luận Tần Số Âm Nhạc: 432 Hz Hay 528 Hz?"
+          },
+          desc: {
+            en: "Deconstruct the acoustic science, historical tuning standards, Schumann planetary resonances, Solfeggio lore, DNA repair claims, and the power of subjective listening.",
+            vi: "Giải mã khoa học âm thanh, chuẩn lên dây lịch sử, cộng hưởng Schumann, tần số Solfeggio, giả thuyết phục hồi DNA và giá trị của trải nghiệm cá nhân."
+          }
+        }
+      ],
+      sections: [
+        /* PART 1 - SECTIONS 1 TO 5 */
+        {
+          id: "part1-sec1",
+          part: 1,
+          secNum: 1,
+          readTime: "3 min",
+          title: {
+            en: "1. The Energetic Nature of the Body",
+            vi: "1. Bản Chất Năng Lượng Của Cơ Thể"
+          },
+          summary: {
+            en: "At subatomic scale, matter gives way to ceaseless vibration; every cell acts as both transmitter and antenna.",
+            vi: "Dưới kính hiển vi nguyên tử, vật chất biến thành các dao động bất tận; tế bào vừa là trạm phát vừa là ăng-ten."
+          },
+          paragraphs: [
+            {
+              id: "p1-1-1",
+              en: "Take a moment to look at your hand. To the naked eye, it appears to be a solid, stable, and immutable mass of flesh and bone. Yet, if you were to place that hand under a high-powered atomic microscope, the entire illusion of solidity would instantly dissolve. There is no solid matter at all—only subatomic particles spinning at dizzying speeds, vibrating ceaselessly across vast expanses of empty space.",
+              vi: "Hãy thử nhìn vào bàn tay của mình trong giây lát. Dưới mắt thường, nó là một khối da thịt rắn chắc, ổn định và bất biến. Nhưng nếu bạn đặt bàn tay ấy dưới kính hiển vi nguyên tử cực đại, toàn bộ ảo ảnh về sự rắn chắc đó sẽ lập tức tan biến. Không có khối đặc nào cả, chỉ có các hạt hạ nguyên tử đang quay cuồng với tốc độ chóng mặt, dao động liên tục trong những khoảng không mênh mông."
+            },
+            {
+              id: "p1-1-2",
+              en: "We are accustomed to defining ourselves as tangible lumps of matter jostling for survival in a mechanistic world. Yet the deeper truth of nature tells an entirely different story. You are an energetic being drifting within an ocean of perpetual vibration. With every breath you take, each cell within you acts simultaneously as a broadcasting station and a receiving antenna. The electromagnetic signals emanating from your chest and mind every second are quietly drawing your dreams closer—or inadvertently pushing them far beyond your reach.",
+              vi: "Chúng ta vẫn quen định nghĩa mình là những khối vật chất hữu hình đang cố gắng chen chúc sinh tồn trong một thế giới cơ học. Nhưng sự thật sâu xa của tự nhiên lại kể một câu chuyện khác hoàn toàn. Bạn là một thực thể năng lượng đang trôi giữa một đại dương dao động không bao giờ ngừng lại. Ngay trong nhịp thở này, từng tế bào bên trong bạn vừa đóng vai trò của một trạm phát sóng, vừa là một ăng-ten thu nhận tín hiệu. Thứ tín hiệu điện từ phát ra từ lồng ngực và tâm trí bạn mỗi giây đang âm thầm kéo những giấc mơ lại gần hoặc vô tình đẩy lùi chúng ra xa ngoài tầm với."
+            },
+            {
+              id: "p1-1-3",
+              en: "If you wake up every morning feeling utterly drained, or if all your efforts seem to hit an invisible wall that keeps your life running in place, the reason is not that you are inadequate or lacking in willpower. You are not broken; your internal vibrational frequency is simply pinned at far too low a level.",
+              vi: "Nếu bạn đang thức dậy mỗi sáng với cảm giác cạn kiệt năng lượng, nếu mọi nỗ lực của bạn dường như đều va phải một bức tường vô hình khiến cuộc đời dậm chân tại chỗ, lý do không nằm ở việc bạn kém cỏi hay thiếu ý chí. Bạn không hề sai hỏng, chỉ là tần số dao động bên trong bạn đang bị ghìm chặt ở một tầng mức quá thấp."
+            },
+            {
+              id: "p1-1-4",
+              en: "What, then, truly determines a person's vibrational frequency? And how does something invisible wield the power to mold your entire health, prosperity, and destiny?",
+              vi: "Vậy điều gì thực sự quyết định tần số dao động của một con người? Và làm thế nào một thứ vô hình lại đủ sức nhào nặn nên toàn bộ sức khỏe, sự thịnh vượng lẫn số phận của bạn?"
+            }
+          ]
+        },
+        {
+          id: "part1-sec2",
+          part: 1,
+          secNum: 2,
+          readTime: "4 min",
+          title: {
+            en: "2. Historical Context & David Hawkins' Map of Consciousness",
+            vi: "2. Dòng Lịch Sử & Bản Đồ Ý Thức Của David Hawkins"
+          },
+          summary: {
+            en: "Dr. David Hawkins calibrated emotional frequencies from Shame (20) to Courage (200), Love (500), and Enlightenment (700-1000).",
+            vi: "Bác sĩ David Hawkins lượng hóa các mức cảm xúc từ Hổ thẹn (20) đến Can đảm (200), Tình yêu (500) và Giác ngộ (700-1000)."
+          },
+          paragraphs: [
+            {
+              id: "p1-2-1",
+              en: "To find the answer, we must trace back through history. The concept of raising one's vibration is by no means an invention of the modern era. It flowed quietly through ancient Greek philosophical texts and later permeated the New Thought movements of the 18th and 19th centuries.",
+              vi: "Để tìm câu trả lời, chúng ta phải lùi lại dòng lịch sử. Ý niệm về việc nâng cao rung động vốn không phải là một phát kiến của thời hiện đại. Nó từng âm thầm chạy qua các văn bản triết học Hy Lạp cổ đại rồi tiếp tục len lỏi qua các làn sóng tư tưởng mới ở thế kỷ 18 và 19."
+            },
+            {
+              id: "p1-2-2",
+              en: "It was not until the 1980s, however, that an American psychiatrist named Dr. David Hawkins set out to bring this abstract concept into the laboratory, quantifying it through his seminal work, the Map of Consciousness. Utilizing applied kinesiology (muscle testing), Hawkins calibrated human emotional states along a logarithmic scale spanning from 1 to 1,000.",
+              vi: "Thế nhưng phải đến những năm 1980, một bác sĩ tâm thần học người Mỹ tên là David Hawkins mới quyết định đưa khái niệm trừu tượng này vào phòng thí nghiệm để lượng hóa nó qua công trình Bản đồ ý thức. Bằng phương pháp kiểm tra phản ứng cơ học, Hawkins đã đặt các trạng thái cảm xúc của con người lên một chiếc thước đo trải dài từ 1 đến 1000."
+            },
+            {
+              id: "p1-2-3",
+              en: "• At the darkest depths lies Shame, where vital life force is virtually snuffed out at a meager calibration of 20.\n• Fear registers at 100.\n• A pivotal turning point emerges when consciousness reaches Courage at the 200 mark.\n• Before ascending further into Love at 500.\n• And finally culminating in the transcendent realms of Enlightenment between 700 and 1,000.",
+              vi: "• Dưới đáy sâu tăm tối nhất là sự hổ thẹn, nơi năng lượng sống gần như bị triệt tiêu với con số 20 ít ỏi.\n• Nỗi sợ hãi dừng lại ở mức 100.\n• Một bước ngoặt sống còn bắt đầu mở ra khi tâm thức chạm tới lòng can đảm ở mức 200.\n• Trước khi tiếp tục thăng hoa lên tình yêu thương ở mốc 500.\n• Và cuối cùng chạm đến những tầng mức giác ngộ vượt bậc từ 700 đến 1000."
+            },
+            {
+              id: "p1-2-4",
+              en: "The essence of this scale is remarkably intuitive. Any emotion that brings you a sense of lightness and expansion vibrates at a high frequency. Any emotion that constricts your chest and weighs heavily on your spirit vibrates at a low frequency. Repetitive thoughts and feelings do not vanish into thin air; they emit electrical impulses from the brain and nervous system, generating an actual electromagnetic field that envelops your body. In a universe composed of energetic vortices, that field naturally attracts people, events, and circumstances that resonate at the very same frequency.",
+              vi: "Bản chất của thang đo này kỳ thực rất dung dị. Bất kỳ cảm xúc nào mang lại cho bạn sự nhẹ nhõm, cởi mở, đó là tần số cao. Những cảm xúc bóp nghẹt lồng ngực, đè nặng tâm can, đó chính là tần số thấp. Những suy nghĩ và cảm xúc lặp đi lặp lại không hề biến mất vào hư không. Chúng phát ra xung điện từ não bộ và hệ thần kinh tạo thành một trường lực thực thụ bao bọc lấy cơ thể. Và giữa một vũ trụ cấu thành từ những vòng xoáy năng lượng, trường lực ấy sẽ tự khắc hút về những con người, những sự kiện hoàn cảnh có cùng nhịp đập."
+            }
+          ]
+        },
+        {
+          id: "part1-sec3",
+          part: 1,
+          secNum: 3,
+          readTime: "5 min",
+          title: {
+            en: "3. Biological Mechanisms & The Societal Energy Field",
+            vi: "3. Cơ Chế Sinh Học & Thực Trạng Trường Năng Lượng Xã Hội"
+          },
+          summary: {
+            en: "Survival biology versus expansion; how one enlightened individual at 700 counterbalances 70 million individuals under 200.",
+            vi: "Sinh học sinh tồn đối lập với sự thảnh thơi; một cá nhân ở mức 700 làm đối trọng cho 70 triệu người dưới mức 200."
+          },
+          paragraphs: [
+            {
+              id: "p1-3-1",
+              en: "How does this mechanism manifest in our biological bodies, and why do most people inadvertently trap themselves in the lowest energetic basements?",
+              vi: "Nhưng cơ chế này phản ánh điều gì trên cơ thể sinh học của chúng ta và tại sao phần lớn con người lại đang vô tình tự giam mình ở những tầng năng lượng đáy?"
+            },
+            {
+              id: "p1-3-2",
+              en: "Observe your body whenever anger or jealousy flares up: your muscles clench, your chest tightens, your breathing becomes shallow, and your cognitive perspective narrows to a pinhole. The nervous system is instantly thrust into primal survival mode. Conversely, when compassion and gratitude arise, neural pathways relax, the body softens, and the mind becomes remarkably clear. In essence, your vibrational frequency is simply the emotional home in which your nervous system has grown accustomed to residing year after year.",
+              vi: "Hãy quan sát cơ thể bạn mỗi khi cơn giận dữ hay lòng đố kỵ bùng lên: cơ bắp co cứng lại, lồng ngực thắt nghẹt, hơi thở nông dần và tầm nhìn nhận thức thu hẹp lại tối đa. Hệ thần kinh lập tức bị đẩy vào chế độ sinh tồn nguyên thủy. Ngược lại, khi lòng trắc ẩn và sự biết ơn xuất hiện, các đường dẫn truyền thần kinh được giải tỏa, cơ thể thả lỏng và tâm trí bỗng trở nên sáng suốt lạ thường. Tần số rung động xét cho cùng chính là ngôi nhà cảm xúc mà hệ thần kinh của bạn đã quen cư ngụ từ năm này qua tháng khác."
+            },
+            {
+              id: "p1-3-3",
+              en: "Looking closely at society today reveals an agonizing reality: an epidemic of pervasive loneliness, climbing suicide rates, an avalanche of sedative prescriptions, persistent financial instability, and unending armed conflicts. This stark picture reflects an undeniable truth: the vast majority of humanity is operating beneath the threshold of fear and anxiety. We are collectively producing a chaotic world simply because it is the direct byproduct of the energetic frequency the collective emits.",
+              vi: "Nếu nhìn sâu vào thực tế xã hội ngày nay, bạn sẽ thấy một hiện tượng nhức nhối. Đại dịch cô đơn bao trùm, tỉ lệ tự tử leo thang, các toa thuốc an thần dày đặc cùng những bất ổn tài chính và xung đột vũ trang liên miên. Bức tranh ấy phản ánh một sự thật trần trụi rằng phần lớn nhân loại đang vận hành dưới ngưỡng sợ hãi và bất an. Chúng ta đang là một tập thể tạo nên một thế giới hỗn loạn, đơn giản vì đó là sản phẩm trực tiếp từ tần số năng lượng mà đám đông đang phát ra."
+            },
+            {
+              id: "p1-3-4",
+              en: "In a world steeped in such low energy, can the efforts of a single individual truly make any difference?",
+              vi: "Giữa một thế giới đang chìm trong năng lượng thấp như vậy, liệu nỗ lực thay đổi của một cá nhân nhỏ bé có thực sự tạo ra được khác biệt nào không?"
+            },
+            {
+              id: "p1-3-5",
+              en: "In his book Power vs. Force, Hawkins highlighted a critical threshold at level 200: Courage. Below 200, people operate through force, relying on coercion, control, and aggression to combat underlying fear. But the moment you find the courage to confront reality, you step into the realm of true inner power—where life begins to flow through you naturally without resistance.",
+              vi: "Trong cuốn sách Sức mạnh so với sự ép buộc, Hawkins đã chỉ ra một ranh giới sinh tử mốc 200: lòng can đảm. Dưới 200, con người sống bằng sự ép buộc, cố dùng bạo lực và kiểm soát để chống lại nỗi sợ hãi. Nhưng ngay khoảnh khắc bạn dám đối diện với thực tại, bạn bước sang địa hạt của sức mạnh nội tại, nơi sự sống bắt đầu tự nhiên tuôn trào qua bạn mà không cần cưỡng ép."
+            },
+            {
+              id: "p1-3-6",
+              en: "History has witnessed rare individuals who shifted the course of reality purely through the energy fields they embodied. Mahatma Gandhi calibrated at approximately 760 on the scale. That explains why Gandhi could mobilize and lead hundreds of millions in a historic nonviolent revolution without commanding an army or firing a single shot; his power emanated from the silent presence of an extraordinary vibrational field. Consider Mother Teresa, who calibrated at 700. Those who walked into the same room with her frequently recounted a wave of profound peace so overwhelming that it brought them to tears—an experience rationality alone could never explain.",
+              vi: "Lịch sử từng chứng kiến những cá nhân làm nghiêng ngả thực tại chỉ bằng trường năng lượng họ mang theo. Mahatma Gandhi được định vị ở mức khoảng 760 trên thang đo. Đó là lý do vì sao Gandhi có thể tập hợp và dẫn dắt hàng trăm triệu người bước vào cuộc kháng chiến bất bạo động vĩ đại mà không cần đến quân đội hay vũ khí. Sức mạnh của ông đến từ sự hiện diện tĩnh lặng của một trường rung động phi thường. Hay như Mẹ Teresa, người dừng lại ở mức 700. Những người từng bước vào cùng một căn phòng với bà đều ghi nhận cảm giác bình yên sâu sắc dâng trào đến rơi nước mắt mà lý trí không thể nào giải thích nổi."
+            },
+            {
+              id: "p1-3-7",
+              en: "Hawkins uncovered a striking finding that may fundamentally change how you perceive your personal journey:\n• A single individual operating at a consciousness level of 700 counterbalances the collective negative energy of 70 million individuals living below level 200.\n• At level 600, one person serves as a counterweight to 10 million individuals vibrating at a lower frequency.\nWhat does this mean? Your inner transformation has never been a selfish endeavor. Every step you climb up the emotional ladder directly contributes to purifying the energetic field of the entire collective.",
+              vi: "Và đây là một phát hiện từ nghiên cứu của Hawkins có thể làm thay đổi hoàn toàn cách bạn định nghĩa về hành trình của chính mình:\n• Một người hoạt động ở mức nhận thức 700 có thể cân bằng lại trường năng lượng tiêu cực của 70 triệu người đang sống dưới mức 200.\n• Ở mức 600, một cá nhân đủ sức làm đối trọng cho 10 triệu người ở tần số thấp.\nĐiều đó có nghĩa là gì? Sự chuyển hóa nội tâm của bạn chưa bao giờ là một hành động ích kỷ. Từng bước tiến bạn leo lên trên nấc thang cảm xúc chính là một sự đóng góp trực tiếp vào việc thanh lọc trường năng lượng của cả cộng đồng."
+            }
+          ]
+        },
+        {
+          id: "part1-sec4",
+          part: 1,
+          secNum: 4,
+          readTime: "5 min",
+          title: {
+            en: "4. Identifying Barriers That Drag Down Your Energy",
+            vi: "4. Nhận Diện Những Rào Cản Ghìm Năng Lượng"
+          },
+          summary: {
+            en: "Release before ascension: chronic inflammation, toxic ultra-processed foods, blue-light screens, and information doomscrolling.",
+            vi: "Buông bỏ trước khi thăng hoa: viêm mãn tính, thực phẩm siêu chế biến, ánh sáng xanh và sự dội bom thông tin tiêu cực."
+          },
+          paragraphs: [
+            {
+              id: "p1-4-1",
+              en: "If raising your vibration yields such profound health, prosperity, and peace, why do we continually stumble along the way? Because most of us misunderstand its true nature. Raising your vibration is not about straining to become some flawless ideal; it is about having the courage to release what is quietly dragging you down.",
+              vi: "Tuy nhiên, nếu việc nâng cao rung động mang lại sức khỏe, sự thịnh vượng và an yên lớn đến thế, tại sao chúng ta lại liên tục bị trượt ngã trên con đường này? Bởi vì hầu hết chúng ta đều hiểu sai về bản chất của nó. Nâng cao rung động không phải là cố gắng gồng mình để trở thành một mẫu hình hoàn hảo, mà là dũng cảm buông bỏ những thứ đang âm thầm kéo bạn xuống."
+            },
+            {
+              id: "p1-4-2",
+              en: "Modern medicine now acknowledges an undeniable reality: the majority of chronic illnesses have their roots in prolonged stress. When you live in chronic fear and worry, your sympathetic nervous system is perpetually activated, cortisol levels spike, blood vessels constrict, and low-grade inflammation smolders throughout the body. Unresolved childhood trauma and unconscious anger reactions act like malicious background code running continuously within your physiology. All of your precious energetic resources are burned away simply managing this internal friction, rather than fueling creativity or enjoying the abundance of life.",
+              vi: "Y học hiện đại ngày nay đã thừa nhận một sự thật: phần lớn các căn bệnh mãn tính đều có gốc rễ từ căng thẳng kéo dài. Khi bạn sống trong sợ hãi và lo âu, hệ thần kinh giao cảm bị kích thích liên tục, hormone cortisol tăng vọt, các mạch máu co thắt và các ổ viêm âm ỉ lan rộng. Những tổn thương thời thơ ấu chưa được tháo gỡ hay những phản ứng giận dữ vô thức chính là những đoạn mã độc ngầm đang chạy liên tục trong cơ thể. Toàn bộ tài nguyên năng lượng quý giá bị đốt sạch chỉ để đối phó với những ma sát nội tâm ấy thay vì được dùng để sáng tạo hay tận hưởng sự dồi dào của cuộc sống."
+            },
+            {
+              id: "p1-4-3",
+              en: "When you dare to clear away fear and resentment, your natural frequency rises organically. Your intuition sharpens, your vitality returns, and breakthrough ideas begin to surface. The law of attraction operates with uncompromising fairness: like attracts like. Low vibrations draw sickness and lack; high vibrations swing wide the gates to abundance and vibrant health.",
+              vi: "Khi bạn dám dọn dẹp những nỗi sợ và sự oán giận, tần số tự nhiên sẽ tự khắc dâng lên. Bạn có trực giác nhạy bén hơn, sức khỏe phục hồi và những ý tưởng đột phá xuất hiện. Nguyên lý của sự thu hút vận hành vô cùng sòng phẳng: những gì cùng tần số sẽ tìm đến nhau. Rung động thấp kéo theo bệnh tật và sự khốn khó. Rung động cao mở toang cánh cửa đón nhận sự sung túc và sức sống dồi dào."
+            },
+            {
+              id: "p1-4-4",
+              en: "Yet there is another invisible barrier quietly collapsing your frequency every day—one that lies not in your thoughts, but directly on your dinner plate. This includes ultra-processed foods, refined seed oils, industrial sugars, and high-fructose corn syrup. These artificial products are far removed from their natural state and consequently carry an extremely low vibrational frequency.",
+              vi: "Thế nhưng có một chướng ngại vật vô hình khác vẫn đang âm thầm đánh sập tần số của bạn mỗi ngày, không nằm trong suy nghĩ mà nằm ngay trên chiếc đĩa ăn bạn dùng mỗi bữa. Đó là những món ăn nhanh chế biến sẵn, dầu thực vật tinh luyện, đường công nghiệp và siro ngô hàm lượng fructose cao. Chúng là những sản phẩm nhân tạo xa rời trạng thái tự nhiên và do đó mang tần số rung động cực kỳ thấp."
+            },
+            {
+              id: "p1-4-5",
+              en: "When ingested, they trigger persistent inflammatory cascades. Inflammation is not merely a biological symptom; it is an alarm signal of cellular exhaustion under biochemical distress. Cellular energy that should be allocated toward mental clarity, sharp focus, and a zest for life is instead diverted entirely to processing internal friction and eliminating toxins. A high vibration, at its core, is synonymous with vitality—a state in which you live fully in body, mind, and spirit. As long as your body remains depleted from constantly compensating for emotional strain and biochemical waste, you are actively suppressing your own innate vibrational frequency.",
+              vi: "Khi đi vào cơ thể, chúng kích hoạt các phản ứng viêm nhiễm liên tục. Viêm nhiễm không đơn thuần là một hiện tượng sinh học; đó là tín hiệu suy kiệt của các tế bào khi phải hứng chịu căng thẳng sinh hóa. Năng lượng của tế bào thay vì được phân bổ cho sự minh mẫn, sắc bén và niềm cảm hứng sống nay phải dồn toàn lực chỉ để giải quyết những ma sát và độc tố bên trong. Rung động cao, hiểu cho cùng đồng nghĩa với sức sống. Đó là trạng thái bạn được sống trọn vẹn cả về thể chất, tâm trí lẫn tinh thần. Chừng nào bạn còn để cơ thể mình kiệt quệ trong vòng xoáy phải bù đắp cho những áp lực cảm xúc và rác thải sinh hóa, chừng đó bạn vẫn đang tự tay bóp nghẹt tần số rung động thực sự vốn có của chính mình."
+            },
+            {
+              id: "p1-4-6",
+              en: "There is an ironic paradox that few acknowledge: why has maintaining a serene, peaceful state of mind become so difficult—nearly impossible—in the modern era? Because virtually the entire architecture of the modern world seems engineered to anchor you in bottom-tier frequencies. Beyond industrialized food, you face the omnipresent blue light of sleepless screens, mindless social media doomscrolling, and a dizzying deluge of rapid information. Your attention is constantly fragmented. Sensationalist media headlines, doomsday scenarios, and bleak forecasts relentlessly bombard your subconscious. Without conscious awareness, your precious life force will be steadily siphoned away every single day.",
+              vi: "Nhưng có một nghịch lý trớ trêu mà ít ai nhận ra: tại sao việc giữ cho mình một trạng thái cảm xúc thanh thản, dễ chịu lại trở nên khó khăn đến mức gần như bất khả thi trong thời đại ngày nay? Bởi vì gần như toàn bộ cấu trúc của thế giới hiện đại dường như được thiết kế để ghìm bạn lại ở những tầng tần số đáy. Không chỉ dừng lại ở thức ăn công nghiệp mà còn là ánh sáng xanh từ những màn hình không bao giờ tắt, những cú cuộn ngón tay vô thức trên mạng xã hội và nhịp độ chuyển đổi thông tin nhanh đến chóng mặt. Sự chú ý của bạn bị xâu xé. Những bản tin truyền thông giật gân, những kịch bản về ngày tận thế và bức tranh ảm đạm về tương lai liên tục dội vào tâm trí. Nếu không tỉnh táo, toàn bộ nguồn năng lượng sống quý giá của bạn sẽ bị bào rút sạch sẽ mỗi ngày."
+            },
+            {
+              id: "p1-4-7",
+              en: "This explains why a quiet yet decisive exodus is occurring worldwide. More and more people are choosing to step back from addictive technology to return to nature, seeking what is authentic and grounded. When your intuition signals that something is deeply amiss in this artificial matrix, you acutely feel your vibrational frequency being dragged down day by day. The first step toward turning the tide is not rushing to take on something new; it begins with the courage to stop doing the very things that drain your energy.",
+              vi: "Đó là lý do vì sao một cuộc tháo chạy âm thầm nhưng mạnh mẽ đang diễn ra khắp nơi. Ngày càng nhiều người chọn cách quay lưng lại với công nghệ gây nghiện để tìm về với mẹ thiên nhiên, tìm về với những gì chân thật và nguyên bản nhất. Khi trực giác mách bảo rằng có điều gì đó rất bất ổn trong thực tại nhân tạo này, bạn sẽ cảm nhận rất rõ tần số rung động của mình đang bị kéo tụt xuống từng ngày. Và bước đi đầu tiên để xoay chuyển cục diện như chúng ta đã thấy hoàn toàn không phải là vội vã làm thêm một điều gì mới. Nó bắt đầu từ việc can đảm ngừng làm những việc đang kéo ghìm năng lượng của bạn xuống."
+            },
+            {
+              id: "p1-4-8",
+              en: "Sometimes, all your internal system needs is a deliberate pause: taking a seven-day digital detox, stepping outdoors to breathe fresh air rather than confining yourself to virtual spaces, and engaging with flesh-and-blood human beings instead of glowing screens. Trends like giving up alcohol and tapering off excess caffeine—both of which overstimulate the nervous system—are part of this movement. These simple, restorative pauses are all it takes for your baseline frequency to naturally revive.",
+              vi: "Đôi khi tất cả những gì hệ thống bên trong bạn cần chỉ là một khoảng lặng: bảy ngày cai nghiện kỹ thuật số, bước ra ngoài trời hít thở thay vì giam mình trong không gian ảo, gặp gỡ những con người bằng xương bằng thịt thay vì qua những ô màn hình vô cảm. Xu hướng từ bỏ rượu bia, cắt giảm lượng caffeine vốn đang kích thích quá mức hệ thần kinh. Chỉ những nhịp dừng giản dị ấy thôi cũng đủ để tần số của bạn bắt đầu tự động hồi sinh."
+            }
+          ]
+        },
+        {
+          id: "part1-sec5",
+          part: 1,
+          secNum: 5,
+          readTime: "6 min",
+          title: {
+            en: "5. Five Core Practices to Anchor a High Frequency",
+            vi: "5. Năm Thực Hành Cốt Lõi Để Neo Đậu Tần Số Cao"
+          },
+          summary: {
+            en: "Coherent 5.5-second nasal breathing, active movement meditation, cognitive filtering, journaling, and aligned tribe.",
+            vi: "Thở theo nhịp tim 5,5 giây, thiền vận động cường độ cao, thanh lọc dinh dưỡng tâm trí, viết nhật ký và kết nối cộng đồng."
+          },
+          paragraphs: [
+            {
+              id: "p1-5-1",
+              en: "Once those invisible shackles have been loosened, how do you actively condition your nervous system to stay firmly anchored in higher frequencies each day? Below are five core practices—simple daily habits that carry profound transformative power.",
+              vi: "Nhưng khi những sợi dây trói buộc vô hình ấy đã được nới lỏng, làm thế nào để bạn chủ động rèn luyện hệ thần kinh của mình, neo đậu vững chắc ở những tầng số cao hơn mỗi ngày? Dưới đây là năm thực hành cốt lõi, những thói quen giản dị nhưng mang sức mạnh chuyển hóa sâu sắc."
+            },
+            {
+              id: "p1-5-2",
+              en: "Practice 1: Heart-Rhythm Breathing to Restore Nervous System Balance\nThe first practice is bringing the nervous system into equilibrium through resonant, coherent breathing. You may have encountered box breathing, the Wim Hof method, or diaphragmatic nasal breathing, but this continuous rhythm provides an extraordinarily swift baseline reset. The execution is straightforward and performed entirely through the nose:\n• Inhale smoothly and steadily for exactly 5.5 seconds, then transition immediately into an exhalation for 5.5 seconds.\n• Repeat this continuous 5.5-second inhalation-exhalation cycle without any pause or breath retention in between.\n• Maintain this conscious, unbroken rhythm for 10 to 20 minutes.\nWhen practiced consistently—whether in brief gaps between meetings or during your daily commute—muscular tension naturally dissolves as if soothed by an organic relaxant. The autonomic nervous system resets, returning your body to its innate, harmonious, and buoyant vibrational baseline.",
+              vi: "Thực hành 1: Thở Theo Nhịp Tim Đưa Hệ Thần Kinh Về Cân Bằng\nThứ nhất là việc đưa hệ thần kinh về trạng thái cân bằng thông qua kỹ thuật thở theo nhịp tim. Bạn có thể đã nghe qua phương pháp thở hình hộp, thở Wim Hof hay thở thuần túy bằng mũi, nhưng kỹ thuật thở liên tục này lại mang đến hiệu quả tái thiết lập trạng thái vô cùng rõ rệt. Cách thực hiện rất mạch lạc: hoàn toàn hít vào và thở ra bằng mũi.\n• Hít vào đều đặn trong đúng 5,5 giây rồi thở ra ngay lập tức trong 5,5 giây.\n• Tiếp tục vòng lặp hít vào 5,5 giây và không hề có bất kỳ khoảng ngưng nghỉ nào ở giữa.\n• Duy trì nhịp thở chủ động liền mạch ấy từ 10 đến 20 phút.\nKhi thực hiện đều đặn mỗi ngày, dù là trong những khoảng trống giữa các cuộc họp hay khi đang ngồi trên xe, sự căng cứng của các khối cơ bắp sẽ tự khắc tan biến như vừa được tiếp nhận một liều thuốc thư giãn tự nhiên. Hệ thần kinh lập tức được làm mới, đưa toàn bộ cơ thể trở về với trường dao động hài hòa và thanh nhẹ vốn có."
+            },
+            {
+              id: "p1-5-3",
+              en: "Practice 2: High-Intensity Physical Movement (Active Meditation)\nThe next step to severing repetitive negative thought loops is high-intensity physical training. This can take the form of heavy resistance training, distance running, intense cycling, or a vigorous power yoga session. The objective is to push the body into a sufficiently demanding state so that your mind has no room left for anxiety.\nBiochemically, high-intensity exercise triggers a release of mood-elevating neurotransmitters—endorphins, dopamine, and serotonin—while boosting BDNF and clearing circulating cortisol. On a deeper level, it functions as an active meditation. When you pour all your focus into every breath and every muscle fiber for 30, 45, or 60 minutes, you have no mental bandwidth left to ruminate on the past or fear the future. You become 100% embodied in the present moment—and that presence, in and of itself, is a peak vibrational state.",
+              vi: "Thực hành 2: Vận Động Thể Chất Cường Độ Cao (Thiền Định Chủ Động)\nBước tiếp theo để cắt đứt hoàn toàn những vòng lặp suy nghĩ tiêu cực không gì hiệu quả bằng những buổi vận động thể chất ở cường độ cao. Đó có thể là những hiệp nâng tạ nặng, những bước chạy bền, những vòng đạp xe hay một bài tập yoga cường độ lớn. Mục tiêu là đẩy cơ thể vào một trạng thái thử thách đủ mạnh để tâm trí bạn không còn bất kỳ kẽ hở nào cho sự lo âu.\nVề bản chất sinh học, vận động cường độ cao giải phóng hàng loạt các chất dẫn truyền thần kinh tích cực như endorphin, dopamine, serotonin, làm tăng BDNF và dập tắt nồng độ hormone cortisol. Nhưng sâu xa hơn, đây chính là một hình thức thiền định chủ động. Khi bạn dốc toàn lực vào từng nhịp thở, từng thớ cơ trong suốt 30, 45 hay 60 phút, bạn không còn tâm trí đâu để mà gặm nhấm quá khứ hay là sự sợ hãi tương lai. Bạn hiện diện trọn vẹn 100% trong chính cơ thể mình và sự hiện diện ấy, tự thân nó đã là một trạng thái rung động đỉnh cao."
+            },
+            {
+              id: "p1-5-4",
+              en: "Practice 3: Actively Purifying Mental Nutrition\nIf you tend only to your breath and muscles, can your mental energy truly remain protected when your senses are constantly open to the outside world? This is where the third practice proves vital: consciously filtering your mental consumption. We often restrict the definition of nutrition to the food we put in our mouths. Yet we consume the world through all five senses; the images you view and the sounds you absorb each day are literal food for your psyche.\nInstead of allowing your mind to be polluted by online arguments and sensationalist drama, actively nourish it with high-integrity sources: inspiring teachings, insights from people of wisdom, and timeless philosophical works. Regularly feeding your mind with profound ideas breaks destructive mental loops while consistently supplying high-frequency cognitive nutrients to your nervous system.",
+              vi: "Thực hành 3: Chủ Động Thanh Lọc Dinh Dưỡng Tinh Thần\nNhưng nếu mà chỉ chăm sóc cho hơi thở và cơ bắp, liệu nguồn năng lượng tâm trí có thực sự được bảo vệ khi mà các giác quan vẫn liên tục mở ra tiếp nhận thế giới bên ngoài? Đó là lúc thực hành thứ ba phát huy vai trò: chủ động thanh lọc nguồn dinh dưỡng tinh thần. Chúng ta thường giới hạn khái niệm dinh dưỡng ở những món ăn đưa qua đường miệng. Nhưng con người tiếp nhận thế giới qua cả năm giác quan. Những hình ảnh bạn nhìn thấy, những âm thanh bạn lắng nghe mỗi ngày chính là thức ăn của tâm trí.\nThay vì để đầu óc bị đầu độc bởi những cuộc tranh cãi hay tin tức giật gân, hãy chủ động lấp đầy tâm trí bằng những nguồn năng lượng thuần khiết: những bài học truyền cảm hứng, những chia sẻ trí tuệ từ những người nói lên sự thật hay những lời minh triết trong các cuốn kinh văn cổ xưa. Việc đều đặn nuôi dưỡng tâm hồn bằng những tư tưởng sâu sắc không chỉ bẻ gãy những thói quen tự hủy hoại cũ mà còn liên tục cung cấp dưỡng chất tinh thần tần số cao cho hệ thần kinh của bạn."
+            },
+            {
+              id: "p1-5-5",
+              en: "Practice 4: Journaling & Deep Emotional Listening\nFor your internal energy to flow without blockage, the fourth method requires honest self-confrontation: journaling paired with deep emotional attunement. When you sit down and put pen to paper, articulating the rawest emotions churning inside you, you build an unmediated bridge into your inner landscape. Rather than suppressing these feelings, you engage in transparent dialogue with yourself.\nMost of us reflexively flee when confronted with discomfort: reaching for coffee, pouring a drink, or zoning out in front of a screen to numb the sensation. Yet a low-frequency emotion—be it lingering anger, grief, or an unhealed wound—will persistently knock at your door until it is fully acknowledged. Rather than running, sit in stillness for a few minutes, locate where that tension constricts within your body, and patiently feel it without judgment. When a heavy emotion is fully listened to, its somatic charge dissipates. It loses its power over you, and you naturally ascend to a lighter vibrational tier as old baggage is finally set down.",
+              vi: "Thực hành 4: Viết Nhật Ký & Lắng Nghe Cảm Xúc Sâu Sắc\nĐể dòng chảy năng lượng ấy thực sự thông suốt, phương pháp thứ tư đòi hỏi bạn phải đối diện với chính mình: thực hành viết nhật ký và lắng nghe cảm xúc sâu sắc. Khi bạn ngồi xuống, đặt bút viết ra những cảm giác chân thật nhất đang cuộn trào bên trong, bạn đang bắc một nhịp cầu nối thẳng vào thế giới nội tâm. Bạn không còn đè nén chúng mà đang đối thoại sòng phẳng với chính mình.\nPhần lớn chúng ta khi đối diện với một cảm xúc khó chịu thường có thói quen chạy trốn: với tay lấy một tách cà phê, tìm đến ly rượu hay dán mắt vào trước màn hình điện thoại để khỏa lấp. Nhưng một cảm xúc tần số thấp dù là sự giận dữ, nỗi đau cũ hay một vết thương chưa lành sẽ liên tục quay trở lại gõ cửa cho đến khi nó thực sự được bạn công nhận. Thay vì trốn chạy, hãy dành ra vài phút tĩnh lặng để đi sâu vào cảm xúc ấy, xác định xem nó đang thắt lại ở vị trí nào trên cơ thể và kiên nhẫn cảm nhận nó. Khi một cảm xúc tiêu cực được lắng nghe trọn vẹn, điện tích căng thẳng của nó sẽ tự tiêu biến. Nó mất đi sức mạnh chi phối bạn và bạn bước lên một tầng rung động cao hơn một cách hoàn toàn tự nhiên vì những gánh nặng cũ đã được trút bỏ."
+            },
+            {
+              id: "p1-5-6",
+              en: "Practice 5: Immersing Yourself in a Like-Frequency Community\nThe decisive factor in sustaining this momentum is surrounding yourself with a community of individuals who share a high-frequency lifestyle. A fighter who wishes to elevate their skill must step into the ring with superior competitors. A person committed to healing needs to stand alongside others dedicated to their own recovery. You cannot sustain a warm fire if you are surrounded by blocks of ice.\nHigh-caliber relationships—grounded in authenticity, mutual encouragement, and shared values—act as an emotional shock absorber and a protective energetic shield. Elevating your vibration is not a solitary struggle in the shadows; it is a collective resonance shared among aligned minds.",
+              vi: "Thực hành 5: Hòa Mình Vào Cộng Đồng Cùng Tần Số\nCuối cùng, yếu tố mang tính quyết định để duy trì toàn bộ hành trình này chính là sống trong một cộng đồng của những con người có cùng tần số cao. Một võ sĩ muốn nâng cao trình độ phải bước lên sàn đấu với những người giỏi hơn. Một người muốn chữa lành cần ở cạnh những người đang trên con đường hồi phục. Bạn không thể duy trì một ngọn lửa ấm nếu xung quanh toàn là những tảng băng giá lạnh.\nNhững mối quan hệ chất lượng nơi mọi người cùng chia sẻ những giá trị chân thực, cùng nhắc nhở nhau thực hành lối sống tích cực sẽ tạo nên một vùng đệm cảm xúc tựa như một trường lực bảo vệ vững chắc. Nâng cao rung động không phải là một hành trình đơn độc trong góc tối. Đó là một sự cộng hưởng tập thể giữa những tâm hồn cùng chung một chí hướng."
+            },
+            {
+              id: "p1-5-7",
+              en: "Mastering the rules of this energetic reality and applying these practical tools is the turning point where you step into conscious authorship of your life, rather than remaining a victim of random circumstance. The journey to decoding the deeper mysteries of consciousness, the universe, and inner sovereignty has only just begun.",
+              vi: "Hiểu được quy luật vận hành của trò chơi năng lượng này và nắm giữ những công cụ thực tế chính là bước ngoặt để bạn làm chủ thực tại của chính mình thay vì tiếp tục làm nạn nhân của những hoàn cảnh ngẫu nhiên. Hành trình giải mã những bí mật sâu kín của vũ trụ, tâm thức và sức mạnh nội tại chỉ mới bắt đầu."
+            },
+            {
+              id: "p1-5-8",
+              en: "If these insights resonated with you, please share your thoughts in the comments below. Where do you currently locate yourself on this energetic map, and which habit will you begin letting go of today? Remember to subscribe to Ba Universe, turn on notifications so you never miss an upcoming documentary, and share this video with those who might need it on their own path of inner transformation.",
+              vi: "Nếu những chia sẻ này chạm đến bạn, hãy để lại suy nghĩ của bạn ở phần bình luận bên dưới nhé. Bạn đang nhận diện mình ở tầng năng lượng nào và thói quen nào bạn sẽ bắt đầu tháo bỏ ngay hôm nay? Đừng quên nhấn nút đăng ký kênh Ba Universe, bật chuông thông báo để không bỏ lỡ những tập phim tài liệu tiếp theo và hãy lan tỏa thước phim này đến với những người đang thực sự cần nó trên con đường chuyển hóa của riêng mình."
+            }
+          ]
+        },
+
+        {
+          id: "part2-sec1",
+          part: 2,
+          secNum: 1,
+          readTime: "3 min",
+          title: {
+            en: "1. Origins of the Debate",
+            vi: "1. Nguồn Gốc Cuộc Tranh Luận"
+          },
+          summary: {
+            en: "Why 432 Hz and 528 Hz spark intense debate over human well-being, relaxation, and sound therapy.",
+            vi: "Vì sao 432 Hz và 528 Hz trở thành tâm điểm tranh luận về sức khỏe, thư giãn và âm thanh trị liệu."
+          },
+          paragraphs: [
+            {
+              id: "p2-1-1",
+              en: "432 Hz or 528 Hz? On the surface, they appear to be mere numbers, yet for years they have occupied center stage in a fascinating inquiry: Is there an optimal musical frequency for human well-being?",
+              vi: "432 Hz hay 528 Hz? Nghe qua đó chỉ là hai con số nhưng suốt nhiều năm chúng lại nằm ở trung tâm của một cuộc tranh luận khá đặc biệt: Liệu có một tần số âm nhạc nào tốt hơn cho con người hay không?"
+            },
+            {
+              id: "p2-1-2",
+              en: "• One camp maintains that 432 Hz evokes an inherently organic, soothing, and harmonious listening experience.\n• The other directs its focus toward 528 Hz, a frequency popularized in sound therapy, meditation, and restorative audio practices.",
+              vi: "• Một bên tin rằng 432 Hz tạo cảm giác tự nhiên, dễ chịu và hài hòa hơn.\n• Bên kia lại dành sự chú ý cho 528 Hz, một tần số thường xuất hiện trong các nội dung về thư giãn và âm thanh trị liệu."
+            },
+            {
+              id: "p2-1-3",
+              en: "Both sides claim passionate advocates, cite standalone studies, and wrap themselves in rich layers of historical lore. However, a substantial gap often separates empirically verified evidence from viral belief. Before deciding whether 432 Hz or 528 Hz deserves our attention, we must first understand precisely what they are.",
+              vi: "Cả hai đều có những người ủng hộ, những nghiên cứu riêng và cả một lớp câu chuyện lịch sử bao quanh chúng. Nhưng vấn đề là giữa những điều đã được kiểm chứng và những điều được truyền đi như một niềm tin, khoảng cách đôi khi khá lớn. Muốn biết 432 hay 528 đáng chú ý hơn, có lẽ trước tiên phải hiểu chính xác chúng là gì."
+            }
+          ]
+        },
+        {
+          id: "part2-sec2",
+          part: 2,
+          secNum: 2,
+          readTime: "5 min",
+          title: {
+            en: "2. The Story of 432 Hz: Tuning Standards, History & Conspiracy Theories",
+            vi: "2. Câu Chuyện Của 432 Hz: Chuẩn Lên Dây, Lịch Sử & Thuyết Âm Mưu"
+          },
+          summary: {
+            en: "A4 reference pitch, pitch inflation, Giuseppe Verdi, ISO 16 (440 Hz), and debunking the Nazi/Rockefeller myths.",
+            vi: "Chuẩn cao độ nốt La (A4), lạm phát cao độ, Giuseppe Verdi, chuẩn ISO 16 và làm sáng tỏ các thuyết âm mưu."
+          },
+          paragraphs: [
+            {
+              id: "p2-2-1",
+              en: "When people refer to 432 Hz music, they do not mean that an entire composition emits only a single drone at 432 Hz. They are typically referring to an alternative reference pitch, in which the note A above middle C (A4) is tuned to 432 Hz instead of the modern international concert pitch of 440 Hz.",
+              vi: "Khi người ta nói nhạc 432Hz, điều đó không có nghĩa toàn bộ bản nhạc chỉ phát ra một tần số 432Hz. Thông thường họ đang nói đến một chuẩn lên dây, trong đó nốt la trên đô giữa tức A4 được đặt ở 432 Hz thay vì chuẩn phổ biến hiện nay là 440 Hz."
+            },
+            {
+              id: "p2-2-2",
+              en: "Here is where history is frequently distorted: throughout the vast majority of Western musical history, there was no universal standard pitch. Instruments varied by city, historical era, and individual ensemble; some tuned well below 440 Hz, while others spiked past 450 Hz. Claiming that the ancients uniformly tuned to 432 Hz until the world was abruptly forced onto 440 Hz is a gross oversimplification of historical reality.",
+              vi: "Và đây là điểm rất dễ bị kể sai: trong phần lớn lịch sử âm nhạc phương Tây thực ra không hề tồn tại một chuẩn cao độ duy nhất. Nhạc cụ ở từng thành phố, từng thời kỳ, thậm chí từng dàn nhạc có thể được lên dây ở những mức khác nhau. Có nơi thấp hơn 440 Hz khá nhiều, có nơi lại vượt quá 450 Hz. Vì vậy nói rằng người xưa đều dùng 432Hz rồi sau đó thế giới bị chuyển sang 440 Hz là quá đơn giản so với những gì lịch sử thực sự cho thấy."
+            },
+            {
+              id: "p2-2-3",
+              en: "A name frequently invoked in this debate is the Italian composer Giuseppe Verdi. Verdi took issue with 19th-century \"pitch inflation,\" an orchestral trend where instruments were tuned increasingly sharp for brilliance. He advocated for a lower standard and noted that 432 Hz would be an agreeable calibration for orchestral performance. That, however, is a far cry from the claim that Verdi and classical luminaries composed all their masterworks exclusively at 432 Hz. Musicological research into historical pitch standards does not support that narrative.",
+              vi: "Tên tuổi thường được nhắc đến trong câu chuyện này là Giuseppe Verdi. Verdi thực ra không thích xu hướng cao độ dàn nhạc ngày càng bị đẩy lên cao trong thế kỷ 19. Ông từng ủng hộ chuẩn thấp hơn và có đề cập rằng mức 432 Hz có thể phù hợp với dàn nhạc. Nhưng điều đó khác khá xa với tuyên bố phổ biến rằng Verdi hay hàng loạt nhà soạn nhạc cổ điển khác đều sáng tác toàn bộ tác phẩm của mình ở đúng 432 Hz. Các nghiên cứu về lịch sử cao độ không ủng hộ cách kể đơn giản ấy."
+            },
+            {
+              id: "p2-2-4",
+              en: "In 1939, an international conference held in London recommended adopting A = 440 Hz to establish a coherent standard among divergent tuning systems. The International Organization for Standardization (ISO) subsequently formalized this, and ISO 16 still recognizes A4 = 440 Hz today. In Britain, there was also a pragmatic technical consideration: the previous standard of A = 439 Hz was problematic because 439 is a prime number, making it difficult to generate accurately as an electronic reference tone with the technology of the era compared to 440. Adopting 440 Hz did not require a shadow conspiracy; it was born of practical acoustic and engineering considerations.",
+              vi: "Rồi đến năm 1939, một hội nghị quốc tế tại Luân Đôn khuyến nghị sử dụng A = 440 Hz để tạo ra một chuẩn chung giữa những hệ thống lên dây đang rất khác nhau. Sau đó, 440 Hz được ISO chính thức hóa thành chuẩn quốc tế. ISO 16 hiện vẫn quy định nốt A tham chiếu ở 440 Hz. Ở Anh khi ấy còn có một vấn đề khá thực dụng: chuẩn A439 từng được sử dụng. Nhưng 439 là số nguyên tố khiến việc tạo tần số tham chiếu bằng công nghệ điện tử thời đó bất tiện hơn so với 440. Vì vậy, lựa chọn 440 Hz không cần đến một âm mưu bí mật nào để giải thích; nó có những lý do kỹ thuật và tiêu chuẩn hóa rất bình thường."
+            },
+            {
+              id: "p2-2-5",
+              en: "Yet an elaborate lore quickly developed. Rumors began circulating that the transition to 440 Hz was orchestrated by Nazi Germany, funded by the Rockefeller Foundation, or designed as an experiment to incite social unrest and mass anxiety. These tales are undeniably cinematic—they combine power, music, psychology, and global intrigue. The only problem: there is zero credible historical documentation indicating that A440 was introduced to manipulate the human psyche.",
+              vi: "Thế nhưng chính từ đây, một lớp câu chuyện khác bắt đầu hình thành. Có người cho rằng việc chuyển sang 440 Hz liên quan đến Đức Quốc xã, quỹ Rockefeller, thậm chí là một kế hoạch nhằm khiến con người trở nên căng thẳng hoặc hung hăng hơn. Những câu chuyện ấy rất hấp dẫn. Chúng có đầy đủ những thành phần khiến người ta muốn nghe tiếp: quyền lực, âm nhạc, tâm lý con người và một tiêu chuẩn được cả thế giới sử dụng. Chỉ có một vấn đề: cho đến nay, không có bằng chứng lịch sử đáng tin cậy cho thấy A440 được thiết lập nhằm thao túng tâm trí con người."
+            },
+            {
+              id: "p2-2-6",
+              en: "This does not mean that 432 Hz is unworthy of investigation. Small-scale clinical trials have documented physiological differences when participants listened to music tuned to 432 Hz versus 440 Hz. For example, a 2019 study observed a more pronounced decrease in heart rate when subjects listened to the 432 Hz version. Other preliminary papers noted improvements in subjective anxiety scores, cortisol reductions, or sleep quality. The study authors themselves emphasized that larger, long-term trials are essential before definitive claims can be made. There are compelling physiological hints, but not enough to classify 432 Hz as a scientifically validated healing frequency.",
+              vi: "Điều đó không có nghĩa 432 Hz hoàn toàn không đáng nghiên cứu. Một số thử nghiệm nhỏ trên người thực sự ghi nhận những khác biệt khi người tham gia nghe cùng loại nhạc được điều chỉnh ở 432Hz và 440 Hz. Chẳng hạn, một nghiên cứu năm 2019 ghi nhận nhịp tim giảm nhiều hơn khi nghe phiên bản 432Hz. Những nghiên cứu khác cũng báo cáo một số thay đổi liên quan đến lo âu, cortisol hoặc giấc ngủ. Nhưng chính các tác giả cũng nhấn mạnh rằng cần những nghiên cứu lớn và dài hạn hơn trước khi có thể đưa ra kết luận chắc chắn. Nói cách khác, có tín hiệu đáng để quan tâm nhưng chưa đủ để gọi 432 Hz là một tần số chữa lành đã được khoa học chứng minh."
+            }
+          ]
+        },
+        {
+          id: "part2-sec3",
+          part: 2,
+          secNum: 3,
+          readTime: "5 min",
+          title: {
+            en: "3. Earth's Frequency, Pyramids & Archaeological Artifacts",
+            vi: "3. Tần Số Trái Đất, Kim Tự Tháp & Cổ Vật Khảo Cổ"
+          },
+          summary: {
+            en: "Schumann resonance (7.83 Hz vs rounded 8 Hz), Babylonian Berossus chronology, Great Pyramid cubits, and ancient instruments.",
+            vi: "Cộng hưởng Schumann (7,83 Hz làm tròn 8 Hz), biên niên sử Babylon, kích thước Kim tự tháp Khufu và nhạc cụ khảo cổ."
+          },
+          paragraphs: [
+            {
+              id: "p2-3-1",
+              en: "What about Earth's frequency? This is perhaps the most celebrated talking point in the 432 Hz canon. The Earth does produce an electromagnetic phenomenon known as the Schumann Resonance. Its fundamental frequency hovers around 7.83 Hz, alongside several higher harmonic peaks. This electromagnetic resonance occurs in the cavity between the Earth's surface and the ionosphere, driven primarily by global lightning activity.",
+              vi: "Còn tần số của Trái Đất thì sao? Đây có lẽ là phần nổi tiếng nhất của câu chuyện 432Hz. Trái Đất thực sự có một hiện tượng được gọi là cộng hưởng Schumann. Tần số cơ bản của nó nằm khoảng 7,83 Hz cùng với một số đỉnh cộng hưởng cao hơn. Đây là hiện tượng điện từ xảy ra trong khoảng không giữa bề mặt Trái Đất và tầng điện ly liên quan đến hoạt động sét trên toàn cầu."
+            },
+            {
+              id: "p2-3-2",
+              en: "From this fact, a speculative leap is often made: 7.83 is rounded up to 8. Because 432 is evenly divisible by 8, commentators conclude that 432 Hz is in perfect harmonic alignment with the planet. While mathematically poetic, this association lacks scientific validity. The Schumann Resonance consists of extremely low-frequency electromagnetic waves, whereas 432 Hz in music is a mechanical sound wave used for pitch tuning. The fact that two numbers can be tied together through arithmetic does not imply the existence of an underlying biological resonance.",
+              vi: "Nhưng từ đây, một bước nhảy thường được thực hiện: 7,83 được làm tròn thành 8. Sau đó người ta nhận thấy 432 chia hết cho 8 và kết luận rằng 432 Hz đồng điệu với tần số Trái Đất. Nghe rất đẹp nhưng về mặt khoa học mối liên hệ đó chưa được chứng minh. Cộng hưởng Schumann là sóng điện từ cực thấp, còn 432 Hz trong âm nhạc là tần số âm thanh dùng làm chuẩn lên dây. Việc hai con số có thể được nối với nhau bằng một phép tính không có nghĩa chúng tạo thành một cơ chế sinh học đặc biệt."
+            },
+            {
+              id: "p2-3-3",
+              en: "Why does the number 432 remain so captivating? Because it surfaces across historical traditions. In the surviving fragments of the Babylonian priest Berossus, the ten antediluvian kings were recorded as having reigned for a collective total of 432,000 years. This mythic chronological figure genuinely appears in the ancient records preserved by Berossus, though it should not be taken literally as 432,000 solar years from creation to the flood.",
+              vi: "Vậy tại sao con số 432 vẫn khiến nhiều người bị cuốn hút? Bởi nó còn xuất hiện ở những nơi khác. Trong phần còn sót lại từ tác phẩm của tư tế Babylon Berosus, 10 vị vua trước trận đại hồng thủy được cho là đã trị vì tổng cộng 432.000 năm. Đây là một chi tiết thực sự tồn tại trong truyền thống được Berosus ghi lại, dù không nên hiểu nó đơn giản là 432.000 năm từ khi thế giới được tạo ra đến đại hồng thủy."
+            },
+            {
+              id: "p2-3-4",
+              en: "Look to ancient Egypt: an argument asserts that multiplying the base dimensions of the Great Pyramid of Giza (Khufu) by 43,200 yields values strikingly close to the polar radius and circumference of the Earth. This led to theories that the Egyptians deliberately encoded 432 into the monument. While it represents an intriguing numerical coincidence, mainstream Egyptologists do not recognize it as verified historical intent. Claims that the pyramid's base measures exactly 432 cubits depend heavily on which specific cubit unit is chosen and how the perimeter is measured. These connections reflect modern reinterpretations rather than concrete proof that ancient Egyptians knew or tuned to a 432 Hz frequency.",
+              vi: "Rồi người ta nhìn sang Ai Cập: một lập luận rất nổi tiếng cho rằng nếu nhân kích thước của Đại kim tự tháp Khufu với 43.200, ta sẽ nhận được những giá trị gần với kích thước của Trái Đất. Từ đó xuất hiện giả thuyết rằng người Ai Cập cổ đã cố tình mã hóa con số 432 vào công trình. Đây là một sự trùng hợp số học thú vị nhưng nó không phải kết luận được giới Ai Cập học chấp nhận như một sự thật lịch sử. Tương tự, việc tuyên bố đáy kim tự tháp chính xác bằng 432 cubit còn phụ thuộc vào loại cubit và cách chọn kích thước để tính. Vì vậy, những liên hệ này nên được xem là các cách diễn giải hiện đại hơn là bằng chứng rằng người Ai Cập biết hoặc sử dụng tần số 432Hz."
+            },
+            {
+              id: "p2-3-5",
+              en: "The same applies to ancient Egyptian musical artifacts. Archaeologists have uncovered flutes, harps, and lyres, and acoustic researchers have attempted to reconstruct their tunings based on the surviving chambers and string lengths. How ancient Egyptian melodies sounded remains largely speculative. Asserting that excavated Egyptian instruments prove an adherence to an A = 432 Hz standard reaches far beyond what physical evidence can substantiate.\nThis reveals the most fascinating dimension of 432 Hz: it sits at an intersection where recorded history, mathematics, acoustic music, serendipitous coincidences, and modern interpretations meet. When blended together, it creates an impression of profound, unified proof. When examined layer by layer, however, the picture changes. 432 Hz is an authentic, pleasant tuning. Many listeners find it soothing, and several pilot studies have recorded interesting physiological markers. None of this proves that 432 Hz is the cosmic frequency of the universe, nor that every ancient civilization possessed and utilized it.",
+              vi: "Điều tương tự cũng xảy ra với các nhạc cụ Ai Cập cổ đại. Chúng ta thực sự đã tìm thấy sáo, đàn hạc, đàn lyre và nhiều loại nhạc cụ khác. Các nhà nghiên cứu có thể thử tái dựng âm thanh của một số nhạc cụ dựa trên cấu tạo còn lại. Nhưng phần lớn âm nhạc Ai Cập cổ đại nghe chính xác như thế nào vẫn còn mang tính suy đoán. Vì vậy tuyên bố rằng các nhạc cụ khảo cổ Ai Cập đã chứng minh người cổ đại sử dụng chuẩn A432 là đi xa hơn những gì bằng chứng hiện có cho phép.\nVà có lẽ đây mới là điểm đáng suy nghĩ nhất về 432 Hz. Con số này nằm ở một vùng giao nhau rất lạ giữa lịch sử có thật, toán học, âm nhạc, những sự trùng hợp thú vị và các diễn giải hiện đại. Nếu trộn tất cả chúng lại với nhau, rất dễ có cảm giác rằng chúng đang cùng chứng minh một điều. Nhưng khi tách từng lớp ra, bức tranh trở nên khác hẳn. 432 Hz là một cách lên dây hoàn toàn có thật. Một số người thực sự thấy nó dễ chịu hơn. Một vài nghiên cứu nhỏ cũng tìm thấy những hiệu ứng đáng chú ý. Nhưng điều đó vẫn chưa chứng minh được rằng 432 Hz là tần số tự nhiên của vũ trụ, càng chưa chứng minh rằng mọi nền văn minh cổ đại đều từng biết và sử dụng nó."
+            }
+          ]
+        },
+        {
+          id: "part2-sec4",
+          part: 2,
+          secNum: 4,
+          readTime: "7 min",
+          title: {
+            en: "4. The Story of 528 Hz: Solfeggio, the Cosmos, DNA & Empirical Research",
+            vi: "4. Câu Chuyện Của 528 Hz: Solfeggio, Vũ Trụ, DNA & Thực Nghiệm"
+          },
+          summary: {
+            en: "Solfeggio scale note Mi, helioseismology vs 528 Hz solar myths, 2018 cortisol trial, 2017 astrocyte study, and Deepwater Horizon claims.",
+            vi: "Nốt Mi Solfeggio, nhật chấn học đối lập huyền thoại Mặt Trời, thử nghiệm cortisol 2018, nghiên cứu tế bào 2017 và vụ tràn dầu."
+          },
+          paragraphs: [
+            {
+              id: "p2-4-1",
+              en: "Then there is 528 Hz, which carries a different history. It has similarly been associated with claims of relaxation and cellular renewal. Several pilot studies have noted reductions in cortisol, elevations in oxytocin, and decreased subjective stress after subjects listened to 528 Hz music. One well-known trial, however, involved only nine participants—far too small a cohort to extrapolate into broad scientific conclusions about human health.",
+              vi: "Và rồi chúng ta còn 528 Hz. Tần số này có một lịch sử hoàn toàn khác. Nó cũng được gắn với những tuyên bố về thư giãn và sức khỏe và thậm chí đã có một số nghiên cứu nhỏ ghi nhận những thay đổi về cortisol, oxytocin và trạng thái căng thẳng sau khi nghe nhạc liên quan đến 528 Hz. Nhưng một thử nghiệm nổi tiếng chỉ có chín người tham gia, vì vậy vẫn còn quá sớm để biến những kết quả ban đầu ấy thành một kết luận rộng lớn về sức khỏe của con người."
+            },
+            {
+              id: "p2-4-2",
+              en: "If 432 Hz is backed by historical lineage, numerology, and preliminary data, what does 528 Hz offer? And if we strip away esoteric folklore, what does empirical science actually say about both frequencies?",
+              vi: "Vậy nếu 432 Hz có cả lịch sử, những con số bí ẩn và một số dữ liệu khoa học ban đầu, 528 Hz có gì để cạnh tranh với nó? Và quan trọng hơn, nếu bỏ hết những câu chuyện huyền bí sang một bên, khoa học thực sự cho chúng ta biết điều gì về hai tần số này?"
+            },
+            {
+              id: "p2-4-3",
+              en: "What makes 528 Hz so distinct? If 432 Hz is framed around natural harmonic balance, 528 Hz is presented as \"The Love Frequency\". It is grouped within the Solfeggio Frequencies. Modern interpretations assign 528 Hz to the musical syllable Mi (derived from Mira gestorum), associating it with transformation and miracles. Caution is required here: internet claims frequently assert that the six Solfeggio frequencies were sung in Gregorian chants thousands of years ago, or that ancient instruments were engineered to resonate at 528 Hz. Such claims lack historical substantiation. Even scientific literature investigating 528 Hz acknowledges that many popular claims surrounding Solfeggio frequencies lack rigorous empirical grounding.",
+              vi: "Vậy điều gì khiến 528 Hz trở nên đặc biệt? Nếu 432 Hz thường được kể bằng câu chuyện về sự hài hòa với tự nhiên thì 528 Hz lại mang một hình ảnh khác hẳn. Nó thường được gọi bằng một cái tên rất đẹp: Tần số tình yêu. 528 Hz cũng thường được xếp vào nhóm được gọi là Solfeggio Frequencies. Trong những cách diễn giải hiện đại, 528 Hz gắn với nốt Mi và được liên hệ với những ý niệm như tình yêu, sự chuyển hóa hay thậm chí là phép màu. Nhưng đây cũng là lúc chúng ta phải cẩn thận. Có rất nhiều câu chuyện trên Internet nói rằng sáu tần số Solfeggio nguyên thủy đã được sử dụng trong những bài thánh ca cổ đại hàng nghìn năm trước hay những nhạc cụ cổ đã được chế tạo chính xác để cộng hưởng ở 528 Hz. Những tuyên bố như vậy rất khó chứng minh bằng bằng chứng lịch sử chắc chắn. Ngay cả một nghiên cứu về 528 Hz cũng thừa nhận rằng nhiều tác dụng thường được gán cho các tần số Solfeggio chưa có cơ sở khoa học đầy đủ."
+            },
+            {
+              id: "p2-4-4",
+              en: "This does not make 528 Hz devoid of value; it simply means we must distinguish between 528 Hz within modern healing culture and 528 Hz evaluated under controlled experimental conditions. The two are not the same.",
+              vi: "Điều đó không khiến 528 Hz trở nên vô nghĩa. Nó chỉ có nghĩa rằng chúng ta nên tách hai câu chuyện ra khỏi nhau: 528 Hz trong văn hóa chữa lành hiện đại và 528 Hz dưới góc nhìn của khoa học thực nghiệm. Hai thứ đó không hoàn toàn giống nhau."
+            },
+            {
+              id: "p2-4-5",
+              en: "What about the Sun, Saturn, and light? These claims make 528 Hz appear ubiquitous throughout cosmology. Commentators assert that the Sun hums at 528 Hz, that Saturn emits this resonance, and that 528 Hz sits near the center of the visible light spectrum. From the standpoint of physics, these assertions do not hold up. The Sun does oscillate, a phenomenon studied via helioseismology to examine solar interiors much like earthquakes reveal the Earth's core. The dominant acoustic oscillations of the Sun operate on a period of roughly 5 minutes—corresponding to approximately 3 mHz (millihertz), rather than a static 528 Hz. When NASA generated audible recordings of the Sun, the raw solar data was accelerated by factors of tens of thousands to shift it into the human audible range.",
+              vi: "Còn Mặt Trời, Sao Thổ và ánh sáng thì sao? Đây là một trong những phần khiến 528Hz nghe gần như có mặt ở khắp nơi trong vũ trụ. Có những tuyên bố cho rằng Mặt Trời phát ra âm thanh ở 528 Hz. Sao Thổ cũng có một tần số cộng hưởng tương tự, thậm chí 528Hz còn nằm gần trung tâm của quang phổ ánh sáng nhìn thấy. Nhưng nếu xét đúng theo vật lý, những khẳng định này có vấn đề. Mặt Trời thực sự rung động. Các nhà khoa học nghiên cứu những dao động ấy bằng helioseismology, gần giống như cách chúng ta dùng động đất để nhìn vào bên trong Trái Đất. Nhưng những dao động nổi bật của Mặt Trời có chu kỳ khoảng 5 phút tương ứng khoảng 3 mHz chứ không phải một 528 Hz cố định. Khi NASA tạo ra những âm thanh của Mặt Trời mà con người có thể nghe được, dữ liệu phải được xử lý và tăng tốc rất mạnh để đưa chúng vào dải âm thanh của tai người."
+            },
+            {
+              id: "p2-4-6",
+              en: "Saturn emits radio emissions and plasma waves, which the Cassini spacecraft recorded and scientists converted into audible frequencies. This produces a shifting, broad radio spectrum rather than an emission at 528 Hz. Light is an entirely separate medium: acoustic sound at 528 Hz and visible light are distinct physical phenomena rather than pitch octaves of the same medium. Visible light consists of electromagnetic waves oscillating hundreds of trillions of Hertz higher than acoustic audio. Describing 528 Hz as the center of the color spectrum requires arbitrary mathematical transposition; 528 Hz itself is not an optical frequency. This illustrates how a number can originate in science, pass through numerology, and acquire layers of meaning that empirical physics never claimed.",
+              vi: "Sao Thổ cũng thực sự phát ra các tín hiệu vô tuyến và sóng plasma. Tàu Cassini đã ghi nhận chúng rồi các nhà khoa học chuyển đổi dữ liệu ấy thành âm thanh để chúng ta có thể nghe. Nhưng đó là một phổ tần phức tạp, thay đổi theo thời gian, không phải bằng chứng rằng tần số của Sao Thổ là 528 Hz. Còn ánh sáng thì lại là một câu chuyện khác. Âm thanh ở 528Hz và ánh sáng nhìn thấy không phải hai dạng của cùng một hiện tượng chỉ khác nhau về cao độ. Ánh sáng nhìn thấy là sóng điện từ có tần số cao hơn 528 Hz một khoảng khổng lồ. Vì vậy nói 528 Hz là một trung tâm quang phổ màu chỉ có thể xuất hiện sau những phép chuyển đổi hoặc quy ước số học nhất định chứ 528 Hz tự nó không phải là một tần số ánh sáng nhìn thấy. Đây là một ví dụ rất hay về cách một con số có thể bắt đầu từ khoa học đi qua toán học rồi dần mang thêm những tầng ý nghĩa mà khoa học ban đầu chưa chắc đã nói tới."
+            },
+            {
+              id: "p2-4-7",
+              en: "Does 528 Hz have an impact on the body? When cosmological claims are set aside, 528 Hz still has empirical studies to consider. In 2018, a research team in Japan had nine healthy subjects listen to 528 Hz music and standard 440 Hz music on separate days. After five minutes of listening to 528 Hz music, they recorded a significant decrease in mean cortisol, an increase in oxytocin, and notable drops in subjective tension and anxiety scores. Similar physiological shifts did not achieve statistical significance under the 440 Hz condition.\nWhile these results are interesting, the sample size consisted of only nine individuals. A small pilot trial provides an encouraging signal for further research, but it is insufficient to claim that 528 Hz can cure disease, recalibrate endocrine systems, or induce universal physiological outcomes. There is a difference between \"a study observed an effect\" and \"science has proven this frequency heals\". The two statements may sound similar, but scientifically they remain worlds apart.",
+              vi: "Nhưng 528 Hz có tác động thật lên cơ thể không? Đây mới là phần đáng chú ý. Bởi khi bỏ những câu chuyện về vũ trụ, ánh sáng và hình học sang một bên, 528 Hz vẫn còn lại một số nghiên cứu thực nghiệm. Năm 2018, một nhóm nghiên cứu tại Nhật Bản cho chín người khỏe mạnh nghe nhạc 528 Hz và nhạc 440 Hz vào những ngày khác nhau. Sau 5 phút nghe nhạc 528 Hz, họ ghi nhận cortisol trung bình giảm, oxytocin tăng, đồng thời điểm số về căng thẳng và lo âu cũng giảm. Những thay đổi tương tự không đạt mức có ý nghĩa thống kê trong điều kiện 440 Hz.\nThoạt nghe kết quả này rất ấn tượng nhưng có một chi tiết không thể bỏ qua: chỉ có chín người tham gia. Một nghiên cứu nhỏ như vậy có thể cho chúng ta một dấu hiệu để tiếp tục tìm hiểu nhưng chưa đủ để kết luận rằng 528Hz có khả năng chữa bệnh, điều chỉnh hormone hay tạo ra một hiệu ứng đặc biệt ở tất cả mọi người. Đây là khác biệt giữa câu \"đã có một nghiên cứu ghi nhận hiệu ứng\" và \"khoa học đã chứng minh tần số này chữa lành con người\". Hai câu nghe khá giống nhau nhưng về mặt khoa học chúng cách nhau rất xa."
+            },
+            {
+              id: "p2-4-8",
+              en: "Consider the claim regarding DNA repair—perhaps the most widespread assertion associated with 528 Hz, often labeled the \"DNA Repair Frequency\". The underlying evidence is far more modest. A 2017 in vitro laboratory study exposed cultured human astrocyte cells to toxic ethanol and examined the effects of 528 Hz acoustic sound waves. The researchers reported a reduction in cell death under specific controlled conditions. This study has been cited by subsequent papers exploring the mechanobiological impact of acoustic vibration on cell cultures. However, this was an isolated petri dish experiment. It does not follow that playing 528 Hz audio in a bedroom will repair DNA in living human tissue, nor does it establish 528 Hz as a clinical cellular therapy.\nThis demonstrates how a small scientific finding can become inflated: an observed reduction in cultured cell damage is translated into \"DNA repair,\" which is then promoted as a \"healing frequency\" for the entire human body. Within a few interpretive steps, the narrative moves far beyond the original experimental data.",
+              vi: "Còn câu chuyện sửa chữa DNA có lẽ không tuyên bố nào khiến 528 Hz nổi tiếng bằng điều này. Trên mạng nó thường được gọi thẳng là DNA Repair Frequency (tần số sửa chữa DNA). Nhưng bằng chứng thực tế khi xem kỹ lại khiêm tốn hơn rất nhiều. Một nghiên cứu năm 2017 đã cho các tế bào thần kinh đệm hình sao của người trong môi trường nuôi cấy tiếp xúc với ethanol, sau đó khảo sát ảnh hưởng của sóng âm 528 Hz. Kết quả được báo cáo cho thấy mức chết tế bào giảm trong những điều kiện nhất định. Nghiên cứu này về sau cũng được các công trình khác dẫn lại khi thảo luận về ảnh hưởng của âm thanh lên tế bào. Nhưng đó là thí nghiệm trên tế bào trong phòng thí nghiệm. Nó không đồng nghĩa với việc một người mở nhạc 528 Hz trong phòng ngủ thì DNA trong cơ thể sẽ tự động được sửa chữa. Và nó càng chưa đủ để gọi 528Hz là một phương pháp tái tạo tế bào hay điều trị bệnh.\nĐây là chỗ một kết quả khoa học nhỏ rất dễ được kể lớn hơn chính nó: từ giảm tổn thương ở tế bào trong một thí nghiệm có thể nhanh chóng biến thành sửa chữa DNA, rồi từ sửa chữa DNA lại biến thành tần số chữa lành cơ thể. Chỉ sau vài bước, chúng ta đã đi rất xa khỏi điều thí nghiệm thực sự cho thấy."
+            },
+            {
+              id: "p2-4-9",
+              en: "Regarding water and oil spills: an account alleges that 528 Hz sound was deployed to clear oil contamination in the Gulf of Mexico following the Deepwater Horizon disaster. The narrative states that polluted water was restored to safety for marine life, with results replicated under controlled conditions. However, this cannot be presented as verified scientific history. Peer-reviewed environmental and remediation records on Deepwater Horizon detail mechanical skimmers, controlled burns, chemical dispersants, and bioremediation, but provide no credible evidence that broadcasting 528 Hz audio cleaned oil-slicked waters.",
+              vi: "Câu chuyện về nước và vụ tràn dầu: một tuyên bố khác còn ngoạn mục hơn cho rằng 528 Hz từng được sử dụng để làm sạch nước sau thảm họa tràn dầu Deepwater Horizon. Bản gốc thậm chí mô tả rằng nước sau đó trở nên an toàn cho sinh vật biển và kết quả được tái tạo trong điều kiện kiểm soát. Nhưng đây không phải là một kết luận mà chúng ta nên kể như sự thật khoa học. Các tài liệu nghiên cứu chính thức về Deepwater Horizon mô tả hàng loạt phương pháp đánh giá ô nhiễm, phục hồi môi trường và tác động sinh thái nhưng lại không cung cấp cơ sở đáng tin cậy để khẳng định rằng phát âm thanh 528 Hz đã làm sạch vùng nước nhiễm dầu."
+            },
+            {
+              id: "p2-4-10",
+              en: "Similarly, while NASA has confirmed the presence of water across the solar system and interstellar space, the existence of extraterrestrial water does not substantiate claims that 528 Hz rearranges bodily fluids to purge negative energy. That remains an unverified leap in reasoning lacking scientific support.",
+              vi: "Cũng vậy, việc NASA phát hiện nước ở nhiều nơi trong không gian là hoàn toàn có thật. Nước đã được phát hiện quanh các thiên thể, trong khí quyển hành tinh và ở những vùng rất xa trong vũ trụ. Nhưng từ sự thật rằng nước tồn tại trong vũ trụ đến kết luận rằng 528Hz có thể thay đổi nước trong cơ thể để loại bỏ năng lượng xấu là một bước suy luận khác và hiện chưa có bằng chứng đủ mạnh để nối hai điều đó lại với nhau."
+            }
+          ]
+        },
+        {
+          id: "part2-sec5",
+          part: 2,
+          secNum: 5,
+          readTime: "6 min",
+          title: {
+            en: "5. Numerological Intersections, Personal Experience & Choosing Your Frequency",
+            vi: "5. Giao Điểm Số Học, Trải Nghiệm Cá Nhân & Lựa Chọn Tần Số"
+          },
+          summary: {
+            en: "Digit sums (9 and 6), separating coincidence from clinical therapy, and evaluating sound with an open heart and critical mind.",
+            vi: "Các tổng số học (9 và 6), phân định trùng hợp ngẫu nhiên và trị liệu, lắng nghe bằng tai cởi mở và đầu óc tỉnh táo."
+          },
+          paragraphs: [
+            {
+              id: "p2-5-1",
+              en: "Where do 432 Hz and 528 Hz intersect? While both frequencies gained prominence through different narratives, their public perceptions are parallel: both sit at a crossroads where music, science, history, spirituality, and numerology meet.\n• 432 Hz is commonly associated with the Earth, the Schumann Resonance, ancient civilizations, and mathematical proportions.\n• 528 Hz is tied to the Solfeggio scale, love, DNA repair, the Sun, and units such as the 5,280 feet in an imperial mile.",
+              vi: "432 và 528 thực sự giống nhau ở đâu sao? Tất cả những câu chuyện ấy có một điều khá thú vị. 432Hz và 528Hz trở nên nổi tiếng theo những con đường khác nhau nhưng cách chúng được nhìn nhận lại rất giống nhau. Cả hai đều nằm ở nơi mà âm nhạc, khoa học, lịch sử, tâm linh và số học giao nhau.\n• 432 thường được liên hệ với Trái Đất, cộng hưởng Schumann, các nền văn minh cổ và những tỉ lệ toán học.\n• 528 được liên hệ với Solfeggio, tình yêu, DNA, Mặt Trời và những con số như 5280 feet trong một dặm."
+            },
+            {
+              id: "p2-5-2",
+              en: "Commentators frequently sum the digits of 432:\n4 + 3 + 2 = 9\nAnd for 528:\n5 + 2 + 8 = 15 implies 1 + 5 = 6\nThis gives rise to interpretations that 9 and 6 are complementary, representing a yin-and-yang balance between the two tones. While engaging as symbolic numerology, digit reductions do not demonstrate a biological mechanism. The presence of a number in geometry, imperial units, or digital root arithmetic does not indicate that an acoustic wave of that frequency exerts a specific biological effect on human cells. Maintaining that distinction allows the conversation to remain interesting without conflating numerical coincidence with empirical evidence.",
+              vi: "Người ta còn lấy các chữ số của 432 cộng lại:\n4 + 3 + 2 = 9\nVới 528:\n5 + 2 + 8 = 15 implies 1 + 5 = 6\nTừ đó xuất hiện những cách giải thích rằng 9 và 6 bổ sung cho nhau, thậm chí đại diện cho một dạng cân bằng âm dương giữa hai tần số. Những liên hệ ấy có thể rất thú vị nếu nhìn chúng như số học biểu tượng, nhưng bản thân chúng không chứng minh một hiệu ứng sinh học. Việc một con số xuất hiện trong hình học, đơn vị đo lường hay một phép cộng chữ số không đủ để cho thấy âm thanh có cùng con số ấy sẽ tác động đặc biệt lên tế bào con người. Đó là ranh giới mà chúng ta cần giữ nếu muốn câu chuyện vẫn hấp dẫn mà không biến sự trùng hợp thành bằng chứng."
+            },
+            {
+              id: "p2-5-3",
+              en: "Which frequency should you use: 432 Hz or 528 Hz? While this is often the central question, looking at the full body of evidence leads to a measured conclusion: there is no conclusive scientific evidence establishing either as definitively superior for human well-being.",
+              vi: "Vậy nên dùng 432Hz hay 528 Hz đây? Có lẽ đây là câu hỏi mà ngay từ đầu chúng ta đã muốn trả lời, nhưng sau khi đi hết câu chuyện, đáp án lại không kịch tính như người ta thường mong đợi. Không có bằng chứng đủ mạnh để tuyên bố một trong hai là tần số tốt nhất cho con người."
+            },
+            {
+              id: "p2-5-4",
+              en: "432 Hz can be appealing to those who prefer the slightly warmer, gentler timbre of music tuned eight Hertz below standard concert pitch. Small pilot studies have noted modest reductions in heart rate, blood pressure, anxiety, and sleep latency under this tuning. 528 Hz also presents preliminary research findings, particularly concerning stress markers and in vitro cell studies. Yet neither is close to qualifying as a medically verified clinical therapy. Music does not need to be classified as medicine to hold genuine value.",
+              vi: "432 Hz có thể hấp dẫn với những người thích cảm giác của một bản nhạc được lên dây thấp hơn một chút so với 440. Một số nghiên cứu nhỏ cũng ghi nhận rằng những thay đổi về nhịp tim, huyết áp, lo âu hoặc giấc ngủ khi người tham gia nghe nhạc được điều chỉnh ở mức này. 528Hz cũng có những dữ liệu ban đầu đáng chú ý, đặc biệt trong nghiên cứu về trạng thái căng thẳng và một số thí nghiệm ở cấp độ tế bào. Nhưng cả hai vẫn còn cách rất xa việc trở thành một liệu pháp y khoa đã được xác nhận. Và có lẽ chúng ta cũng không nhất thiết phải biến chúng thành thuốc để chúng có giá trị."
+            },
+            {
+              id: "p2-5-5",
+              en: "If a composition tuned to 432 Hz helps you decompress after an exhausting day, that experience is valuable to you. If a recording utilizing 528 Hz helps you sit quietly, breathe more deeply, and step away from mental stress, that is equally worthwhile. The key is to appreciate subjective experience without confusing it with scientific validation. You can incorporate them into meditation, rest, reading, or everyday relaxation. Tuning forks, singing bowls, and alternative tuning temperaments can all enrich that practice. They do not need to rewrite your genetic code, tune to planetary orbits, or restructure water molecules to be meaningful.",
+              vi: "Nếu một bản nhạc 432 Hz khiến bạn thấy dịu lại sau một ngày dài, giá trị của trải nghiệm đó là có thật đối với bạn. Nhưng một bản nhạc sử dụng 528 Hz giúp bạn ngồi yên hơn, thở chậm lại và thoát khỏi những suy nghĩ căng thẳng trong vài phút, điều đó cũng đáng giá. Chỉ cần đừng nhầm trải nghiệm cá nhân với bằng chứng khoa học về chữa bệnh. Bạn có thể nghe chúng khi thiền, nghỉ ngơi, đọc sách hoặc đơn giản là khi muốn đầu óc yên tĩnh hơn. Âm thoa, chuông thiền hay những bản nhạc được điều chỉnh theo các hệ tần số khác nhau cũng có thể trở thành một phần của trải nghiệm đó. Nhưng chúng không cần phải sửa chữa DNA, đồng bộ với vũ trụ hay thanh lọc nước trong cơ thể mới có ý nghĩa."
+            },
+            {
+              id: "p2-5-6",
+              en: "Music often serves a straightforward purpose: shifting how we feel. That remains a compelling takeaway of this debate. For thousands of years, humans have used sound to soothe infants, conduct rituals, pray, meditate, celebrate, mourn, and seek tranquility. We know that music exerts an influence on human emotion and physiology. What remains unproven is whether a specific number, such as 432 or 528, wields an intrinsic power separate from the music itself. Until larger and more rigorous trials emerge, a practical approach is to listen with an open mind while evaluating claims with healthy discernment.",
+              vi: "Đôi khi âm nhạc chỉ cần làm được một việc rất đơn giản: khiến chúng ta cảm thấy khác đi. Và có lẽ đó cũng là phần thú vị nhất của toàn bộ cuộc tranh luận. Suốt hàng nghìn năm, con người đã dùng âm thanh để ru trẻ ngủ, bước vào các nghi lễ, cầu nguyện, thiền định, ăn mừng, than khóc và tìm lại sự bình yên. Chúng ta biết âm nhạc có thể tác động rất mạnh đến cảm xúc và cơ thể. Điều chúng ta chưa biết chắc là liệu một con số cụ thể 432 hay 528 có sở hữu một sức mạnh riêng vượt lên trên chính âm nhạc hay không? Cho đến khi có những nghiên cứu lớn hơn và chặt chẽ hơn, câu trả lời hợp lý nhất có lẽ vẫn là: hãy nghe bằng đôi tai cởi mở nhưng đánh giá bằng một cái đầu tỉnh táo."
+            },
+            {
+              id: "p2-5-7",
+              en: "Both 432 Hz and 528 Hz offer avenues for exploration. Between what we subjectively experience and what science has verified, an open gap remains—and that gap is why these frequencies continue to capture our curiosity. The 432 Hz versus 528 Hz discussion will likely continue for years to come, and the interplay between felt experience and empirical proof is what keeps the topic engaging.",
+              vi: "432 Hz và 528 Hz đều đáng để khám phá. Nhưng giữa những điều chúng ta cảm nhận được và những điều khoa học thực sự chứng minh được vẫn còn một khoảng trống. Và chính khoảng trống ấy mới là câu hỏi vì sao những tần số này vẫn còn tiếp tục được quan tâm. Có lẽ 432 Hz và 528 Hz vẫn sẽ còn được tranh luận trong nhiều năm nữa. Nhưng chính khoảng cách giữa những gì con người cảm nhận được và những gì khoa học có thể chứng minh mới khiến câu chuyện này đáng để tiếp tục theo dõi."
+            },
+            {
+              id: "p2-5-8",
+              en: "For Ba Universe, the interest often lies not in a final, closed verdict, but in the open questions left behind. Sound may still hold dimensions that we are only beginning to understand.",
+              vi: "Với Ba Universe, đôi khi điều thú vị nhất không nằm ở một câu trả lời cuối cùng mà ở những câu hỏi vẫn còn bỏ ngỏ phía sau. Và biết đâu, âm thanh vẫn còn nhiều điều mà chúng ta chưa thực sự hiểu hết."
+            }
+          ]
+        }
+      ],
+
+      glossary: [
+        {
+          id: "g1",
+          term: "Immutable",
+          pos: "adjective",
+          pron: "/ɪˈmjuː.tə.bəl/",
+          cat: "Physics & Philosophy",
+          defEn: "Unchanging over time or unable to be changed; permanent and unalterable.",
+          plainEn: "Something that cannot ever be altered, molded, or transformed.",
+          context: "To the naked eye, it appears to be a solid, stable, and immutable mass of flesh and bone.",
+          termVi: "Bất biến / Không thể thay đổi",
+          defVi: "Không thể thay đổi theo thời gian hoặc hoàn cảnh; mang tính vĩnh cửu, cố định."
+        },
+        {
+          id: "g2",
+          term: "Subatomic",
+          pos: "adjective",
+          pron: "/ˌsʌb.əˈtɒm.ɪk/",
+          cat: "Physics & Philosophy",
+          defEn: "Smaller than or occurring within an atom (such as electrons, quarks, and protons).",
+          plainEn: "Extremely tiny building blocks that exist inside atoms.",
+          context: "...only subatomic particles spinning at dizzying speeds, vibrating ceaselessly across vast expanses of empty space.",
+          termVi: "Hạ nguyên tử",
+          defVi: "Các hạt nhỏ hơn nguyên tử, cấu thành nên nguyên tử (hạt proton, neutron, electron...)."
+        },
+        {
+          id: "g3",
+          term: "Perpetual",
+          pos: "adjective",
+          pron: "/pəˈpetʃ.u.əl/",
+          cat: "Physics & Philosophy",
+          defEn: "Never ending or changing; occurring repeatedly so as to seem endless.",
+          plainEn: "Continuous, never stopping for even a single second.",
+          context: "You are an energetic being drifting within an ocean of perpetual vibration.",
+          termVi: "Bất tận / Vĩnh viễn / Không ngừng nghỉ",
+          defVi: "Tiếp diễn liên tục, không bao giờ ngưng lại hay biến đổi."
+        },
+        {
+          id: "g4",
+          term: "Emanating",
+          pos: "verb (participle)",
+          pron: "/ˈem.ə.neɪ.tɪŋ/",
+          cat: "Physics & Philosophy",
+          defEn: "Originating from; issuing forth or spreading out from a central source.",
+          plainEn: "Flowing out or radiating from somewhere.",
+          context: "The electromagnetic signals emanating from your chest and mind every second are quietly drawing your dreams closer...",
+          termVi: "Phát ra / Lan tỏa / Tỏa xuất",
+          defVi: "Bắt nguồn hoặc phát tỏa từ một tâm điểm hay một nguồn năng lượng."
+        },
+        {
+          id: "g5",
+          term: "Inadvertently",
+          pos: "adverb",
+          pron: "/ˌɪn.ədˈvɜː.tənt.li/",
+          cat: "General Academic",
+          defEn: "Without intention; accidentally or unintentionally.",
+          plainEn: "Doing something without realizing or planning to do it.",
+          context: "...or inadvertently pushing them far beyond your reach.",
+          termVi: "Vô tình / Không cố ý",
+          defVi: "Xảy ra một cách ngẫu nhiên, không có chủ đích từ trước."
+        },
+        {
+          id: "g6",
+          term: "Seminal",
+          pos: "adjective",
+          pron: "/ˈsem.ɪ.nəl/",
+          cat: "General Academic",
+          defEn: "Strongly influencing later developments; groundbreaking and foundational.",
+          plainEn: "A foundational milestone that shapes all subsequent work in a field.",
+          context: "...quantifying it through his seminal work, the Map of Consciousness.",
+          termVi: "Đặt nền móng / Có tính bước ngoặt",
+          defVi: "Mang tính chất kinh điển, khởi xướng và ảnh hưởng sâu sắc đến các thế hệ sau."
+        },
+        {
+          id: "g7",
+          term: "Calibrate",
+          pos: "verb",
+          pron: "/ˈkæl.ɪ.breɪt/",
+          cat: "Science & Measurement",
+          defEn: "To measure, adjust, or mark the units of measurement on an instrument or scale.",
+          plainEn: "To test and set a precise numerical rating or standard.",
+          context: "Hawkins calibrated human emotional states along a logarithmic scale spanning from 1 to 1,000.",
+          termVi: "Hiệu chuẩn / Đo lường / Lượng hóa",
+          defVi: "Xác định giá trị đo lường chính xác trên một thang chuẩn."
+        },
+        {
+          id: "g8",
+          term: "Snuffed out",
+          pos: "phrasal verb (passive)",
+          pron: "/snʌft aʊt/",
+          cat: "Idioms & Metaphors",
+          defEn: "Extinguished suddenly or completely destroyed (like blowing out a candle flame).",
+          plainEn: "Completely put out or erased.",
+          context: "...where vital life force is virtually snuffed out at a meager calibration of 20.",
+          termVi: "Dập tắt / Triệt tiêu hoàn toàn",
+          defVi: "Bị làm tắt ngấm đột ngột, xóa sạch sinh khí như ngọn nến bị dập."
+        },
+        {
+          id: "g9",
+          term: "Pivotal",
+          pos: "adjective",
+          pron: "/ˈpɪv.ə.təl/",
+          cat: "General Academic",
+          defEn: "Of crucial importance in relation to the development or success of something else.",
+          plainEn: "A central turning point that changes the whole situation.",
+          context: "A pivotal turning point emerges when consciousness reaches Courage at the 200 mark.",
+          termVi: "Sống còn / Then chốt / Bước ngoặt",
+          defVi: "Có tính quyết định chuyển dịch cả một tiến trình hoặc hệ thống."
+        },
+        {
+          id: "g10",
+          term: "Transcendent",
+          pos: "adjective",
+          pron: "/trænˈsen.dənt/",
+          cat: "Philosophy & Consciousness",
+          defEn: "Beyond or above the range of normal or merely physical human experience.",
+          plainEn: "Surpassing normal boundaries, spiritual and supreme.",
+          context: "...culminating in the transcendent realms of Enlightenment between 700 and 1,000.",
+          termVi: "Siêu việt / Vượt bậc",
+          defVi: "Vượt khỏi các giới hạn giác quan và hiểu biết thông thường."
+        },
+        {
+          id: "g11",
+          term: "Vortex (pl. Vortices)",
+          pos: "noun",
+          pron: "/ˈvɔː.teks/",
+          cat: "Physics & Philosophy",
+          defEn: "A mass of whirling fluid, air, or dynamic energy; a whirlpool or whirlwind.",
+          plainEn: "A spinning, spiral swirl of energy or fluid pulling things toward its center.",
+          context: "In a universe composed of energetic vortices, that field naturally attracts people...",
+          termVi: "Vòng xoáy năng lượng",
+          defVi: "Cấu trúc xoáy trôn ốc chứa động năng mạnh mẽ cuốn hút mọi thứ xung quanh."
+        },
+        {
+          id: "g12",
+          term: "Pervasive",
+          pos: "adjective",
+          pron: "/pəˈveɪ.sɪv/",
+          cat: "General Academic",
+          defEn: "Spreading widely throughout an area or a group of people (especially unwelcome).",
+          plainEn: "Existing everywhere and spreading into every part of life.",
+          context: "...an epidemic of pervasive loneliness, climbing suicide rates...",
+          termVi: "Lan tràn / Bao trùm khắp nơi",
+          defVi: "Có mặt ở khắp mọi ngóc ngách, thẩm thấu sâu rộng vào đời sống."
+        },
+        {
+          id: "g13",
+          term: "Coercion",
+          pos: "noun",
+          pron: "/kəʊˈɜː.ʃən/",
+          cat: "Psychology & Ethics",
+          defEn: "The practice of persuading someone to do something by using force or threats.",
+          plainEn: "Using force, intimidation, or pressure to control someone.",
+          context: "Below 200, people operate through force, relying on coercion, control, and aggression...",
+          termVi: "Sự cưỡng ép / Ép buộc",
+          defVi: "Hành động ép người khác phải phục tùng bằng áp lực, bạo lực hoặc đe dọa."
+        },
+        {
+          id: "g14",
+          term: "Counterbalance",
+          pos: "verb",
+          pron: "/ˈkaʊn.təˌbæl.əns/",
+          cat: "Science & Measurement",
+          defEn: "To neutralize or balance by exerting an equal opposite force or weight.",
+          plainEn: "To make up for or balance out something negative with a positive weight.",
+          context: "...a consciousness level of 700 counterbalances the collective negative energy of 70 million individuals...",
+          termVi: "Làm đối trọng / Cân bằng lại",
+          defVi: "Tạo ra một lực cân bằng đối ứng để trung hòa tác động tiêu cực."
+        },
+        {
+          id: "g15",
+          term: "Sympathetic nervous system",
+          pos: "noun phrase",
+          pron: "/ˌsɪm.pəˈθet.ɪk/",
+          cat: "Biology & Health",
+          defEn: "The branch of the autonomic nervous system that prepares the body for intense physical action ('fight-or-flight').",
+          plainEn: "The body's biological alarm system triggered during danger and stress.",
+          context: "...your sympathetic nervous system is perpetually activated, cortisol levels spike...",
+          termVi: "Hệ thần kinh giao cảm",
+          defVi: "Nhánh hệ thần kinh tự chủ kích hoạt phản ứng chiến-hay-chạy khi đối mặt hiểm nguy."
+        },
+        {
+          id: "g16",
+          term: "Smolder",
+          pos: "verb",
+          pron: "/ˈsməʊl.dər/",
+          cat: "Biology & Health",
+          defEn: "To burn slowly with smoke but no flame; to exist in a suppressed state.",
+          plainEn: "To burn quietly inside without bursting out into visible flames.",
+          context: "...and low-grade inflammation smolders throughout the body.",
+          termVi: "Âm ỉ cháy / Cháy âm ỉ",
+          defVi: "Tồn tại kéo dài ngấm ngầm bên dưới mà không bùng phát dữ dội ra ngoài."
+        },
+        {
+          id: "g17",
+          term: "Siphoned away",
+          pos: "phrasal verb",
+          pron: "/ˈsaɪ.fənd əˈweɪ/",
+          cat: "Idioms & Metaphors",
+          defEn: "Drawn off or gradually emptied away by an outside force without realization.",
+          plainEn: "Slowly and quietly drained away, like liquid sucked out through a straw.",
+          context: "Without conscious awareness, your precious life force will be steadily siphoned away every single day.",
+          termVi: "Bị bào rút sạch sẽ / Rút cạn ngầm",
+          defVi: "Bị hút hoặc bòn rút dần dần mà người trong cuộc khó phát hiện."
+        },
+        {
+          id: "g18",
+          term: "Exodus",
+          pos: "noun",
+          pron: "/ˈek.sə.dəs/",
+          cat: "Sociology & Culture",
+          defEn: "A mass departure of people, especially from a difficult or restrictive place.",
+          plainEn: "A large number of people leaving a certain lifestyle or place at the same time.",
+          context: "This explains why a quiet yet decisive exodus is occurring worldwide.",
+          termVi: "Cuộc tháo chạy / Di cư tập thể",
+          defVi: "Làn sóng rời bỏ ồ ạt một hoàn cảnh hoặc môi trường sống cũ."
+        },
+        {
+          id: "g19",
+          term: "Coherent",
+          pos: "adjective",
+          pron: "/kəʊˈhɪə.rənt/",
+          cat: "Biology & Physics",
+          defEn: "Logically connected, orderly, or vibrating in phase (as in heart rate coherence).",
+          plainEn: "Smooth, balanced, and perfectly coordinated together.",
+          context: "...bringing the nervous system into equilibrium through resonant, coherent breathing.",
+          termVi: "Đồng điệu / Hài hòa / Mạch lạc",
+          defVi: "Các nhịp dao động ăn khớp nhịp nhàng, tạo ra trạng thái trật tự cao độ."
+        },
+        {
+          id: "g20",
+          term: "Ruminate",
+          pos: "verb",
+          pron: "/ˈruː.mɪ.neɪt/",
+          cat: "Psychology & Ethics",
+          defEn: "To think deeply or obsessively about something distressing repeatedly.",
+          plainEn: "To chew over worries or past mistakes again and again in your head.",
+          context: "...you have no mental bandwidth left to ruminate on the past or fear the future.",
+          termVi: "Gặm nhấm / Suy nghĩ luẩn quẩn",
+          defVi: "Nhai đi nhai lại các lo âu, day dứt quá khứ trong tâm trí."
+        },
+        {
+          id: "g21",
+          term: "Somatic",
+          pos: "adjective",
+          pron: "/səʊˈmæt.ɪk/",
+          cat: "Biology & Health",
+          defEn: "Relating to the physical body, especially as distinct from the mind.",
+          plainEn: "Connected to bodily physical sensations and tissues rather than abstract thoughts.",
+          context: "When a heavy emotion is fully listened to, its somatic charge dissipates.",
+          termVi: "Thuộc về cơ thể / Thể lý",
+          defVi: "Liên quan trực tiếp đến các mô và cảm giác cơ bắp, cơ quan trên thân xác."
+        },
+        {
+          id: "g22",
+          term: "Dissipate",
+          pos: "verb",
+          pron: "/ˈdɪs.ɪ.peɪt/",
+          cat: "Physics & Philosophy",
+          defEn: "To disappear or cause to disappear; to scatter and fade away into nothing.",
+          plainEn: "To melt away and dissolve completely into the air.",
+          context: "...its somatic charge dissipates. It loses its power over you...",
+          termVi: "Tiêu biến / Tan biến",
+          defVi: "Phân tán và tiêu tan dần cho đến khi không còn dấu vết."
+        },
+        {
+          id: "g23",
+          term: "Concert pitch",
+          pos: "noun phrase",
+          pron: "/ˈkɒn.sət pɪtʃ/",
+          cat: "Sound & Acoustics",
+          defEn: "The standardized international tuning frequency (usually A4 = 440 Hz) used by orchestras.",
+          plainEn: "The standard agreed-upon tuning note that musicians use to tune their instruments together.",
+          context: "...instead of the modern international concert pitch of 440 Hz.",
+          termVi: "Chuẩn cao độ hòa nhạc",
+          defVi: "Mức tần số tham chiếu quốc tế thống nhất để lên dây nhạc cụ trong dàn nhạc."
+        },
+        {
+          id: "g24",
+          term: "Pitch inflation",
+          pos: "noun phrase",
+          pron: "/pɪtʃ ɪnˈfleɪ.ʃən/",
+          cat: "Sound & Acoustics",
+          defEn: "The historical tendency of orchestras to tune progressively higher (sharper) for a brighter timbre.",
+          plainEn: "Orchestras competing by making their tuning higher and brighter over time.",
+          context: "Verdi took issue with 19th-century 'pitch inflation,' an orchestral trend...",
+          termVi: "Lạm phát cao độ",
+          defVi: "Hiện tượng các dàn nhạc đẩy cao độ nốt chuẩn ngày càng cao để âm thanh rực rỡ hơn."
+        },
+        {
+          id: "g25",
+          term: "Gross oversimplification",
+          pos: "idiom / noun phrase",
+          pron: "/ɡrəʊs ˌəʊ.və.sɪm.plɪ.fɪˈkeɪ.ʃən/",
+          cat: "General Academic",
+          defEn: "A description of something that leaves out essential nuances to the point of distortion.",
+          plainEn: "Explaining a complex topic so simply that it actually becomes completely inaccurate.",
+          context: "...claiming that the ancients uniformly tuned to 432 Hz is a gross oversimplification of historical reality.",
+          termVi: "Sự quy giản hóa quá mức / Đơn giản hóa sai lệch",
+          defVi: "Cách diễn giải lược bỏ quá nhiều tình tiết phức tạp dẫn đến hiểu sai sự thật."
+        },
+        {
+          id: "g26",
+          term: "Antediluvian",
+          pos: "adjective",
+          pron: "/ˌæn.ti.dɪˈluː.vi.ən/",
+          cat: "History & Archaeology",
+          defEn: "Belonging to the period before the Biblical Great Flood; extremely ancient.",
+          plainEn: "Dating back before the mythical great flood; primeval.",
+          context: "...the ten antediluvian kings were recorded as having reigned for a collective total of 432,000 years.",
+          termVi: "Thời tiền hồng thủy / Cổ sơ",
+          defVi: "Thuộc về thời kỳ trước trận đại hồng thủy trong thần thoại; tối cổ."
+        },
+        {
+          id: "g27",
+          term: "Solfeggio frequencies",
+          pos: "noun phrase",
+          pron: "/sɒlˈfedʒ.i.əʊ/",
+          cat: "Sound & Acoustics",
+          defEn: "A set of six (or nine) specific audio frequencies popularized in alternative sound healing lore.",
+          plainEn: "A group of special musical tones believed by alternative healers to possess soothing power.",
+          context: "It is grouped within the Solfeggio Frequencies. Modern interpretations assign 528 Hz to the syllable Mi...",
+          termVi: "Các tần số Solfeggio",
+          defVi: "Hệ thống các dải tần số âm thanh cổ gắn liền với các nốt xướng âm trong trị liệu."
+        },
+        {
+          id: "g28",
+          term: "Helioseismology",
+          pos: "noun",
+          pron: "/ˌhiː.li.əʊ.saɪzˈmɒl.ə.dʒi/",
+          cat: "Physics & Astronomy",
+          defEn: "The study of the propagation of pressure waves (acoustic oscillations) within the Sun.",
+          plainEn: "Studying sound waves and vibrations inside the Sun to map its deep interior.",
+          context: "The Sun does oscillate, a phenomenon studied via helioseismology to examine solar interiors...",
+          termVi: "Nhật chấn học",
+          defVi: "Ngành thiên văn học nghiên cứu cấu trúc Mặt Trời thông qua các sóng dao động âm học."
+        },
+        {
+          id: "g29",
+          term: "In vitro",
+          pos: "adverb / adjective",
+          pron: "/ɪn ˈviː.trəʊ/",
+          cat: "Biology & Health",
+          defEn: "Performed or taking place in a test tube, culture dish, or elsewhere outside a living organism.",
+          plainEn: "Done in an artificial glass container or petri dish in a lab, not inside a human body.",
+          context: "A 2017 in vitro laboratory study exposed cultured human astrocyte cells to toxic ethanol...",
+          termVi: "Trong ống nghiệm / In vitro",
+          defVi: "Các thí nghiệm thực hiện trong môi trường nhân tạo bên ngoài cơ thể sinh vật sống."
+        },
+        {
+          id: "g30",
+          term: "Astrocyte",
+          pos: "noun",
+          pron: "/ˈæs.trə.saɪt/",
+          cat: "Biology & Health",
+          defEn: "A star-shaped glial cell of the central nervous system that supports and protects neurons.",
+          plainEn: "A star-like brain helper cell that nourishes and shields nerve cells.",
+          context: "...exposed cultured human astrocyte cells to toxic ethanol and examined the effects of 528 Hz...",
+          termVi: "Tế bào thần kinh đệm hình sao",
+          defVi: "Tế bào hình sao trong hệ thần kinh trung ương giữ vai trò nuôi dưỡng và hỗ trợ nơ-ron."
+        },
+        {
+          id: "g31",
+          term: "Remediation",
+          pos: "noun",
+          pron: "/rɪˌmiː.diˈeɪ.ʃən/",
+          cat: "General Academic",
+          defEn: "The action of remedying something, in particular of reversing or stopping environmental damage.",
+          plainEn: "Cleaning up and repairing environmental contamination or toxic waste.",
+          context: "Peer-reviewed environmental and remediation records on Deepwater Horizon detail mechanical skimmers...",
+          termVi: "Sự khắc phục môi trường / Xử lý ô nhiễm",
+          defVi: "Hành động tẩy rửa, đảo ngược tác hại ô nhiễm để phục hồi hệ sinh thái tự nhiên."
+        },
+        {
+          id: "g32",
+          term: "Discernment",
+          pos: "noun",
+          pron: "/dɪˈsɜːn.mənt/",
+          cat: "Psychology & Ethics",
+          defEn: "The ability to judge well; keen insight and critical perception between truth and hype.",
+          plainEn: "Having the wisdom to tell truth from misleading claims.",
+          context: "...a practical approach is to listen with an open mind while evaluating claims with healthy discernment.",
+          termVi: "Sự phân định / Đầu óc tỉnh táo / Trí tuệ thấu suốt",
+          defVi: "Khả năng phân biệt rõ ràng giữa bản chất chân thực và những lời phóng đại giả tạo."
+        }
+      ]
+    };
+  </script>
+
+  <script>
+    /* Application State Manager */
+    const state = {
+      currentView: 'overview', // 'overview', 'part1-sec1', ..., 'glossary'
+      currentLang: localStorage.getItem('app_lang') || 'en', // 'en' or 'vi'
+      readingMode: localStorage.getItem('app_reading_mode') || 'flip', // 'flip' or 'dual'
+      flippedCards: new Set(), // Paragraph IDs currently flipped to opposite language
+      theme: localStorage.getItem('app_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
+      glossaryFilter: 'All',
+      glossarySearch: '',
+      revealedGlossary: new Set()
+    };
+
+    /* Theme Initialization */
+    function applyTheme(theme) {
+      state.theme = theme;
+      localStorage.setItem('app_theme', theme);
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.getElementById('icon-moon').classList.add('hidden');
+        document.getElementById('icon-sun').classList.remove('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.getElementById('icon-moon').classList.remove('hidden');
+        document.getElementById('icon-sun').classList.add('hidden');
+      }
+    }
+    applyTheme(state.theme);
+
+    /* Notification Toast Helper */
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toast-notification');
+      const text = document.getElementById('toast-text');
+      text.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 2500);
+    }
+
+    /* Clipboard Helper */
+    function copyText(str, label = 'Copied to clipboard!') {
+      const temp = document.createElement('textarea');
+      temp.value = str;
+      document.body.appendChild(temp);
+      temp.select();
+      try {
+        document.execCommand('copy');
+        showToast(label);
+      } catch (err) {
+        showToast('Unable to copy');
+      }
+      document.body.removeChild(temp);
+    }
+
+    /* Web Speech Pronunciation */
+    function speakText(text, lang = 'en-US') {
+      if (!('speechSynthesis' in window)) {
+        showToast('Speech not supported on this browser');
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      utterance.rate = 0.92;
+      window.speechSynthesis.speak(utterance);
+      showToast('🔊 Speaking...');
+    }
+
+    /* Populate Header Dropdown Switcher */
+    function populateQuickSelector() {
+      const select = document.getElementById('section-quick-select');
+      select.innerHTML = '<option value="#overview">≡ All Sections (Overview)</option>';
+      appData.sections.forEach(sec => {
+        const opt = document.createElement('option');
+        opt.value = `#${sec.id}`;
+        opt.textContent = `Part ${sec.part}: ${sec.title.en}`;
+        select.appendChild(opt);
+      });
+      const glOpt = document.createElement('option');
+      glOpt.value = '#glossary';
+      glOpt.textContent = '📖 Academic Glossary (32 Terms)';
+      select.appendChild(glOpt);
+
+      select.addEventListener('change', (e) => {
+        window.location.hash = e.target.value;
+      });
+    }
+
+    function renderOverviewView() {
+      const isEn = state.currentLang === 'en';
+      const container = document.getElementById('app-container');
+
+      // Update Nav
+      document.getElementById('nav-back-btn').classList.add('hidden');
+      document.getElementById('section-quick-select').value = '#overview';
+
+      let html = `
+        <div class="space-y-12">
+          
+          <!-- Hero Document Header -->
+          <div class="text-center max-w-4xl mx-auto space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800">
+              <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
+              <span>100% Verbatim Bilingual Instructional Platform</span>
+            </div>
+            
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight glow-text">
+              ${isEn ? appData.title.en : appData.title.vi}
+            </h1>
+            
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-medium">
+              ${isEn ? appData.title.vi : appData.title.en}
+            </p>
+
+            <!-- Learning Metrics Bar -->
+            <div class="pt-4 flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-slate-500 dark:text-slate-400">
+              <span class="flex items-center gap-1.5 bg-white dark:bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm">
+                <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                10 Dedicated In-Depth Sections
+              </span>
+              <span class="flex items-center gap-1.5 bg-white dark:bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm">
+                <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                58 Verbatim Paragraph Cards
+              </span>
+              <span class="flex items-center gap-1.5 bg-white dark:bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm">
+                <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                32 B2/C1 Academic Glossary Terms
+              </span>
+            </div>
+          </div>
+
+          <!-- Featured Glossary Banner Card -->
+          <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-900 via-indigo-800 to-sky-900 text-white p-6 sm:p-8 shadow-xl border border-indigo-700/50">
+            <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div class="space-y-2 max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-500/30 text-indigo-200 border border-indigo-400/30">
+                  <span>Interactive Study Hub</span>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-display font-bold">
+                  B2/C1 Specialized Academic Glossary
+                </h3>
+                <p class="text-sm text-indigo-100/90 leading-relaxed">
+                  Master 32 high-utility vocabulary items from physics, neuroscience, consciousness studies, and acoustics. Features formal definitions, plain-English simplifications, verbatim contextual quotes, and revealable Vietnamese translations.
+                </p>
+              </div>
+              <a href="#glossary" class="whitespace-nowrap px-6 py-3 rounded-xl bg-white text-indigo-900 hover:bg-indigo-50 font-display font-bold text-sm shadow-lg hover:shadow-indigo-500/20 hover:scale-105 transition-all flex items-center gap-2">
+                <span>Explore Glossary (32 Terms)</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+            <!-- Decorative Background Element -->
+            <div class="absolute -right-12 -bottom-12 w-64 h-64 rounded-full bg-sky-500/10 pointer-events-none blur-2xl"></div>
+          </div>
+
+          <!-- Section Grid: Part 1 & Part 2 -->
+      `;
+
+      appData.parts.forEach(part => {
+        const partSections = appData.sections.filter(s => s.part === part.partNum);
+        
+        html += `
+          <div class="space-y-6">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-3 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+              <div>
+                <span class="text-xs font-bold tracking-wider uppercase text-sky-600 dark:text-sky-400">Section Group</span>
+                <h2 class="text-2xl font-display font-bold text-slate-900 dark:text-white">
+                  ${isEn ? part.title.en : part.title.vi}
+                </h2>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-2xl">
+                  ${isEn ? part.desc.en : part.desc.vi}
+                </p>
+              </div>
+              <span class="text-xs font-mono font-medium text-slate-400">5 Sections</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        `;
+
+        partSections.forEach(sec => {
+          html += `
+            <div class="overview-card group bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 flex flex-col justify-between cursor-pointer" data-sec-id="${sec.id}">
+              
+              <div class="space-y-3">
+                <!-- Card Header with Pill & Inline Title Toggle -->
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[11px] font-mono font-semibold px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    Part ${sec.part} • Sec ${sec.secNum}
+                  </span>
+                  
+                  <!-- EN/VI Toggle Button on corner with e.stopPropagation() -->
+                  <button class="card-title-toggle px-2 py-0.5 text-[11px] font-bold rounded bg-sky-50 dark:bg-sky-950 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-800 hover:bg-sky-100 dark:hover:bg-sky-900 transition-colors" data-target="${sec.id}" title="Toggle Section Title Language">
+                    ⇄ EN / VI
+                  </button>
+                </div>
+
+                <!-- Section Heading -->
+                <h3 class="card-heading-title text-lg font-display font-bold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors" id="title-${sec.id}" data-current="default">
+                  ${isEn ? sec.title.en : sec.title.vi}
+                </h3>
+
+                <!-- Summary snippet -->
+                <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-3 leading-relaxed">
+                  ${isEn ? sec.summary.en : sec.summary.vi}
+                </p>
+              </div>
+
+              <!-- Card Bottom Metadata -->
+              <div class="pt-5 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                <span class="flex items-center gap-1 font-medium">
+                  <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  ${sec.readTime}
+                </span>
+                <span class="flex items-center gap-1 font-semibold text-sky-600 dark:text-sky-400 group-hover:translate-x-1 transition-transform">
+                  Read Study Cards →
+                </span>
+              </div>
+
+            </div>
+          `;
+        });
+
+        html += `
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div>`;
+      container.innerHTML = html;
+
+      // Attach Card Clicks and Title Toggles
+      document.querySelectorAll('.overview-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+          // If the target is the toggle button, skip navigation
+          if (e.target.closest('.card-title-toggle')) return;
+          const secId = card.getAttribute('data-sec-id');
+          window.location.hash = `#${secId}`;
+        });
+      });
+
+      document.querySelectorAll('.card-title-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const secId = btn.getAttribute('data-target');
+          const titleEl = document.getElementById(`title-${secId}`);
+          const sec = appData.sections.find(s => s.id === secId);
+          if (!sec || !titleEl) return;
+
+          const current = titleEl.getAttribute('data-current');
+          if (current === 'vi') {
+            titleEl.textContent = sec.title.en;
+            titleEl.setAttribute('data-current', 'en');
+          } else if (current === 'en') {
+            titleEl.textContent = sec.title.vi;
+            titleEl.setAttribute('data-current', 'vi');
+          } else {
+            // If default
+            if (isEn) {
+              titleEl.textContent = sec.title.vi;
+              titleEl.setAttribute('data-current', 'vi');
+            } else {
+              titleEl.textContent = sec.title.en;
+              titleEl.setAttribute('data-current', 'en');
+            }
+          }
+        });
+      });
+    }
+
+    function renderSectionView(secId) {
+      const sec = appData.sections.find(s => s.id === secId);
+      if (!sec) {
+        window.location.hash = '#overview';
+        return;
+      }
+
+      const container = document.getElementById('app-container');
+      const isEn = state.currentLang === 'en';
+
+      // Update Nav
+      const navBack = document.getElementById('nav-back-btn');
+      navBack.classList.remove('hidden');
+      document.getElementById('nav-back-text').textContent = 'Overview';
+      document.getElementById('section-quick-select').value = `#${sec.id}`;
+
+      // Find next and prev sections
+      const currentIndex = appData.sections.findIndex(s => s.id === sec.id);
+      const prevSec = currentIndex > 0 ? appData.sections[currentIndex - 1] : null;
+      const nextSec = currentIndex < appData.sections.length - 1 ? appData.sections[currentIndex + 1] : null;
+
+      let html = `
+        <div class="max-w-4xl mx-auto space-y-8">
+          
+          <!-- Section Page Header & Breadcrumb -->
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+              <div class="flex items-center gap-2">
+                <a href="#overview" class="hover:underline text-sky-600 dark:text-sky-400 font-semibold">Home</a>
+                <span>/</span>
+                <span>Part ${sec.part}</span>
+                <span>/</span>
+                <span>Section ${sec.secNum}</span>
+              </div>
+              <span class="font-mono bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-md">
+                ${sec.paragraphs.length} Paragraph Cards
+              </span>
+            </div>
+
+            <!-- Title with Inline Language Toggle -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-5">
+              <div>
+                <h1 id="section-main-title" class="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 dark:text-white leading-tight">
+                  ${isEn ? sec.title.en : sec.title.vi}
+                </h1>
+                <p id="section-sub-title" class="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1">
+                  ${isEn ? sec.title.vi : sec.title.en}
+                </p>
+              </div>
+
+              <!-- Quick Language Flip button for Title -->
+              <button id="btn-toggle-sec-title" class="self-start sm:self-center whitespace-nowrap px-3.5 py-1.5 text-xs font-bold rounded-lg bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-800 hover:bg-sky-200 dark:hover:bg-sky-900 transition-all flex items-center gap-1.5 shadow-sm">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                <span>Swap Heading EN / VI</span>
+              </button>
+            </div>
+
+            <!-- Reading Control Utility Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-3 bg-slate-100 dark:bg-slate-900/70 p-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
+              <div class="flex items-center gap-2">
+                <span class="font-medium text-slate-600 dark:text-slate-400">Interaction:</span>
+                <span class="text-slate-500 dark:text-slate-400">Tap card or flip button to reveal translation</span>
+              </div>
+              
+              <div class="flex items-center gap-2">
+                <button id="btn-flip-all-en" class="px-2.5 py-1 rounded font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-sky-600 shadow-xs">
+                  All EN
+                </button>
+                <button id="btn-flip-all-vi" class="px-2.5 py-1 rounded font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-sky-600 shadow-xs">
+                  All VI
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Paragraph Cards List -->
+          <div class="space-y-6" id="paragraphs-container">
+      `;
+
+      sec.paragraphs.forEach((p, index) => {
+        const isFlipped = state.flippedCards.has(p.id);
+        const showingVi = isEn ? isFlipped : !isFlipped;
+        const activeText = showingVi ? p.vi : p.en;
+        const currentLangTag = showingVi ? 'VI' : 'EN';
+
+        html += `
+          <div class="paragraph-card group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-6 sm:p-7 shadow-sm hover:shadow-md transition-all duration-300 relative cursor-pointer" data-pid="${p.id}" tabindex="0">
+            
+            <!-- Card Top Toolbar -->
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-100 dark:border-slate-800 text-xs">
+              <div class="flex items-center gap-2">
+                <span class="font-mono font-bold text-slate-400">¶ ${index + 1}</span>
+                <span class="lang-indicator px-2 py-0.5 rounded font-mono font-bold text-[11px] ${showingVi ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800' : 'bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-800'}">
+                  ${currentLangTag}
+                </span>
+              </div>
+
+              <!-- Paragraph Action Buttons -->
+              <div class="flex items-center gap-1.5" onclick="event.stopPropagation()">
+                <!-- Pronounce Button (EN only) -->
+                <button class="btn-read-p p-1.5 rounded-lg text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" data-text="${encodeURIComponent(p.en)}" title="Listen to English Audio">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+                </button>
+
+                <!-- Copy Button -->
+                <button class="btn-copy-p p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" data-pid="${p.id}" title="Copy Paragraph">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                </button>
+
+                <!-- Dedicated Flip/Toggle Button -->
+                <button class="btn-flip-card px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-sky-50 hover:text-sky-700 dark:hover:bg-sky-950 dark:hover:text-sky-300 border border-slate-200 dark:border-slate-700 transition-all flex items-center gap-1 shadow-xs">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/></svg>
+                  <span>${showingVi ? 'Xem Tiếng Anh' : 'Xem Tiếng Việt'}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Paragraph Content Text (18px-20px readable presentation mode) -->
+            <div class="paragraph-body text-[18px] sm:text-[19px] leading-[1.78] text-slate-800 dark:text-slate-100 font-normal transition-opacity duration-300 whitespace-pre-line" id="text-${p.id}">
+              ${formatParagraphText(activeText)}
+            </div>
+
+            <!-- Subtle Hint Footer -->
+            <div class="mt-4 pt-3 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 select-none">
+              <span>${showingVi ? '🇻🇳 Vietnamese Translation' : '🇬🇧 Original English Text'}</span>
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-sky-500 font-medium">
+                Tap card to flip ⇄
+              </span>
+            </div>
+
+          </div>
+        `;
+      });
+
+      html += `
+          </div>
+
+          <!-- Bottom Section Navigation (Prev / Next) -->
+          <div class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            ${prevSec ? `
+              <a href="#${prevSec.id}" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500 text-slate-700 dark:text-slate-300 text-sm font-semibold flex items-center justify-center gap-2 shadow-sm transition-all group">
+                <svg class="w-4 h-4 text-slate-400 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <span>Previous: ${prevSec.title.en}</span>
+              </a>
+            ` : `<div class="hidden sm:block"></div>`}
+
+            ${nextSec ? `
+              <a href="#${nextSec.id}" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-sm font-semibold flex items-center justify-center gap-2 shadow-md transition-all group">
+                <span>Next: ${nextSec.title.en}</span>
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            ` : `
+              <a href="#glossary" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold flex items-center justify-center gap-2 shadow-md transition-all">
+                <span>Proceed to Interactive Glossary →</span>
+              </a>
+            `}
+          </div>
+
+        </div>
+      `;
+
+      container.innerHTML = html;
+
+      // Event Listeners for Paragraph Cards
+      attachParagraphCardEvents(sec);
+    }
+
+    /* Helper: Format bold/bullet markers cleanly */
+    function formatParagraphText(text) {
+      return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    }
+
+    function attachParagraphCardEvents(sec) {
+      // Inline Section Title Swap
+      const btnToggleTitle = document.getElementById('btn-toggle-sec-title');
+      if (btnToggleTitle) {
+        btnToggleTitle.addEventListener('click', () => {
+          const mainTitle = document.getElementById('section-main-title');
+          const subTitle = document.getElementById('section-sub-title');
+          const temp = mainTitle.textContent;
+          mainTitle.textContent = subTitle.textContent;
+          subTitle.textContent = temp;
+        });
+      }
+
+      // Flip Single Card Function
+      function toggleCard(pid) {
+        const pObj = sec.paragraphs.find(p => p.id === pid);
+        if (!pObj) return;
+
+        if (state.flippedCards.has(pid)) {
+          state.flippedCards.delete(pid);
+        } else {
+          state.flippedCards.add(pid);
+        }
+
+        const isFlipped = state.flippedCards.has(pid);
+        const isEn = state.currentLang === 'en';
+        const showingVi = isEn ? isFlipped : !isFlipped;
+
+        const card = document.querySelector(`.paragraph-card[data-pid="${pid}"]`);
+        if (!card) return;
+
+        const body = card.querySelector('.paragraph-body');
+        const badge = card.querySelector('.lang-indicator');
+        const flipBtn = card.querySelector('.btn-flip-card span');
+        const hint = card.querySelector('.select-none span:first-child');
+
+        // Smooth fade transform
+        body.style.opacity = '0';
+        setTimeout(() => {
+          body.innerHTML = formatParagraphText(showingVi ? pObj.vi : pObj.en);
+          badge.textContent = showingVi ? 'VI' : 'EN';
+          if (showingVi) {
+            badge.className = 'lang-indicator px-2 py-0.5 rounded font-mono font-bold text-[11px] bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800';
+            flipBtn.textContent = 'Xem Tiếng Anh';
+            hint.textContent = '🇻🇳 Vietnamese Translation';
+          } else {
+            badge.className = 'lang-indicator px-2 py-0.5 rounded font-mono font-bold text-[11px] bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-300 dark:border-sky-800';
+            flipBtn.textContent = 'Xem Tiếng Việt';
+            hint.textContent = '🇬🇧 Original English Text';
+          }
+          body.style.opacity = '1';
+        }, 150);
+      }
+
+      // Card Body Clicks
+      document.querySelectorAll('.paragraph-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+          const pid = card.getAttribute('data-pid');
+          toggleCard(pid);
+        });
+
+        // Keyboard Accessibility (Enter or Space)
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const pid = card.getAttribute('data-pid');
+            toggleCard(pid);
+          }
+        });
+      });
+
+      // Flip All Buttons
+      const btnAllEn = document.getElementById('btn-flip-all-en');
+      if (btnAllEn) {
+        btnAllEn.addEventListener('click', () => {
+          sec.paragraphs.forEach(p => {
+            if (state.currentLang === 'en') {
+              state.flippedCards.delete(p.id);
+            } else {
+              state.flippedCards.add(p.id);
+            }
+          });
+          renderSectionView(sec.id);
+          showToast('All paragraphs set to English');
+        });
+      }
+
+      const btnAllVi = document.getElementById('btn-flip-all-vi');
+      if (btnAllVi) {
+        btnAllVi.addEventListener('click', () => {
+          sec.paragraphs.forEach(p => {
+            if (state.currentLang === 'en') {
+              state.flippedCards.add(p.id);
+            } else {
+              state.flippedCards.delete(p.id);
+            }
+          });
+          renderSectionView(sec.id);
+          showToast('Tất cả chuyển sang Tiếng Việt');
+        });
+      }
+
+      // Pronounce Buttons
+      document.querySelectorAll('.btn-read-p').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const text = decodeURIComponent(btn.getAttribute('data-text'));
+          speakText(text);
+        });
+      });
+
+      // Copy Buttons
+      document.querySelectorAll('.btn-copy-p').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const pid = btn.getAttribute('data-pid');
+          const pObj = sec.paragraphs.find(p => p.id === pid);
+          if (pObj) {
+            const isFlipped = state.flippedCards.has(pid);
+            const isEn = state.currentLang === 'en';
+            const showingVi = isEn ? isFlipped : !isFlipped;
+            copyText(showingVi ? pObj.vi : pObj.en, 'Paragraph copied!');
+          }
+        });
+      });
+    }
+
+    function renderGlossaryView() {
+      const container = document.getElementById('app-container');
+      const isEn = state.currentLang === 'en';
+
+      // Update Nav
+      const navBack = document.getElementById('nav-back-btn');
+      navBack.classList.remove('hidden');
+      document.getElementById('nav-back-text').textContent = 'Overview';
+      document.getElementById('section-quick-select').value = '#glossary';
+
+      // Filter terms
+      const categories = ['All', 'Physics & Philosophy', 'Science & Measurement', 'General Academic', 'Biology & Health', 'Sound & Acoustics', 'Psychology & Ethics', 'Idioms & Metaphors'];
+      
+      const filteredTerms = appData.glossary.filter(item => {
+        const matchesCat = state.glossaryFilter === 'All' || item.cat === state.glossaryFilter;
+        const matchesQuery = !state.glossarySearch || 
+          item.term.toLowerCase().includes(state.glossarySearch.toLowerCase()) ||
+          item.defEn.toLowerCase().includes(state.glossarySearch.toLowerCase()) ||
+          item.termVi.toLowerCase().includes(state.glossarySearch.toLowerCase());
+        return matchesCat && matchesQuery;
+      });
+
+      let html = `
+        <div class="space-y-8 max-w-5xl mx-auto">
+          
+          <!-- Glossary Hero Header -->
+          <div class="text-center max-w-3xl mx-auto space-y-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+              <span>B2 / C1 English Vocabulary Mastery</span>
+            </div>
+            
+            <h1 class="text-3xl sm:text-4xl font-display font-extrabold text-slate-900 dark:text-white">
+              Interactive Academic Glossary
+            </h1>
+            
+            <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400">
+              32 specialized terms, acoustic concepts, and high-frequency academic vocabulary extracted verbatim from the documentary text.
+            </p>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div class="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            
+            <!-- Search Input -->
+            <div class="relative">
+              <input type="text" id="glossary-search-input" value="${state.glossarySearch}" placeholder="Search term, definition, or Vietnamese equivalent..." class="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <svg class="w-5 h-5 text-slate-400 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+
+            <!-- Category Pills -->
+            <div class="flex flex-wrap items-center gap-2 pt-1">
+              <span class="text-xs font-semibold text-slate-400 mr-1">Categories:</span>
+      `;
+
+      categories.forEach(cat => {
+        const active = state.glossaryFilter === cat;
+        html += `
+          <button class="glossary-filter-pill px-3 py-1 rounded-lg text-xs font-semibold transition-all ${active ? 'bg-indigo-600 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}" data-cat="${cat}">
+            ${cat}
+          </button>
+        `;
+      });
+
+      html += `
+            </div>
+            
+            <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <span>Showing ${filteredTerms.length} of ${appData.glossary.length} terms</span>
+              <button id="btn-reveal-all-glossary" class="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium">
+                Reveal All Vietnamese Meanings
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Vocabulary Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      `;
+
+      if (filteredTerms.length === 0) {
+        html += `
+          <div class="col-span-2 py-12 text-center text-slate-400">
+            <p class="text-base font-semibold">No vocabulary terms match your filter.</p>
+            <button id="btn-reset-glossary" class="mt-2 text-xs text-indigo-500 underline">Clear search and reset filters</button>
+          </div>
+        `;
+      } else {
+        filteredTerms.forEach(item => {
+          const isRevealed = state.revealedGlossary.has(item.id);
+
+          html += `
+            <div class="vocab-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between" data-gid="${item.id}">
+              
+              <div class="space-y-4">
+                
+                <!-- Term Header & Badges -->
+                <div class="flex items-start justify-between gap-2">
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <h3 class="text-xl font-display font-bold text-slate-900 dark:text-white">
+                        ${item.term}
+                      </h3>
+                      <!-- Audio Pronounce Button -->
+                      <button class="btn-pronounce-term p-1 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" data-term="${item.term}" title="Pronounce Term">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+                      </button>
+                    </div>
+                    <div class="flex items-center gap-2 mt-1 text-xs">
+                      <span class="font-mono text-slate-400">${item.pron}</span>
+                      <span class="px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 font-mono font-semibold text-[10px]">
+                        ${item.pos}
+                      </span>
+                    </div>
+                  </div>
+
+                  <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500">
+                    ${item.cat}
+                  </span>
+                </div>
+
+                <!-- Academic / Contextual Definition -->
+                <div class="space-y-1">
+                  <span class="text-[11px] font-bold tracking-wide uppercase text-slate-400">Academic Definition</span>
+                  <p class="text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
+                    ${item.defEn}
+                  </p>
+                </div>
+
+                <!-- Plain English Explanation (B1/B2 Friendly) -->
+                <div class="p-3 rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/60 dark:border-amber-800/40 text-xs text-amber-900 dark:text-amber-200 leading-relaxed">
+                  <span class="font-bold">💡 In other words: </span>${item.plainEn}
+                </div>
+
+                <!-- Example in Context (Verbatim Document Sentence) -->
+                <div class="space-y-1">
+                  <span class="text-[11px] font-bold tracking-wide uppercase text-slate-400">Contextual Sentence</span>
+                  <blockquote class="text-xs italic text-slate-600 dark:text-slate-300 border-l-2 border-indigo-400 pl-3 py-0.5 leading-relaxed bg-slate-50 dark:bg-slate-800/50 rounded-r-lg">
+                    "${highlightTerm(item.context, item.term)}"
+                  </blockquote>
+                </div>
+
+              </div>
+
+              <!-- Vietnamese Equivalent Revealable Box -->
+              <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800">
+                <div id="vi-box-${item.id}" class="${isRevealed ? '' : 'hidden'} p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-xs text-emerald-900 dark:text-emerald-100 space-y-1 mb-2">
+                  <div class="font-bold text-sm text-emerald-800 dark:text-emerald-200">${item.termVi}</div>
+                  <div class="text-emerald-700 dark:text-emerald-300">${item.defVi}</div>
+                </div>
+
+                <button class="btn-toggle-vocab-vi w-full py-2 px-3 rounded-xl text-xs font-bold transition-all border flex items-center justify-center gap-1.5 ${isRevealed ? 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700' : 'bg-emerald-600 hover:bg-emerald-500 text-white border-transparent shadow-sm'}" data-gid="${item.id}">
+                  <span>${isRevealed ? 'Hide Vietnamese / Đóng nghĩa' : 'Reveal Vietnamese / Xem nghĩa'}</span>
+                </button>
+              </div>
+
+            </div>
+          `;
+        });
+      }
+
+      html += `
+          </div>
+
+        </div>
+      `;
+
+      container.innerHTML = html;
+
+      // Attach Glossary Interactions
+      attachGlossaryEvents();
+    }
+
+    /* Helper: Highlight term inside context quote */
+    function highlightTerm(context, term) {
+      const base = term.replace(/ \(.*?\)/, '');
+      const regex = new RegExp(`(${base})`, 'gi');
+      return context.replace(regex, '<mark class="bg-indigo-100 dark:bg-indigo-900 text-indigo-900 dark:text-indigo-100 font-semibold px-0.5 rounded">$1</mark>');
+    }
+
+    function attachGlossaryEvents() {
+      // Search Input
+      const searchInput = document.getElementById('glossary-search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          state.glossarySearch = e.target.value;
+          renderGlossaryView();
+          // refocus and put cursor at end
+          const newIn = document.getElementById('glossary-search-input');
+          if (newIn) {
+            newIn.focus();
+            newIn.setSelectionRange(newIn.value.length, newIn.value.length);
+          }
+        });
+      }
+
+      // Filter Pills
+      document.querySelectorAll('.glossary-filter-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.glossaryFilter = btn.getAttribute('data-cat');
+          renderGlossaryView();
+        });
+      });
+
+      // Reset Button if empty
+      const btnReset = document.getElementById('btn-reset-glossary');
+      if (btnReset) {
+        btnReset.addEventListener('click', () => {
+          state.glossarySearch = '';
+          state.glossaryFilter = 'All';
+          renderGlossaryView();
+        });
+      }
+
+      // Individual Term Audio Pronounce
+      document.querySelectorAll('.btn-pronounce-term').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const term = btn.getAttribute('data-term');
+          speakText(term);
+        });
+      });
+
+      // Individual Toggle Vietnamese Meanings
+      document.querySelectorAll('.btn-toggle-vocab-vi').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const gid = btn.getAttribute('data-gid');
+          if (state.revealedGlossary.has(gid)) {
+            state.revealedGlossary.delete(gid);
+          } else {
+            state.revealedGlossary.add(gid);
+          }
+          const box = document.getElementById(`vi-box-${gid}`);
+          const isRevealed = state.revealedGlossary.has(gid);
+          if (box) {
+            box.classList.toggle('hidden', !isRevealed);
+          }
+          btn.innerHTML = isRevealed ? 'Hide Vietnamese / Đóng nghĩa' : 'Reveal Vietnamese / Xem nghĩa';
+          btn.className = `btn-toggle-vocab-vi w-full py-2 px-3 rounded-xl text-xs font-bold transition-all border flex items-center justify-center gap-1.5 ${isRevealed ? 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700' : 'bg-emerald-600 hover:bg-emerald-500 text-white border-transparent shadow-sm'}`;
+        });
+      });
+
+      // Reveal All Terms
+      const btnRevealAll = document.getElementById('btn-reveal-all-glossary');
+      if (btnRevealAll) {
+        btnRevealAll.addEventListener('click', () => {
+          appData.glossary.forEach(g => state.revealedGlossary.add(g.id));
+          renderGlossaryView();
+          showToast('All Vietnamese definitions revealed!');
+        });
+      }
+    }
+
+    function router() {
+      const hash = window.location.hash.replace('#', '') || 'overview';
+      state.currentView = hash;
+
+      // Scroll top smoothly on page transition
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (hash === 'overview') {
+        renderOverviewView();
+      } else if (hash === 'glossary') {
+        renderGlossaryView();
+      } else {
+        renderSectionView(hash);
+      }
+    }
+
+    /* Global Language Toggle Handling */
+    function updateGlobalLanguage(lang) {
+      state.currentLang = lang;
+      localStorage.setItem('app_lang', lang);
+
+      const btnEn = document.getElementById('btn-lang-en');
+      const btnVi = document.getElementById('btn-lang-vi');
+
+      if (lang === 'en') {
+        btnEn.className = 'px-2.5 py-1 text-xs font-bold rounded-md transition-all bg-white dark:bg-slate-700 text-sky-700 dark:text-sky-300 shadow-sm';
+        btnVi.className = 'px-2.5 py-1 text-xs font-bold rounded-md transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+      } else {
+        btnVi.className = 'px-2.5 py-1 text-xs font-bold rounded-md transition-all bg-white dark:bg-slate-700 text-emerald-700 dark:text-emerald-300 shadow-sm';
+        btnEn.className = 'px-2.5 py-1 text-xs font-bold rounded-md transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+      }
+
+      // Re-render current active view
+      router();
+      showToast(lang === 'en' ? 'Global language set to English' : 'Chuyển ngôn ngữ mặc định sang Tiếng Việt');
+    }
+
+    // Attach Top Header Buttons
+    document.getElementById('btn-lang-en').addEventListener('click', () => updateGlobalLanguage('en'));
+    document.getElementById('btn-lang-vi').addEventListener('click', () => updateGlobalLanguage('vi'));
+
+    // Dark Mode Toggle
+    document.getElementById('btn-theme-toggle').addEventListener('click', () => {
+      applyTheme(state.theme === 'dark' ? 'light' : 'dark');
+      showToast(state.theme === 'dark' ? 'Dark mode activated' : 'Light mode activated');
+    });
+
+    // Keyboard Shortcut (Alt + T for Theme)
+    window.addEventListener('keydown', (e) => {
+      if (e.altKey && (e.key === 't' || e.key === 'T')) {
+        applyTheme(state.theme === 'dark' ? 'light' : 'dark');
+      }
+    });
+
+    /* Initial App Launch */
+    window.addEventListener('DOMContentLoaded', () => {
+      populateQuickSelector();
+      updateGlobalLanguage(state.currentLang);
+      window.addEventListener('hashchange', router);
+      router();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bilingual Heart Chakra & Reverse Aging Reader</title>
+  <meta name="description" content="An interactive bilingual (English & Vietnamese) reader exploring the Heart Chakra, Traditional Chinese Medicine, neuroscience, and age-reversing vitality with interactive paragraph flipping, audio-friendly pacing, and B2/C1 learner glossary." />
+  <meta property="og:title" content="Bilingual Heart Chakra & Reverse Aging Reader" />
+  <meta property="og:description" content="An interactive bilingual (English & Vietnamese) reader exploring the Heart Chakra, Traditional Chinese Medicine, neuroscience, and age-reversing vitality with interactive paragraph flipping, audio-friendly pacing, and B2/C1 learner glossary." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Plus Jakarta Sans (Display & Body) & Fraunces (Serif Titles) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Fraunces"', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            chakra: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            },
+            heart: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Smooth 3D Card Flip styling */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+
+    /* Pacing animation for breathing pacer */
+    @keyframes breathePulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.35); opacity: 1; }
+    }
+    .animate-breathe {
+      animation: breathePulse 8s ease-in-out infinite;
+    }
+
+    /* Custom smooth transition for theme & language swapping */
+    .view-transition {
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    /* Focus visible accessibility */
+    button:focus-visible, a:focus-visible {
+      outline: 2px solid #059669;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF9F5] text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased selection:bg-emerald-200 dark:selection:bg-emerald-900 transition-colors duration-200 min-h-screen flex flex-col">
+
+  <!-- Persistent Top Navigation Bar (Contract: Brand - Nav Links - Primary Actions) -->
+  <header class="sticky top-0 z-50 bg-[#FAF9F5]/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-stone-200 dark:border-slate-800 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      
+      <!-- Zone 1: Brand & Back to Overview -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="#overview" class="flex items-center gap-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-sm shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-serif font-bold text-lg leading-tight tracking-tight text-stone-900 dark:text-white">Anāhata · Tâm Luân</span>
+            <span class="text-[11px] font-medium text-stone-500 dark:text-slate-400">Heart Chakra & Reverse Aging</span>
+          </div>
+        </a>
+
+        <!-- Back to Overview Button (Shown when not on overview) -->
+        <button id="nav-back-btn" onclick="navigateTo('overview')" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 ml-2 text-xs font-semibold text-stone-700 dark:text-slate-300 bg-stone-100 dark:bg-slate-800 hover:bg-stone-200 dark:hover:bg-slate-700 rounded-lg transition-colors">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span id="nav-back-text">Overview</span>
+        </button>
+      </div>
+
+      <!-- Zone 2: Navigation Links (Single-line, clear) -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-stone-600 dark:text-slate-300">
+        <a href="#overview" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Sections</a>
+        <a href="#summary" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Executive Summary</a>
+        <a href="#glossary" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors whitespace-nowrap">B2/C1 Glossary</a>
+        <a href="#practice" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Breath Guide</a>
+      </nav>
+
+      <!-- Zone 3: Interactive Controls (Global EN/VI Switcher & Theme Toggle) -->
+      <div class="flex items-center gap-2.5 shrink-0">
+        
+        <!-- Global EN / VI Language Switch -->
+        <button id="global-lang-btn" onclick="toggleGlobalLanguage()" title="Toggle Document Language" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border border-stone-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-stone-800 dark:text-slate-200 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition-colors">
+          <span class="text-stone-400 dark:text-slate-500">Lang:</span>
+          <span id="global-lang-label" class="text-emerald-600 dark:text-emerald-400 font-bold">EN</span>
+          <svg class="w-3 h-3 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+        </button>
+
+        <!-- Quick Glossary Jump Button -->
+        <a href="#glossary" title="Jump to Learner Glossary" class="p-2 text-stone-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-stone-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+        </a>
+
+        <!-- Light / Dark Mode Toggle -->
+        <button id="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode" class="p-2 text-stone-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-stone-100 dark:hover:bg-slate-800 rounded-lg transition-colors" aria-label="Toggle theme">
+          <!-- Sun Icon (Shown in Dark Mode) -->
+          <svg id="theme-icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <!-- Moon Icon (Shown in Light Mode) -->
+          <svg id="theme-icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dynamic Application Container -->
+  <main id="app-container" class="flex-grow w-full max-w-5xl mx-auto px-4 sm:px-6 py-8">
+    <!-- Dynamic Views will be injected here via Vanilla JS -->
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="border-t border-stone-200 dark:border-slate-800 bg-stone-50 dark:bg-slate-950 py-8 text-center text-xs text-stone-500 dark:text-slate-400 transition-colors">
+    <div class="max-w-4xl mx-auto px-4 space-y-2">
+      <p class="font-serif italic text-stone-600 dark:text-slate-300">
+        "Cửa mở huyết liền nhuận, cửa khép thần liền an; thần an, khuôn mặt tự nhiên sẽ trở nên ôn nhuận."
+      </p>
+      <p class="text-[11px] text-stone-400 dark:text-slate-500">
+        Bilingual English & Vietnamese Self-Contained Study Application · Hà Tùng Xuyên (He Zongchuan)
+      </p>
+    </div>
+  </footer>
+
+  <!-- Application Script: State, Verbatim Content, Routing, Flip Cards & Glossary -->
+  <script>
+    // ==========================================
+    // 1. VERBATIM DOCUMENT DATA STORE
+    // ==========================================
+    const DOC_TITLE = {
+      en: "A Person with Truly Unblocked Seven Chakras: The Secret to Reverse Aging and the Heart Chakra",
+      vi: "Người Có Bảy Luân Xa Thông Suốt Thật Sự: Bí Quyết Trẻ Hóa Ngược Tuổi Và Tâm Luân"
+    };
+
+    const DOC_SUBTITLE = {
+      en: "Interactive Bilingual Educational Reader · Traditional Chinese Medicine (TCM) & Modern Neuroscience",
+      vi: "Tài Liệu Đọc & Nghiên Cứu Song Ngữ Tương Tác · Đông Y Cổ Truyền & Khoa Học Thần Kinh Hiện Đại"
+    };
+
+    // Full 9 Sections with Verbatim Text Pairs
+    const SECTIONS = [
+      {
+        id: "section-0",
+        num: "0",
+        tag: "Introduction",
+        title_en: "The Heart Chakra as the Gateway to Vitality",
+        title_vi: "Tâm Luân Là Cánh Cửa Nơi Lồng Ngực",
+        desc_en: "Anatomy of the two-way thoracic doorway, human relationships, and the true meaning of an unblocked heart.",
+        desc_vi: "Khám phá cánh cửa hai chiều lồng ngực, luân xa thông tình người nhất và sự phản ánh lên diện mạo.",
+        readTime: "3 min",
+        paragraphs: [
+          {
+            id: "p0_1",
+            en: "A person whose seven chakras are genuinely open and flowing will exhibit an age-reversing, youthful appearance.",
+            vi: "Người có bảy luân xa thông suốt thật sự sẽ có diện mạo trẻ hóa ngược tuổi."
+          },
+          {
+            id: "p0_2",
+            en: "The Heart Chakra. The Heart Chakra is a doorway located at the chest. Only when it opens and closes naturally can a person embody genuine gentleness and radiance from the inside out. Once the Heart Chakra is clear, a person radiates an inner softness and warmth. This is what I often tell people who come to me seeking physical balance. Some ask, \"Where is the Heart Chakra located? In the chest? So what does it have to do with the face?\" Today, I will break down every link of this connection in detail.",
+            vi: "Tâm luân. Tâm luân là cánh cửa nơi lồng ngực. Khi đóng mở tự nhiên, con người mới có được sự nhu hòa từ trong ra ngoài. Tâm luân thông rồi, con người sẽ có một vẻ nhu hòa tỏa ra từ bên trong. Đây là câu tôi thường nói với những người đến nhờ tôi điều chỉnh cơ thể. Có người hỏi tâm luân nằm ở đâu? Ở ngực sao? Vậy nó thì có quan hệ gì với khuôn mặt? Hôm nay tôi sẽ tách từng mắt xích của mối liên hệ này ra để nói rõ."
+          },
+          {
+            id: "p0_3",
+            en: "First, let us discuss its location. The physical focal point corresponding to the Heart Chakra lies directly at the center of the chest, within the thoracic region. It governs things that are profoundly real: love, compassion, giving, and receiving. It governs our emotions alongside the anatomical organs in this area—the heart, lungs, thymus, and mammary glands—as well as an act that occurs every moment: respiration.",
+            vi: "Trước hết nói về vị trí. Điểm tương ứng của tâm luân trên cơ thể nằm ở chính giữa vùng ngực, tức khu vực lồng ngực. Nó quản lý những thứ rất thực tế: tình yêu, lòng từ bi, sự cho đi và tiếp nhận. Cảm xúc cùng với các cơ quan ở khu vực này như tim, phổi, tuyến ức, tuyến vú và một việc diễn ra mỗi ngày: hô hấp."
+          },
+          {
+            id: "p0_4",
+            en: "Among the seven chakras, this is the one most attuned to human sentiment and relationships. While other chakras deal with the physical body, foundational grounding, or intellect, the Heart Chakra primarily addresses relationships: your relationship with yourself, and your relationship with the world.",
+            vi: "Đây là luân xa thông tình người nhất trong bảy luân xa. Những luân xa khác nói về cơ thể, về nền tảng, về tư duy; còn tâm luân trước hết nói về mối quan hệ: mối quan hệ của bạn với chính mình và mối quan hệ của bạn với thế giới."
+          },
+          {
+            id: "p0_5",
+            en: "Consider this analogy: the Heart Chakra is like a door in front of your chest. It is unique because it is a two-way door:\n* Opening outward: Represents giving, compassion, and extending love.\n* Turning inward: Represents receiving, being nurtured, and taking in love.",
+            vi: "Hãy ví dụ thế này: Tâm luân giống như một cánh cửa trước ngực. Cánh cửa này rất đặc biệt bởi nó là cánh cửa hai chiều:\n* Mở ra bên ngoài: là cho đi, từ bi, truyền xuất tình yêu.\n* Hướng vào bên trong: là tiếp nhận, được nuôi dưỡng, tiếp nhận tình yêu."
+          },
+          {
+            id: "p0_6",
+            en: "A healthy door opens and closes naturally; a problematic door either only gives out without taking in, or only takes in without giving out. Whether this door swings freely or not will ultimately reveal itself on a person's face. Now, let us look more closely at this doorway, moving from the inside out.",
+            vi: "Một cánh cửa tốt thì đóng mở tự nhiên; một cánh cửa có vấn đề thì hoặc chỉ xuất hoặc chỉ nhập mà không xuất. Cánh cửa đóng mở có thuận hay không cuối cùng đều sẽ hiện lên trên một khuôn mặt. Bây giờ chúng ta hãy tiến gần hơn đến cánh cửa này từ trong ra ngoài để quan sát."
+          }
+        ]
+      },
+      {
+        id: "section-1",
+        num: "1",
+        tag: "Section 1",
+        title_en: "1. The Doorway at the Chest: Foundations in TCM & Modern Medicine",
+        title_vi: "1. Cánh Cửa Nơi Lồng Ngực: Nền Tảng Đông Y & Y Học Hiện Đại",
+        desc_en: "Sovereign Monarch, Splendor on the Face, and the Physiology of Circulation.",
+        desc_vi: "Tâm vi quân chủ chi quan, kỳ hoa tại diện và các cơ quan nhạy cảm cảm xúc ở lồng ngực.",
+        readTime: "4 min",
+        paragraphs: [
+          {
+            id: "p1_1",
+            en: "Why is this doorway located in the chest? Let us first examine the foundational principles of Traditional Chinese Medicine (TCM). TCM states: \"The Heart is the sovereign monarch among the organs\" (Tâm vi quân chủ chi quan). The Heart acts as the sovereign ruler, like the ultimate leader within the body, governing two momentous responsibilities:\n1. Governing the blood and vessels (Chủ huyết mạch): Blood must circulate smoothly throughout the vessels, adequately supplying the entire body.\n2. Governing the spirit and mind (Chủ thần minh): Human consciousness, emotions, and thoughts all rely on this monarch to remain stable and centered.",
+            vi: "Vì sao cánh cửa lại ở trước ngực? Trước tiên hãy nói về nền tảng cơ bản của Đông y. Đông y nói: \"Tâm vi quân chủ chi quan\". Tâm là cơ quan giữ vai trò quân chủ, giống như vị ông chủ lớn nhất trong cơ thể, quản lý hai việc trọng đại:\n1. Chủ huyết mạch: Huyết phải lưu thông được trong mạch đạo, cung cấp đầy đủ cho cơ thể.\n2. Chủ thần minh: Thần trí, cảm xúc, ý niệm của con người đều cần vị quân chủ này giữ cho ổn định."
+          },
+          {
+            id: "p1_2",
+            en: "\"When the Heart monarch is peaceful, the five zang organs are harmonious, and the facial complexion flourishes. When the Heart monarch is uneasy, the five zang organs are thrown into disorder, and the face is the first to wither.\"\nWhen the Heart is at ease, the five internal organs remain settled, and the complexion glows with vitality. When the Heart is distressed, the five organs become disordered, and the face declines first. Here lies an exceptionally crucial concept in TCM known as \"Its glory is reflected in the face\" (Kỳ hoa tại diện). This means that the abundance of the Heart and the state of Qi and blood will manifest first and foremost in one’s outward appearance.\n* When Heart blood is abundant and the vessels are full, blood rises to nourish the face, resulting in a rosy, radiant, and vibrant complexion.\n* When Heart blood is deficient and the vessels are obstructed, blood cannot rise properly, leaving the face sallow, pale, and devoid of vitality.",
+            vi: "\"Tâm quân an ninh tắc ngũ tạng an, diện sắc vinh. Tâm quân bất ninh, tắc ngũ tạng loạn, diện tiên suy.\"\nTâm được an thì ngũ tạng được yên, sắc mặt tươi nhuận. Tâm bất an thì ngũ tạng rối loạn, khuôn mặt sẽ xuống sắc trước tiên. Ở đây có một điểm đặc biệt quan trọng Đông y gọi là \"kỳ hoa tại diện\" — tinh hoa của tâm biểu hiện ra ở khuôn mặt. Ý nghĩa là sự sung mãn của tâm, trạng thái của khí huyết trước hết sẽ biểu hiện trên diện mạo.\n* Tâm huyết đầy đủ, mạch đạo sung mãn, huyết có thể đi lên nuôi dưỡng khuôn mặt thì khuôn mặt sẽ hồng nhuận, có ánh sáng, có huyết sắc.\n* Tâm huyết không đủ, mạch đạo không thông, huyết không thể đi lên, khuôn mặt sẽ xám tối, trắng nhợt, thiếu sức sống."
+          },
+          {
+            id: "p1_3",
+            en: "Thus, whether the door in your chest is unobstructed is ultimately written across your face. This is not mysticism; it is the most direct physical expression of the eight traditional characters: the Heart governs blood vessels; its splendor blossoms on the face.",
+            vi: "Cho nên bạn thấy đấy, cánh cửa nơi lồng ngực có thông hay không cuối cùng đều được viết lên khuôn mặt. Đây không phải là huyền học mà chính là điểm biểu hiện trực tiếp nhất của tám chữ: tâm chủ huyết mạch, kỳ hoa tại diện."
+          },
+          {
+            id: "p1_4",
+            en: "Modern Medical Perspective (Góc nhìn y học hiện đại)\nIn modern medicine, the heart is the central pump of the systemic circulatory system. How well the heart functions directly dictates the supply of blood and oxygen to the skin. Skin tone, radiance, and elasticity all benefit as a direct result.",
+            vi: "Góc nhìn y học hiện đại\nTheo y học hiện đại, tim là chiếc bơm của hệ tuần hoàn máu toàn thân. Tim hoạt động tốt hay không sẽ ảnh hưởng đến việc cung cấp máu và oxy cho da. Màu sắc, độ sáng và độ đàn hồi của da cũng từ đó mà được hưởng lợi."
+          },
+          {
+            id: "p1_5",
+            en: "The chest cavity also houses several vital structures:\n* The Thymus: Located behind the sternum, it is a key hub of the immune system linked to the body’s defenses and self-healing capacity. The state of the thymus is also tied to emotions and stress. When you live in chronic, prolonged stress, your immune function can suffer.\n* The Breasts/Mammary Glands: Situated on both sides of the chest, these tissues are highly sensitive to emotional shifts. In TCM theory, the nipples relate to the Liver meridian, the breast tissue relates to the Stomach meridian and connects with the Spleen, while the Pericardium meridian also traverses this region. When emotions are suppressed or stagnant, this area is often the first to experience blockages. Sensations of tension, tightness, distension, or even palpable lumps are frequently linked to unexpressed words and suppressed anger that have never found release.",
+            vi: "Khu vực lồng ngực lại chứa một số cơ quan rất quan trọng:\n* Tuyến ức: Nằm phía sau xương ức, là một mắt xích quan trọng của hệ miễn dịch liên quan đến khả năng phòng vệ và phục hồi của cơ thể. Trạng thái của tuyến ức cũng có liên hệ với cảm xúc và stress. Khi bạn thường xuyên ở trong trạng thái căng thẳng kéo dài, chức năng miễn dịch cũng có thể bị ảnh hưởng.\n* Tuyến vú: Nằm ở hai bên phía trước ngực, là một trong những mô rất nhạy cảm với cảm xúc của cơ thể. Đông y cho rằng đầu vú thuộc Can, tuyến vú thuộc Vị kinh lại thông với Tỳ, Tâm bào kinh cũng đi qua khu vực này. Khi cảm xúc bị uất kết, nơi thường xuyên bị ứ lại nhất chính là khu vực này. Cảm giác căng, tức trướng, thậm chí có cảm giác kết hạch, nhiều khi liên quan đến những lời muốn nói mà không nói ra, những cơn tức giận bị nén lại mà chưa được giải tỏa."
+          },
+          {
+            id: "p1_6",
+            en: "Therefore, whether your Heart Chakra is open or not, the tension or ease in your chest serves as the most honest thermometer. Remember this guiding insight:\nThe door is set in your chest, and your face is the mirror upon that door. When the door opens and closes naturally, the reflection in that mirror is a rosy, gentle, and serene countenance.",
+            vi: "Vì vậy, tâm luân có thông hay không, sự căng hay giãn ở vùng trước ngực chính là chiếc nhiệt kế trung thực nhất. Hãy ghi nhớ một câu trong phần này:\nCánh cửa nằm ở trước ngực, khuôn mặt chính là tấm gương trên cánh cửa. Cánh cửa đóng mở tự nhiên thì trong tấm gương ấy sẽ là một khuôn mặt hồng nhuận, ôn hòa."
+          }
+        ]
+      },
+      {
+        id: "section-2",
+        num: "2",
+        tag: "Section 2",
+        title_en: "2. The Doorway Opening Outward: The Capacity to Give",
+        title_vi: "2. Cánh Cửa Mở Ra Bên Ngoài: Khả Năng Cho Đi",
+        desc_en: "The neurobiology of oxytocin, genuine altruism vs. giving unto depletion.",
+        desc_vi: "Cơ chế sinh lý của hormone oxytocin, sự cho đi từ chân tâm và cạm bẫy kiệt quệ.",
+        readTime: "3 min",
+        paragraphs: [
+          {
+            id: "p2_1",
+            en: "First, look at the outward-facing aspect of the door: giving. The outward expression of the Heart Chakra manifests as compassion, goodwill, and the sharing of love. When a person can give, dares to give, and gives in a way that leaves them feeling richer rather than drained, it proves that this doorway is clear and unobstructed.",
+            vi: "Trước tiên hãy nhìn vào phía cánh cửa mở ra bên ngoài: sự cho đi. Sự xuất của tâm luân là từ bi, thiện ý và sự trao truyền tình yêu. Một người có thể cho đi, dám cho đi, hơn nữa có thể cho đi theo cách càng cho càng phong phú, điều đó cho thấy cánh cửa này đang thông suốt."
+          },
+          {
+            id: "p2_2",
+            en: "There is a fascinating physiological mechanism at play here: the hormone oxytocin. Many people hear of oxytocin and think only of childbirth. In reality, its physiological roles are far broader. Oxytocin is often dubbed the love hormone or the bonding hormone:\n* When you are embraced, your body releases oxytocin.\n* When you genuinely extend goodwill toward another person, it is also released.\n* When you build trust with someone, oxytocin actively mediates that connection.",
+            vi: "Ở đây có một cơ chế sinh lý rất thú vị: hormone oxytocin. Nhiều người nghe đến oxytocin sẽ nghĩ ngay đó chẳng phải là hormone sinh con sao? Thực ra tác dụng của nó còn rộng hơn rất nhiều. Oxytocin thường được gọi là hormone tình yêu hoặc hormone gắn kết:\n* Khi bạn được ôm, cơ thể có thể tiết ra oxytocin.\n* Khi bạn chân thành trao thiện ý cho người khác, nó cũng có thể được tiết ra.\n* Khi bạn xây dựng được sự tin tưởng với một người, nó cũng tham gia vào quá trình này."
+          },
+          {
+            id: "p2_3",
+            en: "As oxytocin levels rise, people tend to feel warmth, safety, and a desire for connection; the chest warms up, and breathing becomes relaxed. Those who regularly and sincerely help others generally enjoy better physical and mental well-being. This is not mere motivational rhetoric; it is an observation corroborated by research, because in the very act of giving, the body can generate its own neurological reward response—the tangible biological substrate supporting this outward pathway.",
+            vi: "Khi oxytocin tăng lên, con người thường có cảm giác ấm áp, an toàn, muốn đến gần nhau, lồng ngực ấm lên, hơi thở trở nên thư giãn. Những người thường xuyên chân thành giúp đỡ người khác, trạng thái thể chất và tinh thần nhìn chung có xu hướng tốt hơn. Đây không chỉ là những lời động viên sáo rỗng mà là một quan sát có cơ sở từ các nghiên cứu, bởi ngay trong khoảnh khắc cho đi, cơ thể cũng có thể tự tạo ra những phản ứng mang tính tưởng thưởng — nền tảng vật chất hỗ trợ cho con đường xuất này."
+          },
+          {
+            id: "p2_4",
+            en: "Yet the linchpin lies in giving from a genuine heart. Though both appear as acts of giving, the underlying psychological states are worlds apart:\n* Giving with sincerity: \"I have an abundance, I share a portion with you; after giving, I feel even fuller.\" In this state, the Heart Chakra is open.\n* Giving unto depletion: \"I drain myself completely to buy your approval; after giving, I feel utterly empty.\" Here, the Heart Chakra is actually obstructed, because this is no longer true giving—it is seeking validation.",
+            vi: "Nhưng điểm then chốt nằm ở hai chữ chân tâm cho đi. Cùng là cho nhưng trạng thái tâm lý hoàn toàn khác nhau:\n* Chân tâm cho đi: Tôi có phần dư, tôi chia cho bạn một chút, cho xong bản thân lại cảm thấy phong phú hơn. Trường hợp này, tâm luân đang mở.\n* Cho đi đến kiệt quệ: Tôi rút cạn chính mình để đổi lấy sự công nhận của bạn, cho xong bản thân lại càng trống rỗng. Trường hợp này thực ra tâm luân đã bị mắc kẹt, bởi đó không còn là cho mà là cầu."
+          },
+          {
+            id: "p2_5",
+            en: "Thus, the outward-facing door trains one essential quality: the ability to give. For someone who gives healthily, the door at their chest stands wide open. Reaching outward, they are relaxed, open-hearted, and warm.",
+            vi: "Vì vậy, cánh cửa hướng ra bên ngoài rèn luyện một điều: cho được. Người có thể cho đi một cách lành mạnh thì cánh cửa nơi lồng ngực rộng mở. Khi hướng ra ngoài, con người thư giãn, cởi mở và có nhiệt độ."
+          }
+        ]
+      },
+      {
+        id: "section-3",
+        num: "3",
+        tag: "Section 3",
+        title_en: "3. The Doorway Turning Inward: The Capacity to Receive",
+        title_vi: "3. Cánh Cửa Khép Vào Bên Trong: Khả Năng Tiếp Nhận",
+        desc_en: "Ventral Vagus Nerve, Heart Rate Variability (HRV), and learning to be cared for.",
+        desc_vi: "Hệ thống tham gia xã hội, nhánh phế vị bụng, độ biến thiên nhịp tim HRV và bài học đón nhận.",
+        readTime: "4 min",
+        paragraphs: [
+          {
+            id: "p3_1",
+            en: "Now consider the door opening inward: receiving. This doorway is often far more difficult than the outward one, because many people can give effortlessly but struggle profoundly to receive. Reflect on your own reactions:\n* When someone compliments you, do you deflect with \"Oh, not at all, it's nothing,\" or do you say \"Thank you\"?\n* When someone offers help, can you accept it with ease, or do you feel deeply uneasy and rush to repay the debt immediately?\n* When you need care, do you dare ask for it, or do you suppress your need and insist, \"I'm fine\"?\nIf you find yourself in the second scenario most of the time, your inward-facing door is closed.",
+            vi: "Bây giờ hãy nhìn vào cánh cửa hướng vào bên trong: sự tiếp nhận. Cánh cửa này còn khó hơn cánh cửa hướng ra ngoài bởi rất nhiều người cho được nhưng nhận không nổi. Bạn thử nhớ lại xem:\n* Khi người khác khen bạn, bạn nói \"đâu có, đâu có\" hay bạn nói \"cảm ơn\"?\n* Khi người khác giúp bạn, bạn có thể bình thản tiếp nhận hay cả người cảm thấy không thoải mái và vội vàng tìm cách trả lại?\n* Khi bạn cần được chăm sóc, bạn có dám mở lời hay lại cố nén xuống và nói \"không sao\"?\nNếu phần lớn thời gian bạn đều thuộc về trường hợp thứ hai thì cánh cửa hướng vào bên trong của bạn đang đóng."
+          },
+          {
+            id: "p3_2",
+            en: "A closed inward door means the intake channel of the Heart Chakra cannot open, preventing nourishment from entering. When goodwill, support, and love from others arrive at your doorstep, you push them away. Over time, your body mirrors this behavior: the chest reflexively constricts, and breathing becomes shallow, because you do not allow outside vitality to enter—even breath itself is forbidden from sinking deep.",
+            vi: "Cánh cửa hướng vào đóng lại nghĩa là con đường nhập của tâm luân không mở được, sự nuôi dưỡng không thể đi vào. Thiện ý, sự giúp đỡ và tình yêu mà người khác trao cho bạn, khi đến trước cửa bạn lại đẩy chúng ra. Lâu dần, cơ thể cũng làm điều tương tự: lồng ngực quen với việc co lại, hơi thở quen với việc trở nên nông, bởi bạn không cho những thứ bên ngoài đi vào, thậm chí ngay cả khí cũng không được phép đi sâu vào."
+          },
+          {
+            id: "p3_3",
+            en: "Dây thần kinh phế vị bụng & Độ biến thiên nhịp tim (HRV) (The Ventral Vagus Nerve & Heart Rate Variability)\nHere we must discuss a crucial neuroscience concept: the Ventral Vagus Nerve, also known as the social engagement system. The vagus nerve is one of the body’s longest cranial nerves, traveling down from the brainstem through the neck, chest, and abdomen, innervating major visceral organs. It features two primary branches, with the ventral vagal branch directly mediating our capacity for social connection.\n* When a person feels safe, accepted, and bonded, this neural pathway activates. Outwardly, breathing slows, heart rate stabilizes, the chest softens, vocal tone warms and modulates, and one can comfortably hold eye contact.\n* Conversely, when someone lives in chronic avoidance of receiving, fearing dependency or burdening others, their body remains in an ongoing state of subtle constriction. Ventral vagal activation is suppressed, the sympathetic nervous system takes over, breathing becomes shallow, heart rate climbs, the chest tightens, and the neck and shoulders stiffen.",
+            vi: "Dây thần kinh phế vị bụng & Độ biến thiên nhịp tim (HRV)\nỞ đây cần nói đến một khái niệm rất quan trọng trong khoa học thần kinh: Dây thần kinh phế vị bụng, còn được gọi là hệ thống tham gia xã hội. Dây thần kinh phế vị là một trong những dây thần kinh sọ dài nhất của cơ thể, đi từ thân não xuống, xuyên qua vùng cổ, ngực và bụng, chi phối hoạt động của các cơ quan nội tạng. Nó có hai nhánh, trong đó nhánh phế vị bụng có liên quan trực tiếp đến trạng thái kết nối.\n* Khi một người cảm thấy an toàn, được chấp nhận và có sự gắn kết, nhánh thần kinh này được kích hoạt. Biểu hiện ra bên ngoài là hơi thở chậm lại, nhịp tim ổn định, lồng ngực thư giãn, giọng nói trở nên mềm mại, có thể nhìn vào mắt người khác.\n* Ngược lại, một người thường xuyên sống trong trạng thái không dám nhận, không dám dựa vào người khác, sợ làm phiền người khác thì cơ thể thực chất luôn âm thầm co lại. Sự hoạt hóa của phế vị bụng bị ức chế, hệ thần kinh giao cảm tiếp quản, hơi thở trở nên nông, nhịp tim tăng, lồng ngực căng, vai lưng cứng."
+          },
+          {
+            id: "p3_4",
+            en: "This physiological dynamic can be objectively measured through Heart Rate Variability (HRV). HRV captures the millisecond variations between consecutive heartbeats, reflecting the resilience and flexibility of the autonomic nervous system.\n* A high HRV indicates that the nervous system transitions smoothly between tension and relaxation, capable of adapting to stress and resting deeply. It serves as a vital biomarker for cardiovascular health and emotional stability.\n* People who endure chronic stress and never allow themselves to relax tend to show lower HRV; their bodies remain trapped in a mode of perpetual output without input, to the point where even their heartbeat cannot truly ease.",
+            vi: "Trạng thái này có một chỉ số có thể đo lường trong y học gọi là độ biến thiên nhịp tim — HRV (Heart Rate Variability). Nó đo những biến đổi rất nhỏ trong khoảng thời gian giữa các nhịp tim, qua đó phản ánh mức độ linh hoạt của hệ thần kinh tự chủ.\n* Người có HRV cao cho thấy hệ thần kinh có khả năng chuyển đổi linh hoạt giữa trạng thái căng và giãn, có thể thư giãn, cũng có thể ứng phó. Đây là chỉ dấu quan trọng liên quan đến sức khỏe tim mạch và sự ổn định cảm xúc.\n* Những người thường xuyên căng thẳng kéo dài, không dám thư giãn thường có HRV thấp hơn; cơ thể của họ luôn mắc kẹt trong chế độ sẵn sàng cho đi nhưng không dám tiếp nhận, đến mức ngay cả nhịp tim cũng không thể thực sự thả lỏng."
+          },
+          {
+            id: "p3_5",
+            en: "Thus, the inward-facing door trains one vital capacity: the ability to receive. When you can receive, the goodwill of others can enter, physiological replenishment can flow in, and even your breath becomes deep, spacious, and complete.",
+            vi: "Vì vậy, cánh cửa hướng vào bên trong rèn luyện một điều: tiếp nhận được. Người có thể tiếp nhận được thì thiện ý của người khác có thể đi vào, sự nuôi dưỡng của cơ thể có thể đi vào, ngay cả hơi thở cũng trở nên sâu đầy và trọn vẹn."
+          }
+        ]
+      },
+      {
+        id: "section-4",
+        num: "4",
+        tag: "Section 4",
+        title_en: "4. The Hinge of the Doorway: Respiration",
+        title_vi: "4. Trục Bản Lề Của Cánh Cửa: Hô Hấp",
+        desc_en: "Dual conscious-automatic breathing switch, Heart-Lung synergy, and sighs as body rescue.",
+        desc_vi: "Cơ chế hai công tắc của hơi thở, mối phối hợp Tâm - Phế và cơ chế tự cứu của tiếng thở dài.",
+        readTime: "3 min",
+        paragraphs: [
+          {
+            id: "p4_1",
+            en: "We have explored both sides of the door, but where is its hinge located? It resides in your breath.\nWhy the breath? Because respiration is the most extraordinary physiological system in the human body: half of it operates under conscious control, while the other half functions automatically. You can consciously take a deep inhale, yet you can also surrender respiration entirely to automatic control. Virtually no other organ system in the body shares this dual-switch mechanism. Because of this unique trait, breath serves as the finest remote control for regulating the autonomic nervous system.",
+            vi: "Hai cánh cửa đã nói xong, vậy trục bản lề của cánh cửa nằm ở đâu? Ở hơi thở.\nTại sao lại là hơi thở? Bởi hô hấp là một hệ thống đặc biệt nhất trong cơ thể: một nửa chịu sự điều khiển của ý thức, một nửa vận hành tự động. Bạn có thể chủ động hít sâu một hơi, nhưng cũng có thể hoàn toàn giao việc hô hấp cho cơ thể tự điều khiển. Trong cơ thể gần như không có hệ thống thứ hai sở hữu cùng một cơ chế hai công tắc như vậy. Chính vì đặc tính đó, hơi thở trở thành chiếc điều khiển từ xa tốt nhất để điều chỉnh hệ thần kinh tự chủ."
+          },
+          {
+            id: "p4_2",
+            en: "When emotions spike into stress, the sympathetic system takes command, making breath shallow, rapid, and strained. Conversely, when you deliberately lengthen, deepen, and slow your breath, your body receives a definitive signal: it is safe to relax. The parasympathetic nervous system engages, heart rate gently drops, blood pressure stabilizes, and the chest expands. That is why virtually all relaxation modalities ultimately return to the breath. Breath is the key that unlocks the autonomic nervous system.",
+            vi: "Khi cảm xúc căng thẳng, hệ thần kinh giao cảm tiếp quản, hơi thở trở nên nông, nhanh và gấp. Ngược lại, khi bạn chủ động làm cho hơi thở chậm lại, sâu hơn và kéo dài hơn, cơ thể sẽ nhận được một tín hiệu: có thể thư giãn rồi. Sau đó, hệ thần kinh đối giao cảm được kích hoạt, nhịp tim bắt đầu giảm, huyết áp có xu hướng ổn định, lồng ngực bắt đầu giãn ra. Đó là lý do tại sao hầu hết các phương pháp thư giãn cuối cùng đều quay trở về với hơi thở. Hơi thở chính là chiếc chìa khóa mở cánh cửa của hệ thần kinh tự chủ."
+          },
+          {
+            id: "p4_3",
+            en: "The Heart-Lung Synergy in TCM (Mối liên hệ Tâm - Phế trong Đông y)\nTCM teaches: \"The Lung governs Qi and controls respiration; the Lung faces all vessels\" (Phế chủ khí tư hô hấp, phế triều bách mạch)—the Lung manages Qi and oversees breathing; it connects with all hundred vessels, drawing Qi into the body and collaborating with the Heart to distribute Qi and blood throughout the entire system. The Heart and Lungs mutually rely on each other, coexisting within the thoracic cavity. The pumping of the Heart and the breathing of the Lungs form an intimately coordinated dynamic. When breathing is deep, the chest opens and closes fully, Qi rises and falls naturally, and both Heart and Lungs find spacious ease.",
+            vi: "Mối liên hệ Tâm - Phế trong Đông y\nĐông y nói: \"Phế chủ khí tư hô hấp, phế triều bách mạch\" — phế chủ quản khí đảm nhiệm hô hấp, phế thông với trăm mạch, đưa khí vào cơ thể thông qua sự phối hợp với tâm mà phân bố khí đến toàn thân và huyết mạch. Tâm phế tương y cùng nằm trong khu vực lồng ngực. Hoạt động bơm máu của tâm và hoạt động hô hấp của phế vốn là một hệ thống phối hợp liên động. Người có hơi thở sâu, lồng ngực đóng mở đầy đủ, khí cơ thăng giáng tự nhiên, tâm và phế đều được thư thái."
+          },
+          {
+            id: "p4_4",
+            en: "Simply by observing how someone breathes, you can gauge the condition of their Heart Chakra:\n* A person with an unblocked Heart Chakra: Their breath is typically deep, steady, and unhindered. Whether sitting or standing, their respiratory rhythm remains effortless, long, and tranquil. When speaking, their central Qi (trung khí) is robust and resonant.\n* A person with a blocked Heart Chakra: Their breath is often shallow, rarely reaching down into the abdomen, punctuated by frequent deep gasps followed by heavy sighs. Sighing is not an affectation; it occurs because stagnant Qi is trapped in the chest, and the body instinctively attempts to rescue itself by forcing that trapped air out.",
+            vi: "Chỉ cần nhìn cách một người hô hấp, bạn có thể phần nào nhận ra trạng thái tâm luân của họ:\n* Người có tâm luân thông suốt: Hơi thở thường sâu dài, đều đặn và thông suốt. Đứng hay ngồi đều có nhịp thở tự nhiên, dài và thư thái. Khi nói, trung khí đầy đủ.\n* Người có tâm luân không thông: Hơi thở thường nông, dường như không thể hít xuống tận đáy, thỉnh thoảng lại phải hít vào một hơi thật dài kèm theo tiếng thở dài. Thở dài không phải là làm bộ, đó là bởi một luồng khí bị tắc nghẽn ở lồng ngực, cơ thể đang tự cứu mình muốn đẩy luồng khí ấy ra ngoài."
+          },
+          {
+            id: "p4_5",
+            en: "Between the two doors of giving and receiving, breath is the hinge. When the hinge pivots smoothly, the door opens and shuts with grace. When the hinge jams, the door freezes rigid—stuck and congested.",
+            vi: "Hai cánh cửa một vào và một ra, hơi thở chính là bản lề. Bản lề xoay được, cửa mới có thể đóng mở tự nhiên. Bản lề bị kẹt, cánh cửa sẽ cứng đờ tại chỗ, vừa tắc vừa căng."
+          }
+        ]
+      },
+      {
+        id: "section-5",
+        num: "5",
+        tag: "Case Study",
+        title_en: "Real-Life Case Story: The 35-Year-Old Teacher Who Only Knew How to Give",
+        title_vi: "Câu Chuyện Thực Tế: Cô Giáo 35 Tuổi Chỉ Biết Cho Đi",
+        desc_en: "A moving transformation from sallow exhaustion to youthful radiance through receiving.",
+        desc_vi: "Hành trình hồi sinh dung mạo từ xám xịt sang sáng trong của một người phụ nữ học cách mở cửa nhập.",
+        readTime: "4 min",
+        paragraphs: [
+          {
+            id: "p5_1",
+            en: "This brings to mind someone I once worked with. A close friend of mine who works as a teacher came to see me. At 35 years old, she was the archetypal person who only knew how to give and never how to receive. She described herself as \"the lubricant of my family and the fire extinguisher of my workplace.\" She managed every household chore, aided every friend in need, and served as the sounding board whenever a colleague needed comfort. She gave incessantly, yet never once uttered the words, \"I need help.\"",
+            vi: "Nói đến đây, tôi muốn kể một chuyện mà tôi từng gặp. Có một người bạn làm giáo viên tìm đến tôi. Cô ấy 35 tuổi, điển hình cho kiểu người chỉ biết cho đi, không biết nhận lại. Cô tự mô tả mình là \"chất bôi trơn của gia đình, bình cứu hỏa của đơn vị\". Chuyện trong nhà cô lo, chuyện của bạn bè cô giúp, đồng nghiệp nào có cảm xúc tiêu cực cũng tìm đến cô để được an ủi. Cô luôn cho đi, chưa bao giờ nói \"tôi cần\"."
+          },
+          {
+            id: "p5_2",
+            en: "She came to me presenting very specific struggles:\n* Over the past two years, her complexion had deteriorated markedly—dull, grayish, and lifeless, unresponsive to even the most intensive skincare masks.\n* Her chest felt constantly tight and suffocated; she caught herself sighing at every turn, and each deep breath felt incomplete, as though cut short.\n* She suffered from restless sleep, plagued by lingering anxiety, as though some unresolved burden would not let her rest.",
+            vi: "Cô tìm đến tôi vì một vấn đề rất cụ thể:\n* Trong hai năm qua, sắc mặt ngày càng xấu, xám xịt, thiếu sức sống, đắp bao nhiêu mặt nạ cũng không cứu được.\n* Lồng ngực thường xuyên cảm thấy bí tức, một chút là thở dài, mỗi lần hít sâu đều có cảm giác thiếu một chút gì đó.\n* Ban đêm ngủ không ngon, trong lòng thấp thỏm, như thể có một điều gì đó vẫn chưa thể buông xuống."
+          },
+          {
+            id: "p5_3",
+            en: "I had her sit down and asked her to do just one thing: place her hands over her chest and take ten conscious breaths. By the third or fourth breath, tears were streaming down her face. She whispered: \"It has been so long since I breathed purely for myself. Every time I inhale, I feel as though I am apologizing to someone.\"",
+            vi: "Tôi bảo cô ngồi xuống, trước tiên làm một việc: đặt tay lên ngực và tự hô hấp 10 lần. Đến lần thứ ba hoặc thứ tư, nước mắt cô đã rơi xuống. Cô nói: \"Đã rất lâu rồi, tôi không chỉ vì chính mình mà hô hấp. Mỗi lần hít vào, tôi đều có cảm giác như đang xin lỗi ai đó.\""
+          },
+          {
+            id: "p5_4",
+            en: "Her condition was all too familiar to me: prolonged output without any input. Her Heart Qi was depleted, Heart blood deficient, and blood failed to rise to nourish her face, leaving her complexion sallow and gray. Trapped Qi in the chest could not disperse, producing persistent chest oppression and frequent sighing; her Heart spirit went unnurtured, resulting in restlessness and poor sleep. The root of her trouble was never her skin; it lay entirely in the word receive—she had never once permitted herself to take in nourishment.",
+            vi: "Tình trạng của cô ấy tôi quá quen thuộc: chỉ xuất không nhập trong thời gian dài, tâm khí hao tán, tâm huyết hư thiếu, huyết không thể đi lên nuôi dưỡng khuôn mặt khiến sắc mặt trở nên tối xám; khí ở lồng ngực luôn bị nén lại không thể thoát ra khiến con người cảm thấy bí bách và thường xuyên thở dài; tâm thần không được nuôi dưỡng, tâm trạng bất an, ngủ không yên. Vấn đề của cô ấy không nằm trên khuôn mặt, nó nằm ở chữ nhập của cánh cửa ấy — cô chưa bao giờ cho phép bản thân thu nhận."
+          },
+          {
+            id: "p5_5",
+            en: "What I guided her through was not giving more, but practicing how to receive. Three to four months later, when she visited again, her vital spirit had transformed conspicuously to the naked eye. Most noticeably, her habit of sighing had vanished, the grayish pallor on her face had cleared into bright transparency, and the exhausted slump in her posture was gone. She shared that now, when someone compliments her, her first impulse is no longer to wave her hands in denial; instead, she smiles and says: \"Thank you, I gladly receive that.\"",
+            vi: "Sau đó điều tôi dạy cô không phải là cho nhiều hơn mà là luyện thu nhận. Khoảng ba bốn tháng sau cô lại đến gặp tôi, thần sắc đã thay đổi rõ rệt, có thể nhìn thấy bằng mắt thường. Điều rõ ràng nhất là cô không còn thở dài nữa, khuôn mặt màu xám xịt trước đây đã trở nên sáng trong hơn nhiều, cả người nhìn cũng không còn mệt mỏi như trước. Cô chia sẻ rằng bây giờ khi được người khác khen, phản ứng đầu tiên của cô không còn là xua tay phủ nhận mà có thể mỉm cười và nói: \"Cảm ơn bạn, tôi xin nhận.\""
+          },
+          {
+            id: "p5_6",
+            en: "As she spoke those words, her eyes sparkled. She reflected with deep emotion:\n\"I used to believe that completely draining myself for others was what it meant to be kind. Now I understand that a door that can open and close naturally is true kindness. Only when I am whole and healthy do I truly have something genuine to offer.\"",
+            vi: "Khi nói câu ấy, đôi mắt cô sáng lên. Cô nói một câu đầy cảm khái:\n\"Trước đây tôi cứ nghĩ rằng vét cạn chính mình để đối tốt với người khác chính là thiện lương. Bây giờ tôi mới hiểu, một cánh cửa có thể mở và đóng tự nhiên mới thực sự là thiện lương. Bởi vì khi tôi khỏe mạnh, tôi mới có thứ để cho đi.\""
+          },
+          {
+            id: "p5_7",
+            en: "I have revisited her words many times. The doorway of the Heart Chakra: opening is compassion, closing is self-love. An opening and a closing together—that is what makes a human being whole.",
+            vi: "Tôi đã suy nghĩ về câu nói ấy rất nhiều lần. Cánh cửa của tâm luân: mở là từ bi, khép là tự ái. Một mở một khép, đó mới là một con người hoàn chỉnh."
+          }
+        ]
+      },
+      {
+        id: "section-6",
+        num: "6",
+        tag: "Section 5",
+        title_en: "5. States of Heart Chakra Imbalance",
+        title_vi: "5. Trạng Thái Tâm Luân Bất Cân Bằng",
+        desc_en: "Path 1 (Depletion: output without input) vs. Path 2 (Stagnation: input without output).",
+        desc_vi: "Phân tích 2 trạng thái mất cân bằng: cửa chỉ xuất không nhập (hao tổn) và cửa chỉ nhập không xuất (bế tắc).",
+        readTime: "3 min",
+        paragraphs: [
+          {
+            id: "p6_1",
+            en: "Having laid out the principles, let us examine the states of imbalance. Heart Chakra disharmonies generally present along two paths:\nHướng 1: Cửa chỉ xuất không nhập (Hao tổn) (Path 1: Output Without Input - Depletion)\n* Typical manifestations: Chest fullness and oppression, stiff shoulders and upper back, shallow breathing, and chronic sighing. Always caring for others while rarely being cared for; unable to ask for help. Feeling awkward when treated kindly; swallowing grievances for fear of troubling anyone. A dull, grayish, fatigued complexion, paired with listless eyes.\n* Root cause: Excessive giving without inward replenishment, leading to dissipated Heart Qi and deficient Heart blood, stripping the complexion of its radiant luster.",
+            vi: "Nói xong nguyên lý, bây giờ hãy nói về trạng thái mất cân bằng. Các vấn đề của tâm luân thông thường tôi nhìn theo hai hướng:\nHướng 1: Cửa chỉ xuất không nhập (Hao tổn)\n* Biểu hiện điển hình: Lồng ngực bí tức, vai lưng cứng, hơi thở nông, thường xuyên thở dài. Dài ngày chăm sóc người khác nhưng hiếm khi được người khác chăm sóc, không dám mở lời nhờ giúp đỡ. Người khác đối tốt với mình lại cảm thấy không tự nhiên; trong lòng có ấm ức cũng cố nén vì sợ làm phiền người khác. Sắc mặt thường tối, xám, mệt mỏi, ánh mắt uể oải.\n* Căn nguyên: Cho đi quá nhiều nhưng không thu nhận lại được, dẫn đến tâm khí hao tán, tâm huyết hư thiếu, diện sắc mất đi sự vinh nhuận."
+          },
+          {
+            id: "p6_2",
+            en: "Hướng 2: Cửa chỉ nhập không xuất (Bế tắc) (Path 2: Input Without Output - Stagnation)\n* Typical manifestations: Harbors a reservoir of pent-up emotion that can neither be spoken nor let go. Lacks warmth toward others and feels that loving is futile. It is not a lack of desire to love, but rather a heavy boulder pressing upon the chest that prevents love from flowing outward. Instinctively pulling back when others approach. Emotional backlog causes even minor events to induce breathlessness; the face appears dull, dusky, or pale-sallow, with brows perpetually furrowed.\n* Root cause: Hoarding everything inwardly and refusing to extend oneself, causing emotions to stagnate in the chest and obstructing the natural flow of Qi.",
+            vi: "Hướng 2: Cửa chỉ nhập không xuất (Bế tắc)\n* Biểu hiện điển hình: Trong lòng chất chứa rất nhiều cảm xúc nhưng không nói ra được cũng không buông xuống được. Không còn nhiệt tình với người khác, cảm thấy tình yêu thật vô lực. Không phải không muốn yêu mà giống như có một tảng đá đè lên ngực khiến tình yêu không thể đi ra. Khi người khác đến gần, theo bản năng lại lùi về phía sau. Cảm xúc dễ tích tụ, chỉ một chuyện nhỏ cũng khiến bản thân cảm thấy khó thở, sắc mặt xanh xám tối, chân mày thường xuyên nhíu chặt.\n* Căn nguyên: Cái gì cũng giữ lại, cái gì cũng không dám cho đi, khiến cảm xúc uất kết ở lồng ngực, khí cơ không thông."
+          },
+          {
+            id: "p6_3",
+            en: "In TCM, this corresponds to Liver Qi stagnation and obstruction of the Heart vessels. One path is depletion, the other is stagnation; their directions are opposite, yet their origin is identical: the doorway in the chest has lost its natural open-and-close rhythm, its hinge seized. What needs to flow out cannot escape, and what needs to enter cannot penetrate. Over time, this disharmony writes itself across the face and stamps itself into the body.",
+            vi: "Theo Đông y có thể nhìn nhận theo hướng can uất khí trệ, tâm mạch bất thông. Một bên là hao, một bên là tắc, hướng đi ngược nhau nhưng căn nguyên đều nằm ở cùng một nơi: cánh cửa nơi lồng ngực đã mất khả năng đóng mở tự nhiên, bản lề bị kẹt. Cái cần đi ra thì không đi ra được, cái cần đi vào thì không đi vào được. Lâu dần tất cả đều được viết lên khuôn mặt và cũng được viết vào cơ thể."
+          },
+          {
+            id: "p6_4",
+            en: "When the Heart Chakra is truly unobstructed: breath is deep, long, and smooth; the chest is relaxed without tension; giving and receiving coexist in harmony; emotions flow without being bottled up or exhausted; and an authentic inner radiance emanates—a tranquil state that requires no pretense, no straining, and no depletion.",
+            vi: "Khi tâm luân thực sự thông suốt: hơi thở sâu dài và thuận, lồng ngực thư giãn không căng cứng, vừa cho đi được vừa tiếp nhận được, cảm xúc có dòng chảy không bị đè nén cũng không bị hao mòn, từ bên trong tỏa ra một sự ôn nhuận, một trạng thái an tĩnh không cần giả tạo, không cần gồng mình, không cần tiêu hao."
+          }
+        ]
+      },
+      {
+        id: "section-7",
+        num: "7",
+        tag: "Section 6",
+        title_en: "6. Methods for Regulating the Heart Chakra: One Inhale, One Exhale",
+        title_vi: "6. Phương Pháp Điều Chỉnh Tâm Luân: Một Thở Vào, Một Thở Ra",
+        desc_en: "Acupressure (Danzhong, Neiguan, Shenmen, Juque) & complete visualization breathwork.",
+        desc_vi: "Phương pháp tác động các huyệt Đản Trung, Nội Quan, Thần Môn, Cự Khuyết và bài tập thở khai thông.",
+        readTime: "5 min",
+        paragraphs: [
+          {
+            id: "p7_1",
+            en: "When helping people regulate the Heart Chakra, I rarely tell them to \"just think their way through it.\" I teach them to work through breath, because the stagnation and depletion of the Heart Chakra reside in the physical body, not in abstract theories. The harder you try to force yourself to \"be more open-minded,\" the more blocked you become; the more you demand of yourself to \"give even more,\" the more depleted you get. The body possesses its own language, and the language of the Heart Chakra is the breath.\nThe most effective method to regulate the Heart Chakra is returning to respiration, relearning the natural rhythm of opening and closing: one inhalation and one exhalation constitute one complete cycle of opening and shutting. Master this foundational practice thoroughly.",
+            vi: "Khi điều chỉnh tâm luân, tôi rất ít khi dạy người ta cố nghĩ cho thông. Tôi dạy họ dùng hơi thở, bởi sự tắc nghẽn và hao tổn của tâm luân đều nằm trong cơ thể chứ không nằm trong lý luận. Bạn càng cố nghĩ \"tôi phải nghĩ thoáng hơn\" thì lại càng tắc; bạn càng ép mình \"tôi phải cho đi nhiều hơn\" thì càng hao. Cơ thể có ngôn ngữ riêng, ngôn ngữ của tâm luân chính là hơi thở.\nPhương pháp tốt nhất để điều chỉnh tâm luân là trở về với hơi thở, luyện lại sự đóng mở tự nhiên: một lần hít vào, một lần thở ra chính là một lần đóng mở. Hãy làm thật vững động tác cơ bản này."
+          },
+          {
+            id: "p7_2",
+            en: "Step 1: Open - Exhale - The Doorway Turning Outward (Bước 1: Mở (Thở ra – Cánh cửa hướng ra ngoài))\nThe tightest, most oppressive Qi in the chest is usually stagnant air unable to release. On the exhale, let it move out completely, working in tandem with the Danzhong acupoint:\n* Danzhong Acupoint (CV17): Located directly along the midline of the sternum, midway between the nipples (in the slight depression of the chest). It is the Front-Mu point of the Pericardium and the Hui-Meeting point of Qi among the Eight Influential Points, where the Qi of the entire body converges. TCM utilizes this point to loosen the chest, regulate Qi, disperse Lung Qi, and unblock the collaterals when the chest feels constricted and Qi flow is erratic.\n* How to perform: Place your thumb or the heel of your palm on Danzhong. In rhythm with your exhalation, press gently downward and outward toward the sides. Coordinate this gentle push with your outward breath, releasing trapped, oppressive tension from the chest bit by bit. Alternatively, use the heel of your palm to massage Danzhong in gentle circular motions until the chest warms up. Many people involuntarily let out a long sigh while pressing here—this is completely natural, a sign that pent-up Qi is beginning to move.",
+            vi: "Bước 1: Mở (Thở ra – Cánh cửa hướng ra ngoài)\nLuồng khí căng nhất ở lồng ngực phần lớn là thứ không thể thoát ra. Khi thở ra, hãy để nó được đưa ra ngoài, kết hợp với huyệt Đản trung:\n* Huyệt Đản Trung: Nằm ở chính giữa ngực, tại trung điểm của đường nối hai đầu vú (khu vực hõm giữa ngực). Đây là Mộ huyệt của Tâm bào kinh, đồng thời là Khí hội trong Bát hội huyệt, nơi khí của toàn thân quy tụ. Đông y sử dụng huyệt này để khoan hung, lý khí, tuyên phế, thông lạc khi lồng ngực bế tắc, khí không thuận.\n* Cách thực hiện: Dùng ngón tay cái hoặc gốc lòng bàn tay đặt lên Đản trung. Theo nhịp thở ra, nhẹ nhàng đẩy xuống dưới và sang hai bên. Trong lúc đẩy phối hợp với hơi thở ra, từng chút một đưa luồng khí bí tức trong ngực ra ngoài. Hoặc dùng gốc lòng bàn tay nhẹ nhàng xoa ấn Đản trung cho đến khi vùng ngực cảm thấy ấm lên. Nhiều người khi ấn đến đây sẽ không nhịn được mà thở ra thật dài — như vậy là đúng, dấu hiệu cho thấy luồng khí đang bị dồn nén bắt đầu chuyển động."
+          },
+          {
+            id: "p7_3",
+            en: "Step 2: Close - Inhale - The Doorway Turning Inward (Bước 2: Khép (Hít vào – Cánh cửa hướng vào bên trong))\nFor the inward door of the Heart Chakra to receive, it relies on calming the spirit (an thần): when the spirit settles, Qi can gather inward. This can be combined with key acupoints:\n* Neiguan Acupoint (PC6): Located approximately two cun above the wrist crease, between the two tendons. It is the Luo-Connecting point of the Pericardium meridian and one of the Eight Confluent Points coupled with the Yin Wei Mai. TCM applies Neiguan to calm the heart, settle the spirit, regulate Qi, and relieve pain. When you feel restless, anxious, or experience chest tightness, massaging Neiguan helps soothe inner agitation.\n* Shenmen Acupoint (HT7): Located at the ulnar end of the transverse wrist crease, near the pinky side just beside the pisiform bone. It is the Yuan-Source point of the Heart meridian. TCM regards Shenmen as the gateway through which Heart spirit enters and exits, functioning to nourish the heart and calm the mind. Gently massaging Shenmen before bedtime helps unwind a nervous system that has been overstimulated all day.\n* Juque Acupoint (CV14): Located six cun above the navel, just below the xiphoid process of the sternum; it is the Front-Mu point of the Heart. When the mind is unsettled and the heart or chest feels tense, gently knead Juque with the heel of your palm, symbolically guiding the spirit back home to settle peacefully in the chest.\nAll three of these acupoints center around the principle of \"gathering inward.\" As you inhale while gently massaging these points, the heart settles and Qi gathers back to center.",
+            vi: "Bước 2: Khép (Hít vào – Cánh cửa hướng vào bên trong)\nCánh cửa hướng vào của tâm luân muốn tiếp nhận được cần phải dựa vào an thần: thần được an, khí mới có thể thu lại. Có thể phối hợp với các huyệt vị:\n* Huyệt Nội Quan: Nằm cách nếp gấp cổ tay khoảng hai thốn giữa hai gân. Đây là Lạc huyệt của Tâm bào kinh, đồng thời là một trong Bát mạch giao hội huyệt thông với Âm duy mạch. Đông y sử dụng Nội quan để ninh tâm an thần, lý khí chỉ thống. Khi tâm phiền, hồi hộp, tức ngực, xoa ấn Nội quan giúp trạng thái bồn chồn dần lắng xuống.\n* Huyệt Thần Môn: Nằm ở đầu phía trụ của nếp gấp cổ tay, gần phía ngón tay út cạnh mỏm xương. Đây là Nguyên huyệt của Tâm kinh. Đông y xem Thần môn là cánh cửa xuất nhập của tâm thần, có tác dụng ninh tâm an thần. Trước khi ngủ nhẹ nhàng xoa ấn Thần môn giúp hệ thần kinh đã căng thẳng suốt một ngày dần thư giãn.\n* Huyệt Cự Khuyết: Nằm sáu thốn phía trên rốn ở khu vực dưới mũi kiếm xương ức, là Mộ huyệt của tâm. Khi tâm thần bất an, vùng tim ngực căng tức, dùng gốc lòng bàn tay nhẹ nhàng xoa ấn Cự khuyết như thể đưa tâm thần trở về và an định tại vùng ngực.\nBa huyệt này đều liên quan đến chữ \"thu\". Khi hít vào phối hợp xoa ấn các huyệt này sẽ giúp tâm an xuống, khí thu trở về."
+          },
+          {
+            id: "p7_4",
+            en: "Complete Opening-and-Closing Breathing Exercise (Bài tập thở đóng mở hoàn chỉnh)\nChoose a quiet moment, sit comfortably or lie down, and rest both hands over your chest:\n1. Exhaling (Emptying completely): Feel your chest slowly sink downward, releasing all stagnant, congested tension. Pair this with visualization: imagine extending goodwill and gentle warmth outward to those around you.\n2. Inhaling (Filling completely): Feel your chest gently expand, welcoming warmth, nourishment, and the kindness of others inward. Pair this with visualization: imagine gathering love and blessings back into your own being.\nPractice this for 3 to 5 minutes at a time, 2 to 3 times a day. Do not underestimate this visualization practice; it is actively training the two portals of your Heart Chakra: the capacity to give and the capacity to receive.",
+            vi: "Bài tập thở đóng mở hoàn chỉnh\nChọn một thời điểm yên tĩnh, ngồi hoặc nằm xuống, đặt hai tay lên ngực:\n1. Thở ra (Thở cho hết): Cảm nhận lồng ngực từ từ hạ xuống, đưa tất cả những thứ đang tắc nghẽn bí bách ra ngoài. Kết hợp quán tưởng: tưởng tượng mình trao thiện ý và sự ấm áp cho những người xung quanh.\n2. Hít vào (Hít cho đầy): Cảm nhận lồng ngực từ từ mở rộng, đón nhận sự ấm áp, sự nuôi dưỡng và thiện ý của người khác vào bên trong. Kết hợp quán tưởng: tưởng tượng mình thu tình yêu và lời chúc phúc trở về cho chính mình.\nMỗi lần thực hiện từ 3 đến 5 phút, mỗi ngày 2 đến 3 lần. Đừng xem nhẹ hình ảnh quán tưởng này, nó chính là đang luyện hai cánh cửa của tâm luân: cho được và nhận được."
+          },
+          {
+            id: "p7_5",
+            en: "Supporting Acupoints & Daily Habits (Các huyệt hỗ trợ & Thói quen hàng ngày)\n* Zhongchong Acupoint (PC9): Located at the tip of the middle finger, this is the Jing-Well point of the Pericardium meridian, used to clear the heart and awaken the sensory orifices. When feeling irritable, stuffy, or flustered, press Zhongchong lightly with your thumb to clear agitation.\n* Shaofu Acupoint (HT8): Located where the tip of the little finger touches the palm when making a fist; it is the Ying-Spring point of the Heart meridian, clearing Heart fire for those with flared Heart heat, a red tongue tip, or irritability.\n* Xinshu Acupoint (BL15): Located on the back, 1.5 cun lateral to the lower border of the spinous process of the 5th thoracic vertebra (T5); it is the Back-Shu point of the Heart. You can have a family member gently knead this area or apply a warm compress across your upper back to warm the posterior Heart zone.\n* Daily Practice of Receiving: Make a conscious effort each day to practice one small act of receiving. When someone compliments you, say thank you and receive it; when someone offers help, do not rush to pay them back immediately, but allow yourself to be cared for; speak up about what you want rather than always saying \"anything is fine.\"\n* Caring for the Chest Area: Do not allow your chest to remain perpetually collapsed or hunched. After prolonged sitting, stand up, draw your shoulders back, and open your chest. During cold weather, keep your chest and upper back warm, preventing the chest from becoming both chilled and tense. When your chest is warm and your posture relaxed, Heart Qi circulates smoothly.\nNote: Acupressure, warm compresses, and moxibustion are traditional wellness practices that support the body in returning to its natural rhythms, not medical treatments intended to replace professional care. When experiencing unusual or persistent symptoms, always consult a qualified medical physician.",
+            vi: "Các huyệt hỗ trợ & Thói quen hàng ngày\n* Huyệt Trung Xung: Nằm ở đầu ngón tay giữa, là Tỉnh huyệt của Tâm bào kinh, giúp thanh tâm khai khiếu. Khi trong lòng phiền loạn, bức bối, dùng ngón tay cái ấn nhẹ Trung xung để giải tỏa.\n* Huyệt Thiếu Phủ: Vị trí đầu ngón út chạm vào lòng bàn tay khi nắm tay lại, là Huỳnh huyệt của Tâm kinh, giúp thanh tâm tả hỏa cho người tâm hỏa vượng, đầu lưỡi đỏ, dễ nóng nảy, bốc hỏa.\n* Huyệt Tâm Du: Nằm ở lưng, cách dưới gai đốt sống ngực thứ 5 sang ngang 1,5 thốn, là Bối du huyệt của tâm. Có thể nhờ người nhà xoa ấn hoặc dùng khăn ấm chườm vùng lưng để sưởi ấm vùng tâm phía sau.\n* Luyện thu hằng ngày: Mỗi ngày cố ý làm một việc nhỏ mang tính tiếp nhận. Ai khen hãy nói lời cảm ơn và đón nhận; ai giúp đỡ đừng vội vàng tìm cách trả lại ngay mà hãy cho phép bản thân được chăm sóc; muốn gì hãy nói ra, đừng luôn trả lời là \"tùy\".\n* Chăm sóc vùng trước ngực: Đừng để vùng ngực luôn co rút. Nếu ngồi lâu, hãy đứng dậy đưa hai vai ra sau mở rộng lồng ngực (khai hung). Khi trời lạnh cần giữ ấm ngực và lưng, tránh để vùng ngực vừa lạnh vừa căng. Ngực ấm, thân thể thư giãn thì tâm khí mới vận hành thuận lợi.\nLưu ý: Xoa ấn huyệt, chườm ấm, cứu ngải đều là phương pháp dưỡng sinh hàng ngày giúp cơ thể trở về nhịp điệu vốn có, không phải là phương pháp điều trị bệnh thay thế y tế. Khi có triệu chứng bất thường, người bệnh vẫn cần đi khám bác sĩ."
+          }
+        ]
+      },
+      {
+        id: "section-8",
+        num: "8",
+        tag: "Section 7 & Epilogue",
+        title_en: "7. Hallmark Signs of Facial Rejuvenation & Conclusion",
+        title_vi: "7. Diện Mạo Của Người Có Tâm Luân Thông Suốt & Lời Kết",
+        desc_en: "Six organic markers of reverse-aging vitality and the final blessing.",
+        desc_vi: "Sáu đặc điểm tự nhiên của dung mạo trẻ hóa ngược tuổi và lời đúc kết thiện lương.",
+        readTime: "4 min",
+        paragraphs: [
+          {
+            id: "p8_1",
+            en: "A person whose Heart Chakra is unobstructed and who embodies genuine \"age-reversing youthfulness\" naturally exhibits six hallmark traits:\n1. A rosy, luminous complexion: Not the product of makeup or cosmetics, but a radiant clarity emanating from deep within the skin. When Heart blood rises abundantly to nourish the face, the skin takes on a healthy, delicate rosy glow and vibrant tone that looks genuinely pleasant and fresh.\n2. Soft, spirited eyes: Not sharp or piercing, but gentle and expressive. When looking at others, their gaze carries warmth, light, and receptivity, welcoming others without overwhelming them.\n3. Deep, steady, and unforced breathing: Whether standing or sitting, their breathing rhythm is effortless, prolonged, and serene. When speaking, their central Qi is full and resonant—free from breathlessness or frantic rushing. Deep inhales reach all the way down without feeling shallow or restricted.\n4. An open, relaxed chest: The shoulders are naturally open, the chest upright without strain—free from rounded shoulders or a hollowed chest—projecting an air of clarity and ease.\n5. Equanimous, warm emotions: Neither aloofly cold nor excessively volatile. In challenging situations, they can pause, understand others, and simultaneously care for themselves; they extend goodwill effortlessly and receive warmth gracefully, keeping emotions in fluid circulation.\n6. Inner-to-outer gentleness (the most precious trait): A palpable warmth seems to radiate from their chest—never rushed, never irritable, never artificial, and never self-depleting. Simply being in their presence evokes comfort, ease, and a desire to draw near.\nSuch beauty can never be replicated by cosmetics. It is the natural fruit of a doorway at the chest that opens and closes freely, with Qi and blood circulating smoothly and the spirit at peace.",
+            vi: "Người có tâm luân thông suốt và đạt được diện mạo \"trẻ hóa ngược tuổi\" sẽ có 6 đặc điểm tự nhiên sau:\n1. Sắc mặt hồng nhuận, có ánh sáng: Không phải do trang điểm hay mỹ phẩm, mà là sự nhuận sắc tỏa ra từ bên dưới làn da. Khi tâm huyết đầy đủ đi lên nuôi dưỡng khuôn mặt, da sẽ trắng phớt hồng, có huyết sắc, nhìn vào thấy dễ chịu.\n2. Ánh mắt mềm mại và có thần: Không sắc bén mà nhu hòa. Khi nhìn người khác, ánh mắt ôn hòa, có ánh sáng, có nhiệt độ, đón nhận người khác nhưng không cuốn họ vào mình.\n3. Hơi thở sâu, dài và thuận: Đứng hay ngồi đều có nhịp thở tự nhiên, thư thái. Khi nói chuyện thì trung khí đầy đủ, không hụt hơi, không gấp gáp. Hít sâu có thể hít xuống tận đáy mà không cảm thấy thiếu hơi.\n4. Lồng ngực thư thái, không căng cứng: Vai mở, ngực thẳng tự nhiên, không co ngực gù lưng, toàn thân toát lên sự cởi mở, sáng sủa.\n5. Cảm xúc bình hòa và có nhiệt độ: Không lạnh lùng cũng không quá nóng nảy. Gặp chuyện biết chậm lại, biết thấu hiểu người khác nhưng cũng biết chăm sóc bản thân; vừa cho được thiện ý vừa nhận được sự ấm áp, cảm xúc có dòng chảy tự nhiên.\n6. Sự nhu hòa từ trong ra ngoài (quý giá nhất): Toàn thân như có luồng ấm áp tỏa ra từ lồng ngực, không vội vàng, không nóng nảy, không giả tạo, không tiêu hao. Chỉ cần đứng ở đó thôi đã tạo cho người xung quanh cảm giác dễ chịu, ấm áp và muốn đến gần.\nNhững vẻ đẹp này không mỹ phẩm nào mang lại được. Đó là thành quả khi cánh cửa nơi lồng ngực đóng mở tự nhiên, khí huyết lưu thông và tâm thần an định."
+          },
+          {
+            id: "p8_2",
+            en: "The Heart Chakra is the most human of the seven chakras because it governs the most intimate aspects of life: love, connection, giving, and receiving. The mark of an open Heart Chakra is not how skilled you become at loving others, but that you can both give and receive; that you can love others without fearing being loved in return. Breath runs deep, the heart rests at peace, and the complexion flourishes.\nAge reversal has never been mere surface work on the face. It lies in whether the door in your chest can open and close naturally. Starting today, rest your hand gently upon your chest. Slowly exhale to release all trapped tension, then take a deep, full breath to gather warmth and nourishment back home. When the door opens, blood flourishes; when the door closes, the spirit settles; and when the spirit is settled, the face naturally blossoms into soft, radiant grace.\nShared for the community; boundless blessings. He Zongchuan / Ha Tung Xuyen – Nine Heavens Mysterious Maiden Divine Art.",
+            vi: "Tâm luân là luân xa thông tình người nhất bởi nó quản lý những điều gần gũi nhất: tình yêu, mối quan hệ, sự cho đi và tiếp nhận. Dấu hiệu tâm luân thông suốt không phải là bạn trở nên giỏi yêu người khác đến mức nào, mà là bạn có thể cho được và cũng nhận được; yêu người khác và cũng không sợ được người khác yêu. Hơi thở sâu, tâm an, sắc diện nhuận.\nTrẻ hóa ngược tuổi chưa bao giờ chỉ là công phu bên ngoài khuôn mặt. Nó nằm ở việc cánh cửa nơi lồng ngực có thể đóng mở tự nhiên hay không. Bắt đầu từ hôm nay, hãy hạ tay xuống đặt lên ngực, từ từ thở ra một hơi đẩy luồng khí dồn nén ra ngoài, sau đó hít vào thật sâu thu sự ấm áp và nuôi dưỡng trở về. Cửa mở huyết liền nhuận, cửa khép thần liền an; thần an, khuôn mặt tự nhiên sẽ trở nên ôn nhuận.\nChia sẻ cộng đồng phúc sinh vô lượng. Hà Tùng Xuyên Thiên Cửu Thiên Huyền Nữ Thần Công."
+          }
+        ]
+      }
+    ];
+
+    // Bilingual Executive Summary (From Document Summary section)
+    const SUMMARY_SECTIONS = [
+      {
+        id: "sum-1",
+        num: "1",
+        title_en: "1. The Nature of the Heart Chakra: The Doorway at the Chest",
+        title_vi: "1. Bản Chất Tâm Luân: Cánh Cửa Nơi Lồng Ngực",
+        en: "The Heart Chakra is situated at the center of the chest, governing love, relationships, respiration, and anatomical organs such as the heart, lungs, thymus, and mammary glands. In Traditional Chinese Medicine, the Heart acts as the sovereign monarch governing blood vessels and the spirit, with its vital state reflected directly across facial complexion through the principle \"its splendor blossoms on the face\". Through the lens of modern medicine, the heart's pumping efficiency determines skin tone and elasticity, while the thymus modulates immunity and the breasts absorb suppressed, unresolved emotional tension.",
+        vi: "Tâm luân tọa lạc tại trung tâm lồng ngực, quản lý tình yêu thương, các mối quan hệ, hơi thở cùng các cơ quan giải phẫu như tim, phổi, tuyến ức và tuyến vú. Theo Đông y, tâm là \"quân chủ chi quan\", chủ quản huyết mạch và thần minh, với tinh hoa khí huyết biểu hiện rực rỡ trên khuôn mặt qua nguyên lý \"kỳ hoa tại diện\". Dưới lăng kính y học hiện đại, hoạt động bơm máu của tim quyết định độ sáng và độ đàn hồi của da, trong khi tuyến ức liên kết trực tiếp với hệ miễn dịch và tuyến vú là nơi tích tụ những cảm xúc ức chế, căng thẳng chưa được giải tỏa."
+      },
+      {
+        id: "sum-2",
+        num: "2",
+        title_en: "2. The Two-Way Door: The Capacity to Give and Receive",
+        title_vi: "2. Hai Chiều Đóng Mở: Năng Lực Cho Đi Và Tiếp Nhận",
+        en: "The outward-facing door represents goodwill and genuine giving arising from inner abundance, which stimulates the release of oxytocin to foster warmth, safety, and holistic well-being. In contrast, giving to the point of self-depletion merely to secure external validation reflects an obstructed Heart Chakra driven by seeking rather than true generosity.\n\nThe inward-facing door reflects the capacity to receive care, compliments, and love without discomfort or instinctive deflection. Neurologically, receptivity activates the ventral vagal nerve and enhances Heart Rate Variability (HRV), promoting autonomic flexibility and deep restorative calm; conversely, chronic refusal to receive triggers sympathetic overload, persistent chest constriction, shallow breathing, and suppressed HRV.",
+        vi: "Cánh cửa hướng ra ngoài biểu trưng cho thiện ý và sự cho đi chân thành xuất phát từ nội tâm đủ đầy, giúp kích hoạt hormone gắn kết oxytocin tạo cảm giác ấm áp, an toàn và nâng cao sức khỏe thể chất lẫn tinh thần. Trái lại, việc cho đi đến mức kiệt quệ chỉ nhằm tìm kiếm sự công nhận bên ngoài thực chất là dấu hiệu của sự tắc nghẽn tâm luân.\n\nCánh cửa hướng vào trong thể hiện năng lực đón nhận sự chăm sóc, lời khen và tình cảm từ người khác mà không né tránh hay mặc cảm. Về mặt thần kinh học, trạng thái sẵn sàng tiếp nhận kích hoạt nhánh phế vị bụng và tối ưu hóa độ biến thiên nhịp tim (HRV), giúp hệ thần kinh tự chủ linh hoạt và thư thái; ngược lại, việc cự tuyệt tiếp nhận khiến hệ giao cảm chi phối mạn tính, làm lồng ngực thắt nghẽn, hơi thở nông và suy giảm chỉ số HRV."
+      },
+      {
+        id: "sum-3",
+        num: "3",
+        title_en: "3. The Respiratory Hinge and Patterns of Imbalance",
+        title_vi: "3. Bản Lề Hơi Thở Và Hai Chiều Hướng Mất Cân Bằng",
+        en: "Respiration functions as the dual conscious-automatic hinge, serving as the master regulator of the autonomic nervous system and harmonizing the functional synergy between Heart (blood circulation) and Lung (Qi respiration). An open Heart Chakra produces deep, steady breathing, whereas an obstructed one causes shallow breathing and frequent sighing to dislodge trapped air in the chest. The case of the 35-year-old teacher suffering from a lifeless complexion and fatigue due to endless self-sacrifice illustrates that radiant health returns only when one relearns how to breathe for oneself and accept external nourishment.\n\nHeart Chakra imbalances develop in two directions: \"output without input\" dissipates Heart Qi and drains Heart blood, causing chest tightness, stiff shoulders, and a gray, depleted complexion; whereas \"input without output\" induces Liver Qi stagnation and bottles up emotions like a heavy boulder on the chest, leading to a dusky countenance and systemic blockage. Both stems from a jammed thoracic hinge that disrupts the organic cycle of opening and closing.",
+        vi: "Hơi thở hoạt động như một trục bản lề mang cơ chế kép vừa tự động vừa chủ động, là công cụ điều hòa hệ thần kinh tự chủ và gắn kết mật thiết giữa Tâm (bơm huyết) và Phế (chủ khí). Người có tâm luân thông suốt sở hữu hơi thở sâu, dài và tự nhiên; trong khi người bị bế tắc thường thở nông, hụt hơi và có phản xạ thở dài để giải tỏa luồng khí bị tắc nghẽn. Câu chuyện thực tế về cô giáo 35 tuổi da sạm xám và kiệt sức vì chỉ biết chăm lo cho người khác minh chứng rằng sự tươi nhuận chỉ trở lại khi học được cách thở cho bản thân và cho phép mình đón nhận.\n\nTrạng thái mất cân bằng tâm luân diễn ra theo hai xu hướng: \"chỉ xuất không nhập\" khiến tâm khí hao tán, tâm huyết suy kiệt, dẫn đến ngực bí tức, vai gáy cứng và sắc mặt tối sạm; hoặc \"chỉ nhập không xuất\" gây can uất khí trệ, đè nén cảm xúc như tảng đá chặn ngực, khiến sắc mặt u tối và khí huyết ứ nghẽn. Cả hai trường hợp đều bắt nguồn từ việc cánh cửa lồng ngực bị kẹt bản lề, làm gián đoạn dòng chảy đóng mở tự nhiên."
+      },
+      {
+        id: "sum-4",
+        num: "4",
+        title_en: "4. Regulation Methods via Respiration and Acupoints",
+        title_vi: "4. Phương Pháp Điều Chỉnh Bằng Hơi Thở Và Huyệt Đạo",
+        en: "The primary restorative practice pairs breathwork visualizations with acupressure: exhaling (opening the outward door) while gently pressing Danzhong (CV17) expels trapped, stagnant Qi and projects goodwill; inhaling (closing the inward door) alongside massaging Neiguan (PC6), Shenmen (HT7), and Juque (CV14) settles the spirit, anchors vital energy, and welcomes nourishment.\n\nPractitioners can clear Heart fire via Zhongchong (PC9) and Shaofu (HT8) or warm the posterior Heart zone via Xinshu (BL15), reinforced by healthy lifestyle habits such as consciously accepting daily support, keeping the chest and upper back warm, and opening the chest posture after prolonged sitting.",
+        vi: "Phương pháp phục hồi cốt lõi là bài tập thở quán tưởng kết hợp tác động các huyệt vị: khi thở ra (mở cửa xuất), ấn nhẹ huyệt Đản Trung (CV17) để tống khí uất kết ra ngoài và gửi trao thiện ý; khi hít vào (khép cửa nhập), phối hợp xoa ấn các huyệt Nội Quan (PC6), Thần Môn (HT7) và Cự Khuyết (CV14) nhằm an định tâm thần, thu nạp phúc lành và nuôi dưỡng nguyên khí.\n\nNgười thực hành có thể hỗ trợ thanh lọc tâm hỏa qua huyệt Trung Xung (PC9), Thiếu Phủ (HT8) hoặc sưởi ấm vùng tâm phía sau qua huyệt Tâm Du (BL15), đồng thời duy trì lối sống lành mạnh bằng việc chủ động đón nhận sự giúp đỡ mỗi ngày, giữ ấm ngực lưng và mở rộng lồng ngực khi ngồi lâu."
+      },
+      {
+        id: "sum-5",
+        num: "5",
+        title_en: "5. Six Signs of Facial Rejuvenation When the Heart Chakra Flows",
+        title_vi: "5. Sáu Dấu Hiệu Trẻ Hóa Diện Mạo Khi Tâm Luân Thông Suốt",
+        en: "When the Heart Chakra flows without obstruction, the body and face naturally exhibit reverse aging through six core traits: a rosy and luminous complexion, soft and spirited eyes, deep and tranquil breathing, an open and relaxed chest, emotionally balanced warmth, and an authentic inner-to-outer gentleness. Genuine age reversal does not stem from superficial cosmetics, but originates from a chest doorway that opens and closes freely, sustaining abundant blood circulation and a settled spirit.",
+        vi: "Khi tâm luân được khai thông trọn vẹn, cơ thể và diện mạo sẽ toát lên trạng thái trẻ hóa tự nhiên qua 6 đặc điểm: sắc mặt hồng nhuận sáng trong, ánh mắt mềm mại có thần, hơi thở sâu dài thông thuận, lồng ngực thư thái mở rộng, cảm xúc bình hòa ấm áp và sự nhu hòa chân thật tỏa ra từ bên trong. Bí quyết ngược dòng lão hóa không nằm ở mỹ phẩm bên ngoài mà khởi sinh từ một lồng ngực biết đóng mở tự nhiên, nuôi dưỡng khí huyết dồi dào và tâm thần an tịnh."
+      }
+    ];
+
+    // ==========================================
+    // 2. B2/C1 LEARNER GLOSSARY (32 IN-DEPTH TERMS)
+    // ==========================================
+    const GLOSSARY = [
+      {
+        id: "g1",
+        term: "Sovereign monarch",
+        pos: "noun phrase",
+        category: "tcm",
+        academicDef: "A supreme ruler or king who exercises supreme authority; in TCM, the Heart is conceptualized as the supreme governing ruler of all bodily organs.",
+        plainEnglish: "In other words: The supreme leader or boss inside your body that keeps everything working in harmony.",
+        contextExample: "TCM states: \"The Heart is the sovereign monarch among the organs\" (Tâm vi quân chủ chi quan).",
+        vietnamese: "Quân chủ chi quan (Vị vua / vị ông chủ tối cao trong cơ thể)"
+      },
+      {
+        id: "g2",
+        term: "Splendor blossoms on the face",
+        pos: "idiom / medical maxim",
+        category: "tcm",
+        academicDef: "TCM classical doctrine stating that the vitality, abundance, and circulatory health of the Heart manifests visually on facial skin tone and brightness.",
+        plainEnglish: "In other words: The state of your heart's health and blood is directly visible in how your face looks.",
+        contextExample: "Here lies an exceptionally crucial concept in TCM known as \"Its glory is reflected in the face\" (Kỳ hoa tại diện).",
+        vietnamese: "Kỳ hoa tại diện (Tinh hoa của tâm huyết nở rộ ra ở nét mặt)"
+      },
+      {
+        id: "g3",
+        term: "Unblocked / Clear",
+        pos: "adjective",
+        category: "academic",
+        academicDef: "Free from physical, emotional, or energetic obstruction; flowing smoothly without resistance or stagnation.",
+        plainEnglish: "In other words: Fully open and flowing freely without any clogs or traffic jams.",
+        contextExample: "A person whose seven chakras are genuinely open and flowing will exhibit an age-reversing, youthful appearance.",
+        vietnamese: "Thông suốt / Không bị bế tắc (Khí huyết và năng lượng lưu chuyển tự nhiên)"
+      },
+      {
+        id: "g4",
+        term: "Ventral Vagus Nerve",
+        pos: "noun phrase (anatomy)",
+        category: "neuroscience",
+        academicDef: "The anterior branch of the tenth cranial nerve, originating in the nucleus ambiguus, mediating the polyvagal social engagement system and visceral calming.",
+        plainEnglish: "In other words: A nerve pathway that turns on when you feel safe, making your voice gentle, heart calm, and eyes friendly.",
+        contextExample: "The ventral vagal branch directly mediates our capacity for social connection.",
+        vietnamese: "Dây thần kinh phế vị bụng (Nhánh thần kinh chi phối hệ thống kết nối xã hội)"
+      },
+      {
+        id: "g5",
+        term: "Heart Rate Variability (HRV)",
+        pos: "noun phrase (biomarker)",
+        category: "neuroscience",
+        academicDef: "The physiological phenomenon of variation in time intervals between consecutive heartbeats, reflecting autonomic nervous system neuro-cardiac adaptability.",
+        plainEnglish: "In other words: The healthy tiny millisecond changes between heartbeats that show how well your body handles stress and rests.",
+        contextExample: "HRV captures the millisecond variations between consecutive heartbeats, reflecting the resilience and flexibility of the autonomic nervous system.",
+        vietnamese: "Độ biến thiên nhịp tim (HRV) (Chỉ số đo lường sự linh hoạt của hệ thần kinh tự chủ)"
+      },
+      {
+        id: "g6",
+        term: "Autonomic nervous system",
+        pos: "noun phrase",
+        category: "neuroscience",
+        academicDef: "The division of the nervous system responsible for regulating involuntary physiological processes including heart rate, respiration, and digestion.",
+        plainEnglish: "In other words: The internal control system in your body that manages things you don't have to consciously think about, like heart pumping.",
+        contextExample: "Breath serves as the finest remote control for regulating the autonomic nervous system.",
+        vietnamese: "Hệ thần kinh tự chủ (Hệ thống điều khiển vô thức các cơ quan nội tạng)"
+      },
+      {
+        id: "g7",
+        term: "Sympathetic nervous system",
+        pos: "noun phrase",
+        category: "neuroscience",
+        academicDef: "The branch of the autonomic nervous system that stimulates fight-or-flight responses, accelerating heart rate and inducing thoracic constriction.",
+        plainEnglish: "In other words: Your body's emergency accelerator that prepares you to fight, run, or freeze when stressed.",
+        contextExample: "When emotions spike into stress, the sympathetic system takes command, making breath shallow, rapid, and strained.",
+        vietnamese: "Hệ thần kinh giao cảm (Hệ thống kích hoạt phản ứng căng thẳng / chiến đấu)"
+      },
+      {
+        id: "g8",
+        term: "Parasympathetic nervous system",
+        pos: "noun phrase",
+        category: "neuroscience",
+        academicDef: "The division of the autonomic nervous system that decelerates heart rate and stimulates rest-and-digest, restorative physiological recovery.",
+        plainEnglish: "In other words: Your body's natural relaxation brake that slows your heart and lets your body heal.",
+        contextExample: "Afterward, the parasympathetic nervous system engages, heart rate gently drops, blood pressure stabilizes, and the chest expands.",
+        vietnamese: "Hệ thần kinh đối giao cảm (Hệ thống phục hồi, thư giãn và tiêu hóa)"
+      },
+      {
+        id: "g9",
+        term: "Oxytocin",
+        pos: "noun (biochemistry)",
+        category: "neuroscience",
+        academicDef: "A neuropeptide hormone produced in the hypothalamus that promotes maternal bonding, social attachment, empathy, and cardiovascular relaxation.",
+        plainEnglish: "In other words: The 'love hormone' or 'cuddle chemical' released when you hug, trust someone, or help sincerely.",
+        contextExample: "Oxytocin is often dubbed the love hormone or the bonding hormone; when you genuinely extend goodwill, it is released.",
+        vietnamese: "Hormone Oxytocin (Hormone tình yêu và sự gắn kết xã hội)"
+      },
+      {
+        id: "g10",
+        term: "Deficient / Depleted",
+        pos: "adjective",
+        category: "academic",
+        academicDef: "Lacking in an essential quality, nutrient, or energetic substance; in TCM, insufficient vital Qi or blood to nourish bodily tissues.",
+        plainEnglish: "In other words: Empty, completely drained, or running on empty with not enough energy left.",
+        contextExample: "When Heart blood is deficient and the vessels are obstructed, blood cannot rise properly, leaving the face sallow and pale.",
+        vietnamese: "Hư thiếu / Hao tổn (Khí huyết suy giảm không đủ nuôi dưỡng)"
+      },
+      {
+        id: "g11",
+        term: "Stagnation / Stagnant",
+        pos: "noun / adjective",
+        category: "tcm",
+        academicDef: "The cessation or sluggishness of normal fluid, blood, or energy circulation; emotional or physical retention creating congestion.",
+        plainEnglish: "In other words: Stuck in place like pond water that cannot flow, causing pressure and tightness.",
+        contextExample: "In TCM, this corresponds to Liver Qi stagnation and obstruction of the Heart vessels.",
+        vietnamese: "Khí trệ / Uất kết (Sự tắc nghẽn, đọng lại không lưu thông của khí và huyết)"
+      },
+      {
+        id: "g12",
+        term: "Linchpin",
+        pos: "noun (idiomatic)",
+        category: "academic",
+        academicDef: "A person or thing vital to an enterprise or system; the central cohesive element that holds disparate parts together.",
+        plainEnglish: "In other words: The most important single factor or key piece that makes the whole thing work.",
+        contextExample: "Yet the linchpin lies in giving from a genuine heart.",
+        vietnamese: "Điểm then chốt / Mấu chốt cốt lõi (Yếu tố quyết định mọi thứ)"
+      },
+      {
+        id: "g13",
+        term: "Corroborated",
+        pos: "verb (past participle)",
+        category: "academic",
+        academicDef: "Confirmed, substantiated, or given support through independent evidence or scientific observation.",
+        plainEnglish: "In other words: Proven true and supported by real facts and scientific evidence.",
+        contextExample: "This is not mere motivational rhetoric; it is an observation corroborated by research.",
+        vietnamese: "Được kiểm chứng / Có cơ sở khoa học xác thực"
+      },
+      {
+        id: "g14",
+        term: "Validation",
+        pos: "noun",
+        category: "psychology",
+        academicDef: "Recognition or affirmation that a person or their feelings are valid, worthwhile, or accepted by external social peers.",
+        plainEnglish: "In other words: Craving other people's approval or praise to feel good about yourself.",
+        contextExample: "Here, the Heart Chakra is actually obstructed, because this is no longer true giving—it is seeking validation.",
+        vietnamese: "Sự cầu thị công nhận (Mong cầu người khác khen ngợi để chứng minh giá trị bản thân)"
+      },
+      {
+        id: "g15",
+        term: "Perpetual",
+        pos: "adjective",
+        category: "academic",
+        academicDef: "Never ending or changing; occurring repeatedly so frequently as to seem endless and unceasing.",
+        plainEnglish: "In other words: Non-stop, never-ending, or constantly repeating without any break.",
+        contextExample: "Their bodies remain trapped in a mode of perpetual output without input.",
+        vietnamese: "Liên miên / Bất tận / Kéo dài không dứt"
+      },
+      {
+        id: "g16",
+        term: "Innervate",
+        pos: "verb",
+        category: "neuroscience",
+        academicDef: "To supply nerves to a bodily organ or body part, establishing neural stimulus conduction.",
+        plainEnglish: "In other words: To connect nerve wires to an organ so the brain can send signals to it.",
+        contextExample: "Traveling down from the brainstem through the neck, chest, and abdomen, innervating major visceral organs.",
+        vietnamese: "Phân nhánh thần kinh / Chi phối thần kinh"
+      },
+      {
+        id: "g17",
+        term: "Visceral",
+        pos: "adjective",
+        category: "anatomy",
+        academicDef: "Relating to the internal organs in the main cavities of the body (especially the abdomen and thorax); or originating from deep instinctive feeling.",
+        plainEnglish: "In other words: Deep inside the core internal organs, or a deep gut-level reaction.",
+        contextExample: "The vagus nerve traverses the thoracic and abdominal cavities, innervating major visceral organs.",
+        vietnamese: "Thuộc nội tạng (Các cơ quan trong lồng ngực và ổ bụng)"
+      },
+      {
+        id: "g18",
+        term: "Respiration",
+        pos: "noun",
+        category: "physiology",
+        academicDef: "The biological process of inhaling oxygen and exhaling carbon dioxide; breathing considered as a physiological regulatory mechanism.",
+        plainEnglish: "In other words: The physical act of taking breath in and letting breath out.",
+        contextExample: "Respiration is the most extraordinary physiological system in the human body: half under conscious control, half automatic.",
+        vietnamese: "Hô hấp (Hoạt động thở đưa dưỡng khí vào và tống khí thải ra)"
+      },
+      {
+        id: "g19",
+        term: "Synergy",
+        pos: "noun",
+        category: "academic",
+        academicDef: "The interaction or cooperation of two or more organizations, substances, or organs to produce a combined effect greater than the sum of their separate parts.",
+        plainEnglish: "In other words: Working together smoothly so the combined result is much stronger than working alone.",
+        contextExample: "The Heart and Lungs mutually rely on each other, maintaining a tight functional synergy in the thoracic cavity.",
+        vietnamese: "Tương hỗ / Hiệp đồng (Tâm phế tương y cùng phối hợp nhịp nhàng)"
+      },
+      {
+        id: "g20",
+        term: "Affectation",
+        pos: "noun",
+        category: "psychology",
+        academicDef: "Behavior, speech, or writing that is artificial and designed to impress or dramatize rather than being genuine.",
+        plainEnglish: "In other words: Fake acting or drama just done for show.",
+        contextExample: "Sighing is not an affectation; it occurs because stagnant Qi is trapped in the chest.",
+        vietnamese: "Làm bộ / Ra vẻ / Giả vờ điệu bộ"
+      },
+      {
+        id: "g21",
+        term: "Archetypal",
+        pos: "adjective",
+        category: "academic",
+        academicDef: "Representing a very typical example of a certain person, trait, or psychological archetype.",
+        plainEnglish: "In other words: The classic, textbook example of a specific type of person or pattern.",
+        contextExample: "At 35 years old, she was the archetypal person who only knew how to give and never how to receive.",
+        vietnamese: "Điển hình / Nguyên mẫu chuẩn mực"
+      },
+      {
+        id: "g22",
+        term: "Equanimous / Equanimity",
+        pos: "adjective / noun",
+        category: "psychology",
+        academicDef: "Mental calmness, composure, and evenness of temper, especially in difficult situations; neither cold nor volatile.",
+        plainEnglish: "In other words: Calm, balanced, and steady inside without easily losing your temper or panicking.",
+        contextExample: "Equanimous, warm emotions: neither aloofly cold nor excessively volatile.",
+        vietnamese: "Bình hòa / Điềm đạm (Trạng thái tâm an ổn, không giao động thái quá)"
+      },
+      {
+        id: "g23",
+        term: "Sallow",
+        pos: "adjective",
+        category: "medical / appearance",
+        academicDef: "Of an unhealthy yellow or pale brown color, typical of a face deprived of adequate blood oxygenation or vital Qi.",
+        plainEnglish: "In other words: Dull, yellowish-gray, and tired-looking skin that lacks fresh blood color.",
+        contextExample: "Blood fails to rise to nourish her face, leaving her complexion sallow and gray.",
+        vietnamese: "Sạm xám / Tối nhợt (Sắc mặt thiếu sức sống, không có huyết sắc)"
+      },
+      {
+        id: "g24",
+        term: "Receptivity",
+        pos: "noun",
+        category: "psychology",
+        academicDef: "Willingness or readiness to receive, consider, or take in nourishment, emotional support, and goodwill from others.",
+        plainEnglish: "In other words: Being open and willing to let good things, help, and love come in without pushing them away.",
+        contextExample: "When looking at others, their gaze carries warmth, light, and receptivity.",
+        vietnamese: "Năng lực tiếp nhận / Sự đón nhận (Mở lòng đón nhận sự chăm sóc và thiện ý)"
+      },
+      {
+        id: "g25",
+        term: "Thymus Gland",
+        pos: "noun phrase (anatomy)",
+        category: "anatomy",
+        academicDef: "A lymphoid organ situated in the anterior mediastinum beneath the sternum that plays a vital role in T-lymphocyte maturation and immune defense.",
+        plainEnglish: "In other words: A small organ behind your breastbone that trains your body's immune cells to fight off illness.",
+        contextExample: "The Thymus: Located behind the sternum, it is a key hub of the immune system linked to the body’s defenses and stress.",
+        vietnamese: "Tuyến ức (Tuyến miễn dịch nằm sau xương ức, rất nhạy cảm với stress)"
+      },
+      {
+        id: "g26",
+        term: "Mammary Glands",
+        pos: "noun phrase (anatomy)",
+        category: "anatomy",
+        academicDef: "Exocrine glands situated in the chest; in TCM, closely traversed by the Liver, Stomach, and Pericardium meridians, prone to emotional stagnation.",
+        plainEnglish: "In other words: The breast tissues in the chest that easily feel tight when you hold in anger or frustration.",
+        contextExample: "The Breasts/Mammary Glands: Highly sensitive to emotional shifts; sensations of tightness are linked to unexpressed words.",
+        vietnamese: "Tuyến vú (Mô tuyến ở ngực, rất nhạy bén với sự ứ trệ cảm xúc và uất khí)"
+      },
+      {
+        id: "g27",
+        term: "Danzhong Acupoint (CV17)",
+        pos: "noun phrase (TCM)",
+        category: "tcm",
+        academicDef: "Ren Mai acupoint located midway between the nipples, serving as the Front-Mu point of the Pericardium and the Hui-Meeting point of Qi.",
+        plainEnglish: "In other words: The center-chest pressure point where all body energy gathers; pressing it releases stuck chest pressure.",
+        contextExample: "Danzhong Acupoint (CV17): Located directly along the midline of the sternum, midway between the nipples.",
+        vietnamese: "Huyệt Đản Trung (Huyệt Mộ của Tâm bào, Khí hội của toàn thân)"
+      },
+      {
+        id: "g28",
+        term: "Neiguan Acupoint (PC6)",
+        pos: "noun phrase (TCM)",
+        category: "tcm",
+        academicDef: "Pericardium meridian acupoint on the inner wrist (2 cun proximal to the crease) known for calming the spirit, harmonizing the stomach, and easing chest tightness.",
+        plainEnglish: "In other words: The famous wrist acupoint between two tendons that soothes anxiety and quiets a racing heart.",
+        contextExample: "Neiguan Acupoint (PC6): Located approximately two cun above the wrist crease, between the two tendons.",
+        vietnamese: "Huyệt Nội Quan (Lạc huyệt của Tâm bào kinh, giúp ninh tâm an thần)"
+      },
+      {
+        id: "g29",
+        term: "Shenmen Acupoint (HT7)",
+        pos: "noun phrase (TCM)",
+        category: "tcm",
+        academicDef: "Heart meridian Yuan-Source point situated at the ulnar side of the wrist crease, widely utilized for insomnia, palpitations, and calming mental agitation.",
+        plainEnglish: "In other words: The 'Spirit Gate' acupoint on the wrist crease near your pinky finger that helps you sleep peacefully.",
+        contextExample: "Shenmen Acupoint (HT7): Regarded in TCM as the gateway through which Heart spirit enters and exits.",
+        vietnamese: "Huyệt Thần Môn (Nguyên huyệt của Tâm kinh, cửa ngõ xuất nhập của tâm thần)"
+      },
+      {
+        id: "g30",
+        term: "Juque Acupoint (CV14)",
+        pos: "noun phrase (TCM)",
+        category: "tcm",
+        academicDef: "The Front-Mu point of the Heart located on the midline 6 cun above the umbilicus, beneath the xiphoid process, anchoring unsettled cardiac spirit.",
+        plainEnglish: "In other words: The acupoint right below your sternum bone that helps pull nervous anxiety back down to center.",
+        contextExample: "Juque Acupoint (CV14): Located six cun above the navel, just below the xiphoid process of the sternum.",
+        vietnamese: "Huyệt Cự Khuyết (Mộ huyệt của Tâm kinh, quy tụ và an định tâm khí)"
+      },
+      {
+        id: "g31",
+        term: "Reverse aging",
+        pos: "compound verb / noun phrase",
+        category: "academic",
+        academicDef: "Biological rejuvenation wherein physiological biomarkers, cellular vitality, and facial vascularity shift toward a more youthful, resilient state.",
+        plainEnglish: "In other words: Becoming visibly healthier, more glowing, and younger from the inside out.",
+        contextExample: "A person whose seven chakras are genuinely open and flowing will exhibit an age-reversing, youthful appearance.",
+        vietnamese: "Trẻ hóa ngược tuổi (Hồi phục sức sống thanh xuân từ tầng sâu khí huyết)"
+      },
+      {
+        id: "g32",
+        term: "Moxibustion",
+        pos: "noun",
+        category: "tcm",
+        academicDef: "A traditional Chinese medicine therapy involving the burning of mugwort (Artemisia vulgaris) over acupuncture points to warm channels and circulate Qi.",
+        plainEnglish: "In other words: A healing technique of warming acupressure points with burning herbal mugwort sticks to expel cold.",
+        contextExample: "Acupressure, warm compresses, and moxibustion are traditional wellness practices that support the body.",
+        vietnamese: "Cứu ngải (Phương pháp hơ nóng ngải nhung lên huyệt đạo để làm ấm kinh lạc)"
+      }
+    ];
+
+    // ==========================================
+    // 3. APPLICATION STATE MANAGEMENT
+    // ==========================================
+    const state = {
+      currentView: "overview", // 'overview' | 'section-0'..'section-8' | 'summary' | 'glossary' | 'practice'
+      globalLang: "en",       // 'en' | 'vi'
+      cardLanguages: {},      // paragraphId -> 'en' | 'vi'
+      cardFlipped: {},        // paragraphId -> boolean
+      theme: localStorage.getItem('anahata_theme') || 'light',
+      readingMode: 'flip',    // 'flip' | 'side-by-side'
+      glossarySearch: '',
+      glossaryCategory: 'all', // 'all' | 'tcm' | 'neuroscience' | 'psychology' | 'academic'
+      glossaryRevealed: {},   // glossaryId -> boolean
+      pacingActive: false,
+      pacingPhase: 'exhale',  // 'exhale' | 'hold1' | 'inhale' | 'hold2'
+      pacingSeconds: 4
+    };
+
+    // ==========================================
+    // 4. THEME & INITIALIZATION
+    // ==========================================
+    function initTheme() {
+      if (state.theme === 'dark' || (!('anahata_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        state.theme = 'dark';
+      } else {
+        document.documentElement.classList.remove('dark');
+        state.theme = 'light';
+      }
+      updateThemeIcons();
+    }
+
+    function toggleTheme() {
+      state.theme = state.theme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('anahata_theme', state.theme);
+      initTheme();
+    }
+
+    function updateThemeIcons() {
+      const sun = document.getElementById('theme-icon-sun');
+      const moon = document.getElementById('theme-icon-moon');
+      if (state.theme === 'dark') {
+        sun?.classList.remove('hidden');
+        moon?.classList.add('hidden');
+      } else {
+        sun?.classList.add('hidden');
+        moon?.classList.remove('hidden');
+      }
+    }
+
+    function toggleGlobalLanguage() {
+      state.globalLang = state.globalLang === 'en' ? 'vi' : 'en';
+      document.getElementById('global-lang-label').textContent = state.globalLang.toUpperCase();
+      
+      // Update default card language preferences
+      SECTIONS.forEach(sec => {
+        sec.paragraphs.forEach(p => {
+          state.cardLanguages[p.id] = state.globalLang;
+          state.cardFlipped[p.id] = (state.globalLang === 'vi');
+        });
+      });
+
+      renderCurrentView();
+    }
+
+    // ==========================================
+    // 5. AUDIO SPEECH SYNTHESIS HELPER
+    // ==========================================
+    function speakText(text, lang = 'en-US') {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      utterance.rate = 0.95;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // ==========================================
+    // 6. ROUTER & VIEW RENDERING
+    // ==========================================
+    function handleRouting() {
+      const hash = window.location.hash.replace('#', '') || 'overview';
+      state.currentView = hash;
+      
+      const navBackBtn = document.getElementById('nav-back-btn');
+      if (hash === 'overview') {
+        navBackBtn?.classList.add('hidden');
+      } else {
+        navBackBtn?.classList.remove('hidden');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      renderCurrentView();
+    }
+
+    function navigateTo(viewId) {
+      window.location.hash = '#' + viewId;
+    }
+
+    function renderCurrentView() {
+      const container = document.getElementById('app-container');
+      if (!container) return;
+
+      if (state.currentView === 'overview') {
+        container.innerHTML = renderOverviewPage();
+      } else if (state.currentView === 'summary') {
+        container.innerHTML = renderSummaryPage();
+      } else if (state.currentView === 'glossary') {
+        container.innerHTML = renderGlossaryPage();
+      } else if (state.currentView === 'practice') {
+        container.innerHTML = renderPracticePage();
+      } else {
+        // Section Reading Pages
+        const section = SECTIONS.find(s => s.id === state.currentView);
+        if (section) {
+          container.innerHTML = renderSectionPage(section);
+        } else {
+          container.innerHTML = renderOverviewPage();
+        }
+      }
+    }
+
+    // ==========================================
+    // VIEW 1: OVERVIEW & NAVIGATION HUB
+    // ==========================================
+    function renderOverviewPage() {
+      const title = state.globalLang === 'en' ? DOC_TITLE.en : DOC_TITLE.vi;
+      const subtitle = state.globalLang === 'en' ? DOC_SUBTITLE.en : DOC_SUBTITLE.vi;
+
+      const sectionCardsHtml = SECTIONS.map((sec, index) => {
+        const titleEn = sec.title_en;
+        const titleVi = sec.title_vi;
+        const desc = state.globalLang === 'en' ? sec.desc_en : sec.desc_vi;
+
+        return `
+          <div onclick="navigateTo('${sec.id}')" class="group relative bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 hover:border-emerald-500/70 dark:hover:border-emerald-500/70 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between">
+            <div>
+              <!-- Top Card Bar: Number & EN/VI Isolated Toggle Button -->
+              <div class="flex items-center justify-between mb-4">
+                <span class="inline-flex items-center text-xs font-mono font-bold tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-2.5 py-1 rounded-md">
+                  ${sec.tag.toUpperCase()}
+                </span>
+                
+                <!-- Independent Language Toggle Button with stopPropagation -->
+                <button onclick="event.stopPropagation(); toggleCardHeaderLang('${sec.id}')" title="Flip heading between English and Vietnamese" class="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 bg-stone-100 dark:bg-slate-800 hover:bg-stone-200 dark:hover:bg-slate-700 px-2 py-1 rounded-md transition-colors">
+                  <span id="card-lang-indicator-${sec.id}">${state.globalLang === 'en' ? 'VI' : 'EN'}</span>
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Card Headings (Dynamic swap) -->
+              <h3 id="card-title-${sec.id}" class="font-serif text-xl sm:text-2xl font-bold leading-snug text-stone-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors mb-2">
+                ${state.globalLang === 'en' ? titleEn : titleVi}
+              </h3>
+
+              <p class="text-sm text-stone-600 dark:text-slate-300 line-clamp-2 leading-relaxed mb-4">
+                ${desc}
+              </p>
+            </div>
+
+            <!-- Card Footer: Metadata & Arrow Affordance -->
+            <div class="pt-4 border-t border-stone-100 dark:border-slate-800 flex items-center justify-between text-xs text-stone-500 dark:text-slate-400">
+              <div class="flex items-center gap-2">
+                <span>${sec.paragraphs.length} paragraphs</span>
+                <span aria-hidden="true">·</span>
+                <span>${sec.readTime}</span>
+              </div>
+              <div class="inline-flex items-center gap-1 font-semibold text-emerald-600 dark:text-emerald-400 group-hover:translate-x-1 transition-transform">
+                <span>Read</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="space-y-12">
+          <!-- Hero Header -->
+          <section class="text-center space-y-4 pt-4 pb-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/50">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>Bilingual Study Edition · Verbatim Source Extraction</span>
+            </div>
+            
+            <h1 class="font-serif text-3xl sm:text-5xl font-extrabold tracking-tight text-stone-950 dark:text-white max-w-4xl mx-auto leading-tight">
+              ${title}
+            </h1>
+            
+            <p class="text-base sm:text-lg text-stone-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+              ${subtitle}
+            </p>
+
+            <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+              <button onclick="navigateTo('section-0')" class="px-5 py-2.5 rounded-xl font-semibold text-sm text-white bg-emerald-600 hover:bg-emerald-700 active:scale-95 shadow-sm shadow-emerald-600/30 transition-all">
+                Begin Reading From Section 0
+              </button>
+              <button onclick="navigateTo('glossary')" class="px-5 py-2.5 rounded-xl font-semibold text-sm text-stone-800 dark:text-slate-100 bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 hover:bg-stone-50 dark:hover:bg-slate-800 transition-all">
+                Explore B2/C1 Glossary (32 Terms)
+              </button>
+              <button onclick="navigateTo('summary')" class="px-5 py-2.5 rounded-xl font-semibold text-sm text-stone-800 dark:text-slate-100 bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 hover:bg-stone-50 dark:hover:bg-slate-800 transition-all">
+                Executive Bilingual Summary
+              </button>
+            </div>
+          </section>
+
+          <!-- Featured Banners: Glossary & Guided Practice -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <!-- Glossary Quick Access Card -->
+            <div onclick="navigateTo('glossary')" class="group relative overflow-hidden bg-gradient-to-br from-emerald-900 to-teal-950 text-white rounded-2xl p-6 shadow-sm cursor-pointer hover:shadow-md transition-all">
+              <div class="relative z-10 flex flex-col justify-between h-full">
+                <div>
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="text-xs font-mono uppercase tracking-widest text-emerald-300 font-bold">Vocabulary Hub</span>
+                    <span class="text-xs text-emerald-200/80">32 Terms</span>
+                  </div>
+                  <h3 class="font-serif text-2xl font-bold mb-2">Interactive Learner Glossary</h3>
+                  <p class="text-xs sm:text-sm text-emerald-100/90 leading-relaxed">
+                    Targeted B2/C1 academic vocabulary, anatomical terminology, Traditional Chinese Medicine concepts, and revealable Vietnamese equivalents.
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 flex items-center justify-between text-xs font-semibold text-emerald-300">
+                  <span>Open Vocabulary Study Cards</span>
+                  <span class="group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Breathwork Pacer Card -->
+            <div onclick="navigateTo('practice')" class="group relative overflow-hidden bg-gradient-to-br from-stone-800 to-slate-900 text-white rounded-2xl p-6 shadow-sm cursor-pointer hover:shadow-md transition-all">
+              <div class="relative z-10 flex flex-col justify-between h-full">
+                <div>
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="text-xs font-mono uppercase tracking-widest text-stone-300 font-bold">Interactive Tool</span>
+                    <span class="text-xs text-stone-300/80">Breath & Acupoints</span>
+                  </div>
+                  <h3 class="font-serif text-2xl font-bold mb-2">Guided Opening-and-Closing Pacer</h3>
+                  <p class="text-xs sm:text-sm text-stone-200 leading-relaxed">
+                    Practice the exact Danzhong and Neiguan somatic breathwork routine outlined in Section 6 with visual pacing cycles.
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 flex items-center justify-between text-xs font-semibold text-stone-300">
+                  <span>Launch Respiration Practice</span>
+                  <span class="group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Section Grid Header -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 dark:text-white">
+                  Document Chapters & Reading Views
+                </h2>
+                <p class="text-xs sm:text-sm text-stone-500 dark:text-slate-400">
+                  Click any card to read verbatim paragraphs with interactive EN/VI card flipping.
+                </p>
+              </div>
+              <div class="text-xs font-medium text-stone-500 dark:text-slate-400 hidden sm:block">
+                9 Detailed Reading Views
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-4">
+              ${sectionCardsHtml}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Toggle Heading language on overview card without entering the section
+    function toggleCardHeaderLang(secId) {
+      const sec = SECTIONS.find(s => s.id === secId);
+      if (!sec) return;
+
+      const titleEl = document.getElementById(`card-title-${secId}`);
+      const indicatorEl = document.getElementById(`card-lang-indicator-${secId}`);
+      
+      if (!titleEl || !indicatorEl) return;
+
+      const isCurrentEn = titleEl.textContent.trim() === sec.title_en.trim();
+      if (isCurrentEn) {
+        titleEl.textContent = sec.title_vi;
+        indicatorEl.textContent = "EN";
+      } else {
+        titleEl.textContent = sec.title_en;
+        indicatorEl.textContent = "VI";
+      }
+    }
+
+    // ==========================================
+    // VIEW 2: SECTION READING PAGES (VERBATIM PARAGRAPHS)
+    // ==========================================
+    function renderSectionPage(section) {
+      const currentIndex = SECTIONS.findIndex(s => s.id === section.id);
+      const prevSection = currentIndex > 0 ? SECTIONS[currentIndex - 1] : null;
+      const nextSection = currentIndex < SECTIONS.length - 1 ? SECTIONS[currentIndex + 1] : null;
+
+      const title = state.globalLang === 'en' ? section.title_en : section.title_vi;
+      const subtitle = state.globalLang === 'en' ? section.desc_en : section.desc_vi;
+
+      const paragraphsHtml = section.paragraphs.map((p, idx) => {
+        const isFlipped = !!state.cardFlipped[p.id];
+        const currentLang = isFlipped ? 'vi' : 'en';
+
+        // Check if user is in side-by-side mode vs flip mode
+        if (state.readingMode === 'side-by-side') {
+          return `
+            <div class="bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 rounded-2xl p-6 sm:p-7 shadow-sm transition-all hover:border-emerald-500/40">
+              <div class="flex items-center justify-between pb-3 mb-4 border-b border-stone-100 dark:border-slate-800 text-xs font-medium text-stone-500 dark:text-slate-400">
+                <span class="font-mono text-emerald-600 dark:text-emerald-400 font-bold">¶ ${idx + 1} of ${section.paragraphs.length}</span>
+                <div class="flex items-center gap-2">
+                  <button onclick="speakText(\`${escapeQuotes(p.en)}\`, 'en-US')" title="Listen in English" class="px-2 py-1 rounded hover:bg-stone-100 dark:hover:bg-slate-800 text-stone-600 dark:text-slate-300 transition-colors">
+                    🔊 EN
+                  </button>
+                  <button onclick="speakText(\`${escapeQuotes(p.vi)}\`, 'vi-VN')" title="Listen in Vietnamese" class="px-2 py-1 rounded hover:bg-stone-100 dark:hover:bg-slate-800 text-stone-600 dark:text-slate-300 transition-colors">
+                    🔊 VI
+                  </button>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- English Column -->
+                <div class="space-y-2">
+                  <div class="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">English (Verbatim)</div>
+                  <div class="text-lg sm:text-[19px] leading-relaxed text-stone-800 dark:text-slate-100 whitespace-pre-line font-normal">
+                    ${formatParagraphText(p.en)}
+                  </div>
+                </div>
+
+                <!-- Vietnamese Column -->
+                <div class="space-y-2 pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-stone-100 dark:border-slate-800 md:pl-6">
+                  <div class="text-[11px] font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">Tiếng Việt (Nguyên Văn)</div>
+                  <div class="text-lg sm:text-[19px] leading-relaxed text-stone-800 dark:text-slate-100 whitespace-pre-line font-normal">
+                    ${formatParagraphText(p.vi)}
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        // Default: Interactive Flip Card Mode
+        return `
+          <div id="card-wrap-${p.id}" class="group relative bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 rounded-2xl p-6 sm:p-7 shadow-sm transition-all duration-200 cursor-pointer" onclick="toggleParagraphCard('${p.id}')">
+            
+            <!-- Card Header: Number index, Active language badge, and Actions -->
+            <div class="flex items-center justify-between pb-3 mb-3 border-b border-stone-100 dark:border-slate-800 text-xs text-stone-500 dark:text-slate-400">
+              <div class="flex items-center gap-2">
+                <span class="font-mono font-bold text-stone-400 dark:text-slate-500">¶ ${idx + 1}</span>
+                <span id="badge-${p.id}" class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold ${isFlipped ? 'bg-rose-100 text-rose-800 dark:bg-rose-950/70 dark:text-rose-300' : 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300'} transition-colors">
+                  ${isFlipped ? 'VIETNAMESE (VI)' : 'ENGLISH (EN)'}
+                </span>
+              </div>
+
+              <div class="flex items-center gap-2" onclick="event.stopPropagation()">
+                <!-- Audio Speech Button -->
+                <button onclick="speakText(document.getElementById('text-${p.id}').getAttribute('data-raw'), '${isFlipped ? 'vi-VN' : 'en-US'}')" title="Read aloud" class="p-1.5 rounded-lg hover:bg-stone-100 dark:hover:bg-slate-800 text-stone-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                  </svg>
+                </button>
+
+                <!-- Dedicated Flip Button -->
+                <button onclick="toggleParagraphCard('${p.id}')" class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg bg-stone-100 dark:bg-slate-800 hover:bg-stone-200 dark:hover:bg-slate-700 text-stone-700 dark:text-slate-200 transition-colors">
+                  <span id="btn-text-${p.id}">${isFlipped ? 'Xem English' : 'Xem Tiếng Việt'}</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Paragraph Content Container (Cross-fade smooth transition) -->
+            <div class="relative min-h-[5rem]">
+              <div id="text-${p.id}" data-raw="${escapeQuotes(isFlipped ? p.vi : p.en)}" class="text-lg sm:text-[19px] leading-relaxed text-stone-800 dark:text-slate-100 whitespace-pre-line font-normal transition-opacity duration-300">
+                ${formatParagraphText(isFlipped ? p.vi : p.en)}
+              </div>
+            </div>
+
+            <!-- Card Bottom Hint -->
+            <div class="mt-4 pt-3 flex items-center justify-between text-[11px] text-stone-400 dark:text-slate-500">
+              <span>Click card anywhere to toggle EN / VI</span>
+              <span class="group-hover:text-emerald-500 transition-colors">Tap to swap ⇄</span>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="space-y-8 max-w-4xl mx-auto">
+          
+          <!-- Back Link & Chapter Breadcrumb -->
+          <div class="flex items-center justify-between text-xs text-stone-500 dark:text-slate-400">
+            <button onclick="navigateTo('overview')" class="inline-flex items-center gap-1 hover:text-emerald-600 dark:hover:text-emerald-400 font-semibold transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              <span>Back to Overview Hub</span>
+            </button>
+            <span class="font-mono text-emerald-600 dark:text-emerald-400">${section.tag} · ${section.readTime} read</span>
+          </div>
+
+          <!-- Section Main Header -->
+          <header class="space-y-3 pb-6 border-b border-stone-200 dark:border-slate-800">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <h1 id="section-title-main" class="font-serif text-2xl sm:text-4xl font-extrabold tracking-tight text-stone-900 dark:text-white leading-tight">
+                ${title}
+              </h1>
+
+              <!-- Inline Section Title Toggle -->
+              <button onclick="toggleSectionTitleLanguage('${section.id}')" title="Toggle Title Language" class="inline-flex items-center gap-1.5 px-3 py-1.5 self-start sm:self-auto text-xs font-semibold rounded-lg border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-stone-50 dark:hover:bg-slate-800 text-stone-700 dark:text-slate-200 shrink-0 shadow-sm transition-colors">
+                <span>Switch Title:</span>
+                <span id="section-title-lang" class="text-emerald-600 dark:text-emerald-400 font-bold">${state.globalLang === 'en' ? 'Tiếng Việt' : 'English'}</span>
+              </button>
+            </div>
+
+            <p class="text-base text-stone-600 dark:text-slate-300 leading-relaxed">
+              ${subtitle}
+            </p>
+
+            <!-- Mode Controls & Bulk Flip Controls -->
+            <div class="pt-3 flex flex-wrap items-center justify-between gap-3 text-xs">
+              
+              <!-- Reading View Mode Toggle (Flip vs Side-by-Side) -->
+              <div class="inline-flex items-center p-1 bg-stone-100 dark:bg-slate-800/80 rounded-xl">
+                <button onclick="setReadingMode('flip')" class="px-3 py-1.5 rounded-lg font-semibold transition-all ${state.readingMode === 'flip' ? 'bg-white dark:bg-slate-900 text-stone-900 dark:text-white shadow-sm' : 'text-stone-600 dark:text-slate-400 hover:text-stone-900'}">
+                  🎴 Flip Cards
+                </button>
+                <button onclick="setReadingMode('side-by-side')" class="px-3 py-1.5 rounded-lg font-semibold transition-all ${state.readingMode === 'side-by-side' ? 'bg-white dark:bg-slate-900 text-stone-900 dark:text-white shadow-sm' : 'text-stone-600 dark:text-slate-400 hover:text-stone-900'}">
+                  📑 Side-by-Side Bilingual
+                </button>
+              </div>
+
+              <!-- Bulk Flip Buttons -->
+              <div class="flex items-center gap-2">
+                <button onclick="bulkFlipSection('${section.id}', true)" class="px-3 py-1.5 rounded-lg font-medium text-stone-700 dark:text-slate-300 bg-stone-100 dark:bg-slate-800 hover:bg-stone-200 dark:hover:bg-slate-700 transition-colors">
+                  Reveal All VI
+                </button>
+                <button onclick="bulkFlipSection('${section.id}', false)" class="px-3 py-1.5 rounded-lg font-medium text-stone-700 dark:text-slate-300 bg-stone-100 dark:bg-slate-800 hover:bg-stone-200 dark:hover:bg-slate-700 transition-colors">
+                  Reset All EN
+                </button>
+              </div>
+            </div>
+          </header>
+
+          <!-- Interactive Paragraph Cards Stack -->
+          <div class="space-y-6">
+            ${paragraphsHtml}
+          </div>
+
+          <!-- Bottom Navigation: Prev / Next Section -->
+          <nav class="pt-10 border-t border-stone-200 dark:border-slate-800 flex items-center justify-between gap-4">
+            ${prevSection ? `
+              <button onclick="navigateTo('${prevSection.id}')" class="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-stone-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-stone-50 dark:hover:bg-slate-800 text-stone-800 dark:text-slate-200 text-sm font-semibold transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                <div class="text-left hidden sm:block">
+                  <div class="text-[10px] text-stone-400 uppercase">Previous</div>
+                  <div class="truncate max-w-[140px]">${state.globalLang === 'en' ? prevSection.title_en : prevSection.title_vi}</div>
+                </div>
+                <span class="sm:hidden">Prev</span>
+              </button>
+            ` : '<div></div>'}
+
+            <button onclick="navigateTo('overview')" class="px-4 py-2.5 rounded-xl bg-stone-100 dark:bg-slate-800 hover:bg-stone-200 dark:hover:bg-slate-700 text-stone-700 dark:text-slate-200 text-sm font-semibold transition-colors">
+              Hub Overview
+            </button>
+
+            ${nextSection ? `
+              <button onclick="navigateTo('${nextSection.id}')" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold transition-colors shadow-sm">
+                <div class="text-right hidden sm:block">
+                  <div class="text-[10px] text-emerald-200 uppercase">Next</div>
+                  <div class="truncate max-w-[140px]">${state.globalLang === 'en' ? nextSection.title_en : nextSection.title_vi}</div>
+                </div>
+                <span class="sm:hidden">Next</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            ` : `
+              <button onclick="navigateTo('summary')" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold transition-colors shadow-sm">
+                <span>Summary</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            `}
+          </nav>
+
+        </div>
+      `;
+    }
+
+    // Toggle paragraph card smoothly with cross-fade
+    function toggleParagraphCard(paragraphId) {
+      const current = !!state.cardFlipped[paragraphId];
+      state.cardFlipped[paragraphId] = !current;
+
+      const card = findParagraph(paragraphId);
+      if (!card) return;
+
+      const textEl = document.getElementById(`text-${paragraphId}`);
+      const badgeEl = document.getElementById(`badge-${paragraphId}`);
+      const btnTextEl = document.getElementById(`btn-text-${paragraphId}`);
+
+      if (!textEl) return;
+
+      // Animate transition
+      textEl.style.opacity = '0';
+      setTimeout(() => {
+        const isFlippedNow = state.cardFlipped[paragraphId];
+        const newText = isFlippedNow ? card.vi : card.en;
+        textEl.innerHTML = formatParagraphText(newText);
+        textEl.setAttribute('data-raw', escapeQuotes(newText));
+        
+        if (badgeEl) {
+          badgeEl.textContent = isFlippedNow ? 'VIETNAMESE (VI)' : 'ENGLISH (EN)';
+          badgeEl.className = isFlippedNow 
+            ? 'inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-800 dark:bg-rose-950/70 dark:text-rose-300 transition-colors'
+            : 'inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300 transition-colors';
+        }
+
+        if (btnTextEl) {
+          btnTextEl.textContent = isFlippedNow ? 'Xem English' : 'Xem Tiếng Việt';
+        }
+
+        textEl.style.opacity = '1';
+      }, 150);
+    }
+
+    // Toggle section title language
+    function toggleSectionTitleLanguage(secId) {
+      const sec = SECTIONS.find(s => s.id === secId);
+      if (!sec) return;
+
+      const titleEl = document.getElementById('section-title-main');
+      const langEl = document.getElementById('section-title-lang');
+      if (!titleEl || !langEl) return;
+
+      const isEn = titleEl.textContent.trim() === sec.title_en.trim();
+      if (isEn) {
+        titleEl.textContent = sec.title_vi;
+        langEl.textContent = 'English';
+      } else {
+        titleEl.textContent = sec.title_en;
+        langEl.textContent = 'Tiếng Việt';
+      }
+    }
+
+    // Bulk flip cards in section
+    function bulkFlipSection(secId, toVietnamese) {
+      const sec = SECTIONS.find(s => s.id === secId);
+      if (!sec) return;
+
+      sec.paragraphs.forEach(p => {
+        state.cardFlipped[p.id] = toVietnamese;
+      });
+
+      renderCurrentView();
+    }
+
+    function setReadingMode(mode) {
+      state.readingMode = mode;
+      renderCurrentView();
+    }
+
+    function findParagraph(paragraphId) {
+      for (const sec of SECTIONS) {
+        const found = sec.paragraphs.find(p => p.id === paragraphId);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    // ==========================================
+    // VIEW 3: BILINGUAL EXECUTIVE SUMMARY
+    // ==========================================
+    function renderSummaryPage() {
+      const itemsHtml = SUMMARY_SECTIONS.map((item, idx) => {
+        return `
+          <div class="bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
+            <div class="flex items-center justify-between border-b border-stone-100 dark:border-slate-800 pb-3">
+              <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">Pillar 0${idx + 1}</span>
+              <button onclick="speakText(\`${escapeQuotes(item.en)}\`, 'en-US')" class="text-xs text-stone-500 dark:text-slate-400 hover:text-emerald-600 flex items-center gap-1 font-semibold">
+                🔊 Listen
+              </button>
+            </div>
+
+            <!-- Two Columns for Instant Bilingual Absorption -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              <!-- English -->
+              <div class="space-y-2">
+                <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-white">${item.title_en}</h3>
+                <p class="text-base sm:text-[17px] leading-relaxed text-stone-700 dark:text-slate-300 whitespace-pre-line">
+                  ${item.en}
+                </p>
+              </div>
+
+              <!-- Vietnamese -->
+              <div class="space-y-2 pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-stone-100 dark:border-slate-800 md:pl-6">
+                <h3 class="font-serif text-lg font-bold text-emerald-700 dark:text-emerald-400">${item.title_vi}</h3>
+                <p class="text-base sm:text-[17px] leading-relaxed text-stone-700 dark:text-slate-300 whitespace-pre-line">
+                  ${item.vi}
+                </p>
+              </div>
+
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="space-y-8 max-w-4xl mx-auto">
+          <div class="flex items-center justify-between text-xs text-stone-500 dark:text-slate-400">
+            <button onclick="navigateTo('overview')" class="inline-flex items-center gap-1 hover:text-emerald-600 font-semibold transition-colors">
+              ← Back to Overview Hub
+            </button>
+            <span class="font-mono text-emerald-600">Executive Summary</span>
+          </div>
+
+          <header class="space-y-3 pb-4 border-b border-stone-200 dark:border-slate-800">
+            <h1 class="font-serif text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white">
+              Bilingual Executive Summary: Five Core Pillars
+            </h1>
+            <p class="text-base text-stone-600 dark:text-slate-300">
+              The high-level synthesis of Heart Chakra principles, physiological mechanisms, and rejuvenation traits in parallel English and Vietnamese.
+            </p>
+          </header>
+
+          <div class="space-y-6">
+            ${itemsHtml}
+          </div>
+
+          <div class="pt-6 text-center">
+            <button onclick="navigateTo('glossary')" class="px-6 py-3 rounded-xl font-semibold text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm transition-all">
+              Continue to B2/C1 Learner Glossary →
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // ==========================================
+    // VIEW 4: INTERACTIVE LEARNER GLOSSARY (32 TERMS)
+    // ==========================================
+    function renderGlossaryPage() {
+      const filtered = GLOSSARY.filter(item => {
+        const matchesCategory = state.glossaryCategory === 'all' || item.category === state.glossaryCategory;
+        const matchesQuery = !state.glossarySearch || 
+          item.term.toLowerCase().includes(state.glossarySearch.toLowerCase()) ||
+          item.academicDef.toLowerCase().includes(state.glossarySearch.toLowerCase()) ||
+          item.vietnamese.toLowerCase().includes(state.glossarySearch.toLowerCase());
+        return matchesCategory && matchesQuery;
+      });
+
+      const cardsHtml = filtered.map((item, idx) => {
+        const isRevealed = !!state.glossaryRevealed[item.id];
+
+        return `
+          <div class="bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+            <div class="space-y-3.5">
+              
+              <!-- Term & Part of Speech + Listen Audio -->
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="font-serif text-xl sm:text-2xl font-bold text-stone-900 dark:text-white tracking-tight">
+                    ${item.term}
+                  </h3>
+                  <span class="inline-block text-xs font-mono italic text-emerald-600 dark:text-emerald-400">
+                    ${item.pos}
+                  </span>
+                </div>
+                
+                <button onclick="speakText(\`${escapeQuotes(item.term)}\`, 'en-US')" title="Pronounce word" class="p-2 rounded-lg hover:bg-stone-100 dark:hover:bg-slate-800 text-stone-400 hover:text-emerald-600 transition-colors">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Academic Definition -->
+              <div class="text-sm text-stone-700 dark:text-slate-300 leading-relaxed">
+                <span class="font-semibold text-stone-900 dark:text-white">Definition:</span> ${item.academicDef}
+              </div>
+
+              <!-- Plain English Explanation (B1/B2) -->
+              <div class="p-3 rounded-xl bg-stone-50 dark:bg-slate-800/60 border border-stone-100 dark:border-slate-800 text-xs text-stone-600 dark:text-slate-300 leading-relaxed italic">
+                ${item.plainEnglish}
+              </div>
+
+              <!-- Context In Document -->
+              <div class="text-xs text-stone-500 dark:text-slate-400 leading-relaxed border-l-2 border-emerald-400 pl-3 py-0.5">
+                <span class="font-semibold text-stone-600 dark:text-slate-300">Context:</span> "${item.contextExample}"
+              </div>
+
+            </div>
+
+            <!-- Reveal Vietnamese Equivalent Button -->
+            <div class="pt-4 mt-4 border-t border-stone-100 dark:border-slate-800 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-medium text-stone-500 dark:text-slate-400">Nghĩa Tiếng Việt</span>
+                <button onclick="toggleGlossaryItem('${item.id}')" class="px-3 py-1 text-xs font-semibold rounded-lg bg-stone-100 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/60 hover:text-emerald-700 dark:hover:text-emerald-300 text-stone-700 dark:text-slate-300 transition-colors">
+                  ${isRevealed ? 'Ẩn nghĩa' : 'Xem nghĩa / Reveal'}
+                </button>
+              </div>
+
+              <!-- Hidden/Revealed Vietnamese Text -->
+              <div id="glossary-vn-${item.id}" class="${isRevealed ? 'block' : 'hidden'} p-3 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200/50 dark:border-emerald-800/40 text-sm font-semibold text-emerald-900 dark:text-emerald-200 transition-all">
+                ${item.vietnamese}
+              </div>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="space-y-8 max-w-5xl mx-auto">
+          
+          <div class="flex items-center justify-between text-xs text-stone-500 dark:text-slate-400">
+            <button onclick="navigateTo('overview')" class="inline-flex items-center gap-1 hover:text-emerald-600 font-semibold transition-colors">
+              ← Back to Overview Hub
+            </button>
+            <span class="font-mono text-emerald-600">32 B2/C1 Terms</span>
+          </div>
+
+          <header class="space-y-3 pb-2 border-b border-stone-200 dark:border-slate-800">
+            <h1 class="font-serif text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white">
+              Interactive Learner Glossary
+            </h1>
+            <p class="text-base text-stone-600 dark:text-slate-300">
+              Curated specialized vocabulary, Traditional Chinese Medicine concepts, and neuroscience terminology for B2/C1 language learners with revealable translations.
+            </p>
+
+            <!-- Search Bar & Category Filters -->
+            <div class="pt-4 space-y-4">
+              
+              <!-- Search Input -->
+              <div class="relative">
+                <input 
+                  type="text" 
+                  id="glossary-search-input"
+                  value="${state.glossarySearch}"
+                  oninput="handleGlossarySearch(this.value)"
+                  placeholder="Search terms, definitions, or Vietnamese keywords..." 
+                  class="w-full pl-10 pr-4 py-3 rounded-xl border border-stone-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-stone-900 dark:text-white placeholder-stone-400 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
+                />
+                <svg class="w-5 h-5 text-stone-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+
+              <!-- Filter Tabs & Bulk Reveal -->
+              <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+                
+                <!-- Category Tabs (Interactive Filter Controls) -->
+                <div class="flex flex-wrap items-center gap-1.5 p-1 bg-stone-100 dark:bg-slate-800 rounded-xl">
+                  <button onclick="setGlossaryCategory('all')" class="px-3 py-1.5 rounded-lg font-semibold transition-colors ${state.glossaryCategory === 'all' ? 'bg-white dark:bg-slate-900 text-stone-900 dark:text-white shadow-sm' : 'text-stone-600 dark:text-slate-400 hover:text-stone-900'}">
+                    All (${GLOSSARY.length})
+                  </button>
+                  <button onclick="setGlossaryCategory('tcm')" class="px-3 py-1.5 rounded-lg font-semibold transition-colors ${state.glossaryCategory === 'tcm' ? 'bg-white dark:bg-slate-900 text-stone-900 dark:text-white shadow-sm' : 'text-stone-600 dark:text-slate-400 hover:text-stone-900'}">
+                    TCM & Acupoints
+                  </button>
+                  <button onclick="setGlossaryCategory('neuroscience')" class="px-3 py-1.5 rounded-lg font-semibold transition-colors ${state.glossaryCategory === 'neuroscience' ? 'bg-white dark:bg-slate-900 text-stone-900 dark:text-white shadow-sm' : 'text-stone-600 dark:text-slate-400 hover:text-stone-900'}">
+                    Neuroscience & Biology
+                  </button>
+                  <button onclick="setGlossaryCategory('academic')" class="px-3 py-1.5 rounded-lg font-semibold transition-colors ${state.glossaryCategory === 'academic' ? 'bg-white dark:bg-slate-900 text-stone-900 dark:text-white shadow-sm' : 'text-stone-600 dark:text-slate-400 hover:text-stone-900'}">
+                    Academic C1
+                  </button>
+                </div>
+
+                <!-- Bulk Toggle for Study Flashcard Mode -->
+                <div class="flex items-center gap-2">
+                  <button onclick="bulkToggleGlossary(true)" class="px-3 py-1.5 rounded-lg font-semibold text-stone-700 dark:text-slate-300 bg-stone-100 dark:bg-slate-800 hover:bg-stone-200 dark:hover:bg-slate-700 transition-colors">
+                    Reveal All Meanings
+                  </button>
+                  <button onclick="bulkToggleGlossary(false)" class="px-3 py-1.5 rounded-lg font-semibold text-stone-700 dark:text-slate-300 bg-stone-100 dark:bg-slate-800 hover:bg-stone-200 dark:hover:bg-slate-700 transition-colors">
+                    Hide All (Quiz Mode)
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+          </header>
+
+          <!-- Glossary Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            ${filtered.length > 0 ? cardsHtml : `
+              <div class="col-span-full py-12 text-center text-stone-500">
+                No glossary terms match your search. Try adjusting the query.
+              </div>
+            `}
+          </div>
+
+        </div>
+      `;
+    }
+
+    function toggleGlossaryItem(id) {
+      state.glossaryRevealed[id] = !state.glossaryRevealed[id];
+      renderCurrentView();
+    }
+
+    function bulkToggleGlossary(reveal) {
+      GLOSSARY.forEach(item => {
+        state.glossaryRevealed[item.id] = reveal;
+      });
+      renderCurrentView();
+    }
+
+    function handleGlossarySearch(val) {
+      state.glossarySearch = val;
+      renderCurrentView();
+      // Keep focus
+      const input = document.getElementById('glossary-search-input');
+      if (input) {
+        input.focus();
+        input.setSelectionRange(val.length, val.length);
+      }
+    }
+
+    function setGlossaryCategory(cat) {
+      state.glossaryCategory = cat;
+      renderCurrentView();
+    }
+
+    // ==========================================
+    // VIEW 5: SOMATIC BREATHWORK PACER (INTERACTIVE TOOL)
+    // ==========================================
+    let pacingInterval = null;
+
+    function renderPracticePage() {
+      return `
+        <div class="space-y-8 max-w-3xl mx-auto">
+          
+          <div class="flex items-center justify-between text-xs text-stone-500 dark:text-slate-400">
+            <button onclick="navigateTo('overview')" class="inline-flex items-center gap-1 hover:text-emerald-600 font-semibold transition-colors">
+              ← Back to Overview Hub
+            </button>
+            <span class="font-mono text-emerald-600">Guided Somatics</span>
+          </div>
+
+          <header class="text-center space-y-3 pb-4 border-b border-stone-200 dark:border-slate-800">
+            <h1 class="font-serif text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white">
+              Bài Tập Thở Đóng Mở & Huyệt Đạo
+            </h1>
+            <p class="text-base text-stone-600 dark:text-slate-300 max-w-xl mx-auto">
+              Thực hành trực tiếp theo hướng dẫn tại Mục 6: "Một thở vào, một thở ra chính là một lần đóng mở."
+            </p>
+          </header>
+
+          <!-- Interactive Breathing Pacer Stage -->
+          <div class="bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 rounded-3xl p-8 sm:p-12 text-center shadow-sm space-y-8">
+            
+            <div class="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto flex items-center justify-center">
+              <!-- Visual Pulse Circle -->
+              <div id="pacer-circle" class="w-36 h-36 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-400 opacity-90 transition-all duration-1000 flex items-center justify-center text-white shadow-xl shadow-emerald-500/20">
+                <span id="pacer-action" class="font-serif text-lg font-bold">Thở Ra</span>
+              </div>
+            </div>
+
+            <!-- Current Instructions Prompt -->
+            <div class="space-y-2">
+              <h3 id="pacer-title" class="font-serif text-xl sm:text-2xl font-bold text-stone-900 dark:text-white">
+                Bước 1: Mở (Thở ra – Tống khí tắc nghẽn)
+              </h3>
+              <p id="pacer-desc" class="text-sm sm:text-base text-stone-600 dark:text-slate-300 max-w-lg mx-auto leading-relaxed">
+                Đặt ngón tay cái lên huyệt Đản Trung (giữa ngực). Theo nhịp thở ra, nhẹ nhàng ấn và đẩy xuống để đưa khí bí tức ra ngoài; tưởng tượng trao thiện ý cho người khác.
+              </p>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex items-center justify-center gap-3">
+              <button id="pacer-toggle-btn" onclick="togglePacer()" class="px-6 py-3 rounded-xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-md shadow-emerald-600/30 active:scale-95 transition-all">
+                Bắt Đầu Thực Hành
+              </button>
+              <button onclick="resetPacer()" class="px-5 py-3 rounded-xl font-semibold text-sm text-stone-700 dark:text-slate-300 bg-stone-100 dark:bg-slate-800 hover:bg-stone-200 dark:hover:bg-slate-700 transition-colors">
+                Đặt Lại
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Acupressure Guide Reference Card -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+            
+            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 space-y-2">
+              <div class="font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">Huyệt Khi Thở Ra (Xuất)</div>
+              <div class="font-semibold text-stone-900 dark:text-white text-sm">Huyệt Đản Trung (CV17)</div>
+              <p class="text-stone-600 dark:text-slate-400 leading-relaxed">
+                Chính giữa ngực (giữa 2 đầu vú). Là Mộ huyệt của Tâm bào, Khí hội của toàn thân. Giúp khoan hung, lý khí, giải tỏa căng cứng lồng ngực.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 space-y-2">
+              <div class="font-bold text-rose-700 dark:text-rose-400 uppercase tracking-wider">Huyệt Khi Hít Vào (Thu / Nhập)</div>
+              <div class="font-semibold text-stone-900 dark:text-white text-sm">Nội Quan (PC6) & Thần Môn (HT7)</div>
+              <p class="text-stone-600 dark:text-slate-400 leading-relaxed">
+                Nội quan ở cổ tay giữa 2 gân; Thần môn ở nếp gấp cổ tay phía ngón út. Giúp ninh tâm an thần, thu nạp phúc lành và sưởi ấm tâm khí.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      `;
+    }
+
+    function togglePacer() {
+      const btn = document.getElementById('pacer-toggle-btn');
+      if (pacingInterval) {
+        clearInterval(pacingInterval);
+        pacingInterval = null;
+        if (btn) btn.textContent = 'Tiếp Tục';
+        return;
+      }
+
+      if (btn) btn.textContent = 'Tạm Dừng';
+      let phase = 0; // 0: exhale, 1: inhale
+
+      function step() {
+        const circle = document.getElementById('pacer-circle');
+        const action = document.getElementById('pacer-action');
+        const title = document.getElementById('pacer-title');
+        const desc = document.getElementById('pacer-desc');
+
+        if (!circle) return;
+
+        if (phase === 0) {
+          // Exhale (Shrink & release)
+          circle.style.transform = 'scale(0.85)';
+          circle.style.backgroundColor = '#059669';
+          action.textContent = 'Thở Ra...';
+          title.textContent = 'Bước 1: Mở (Thở ra – Trao Thiện Ý)';
+          desc.textContent = 'Thở cho hết, cảm nhận lồng ngực hạ xuống, xoa ấn huyệt Đản Trung, tống luồng khí bí bách ra ngoài.';
+          phase = 1;
+        } else {
+          // Inhale (Expand & receive)
+          circle.style.transform = 'scale(1.35)';
+          circle.style.backgroundColor = '#e11d48';
+          action.textContent = 'Hít Vào...';
+          title.textContent = 'Bước 2: Khép (Hít vào – Thu Tình Yêu Về)';
+          desc.textContent = 'Hít cho đầy, lồng ngực mở rộng, xoa ấn Nội Quan hoặc Thần Môn, đón nhận sự nuôi dưỡng và chúc phúc cho chính mình.';
+          phase = 0;
+        }
+      }
+
+      step();
+      pacingInterval = setInterval(step, 5000);
+    }
+
+    function resetPacer() {
+      if (pacingInterval) {
+        clearInterval(pacingInterval);
+        pacingInterval = null;
+      }
+      const btn = document.getElementById('pacer-toggle-btn');
+      if (btn) btn.textContent = 'Bắt Đầu Thực Hành';
+      const circle = document.getElementById('pacer-circle');
+      if (circle) circle.style.transform = 'scale(1)';
+    }
+
+    // ==========================================
+    // 7. UTILITY & TEXT FORMATTING
+    // ==========================================
+    function formatParagraphText(rawText) {
+      if (!rawText) return "";
+      // Handle markdown bullets
+      return rawText.replace(/\n\*\s/g, '\n• ');
+    }
+
+    function escapeQuotes(str) {
+      if (!str) return "";
+      return str.replace(/`/g, '\\`').replace(/"/g, '&quot;').replace(/\n/g, ' ');
+    }
+
+    // ==========================================
+    // 8. GLOBAL EVENT LISTENERS & INITIALIZATION
+    // ==========================================
+    window.addEventListener('hashchange', handleRouting);
+    
+    // Keyboard shortcuts for ease of reading navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        navigateTo('overview');
+      }
+    });
+
+    // Run on startup
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      handleRouting();
+    });
+  </script>
+</body>
+</html>
