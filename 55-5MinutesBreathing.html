@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Can 5 Minutes of Deep Breathing Do? | 5 Phút Hít Thở Sâu</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Newsreader"', 'Georgia', 'serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              900: '#064e3b',
+            },
+            accent: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0284c7',
+              600: '#0369a1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Smooth card flip & height animations */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .card-transition {
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Breathing animation for pacer */
+    @keyframes breathePulse {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      25% { transform: scale(1.35); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.95; }
+      100% { transform: scale(1); opacity: 0.7; }
+    }
+    .animate-breathe {
+      animation: breathePulse 16s ease-in-out infinite;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(156, 163, 175, 0.4);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(156, 163, 175, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-white transition-colors duration-300">
+
+  <!-- Toast Notification Box -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-xl flex items-center space-x-3 text-sm font-medium">
+    <span id="toast-icon">✨</span>
+    <span id="toast-msg">Notification</span>
+  </div>
+
+  <!-- Persistent Top Navigation Bar -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/85 dark:bg-slate-900/85 border-b border-slate-200/80 dark:border-slate-800 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2">
+      
+      <!-- Left: Back Button or Brand Logo -->
+      <div class="flex items-center space-x-3">
+        <a id="nav-back-btn" href="#overview" class="hidden items-center space-x-1.5 px-3 py-2 text-sm font-semibold rounded-lg text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="hidden sm:inline">Overview</span>
+          <span class="sm:hidden">Back</span>
+        </a>
+
+        <a href="#overview" class="flex items-center space-x-2 group">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-accent-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-extrabold text-base tracking-tight leading-none bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-200 bg-clip-text text-transparent">BREATHE 5</span>
+            <span class="text-[11px] font-semibold text-brand-600 dark:text-brand-400 tracking-wider uppercase">Bilingual Study</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Center & Right: Actions & Tools -->
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <!-- Global Display Mode Selector (EN / VI / DUAL) -->
+        <div class="inline-flex p-1 bg-slate-100 dark:bg-slate-800/80 rounded-xl border border-slate-200/60 dark:border-slate-700/60 text-xs font-semibold">
+          <button id="mode-en-btn" onclick="setGlobalLangMode('en')" class="px-2.5 py-1.5 rounded-lg transition-all" title="Show English primary">EN</button>
+          <button id="mode-split-btn" onclick="setGlobalLangMode('split')" class="px-2.5 py-1.5 rounded-lg transition-all" title="Bilingual Side-by-side / Dual View">EN • VI</button>
+          <button id="mode-vi-btn" onclick="setGlobalLangMode('vi')" class="px-2.5 py-1.5 rounded-lg transition-all" title="Show Vietnamese primary">VI</button>
+        </div>
+
+        <!-- Quick Jump to Glossary -->
+        <a href="#glossary" class="inline-flex items-center space-x-1.5 px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/70 dark:border-emerald-800/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 transition-all shadow-sm">
+          <span>📖</span>
+          <span class="hidden md:inline">Learner</span>
+          <span>Glossary</span>
+        </a>
+
+        <!-- Dark/Light Mode Toggle -->
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="p-2 sm:p-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700" title="Toggle Dark/Light Mode">
+          <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path></svg>
+          <svg id="moon-icon" class="w-5 h-5 block dark:hidden text-slate-700" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Content Container (Max width 4xl for optimal reading length) -->
+  <main class="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <!-- Dynamic View Mount Point -->
+    <div id="view-container"></div>
+  </main>
+
+  <!-- Persistent Instructional Footer -->
+  <footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/40 backdrop-blur py-8 mt-16 transition-colors">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center text-sm text-slate-500 dark:text-slate-400 space-y-3">
+      <div class="flex flex-wrap justify-center items-center gap-4 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+        <span>Stanford School of Medicine</span>
+        <span>•</span>
+        <span>NYU Langone Health</span>
+        <span>•</span>
+        <span>Vagus Nerve &amp; HRV Biology</span>
+      </div>
+      <p>Interactive bilingual instructional experience designed for B2/C1 English learners and health science enthusiasts.</p>
+      <div class="flex justify-center space-x-6 pt-2">
+        <a href="#overview" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Overview Hub</a>
+        <a href="#sec-1" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Read Section 1</a>
+        <a href="#glossary" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">30-Term Academic Glossary</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic & Full Verbatim Datasets -->
+  <script>
+    /**
+     * VERBATIM CONTENT STORE: All 8 sections extracted verbatim from EN-01 and SRT-VN
+     */
+    const DOC_TITLE = {
+      en: "What Can 5 Minutes of Deep Breathing Do?",
+      vi: "5 Phút Hít Thở Sâu Có Thể Làm Được Gì?"
+    };
+
+    const SECTIONS_DATA = [
+      {
+        id: "sec-1",
+        num: 1,
+        title: {
+          en: "The Atomic Level: Breath and the Exchange of Matter with the Cosmos",
+          vi: "Cấp độ nguyên tử: Hơi thở và sự trao đổi chất với vũ trụ"
+        },
+        readTime: "3 min read",
+        summaryEn: "Explore how every single inhalation physically links your body to the Earth's carbon and oxygen cycles.",
+        summaryVi: "Khám phá cách từng hơi thở kết nối trực tiếp cơ thể bạn với chu trình cacbon và oxy của hành tinh.",
+        paragraphs: [
+          {
+            id: "p1-1",
+            en: "Right now, before you read a single word further, take a very slow breath in through your nose, and exhale even more slowly through your mouth. Feel that. Just that single breath has brought billions of oxygen atoms into your bloodstream and expelled carbon atoms. Some of those were once part of the sandwich you ate last week, now released into the air around you. You are exchanging matter with the entire planet with every single breath. And here is what almost no one tells you: researchers at Stanford and NYU have discovered that just 5 minutes of deep, controlled breathing can lower your heart rate, calm fear centers in the brain, alter your blood chemistry, and even protect the ends of your chromosomes. This is not a wellness fad. This is a measurable biological process taking place right now. And by the end of this video, you will understand why that five-minute mark keeps showing up across the research.",
+            vi: "Ngay lúc này, trước khi bạn đọc thêm một từ nào nữa, hãy hít vào một hơi thật chậm qua mũi và thở ra còn chậm hơn qua miệng. Hãy cảm nhận điều đó. Chỉ một hơi thở đó thôi đã đưa hàng tỷ nguyên tử oxy vào máu của bạn và đẩy các nguyên tử cacbon. Một số trong đó từng là một phần của chiếc bánh mì kẹp bạn ăn tuần trước ra ngoài không khí xung quanh bạn. Bạn đang trao đổi vật chất với toàn bộ hành tinh qua từng hơi thở. Và đây là điều mà hầu như không ai nói cho bạn biết. Các nhà nghiên cứu tại Stanford và NYU đã phát hiện ra rằng chỉ cần 5 phút hít thở sâu, có kiểm soát có thể làm giảm nhịp tim, xoa dịu các trung tâm sợ hãi trong não, thay đổi thành phần hóa học trong máu và thậm chí bảo vệ các đầu mút nhiễm sắc thể của bạn. Đây không phải là một trào lưu chăm sóc sức khỏe. Đây là quá trình sinh học có thể đo lường được đang diễn ra ngay lúc này. Và đến cuối video này, bạn sẽ hiểu tại sao con số 5 phút lại liên tục xuất hiện trong các nghiên cứu."
+          },
+          {
+            id: "p1-2",
+            en: "Most people treat breathing as background noise—a process the body handles on its own while the mind is busy doing other things. But set aside its automatic nature for a moment and look at what is actually happening at the atomic level. When you inhale oxygen molecules from the surrounding air, they pass through the thin walls of your lungs and enter your bloodstream. Those oxygen atoms travel through your arteries and ultimately arrive inside your cells, where they combine with hydrogen to form water and release usable energy.",
+            vi: "Hầu hết mọi người coi việc hít thở như một tiếng ồn nền, một việc mà cơ thể tự xử lý trong khi tâm trí đang bận rộn làm những việc khác. Nhưng hãy tạm gác lại bản chất tự động của nó một lát và nhìn vào những gì thực sự đang diễn ra ở cấp độ nguyên tử. Khi bạn hít các phân tử oxy từ không khí xung quanh, chúng đi qua các thành mỏng của phổi và đi vào máu của bạn. Những nguyên tử oxy đó di chuyển qua các động mạch và cuối cùng đến bên trong các tế bào của bạn, nơi chúng hydro để tạo thành nước và giải phóng năng lượng có thể sử dụng được."
+          },
+          {
+            id: "p1-3",
+            en: "When you exhale, you are pushing carbon atoms out of your body—and those carbon atoms are anything but abstract. They were once part of the food you ate: bread, rice, vegetables; and before that, part of a plant that drew carbon out of the atmosphere using sunlight. In other words, every breath you take is a miniature act of planetary recycling. You inhale atoms that were floating in the air just moments ago, and you exhale atoms that were part of your own muscle tissue days or weeks prior. This is not poetic metaphor; it is literal biochemistry. Understanding this shifts how you think about something as simple as taking five slow breaths before bed. Once you see breathing as a physical exchange of matter rather than a passive reflex, it becomes clear why controlling that exchange—even for a moment—can produce real, measurable effects on your body.",
+            vi: "Khi bạn thở ra, bạn đang đẩy các nguyên tử cacbon ra khỏi cơ thể và những nguyên tử cacbon đó không hề trừu tượng. Chúng từng là một phần của thức ăn bạn đã ăn, bánh mì, cơm, rau củ và trước đó nữa là một phần của một cái cây đã hút cacbon ra khỏi bầu khí quyển bằng ánh sáng mặt trời. Nói cách khác, mỗi hơi thở của bạn là một hành động tái chế nhỏ của hành tinh. Bạn hít vào những nguyên tử vừa lơ lửng trong không khí cách đây một khoảnh khắc và bạn thở ra những nguyên tử từng là một phần của mô cơ của chính bạn vài ngày hoặc vài tuần trước đó. Đây không phải là ngôn từ thơ ca, đó là hóa sinh theo đúng nghĩa đen. Và việc hiểu được điều này sẽ thay đổi cách bạn nghĩ về một việc đơn giản như hít năm hơi thở chậm trước khi đi ngủ. Một khi bạn coi việc hít thở là một sự trao đổi vật chất vật lý thay vì một phản xạ thụ động, bạn sẽ thấy rõ tại sao việc kiểm soát sự trao đổi đó dù chỉ trong chốc lát lại có thể tạo ra những tác động thực sự và có thể đo lường được đối với cơ thể."
+          }
+        ]
+      },
+      {
+        id: "sec-2",
+        num: 2,
+        title: {
+          en: "Biological Mechanisms: Alveoli, Oxygen, and the Mitochondrial 'Powerhouses'",
+          vi: "Cơ chế sinh học: Phế nang, oxy và \"nhà máy điện\" ti thể"
+        },
+        readTime: "4 min read",
+        summaryEn: "How deep abdominal inhalation inflates lower lobe alveoli and supercharges cellular ATP production.",
+        summaryVi: "Hơi thở sâu kích hoạt hàng triệu phế nang đáy phổi và cung cấp nhiên liệu tổng hợp ATP cho ti thể.",
+        paragraphs: [
+          {
+            id: "p2-1",
+            en: "Consider just how extraordinary this really is. Between 12 and 20 times a minute, your body conducts a comprehensive chemical exchange with the outside world, taking in a gas that keeps every cell alive and expelling an exhaust gas that would slowly poison you if trapped inside. You never had to learn this exchange, yet it has operated flawlessly since the moment you took your first breath outside the womb. Most people will go their entire lives without consciously recognizing this exchange, treating their breath the way they treat their heartbeat: something to ignore until it stops working. But breath differs from heart rate in one crucial way, and that difference is the entire reason this video exists.",
+            vi: "Hãy nghĩ xem điều này thực sự kỳ lạ như thế nào. Cứ 12 đến 20 lần một phút, cơ thể bạn thực hiện một cuộc trao đổi hóa học toàn diện với thế giới bên ngoài, hấp thụ một loại khí giữ cho mọi tế bào sống sót và thải ra một loại khí thải có thể từ từ đầu độc bạn nếu nó bị mắc kẹt bên trong. Bạn chưa bao giờ phải học cách trao đổi này vậy mà nó vẫn hoạt động hoàn hảo kể từ khoảnh khắc bạn hít hơi thở đầu tiên bên ngoài bụng mẹ. Hầu hết mọi người sẽ sống cả đời mà không hề có ý thức nhận ra sự trao đổi này. Đối xử với hơi thở giống như cách họ đối xử với nhịp tim như một thứ có thể phớt lờ trừ khi nó ngừng hoạt động. Nhưng hơi thở khác với nhịp tim ở một điểm quan trọng và sự khác biệt đó chính là toàn bộ lý do video này tồn tại."
+          },
+          {
+            id: "p2-2",
+            en: "To understand why deep breathing is so essential, you have to look at where the air actually goes when it enters your body. Your lungs are packed with hundreds of millions of tiny air sacs called alveoli, and most of these alveoli are concentrated in the lower lobes of the lungs. Here lies the problem: when people breathe shallowly—which is how most adults breathe throughout a stressful day—air barely reaches the upper chest. Those lower alveoli, which enjoy the richest blood supply, never get filled. A slow, deep breath that expands the abdomen and lower ribs pushes air down into those lower regions, opening up hundreds of millions of additional alveoli and dramatically increasing the surface area available for gas exchange.",
+            vi: "Để hiểu tại sao việc hít thở sâu lại đặc biệt quan trọng, bạn phải xem xét không khí thực sự đi đâu khi nó đi vào cơ thể bạn. Phổi của bạn được bao phủ bởi hàng trăm triệu túi khí nhỏ gọi là phế nang và hầu hết các phế nang này nằm ở phần dưới của phổi. Vấn đề nằm ở đây khi mọi người thở nông đó là cách hầu hết người lớn thở trong suốt một ngày căng thẳng. Không khí hầu như chỉ chạm đến phần trên của ngực và những phế nang ở dưới, những phế nang có nguồn cung cấp máu dồi dào nhất không bao giờ được lấp đầy. Một hơi thở chậm sâu làm nở bụng và các xương sườn dưới sẽ đẩy không khí xuống vùng thấp hơn đó. Mở ra hàng trăm triệu phế nang bổ sung và làm tăng đáng kể diện tích bề mặt có sẵn cho quá trình trao đổi khí."
+          },
+          {
+            id: "p2-3",
+            en: "A larger surface area means more oxygen enters your bloodstream in the same amount of time. That oxygen then travels through the bloodstream to nearly every cell in your body, where it is delivered to microscopic structures called mitochondria. Mitochondria are often called the powerhouses of the cell, and for good reason. Inside them, oxygen participates in a process called the electron transport chain—a series of chemical reactions that ultimately produces a molecule called ATP. This is the primary energy currency your cells use to do everything from firing a neuron and contracting a muscle to repairing damaged tissue. So, when you spend 5 minutes breathing slowly and deeply, you aren't just calming your mind; you are physically increasing the raw materials your mitochondria have to work with. That means more available energy for the systems keeping you alive and functioning.",
+            vi: "Diện tích bề mặt lớn hơn có nghĩa là có nhiều oxy đi vào máu hơn trong cùng một khoảng thời gian. Lượng oxy đó sau đó di chuyển qua dòng máu đến gần như mọi tế bào trong cơ thể bạn, nơi nó được đưa đến các cấu trúc nhỏ bé gọi là ti thể. Ti thể thường được gọi là nhà máy điện của tế bào và điều này hoàn toàn có lý do. Bên trong chúng, oxy tham gia vào một quá trình gọi là chuỗi truyền electron, một chuỗi các phản ứng hóa học cuối cùng tạo ra một phân tử gọi là ATP. Đây là đồng tiền năng lượng chính mà các tế bào của bạn sử dụng để làm mọi thứ từ việc kích hoạt một tế bào thần kinh, co cơ cho đến sửa chữa các mô bị tổn thương. Vì vậy, khi bạn dành 5 phút để hít thở chậm và sâu, bạn không chỉ đang làm dịu tâm trí mà bạn đang làm tăng lượng nguyên liệu thô mà ti thể của bạn có để hoạt động một cách vật lý. Điều này có nghĩa là có nhiều năng lượng sẵn có hơn cho các hệ thống giữ cho bạn sống và hoạt động."
+          },
+          {
+            id: "p2-4",
+            en: "It is worth pausing to consider just how many mitochondria are involved in this process. A single cell can contain anywhere from several hundred to several thousand of these tiny structures, across trillions of cells throughout your body. The total number receiving that surge of extra oxygen during 5 minutes of deep breathing is almost unfathomable. That is why people often describe feeling clearer, calmer, and physically lighter after just a few minutes of slow, intentional breathing. That is not imagination; it is trillions of miniature power plants suddenly receiving a richer supply of fuel all at once.",
+            vi: "Đáng để dừng lại một chút để xem xét có bao nhiêu ti thể tham gia vào quá trình này. Một tế bào đơn lẻ có thể chứa từ vài trăm đến vài nghìn cấu trúc nhỏ bé này và với hàng nghìn tỷ tế bào trên khắp cơ thể bạn. Tổng số lượng nhận được lượng oxy bổ sung đó trong 5 phút hít thở sâu là điều gần như không thể hình dung hết được. Đó là lý do tại sao mọi người thường mô tả cảm giác minh mẫn hơn, bình tĩnh hơn và cơ thể nhẹ nhõm hơn chỉ sau vài phút hít thở chậm rãi có chủ ý. Đó không phải là trí tưởng tượng, đó là hàng nghìn tỷ nhà máy điện nhỏ bé đột nhiên nhận được nguồn cung cấp nhiên liệu lớn hơn một chút cùng một lúc."
+          }
+        ]
+      },
+      {
+        id: "sec-3",
+        num: 3,
+        title: {
+          en: "Access Point to the Autonomic Nervous System: The Vagus Nerve and HRV",
+          vi: "Điểm truy cập hệ thần kinh tự chủ: Dây thần kinh phế vị và HRV"
+        },
+        readTime: "5 min read",
+        summaryEn: "Why breathing is the only autonomic bodily function under voluntary conscious control.",
+        summaryVi: "Tại sao hơi thở là cầu nối duy nhất giúp ý thức can thiệp vào hệ thần kinh tự chủ và tăng chỉ số HRV.",
+        paragraphs: [
+          {
+            id: "p3-1",
+            en: "Now, this is where things get truly remarkable. Your body runs almost entirely on autopilot. You cannot consciously slow your own heart rate. You cannot tell your liver to filter faster. You cannot instruct your kidneys to adjust their pace. All of these processes are governed by something called the autonomic nervous system—a network that runs your organs without ever asking your permission. But breathing is different. Breathing falls into a rare, peculiar category because it happens automatically when you aren't paying attention, yet you can take the wheel and control it whenever you choose. This makes the breath the single most direct access point most people will ever have into their own autonomic nervous system.",
+            vi: "Bây giờ đây là lúc mọi thứ trở nên thực sự đáng kinh ngạc. Cơ thể bạn hoạt động gần như hoàn toàn ở chế độ tự lái. Bạn không thể có ý thức làm chậm nhịp tim của chính mình. Bạn không thể bảo gan của mình lọc nhanh hơn. Bạn không thể hướng dẫn thận điều chỉnh tốc độ của chúng. Tất cả các quá trình này được kiểm soát bởi một thứ gọi là hệ thần kinh tự chủ, một mạng lưới điều hành các cơ quan của bạn mà không bao giờ cần xin phép bạn. Nhưng hít thở thì khác. Hít thở nằm trong một danh mục kỳ lạ và hiếm hoi vì nó diễn ra tự động khi bạn không chú ý. Nhưng bạn cũng có thể cầm lái và kiểm soát nó bất cứ khi nào bạn muốn. Điều này làm cho hơi thở trở thành điểm truy cập trực tiếp nhất mà hầu hết mọi người từng có vào hệ thần kinh tự chủ của chính họ."
+          },
+          {
+            id: "p3-2",
+            en: "That system has two primary branches. The sympathetic branch is your gas pedal—responsible for the fight-or-flight response: a racing heart, shallow breathing, and a surge of adrenaline when facing a threat. The parasympathetic branch is your brake pedal—responsible for resting, digesting, and recovering. Slow, deep breathing—especially patterns where the exhalation is longer than the inhalation—sends an immediate signal to clusters of neurons in the brainstem, essentially telling the body that it is safe to shift from the gas pedal to the brake pedal. This is not a metaphor. It is a documented physiological switch, and it is one of the only switches in the entire body that you can flip on command using nothing other than your own breath.",
+            vi: "Hệ thống đó có hai nhánh chính. Nhánh giao cảm là chân ga của bạn. Nhánh chịu trách nhiệm cho phản ứng chiến đấu hoặc bỏ chạy. Nhịp tim đập nhanh, hơi thở nông. Sự tuôn trào adrenaline khi có điều gì đó mang tính đe dọa. Nhánh phó giao cảm là chân phanh của bạn. Nhánh chịu trách nhiệm cho việc nghỉ ngơi, tiêu hóa và phục hồi. Hít thở sâu chậm, đặc biệt là kiểu thở mà thời gian thở ra dài hơn thời gian hít vào, sẽ gửi một tín hiệu trực tiếp đến các cụm tế bào thần kinh ở thân não. Về cơ bản, báo cho cơ thể biết rằng đã an toàn để chuyển từ nhánh chân ga sang nhánh chân phanh. Đây không phải là một phép ẩn dụ. Nó là một công tắc sinh lý đã được ghi nhận và nó là một trong những công tắc duy nhất trong toàn bộ cơ thể mà bạn có thể bật theo lệnh mà không cần dùng gì khác ngoài chính hơi thở của mình."
+          },
+          {
+            id: "p3-3",
+            en: "Consider just how rare this is. You cannot decide to lower your blood sugar through sheer willpower, and you certainly cannot convince your immune system to work faster when you have a cold. Nearly every process inside your body operates completely out of conscious reach, shielded by systems that evolved long before conscious thought existed. Breathing slipped through that barrier almost by accident, because the diaphragm and intercostal muscles happen to be skeletal muscle—the same type of muscle you use to lift your arm. That means your brain can send them voluntary signals whenever it wants. That single evolutionary detail is why an entire branch of ancient practices and modern medicine exists around something as simple as counting your inhalations and exhalations.",
+            vi: "Hãy xem xét điều này thực sự hiếm hoi như thế nào. Bạn không thể quyết định hạ đường huyết chỉ bằng ý chí và bạn chắc chắn không thể thuyết phục hệ miễn dịch của mình hoạt động nhanh hơn khi bị cảm lạnh. Gần như mọi quá trình bên trong cơ thể bạn đều hoạt động hoàn toàn ngoài tầm với của ý thức, được bảo vệ bởi các hệ thống đã tiến hóa từ rất lâu trước khi tư duy có ý thức tồn tại. Hơi thở đã lọt qua rào cản đó gần như một cách tình cờ vì các cơ quan cơ hoành và các cơ giữa các xương sườn của bạn. Tình cờ lại là cơ vân cùng loại cơ mà bạn sử dụng để nâng cánh tay lên. Điều đó có nghĩa là não của bạn có thể gửi cho chúng các tín hiệu tự nguyện bất cứ khi nào nó muốn. Chi tiết tiến hóa duy nhất đó là lý do tại sao toàn bộ một nhánh của các phương pháp thực hành cổ xưa và y học hiện đại lại tồn tại xoay quanh một việc bình thường như đếm nhịp hít vào và thở ra của bạn."
+          },
+          {
+            id: "p3-4",
+            en: "The messenger responsible for carrying that signal from your lungs to your brain has a name, and it is a name you will hear repeatedly if you study this field: the vagus nerve. The vagus nerve is the longest cranial nerve in the human body, wandering from the base of the skull down through the neck, chest, and into your abdomen, touching the heart, lungs, and digestive organs along the way. When you take a deep breath, stretch receptors in your lungs and diaphragm are activated by the expansion of your chest and belly. These receptors send a reflex signal up through the vagus nerve directly to your brainstem, essentially reporting that everything is calm and expanding normally. This stands in stark contrast to the shallow, restricted breathing the body associates with danger.",
+            vi: "Sứ giả chịu trách nhiệm mang tín hiệu đó từ phổi đến não của bạn có một cái tên và đó là cái tên bạn sẽ nghe đi nghe lại nếu bạn nghiên cứu chủ đề này. Dây thần kinh phế vị. Dây thần kinh phế vị là dây thần kinh sọ dài nhất trong cơ thể con người. Đi lang thang từ đáy hộp sọ xuống qua cổ, ngực và vào bụng của bạn, chạm vào tim, phổi và các cơ quan tiêu hóa của bạn dọc theo đường đi. Khi bạn hít thở sâu, các thụ thể căng nằm trong phổi và cơ hoành của bạn được kích hoạt bởi sự giãn nở của ngực và bụng. Các thụ thể này gửi một tín hiệu phản xạ lên qua dây thần kinh phế vị, trực tiếp đến thân não của bạn. Về cơ bản báo cáo rằng mọi thứ đều bình tĩnh và đang giãn nở bình thường. Điều này trái ngược với kiểu thở nông, hạn chế mà cơ thể liên kết với sự nguy hiểm."
+          },
+          {
+            id: "p3-5",
+            en: "In response, your brain scales down stress signaling: your heart rate slows, your blood pressure drops slightly, and something called heart rate variability increases. Heart rate variability, commonly abbreviated as HRV, measures the small, natural fluctuations in the intervals between each heartbeat. A higher HRV is strongly linked to a nervous system that can adapt quickly and smoothly between stress and calm. People with chronically low HRV often struggle more with anxiety, poor sleep, and slower recovery from physical or emotional stress. The remarkable part is that 5 minutes of slow, deep breathing has been shown to significantly boost HRV in the short term. That means you aren't just feeling calmer; your nervous system is measurably becoming more flexible and resilient in real time.",
+            vi: "Để đáp lại, não của bạn làm giảm lượng tín hiệu căng thẳng phát ra, nhịp tim của bạn chậm lại, huyết áp của bạn giảm nhẹ và một thứ gọi là biến thiên nhịp tim tăng lên. Biến thiên nhịp tim thường được viết tắt là HRV, đo lường những dao động tự nhiên nhỏ trong khoảng thời gian giữa mỗi nhịp tim và HRV cao hơn có liên quan chặt chẽ đến một hệ thần kinh có thể thích ứng nhanh chóng và trơn tru giữa căng thẳng và bình tĩnh. Những người có HRV liên tục thấp thường phải vật lộn nhiều hơn với sự lo âu, giấc ngủ kém và phục hồi chậm hơn sau những căng thẳng về thể chất hoặc cảm xúc. Phần đáng chú ý là 5 phút hít thở sâu chậm đã được chứng minh là làm tăng đáng kể HRV trong ngắn hạn. Điều đó có nghĩa là bạn không chỉ cảm thấy bình tĩnh hơn mà hệ thần kinh của bạn đang trở nên linh hoạt hơn và phục hồi tốt hơn một cách có thể đo lường được trong thời gian thực."
+          },
+          {
+            id: "p3-6",
+            en: "Athletes and clinicians have begun paying close attention to HRV for precisely this reason, using it as an early indicator of how well someone is recovering from stress, illness, or rigorous physical training. A person whose nervous system transitions smoothly between alertness and rest tends to sleep better, recover faster after exertion, and handle unexpected stress without being completely derailed by it. What makes the vagus nerve so invaluable in all of this is that it does not require years of training to influence. Unlike building muscle or improving cardiovascular endurance, which takes months of sustained effort, a single 5-minute session of slow breathing can produce a measurable shift in vagal tone within that very sitting. That is part of why researchers have become so captivated by breath as a rapid-acting intervention rather than a slow, gradual one. This is not just theory built on old assumptions; it has been tested directly in controlled research settings.",
+            vi: "Các vận động viên và bác sĩ lâm sàng đã bắt đầu chú ý nhiều đến HRV chính vì lý do này. Sử dụng nó như một tín hiệu sớm cho thấy một người đang phục hồi tốt như thế nào sau căng thẳng, bệnh tật hoặc quá trình tập luyện thể chất khắc nghiệt. Một người có hệ thần kinh chuyển đổi trơn tru giữa sự tỉnh táo và nghỉ ngơi, có xu hướng ngủ ngon hơn, phục hồi nhanh hơn sau khi gắng sức và xử lý những căng thẳng bất ngờ mà không cảm thấy hoàn toàn bị trệch hướng bởi nó. Điều làm cho dây thần kinh phế vị trở nên vô giá trong tất cả những điều này là nó không đòi hỏi nhiều năm rèn luyện để có thể tác động đến. Không giống như việc xây dựng cơ bắp hay cải thiện sức bền tim mạch, vốn đòi hỏi nhiều tháng nỗ lực bền bỉ, một phiên hít thở chậm kéo dài 5 phút duy nhất có thể tạo ra sự thay đổi, có thể đo lường được về trương lực phế vị ngay trong cùng một lần ngồi. Đó là một phần lý do tại sao các nhà nghiên cứu lại trở nên rất quan tâm đến hơi thở, như một công cụ tác dụng nhanh, thay vì một công cụ chậm rãi, từ từ. Đây không chỉ là lý thuyết được xây dựng cho những giả định cũ, nó đã được thử nghiệm trực tiếp trong các môi trường nghiên cứu có kiểm soát."
+          }
+        ]
+      },
+      {
+        id: "sec-4",
+        num: 4,
+        title: {
+          en: "Scientific Research and Blood Chemistry Balance",
+          vi: "Các nghiên cứu khoa học và sự cân bằng hóa học trong máu"
+        },
+        readTime: "5 min read",
+        summaryEn: "Stanford and NYU research comparing mindfulness vs. cyclic sighing, plus blood pH and CO₂ dynamics.",
+        summaryVi: "So sánh nghiên cứu của Stanford và NYU về thở dài chu kỳ vs thiền, cùng cơ chế điều hòa pH máu.",
+        paragraphs: [
+          {
+            id: "p4-1",
+            en: "A landmark study from Stanford University compared several different daily five-minute practices, including mindfulness meditation and a breathing technique known as cyclic sighing. Cyclic sighing involves two brief inhales through the nose—one right after the other to fully expand the lungs—followed by a long, slow exhale through the mouth. Participants who practiced cyclic sighing for just 5 minutes a day showed greater improvements in mood and more significant reductions in resting respiratory rate compared to those practicing traditional mindfulness meditation over the same period. In other words, actively controlling the breath proved superior to merely observing the mind, at least when it came to these specific metrics of calm and physiological rest.",
+            vi: "Một nghiên cứu nổi tiếng của Đại học Stanford đã so sánh một số bài thực hành 5 phút hàng ngày khác nhau bao gồm thiền chánh niệm và một kỹ thuật thở được gọi là thở dài theo chu kỳ. Thở dài theo chu kỳ bao gồm hai lần hít vào ngắn qua mũi. Lần này nối tiếp lần kia để làm nở phổi hoàn toàn. Sau đó là một lần thở ra dài chậm qua miệng. Những người tham gia thực hành thở dài theo chu kỳ chỉ 5 phút mỗi ngày cho thấy sự cải thiện tâm trạng tốt hơn và giảm nhịp thở khi nghỉ ngơi đáng kể hơn so với những người thực hành thiền chánh niệm truyền thống trong cùng khoảng thời gian. Nói cách khác, việc chủ động kiểm soát hơi thở mang lại hiệu quả vượt trội so với việc chỉ đơn thuần quan sát tâm trí, ít nhất là khi xét đến các thước đo cụ thể này về sự bình tĩnh và sự nghỉ ngơi sinh lý."
+          },
+          {
+            id: "p4-2",
+            en: "Independently, researchers at New York University found that breathing rhythms are tightly coupled with electrical activity in brain regions responsible for emotional regulation, memory, and attention. Their work demonstrated that your breathing rate doesn't just mirror your mental state; it actively shapes brainwave patterns in areas tied to focus and mood. When you deliberately slow your breathing, you aren't just waiting for your mind to catch up—you are sending a rhythmic signal that helps organize electrical activity in the exact regions of the brain responsible for maintaining composure, sustaining focus, and regulating your emotions.",
+            vi: "Một cách độc lập, các nhà nghiên cứu tại Đại học New York đã phát hiện ra rằng nhịp thở có liên quan chặt chẽ đến hoạt động điện trong các vùng não chịu trách nhiệm điều chỉnh cảm xúc, trí nhớ và sự chú ý. Công trình của họ cho thấy tốc độ hơi thở của bạn không chỉ phản ánh trạng thái tinh thần của bạn, nó chủ động định hình các mô hình sóng não ở những khu vực gắn liền với sự tập trung và tâm trạng. Khi bạn cố tình làm chậm nhịp thở của mình, bạn không chỉ đơn giản là chờ đợi tâm trí của mình bắt kịp, bạn đang gửi đi một tín hiệu nhịp nhàng, dường như giúp tổ chức hoạt động điện ở chính xác các vùng não chịu trách nhiệm giữ bình tĩnh, duy trì sự tập trung và điều chỉnh cảm xúc của bạn."
+          },
+          {
+            id: "p4-3",
+            en: "What makes the Stanford findings particularly intriguing is the comparison to mindfulness meditation—a practice studied and celebrated for decades. Mindfulness asks you to observe your breath without changing it, simply staying aware of the natural rhythm as it unfolds. Cyclic sighing asks you to actively shape that rhythm. And in this specific study, the active approach outperformed the passive one across measures of mood improvement and respiratory rate reduction. This doesn't mean meditation lacks value—of course it doesn't—but it shows that when your goal is a rapid, dependable shift into a state of calm within a brief 5-minute window, actively steering the breath gives your nervous system a clearer, more direct directive than simply watching it occur.",
+            vi: "Điều làm cho những phát hiện của Stanford trở nên đặc biệt thú vị là sự so sánh với thiền chánh niệm, một phương pháp thực hành đã được nghiên cứu và ca ngợi trong nhiều thập kỷ. Chánh niệm yêu cầu bạn quan sát hơi thở của mình mà không thay đổi nó. Chỉ đơn giản là nhận biết nhịp điệu tự nhiên khi nó diễn ra. Thở dài theo chu kỳ yêu cầu bạn chủ động định hình nhịp điệu đó. Và trong nghiên cứu cụ thể này, phương pháp chủ động đã vượt qua phương pháp thụ động về các thước đo cải thiện tâm trạng và giảm nhịp thở. Điều này không có nghĩa là thiền thiếu giá trị. Rõ ràng là không phải vậy, nhưng nó cho thấy rằng khi mục tiêu của bạn là một sự chuyển đổi nhanh chóng, đáng tin cậy sang trạng thái bình tĩnh trong một khoảng thời gian ngắn 5 phút, việc chủ động dẫn dắt hơi thở có thể cung cấp cho hệ thần kinh của bạn một chỉ thị rõ ràng và trực tiếp hơn so với việc chỉ quan sát nó tự diễn ra."
+          },
+          {
+            id: "p4-4",
+            en: "There is another dimension to this that most people never learn in school, and it involves your blood chemistry itself. Every time you exhale, you release carbon dioxide, and the amount of dissolved carbon dioxide in your blood plays a primary role in determining your blood pH—the measure of how acidic or alkaline your blood is. Your body works tirelessly to keep this pH within an extremely narrow range, because even slight deviations can impair how efficiently red blood cells release oxygen into your tissues. This is precisely why breathing mechanics matter so much. If someone breathes too fast and too shallowly, especially during panic or anxiety, they can blow off carbon dioxide faster than their body produces it, causing blood pH to rise slightly—a state known as respiratory alkalosis.",
+            vi: "Có một khía cạnh khác của vấn đề này mà hầu hết mọi người không bao giờ được học ở trường và nó liên quan đến chính hóa học trong máu của bạn. Mỗi khi bạn thở ra, bạn đang giải phóng carbon dioxide và lượng carbon dioxide hòa tan trong máu đóng vai trò chính trong việc xác định độ pH của máu. Thước đo cho biết máu của bạn có tính axit hay kiềm như thế nào. Cơ thể bạn làm việc chăm chỉ để giữ độ pH này trong một phạm vi cực kỳ hẹp vì ngay cả những thay đổi nhỏ cũng có thể ảnh hưởng đến hiệu quả giải phóng oxy từ các tế bào hồng cầu vào các mô của bạn. Đây chính xác là lý do tại sao kỹ thuật thở lại quan trọng đến vậy. Nếu một người thở quá nhanh và quá nông, đặc biệt là trong lúc hoảng loạn hoặc lo âu, họ có thể thở ra cacbon dioxide nhanh hơn mức cơ thể sản xuất ra, khiến độ pH trong máu tăng nhẹ. Một tình trạng được gọi là nhiễm kiềm hô hấp."
+          },
+          {
+            id: "p4-5",
+            en: "This is the biological culprit behind the dizziness, tingling in the fingers, and lightheadedness people often experience during a panic attack or hyperventilation episode. Controlled, paced breathing completely prevents this disruption because it keeps the ratio of inhaled oxygen to exhaled carbon dioxide near equilibrium, allowing your blood chemistry to remain stable rather than tipping into distress and volatility. This is yet another reason why slow, deliberate breathing feels fundamentally different from rapid, panicked breathing. They don't just differ in tempo; they create entirely different biochemical environments within your bloodstream.",
+            vi: "Đây là lý do sinh học đằng sau chứng chóng mặt, ngứa ran ở các ngón tay và cảm giác lâng lâng mà mọi người đôi khi gặp phải trong một cơn hoảng loạn hoặc một đợt tăng thông khí. Việc thở có kiểm soát theo nhịp độ sẽ ngăn chặn hoàn toàn sự biến động này vì nó giữ cho tỉ lệ oxy hít vào và cacbon dioxide thở ra ở mức gần như cân bằng cho phép hóa học máu của bạn duy trì sự ổn định thay vì chuyển sang trạng thái căng thẳng và bất ổn. Đây là một lý do nữa giải thích tại sao việc thở chậm rãi có chủ đích lại mang đến cảm giác khác biệt hoàn toàn so với việc thở nhanh hoảng loạn. Chúng không chỉ khác nhau về tốc độ, chúng còn tạo ra những môi trường hóa học hoàn toàn khác biệt bên trong dòng máu của bạn."
+          },
+          {
+            id: "p4-6",
+            en: "This also clarifies a detail that surprises many people: the fact that breathing exercises designed to soothe anxiety and those used to prep for high-intensity physical exertion look almost nothing alike. A sprinter gearing up for a race might take sharp, rapid breaths to maximize short-term oxygen availability, whereas someone trying to settle a racing mind needs the exact opposite: long, unhurried exhalations that preserve stable carbon dioxide levels rather than depleting them. Understanding this difference is part of why simply telling someone to 'just breathe' during a panic attack without further guidance rarely helps, and can sometimes make things worse. A frightened person will often default to rapid, shallow breaths, inadvertently driving their blood chemistry deeper into the very imbalance that triggered their panic in the first place.",
+            vi: "Điều này cũng giải thích một chi tiết khiến nhiều người ngạc nhiên. Đó là thực tế các bài tập thở dùng để làm dịu sự lo âu và các bài tập thở dùng để chuẩn bị cho hoạt động thể chất cường độ cao trông gần như không có điểm chung nào. Một vận động viên chuẩn bị chạy nước rút có thể hít những hơi thở nhanh mạnh để tăng cường lượng oxy sẵn có trong thời gian ngắn. Trong khi một người đang cố gắng làm dịu tâm trí đang chạy đua lại cần điều ngược lại. Những nhịp thở dài và không vội vã giúp giữ cho mức cacbon dioxide ổn định thay vì làm cạn kiệt chúng. Việc hiểu được sự khác biệt này là một phần lý do tại sao việc chỉ bảo ai đó hãy hít thở đi trong một cơn hoảng loạn mà không có bất kỳ hướng dẫn nào thêm thường không giúp ích gì và đôi khi còn làm mọi chuyện tồi tệ hơn. Bởi vì một người đang sợ hãi thường sẽ mặc định thở nhanh và nông, vô tình đẩy hóa học máu của chính họ lún sâu hơn vào chính trạng thái mất cân bằng đang châm ngòi cho sự hoảng loạn của họ ngay từ đầu."
+          }
+        ]
+      },
+      {
+        id: "sec-5",
+        num: 5,
+        title: {
+          en: "Bridging Ancient Wisdom and Modern Science",
+          vi: "Cầu nối giữa trí tuệ cổ xưa và khoa học hiện đại"
+        },
+        readTime: "3 min read",
+        summaryEn: "How Pranayama and Tibetan Tummo 'inner fire' align directly with modern neuroscience and vagal stimulation.",
+        summaryVi: "Khoa học hiện đại dùng máy đo HRV và hình ảnh não bộ để chứng minh trí tuệ cổ xưa như Tummo và Pranayama.",
+        paragraphs: [
+          {
+            id: "p5-1",
+            en: "None of this is entirely new to humanity, even if the terminology of mitochondria and vagal tone is modern. Practices such as Pranayama in the yoga tradition, breath-centered meditation in Buddhist practice, and the remarkable Tibetan technique known as Tummo have utilized controlled breathing for thousands of years, long before anyone understood the underlying biochemistry. Practitioners of these traditions described sensations of calm, mental clarity, and even physical heat generated through breath control. For centuries, this was regarded as spiritual or esoteric knowledge passed down from master to student.",
+            vi: "Không có điều nào trong số này là thông tin hoàn toàn mới đối với loài người, ngay cả khi ngôn ngữ về ti thể và trương lực phế vị là hiện đại. Các thực hành như Pranayama trong truyền thống yoga, thiền định tập trung vào hơi thở trong thực hành Phật giáo và kỹ thuật phi thường của Tây Tạng được gọi là Tummo, đã sử dụng việc thở có kiểm soát trong hàng ngàn năm, rất lâu trước khi bất kỳ ai hiểu được cơ chế sinh hóa cơ bản. Những người thực hành các truyền thống này mô tả cảm giác bình tĩnh, sự minh mẫn về tinh thần và thậm chí là sự ấm áp về thể chất được tạo ra thông qua việc kiểm soát hơi thở. Và trong nhiều thế kỷ, điều này được coi là kiến thức tâm linh hoặc huyền bí được truyền từ thầy sang trò."
+          },
+          {
+            id: "p5-2",
+            en: "What modern neuroscience and physiology have accomplished is not inventing something new. They have simply built instruments capable of measuring what these traditions understood through direct experience. Heart rate monitors reveal the shifts in heart rate variability (HRV) produced by yogic breathing. Brain imaging uncovers the alterations in neural activity that meditators have described as clarity for centuries. Blood tests reveal the changes in stress hormones that these ancient breathwork systems seem uniquely equipped to modulate. In a sense, the past few decades of research represent modern science catching up to what ordinary people discovered through rigorous observation of their own bodies long before laboratories existed. That doesn't make ancient practices any less impressive; if anything, it makes their precision all the more astonishing.",
+            vi: "Những gì khoa học thần kinh và sinh lý học hiện đại làm được không phải là phát minh ra một điều gì đó mới mẻ. Họ chỉ đơn giản là chế tạo ra các công cụ có khả năng đo lường những gì các truyền thống này đã hiểu thông qua trải nghiệm trực tiếp. Máy đo nhịp tim tiết lộ những thay đổi về biến thiên nhịp tim HRV mà phương pháp thở yoga tạo ra. Hình ảnh não bộ tiết lộ những thay đổi trong hoạt động thần kinh mà những người hành thiền đã mô tả là sự minh mẫn trong nhiều thế kỷ. Xét nghiệm máu tiết lộ những thay đổi trong các hormone căng thẳng mà các hệ thống thở cổ xưa này dường như có khả năng điều chỉnh. Theo một nghĩa nào đó, vài thập kỷ nghiên cứu vừa qua chỉ đơn giản là khoa học hiện đại đang dần bắt kịp những gì mà những người bình thường đã tìm ra thông qua việc quan sát cẩn thận cơ thể của chính họ từ rất lâu trước khi các phòng thí nghiệm tồn tại. Điều đó không làm cho các thực hành cổ xưa bớt ấn tượng đi. Nếu có, nó càng làm cho độ chính xác của các truyền thống này trở nên đáng kinh ngạc hơn."
+          },
+          {
+            id: "p5-3",
+            en: "Take the Tibetan practice of Tummo, sometimes translated as 'inner fire' meditation. Practitioners use a specific combination of breath retention and forceful exhalations to generate significant, measurable increases in body temperature, even in sub-zero conditions. For a long time, this was dismissed by outsiders as little more than a spiritual curiosity. When researchers finally studied seasoned practitioners in controlled settings, they documented measurable increases in core body temperature and metabolic activity directly tied to the breathing technique itself, rather than any external factor. Similarly, Pranayama practices emphasizing prolonged, slow exhalations are now understood to engage the exact vagal pathways discussed earlier in this video. In essence, practitioners were prescribing themselves enhanced vagal tone thousands of years before the vagus nerve was ever named.",
+            vi: "Hãy xem xét thực hành Tummo của Tây Tạng, đôi khi được gọi là thiền nội hỏa. Trong đó, những người thực hành sử dụng một sự kết hợp cụ thể giữa việc nín thở và thở ra mạnh mẽ để tạo ra sự gia tăng nhiệt độ cơ thể một cách rõ rệt, ngay cả trong điều kiện đóng băng. Trong một thời gian dài, điều này gần như hoàn toàn được xem là một sự tò mò về tâm linh từ những người ngoài truyền thống. Khi các nhà nghiên cứu cuối cùng đã nghiên cứu những người thực hành giàu kinh nghiệm trong các điều kiện được kiểm soát, họ đã tìm thấy sự gia tăng có thể đo lường được về nhiệt độ cốt lõi của cơ thể và hoạt động trao đổi chất liên quan trực tiếp đến chính kiểu thở đó chứ không phải do bất kỳ yếu tố bên ngoài nào. Tương tự như vậy, các thực hành Pranayama trong yoga nhấn mạnh vào việc thở ra dài và chậm hiện được hiểu là kích hoạt chính xác các con đường phế vị đã được mô tả ở phần trước trong video này. Nghĩa là những người thực hành về cơ bản đã tự kê đơn cho mình việc tăng cường trương lực phế vị hàng ngàn năm trước khi dây thần kinh phế vị được đặt tên."
+          }
+        ]
+      },
+      {
+        id: "sec-6",
+        num: 6,
+        title: {
+          en: "Long-Term Impacts: Cortisol and Telomere Protection",
+          vi: "Tác động dài hạn: Cortisol và sự bảo vệ Telomere"
+        },
+        readTime: "3 min read",
+        summaryEn: "How 5 daily minutes lowers chronic cortisol, dampens oxidative stress, and protects chromosome end-caps.",
+        summaryVi: "Hạ cortisol mạn tính, giảm stress oxy hóa và bảo vệ đầu mút telomere để làm chậm lão hóa tế bào.",
+        paragraphs: [
+          {
+            id: "p6-1",
+            en: "Everything described so far takes place within minutes of a single breathwork session. But the more compelling story is what happens when this becomes a daily habit over months and years. Chronic stress floods the body with a hormone called cortisol, and prolonged cortisol elevation is tied to increased oxidative stress—a form of cellular wear and tear where unstable molecules damage structures inside your cells. One of the structures most vulnerable to this sustained stress is the telomere, a small protective cap at the end of each chromosome, much like the plastic aglet on a shoelace that prevents it from fraying. Telomeres naturally shorten with age, but chronic stress and elevated cortisol appear to accelerate that shortening.",
+            vi: "Mọi thứ được mô tả cho đến nay đều xảy ra trong vòng vài phút của một phiên tập thở duy nhất. Nhưng câu chuyện thú vị hơn là điều gì sẽ xảy ra khi việc này trở thành một thói quen hàng ngày trong nhiều tháng và nhiều năm. Căng thẳng mãn tính khiến cơ thể luôn tràn ngập một loại hormone gọi là cortisol và lượng cortisol tăng cao trong thời gian dài có liên quan đến việc gia tăng căng thẳng oxy hóa, một dạng hao mòn tế bào do các phân tử không ổn định làm hỏng các cấu trúc bên trong tế bào của bạn. Một trong những cấu trúc bị ảnh hưởng nhiều nhất bởi sự căng thẳng lâu dài này là một thứ gọi là Telomere, một chiếc mũ bảo vệ nhỏ nằm ở cuối mỗi nhiễm sắc thể của bạn. Tương tự như đầu nhựa ở cuối dây giày giúp nó không bị sờn. Các telomere tự nhiên ngắn lại theo tuổi tác nhưng căng thẳng mãn tính và lượng cortisol tăng cao dường như đẩy nhanh quá trình rút ngắn đó."
+          },
+          {
+            id: "p6-2",
+            en: "While shorter telomeres are associated with accelerated cellular aging and a higher risk of age-related health conditions, regular practice of slow, deep breathing is linked to measurable reductions in circulating cortisol. This suggests that a consistent 5-minute breathing habit may help safeguard these delicate structures over the long haul. This means the benefits of deep breathing are not confined to the 5 minutes you spend practicing it. The calming signal you send through your vagus nerve today may be contributing to how well your cells hold up decades down the line. It reframes this simple daily ritual from a quick fix for a stressful afternoon into genuine, long-term cellular maintenance.",
+            vi: "Trong khi các telomere ngắn hơn có liên quan đến quá trình lão hóa tế bào nhanh hơn và nguy cơ mắc các vấn đề sức khỏe liên quan đến tuổi tác cao hơn thì việc thực hành thở chậm và sâu thường xuyên có liên quan đến việc giảm lượng cortisol lưu thông một cách có thể đo lường được. Điều này cho thấy rằng thói quen thở 5 phút đều đặn có thể giúp bảo vệ các cấu trúc mỏng manh này về lâu dài. Điều này có nghĩa là lợi ích của việc thở sâu không chỉ giới hạn trong 5 phút bạn thực hiện nó. Tín hiệu làm dịu mà bạn gửi qua dây thần kinh phế vị hôm nay có thể đang góp phần vào việc các tế bào của bạn sẽ duy trì tốt như thế nào trong nhiều năm tới. Điều này định hình lại thói quen hàng ngày đơn giản này thành một thứ gần giống với việc bảo dưỡng dài hạn thực sự hơn là một giải pháp khắc phục nhanh chóng trong một buổi chiều căng thẳng."
+          },
+          {
+            id: "p6-3",
+            en: "It also helps explain why individuals who maintain the most consistent breathing practices over long horizons report benefits that extend far beyond feeling calmer in the moment: more sustained energy throughout the day, fewer stress-related flare-ups of chronic conditions, and an overall sense that they can bounce back faster after a genuinely difficult day.",
+            vi: "Nó cũng giúp giải thích tại sao những người báo cáo việc thực hành thở đều đặn nhất trong những khoảng thời gian dài thường mô tả những lợi ích vượt xa việc chỉ cảm thấy bình tĩnh hơn trong khoảnh khắc đó, bao gồm năng lượng ổn định hơn trong suốt cả ngày, ít bùng phát các tình trạng sức khỏe hiện tại do căng thẳng hơn và cảm giác chung rằng họ có thể phục hồi nhanh hơn sau một ngày thực sự khó khăn."
+          }
+        ]
+      },
+      {
+        id: "sec-7",
+        num: 7,
+        title: {
+          en: "Practical Guide: Two 5-Minute Daily Breathing Techniques",
+          vi: "Hướng dẫn thực hành: Hai kỹ thuật thở 5 phút mỗi ngày"
+        },
+        readTime: "3 min read",
+        summaryEn: "Step-by-step instructions for Paced Breathing (4-4-8s) and the Stanford Cyclic Sighing technique.",
+        summaryVi: "Chi tiết phương pháp Thở theo nhịp độ (4-4-8 giây) và Thở dài theo chu kỳ của Đại học Stanford.",
+        paragraphs: [
+          {
+            id: "p7-1",
+            en: "None of these outcomes require drastic lifestyle overhauls, expensive supplements, or specialized equipment. They require nothing more than 5 minutes of focused attention directed toward a process your body is already performing—simply redirected with a little intention. With all of that biology in mind, here is exactly how to put it into practice using two simple techniques that require nothing more than a quiet moment and your attention.",
+            vi: "Không có kết quả nào trong số này đòi hỏi những thay đổi lối sống mạnh mẽ, thực phẩm bổ sung đắt tiền hay thiết bị chuyên dụng. Chúng không đòi hỏi gì hơn ngoài 5 phút chú ý dành cho một quá trình mà cơ thể bạn vốn dĩ đã và đang thực hiện. Chỉ đơn giản là được chuyển hướng với một chút chủ đích. Với tất cả những kiến thức sinh học đó, đây chính xác là cách để đưa nó vào thực hành bằng cách sử dụng hai kỹ thuật đơn giản, không đòi hỏi gì ngoài một khoảnh khắc yên tĩnh và sự chú ý của chính bạn."
+          },
+          {
+            id: "p7-2",
+            subtitle: {
+              en: "1. Paced Breathing Technique",
+              vi: "1. Kỹ thuật thở theo nhịp độ"
+            },
+            en: "The first technique is called paced breathing, and it works as follows: Inhale slowly through your nose for 4 seconds. Hold your breath gently for 4 seconds, and then exhale slowly through your nose or mouth for 6 to 8 seconds. Make sure your exhale is noticeably longer than your inhale, as an extended exhale is the single most potent trigger for the calming parasympathetic response via the vagus nerve. Repeat this cycle continuously for 5 minutes, and you will likely feel your shoulders drop and your jaw relax around the two- or three-minute mark.",
+            vi: "Kỹ thuật đầu tiên được gọi là thở theo nhịp độ và nó hoạt động như sau. Hít vào chậm rãi qua mũi trong 4 giây. Nín thở nhẹ nhàng trong 4 giây và sau đó thở ra chậm rãi qua mũi hoặc miệng trong 6 đến 8 giây. Đảm bảo rằng nhịp thở ra của bạn dài hơn rõ rệt so với nhịp hít vào. Vì nhịp thở ra kéo dài là yếu tố kích hoạt mạnh mẽ nhất phản ứng phó giao cảm làm dịu thông qua dây thần kinh phế vị. Lặp lại chu kỳ này liên tục trong 5 phút và bạn có thể sẽ nhận thấy vai mình chùng xuống và hàm thư giãn vào khoảng phút thứ hai hoặc thứ ba."
+          },
+          {
+            id: "p7-3",
+            subtitle: {
+              en: "2. Cyclic Sighing Technique",
+              vi: "2. Kỹ thuật thở dài theo chu kỳ"
+            },
+            en: "The second technique is the one utilized in the Stanford study: cyclic sighing, and it works slightly differently. Take a deep breath in through your nose, then without exhaling, take a second, shorter sip of air through your nose to completely inflate your lungs. Finally, release all of that air with a long, slow, complete exhalation through your mouth. Repeat this pattern for 5 minutes. Both techniques achieve the same fundamental objective: expanding the lower lobes of the lungs, prolonging the exhalation relative to the inhalation, and sending your vagus nerve a clear, repetitive signal that the body is safe to shift into rest and repair. Whichever technique you choose matters far less than simply practicing it with consistency.",
+            vi: "Kỹ thuật thứ hai là kỹ thuật được sử dụng trong nghiên cứu của Stanford. Thở dài theo chu kỳ và nó hoạt động hơi khác một chút. Hít một hơi thật sâu qua mũi, sau đó không thở ra. Hít thêm một hơi ngắn thứ hai qua mũi để làm đầy hoàn toàn phổi của bạn. Và cuối cùng giải phóng toàn bộ không khí đó bằng một nhịp thở ra dài, chậm và trọn vẹn qua miệng. Lặp lại kiểu thở này trong 5 phút, cả hai kỹ thuật đều đạt được cùng một mục tiêu cơ bản. Mở rộng phần dưới của phổi, kéo dài nhịp thở ra so với nhịp hít vào và cung cấp cho dây thần kinh phế vị của bạn một tín hiệu rõ ràng, lặp đi lặp lại rằng cơ thể đã an toàn để chuyển sang trạng thái nghỉ ngơi và phục hồi. Và kỹ thuật bạn chọn ít quan trọng hơn nhiều so với việc chỉ đơn giản là thực hiện nó một cách đều đặn."
+          }
+        ]
+      },
+      {
+        id: "sec-8",
+        num: 8,
+        title: {
+          en: "Conclusion",
+          vi: "Lời kết"
+        },
+        readTime: "2 min read",
+        summaryEn: "Synthesizing biological agency, ancient intuition, and the immense power of intentional breath.",
+        summaryVi: "Tổng kết về quyền làm chủ sinh học của cơ thể và giá trị chuyển hóa sâu sắc từ 5 phút hít thở.",
+        paragraphs: [
+          {
+            id: "p8-1",
+            en: "So, the next time someone tells you to 'just breathe' when you're stressed, you will know exactly what that advice is asking your body to do. It is asking hundreds of millions of alveoli to open more completely. It is asking for more oxygen to reach your mitochondria. It is asking your vagus nerve to carry a signal of safety up into the brainstem. It is asking your heart rate variability to rise, and it is asking your blood chemistry to remain stable and balanced rather than tipping toward panic. All of that is condensed into something as ordinary and completely free as 5 minutes of slow, intentional breathing.",
+            vi: "Vì vậy, lần tới khi ai đó bảo bạn, 'Hãy hít thở đi khi bạn đang căng thẳng. Giờ đây bạn đã hiểu chính xác lời khuyên đó thực sự đang yêu cầu cơ thể bạn làm gì. Nó đang yêu cầu hàng trăm triệu phế nang mở rộng hoàn toàn hơn. Yêu cầu oxy đến ti thể của bạn với số lượng lớn hơn. Yêu cầu dây thần kinh phế vị của bạn mang một tín hiệu an toàn lên thân não. Yêu cầu biến thiên nhịp tim của bạn tăng lên và yêu cầu hóa học máu của bạn duy trì sự ổn định và cân bằng thay vì chuyển hướng sang sự hoảng loạn. Tất cả những điều đó được cô đọng lại trong một việc bình thường và hoàn toàn miễn phí như 5 phút hít thở chậm rãi có chủ đích."
+          },
+          {
+            id: "p8-2",
+            en: "This is a tool that requires no gear, no paid subscription, and no special training. It asks only for the willingness to sit still for 5 minutes and truly tune in to the rhythm of your own lungs. Ancient traditions understood this intuitively, and modern laboratories at Stanford and NYU have simply used instruments to validate what breath-focused practitioners have known through direct experience. Your body has been running this system since the moment you were born; the only missing piece for most people is knowing how to use it intentionally, rather than leaving it entirely on autopilot.",
+            vi: "Đây là một công cụ không cần thiết bị, không cần đăng ký trả phí và không cần đào tạo đặc biệt. Chỉ cần sự sẵn lòng ngồi yên trong 5 phút và thực sự chú ý đến nhịp điệu của chính lá phổi của bạn. Các truyền thống cổ xưa đã hiểu điều này một cách trực giác và các phòng thí nghiệm hiện đại tại Stanford và NYU chỉ đơn giản là xác nhận bằng các công cụ những gì mà những người thực hành tập trung vào hơi thở đã biết từ trải nghiệm trực tiếp. Cơ thể bạn đã vận hành hệ thống này kể từ khoảnh khắc bạn được sinh ra. Và điều duy nhất còn thiếu đối với hầu hết mọi người là kiến thức về cách sử dụng nó một cách có chủ đích thay vì để nó hoàn toàn ở chế độ tự lái."
+          },
+          {
+            id: "p8-3",
+            en: "If this exploration into your own biology has changed how you view the simple act of breathing, please like this video and subscribe. We continually explore the hidden mechanisms governing your everyday life. Join us as we continue decoding the science of the human experience.",
+            vi: "Nếu cuộc khám phá về sinh học của chính bạn này đã thay đổi cách bạn nhìn nhận hành động hít thở đơn giản, vui lòng đăng ký và thích video này. Chúng tôi không ngừng khám phá những cơ chế ẩn giấu chi phối cuộc sống hàng ngày của bạn. Hãy tham gia cùng chúng tôi khi chúng tôi tiếp tục giải mã khoa học về trải nghiệm của con người."
+          }
+        ]
+      }
+    ];
+
+    /**
+     * B2/C1 SPECIALIZED LEARNER GLOSSARY (30 terms)
+     */
+    const GLOSSARY_DATA = [
+      {
+        id: "term-1",
+        term: "Alveoli",
+        pos: "noun (plural; sing. alveolus)",
+        ipa: "/ælˈviː.ə.laɪ/",
+        category: "Anatomy",
+        academicDef: "Microscopic polyhedral air sacs in the lung tissue where respiratory gas exchange of oxygen and carbon dioxide occurs across capillary walls.",
+        plainDef: "The hundreds of millions of tiny balloon-like sacs deep inside your lungs that load oxygen into your blood and remove carbon waste.",
+        context: "Your lungs are packed with hundreds of millions of tiny air sacs called alveoli, and most of these alveoli are concentrated in the lower lobes of the lungs.",
+        vi: "Phế nang (các túi khí siêu nhỏ trong phổi nơi diễn ra quá trình trao đổi oxy và cacbon dioxide)."
+      },
+      {
+        id: "term-2",
+        term: "Mitochondria",
+        pos: "noun (plural; sing. mitochondrion)",
+        ipa: "/ˌmaɪ.təʊˈkɒn.dri.ə/",
+        category: "Cellular Biology",
+        academicDef: "Membrane-bound eukaryotic organelles that generate most of the chemical energy needed to power biochemical reactions via cellular respiration.",
+        plainDef: "The tiny 'powerhouses' inside your cells that burn oxygen and nutrients to produce fuel for your body.",
+        context: "That oxygen then travels through the bloodstream to nearly every cell in your body, where it is delivered to microscopic structures called mitochondria.",
+        vi: "Ti thể (bào quan đóng vai trò như 'nhà máy năng lượng' của tế bào sống)."
+      },
+      {
+        id: "term-3",
+        term: "Electron transport chain",
+        pos: "noun phrase",
+        ipa: "/ɪˈlɛk.trɒn ˈtræn.spɔːt tʃeɪn/",
+        category: "Biochemistry",
+        academicDef: "A series of four protein complexes in the mitochondrial inner membrane that transfer electrons to oxygen to drive ATP synthesis.",
+        plainDef: "A microscopic molecular assembly line where oxygen helps create energy molecules inside your cells.",
+        context: "Inside them, oxygen participates in a process called the electron transport chain—a series of chemical reactions that ultimately produces a molecule called ATP.",
+        vi: "Chuỗi truyền electron (chuỗi phức hợp phản ứng sinh hóa trong ti thể sản sinh năng lượng)."
+      },
+      {
+        id: "term-4",
+        term: "ATP (Adenosine Triphosphate)",
+        pos: "noun abbreviation",
+        ipa: "/ˌeɪ.tiːˈpiː/",
+        category: "Biochemistry",
+        academicDef: "The organic compound and hydrotrope that provides energy to drive many metabolic processes in living cells.",
+        plainDef: "The universal energy 'money' that your body's cells spend whenever they work, heal, or think.",
+        context: "This is the primary energy currency your cells use to do everything from firing a neuron and contracting a muscle to repairing damaged tissue.",
+        vi: "Phân tử ATP (đồng tiền năng lượng sinh học chính của tế bào)."
+      },
+      {
+        id: "term-5",
+        term: "Autonomic nervous system",
+        pos: "noun phrase",
+        ipa: "/ˌɔː.təˈnɒm.ɪk ˈnɜː.vəs ˈsɪs.təm/",
+        category: "Neuroscience",
+        academicDef: "The part of the peripheral nervous system responsible for regulating involuntary physiological processes such as heart rate, blood pressure, and digestion.",
+        plainDef: "The automatic command center of your body that runs your organs in the background without asking your permission.",
+        context: "All of these processes are governed by something called the autonomic nervous system—a network that runs your organs without ever asking your permission.",
+        vi: "Hệ thần kinh tự chủ / thực vật (hệ điều hòa các cơ quan nội tạng hoàn toàn tự động)."
+      },
+      {
+        id: "term-6",
+        term: "Sympathetic branch",
+        pos: "noun phrase",
+        ipa: "/ˌsɪm.pəˈθɛt.ɪk brɑːntʃ/",
+        category: "Neuroscience",
+        academicDef: "The division of the autonomic nervous system that stimulates the body's 'fight-or-flight' response during perceived threats.",
+        plainDef: "Your internal 'gas pedal' that accelerates heart rate, diverts blood to muscles, and prepares you to confront danger.",
+        context: "The sympathetic branch is your gas pedal—responsible for the fight-or-flight response: a racing heart, shallow breathing, and a surge of adrenaline when facing a threat.",
+        vi: "Nhánh giao cảm (phản ứng chống trả hoặc bỏ chạy, làm tăng nhịp tim và gây thở gấp)."
+      },
+      {
+        id: "term-7",
+        term: "Parasympathetic branch",
+        pos: "noun phrase",
+        ipa: "/ˌpær.əˌsɪm.pəˈθɛt.ɪk brɑːntʃ/",
+        category: "Neuroscience",
+        academicDef: "The division of the autonomic nervous system that conserves energy by decelerating heart rate and promoting rest, digestion, and systemic healing.",
+        plainDef: "Your body's 'brake pedal' that slows down your racing heartbeat, restores digestion, and allows deep relaxation.",
+        context: "The parasympathetic branch is your brake pedal—responsible for resting, digesting, and recovering.",
+        vi: "Nhánh phó giao cảm (phản ứng nghỉ ngơi, tiêu hóa và tái tạo năng lượng cho cơ thể)."
+      },
+      {
+        id: "term-8",
+        term: "Vagus nerve",
+        pos: "noun phrase",
+        ipa: "/ˈveɪ.ɡəs nɜːv/",
+        category: "Neuroscience",
+        academicDef: "The tenth cranial nerve (CN X), the longest and most distributed autonomic nerve mediating bidirectional signals between the brainstem and viscera.",
+        plainDef: "The long wandering nerve running from your skull down to your gut that carries soothing signals to slow your heart and relax organs.",
+        context: "The vagus nerve is the longest cranial nerve in the human body, wandering from the base of the skull down through the neck, chest, and into your abdomen...",
+        vi: "Dây thần kinh phế vị (dây thần kinh sọ số X dài nhất, nối não với tim, phổi và các cơ quan nội tạng)."
+      },
+      {
+        id: "term-9",
+        term: "Vagal tone",
+        pos: "noun phrase",
+        ipa: "/ˈveɪ.ɡəl təʊn/",
+        category: "Neuroscience",
+        academicDef: "An internal physiological indicator reflecting the activity and inhibitory strength of the vagus nerve over cardiac and metabolic pacing.",
+        plainDef: "The baseline strength and fitness of your calming nerve pathway—higher tone means you bounce back from stress much faster.",
+        context: "...a single 5-minute session of slow breathing can produce a measurable shift in vagal tone within that very sitting.",
+        vi: "Trương lực phế vị (mức độ hoạt động và khả năng điều hòa thư giãn của dây thần kinh phế vị)."
+      },
+      {
+        id: "term-10",
+        term: "Heart rate variability (HRV)",
+        pos: "noun phrase",
+        ipa: "/hɑːt reɪt ˌvɛə.ri.əˈbɪl.ə.ti/",
+        category: "Physiology",
+        academicDef: "The physiological phenomenon of variation in the time interval between consecutive heartbeats, quantified as an index of neurocardiac adaptability.",
+        plainDef: "The subtle, healthy fluctuations in milliseconds between each heartbeat; higher HRV signals a flexible, resilient nervous system.",
+        context: "Heart rate variability, commonly abbreviated as HRV, measures the small, natural fluctuations in the intervals between each heartbeat.",
+        vi: "Độ biến thiên nhịp tim (HRV) (sự thay đổi thời gian giữa các nhịp tim, chỉ báo cho hệ thần kinh linh hoạt)."
+      },
+      {
+        id: "term-11",
+        term: "Cyclic sighing",
+        pos: "noun phrase",
+        ipa: "/ˈsaɪ.klɪk ˈsaɪ.ɪŋ/",
+        category: "Breathwork Protocol",
+        academicDef: "A structured respiration paradigm consisting of two sequential nasal inhalations followed by an elongated, relaxed oral exhalation.",
+        plainDef: "A two-inhale breath pattern (one deep inhale, plus one quick top-up sip of air) followed by a long, slow sigh out.",
+        context: "Cyclic sighing involves two brief inhales through the nose—one right after the other to fully expand the lungs—followed by a long, slow exhale through the mouth.",
+        vi: "Thở dài theo chu kỳ (kỹ thuật hít 2 hơi liên tiếp bằng mũi rồi thở dài từ từ bằng miệng)."
+      },
+      {
+        id: "term-12",
+        term: "Respiratory alkalosis",
+        pos: "noun phrase",
+        ipa: "/rɪˈspɪr.ə.tər.i ˌæl.kəˈləʊ.sɪs/",
+        category: "Medicine / Pathology",
+        academicDef: "A clinical disturbance in acid-base balance marked by alveolar hyperventilation that excessively depletes arterial carbon dioxide, driving blood pH above 7.45.",
+        plainDef: "A state where hyperventilation blows off too much CO₂, causing blood to turn unnaturally alkaline and triggering dizziness or tingling.",
+        context: "...causing blood pH to rise slightly—a state known as respiratory alkalosis.",
+        vi: "Nhiễm kiềm hô hấp (tình trạng độ pH trong máu tăng cao do thở quá nhanh làm mất $CO_2$)."
+      },
+      {
+        id: "term-13",
+        term: "Hyperventilation",
+        pos: "noun",
+        ipa: "/ˌhaɪ.pəˌvɛn.tɪˈleɪ.ʃən/",
+        category: "Physiology",
+        academicDef: "Breathing in excess of metabolic requirements, resulting in abnormally low levels of carbon dioxide in the blood.",
+        plainDef: "Rapid, shallow gasping during panic that ironically starves the brain of oxygen by dumping carbon dioxide too quickly.",
+        context: "This is the biological culprit behind the dizziness, tingling in the fingers, and lightheadedness people often experience during a panic attack or hyperventilation episode.",
+        vi: "Tăng thông khí (hiện tượng thở gấp gáp quá mức khiến cơ thể mất cân bằng hóa học)."
+      },
+      {
+        id: "term-14",
+        term: "Telomere",
+        pos: "noun",
+        ipa: "/ˈtɛl.ə.mɪər/",
+        category: "Genetics / Molecular Biology",
+        academicDef: "Repetitive non-coding nucleotide sequences at the terminal ends of eukaryotic chromosomes that protect genomic integrity during DNA replication.",
+        plainDef: "The protective 'end caps' on your DNA chromosomes, like plastic tips on shoelaces, that preserve cellular longevity.",
+        context: "One of the structures most vulnerable to this sustained stress is the telomere, a small protective cap at the end of each chromosome...",
+        vi: "Telomere (đầu mút bảo vệ của nhiễm sắc thể, có vai trò quyết định đến tốc độ lão hóa tế bào)."
+      },
+      {
+        id: "term-15",
+        term: "Cortisol",
+        pos: "noun",
+        ipa: "/ˈkɔː.tɪ.zɒl/",
+        category: "Endocrinology",
+        academicDef: "A glucocorticoid steroid hormone synthesized by the adrenal cortex that governs metabolic homeostasis and stress mediation.",
+        plainDef: "Your body's chief 'stress hormone', beneficial in emergencies but harmful when elevated around the clock.",
+        context: "Chronic stress floods the body with a hormone called cortisol, and prolonged cortisol elevation is tied to increased oxidative stress...",
+        vi: "Hormone Cortisol (hormone căng thẳng chính do tuyến thượng thận tiết ra)."
+      },
+      {
+        id: "term-16",
+        term: "Oxidative stress",
+        pos: "noun phrase",
+        ipa: "/ˈɒk.sɪ.də.tɪv strɛs/",
+        category: "Biochemistry",
+        academicDef: "A physiological state reflecting an imbalance between systemic manifestation of reactive oxygen species (free radicals) and antioxidant defenses.",
+        plainDef: "Internal cellular 'rusting' and wear-and-tear caused when unstable free radical molecules damage cellular machinery.",
+        context: "...prolonged cortisol elevation is tied to increased oxidative stress—a form of cellular wear and tear where unstable molecules damage structures inside your cells.",
+        vi: "Căng thẳng oxy hóa (sự mất cân bằng giữa các gốc tự do gây tổn hại cấu trúc tế bào)."
+      },
+      {
+        id: "term-17",
+        term: "Stretch receptors",
+        pos: "noun phrase",
+        ipa: "/strɛtʃ rɪˈsɛp.təz/",
+        category: "Physiology",
+        academicDef: "Mechanoreceptors embedded within visceral smooth muscle and alveolar walls that depolarize in response to tissue distention.",
+        plainDef: "Sensory nerve endings in your lung walls and belly that fire whenever your lungs expand, signaling safety to the brain.",
+        context: "When you take a deep breath, stretch receptors in your lungs and diaphragm are activated by the expansion of your chest and belly.",
+        vi: "Thụ thể căng (các đầu thụ cảm thần kinh phản hồi cơ học khi lồng ngực và cơ hoành giãn nở)."
+      },
+      {
+        id: "term-18",
+        term: "Brainstem",
+        pos: "noun",
+        ipa: "/ˈbreɪn.stɛm/",
+        category: "Neuroanatomy",
+        academicDef: "The central trunk of the brain consisting of the medulla oblongata, pons, and midbrain that regulates autonomic survival functions.",
+        plainDef: "The ancient control stalk at the base of your brain that orchestrates primal survival rhythms like heartbeats and breathing.",
+        context: "Slow, deep breathing... sends an immediate signal to clusters of neurons in the brainstem, essentially telling the body that it is safe...",
+        vi: "Thân não (phần cuống não kiểm soát trực tiếp các phản xạ sinh tồn tự động)."
+      },
+      {
+        id: "term-19",
+        term: "Pranayama",
+        pos: "noun (proper)",
+        ipa: "/ˌprɑː.nəˈjɑː.mə/",
+        category: "Ancient Practices",
+        academicDef: "An ancient Sanskrit yogic discipline of intentional breath regulation, pacing, and retention (from 'prana' [vital force] + 'ayama' [expansion]).",
+        plainDef: "Centuries-old Indian breathing practices designed to calm the nervous system and focus mental energy.",
+        context: "Practices such as Pranayama in the yoga tradition, breath-centered meditation in Buddhist practice... have utilized controlled breathing for thousands of years...",
+        vi: "Pranayama (hệ thống kỹ thuật điều hòa và làm chủ hơi thở trong truyền thống Yoga)."
+      },
+      {
+        id: "term-20",
+        term: "Tummo",
+        pos: "noun (proper)",
+        ipa: "/ˈtʊm.oʊ/",
+        category: "Ancient Practices",
+        academicDef: "A Tibetan tantric meditation technique ('inner fire') combining breath retention, abdominal contractions, and mental focus to regulate core thermodynamics.",
+        plainDef: "A legendary Tibetan meditation method where practitioners generate intense body heat using deep breathing, even in snow.",
+        context: "Take the Tibetan practice of Tummo, sometimes translated as 'inner fire' meditation.",
+        vi: "Thiền Tummo (kỹ thuật thiền 'nội hỏa' của Tây Tạng có khả năng nâng cao thân nhiệt rõ rệt)."
+      },
+      {
+        id: "term-21",
+        term: "Intercostal muscles",
+        pos: "noun phrase",
+        ipa: "/ˌɪn.təˈkɒs.təl ˈmʌs.əlz/",
+        category: "Anatomy",
+        academicDef: "Skeletal muscle groups spanning the intercostal spaces between adjacent ribs that elevate and depress the thoracic cage during respiration.",
+        plainDef: "The muscles between your ribs that lift your ribcage open when you breathe deeply.",
+        context: "...because the diaphragm and intercostal muscles happen to be skeletal muscle—the same type of muscle you use to lift your arm.",
+        vi: "Cơ liên sườn (các dải cơ nằm giữa các xương sườn giúp lồng ngực giãn nở khi hít thở)."
+      },
+      {
+        id: "term-22",
+        term: "Skeletal muscle",
+        pos: "noun phrase",
+        ipa: "/ˈskɛl.ɪ.təl ˈmʌs.əl/",
+        category: "Anatomy",
+        academicDef: "Striated contractile tissue attached to the skeleton under voluntary somatic control, distinguishing it from smooth and cardiac muscle.",
+        plainDef: "Voluntary muscle tissue that you can choose to move at will, like your bicep or your diaphragm.",
+        context: "...the diaphragm and intercostal muscles happen to be skeletal muscle—the same type of muscle you use to lift your arm.",
+        vi: "Cơ vân (loại cơ bắp chịu sự điều khiển tự nguyện, có ý thức của hệ thần kinh)."
+      },
+      {
+        id: "term-23",
+        term: "Autopilot",
+        pos: "noun / idiom",
+        ipa: "/ˈɔː.təʊˌpaɪ.lət/",
+        category: "Idiomatic Expression",
+        academicDef: "A cognitive or physiological state of functioning automatically without continuous conscious monitoring or active intervention.",
+        plainDef: "Doing something completely automatically without consciously thinking about it.",
+        context: "Your body runs almost entirely on autopilot. You cannot consciously slow your own heart rate.",
+        vi: "Chế độ tự lái / tự động (trạng thái cơ thể tự vận hành mà không cần ý thức can thiệp)."
+      },
+      {
+        id: "term-24",
+        term: "Take the wheel",
+        pos: "idiom (verb phrase)",
+        ipa: "/teɪk ðə wiːl/",
+        category: "Idiomatic Expression",
+        academicDef: "To assume active executive leadership, control, or direction over a system or situation.",
+        plainDef: "To step in and take direct physical control of something previously running by itself.",
+        context: "...it happens automatically when you aren't paying attention, yet you can take the wheel and control it whenever you choose.",
+        vi: "Cầm lái / nắm quyền làm chủ (chủ động giành quyền kiểm soát một quá trình tự động)."
+      },
+      {
+        id: "term-25",
+        term: "Unfathomable",
+        pos: "adjective",
+        ipa: "/ʌnˈfæð.əm.ə.bəl/",
+        category: "Academic Vocabulary",
+        academicDef: "Incapable of being fully explored, measured, or comprehended due to vast scale or immense complexity.",
+        plainDef: "So mind-bogglingly huge that it is almost impossible to imagine or count.",
+        context: "The total number receiving that surge of extra oxygen during 5 minutes of deep breathing is almost unfathomable.",
+        vi: "Không thể tưởng tượng nổi / khôn lường (quá to lớn để có thể hình dung trọn vẹn)."
+      },
+      {
+        id: "term-26",
+        term: "Derailed",
+        pos: "adjective (participial)",
+        ipa: "/dɪˈreɪld/",
+        category: "Academic Vocabulary",
+        academicDef: "Obstructed, diverted, or thrown into disarray from an intended course of physiological or psychological equilibrium.",
+        plainDef: "Completely knocked off track or overwhelmed by an unexpected stressful event.",
+        context: "...and handle unexpected stress without being completely derailed by it.",
+        vi: "Bị trệch hướng / bị đánh gục (bị áp lực làm xáo trộn hoàn toàn phương hướng)."
+      },
+      {
+        id: "term-27",
+        term: "Equilibrium",
+        pos: "noun",
+        ipa: "/ˌɛk.wɪˈlɪb.ri.əm/",
+        category: "Physical Science",
+        academicDef: "A dynamic state of balance where opposing biochemical reactions or physical variables neutralize one another at homeostatic setpoints.",
+        plainDef: "A calm, steady state of balance where chemicals and pressure levels cancel out stress.",
+        context: "...it keeps the ratio of inhaled oxygen to exhaled carbon dioxide near equilibrium, allowing your blood chemistry to remain stable...",
+        vi: "Trạng thái cân bằng (sự ổn định nội môi giữa các yếu tố sinh hóa trong cơ thể)."
+      },
+      {
+        id: "term-28",
+        term: "Aglet",
+        pos: "noun",
+        ipa: "/ˈæɡ.lət/",
+        category: "Object / Analogy",
+        academicDef: "A protective plastic or metal sheath bound to each extremity of a cord or shoelace to prevent fiber fraying.",
+        plainDef: "The hard plastic tip at the end of a shoelace, used as an intuitive visual metaphor for telomeres.",
+        context: "...much like the plastic aglet on a shoelace that prevents it from fraying.",
+        vi: "Đầu bọc dây giày (mẩu nhựa bọc đầu dây giày giúp không bị tưa, ví như lớp bảo vệ của telomere)."
+      },
+      {
+        id: "term-29",
+        term: "Overhaul",
+        pos: "noun",
+        ipa: "/ˈəʊ.və.hɔːl/",
+        category: "Academic Vocabulary",
+        academicDef: "A thorough, rigorous examination accompanied by extensive restructuring, repair, or comprehensive revision.",
+        plainDef: "A total, drastic transformation or rebuilding of your lifestyle from scratch.",
+        context: "None of these outcomes require drastic lifestyle overhauls, expensive supplements, or specialized equipment.",
+        vi: "Sự thay đổi toàn diện / đại tu (cuộc cải tổ sâu rộng về thói quen hay lối sống)."
+      },
+      {
+        id: "term-30",
+        term: "Modulate",
+        pos: "verb",
+        ipa: "/ˈmɒdʒ.ʊ.leɪt/",
+        category: "Academic Vocabulary",
+        academicDef: "To exert a governing, fine-tuning, or regulating influence upon the amplitude, frequency, or intensity of a biological parameter.",
+        plainDef: "To carefully adjust and regulate something within healthy boundaries.",
+        context: "Blood tests reveal the changes in stress hormones that these ancient breathwork systems seem uniquely equipped to modulate.",
+        vi: "Điều hòa / hiệu chỉnh (khả năng can thiệp và điều chỉnh các phản ứng sinh học một cách nhịp nhàng)."
+      }
+    ];
+
+    /**
+     * STATE MANAGEMENT & ROUTING
+     */
+    const state = {
+      currentView: 'overview', // 'overview', 'sec-1'..'sec-8', 'glossary'
+      globalLangMode: 'en',    // 'en' (English default), 'split' (side-by-side), 'vi' (Vietnamese default)
+      cardLanguageOverrides: {}, // map of pId -> 'en' | 'vi'
+      overviewHeadingLanguages: {}, // map of secId -> 'en' | 'vi'
+      glossaryFilter: 'All',
+      glossarySearch: '',
+      glossaryRevealed: {}, // map of termId -> boolean
+      theme: 'light',
+      pacerActive: false,
+      pacerTimer: null,
+      pacerElapsed: 0,
+      pacerPhase: 'Ready'
+    };
+
+    // Load saved preferences
+    try {
+      const savedTheme = localStorage.getItem('breathe5_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      state.theme = savedTheme;
+      applyTheme(state.theme);
+      
+      const savedLang = localStorage.getItem('breathe5_lang');
+      if (savedLang) state.globalLangMode = savedLang;
+    } catch(e) {
+      console.warn("Storage access restricted", e);
+    }
+
+    /**
+     * TOAST HELPER
+     */
+    function showToast(msg, icon = '✨') {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-msg');
+      const toastIcon = document.getElementById('toast-icon');
+      if (!toast) return;
+      toastMsg.textContent = msg;
+      toastIcon.textContent = icon;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+
+    /**
+     * THEME TOGGLE
+     */
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      try {
+        localStorage.setItem('breathe5_theme', theme);
+      } catch(e) {}
+    }
+
+    function toggleTheme() {
+      state.theme = state.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(state.theme);
+      showToast(state.theme === 'dark' ? 'Dark mode enabled' : 'Light mode enabled', state.theme === 'dark' ? '🌙' : '☀️');
+    }
+
+    /**
+     * TEXT TO SPEECH (ENGLISH AUDIO FOR LEARNERS)
+     */
+    function speakText(text, event) {
+      if (event) event.stopPropagation();
+      if (!('speechSynthesis' in window)) {
+        showToast('Text-to-speech not supported in this browser', '⚠️');
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.95;
+      utterance.pitch = 1.0;
+      window.speechSynthesis.speak(utterance);
+      showToast('Playing audio pronunciation...', '🔊');
+    }
+
+    /**
+     * GLOBAL LANGUAGE MODE SELECTOR
+     */
+    function setGlobalLangMode(mode) {
+      state.globalLangMode = mode;
+      try {
+        localStorage.setItem('breathe5_lang', mode);
+      } catch(e) {}
+      
+      // Update toggle buttons in nav
+      document.querySelectorAll('#mode-en-btn, #mode-split-btn, #mode-vi-btn').forEach(btn => {
+        btn.classList.remove('bg-white', 'dark:bg-slate-700', 'text-brand-600', 'dark:text-brand-400', 'shadow-sm');
+        btn.classList.add('text-slate-600', 'dark:text-slate-400');
+      });
+      
+      const activeBtn = document.getElementById(`mode-${mode}-btn`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-white', 'dark:bg-slate-700', 'text-brand-600', 'dark:text-brand-400', 'shadow-sm');
+        activeBtn.classList.remove('text-slate-600', 'dark:text-slate-400');
+      }
+
+      renderCurrentView();
+      showToast(`Language mode: ${mode.toUpperCase()}`, '🌐');
+    }
+
+    /**
+     * HASH ROUTING CONTROLLER
+     */
+    function handleRouting() {
+      const hash = window.location.hash.replace('#', '') || 'overview';
+      state.currentView = hash;
+      
+      const navBackBtn = document.getElementById('nav-back-btn');
+      if (hash === 'overview') {
+        if (navBackBtn) navBackBtn.classList.add('hidden');
+      } else {
+        if (navBackBtn) navBackBtn.classList.remove('hidden');
+      }
+
+      renderCurrentView();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderCurrentView() {
+      const container = document.getElementById('view-container');
+      if (!container) return;
+
+      // Update nav active states
+      const activeBtn = document.getElementById(`mode-${state.globalLangMode}-btn`);
+      if (activeBtn) {
+        document.querySelectorAll('#mode-en-btn, #mode-split-btn, #mode-vi-btn').forEach(btn => {
+          btn.classList.remove('bg-white', 'dark:bg-slate-700', 'text-brand-600', 'dark:text-brand-400', 'shadow-sm');
+        });
+        activeBtn.classList.add('bg-white', 'dark:bg-slate-700', 'text-brand-600', 'dark:text-brand-400', 'shadow-sm');
+      }
+
+      if (state.currentView === 'overview') {
+        renderOverview(container);
+      } else if (state.currentView === 'glossary') {
+        renderGlossary(container);
+      } else if (state.currentView.startsWith('sec-')) {
+        renderSectionPage(container, state.currentView);
+      } else {
+        renderOverview(container);
+      }
+    }
+
+    /**
+     * VIEW 1: OVERVIEW HUB (PAGE 1)
+     */
+    function renderOverview(container) {
+      let cardsHtml = SECTIONS_DATA.map((sec) => {
+        const currentHeadingLang = state.overviewHeadingLanguages[sec.id] || 'en';
+        const displayTitle = currentHeadingLang === 'en' ? sec.title.en : sec.title.vi;
+        const altLang = currentHeadingLang === 'en' ? 'VI' : 'EN';
+        
+        return `
+          <div onclick="navigateTo('${sec.id}')" class="group relative cursor-pointer bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:border-brand-500/50 dark:hover:border-brand-500/50 card-transition flex flex-col justify-between">
+            <div>
+              <!-- Top Row: Section number and Heading Toggle Button -->
+              <div class="flex items-center justify-between gap-3 mb-4">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 group-hover:bg-brand-50 dark:group-hover:bg-brand-950 group-hover:text-brand-700 dark:group-hover:text-brand-400 transition-colors">
+                  Section 0${sec.num}
+                </span>
+
+                <!-- Isolated Corner EN/VI Toggle Button (e.stopPropagation applied) -->
+                <button onclick="toggleOverviewHeading('${sec.id}', event)" class="inline-flex items-center space-x-1 px-2.5 py-1 text-xs font-bold rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 transition-all shadow-sm" title="Toggle Title Language">
+                  <span class="text-[10px] text-slate-400">Title:</span>
+                  <span class="text-brand-600 dark:text-brand-400 font-extrabold">${altLang}</span>
+                  <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                </button>
+              </div>
+
+              <!-- Main Heading (Toggleable) -->
+              <h3 class="text-xl sm:text-2xl font-bold font-serif text-slate-900 dark:text-white leading-snug tracking-tight mb-3 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                ${displayTitle}
+              </h3>
+
+              <!-- Brief Context Excerpt -->
+              <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed mb-6 font-sans">
+                ${currentHeadingLang === 'en' ? sec.summaryEn : sec.summaryVi}
+              </p>
+            </div>
+
+            <!-- Bottom Row: Meta & Navigation link -->
+            <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800/80 text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400">
+              <span class="flex items-center space-x-1.5">
+                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span>${sec.readTime}</span>
+                <span>•</span>
+                <span>${sec.paragraphs.length} paragraphs</span>
+              </span>
+
+              <span class="text-brand-600 dark:text-brand-400 font-semibold flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                <span>Study</span>
+                <span>→</span>
+              </span>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div class="space-y-12 sm:space-y-16">
+          
+          <!-- Hero Header -->
+          <div class="text-center space-y-4 sm:space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/80 text-brand-700 dark:text-brand-300 text-xs sm:text-sm font-semibold border border-brand-200 dark:border-brand-800 shadow-sm">
+              <span class="flex h-2 w-2 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+              </span>
+              <span>Stanford &amp; NYU Research Synthesis • Complete Interactive Course</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+              ${DOC_TITLE.en}
+            </h1>
+            <p class="text-xl sm:text-2xl font-serif text-brand-700 dark:text-brand-400 font-normal italic">
+              "${DOC_TITLE.vi}"
+            </p>
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-sans pt-1">
+              Delve into the molecular biology, autonomic nervous pathways, and cellular longevity conferred by just 5 minutes of deliberate breath control. Every paragraph includes verbatim bilingual English and Vietnamese text with interactive study toggles.
+            </p>
+          </div>
+
+          <!-- Featured Breathing Interactive Pacer Widget -->
+          <div class="bg-gradient-to-br from-brand-900 via-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-brand-800/40 relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div class="space-y-4">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 text-brand-300 text-xs font-semibold uppercase tracking-wider">
+                  <span>Interactive Physiology Pacer</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight leading-snug">
+                  Experience the 4-4-8 Parasympathetic Switch
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                  Put the science from Section 7 into practice right now. Follow the rhythm: Inhale for 4 seconds, gently hold for 4 seconds, and exhale for 8 seconds to activate your vagus nerve.
+                </p>
+                <div class="pt-2 flex flex-wrap items-center gap-3">
+                  <button id="pacer-toggle-btn" onclick="togglePacer()" class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-bold text-sm shadow-lg shadow-brand-500/30 transition-all flex items-center space-x-2">
+                    <span id="pacer-btn-icon">▶</span>
+                    <span id="pacer-btn-label">Start 5-Minute Session</span>
+                  </button>
+                  <span id="pacer-timer-display" class="text-xs sm:text-sm text-slate-400 font-mono">00:00 / 05:00</span>
+                </div>
+              </div>
+
+              <!-- Animated Breathing Circle -->
+              <div class="flex flex-col items-center justify-center p-4">
+                <div class="relative w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center">
+                  <div id="pacer-outer-ring" class="absolute inset-0 rounded-full bg-brand-500/20 transition-all duration-1000 transform scale-100"></div>
+                  <div id="pacer-pulse-ring" class="absolute w-36 h-36 rounded-full bg-brand-500/30 transition-all duration-1000 transform scale-100"></div>
+                  <div id="pacer-core-circle" class="relative z-10 w-28 h-28 rounded-full bg-gradient-to-tr from-brand-500 to-accent-500 shadow-xl flex flex-col items-center justify-center text-center p-2 transition-all duration-1000">
+                    <span id="pacer-phase-text" class="text-xs font-black uppercase tracking-widest text-brand-100">Ready</span>
+                    <span id="pacer-count-text" class="text-2xl font-black">4s</span>
+                  </div>
+                </div>
+                <p id="pacer-instruction" class="text-xs sm:text-sm text-brand-300 mt-4 text-center font-medium">Click Start to synchronize your breathing</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Banner: Academic Learner Glossary -->
+          <div onclick="navigateTo('glossary')" class="cursor-pointer group relative bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-indigo-500/10 border border-emerald-500/30 rounded-3xl p-6 sm:p-8 hover:border-emerald-500 hover:shadow-xl card-transition">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div class="space-y-2">
+                <div class="flex items-center space-x-2">
+                  <span class="text-2xl">📚</span>
+                  <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">B2 / C1 Academic Resource</span>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  Interactive Specialized Learner Glossary (30 Terms)
+                </h3>
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+                  Deepen your mastery of terms like <em>alveoli</em>, <em>electron transport chain</em>, <em>vagal tone</em>, <em>respiratory alkalosis</em>, and <em>telomeres</em> with dual English definitions, simplified explanations, and toggleable Vietnamese translations.
+                </p>
+              </div>
+              <div class="self-stretch sm:self-auto flex items-center justify-center">
+                <span class="inline-flex items-center space-x-2 px-5 py-3 rounded-2xl bg-emerald-600 text-white font-bold text-sm shadow-md group-hover:scale-105 transition-transform w-full sm:w-auto justify-center">
+                  <span>Open Glossary</span>
+                  <span>→</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Grid -->
+          <div class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+              <div>
+                <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Document Structure</h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400">8 dedicated reading views with interactive paragraph flips</p>
+              </div>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                8 Sections • 31 Paragraphs
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              ${cardsHtml}
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
+
+    /**
+     * TOGGLE OVERVIEW CARD HEADING (EN <-> VI)
+     */
+    function toggleOverviewHeading(secId, event) {
+      if (event) event.stopPropagation();
+      const current = state.overviewHeadingLanguages[secId] || 'en';
+      state.overviewHeadingLanguages[secId] = current === 'en' ? 'vi' : 'en';
+      renderCurrentView();
+    }
+
+    /**
+     * VIEW 2: DEDICATED SECTION READING PAGE
+     */
+    function renderSectionPage(container, secId) {
+      const sec = SECTIONS_DATA.find(s => s.id === secId);
+      if (!sec) {
+        navigateTo('overview');
+        return;
+      }
+
+      // Check section index for Prev/Next
+      const currentIndex = SECTIONS_DATA.findIndex(s => s.id === secId);
+      const prevSec = currentIndex > 0 ? SECTIONS_DATA[currentIndex - 1] : null;
+      const nextSec = currentIndex < SECTIONS_DATA.length - 1 ? SECTIONS_DATA[currentIndex + 1] : null;
+
+      // Section header language toggle state
+      const currentHeadingLang = state.overviewHeadingLanguages[secId] || 'en';
+      const mainTitle = currentHeadingLang === 'en' ? sec.title.en : sec.title.vi;
+      const secondaryTitle = currentHeadingLang === 'en' ? sec.title.vi : sec.title.en;
+
+      // Build paragraphs
+      const paragraphsHtml = sec.paragraphs.map((p, idx) => {
+        // Individual paragraph language state
+        const pState = state.cardLanguageOverrides[p.id] || (state.globalLangMode === 'vi' ? 'vi' : (state.globalLangMode === 'split' ? 'split' : 'en'));
+
+        const subtitleHtml = p.subtitle ? `
+          <div class="mb-3">
+            <h4 class="text-lg font-bold text-emerald-600 dark:text-emerald-400">
+              ${pState === 'vi' ? p.subtitle.vi : p.subtitle.en}
+            </h4>
+            ${pState === 'split' ? `<h5 class="text-sm font-serif italic text-slate-500">${p.subtitle.vi}</h5>` : ''}
+          </div>
+        ` : '';
+
+        // If SPLIT mode
+        if (pState === 'split') {
+          return `
+            <div id="${p.id}" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm card-transition space-y-5">
+              ${subtitleHtml}
+              <!-- Header Bar of Card -->
+              <div class="flex items-center justify-between text-xs font-semibold text-slate-500 pb-3 border-b border-slate-100 dark:border-slate-800">
+                <div class="flex items-center space-x-2">
+                  <span class="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300 flex items-center justify-center font-bold text-[11px]">${idx + 1}</span>
+                  <span class="uppercase tracking-wider">Dual Bilingual Comparison</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <button onclick="speakText(\`${escapeForJs(p.en)}\`, event)" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-brand-600 transition-colors" title="Listen to English">
+                    🔊 Listen
+                  </button>
+                  <button onclick="setCardLang('${p.id}', 'en')" class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 hover:text-brand-600">EN only</button>
+                  <button onclick="setCardLang('${p.id}', 'vi')" class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 hover:text-brand-600">VI only</button>
+                </div>
+              </div>
+
+              <!-- Content in 2 stacked or column blocks -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- English Side -->
+                <div class="space-y-2">
+                  <div class="inline-flex items-center space-x-1.5 px-2 py-0.5 rounded bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 text-[11px] font-bold">
+                    <span>🇬🇧 EN</span>
+                  </div>
+                  <p class="text-base sm:text-lg text-slate-800 dark:text-slate-200 leading-[1.75] font-sans">
+                    ${highlightGlossaryTerms(p.en)}
+                  </p>
+                </div>
+
+                <!-- Vietnamese Side -->
+                <div class="space-y-2 lg:border-l lg:border-slate-100 lg:dark:border-slate-800 lg:pl-6">
+                  <div class="inline-flex items-center space-x-1.5 px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-[11px] font-bold">
+                    <span>🇻🇳 VI</span>
+                  </div>
+                  <p class="text-base sm:text-lg text-slate-800 dark:text-slate-200 leading-[1.75] font-serif">
+                    ${p.vi}
+                  </p>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        // TOGGLE / FLIP MODE (Single view with click to reveal)
+        const isEnglish = pState === 'en';
+        const activeText = isEnglish ? p.en : p.vi;
+        const badgeColor = isEnglish ? 'bg-sky-50 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800' : 'bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800';
+        const langBadge = isEnglish ? 'English (Click card to translate)' : 'Tiếng Việt (Nhấn để xem tiếng Anh)';
+        const fontClass = isEnglish ? 'font-sans' : 'font-serif';
+
+        return `
+          <div onclick="toggleCardLang('${p.id}')" class="group relative cursor-pointer bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-lg hover:border-brand-500/60 card-transition space-y-4 select-text">
+            ${subtitleHtml}
+            <!-- Card Header / Meta bar -->
+            <div class="flex items-center justify-between text-xs font-semibold pb-3 border-b border-slate-100 dark:border-slate-800/80">
+              <div class="flex items-center space-x-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center font-bold text-xs">${idx + 1}</span>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full border ${badgeColor} text-[11px] font-bold">
+                  ${isEnglish ? '🇬🇧 EN' : '🇻🇳 VI'}
+                </span>
+                <span class="hidden sm:inline text-slate-400 font-normal">${langBadge}</span>
+              </div>
+
+              <!-- Tools for Paragraph -->
+              <div class="flex items-center space-x-2">
+                <button onclick="speakText(\`${escapeForJs(p.en)}\`, event)" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-brand-600 transition-colors" title="Listen to English paragraph">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                </button>
+                <button onclick="setCardLang('${p.id}', 'split', event)" class="px-2 py-1 rounded-md text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-brand-600" title="Split bilingual view">
+                  Split
+                </button>
+              </div>
+            </div>
+
+            <!-- Paragraph Text (Verbatim) -->
+            <p class="text-lg sm:text-[19px] text-slate-800 dark:text-slate-100 leading-[1.8] ${fontClass}">
+              ${isEnglish ? highlightGlossaryTerms(activeText) : activeText}
+            </p>
+
+            <!-- Bottom Action Hint -->
+            <div class="pt-2 flex items-center justify-between text-xs text-slate-400 dark:text-slate-500">
+              <span class="inline-flex items-center space-x-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                <span>${isEnglish ? 'Click anywhere to reveal Vietnamese' : 'Click anywhere to reveal English'}</span>
+              </span>
+              <span class="font-mono text-[11px]">¶ ${idx + 1}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div class="space-y-8 sm:space-y-10">
+
+          <!-- Section Navigation & Breadcrumbs -->
+          <div class="flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-4">
+            <div class="flex items-center space-x-2">
+              <a href="#overview" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Overview</a>
+              <span>/</span>
+              <span class="text-slate-800 dark:text-slate-200 font-semibold">Section 0${sec.num}</span>
+            </div>
+
+            <div class="flex items-center space-x-3">
+              <button onclick="revealAllInSection('${secId}', 'vi')" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                Reveal All VI
+              </button>
+              <span>•</span>
+              <button onclick="revealAllInSection('${secId}', 'en')" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                Show All EN
+              </button>
+              <span>•</span>
+              <button onclick="revealAllInSection('${secId}', 'split')" class="text-brand-600 dark:text-brand-400 font-bold hover:underline">
+                Split All
+              </button>
+            </div>
+          </div>
+
+          <!-- Section Main Title Block -->
+          <div class="space-y-4">
+            <div class="flex items-center justify-between gap-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-50 dark:bg-brand-950/80 text-brand-700 dark:text-brand-400 border border-brand-200 dark:border-brand-800">
+                Section 0${sec.num} of 08
+              </span>
+
+              <!-- Inline Toggle Title Button -->
+              <button onclick="toggleOverviewHeading('${secId}', event)" class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:border-brand-500 transition-all shadow-sm">
+                <span>Switch Title to</span>
+                <span class="font-extrabold text-brand-600 dark:text-brand-400">${currentHeadingLang === 'en' ? 'Vietnamese' : 'English'}</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+              </button>
+            </div>
+
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight font-serif">
+              ${mainTitle}
+            </h1>
+            <h2 class="text-lg sm:text-xl text-slate-500 dark:text-slate-400 font-serif italic">
+              ${secondaryTitle}
+            </h2>
+          </div>
+
+          <!-- Interactive Paragraph Cards Stack -->
+          <div class="space-y-6 pt-2">
+            ${paragraphsHtml}
+          </div>
+
+          <!-- Bottom Prev / Next Navigation -->
+          <div class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            ${prevSec ? `
+              <a href="#${prevSec.id}" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:border-brand-500 hover:text-brand-600 transition-all">
+                <span>←</span>
+                <span>Section 0${prevSec.num}: ${prevSec.title.en.substring(0, 24)}...</span>
+              </a>
+            ` : `<div class="hidden sm:block"></div>`}
+
+            <a href="#overview" class="text-xs font-bold uppercase tracking-wider text-slate-400 hover:text-brand-600 transition-colors">
+              Return to Hub
+            </a>
+
+            ${nextSec ? `
+              <a href="#${nextSec.id}" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-sm font-bold text-white shadow-md transition-all">
+                <span>Section 0${nextSec.num}: ${nextSec.title.en.substring(0, 24)}...</span>
+                <span>→</span>
+              </a>
+            ` : `
+              <a href="#glossary" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-sm font-bold text-white shadow-md transition-all">
+                <span>Next: Learner Glossary (30 Terms)</span>
+                <span>→</span>
+              </a>
+            `}
+          </div>
+
+        </div>
+      `;
+    }
+
+    /**
+     * INDIVIDUAL PARAGRAPH CARD FLIP ACTIONS
+     */
+    function toggleCardLang(pId) {
+      const current = state.cardLanguageOverrides[pId] || (state.globalLangMode === 'vi' ? 'vi' : 'en');
+      state.cardLanguageOverrides[pId] = current === 'en' ? 'vi' : 'en';
+      renderCurrentView();
+    }
+
+    function setCardLang(pId, lang, event) {
+      if (event) event.stopPropagation();
+      state.cardLanguageOverrides[pId] = lang;
+      renderCurrentView();
+    }
+
+    function revealAllInSection(secId, mode) {
+      const sec = SECTIONS_DATA.find(s => s.id === secId);
+      if (!sec) return;
+      sec.paragraphs.forEach(p => {
+        state.cardLanguageOverrides[p.id] = mode;
+      });
+      renderCurrentView();
+      showToast(`Set all paragraphs to: ${mode.toUpperCase()}`, '🔄');
+    }
+
+    /**
+     * GLOSSARY HIGHLIGHTING IN PARAGRAPHS
+     */
+    function highlightGlossaryTerms(text) {
+      let result = text;
+      // We can highlight key terms in English to encourage learners to open the glossary
+      const termsToHighlight = [
+        "alveoli", "mitochondria", "electron transport chain", "ATP", "autonomic nervous system",
+        "sympathetic branch", "parasympathetic branch", "vagus nerve", "HRV", "cyclic sighing",
+        "respiratory alkalosis", "telomeres", "cortisol", "oxidative stress", "Pranayama", "Tummo"
+      ];
+
+      termsToHighlight.forEach(term => {
+        const regex = new RegExp(`\\b(${term})\\b`, 'gi');
+        result = result.replace(regex, `<span class="font-semibold text-brand-700 dark:text-brand-300 underline decoration-brand-400/50 underline-offset-2">$1</span>`);
+      });
+      return result;
+    }
+
+    /**
+     * VIEW 3: INTERACTIVE LEARNER GLOSSARY (PAGE FINAL)
+     */
+    function renderGlossary(container) {
+      const categories = ['All', 'Anatomy', 'Neuroscience', 'Biochemistry', 'Physiology', 'Medicine / Pathology', 'Ancient Practices', 'Academic Vocabulary'];
+
+      // Filter terms
+      const filteredTerms = GLOSSARY_DATA.filter(item => {
+        const matchesCategory = state.glossaryFilter === 'All' || item.category.toLowerCase().includes(state.glossaryFilter.toLowerCase());
+        const query = state.glossarySearch.toLowerCase();
+        const matchesSearch = !query || 
+          item.term.toLowerCase().includes(query) ||
+          item.academicDef.toLowerCase().includes(query) ||
+          item.plainDef.toLowerCase().includes(query) ||
+          item.vi.toLowerCase().includes(query);
+        return matchesCategory && matchesSearch;
+      });
+
+      const cardsHtml = filteredTerms.map((t, idx) => {
+        const isRevealed = !!state.glossaryRevealed[t.id];
+
+        return `
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md card-transition flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <!-- Top Row: Target Term & Meta -->
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <div class="flex items-center space-x-2">
+                    <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">${t.term}</h3>
+                    <button onclick="speakText('${t.term}', event)" class="p-1 rounded-lg text-slate-400 hover:text-brand-600 transition-colors" title="Listen">
+                      🔊
+                    </button>
+                  </div>
+                  <div class="flex items-center space-x-2 text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    <span class="italic font-serif">${t.pos}</span>
+                    <span>•</span>
+                    <span class="font-mono text-brand-600 dark:text-brand-400">${t.ipa}</span>
+                  </div>
+                </div>
+
+                <span class="inline-flex px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                  ${t.category}
+                </span>
+              </div>
+
+              <!-- Academic Definition -->
+              <div class="space-y-1">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Academic Definition:</span>
+                <p class="text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                  ${t.academicDef}
+                </p>
+              </div>
+
+              <!-- Plain English Explanation -->
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">In other words:</span>
+                <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                  ${t.plainDef}
+                </p>
+              </div>
+
+              <!-- Example in Context -->
+              <div class="space-y-1">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Document Context:</span>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 italic font-serif leading-relaxed pl-3 border-l-2 border-brand-400">
+                  "${t.context}"
+                </p>
+              </div>
+            </div>
+
+            <!-- Reveal Vietnamese Toggle Section -->
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80">
+              ${isRevealed ? `
+                <div class="p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800 flex items-start justify-between gap-3 animate-fadeIn">
+                  <div class="space-y-0.5">
+                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Vietnamese Equivalent / Nghĩa tiếng Việt:</span>
+                    <p class="text-sm sm:text-base font-serif font-bold text-emerald-900 dark:text-emerald-200 leading-snug">
+                      ${t.vi}
+                    </p>
+                  </div>
+                  <button onclick="toggleGlossaryTerm('${t.id}')" class="text-xs text-emerald-700 dark:text-emerald-400 font-bold hover:underline" title="Hide Vietnamese">
+                    Ẩn
+                  </button>
+                </div>
+              ` : `
+                <button onclick="toggleGlossaryTerm('${t.id}')" class="w-full py-2.5 px-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-emerald-500 bg-slate-50 dark:bg-slate-800 text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-sm">
+                  <span>Reveal Vietnamese / Xem nghĩa</span>
+                  <span>🇻🇳</span>
+                </button>
+              `}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div class="space-y-10">
+
+          <!-- Header -->
+          <div class="text-center space-y-3">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider border border-emerald-200 dark:border-emerald-800">
+              <span>B2 - C1 Advanced Learner Glossary</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              Specialized Vocabulary &amp; Scientific Concepts
+            </h1>
+            <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
+              30 specialized terms extracted verbatim from the documentary text covering anatomy, neuroscience, cellular respiration, and academic idioms.
+            </p>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm space-y-4">
+            
+            <!-- Search bar -->
+            <div class="relative">
+              <input 
+                id="glossary-search-input"
+                type="text" 
+                value="${state.glossarySearch}"
+                oninput="handleGlossarySearch(this.value)"
+                placeholder="Search vocabulary by term, definition, or Vietnamese equivalent..."
+                class="w-full pl-11 pr-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-900 dark:text-slate-100 placeholder-slate-400"
+              />
+              <svg class="w-5 h-5 absolute left-3.5 top-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+
+            <!-- Category filter pills -->
+            <div class="flex items-center space-x-2 overflow-x-auto pb-1 pt-1 scrollbar-none">
+              ${categories.map(cat => {
+                const isActive = state.glossaryFilter.toLowerCase() === cat.toLowerCase();
+                return `
+                  <button 
+                    onclick="filterGlossary('${cat}')"
+                    class="px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all ${
+                      isActive 
+                        ? 'bg-emerald-600 text-white shadow-sm' 
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                    }"
+                  >
+                    ${cat}
+                  </button>
+                `;
+              }).join('')}
+            </div>
+
+            <!-- Quick Action Row -->
+            <div class="flex items-center justify-between text-xs text-slate-500 pt-1">
+              <span>Showing <strong>${filteredTerms.length}</strong> of ${GLOSSARY_DATA.length} terms</span>
+              <div class="space-x-3">
+                <button onclick="revealAllGlossary(true)" class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">Reveal All Meanings</button>
+                <span>•</span>
+                <button onclick="revealAllGlossary(false)" class="text-slate-500 hover:underline">Hide All</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vocabulary Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            ${cardsHtml}
+          </div>
+
+        </div>
+      `;
+    }
+
+    function toggleGlossaryTerm(termId) {
+      state.glossaryRevealed[termId] = !state.glossaryRevealed[termId];
+      renderCurrentView();
+    }
+
+    function revealAllGlossary(revealState) {
+      GLOSSARY_DATA.forEach(t => {
+        state.glossaryRevealed[t.id] = revealState;
+      });
+      renderCurrentView();
+    }
+
+    function filterGlossary(cat) {
+      state.glossaryFilter = cat;
+      renderCurrentView();
+    }
+
+    function handleGlossarySearch(val) {
+      state.glossarySearch = val;
+      renderCurrentView();
+      // Keep input focus
+      const inp = document.getElementById('glossary-search-input');
+      if (inp) {
+        inp.focus();
+        inp.setSelectionRange(inp.value.length, inp.value.length);
+      }
+    }
+
+    /**
+     * INTERACTIVE BREATH PACER LOGIC (4-4-8 PACED BREATHING)
+     */
+    function togglePacer() {
+      state.pacerActive = !state.pacerActive;
+      const btnIcon = document.getElementById('pacer-btn-icon');
+      const btnLabel = document.getElementById('pacer-btn-label');
+      
+      if (state.pacerActive) {
+        if (btnIcon) btnIcon.textContent = '⏸';
+        if (btnLabel) btnLabel.textContent = 'Pause Session';
+        showToast('5-Minute Breathing Pacer Started', '🫁');
+        startPacerLoop();
+      } else {
+        if (btnIcon) btnIcon.textContent = '▶';
+        if (btnLabel) btnLabel.textContent = 'Resume Session';
+        clearInterval(state.pacerTimer);
+        showToast('Pacer Paused', '⏸');
+      }
+    }
+
+    function startPacerLoop() {
+      clearInterval(state.pacerTimer);
+      
+      const cycleLength = 16; // 4s inhale, 4s hold, 8s exhale
+      const outerRing = document.getElementById('pacer-outer-ring');
+      const pulseRing = document.getElementById('pacer-pulse-ring');
+      const coreCircle = document.getElementById('pacer-core-circle');
+      const phaseText = document.getElementById('pacer-phase-text');
+      const countText = document.getElementById('pacer-count-text');
+      const instruction = document.getElementById('pacer-instruction');
+      const timerDisplay = document.getElementById('pacer-timer-display');
+
+      state.pacerTimer = setInterval(() => {
+        if (!state.pacerActive) return;
+        state.pacerElapsed++;
+
+        // Update elapsed time (e.g. 01:24)
+        const mins = Math.floor(state.pacerElapsed / 60).toString().padStart(2, '0');
+        const secs = (state.pacerElapsed % 60).toString().padStart(2, '0');
+        if (timerDisplay) timerDisplay.textContent = `${mins}:${secs} / 05:00`;
+
+        if (state.pacerElapsed >= 300) {
+          // 5 minutes reached
+          state.pacerActive = false;
+          clearInterval(state.pacerTimer);
+          showToast('5 Minutes Completed! Your vagal tone is now measurably elevated.', '🎉');
+          if (phaseText) phaseText.textContent = 'Complete';
+          if (instruction) instruction.textContent = 'Congratulations! 5 full minutes of paced breathing completed.';
+          return;
+        }
+
+        const secondInCycle = state.pacerElapsed % cycleLength;
+
+        if (secondInCycle < 4) {
+          // Inhale (4s)
+          const remaining = 4 - secondInCycle;
+          if (phaseText) phaseText.textContent = 'Inhale';
+          if (countText) countText.textContent = `${remaining}s`;
+          if (instruction) instruction.textContent = 'Inhale slowly and deeply through your nose into your belly...';
+          if (outerRing) outerRing.style.transform = 'scale(1.4)';
+          if (pulseRing) pulseRing.style.transform = 'scale(1.3)';
+          if (coreCircle) coreCircle.style.transform = 'scale(1.15)';
+        } else if (secondInCycle < 8) {
+          // Hold (4s)
+          const remaining = 8 - secondInCycle;
+          if (phaseText) phaseText.textContent = 'Hold';
+          if (countText) countText.textContent = `${remaining}s`;
+          if (instruction) instruction.textContent = 'Hold gently without straining...';
+          if (outerRing) outerRing.style.transform = 'scale(1.4)';
+          if (pulseRing) pulseRing.style.transform = 'scale(1.3)';
+        } else {
+          // Exhale (8s)
+          const remaining = 16 - secondInCycle;
+          if (phaseText) phaseText.textContent = 'Exhale';
+          if (countText) countText.textContent = `${remaining}s`;
+          if (instruction) instruction.textContent = 'Exhale smoothly and slowly through your mouth...';
+          if (outerRing) outerRing.style.transform = 'scale(1.0)';
+          if (pulseRing) pulseRing.style.transform = 'scale(1.0)';
+          if (coreCircle) coreCircle.style.transform = 'scale(1.0)';
+        }
+      }, 1000);
+    }
+
+    /**
+     * HELPER FOR STRING ESCAPING
+     */
+    function escapeForJs(str) {
+      return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/\n/g, ' ');
+    }
+
+    function navigateTo(hash) {
+      window.location.hash = hash;
+    }
+
+    /**
+     * INITIALIZE APP ON LOAD
+     */
+    window.addEventListener('DOMContentLoaded', () => {
+      handleRouting();
+      window.addEventListener('hashchange', handleRouting);
+    });
+  </script>
+</body>
+</html>
