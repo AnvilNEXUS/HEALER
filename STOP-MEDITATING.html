@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 1-Minute Brain-Rewiring Technique | Kỹ Thuật 1 Phút Thay Đổi Não Bộ</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Merriweather -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Merriweather"', 'serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Card Flip & Smooth Reveal Animations */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .preserve-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    
+    /* Cross-fade transition helper */
+    .fade-content {
+      transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+    }
+    
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.03);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, 0.25);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(100, 116, 139, 0.45);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans min-h-screen transition-colors duration-300 flex flex-col">
+
+  <!-- ================= PERSISTENT NAVBAR ================= -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/85 dark:bg-slate-900/85 border-b border-slate-200/80 dark:border-slate-800 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-4 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Brand & Back Button -->
+      <div class="flex items-center gap-3">
+        <a id="nav-back-btn" href="#overview" class="hidden items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all border border-slate-200 dark:border-slate-700">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+          <span class="hidden sm:inline">Overview</span>
+        </a>
+        
+        <a href="#overview" class="flex items-center gap-2 group">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="leading-tight">
+            <span class="font-extrabold text-base sm:text-lg tracking-tight bg-gradient-to-r from-teal-700 to-teal-500 dark:from-teal-400 dark:to-teal-200 bg-clip-text text-transparent">MindRewire</span>
+            <span class="text-[11px] block font-medium text-slate-500 dark:text-slate-400">60s Transformation</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Action Tools -->
+      <div class="flex items-center gap-1.5 sm:gap-3">
+        
+        <!-- Jump to Glossary -->
+        <a href="#glossary" id="nav-glossary-btn" class="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+          <svg class="w-4 h-4 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          <span class="font-semibold">Glossary</span>
+          <span class="hidden md:inline text-xs opacity-75 font-normal">(28 Terms)</span>
+        </a>
+
+        <!-- Global Language Switcher -->
+        <button id="global-lang-toggle" onclick="toggleGlobalLanguage()" class="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-800 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-900/60 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+          <span id="global-lang-indicator">All: EN</span>
+        </button>
+
+        <!-- Dark/Light Mode Switcher -->
+        <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 transition-colors">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg id="theme-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg id="theme-moon" class="w-5 h-5 block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTAINER VIEWPORT ================= -->
+  <main id="app-root" class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-10">
+    <!-- Dynamic views will be injected here by router -->
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 transition-colors duration-300 mt-12">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-500 animate-pulse"></span>
+        <span>The 1-Minute Brain-Rewiring Masterclass • Mật Mã Cổ Nhân</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#overview" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Overview</a>
+        <span>•</span>
+        <a href="#glossary" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Learner Glossary</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= EMBEDDED APPLICATION DATA & SCRIPTS ================= -->
+  <script>
+    /* -------------------------------------------------------------
+       1. COMPLETE VERBATIM DATASET (ALL 11 CHAPTERS)
+       ------------------------------------------------------------- */
+    const appData = {
+      meta: {
+        titleEn: "The 1-Minute Brain-Rewiring Technique: Mind Transformation Without Hours of Meditation",
+        titleVi: "Kỹ Thuật 1 Phút Thay Đổi Não Bộ: Chuyển Hóa Tâm Trí Không Cần Ngồi Thiền Hàng Giờ",
+        subEn: "A high-precision, neuroscientifically grounded practice to achieve instant biological coherence, rewire limiting pathways, and create lasting transformation in 60 seconds.",
+        subVi: "Phương pháp chuẩn xác có cơ sở khoa học thần kinh giúp tạo sự đồng bộ sinh học tức thời, tái kết nối các mạng lưới tư duy và chuyển hóa tâm trí chỉ trong 60 giây."
+      },
+      sections: [
+        {
+          id: "intro",
+          num: "00",
+          titleEn: "Introduction: The Paradox of Modern Meditation",
+          titleVi: "Mở Đầu: Nghịch Lý Của Thiền Định Hiện Đại",
+          descEn: "Why sitting for extended hours often fails to deliver lasting changes and how 60 seconds of focused coherence can rewire your brain.",
+          descVi: "Vì sao ngồi thiền hàng giờ thường không tạo ra thay đổi lâu dài và cách 60 giây tập trung có thể tái thiết lập bộ não.",
+          paragraphs: [
+            {
+              en: "Warm greetings to all of you from Mật Mã Cổ Nhân.",
+              vi: "Mật mã cổ nhân mến chào quý vị và các bạn."
+            },
+            {
+              en: "What if everything you thought you understood about meditation was fundamentally wrong?",
+              vi: "Nếu bạn cho rằng tất cả những gì mình hiểu về thiền đều hoàn toàn sai lầm thì sẽ thế nào?"
+            },
+            {
+              en: "Right now across the globe, hundreds of millions of people sit in meditation for 20, 30, or even 60 minutes every day, trying by every means through traditional meditation practices to calm their minds and transform their lives. They close their eyes, focus on their breath, and wait for some miraculous breakthrough that seemingly never arrives. Meanwhile, they miss out on something far more powerful that can be achieved in just 60 seconds.",
+              vi: "Hiện nay trên khắp thế giới có hàng trăm triệu người mỗi ngày ngồi tĩnh tọa 20 phút, 30 phút, thậm chí 60 phút cố gắng bằng mọi cách thông qua các bài tập thiền truyền thống để làm dịu tâm trí và thay đổi cuộc sống của họ. Họ nhắm mắt tập trung vào hơi thở, chờ đợi một sự đột phá kỳ diệu nào đó mà dường như chẳng bao giờ đến. Trong khi đó, họ lại bỏ lỡ những điều còn mạnh mẽ hơn mà chỉ cần 60 giây là có thể đạt được."
+            },
+            {
+              en: "What meditation gurus do not want you to know is that most regular meditators experience virtually no real, lasting change in their daily lives. They might feel slightly relaxed right after a session, but just a few hours later, they slip right back into their old patterns—the same stress levels, the same limiting mindsets, and the exact same emotional reactions as before. Does that sound familiar?",
+              vi: "Điều mà các bậc thầy thiền định không muốn bạn biết chính là hầu hết những người thường xuyên thiền định gần như không thấy có sự thay đổi thực sự nào trong cuộc sống hằng ngày. Có thể họ cảm thấy thư giãn đôi chút sau khi thiền nhưng chỉ vài giờ sau họ lại quay về mô thức cũ cùng mức độ căng thẳng, cùng kiểu tư duy hạn chế và cùng phản ứng cảm xúc như trước. Nghe có quen thuộc không?"
+            },
+            {
+              en: "The root of this issue is not that meditation does not work; rather, traditional meditation methods are fundamentally flawed when applied to the modern mind. We have been taught that longer is always better—that sitting for extended periods is the sole path to genuine transformation. But what if the exact opposite is true? What if there is a precise, scientifically grounded technique so potent that a single minute of laser focus can generate more neurological rewiring than an entire unfocused hour of sitting?",
+              vi: "Nguyên nhân của tình trạng này không phải vì thiền không có tác dụng, mà bởi vì phương pháp thiền truyền thống xét trên căn bản có nhiều khiếm khuyết đối với tư duy hiện đại. Chúng ta được dạy rằng thời gian càng lâu thì càng tốt, ngồi lâu là con đường duy nhất dẫn tới sự chuyển hóa. Nhưng nếu sự thật lại hoàn toàn ngược lại thì sao? Nếu tồn tại một kỹ thuật chính xác, có cơ sở khoa học đến mức trong một phút tập trung có thể tạo ra nhiều thay đổi thần kinh hơn hẳn một giờ ngồi thiền mà không tập trung thì sao?"
+            },
+            {
+              en: "This is not New Age wishful thinking or idle fantasy, but the result of cutting-edge neuroscience demonstrating precisely how the brain rewires itself when specific conditions are met. The technique we are about to explore does not require clearing your schedule, hunting down a pin-drop silent space, or waging an exhausting war against wandering thoughts.",
+              vi: "Đây không phải là ảo tưởng, thời đại mới hay một ý nghĩ viển vông mà là kết quả nghiên cứu thần kinh học tiên tiến cho thấy chính xác cách bộ não tự tái kết nối khi đáp ứng những điều kiện nhất định. Kỹ thuật mà chúng ta sắp tìm hiểu không đòi hỏi bạn phải dẹp hết lịch trình, tìm một không gian yên tĩnh hay đấu tranh lâu dài với những suy nghĩ xao động."
+            },
+            {
+              en: "Instead, it works synergistically with the brain's natural mechanisms, creating an instantaneous coherence among your mind, body, and emotions. By the end of this discussion, you will understand why this one-minute practice can be ten times more effective than traditional meditation. You will immediately learn concrete, actionable steps to put into practice. Most importantly, you will discover how to generate lasting transformation without investing excessive amounts of time—the very barrier that prevents countless people from experiencing real change in their lives.",
+              vi: "Ngược lại, nó phối hợp với cơ chế tự nhiên của não bộ, từ đó tạo ra sự đồng bộ tức thời giữa tư tưởng, cơ thể và cảm xúc của bạn. Khi kết thúc phần thảo luận này, bạn sẽ hiểu vì sao phương pháp 1 phút có thể hiệu quả gấp 10 lần thiền truyền thống. Bạn sẽ ngay lập tức học được các bước cụ thể để thực hành. Quan trọng hơn cả, bạn sẽ khám phá cách tạo ra sự chuyển hóa lâu dài mà không cần bỏ ra quá nhiều thời gian. Chính yếu tố thời gian đã khiến rất nhiều người không trải nghiệm sự thay đổi thật sự trong đời sống."
+            },
+            {
+              en: "Before diving in, please subscribe to the channel. If you are ready to break free from ineffective meditation routines and apply this scientifically proven technique—taking only 60 seconds to transform your life—leave a comment: \"I am ready for true transformation\".",
+              vi: "Trước khi đi sâu vào tìm hiểu, hãy đăng ký kênh. Nếu bạn đã sẵn sàng thoát khỏi những bài thiền vô hiệu và ứng dụng kỹ thuật đã được khoa học chứng minh này, chỉ mất 60 giây để thay đổi cuộc đời bạn, hãy để lại bình luận \"tôi đã sẵn sàng cho sự chuyển hóa thực sự\"."
+            }
+          ]
+        },
+        {
+          id: "sec-1",
+          num: "01",
+          titleEn: "1. The Pitfalls of Traditional Meditation",
+          titleVi: "1. Cạm Bẫy Của Phương Pháp Thiền Truyền Thống",
+          descEn: "Why 90% of people quit in the first month and how fighting millions of years of evolutionary programming creates learned helplessness.",
+          descVi: "Lý do 90% người thực hành từ bỏ trong tháng đầu và việc chống lại lập trình tiến hóa tạo ra sự bất lực tập nhiễm.",
+          paragraphs: [
+            {
+              en: "Why do 90% of people who start meditating quit within the first month?",
+              vi: "Tại sao 90% số người bắt đầu thiền lại bỏ cuộc trong tháng đầu tiên?"
+            },
+            {
+              en: "The answer lies in a fundamental misunderstanding of how human cognition actually operates. Traditional meditation instructs you to do things that run contrary to the brain’s core evolutionary programming: sitting motionless for long stretches while attempting to think of absolutely nothing. Meanwhile, the human brain was built to process information, solve problems, and remain vigilant against potential threats.",
+              vi: "Câu trả lời nằm ở sự hiểu lầm căn bản về cách tư duy con người thật sự vận hành. Phương pháp thiền truyền thống yêu cầu bạn làm những điều đi ngược lại với chương trình cốt lõi của não bộ: ngồi yên bất động, lâu dài không nghĩ gì cả. Trong khi đó, não bộ vốn được thiết kế để xử lý thông tin, giải quyết vấn đề và giữ cho bạn luôn cảnh giác trước những mối nguy tiềm tàng."
+            },
+            {
+              en: "When you try to sit down and force your mind blank, you are actively fighting millions of years of evolution. This sparks an internal war. Most people interpret this friction as failure, assuming something is wrong with them or that they simply do not know how to meditate. Each session only compounds their frustration, reinforcing the belief that they are doing it wrong.",
+              vi: "Khi bạn cố gắng ngồi xuống và dọn sạch ý nghĩ, thực chất bạn đang chống lại hàng triệu năm tiến hóa. Điều này tạo nên một cuộc chiến nội tâm. Đa số sẽ hiểu đó là sự thất bại và cho rằng mình có vấn đề hoặc không biết thiền. Mỗi lần thiền lại làm tăng thêm sự thất vọng khiến bạn nghĩ rằng mình không làm đúng."
+            },
+            {
+              en: "You sit there for 10, 20, or 30 minutes, but instead of finding enlightenment, you find your thoughts racing faster than ever. You dwell on work deadlines, what to have for dinner, a conversation from last week, or the bills you need to pay. The harder you try to suppress these thoughts, the louder they become. This tug-of-war creates a negative feedback loop, conditioning you to associate meditation with struggle, boredom, and failure rather than transformation and personal growth. Many people even develop anxiety around their practice, checking the clock every few minutes and wondering when the torture will finally end.",
+              vi: "Bạn ngồi đó 10 phút, 20 phút hay 30 phút nhưng không tìm thấy sự khai mở mà ngược lại nhận ra ý nghĩ của bạn còn nhanh hơn lúc trước. Bạn sẽ nghĩ đến hạn chót công việc, bạn sẽ ăn gì cho bữa tối, cuộc trò chuyện tuần trước của bạn, hóa đơn bạn cần phải thanh toán. Bạn càng cố gắng ngăn những ý nghĩ này thì chúng lại càng trở nên ồn ào. Sự giằng co này tạo ra một vòng phản hồi tiêu cực khiến bạn liên kết thiền với khó khăn, nhàm chán và thất bại thay vì với sự chuyển hóa và trưởng thành. Nhiều người trở nên lo lắng về việc tập thiền, cứ vài phút lại nhìn đồng hồ, tự hỏi bao giờ sự tra tấn này kết thúc."
+            },
+            {
+              en: "Does that sound like the secret to transforming your life?",
+              vi: "Nghe điều đó có giống bí quyết để thay đổi cuộc sống không?"
+            },
+            {
+              en: "Traditional approaches also disregard individual differences in attention span, baseline stress levels, and lifestyle demands. A busy working parent with three children cannot meditate the same way an ascetic monk does in a monastery. Yet most meditation advice adopts a rigid, one-size-fits-all model that inevitably sets people up for disappointment.",
+              vi: "Phương pháp truyền thống cũng bỏ qua sự khác biệt cá nhân về khả năng duy trì sự chú ý, mức độ căng thẳng và nhu cầu trong lối sống. Một người bận rộn có ba đứa con không thể thiền giống như một người sống trong tu viện. Thế nhưng hầu hết hướng dẫn thiền đều áp dụng một cách dập khuôn khiến nhiều người thất vọng."
+            },
+            {
+              en: "Another major hurdle is the lack of immediate feedback. Traditional practices typically promise distant, long-term benefits that may take months or years to materialize. Without quick wins or tangible markers of progress, motivation naturally evaporates. Human beings need to feel that their invested time is producing demonstrable results, not just vague hopes and promises.",
+              vi: "Một vấn đề lớn khác là thiếu phản hồi kịp thời. Thiền truyền thống thường hứa hẹn lợi ích dài hạn, có thể mất vài tháng hoặc vài năm mới xuất hiện. Nếu không có thành công nhanh chóng hoặc sự thay đổi rõ ràng, động lực sẽ mất dần. Con người cần cảm thấy rằng thời gian mình bỏ ra đang mang lại kết quả chứ không chỉ là hy vọng và những lời hứa hẹn."
+            },
+            {
+              en: "The most destructive consequence of failing at traditional meditation is how it undermines a person’s self-efficacy. When someone repeatedly attempts to meditate without seeing tangible results, they often conclude that personal transformation is simply out of reach for them. They do not just give up on meditation; they abandon the entire concept of mental conditioning and self-mastery. This learned helplessness prevents them from ever exploring alternative methods that could actually work.",
+              vi: "Khía cạnh phá hoại nhất trong thất bại của thiền truyền thống là cách nó ảnh hưởng đến niềm tin của con người về khả năng thay đổi bản thân. Khi một người lặp đi lặp lại việc cố gắng thiền mà không thấy kết quả, họ thường kết luận rằng sự chuyển hóa cá nhân với họ là bất khả thi. Họ không chỉ bỏ cuộc với thiền mà còn từ bỏ toàn bộ ý tưởng về rèn luyện tinh thần và tự hoàn thiện. Sự bất lực học được này ngăn họ khám phá những phương pháp có thể thực sự hiệu quả hơn."
+            }
+          ]
+        },
+        {
+          id: "sec-2",
+          num: "02",
+          titleEn: "2. Debunking the Time Myth: Intensity Over Duration",
+          titleVi: "2. Giải Mã Huyền Thoại Về Thời Gian: Cường Độ Thay Vì Thời Lượng",
+          descEn: "The brain does not measure rewiring by clock time, but by the depth, quality, and intensity of neural activation.",
+          descVi: "Bộ não không đo lường sự tái kết nối bằng kim đồng hồ mà bằng chiều sâu, chất lượng và cường độ kích hoạt thần kinh.",
+          paragraphs: [
+            {
+              en: "Where did the idea that effective meditation requires hours of practice even come from?",
+              vi: "Ý tưởng rằng thiền hiệu quả cần hàng giờ luyện tập xuất phát từ đâu?"
+            },
+            {
+              en: "This dogma has erected more barriers to personal growth in the self-development sphere than virtually any other misconception. In reality, this belief serves nobody except those marketing expensive advanced courses and lengthy retreats.",
+              vi: "Niềm tin này đã tạo ra nhiều rào cản cho sự chuyển hóa cá nhân trong lĩnh vực phát triển bản thân hơn bất kỳ niềm tin nào khác. Thực tế, niềm tin này chẳng có ích gì cho bất cứ ai ngoài những người bán các khóa thiền nâng cao hoặc khóa tu dài hạn đắt đỏ."
+            },
+            {
+              en: "The human brain does not measure neuroplastic transformation by the number of minutes spent on a cushion; it measures it by the intensity and quality of neural activation during focused attention. A surgeon does not become a master merely by holding a scalpel aimlessly for hours. Likewise, mental transformation will not occur simply because you sit for hours with an unfocused, drifting mind.",
+              vi: "Bộ não con người không đo lường sự chuyển hóa bằng thời gian thiền mà đo lường bằng cường độ và chất lượng của hoạt động thần kinh trong trạng thái tập trung. Một bác sĩ phẫu thuật sẽ không trở nên giỏi hơn chỉ vì cầm dao mổ vô nghĩa trong nhiều giờ. Tương tự, sự chuyển hóa tinh thần cũng sẽ không xảy ra nếu bạn ngồi đó hàng giờ mà tâm trí không tập trung."
+            },
+            {
+              en: "Fixating on clock time is actively counterproductive. When you believe you must meditate for long stretches, you generate performance pressure and rigid expectations, sabotaging the very state of ease you are trying to access. You begin clock-watching, judging your progress, and compounding stress around an experience that should unfold organically.",
+              vi: "Lối suy nghĩ dựa trên thời gian thực tế còn gây hại cho bạn. Khi bạn tin rằng mình cần thiền trong thời gian dài, bạn sẽ tạo áp lực và kỳ vọng, từ đó cản trở chính trạng thái mà bạn muốn đạt đến. Bạn bắt đầu nhìn đồng hồ, đánh giá tiến trình và tạo thêm căng thẳng xung quanh một quá trình vốn nên diễn ra tự nhiên."
+            },
+            {
+              en: "Consider how your brain acquires any new motor or cognitive skill. When learning to ride a bicycle, did you need to ride uninterrupted for hours on end? Of course not. You learned through brief, highly focused practice sessions where your full attention was engaged. The exact same principle governs mental training and consciousness expansion.",
+              vi: "Hãy nghĩ về cách bộ não bạn học một kỹ năng mới. Khi học đi xe đạp, bạn có cần luyện tập liên tục hàng giờ không? Tất nhiên là không. Bạn học thông qua những lần luyện tập ngắn nhưng tập trung khi sự chú ý được đặt trọn vẹn. Nguyên tắc tương tự cũng áp dụng cho việc rèn luyện tinh thần và phát triển ý thức."
+            },
+            {
+              en: "The most profound shifts in human consciousness often happen in brief, totalizing moments. Have you ever noticed how a single moment of exquisite beauty, profound love, or sudden epiphany can completely alter the trajectory of your entire day? Transformative experiences do not require protracted duration; they demand depth and focused intensity.",
+              vi: "Những trạng thái ý thức sâu sắc nhất thường xảy ra trong những khoảnh khắc ngắn ngủi nhưng trọn vẹn. Bạn có từng nhận ra một khoảnh khắc đẹp đẽ, đầy yêu thương hoặc đầy sự khai sáng có thể thay đổi cả một ngày của bạn không? Những trải nghiệm mang tính chuyển hóa này không đòi hỏi thời gian kéo dài mà cần chiều sâu và cường độ tập trung."
+            },
+            {
+              en: "Modern neuroimaging studies firmly support this premise. Brain scans reveal that when the right internal conditions are met, significant neuroplastic adaptations can take place within minutes, or even seconds. The brain possesses an extraordinary capacity for adaptation, responding rapidly to intentional focus coupled with elevated emotional states.",
+              vi: "Các nghiên cứu thần kinh học hiện đại cũng ủng hộ cách hiểu này. Chụp quét não cho thấy khi đáp ứng điều kiện phù hợp, những thay đổi thần kinh quan trọng có thể xảy ra chỉ trong vài phút, thậm chí vài giây. Bộ não có khả năng thích nghi đáng kinh ngạc và phản ứng nhanh với sự tập trung có chủ đích cùng trạng thái cảm xúc nâng cao."
+            },
+            {
+              en: "The myth of hour-long meditation also ignores the reality that most everyday people cannot sustain demanding daily time commitments. When they inevitably fall short of such rigid schedules, they abandon the practice entirely. This all-or-nothing mindset makes quitting almost inevitable. As a result, hundreds of millions have been locked out of the genuine benefits that targeted mental training provides.",
+              vi: "Huyền thoại về việc phải dành hàng giờ thiền còn bỏ qua thực tế rằng hầu hết mọi người không thể duy trì đều đặn thời gian dài cho việc thiền mỗi ngày. Khi họ thử và không thể duy trì được lịch trình khắt khe như vậy, họ sẽ hoàn toàn từ bỏ việc thực hành này. Tâm lý \"tất cả hoặc chẳng có gì\" này khiến họ càng dễ buông bỏ. Đã có hàng trăm triệu người bị ngăn cản không thể trải nghiệm được lợi ích thực sự mà sự rèn luyện tinh thần tập trung mang lại."
+            },
+            {
+              en: "The real issue is never how long you sit, but how deeply and singularly focused you are during the practice.",
+              vi: "Vấn đề thật sự không nằm ở việc bạn thiền bao lâu mà là trong khoảng thời gian bạn thực hành, bạn tập trung và chuyên chú đến mức nào."
+            }
+          ]
+        },
+        {
+          id: "sec-3",
+          num: "03",
+          titleEn: "3. Passive Attention vs. Focused Intention: Sunlight vs. Laser Beam",
+          titleVi: "3. Chú Ý Thụ Động Và Ý Định Tập Trung: Ánh Sáng Mặt Trời So Với Tia Laser",
+          descEn: "Harnessing the difference between idling in distraction and aiming sharp, laser-like intentional coherence with the prefrontal cortex.",
+          descVi: "Phân biệt giữa quan sát thụ động mông lung và sự tập trung sắc bén như tia laser kích hoạt vỏ não trước trán.",
+          paragraphs: [
+            {
+              en: "What distinguishes powerful mental conditioning from a mere rest break?",
+              vi: "Điều gì phân biệt sự rèn luyện tinh thần mạnh mẽ với chỉ đơn thuần là khoảng thời gian thư giãn?"
+            },
+            {
+              en: "The answer lies in distinguishing passive awareness from laser-focused intention. Most conventional meditation styles promote a state of detached, passive observation—simply watching thoughts drift in and out. While this has some mild benefits, it is like idling a high-performance sports car in a parking lot.",
+              vi: "Câu trả lời nằm ở việc hiểu rõ sự khác biệt giữa chú ý thụ động và ý định tập trung như tia laser. Hầu hết các bài tập thiền khuyến khích một trạng thái quan sát thụ động, chỉ đơn giản là dõi theo sự đến rồi đi của ý nghĩ. Mặc dù điều này có vài lợi ích nhưng nó giống như lái một chiếc xe đua trong bãi đỗ với tốc độ chậm."
+            },
+            {
+              en: "When your cognition is channeled deliberately, it can reach an extraordinary level of power. Think of a time when you were completely immersed in a flow state doing something you love. Time seemed to vanish, external distractions faded away, and you performed at a caliber beyond your usual expectations. That is the state we need to cultivate consciously—not the half-hearted, fractured attention common to most passive meditation.",
+              vi: "Khi tư tưởng của bạn được dẫn dắt đúng cách, nó có thể đạt đến sự tập trung phi thường. Hãy nghĩ đến lúc bạn hoàn toàn đắm chìm trong một hoạt động mà bạn yêu thích. Thời gian trôi qua nhanh chóng, những tác động bên ngoài biến mất và bạn thể hiện ở mức độ mà chính bạn cũng không ngờ tới. Đó mới chính là trạng thái chúng ta cần rèn luyện có ý thức chứ không phải kiểu tập trung nửa vời, phân tán thường thấy trong đa số các dạng thiền."
+            },
+            {
+              en: "The difference between scattered attention and focused intention is like the difference between ambient sunlight and a laser beam. Sunlight is diffuse and gentle, whereas a laser can slice through solid steel. Both consist of photons, but one is scattered while the other is coherent, organized, and directed.",
+              vi: "Sự khác biệt giữa sự chú ý phân tán và ý định tập trung giống như sự khác nhau giữa ánh sáng mặt trời và tia laser. Ánh sáng mặt trời tỏa rộng, dịu nhẹ trong khi tia laser có thể cắt xuyên qua thép. Cả hai đều là photon nhưng một cái là phân tán, còn cái kia được tổ chức và định hướng."
+            },
+            {
+              en: "Your mental energy functions in precisely the same way. When you aim sharp, purposeful attention at a specific intention or outcome, you establish neuro-coherence. This measurable coherence immediately alters the electrochemistry of the brain. Your nervous system responds to that focused state by releasing a distinct cocktail of neurotransmitters and hormones—markedly different from those produced during passive, unfocused meditation.",
+              vi: "Năng lượng tinh thần của bạn cũng vận hành theo cách tương tự. Khi bạn tập trung sự chú ý sắc bén, có mục đích vào một ý định hoặc kết quả cụ thể, bạn tạo ra sự liên kết trong mạng lưới thần kinh. Sự liên kết này có thể đo lường được và ngay lập tức tạo ra thay đổi trong hóa học và hoạt động điện của não bộ. Hệ thần kinh của bạn sẽ phản ứng với trạng thái tập trung đó, giải phóng các chất dẫn truyền thần kinh và hormone khác biệt so với lúc thiền mà không tập trung."
+            },
+            {
+              en: "This directed approach heavily recruits the prefrontal cortex—the command center responsible for executive function and conscious decision-making. Rather than drifting along with whatever thought surfaces, you actively marshall your mental bandwidth toward a designated target or emotional frequency. This creates a constructive feedback loop that fortifies your capacity for sustained, deep focus.",
+              vi: "Phương pháp tập trung này còn huy động vỏ não trước trán — phần não chịu trách nhiệm về chức năng điều hành và những lựa chọn có ý thức. Bạn không chỉ quan sát ngẫu nhiên bất kỳ ý nghĩ nào xuất hiện mà chủ động hướng toàn bộ tài nguyên tinh thần của mình đến một mục tiêu hoặc trạng thái nhất định. Điều này tạo ra một vòng phản hồi giúp củng cố khả năng duy trì sự tập trung lâu dài."
+            },
+            {
+              en: "When you combine a clear intention with an elevated emotion, the impact is magnified exponentially. When mind and heart harmonize toward a shared outcome, you induce what researchers term psychophysiological coherence. In this state, your heart rate variability, respiration, and brainwave patterns synchronize, establishing the optimal biological milieu for mental clarity and somatic restoration.",
+              vi: "Khi bạn kết hợp ý định tập trung với cảm xúc nâng cao, sức mạnh của nó trở nên rõ rệt hơn nữa. Khi tư tưởng và cảm xúc đồng nhất cùng hướng đến một kết quả chung, bạn sẽ tạo ra trạng thái mà các nhà nghiên cứu gọi là sự liên kết tâm sinh lý. Trong trạng thái này, nhịp tim, hơi thở và sóng não của bạn đồng bộ, tạo điều kiện tối ưu cho sự minh mẫn tinh thần và phục hồi thể chất."
+            },
+            {
+              en: "Many resist this active approach because they have been taught that meditation should be entirely effortless. But reflect on any skill you have ever mastered: did it develop through passive observation, or did it require deliberate, focused training?",
+              vi: "Nhiều người kháng cự phương pháp tập trung này vì cho rằng thiền nên là một quá trình không cần nỗ lực. Nhưng hãy nghĩ đến bất kỳ kỹ năng nào bạn đã thành thạo trong đời, nó đòi hỏi sự rèn luyện tập trung và có chủ đích hay chỉ phát triển nhờ quan sát thụ động?"
+            },
+            {
+              en: "Mental mastery follows the identical laws of physical training. Progressive stimulus and focused exertion catalyze growth. The key is learning to focus without strain, and directing your attention without generating internal friction.",
+              vi: "Việc rèn luyện tinh thần cũng tuân theo nguyên tắc giống như rèn luyện thể chất. Những thử thách tiến dần và nỗ lực có tập trung sẽ tạo ra sự phát triển. Mấu chốt là học cách tập trung mà không căng thẳng, điều hướng sự chú ý mà không tạo áp lực."
+            }
+          ]
+        },
+        {
+          id: "sec-4",
+          num: "04",
+          titleEn: "4. The Power of the Present Moment and Nervous System Reset",
+          titleVi: "4. Sức Mạnh Của Hiện Tại Và Tái Thiết Lập Hệ Thần Kinh",
+          descEn: "Silencing the default mode network (DMN) and wiping out chronic stress loops in seconds of total presence.",
+          descVi: "Làm dịu mạng lưới mặc định (DMN) và giải phóng các vòng lặp căng thẳng mãn tính chỉ trong vài giây hiện diện.",
+          paragraphs: [
+            {
+              en: "Why can one minute of total presence deliver greater transformation than an entire hour of scattered attention?",
+              vi: "Vì sao một phút tập trung lại có khả năng mang đến thay đổi nhiều hơn hẳn một giờ chú ý phân tán?"
+            },
+            {
+              en: "The answer lies in how the brain processes present-moment awareness, and how this state dramatically alters your overall physiology.",
+              vi: "Câu trả lời nằm ở việc hiểu não bộ của bạn xử lý ý thức về hiện tại như thế nào và trạng thái này ảnh hưởng đến toàn bộ sinh lý của bạn ra sao."
+            },
+            {
+              en: "When you are genuinely anchored in the present—neither dwelling on the past nor projecting into the future, but entirely absorbed in the now—your brain enters a unique state of neural coherence. The default mode network (DMN), responsible for mind-wandering and self-referential rumination, quiets down. Meanwhile, areas dedicated to focused attention and sensory integration become exquisitely synchronized. This neurological shift is not just a scientific curiosity; it holds profound practical ramifications.",
+              vi: "Khi bạn thực sự ở trong hiện tại không nghĩ về quá khứ hay tương lai mà hoàn toàn đắm mình vào khoảnh khắc này, não bộ của bạn sẽ bước vào một trạng thái liên kết đặc biệt. Mạng lưới mặc định vốn chịu trách nhiệm cho sự mơ mộng và tư duy hướng về bản thân giảm hoạt động, trong khi những vùng liên quan đến sự tập trung và xử lý cảm giác trở nên vô cùng năng động. Sự thay đổi này trong hoạt động não bộ không chỉ là một điều thú vị trong thần kinh học mà còn mang ý nghĩa thực tiễn sâu sắc."
+            },
+            {
+              en: "In the present moment, your nervous system can fundamentally reset automatic conditioned patterns that have run your life for decades. Chronic stress responses, anxiety loops, and limiting self-concepts are entirely dependent on psychological time. They survive only by replaying past regrets or catastrophizing future scenarios.",
+              vi: "Ngay trong hiện tại, hệ thần kinh của bạn có thể thiết lập lại những mô thức đã tự động vận hành suốt nhiều năm. Phản ứng căng thẳng mãn tính, mô thức lo âu và những niềm tin hạn chế đều dựa trên việc tâm trí bám chặt vào khung thời gian. Chúng cần bạn lặp lại những trải nghiệm trong quá khứ hoặc lo lắng về những kịch bản tương lai."
+            },
+            {
+              en: "When you ground yourself entirely in the present, these habitual patterns lose their fuel. Your body releases pent-up somatic tension, respiration deepens naturally, and your heart rhythm adopts a smooth, coherent pattern. These physiological transformations unfold in mere seconds—not minutes, and certainly not hours.",
+              vi: "Khi bạn hoàn toàn đặt mình vào hiện tại, những mô thức này sẽ mất đi sức mạnh. Cơ thể bạn bắt đầu giải tỏa sự căng thẳng vốn được duy trì lâu dài, hơi thở trở nên tự nhiên sâu hơn, nhịp tim trở nên nhịp nhàng hơn. Những thay đổi này xảy ra chỉ trong vài giây chứ không phải vài phút hay vài giờ."
+            },
+            {
+              en: "The present moment is also the realm where all potential resides. Past events are etched into history and cannot be rewritten; future events exist merely as probabilities. But right now, in this singular instant, you have direct access to infinite choice and the power to redefine your state. This is not philosophical speculation, but a functional understanding of conscious agency.",
+              vi: "Hiện tại cũng là nơi mọi khả năng tồn tại. Những sự kiện trong quá khứ đã được cố định, không thể thay đổi. Những sự kiện trong tương lai chỉ tồn tại như những kết quả tiềm năng. Nhưng ngay bây giờ, trong khoảnh khắc này, bạn có thể tiếp cận vô hạn sự lựa chọn và vô hạn tiềm năng thay đổi. Đây không phải là suy đoán triết học mà là sự hiểu biết thực tế về cách ý thức vận hành."
+            },
+            {
+              en: "In a single minute of absolute presence, you can literally reprogram autonomic neurological circuits, severing automatic reactive conditioning and deliberately selecting a new baseline. You step effortlessly into clarity, serenity, and insight—states that felt completely unattainable just moments before.",
+              vi: "Trong một phút hiện diện trọn vẹn, bạn thực sự có thể lập trình lại phản ứng của hệ thần kinh, cắt đứt những phản ứng tự động đã kiểm soát cuộc đời bạn và chọn những phản ứng mới. Bạn có thể bước vào trạng thái rõ ràng, bình an và thấu suốt — những trạng thái mà chỉ vài giây trước dường như là bất khả thi."
+            },
+            {
+              en: "The biggest hurdle for most individuals is recognizing when they are genuinely present, as opposed to merely thinking about presence. Authentic presence carries distinct qualitative hallmarks: subjective time dilates or dissolves entirely, mental clutter clears into effortless lucidity, somatic vitality surges, and you experience an unmistakable connectedness to something greater than your narrow ego.",
+              vi: "Thách thức lớn nhất của hầu hết mọi người là học cách nhận biết khi nào mình thực sự hiện diện chứ không phải khi nào mình nghĩ rằng mình hiện diện. Sự hiện diện thật sự có những đặc điểm riêng: thời gian dường như chậm lại hoặc biến mất hoàn toàn, tư tưởng trở nên rõ ràng và nhẹ nhàng, cơ thể cảm nhận sống động hơn và bạn cảm thấy kết nối với điều gì đó vượt lên trên mối quan tâm cá nhân."
+            },
+            {
+              en: "Regardless of your circumstances, this state is always accessible. You do not need bespoke conditions, perfect timing, or a curated environment. You simply need to gather all of your attention into this immediate moment: without judgment, and without striving to fix or alter anything.",
+              vi: "Bất kể hoàn cảnh nào, trạng thái này luôn sẵn có cho bạn. Bạn không cần điều kiện đặc biệt, thời điểm hoàn hảo hay môi trường lý tưởng. Bạn chỉ cần dồn toàn bộ sự chú ý vào những gì đang diễn ra ngay lúc này: không phán xét, không cần thay đổi bất cứ điều gì."
+            },
+            {
+              en: "When you learn to cross into the present deliberately rather than waiting for it to happen by chance, its power multiplies exponentially. This is where the one-minute technique proves invaluable: it hands you an actionable, repeatable protocol to access presence on demand, laying the bedrock for sustainable self-transformation.",
+              vi: "Khi bạn học cách chủ động bước vào hiện tại, thay vì chờ nó tự nhiên xảy ra, sức mạnh của khoảnh khắc sẽ nhân lên theo cấp số nhân. Đây chính là lúc kỹ thuật một phút trở nên vô cùng quý giá. Nó mang đến cho bạn một phương pháp đáng tin cậy để bất cứ lúc nào cũng có thể bước vào trạng thái hiện diện, đặt nền tảng cho sự chuyển hóa bền vững."
+            }
+          ]
+        },
+        {
+          id: "sec-5",
+          num: "05",
+          titleEn: "5. The Mind-Body Connection: Biological Synchronization",
+          titleVi: "5. Cơ Chế Thân - Tâm: Sự Đồng Bộ Hóa Sinh Học",
+          descEn: "Teaching the body emotionally what the future feels like before it happens through the parasympathetic bridge.",
+          descVi: "Dạy cho cơ thể cảm nhận trước cảm xúc của tương lai thông qua nhịp cầu nối hệ thần kinh phó giao cảm.",
+          paragraphs: [
+            {
+              en: "How does your body know what your brain is thinking? And why is this mind-body bridge the ultimate catalyst for rapid change?",
+              vi: "Cơ thể bạn làm sao biết được não bạn đang nghĩ gì? Vì sao mối liên kết này lại là chìa khóa của sự thay đổi nhanh chóng?"
+            },
+            {
+              en: "Your body and brain are not two separate entities communicating across a mystical divide; they are complementary dimensions of a single, integrated biological continuum. Any shift in one domain produces an immediate, systemic response across the other.",
+              vi: "Cơ thể và não của bạn không phải là hai thực thể tách biệt giao tiếp với nhau bằng một quá trình huyền bí nào đó mà là những khía cạnh khác nhau của một hệ thống tích hợp. Hệ thống này sẽ lập tức phản ứng với bất kỳ thay đổi nào ở một lĩnh vực."
+            },
+            {
+              en: "Every thought you produce synthesizes a corresponding biochemical cascade throughout your body:\n\n• When you entertain an angry or stressful thought, your endocrine system instantly surges with stress hormones, your heart rate accelerates, and your muscles clench into tension.\n• When you cultivate a joyful or uplifting thought, your brain floods the bloodstream with endorphins, your breathing deepens, and your entire physiology shifts into tissue repair, balance, and growth.",
+              vi: "Mỗi ý nghĩ bạn tạo ra đều sinh ra phản ứng hóa học tương ứng trong cơ thể:\n\n• Khi bạn nghĩ về một điều gì đó khiến bạn tức giận, cơ thể lập tức sản sinh hormone căng thẳng, nhịp tim tăng lên, cơ bắp căng cứng.\n• Khi bạn nghĩ đến một điều khiến bạn vui vẻ, cơ thể sẽ tiết ra endorphin, hơi thở sâu hơn và toàn bộ hệ sinh lý của bạn hướng về sự chữa lành và phát triển."
+            },
+            {
+              en: "Most of the time, this mind-body feedback loop runs beneath conscious awareness. You produce tens of thousands of thoughts each day, and your body faithfully embodies every single one, creating ongoing electrical and hormonal ripples that shape your energy levels, emotional baseline, and physical health.",
+              vi: "Sự kết nối giữa thân và tâm này phần lớn thời gian vận hành ngoài tầm nhận thức của bạn. Mỗi ngày bạn tạo ra hàng nghìn ý nghĩ và cơ thể sẽ trung thành phản ứng với từng ý nghĩ ấy, từ đó liên tục tạo ra những thay đổi hóa học và điện học, định hình năng lượng, cảm xúc và sức khỏe của bạn."
+            },
+            {
+              en: "The one-minute technique consciously leverages this circuitry. Instead of letting errant thoughts dictate your biological responses, you intentionally steer your mental focus and emotional frequency toward a desired outcome. This alignment between clear intention and elevated emotion is the true engine of rapid, lasting transformation.",
+              vi: "Kỹ thuật một phút tận dụng một cách có ý thức sự kết nối này. Bạn không còn để những ý nghĩ ngẫu nhiên kiểm soát phản ứng của cơ thể mà học cách chủ động hướng sự tập trung tinh thần và trạng thái cảm xúc của mình đến một kết quả cụ thể. Điều này tạo nên sự thống nhất giữa tư tưởng và cảm xúc — chính là bí mật của sự thay đổi nhanh chóng."
+            },
+            {
+              en: "Most people live in a state of chronic internal dissonance. They consciously think about what they want, but emotionally feel the pain or lack of not having it. Or they visualize positive goals while remaining anchored in unconscious feelings of frustration and unworthiness inherited from their past. This incoherence cancels out their efforts and prevents real change from taking root.",
+              vi: "Phần lớn suy nghĩ và cảm xúc của con người vốn không đồng nhất. Họ thường nghĩ về điều mình mong muốn, thế nhưng họ lại cảm nhận sự thiếu vắng của điều đó; hoặc họ tập trung vào những mục tiêu tích cực nhưng đồng thời vẫn duy trì mô thức cảm xúc thất vọng bắt nguồn từ quá khứ. Sự bất nhất này sẽ tạo ra xung đột nội tâm và ngăn cản sự thay đổi thật sự xảy ra."
+            },
+            {
+              en: "When you consciously unify your thoughts and feelings, you generate systemic neural coherence. Your heart rhythm becomes harmonious and orderly, your brainwaves synchronize, and your organism enters an optimal state for healing, neuroplastic learning, and growth. This does not require an agonizingly slow ramp-up; when executed correctly, it locks in within 60 seconds.",
+              vi: "Khi bạn có ý thức phối hợp tư tưởng và cảm xúc của mình, bạn sẽ tạo ra sự liên kết trong hệ thần kinh. Nhịp tim của bạn trở nên ổn định và có trật tự, sóng não đồng bộ, toàn bộ cơ thể bước vào một trạng thái tối ưu để thúc đẩy sự chữa lành, học tập và trưởng thành. Đây không phải là một quá trình dần dần mà nếu thực hiện đúng cách, nó sẽ xảy ra trong vòng 60 giây."
+            },
+            {
+              en: "This technique also harnesses conscious breathwork as a physiological bridge between the voluntary and autonomic nervous systems. Rhythmic, deliberate breathing sends an immediate safety signal to your brain, signaling that it is safe to down-regulate survival defenses. This immediately triggers the parasympathetic nervous system—the branch dedicated to rest, cellular repair, and regeneration.",
+              vi: "Kỹ thuật này còn kết hợp với việc thở có ý thức, đóng vai trò như một cây cầu nối giữa hệ thần kinh tự chủ và hệ thần kinh không tự chủ. Thông qua hơi thở có nhịp điệu và chủ động, bạn gửi tín hiệu đến não bộ rằng việc bước vào trạng thái liên kết sâu hơn là an toàn. Điều này kích hoạt hệ thần kinh phó giao cảm vốn chịu trách nhiệm cho nghỉ ngơi, phục hồi và tái tạo."
+            },
+            {
+              en: "Your body acts as an emotional memory bank. When you hold a clear mental intention while generating an elevated emotion, you are physically teaching your body what the desired future feels like in advance of the event. Experiencing that reality internally lays down new neural pathways and fundamentally rewrites your reflexive emotional patterns in everyday life.",
+              vi: "Cơ thể bạn lưu giữ ký ức về mọi trạng thái cảm xúc mà bạn từng trải qua. Khi bạn vừa duy trì sự tập trung rõ ràng trong tâm trí, vừa chủ động tạo ra cảm xúc nâng cao, bạn thực sự đang dạy cho cơ thể mình cảm nhận được tương lai sẽ như thế nào. Trải nghiệm sâu sắc về thực tại mong muốn này sẽ hình thành các đường dẫn thần kinh mới và thay đổi những phản ứng tự động của bạn trước các tình huống trong đời sống."
+            },
+            {
+              en: "The secret is cultivating authentic, elevated emotions on command—not by rummaging through past memories, but by emotionally pre-experiencing future possibilities. This critical skill transitions you from a reactive victim of circumstances into a conscious creator who shapes their reality from the inside out.",
+              vi: "Mấu chốt là học cách tạo ra cảm xúc chân thực theo nhu cầu: không phải bằng cách nhớ lại trải nghiệm trong quá khứ mà bằng cách tưởng tượng về những khả năng trong tương lai. Kỹ năng này sẽ đưa bạn từ một người chỉ phản ứng với môi trường trở thành một người có thể sáng tạo ra môi trường của chính mình thông qua trạng thái hiện diện có ý thức."
+            }
+          ]
+        },
+        {
+          id: "sec-6",
+          num: "06",
+          titleEn: "6. The Neuroscience of Neuroplasticity and Gamma Brainwaves",
+          titleVi: "6. Khoa Học Thần Kinh Về Tính Dẻo Não Bộ Và Sóng Gamma",
+          descEn: "How intense emotional focus triggers synaptogenesis, long-term potentiation (LTP), and high-amplitude gamma coherence.",
+          descVi: "Cơ chế cảm xúc tập trung kích hoạt synaptogenesis, tăng cường dẫn truyền dài hạn và sóng gamma toàn thể não bộ.",
+          paragraphs: [
+            {
+              en: "What does modern neuroscience actually reveal about the speed of brain rewiring?",
+              vi: "Vậy khoa học thần kinh tiên tiến tiết lộ điều gì về tốc độ tự tái cấu trúc của não bộ?"
+            },
+            {
+              en: "Recent neuroscientific breakthroughs have shattered the archaic belief that major neurological remodeling requires months or years of grinding practice. Advanced functional neuroimaging confirms that when specific conditions are met, quantifiable, architectural restructuring of neural networks can occur within mere minutes.",
+              vi: "Các nghiên cứu gần đây đã phá vỡ quan niệm cũ rằng những thay đổi lớn trong thần kinh đòi hỏi nhiều tháng hoặc nhiều năm luyện tập. Các kỹ thuật hình ảnh não tiên tiến cho thấy khi những điều kiện nhất định được đáp ứng, những thay đổi có thể đo lường được trong mạng lưới thần kinh có thể xảy ra chỉ trong vài phút."
+            },
+            {
+              en: "Pioneering research highlighted by Dr. Joe Dispenza demonstrates that the brain cannot distinguish between an external real-world event and an intensely imagined internal experience charged with heightened emotion. When you wed a crystal-clear mental blueprint with an elevated affective state, your brain immediately initiates synaptogenesis—forging new neural circuitry. These changes are objectively visible on brain imaging, displaying enhanced functional connectivity across disparate brain regions and robust synaptic strengthening.",
+              vi: "Nghiên cứu đột phá của Joe Dispenza cho thấy khi trải nghiệm thực tế và tưởng tượng sinh động đều đi kèm với cảm xúc mạnh mẽ, não bộ sẽ không thể phân biệt được hai điều này. Khi bạn kết hợp ý định tinh thần rõ ràng với trạng thái cảm xúc nâng cao, não bạn sẽ lập tức bắt đầu hình thành những mạng lưới thần kinh mới. Những thay đổi này có thể đo lường được qua hình ảnh não, cho thấy sự gia tăng liên kết giữa các vùng khác nhau của não và sự tăng cường kết nối giữa các tế bào thần kinh."
+            },
+            {
+              en: "The key breakthrough is that genuine transformation occurs the moment your brain stops recycling past memories to predict future experiences. Most people’s neural networks are organized around habitual thoughts, predictable emotional states, and automated behaviors. The brain has formed a groove of re-creating the same internal state, which continually reproduces the same external life circumstances. Breaking this loop requires establishing novel neural pathways that have never been reinforced by past conditioning.",
+              vi: "Phát hiện quan trọng là sự chuyển hóa xảy ra khi não bạn ngừng dựa vào quá khứ để dự đoán tương lai. Hầu hết mạng lưới thần kinh của con người đều được tổ chức xoay quanh những kiểu suy nghĩ, cảm giác và hành vi quen thuộc. Não bộ đã hình thành thói quen lặp lại cùng một trải nghiệm nội tại, từ đó tạo ra cùng một môi trường bên ngoài. Để phá vỡ vòng lặp này, cần tạo ra những con đường thần kinh mới chưa từng được củng cố bằng sự lặp lại."
+            },
+            {
+              en: "When you consciously evoke thoughts and emotions that diverge from your familiar baseline, you compel the brain to wire brand-new connections. When the experience is characterized by intense emotional engagement and laser focus, neuroplastic adaptation accelerates dramatically.",
+              vi: "Khi bạn có ý thức lựa chọn những tư tưởng và cảm xúc khác biệt với mô thức quen thuộc, bạn buộc não bộ phải hình thành những kết nối mới. Khi trải nghiệm đủ mạnh và tập trung, tính dẻo thần kinh này sẽ diễn ra nhanh chóng."
+            },
+            {
+              en: "Research also underscores the mechanism of long-term potentiation (LTP)—the process by which synaptic connections strengthen through repeated activation. Critically, this reinforcement does not require hundreds of repetitions spread over agonizing months. If the neural activation is sufficiently concentrated and emotionally charged, potentiation can occur within minutes.",
+              vi: "Nghiên cứu còn tiết lộ tầm quan trọng của cái gọi là hiệu ứng tăng cường dài hạn — quá trình các kết nối nổi bật trở nên mạnh mẽ hơn nhờ được kích hoạt lặp lại. Tuy nhiên, sự củng cố này không cần phải được lặp lại hàng trăm lần trong nhiều tháng. Nếu sự kích hoạt thần kinh đủ mạnh và tập trung, nó có thể xảy ra chỉ trong vài phút."
+            },
+            {
+              en: "Another profound discovery centers on global cerebral coherence. In this state, brain regions that normally operate in functional isolation begin communicating in exquisite synchrony. As coherence peaks, the brain generates high-amplitude gamma wave bursts—oscillations correlated with expanded awareness, super-learning, and profound intuitive breakthroughs that transcend conventional discursive thought.",
+              vi: "Một phát hiện quan trọng khác liên quan đến khả năng não bộ tồn tại trong trạng thái liên kết. Trong trạng thái này, những vùng não thường tách biệt bắt đầu phối hợp hài hòa. Khi não ở trong trạng thái liên kết, nó sản sinh ra sóng gamma liên quan đến sự gia tăng ý thức, nâng cao năng lực học tập và đạt được những sự thấu suốt dường như vượt ra ngoài tư duy thông thường."
+            },
+            {
+              en: "These insights clarify why short, hyper-focused sessions vastly outperform prolonged, distracted ones. The brain responds to the quality and potency of neural stimulation, not arbitrary time spans. When optimal neurochemical and physiological conditions converge, the brain reshapes its wiring on the spot to support new paradigms of thought and action.",
+              vi: "Những phát hiện này giải thích vì sao những buổi luyện tập ngắn nhưng tập trung lại hiệu quả hơn nhiều so với những buổi dài nhưng không tập trung. Não bộ phản ứng với chất lượng và cường độ của sự kích hoạt thần kinh chứ không đơn thuần dựa vào thời lượng. Khi điều kiện tối ưu cho sự thay đổi thần kinh được tạo ra, não bộ sẽ lập tức phản ứng, tái cấu trúc mạng lưới của nó để hỗ trợ các mô thức tư duy và hành vi mới."
+            },
+            {
+              en: "The implications are monumental. You do not have to wait months or years to witness tangible shifts in your psychological makeup or lived reality. Once you understand how to assemble the proper internal conditions, transformation ceases to be an erratic event you passively pray for; it becomes a repeatable, reliable process.",
+              vi: "Ý nghĩa của điều này là vô cùng sâu xa. Bạn không cần chờ đợi nhiều tháng hay nhiều năm mới thấy bằng chứng về sự thay đổi thật sự trong mô thức tinh thần và hoàn cảnh sống của mình. Khi bạn hiểu cách tạo ra những điều kiện nội tại đúng đắn, sự chuyển hóa sẽ trở thành một quá trình đáng tin cậy, có thể lặp lại chứ không còn là một sự kiện ngẫu nhiên mà bạn chỉ hy vọng một ngày nào đó sẽ xảy ra."
+            },
+            {
+              en: "This understanding shifts the entire discourse of personal development from blind faith into the systematic, measurable application of neurobiology.",
+              vi: "Sự hiểu biết này chuyển toàn bộ cuộc trò chuyện về phát triển cá nhân từ niềm tin vào sự thay đổi sang việc biết cách tạo ra sự thay đổi một cách có hệ thống và có thể đo lường."
+            }
+          ]
+        },
+        {
+          id: "sec-7",
+          num: "07",
+          titleEn: "7. The 5-Step Protocol: The 60-Second Transformation Technique",
+          titleVi: "7. Quy Trình 5 Bước Thực Hành Kỹ Thuật Chuyển Hóa Trong 60 Giây",
+          descEn: "Step-by-step instruction from conscious breathwork to somatically anchoring your future state in 1 minute.",
+          descVi: "Hướng dẫn thực hành cụ thể 5 bước từ hơi thở có ý thức đến điểm neo thể chất cho trạng thái tương lai.",
+          paragraphs: [
+            {
+              en: "So how do you apply this 1-minute transformative protocol to your daily routine?",
+              vi: "Vậy làm thế nào để bạn áp dụng kỹ thuật chuyển hóa trong một phút này vào đời sống hàng ngày?"
+            },
+            {
+              en: "The brilliance of this method lies in its absolute simplicity and immediate utility. You can execute it anywhere, at any time, requiring neither specialized equipment nor ideal circumstances:",
+              vi: "Điều tuyệt vời của phương pháp này nằm ở sự đơn giản và tính ứng dụng tức thời. Bạn có thể thực hành ở bất cứ đâu, bất cứ lúc nào, không cần thiết bị đặc biệt hay điều kiện hoàn hảo:"
+            },
+            {
+              en: "Bước 1: Ba nhịp thở sâu có ý thức (Step 1: Three Conscious Deep Breaths)\n\nBegin by taking three slow, deliberate, deep breaths. Conscious respiration signals your nervous system that you are transitioning into heightened awareness. These are not ordinary, unconscious breaths, but rhythmic, intentional inhalations and exhalations. They serve as a somatic bridge between your baseline state and the coherent physiology you are about to establish.",
+              vi: "Bước 1: Ba nhịp thở sâu có ý thức\n\nTrước hết, hãy thực hiện ba lần hít thở sâu. Hơi thở có ý thức gửi tín hiệu đến hệ thần kinh của bạn rằng bạn đang bước vào một trạng thái tỉnh thức. Đây không phải là những hơi thở thông thường mà là những nhịp hít vào và thở ra có chủ đích và có tiết tấu. Chúng đóng vai trò như cây cầu nối giữa trạng thái hiện tại của bạn và trạng thái liên kết mà bạn đang kiến tạo."
+            },
+            {
+              en: "Bước 2: Thiết lập ý định rõ ràng (Step 2: Set a Clear Intention)\n\nNext, isolate a precise outcome or qualitative state you wish to embody. This is not wishful day-dreaming or a vague hope, but a sharp, meaningful mental target. It could be unshakeable confidence ahead of a high-stakes presentation, effortless creative flow for a project, or simply experiencing vibrant gratitude and joy throughout your day. Choose something that resonates with genuine significance for you right now.",
+              vi: "Bước 2: Thiết lập ý định rõ ràng\n\nTiếp theo, hãy nghĩ đến một kết quả hoặc trạng thái cụ thể mà bạn muốn trải nghiệm. Đây không phải là ảo tưởng hay hy vọng mơ hồ mà là một điều gì đó rõ ràng và có ý nghĩa. Dù là cảm thấy tự tin trước một buổi họp quan trọng, khơi gợi sự sáng tạo cho một dự án hay đơn giản chỉ là trải nghiệm nhiều niềm vui hơn trong ngày. Điều quan trọng là chọn thứ thực sự có ý nghĩa với bạn ngay lúc này."
+            },
+            {
+              en: "Bước 3: Hóa thân vào cảm xúc nâng cao (Step 3: Embody an Elevated Emotion)\n\nNow comes the linchpin: feel it. If this reality were already your present truth, how would your body feel? Do not intellectualize or over-analyze; surrender directly into the emotional frequency of the fulfilled outcome. Cultivate profound gratitude that it has already manifested, exhilaration that it is real, authentic pride in your breakthrough, or the deep tranquility of fulfilled wholeness.\n\nThis visceral emotional ignition is what fundamentally separates this practice from superficial positive thinking or dry visualization. You are not merely trying to intellectually persuade yourself of something you doubt; you are activating the actual biochemical state that corresponds to the reality you desire. This conditions your body on a cellular level to recognize the feeling of your future.",
+              vi: "Bước 3: Hóa thân vào cảm xúc nâng cao\n\nGiờ đến yếu tố then chốt: bắt đầu cảm nhận. Nếu kết quả này đã trở thành hiện thực, bạn sẽ cảm thấy như thế nào? Đừng phân tích hay suy nghĩ về nó mà hãy hóa thân vào trạng thái cảm xúc mà bạn sẽ trải nghiệm nếu điều mong muốn đã xảy ra. Hãy biết ơn vì nó đã xuất hiện, phấn khích vì nó đã thành sự thật, tự hào về thành tựu của bạn hay đơn giản là cảm thấy hạnh phúc trọn vẹn.\n\nChính yếu tố cảm xúc này là điều tạo nên sự khác biệt của kỹ thuật này so với tư duy tích cực hay hình dung đơn thuần. Bạn không cố gắng thuyết phục bản thân rằng một điều gì đó là thật trong khi nó chưa phải mà bạn đang chủ động tạo ra trạng thái cảm xúc tương ứng với thực tại mà bạn khao khát. Điều này sẽ dạy cơ thể bạn ngay ở cấp độ tế bào, cảm giác của trải nghiệm mới này."
+            },
+            {
+              en: "Bước 4: Duy trì trọn vẹn trong 60 giây (Step 4: Sustain Fully for 60 Seconds)\n\nSustain this fused state of clear mental intention and elevated emotion for exactly 60 seconds. If your attention wanders, gently guide it back to your focal point. If the emotional amplitude dims, re-ignite it deliberately. This is not about achieving rigid perfection; it is about cultivating unwavering consistency in holding focused intent together with authentic emotion.\n\nDuring this brief minute, observe how your physiology responds. You may feel a warm flush, tingling sensations, a feeling of expansion across your chest, or vibrant energy coursing through your body. These are physiological markers that your nervous system is shifting into high-order coherence and your biology is restructuring.",
+              vi: "Bước 4: Duy trì trọn vẹn trong 60 giây\n\nHãy duy trì trạng thái kết hợp giữa ý định rõ ràng và cảm xúc nâng cao trong 60 giây. Nếu suy nghĩ bị phân tán, nhẹ nhàng đưa chúng trở về trọng tâm bạn đã chọn. Nếu cảm xúc phai nhạt, hãy chủ động tạo lại chúng. Điều này không liên quan đến sự hoàn hảo mà liên quan đến sự kiên định trong việc kết hợp ý định tập trung với cảm xúc chân thực.\n\nTrong khoảng một phút ngắn ngủi này, hãy chú ý đến cách cơ thể phản ứng. Bạn có thể cảm thấy ấm áp, tê nhẹ, mở rộng hoặc có cảm giác năng lượng đang chảy trong cơ thể. Đây là dấu hiệu cho thấy hệ thần kinh của bạn đang chuyển sang trạng thái liên kết và sinh lý của bạn đang thực sự thay đổi."
+            },
+            {
+              en: "Bước 5: Neo giữ và tích hợp trạng thái (Step 5: Anchor and Integrate the State)\n\nTake a few closing seconds to anchor this state. Place a hand over your heart and silently set the resolve to carry this coherent resonance with you into your day. This physical touch creates a somatic anchor, integrating the neurochemical shift and making it easy to recall and reactivate on demand.",
+              vi: "Bước 5: Neo giữ và tích hợp trạng thái\n\nHãy dành một chút thời gian để củng cố trạng thái mới này trước khi kết thúc bài tập. Đặt tay lên tim và khẳng định rằng bạn cam kết duy trì cảm giác này trong suốt cả ngày. Tư thế cơ thể này giúp tích hợp trải nghiệm và khiến bạn dễ dàng bước vào trạng thái đó một lần nữa khi cần."
+            },
+            {
+              en: "Thời Điểm Thực Hành Tối Ưu (Optimal Practice Timing)\n\nThis technique delivers peak results when practiced consistently at the same time every day. The ideal window is immediately upon waking, when brainwave frequencies linger in suggestive alpha and theta states, making the subconscious most receptive to new neural patterning.\n\nThat said, you can deploy it as a quick reset button whenever life demands it: right before walking into a challenging meeting, or the moment you catch yourself slipping into unconscious, reactionary patterns.",
+              vi: "Thời Điểm Thực Hành Tối Ưu\n\nKỹ thuật này đạt hiệu quả cao nhất khi bạn luyện tập vào cùng một thời điểm mỗi ngày. Lý tưởng nhất là ngay sau khi thức dậy, lúc não bộ dễ tiếp nhận mô thức mới nhất.\n\nTuy nhiên, bạn cũng có thể sử dụng bất cứ khi nào cần thay đổi nhanh trạng thái của mình. Dù là trước một tình huống thách thức hay khi bạn nhận thấy mình đang rơi vào mô thức tư duy và cảm xúc cũ, tự động."
+            }
+          ]
+        },
+        {
+          id: "sec-8",
+          num: "08",
+          titleEn: "8. The Quantum Field and Heart-Brain Coherence",
+          titleVi: "8. Trường Lượng Tử Và Sự Liên Kết Tim - Não",
+          descEn: "Aligning your electromagnetic bio-field with the field of infinite potentiality to unlock unexpected insight and synchronicity.",
+          descVi: "Đồng bộ trường điện từ sinh học cá nhân với trường lượng tử để khai mở trực giác sáng tạo và sự trùng hợp kỳ diệu.",
+          paragraphs: [
+            {
+              en: "What happens when your personal electromagnetic field synchronizes with the broader field of possibility around you?",
+              vi: "Điều gì sẽ xảy ra khi trường năng lượng cá nhân của bạn trở nên đồng bộ với trường khả năng rộng lớn bao quanh bạn?"
+            },
+            {
+              en: "This question touches upon one of the most compelling frontiers of consciousness research, carrying monumental practical value for personal transformation.",
+              vi: "Câu hỏi này chạm đến một trong những khía cạnh hấp dẫn nhất của nghiên cứu về ý thức cũng như ý nghĩa thực tiễn của nó đối với sự chuyển hóa cá nhân."
+            },
+            {
+              en: "When your thoughts and feelings are organized in coherent alignment, you emit a measurable electromagnetic signature that radiates outward beyond your physical body. This is not mystical conjecture, but demonstrable biophysics. Every heartbeat, cognition, and emotional surge generates electrical activity, producing an electromagnetic field that extends several feet into the surrounding space.",
+              vi: "Khi tư tưởng và cảm xúc của bạn được sắp xếp trong sự liên kết, bạn sẽ tạo ra một đặc tính điện tử có thể đo lường được. Đặc tính này mở rộng ra ngoài cơ thể của bạn. Đây không phải là suy đoán thần bí mà là khoa học có thể quan sát được. Mỗi nhịp tim, mỗi ý nghĩ, mỗi cảm xúc đều tạo ra hoạt động điện, từ đó hình thành nên một điện trường bao quanh bạn trong phạm vi vài mét."
+            },
+            {
+              en: "Dr. Joe Dispenza’s investigations into quantum field dynamics demonstrate that when an individual achieves deep psychophysiological coherence, extraordinary phenomena occur. Brainwave patterns surge into high-frequency gamma rhythms, heart rate variability locks into immaculate symmetry, and individuals frequently report accessing insights, wisdom, and creative breakthroughs that seem to originate beyond their conditioned personal memories. This coherent signature appears to tap into a broader reservoir of informational potential beyond ordinary space and time.",
+              vi: "Nghiên cứu của Joe Dispenza về trường lượng tử cho thấy khi một cá nhân đạt đến trạng thái liên kết sâu, những hiện tượng phi thường sẽ xảy ra. Mẫu sóng não của họ chuyển sang tần số gamma. Nhịp tim trở nên vô cùng có trật tự và họ báo cáo rằng mình có thể tiếp nhận được những thông tin, tri thức và sự thấu suốt dường như đến từ bên ngoài vốn hiểu biết và kinh nghiệm cá nhân. Trạng thái liên kết này dường như kết nối với một lĩnh vực thông tin và khả năng tồn tại bên ngoài không, thời gian thông thường."
+            },
+            {
+              en: "In this coherent state, people routinely report stumbling upon solutions to intractable challenges, experiencing sudden unshakeable clarity regarding their life's direction, or conceiving creative ideas that transform their careers and relationships.",
+              vi: "Trong trạng thái này, con người thường kể rằng họ nhận được lời giải cho vấn đề đã tìm kiếm bấy lâu, có sự rõ ràng bất ngờ về hướng đi cuộc đời hoặc nảy ra những ý tưởng sáng tạo có thể thay đổi công việc và các mối quan hệ của họ."
+            },
+            {
+              en: "The practical takeaway is profound. Rather than grinding through endless overthinking and brute-forcing solutions, it is far more effective to shift into a coherent frequency where answers, synchronicity, and opportunities emerge organically. This does not mean abandoning rational thought, but elevating it by plugging into a vastly deeper cognitive reservoir.",
+              vi: "Ý nghĩa thực tiễn của điều này là vô cùng to lớn. Thay vì cố gắng phân tích và nỗ lực để giải quyết mọi vấn đề sẽ tốt hơn nếu học cách bước vào trạng thái mà giải pháp và cơ hội dường như tự nhiên xuất hiện. Điều này không phải là từ bỏ tư duy lý trí mà là bổ sung nó bằng việc tiếp cận nguồn trí tuệ rộng lớn hơn."
+            },
+            {
+              en: "The master key is establishing what researchers call heart-brain coherence—where heart rhythms and brainwaves beat in unified, resonant phase. Once you master the synergy of laser intention and elevated emotion, this synchronized state can be accessed in just 60 seconds.",
+              vi: "Chìa khóa để bước vào lĩnh vực này là đạt đến cái mà các nhà nghiên cứu gọi là sự liên kết tim não. Khi nhịp tim và sóng não đồng bộ ở trạng thái tối ưu. Khi bạn nắm được sự kết hợp đúng đắn giữa ý định tập trung và cảm xúc nâng cao, trạng thái này có thể đạt được chỉ trong 60 giây."
+            },
+            {
+              en: "Most people have experienced fleeting glimpses of this phenomenon without understanding the underlying mechanics. An ideal solution dawns out of nowhere, you serendipitously cross paths with the exact person you needed, or outer circumstances align in ways that defy mere coincidence. When you learn to systematically induce coherence, these synchronicities cease being accidental and become reliable hallmarks of your daily reality.",
+              vi: "Nhiều người đã từng trải nghiệm thoáng qua hiện tượng này nhưng không hiểu điều gì đã xảy ra. Những lời giải hoàn hảo xuất hiện đúng lúc bạn cần. Bạn tình cờ gặp được đúng người hoặc các yếu tố môi trường kết hợp với nhau theo một cách dường như vượt ra ngoài sự trùng hợp. Khi bạn học cách chủ động bước vào trạng thái liên kết, những trải nghiệm này sẽ trở nên thường xuyên và đáng tin cậy hơn."
+            },
+            {
+              en: "The quantum field does not respond simply to what you want or need; it responds to who you are being—your state of being. When you physically embody the emotional frequency of the reality you desire, you enter vibrational resonance with that identical potential in the field. That is why the 60-second protocol places such relentless emphasis on feeling the visceral reality of your intention rather than merely thinking about it.",
+              vi: "Trường lượng tử phản ứng với trạng thái tồn tại của bạn chứ không chỉ với mong muốn hay nhu cầu. Khi bạn hiện thân của năng lượng mà mình đang tìm kiếm, bạn sẽ cộng hưởng với khả năng tương ứng trong trường. Đó là lý do tại sao kỹ thuật một phút nhấn mạnh đến việc cảm nhận tính chân thật của kết quả bạn mong muốn chứ không chỉ suy nghĩ về nó."
+            },
+            {
+              en: "This paradigm reframes how you navigate life's challenges. You no longer perceive obstacles as dead ends; you view them as invitations to elevate your coherence and align with solutions that already exist within the field of possibilities.",
+              vi: "Sự hiểu biết này sẽ thay đổi cách bạn đối diện với sự bất định và thử thách. Bạn không còn xem vấn đề là chướng ngại mà bắt đầu coi chúng là cơ hội để bước vào mức độ liên kết mới và kết nối với giải pháp vốn đã tồn tại trong trường."
+            }
+          ]
+        },
+        {
+          id: "sec-9",
+          num: "09",
+          titleEn: "9. Maximizing Results: Consistency and Beginner's Mind",
+          titleVi: "9. Tối Đa Hóa Kết Quả: Tính Nhất Quán Và Tâm Thế Người Mới Bắt Đầu",
+          descEn: "Cultivating 'shoshin' (beginner's mind) and gauging progress through tangible real-world emotional resilience.",
+          descVi: "Rèn luyện tâm thế người mới bắt đầu (shoshin) và đánh giá tiến trình qua các chỉ số thay đổi thực tế.",
+          paragraphs: [
+            {
+              en: "Why do some individuals experience rapid, radical shifts while others notice gradual, incremental improvements, and how do you optimize your results from day one?",
+              vi: "Vậy tại sao có người trải nghiệm sự chuyển hóa ngay lập tức, còn có người chỉ thấy sự thay đổi dần dần và làm thế nào để tối đa hóa kết quả ngay từ ngày đầu tiên?"
+            },
+            {
+              en: "The answer hinges on the interplay between emotional intensity, practice consistency, and expectations. Swift results have nothing to do with luck or genetic privilege; they are entirely about creating the optimal internal conditions for neuroplastic reconfiguration.",
+              vi: "Câu trả lời nằm ở việc hiểu mối quan hệ giữa cường độ, sự nhất quán trong thực hành và kỳ vọng. Kết quả nhanh chóng không liên quan đến may mắn hay tài năng mà liên quan đến việc tạo ra điều kiện tối ưu cho sự thay đổi."
+            },
+            {
+              en: "When you execute this one-minute technique with total immersion and heartfelt emotion, you generate immediate, measurable neural and physiological restructuring. These adaptations compound with each repetition, establishing momentum that accelerates your transformation. The most successful practitioners treat each 60-second activation with the same reverence and gravitas they bring to life's most critical milestones. They never go through the motions half-heartedly, knowing that 60 seconds of pristine, laser-sharp focus achieves vastly more than hours of distracted wandering.",
+              vi: "Khi bạn thực hành kỹ thuật một phút với sự tập trung hoàn toàn và cảm xúc chân thực, bạn sẽ tạo ra những thay đổi thần kinh và sinh lý có thể đo lường được ngay lập tức. Những thay đổi này tích lũy sau mỗi lần thực hành, từ đó tạo ra động lực tăng tốc cho sự tiến bộ của bạn. Những người thành công nhất tiếp cận mỗi lần luyện tập với cùng một mức độ nghiêm túc như với những sự kiện quan trọng khác trong cuộc sống. Họ không làm qua loa hay nửa vời bởi họ hiểu rằng 60 giây tập trung hoàn toàn với ý định rõ ràng có thể đạt được nhiều hơn cả hàng giờ cố gắng với sự chú ý phân tán."
+            },
+            {
+              en: "Consistency exponentially compounds the efficacy of each isolated session. By practicing daily, you are not merely banking practice time; you are carving new neurological defaults into your nervous system. Each coherent activation reduces synaptic resistance, making it progressively easier to slip into high-coherence states the next time. Over time, this permanently elevates your baseline awareness and emotional self-regulation.",
+              vi: "Sự nhất quán sẽ nhân lên sức mạnh của từng lần luyện tập riêng lẻ. Khi bạn thực hành hàng ngày, bạn không chỉ tích lũy thời gian luyện tập, bạn cũng đang tạo ra trong hệ thần kinh của mình những mô thức mặc định mới. Mỗi trạng thái liên kết mà bạn tạo ra sẽ giúp bạn dễ dàng bước vào trạng thái đó hơn trong lần kế tiếp. Dần dần thay đổi giới hạn về ý thức và khả năng điều chỉnh cảm xúc."
+            },
+            {
+              en: "The secret is approaching every activation with what Zen philosophy and cognitive scientists call a \"beginner’s mind\" (shoshin). Never demand identical carbon-copy sensations from one session to the next. Never measure today’s practice against yesterday’s; instead, bring fresh curiosity, wonder, and presence to each 60-second window. This prevents the practice from degenerating into a mechanical ritual and keeps your neurobiology responsive to change.",
+              vi: "Mấu chốt là hãy tiếp cận mỗi lần thực hành với cái mà các nhà nghiên cứu gọi là tâm thế người mới bắt đầu. Đừng mong đợi những trải nghiệm giống nhau. Cũng đừng so sánh buổi luyện tập hôm nay với hôm qua mà hãy mang sự chú ý tươi mới và sự tò mò vào từng lần thực hành. Điều này sẽ ngăn việc luyện tập trở thành thói quen dập khuôn và giữ cho hệ thần kinh của bạn tiếp tục phản ứng với quá trình chuyển hóa."
+            },
+            {
+              en: "Gauge your progress by real-world markers in your daily living, rather than solely evaluating how mystical you felt during the session. Notice your sustained energy levels, the sharpness of your decision-making, your resilience in emotional regulation, and the quality of your interpersonal connections. These external real-world benchmarks often provide far clearer evidence of neurological change than subjective sensations during the practice. Some will notice pronounced shifts within days; others will observe steady, compounding upgrades over weeks. Both pathways are natural, valid, and deeply transformative.",
+              vi: "Hãy theo dõi kết quả của bạn thông qua những thay đổi trong đời sống hàng ngày chứ không chỉ dựa vào cảm giác khi thực hành. Hãy chú ý đến mức năng lượng, sự rõ ràng trong quyết định, khả năng kiểm soát cảm xúc và chất lượng trong tương tác với người khác. Những chỉ số bên ngoài này thường chứng minh sự thay đổi nội tại rõ ràng hơn so với trải nghiệm chủ quan trong lúc thiền. Có người sẽ thấy sự thay đổi đáng kể chỉ trong vài ngày, có người lại dần dần nhận thấy sự cải thiện trong vài tuần. Cả hai hình thức đều bình thường và đều có giá trị."
+            },
+            {
+              en: "This methodology adapts organically to your unique nervous system and lifestyle demands. The most essential requirement is steadfast consistency and entering each activation with a sincere hunger for growth and evolution. Remember: every master was once a novice. The neural pathways that allow advanced practitioners to access instant coherence were forged through the exact same repeated, focused bursts you are embarking on today.",
+              vi: "Kỹ thuật này được điều chỉnh để phù hợp với hệ thần kinh và môi trường sống riêng của bạn. Quan trọng nhất là duy trì sự kiên định và tiếp cận từng lần thực hành với ý định thật sự muốn trưởng thành và thay đổi. Hãy nhớ rằng mỗi chuyên gia đều từng là người mới bắt đầu. Với những người thực hành nhiều kinh nghiệm, những con đường thần kinh tưởng chừng tự nhiên ấy đã được hình thành nhờ sự lặp đi lặp lại trong những buổi tập trung giống hệt như những gì bạn đang khởi sự hôm nay."
+            }
+          ]
+        },
+        {
+          id: "sec-10",
+          num: "10",
+          titleEn: "10. Conclusion: The Beginning of Sustainable Transformation",
+          titleVi: "10. Lời Kết: Khởi Đầu Sự Chuyển Hóa Bền Vững",
+          descEn: "Seizing the moment to deliberately architect your inner state and reshape your external world anywhere, anytime.",
+          descVi: "Chủ động kiến tạo cảnh giới nội tâm để tái định hình thế giới bên ngoài tại bất kỳ đâu và vào bất kỳ lúc nào.",
+          paragraphs: [
+            {
+              en: "Having explored both the scientific architecture and the practical application of this 1-minute technique, one truth stands out with utmost clarity: personal transformation does not demand the massive investments of time you were led to believe. It demands correct understanding, the right method, and the courage to challenge outdated dogmas regarding how human change actually occurs.",
+              vi: "Sau khi khám phá các nguyên lý khoa học và ứng dụng thực tế của kỹ thuật một phút này, một điều trở nên vô cùng rõ ràng. Sự chuyển hóa không đòi hỏi lượng thời gian đầu tư như bạn từng được dạy. Nó cần sự hiểu biết đúng, phương pháp đúng và sự sẵn sàng thách thức lối tư duy truyền thống về cách thay đổi thực sự diễn ra."
+            },
+            {
+              en: "You now understand why traditional meditation causes so many seekers to fail, and why clock duration has virtually no bearing on neuroplastic efficacy. You know that your brain responds to focused intensity and coherence, not to the number of hours logged on a cushion. Most importantly, you hold a tangible protocol to harmonize mind, emotion, and body, unlocking immediate, measurable shifts.",
+              vi: "Giờ đây, bạn đã hiểu tại sao thiền truyền thống khiến nhiều người thất bại và vì sao thời lượng không liên quan gì đến hiệu quả. Bạn đã biết rằng não bộ phản ứng với cường độ và sự tập trung chứ không phải với số giờ luyện tập. Quan trọng hơn cả, bạn đã tìm thấy một phương pháp thực tiễn để tạo sự liên kết giữa tư tưởng, cảm xúc và cơ thể, từ đó mang đến những thay đổi tức thì và có thể đo lường."
+            },
+            {
+              en: "This protocol is not meant to replace everything you have ever learned about self-mastery, but to add a high-precision instrument to your toolkit—one capable of accelerating your progress across every domain of life. Whether your goal is deepening your relationships, expanding your vision, optimizing physical vitality, or simply cultivating unshakeable inner peace, this practice delivers a rock-solid foundation to architect the internal state that supports your highest aspirations.",
+              vi: "Đây không phải là để thay thế mọi điều bạn đã học về phát triển bản thân mà là để thêm vào hộp công cụ của bạn một công cụ chính xác, có khả năng tăng tốc tiến bộ trong mọi lĩnh vực của cuộc sống. Dù bạn muốn cải thiện mối quan hệ, mở rộng tầm nhìn, nâng cao sức khỏe hay chỉ đơn giản là cảm thấy bình an và tập trung hơn, kỹ thuật này sẽ cung cấp nền tảng đáng tin cậy để kiến tạo trạng thái nội tâm, hỗ trợ mục tiêu của bạn."
+            },
+            {
+              en: "This one-minute approach strips away every standard excuse that derails consistent practice. You can no longer claim a lack of time, nor can you rationalize that you lack a quiet, sanctuary-like environment. You can execute it in your car, at your desk, or anywhere you can carve out 60 seconds of private focus.",
+              vi: "Phương pháp một phút này loại bỏ những rào cản vốn ngăn hầu hết mọi người duy trì thói quen luyện tập đều đặn. Bạn không thể lấy lý do thiếu thời gian, cũng không thể viện cớ rằng mình không có môi trường hoặc không gian phù hợp. Bạn có thể thực hành ngay trên xe, trong văn phòng hay bất kỳ nơi nào bạn có 60 giây riêng tư."
+            },
+            {
+              en: "The dividing line between those who manifest enduring transformation and those caught in fleeting cycles of change is simple: the willingness to practice consistently, especially when one doesn’t feel like it. Whether your mood is high or low, whether your day is gliding smoothly or rife with friction, this technique remains dependably effective. That reliability makes it an indispensable asset for mastering the ebbs and flows of everyday life.",
+              vi: "Sự khác biệt giữa những người đạt được sự chuyển hóa lâu dài và những người chỉ loay hoay trong thay đổi tạm thời nằm ở chỗ họ sẵn sàng kiên trì luyện tập ngay cả khi không muốn. Dù tâm trạng tốt hay xấu, dù ngày của bạn suôn sẻ hay đầy trục trặc, kỹ thuật này vẫn hiệu quả. Chính sự tin cậy này khiến nó trở thành công cụ thiết yếu để ứng phó với những thăng trầm trong cuộc sống thường ngày."
+            },
+            {
+              en: "Your next move is simple: test this technique today. Do not wait for conditions to be perfect, and do not wait until you have mastered every theoretical nuance. Choose an outcome you genuinely desire to embody. Dedicate 60 seconds to cultivating the thoughts and feelings of that reality, and pay keen attention to the shifts unfolding in your body and mind.",
+              vi: "Bước tiếp theo của bạn thật đơn giản. Hãy thử kỹ thuật này ngay hôm nay. Đừng chờ đợi thời điểm hoàn hảo. Cũng đừng chờ đến khi bạn hiểu rõ mọi chi tiết. Hãy chọn điều bạn thực sự muốn trải nghiệm. Dành một phút để tạo ra những suy nghĩ và cảm xúc liên quan đến thực tại đó và chú ý đến những gì đang diễn ra trong cơ thể và tâm trí bạn."
+            },
+            {
+              en: "Remember that every unfolding moment offers a fresh doorway to reinvent your internal landscape, and by extension, reorganize your external world. You now possess the knowledge, the mechanics, and the power to initiate the changes you seek right here, right now. The only remaining question is: will you use it?",
+              vi: "Hãy nhớ rằng mỗi khoảnh khắc đều mang đến một cơ hội mới để tái kiến tạo trạng thái nội tâm, từ đó tái kiến tạo môi trường bên ngoài. Bạn đang nắm giữ tri thức, kỹ năng và sức mạnh để bắt đầu ngay bây giờ việc tạo ra sự thay đổi bạn mong muốn. Câu hỏi duy nhất còn lại là bạn có sử dụng nó không?"
+            },
+            {
+              en: "May your path forward be illuminated and your energy boundless. If you haven't subscribed yet, hit the subscribe button on the right to stay connected with us. Thank you for being here, and see you next time.",
+              vi: "Chúc con đường phía trước của bạn sáng tỏ, năng lượng dồi dào. Nếu bạn chưa đăng ký kênh, hãy nhấn nút đăng ký ở bên phải để kết nối sâu hơn với chúng tôi. Cảm ơn bạn đã đồng hành. Hẹn gặp lại lần sau."
+            }
+          ]
+        }
+      ]
+    };
+
+    /* -------------------------------------------------------------
+       2. INTERACTIVE LEARNER GLOSSARY (28 HIGH-YIELD B2/C1 TERMS)
+       ------------------------------------------------------------- */
+    const glossaryData = [
+      {
+        id: "g-1",
+        term: "Rewire",
+        pos: "verb",
+        category: "Neuroscience",
+        def: "To alter, reorganize, or form new electrical and synaptic connections in the brain.",
+        plain: "In other words: To fundamentally change how your brain habitually thinks, feels, and reacts.",
+        example: "The 1-Minute Brain-Rewiring Technique: Mind Transformation Without Hours of Meditation.",
+        vi: "Tái kết nối thần kinh / Lập trình lại các liên kết tế bào não"
+      },
+      {
+        id: "g-2",
+        term: "Paradox",
+        pos: "noun",
+        category: "Concepts",
+        def: "A seemingly self-contradictory statement or proposition that, when investigated, proves to be well founded or true.",
+        plain: "In other words: A confusing situation or truth where two opposing ideas exist together.",
+        example: "Introduction: The Paradox of Modern Meditation.",
+        vi: "Nghịch lý (hiện tượng dường như vô lý nhưng lại có thật)"
+      },
+      {
+        id: "g-3",
+        term: "Synergistically",
+        pos: "adverb",
+        category: "Scientific",
+        def: "In a manner where different elements or entities cooperate to produce an overall effect greater than the sum of their individual effects.",
+        plain: "In other words: Working smoothly together so that the combined power is multiplied.",
+        example: "Instead, it works synergistically with the brain's natural mechanisms...",
+        vi: "Đồng vận / Tác động hiệp đồng, cộng hưởng tích cực"
+      },
+      {
+        id: "g-4",
+        term: "Coherence",
+        pos: "noun",
+        category: "Neuroscience",
+        def: "A state of harmonious, orderly connection and synchronization among biological rhythms or cognitive faculties.",
+        plain: "In other words: Complete internal harmony where mind, heart, and body beat as one.",
+        example: "...creating an instantaneous coherence among your mind, body, and emotions.",
+        vi: "Sự liên kết chặt chẽ / Sự đồng bộ trật tự"
+      },
+      {
+        id: "g-5",
+        term: "Self-efficacy",
+        pos: "noun",
+        category: "Psychology",
+        def: "An individual's belief in their innate capacity to execute behaviors necessary to produce specific performance attainments.",
+        plain: "In other words: Your deep, unwavering confidence that you have what it takes to succeed.",
+        example: "The most destructive consequence of failing at traditional meditation is how it undermines a person’s self-efficacy.",
+        vi: "Niềm tin vào năng lực bản thân"
+      },
+      {
+        id: "g-6",
+        term: "Learned helplessness",
+        pos: "noun phrase",
+        category: "Psychology",
+        def: "A condition in which a person suffers from a sense of powerlessness, arising from a traumatic event or persistent failure to succeed.",
+        plain: "In other words: The habit of giving up completely because previous attempts failed.",
+        example: "This learned helplessness prevents them from ever exploring alternative methods that could actually work.",
+        vi: "Sự bất lực học được (bất lực tập nhiễm do thất bại lặp đi lặp lại)"
+      },
+      {
+        id: "g-7",
+        term: "Dogma",
+        pos: "noun",
+        category: "Concepts",
+        def: "A principle, belief, or set of doctrines laid down by an authority as incontrovertibly true without supporting proof.",
+        plain: "In other words: An unquestioned rule or rigid belief that people accept blindly.",
+        example: "This dogma has erected more barriers to personal growth in the self-development sphere than virtually any other misconception.",
+        vi: "Giáo điều / Định kiến bất di bất dịch"
+      },
+      {
+        id: "g-8",
+        term: "Neuroplastic",
+        pos: "adjective",
+        category: "Neuroscience",
+        def: "Relating to the brain’s ability to modify its physical structure and functional organization in response to experience and learning.",
+        plain: "In other words: The brain's remarkable biological ability to physically reshape and re-route its wires.",
+        example: "The human brain does not measure neuroplastic transformation by the number of minutes spent on a cushion...",
+        vi: "Thuộc tính dẻo / Khả biến của hệ thần kinh"
+      },
+      {
+        id: "g-9",
+        term: "Epiphany",
+        pos: "noun",
+        category: "Mindset",
+        def: "A moment of sudden and profound revelation, intuitive understanding, or spiritual realization.",
+        plain: "In other words: A sudden, eye-opening 'aha!' moment of deep clarity.",
+        example: "...how a single moment of exquisite beauty, profound love, or sudden epiphany can completely alter the trajectory of your entire day?",
+        vi: "Sự khai sáng / Khoảnh khắc thấu suốt đột ngột"
+      },
+      {
+        id: "g-10",
+        term: "Laser-focused",
+        pos: "adjective",
+        category: "Mindset",
+        def: "Directing intense, unyielding concentration towards a single objective, eliminating all peripheral distractions.",
+        plain: "In other words: Directing 100% of your mental power like a sharp light beam onto one spot.",
+        example: "The answer lies in distinguishing passive awareness from laser-focused intention.",
+        vi: "Tập trung cao độ và sắc bén như tia laser"
+      },
+      {
+        id: "g-11",
+        term: "Flow state",
+        pos: "noun phrase",
+        category: "Psychology",
+        def: "An optimal cognitive state of effortless absorption, deep immersion, and hyper-fluid performance during an activity.",
+        plain: "In other words: Being completely lost in the zone where time flies and everything feels effortless.",
+        example: "Think of a time when you were completely immersed in a flow state doing something you love.",
+        vi: "Trạng thái dòng chảy (trạng thái thăng hoa tập trung cao độ)"
+      },
+      {
+        id: "g-12",
+        term: "Prefrontal cortex",
+        pos: "noun phrase",
+        category: "Neuroscience",
+        def: "The anterior part of the frontal lobe implicated in planning complex cognitive behavior, decision making, and moderating social behavior.",
+        plain: "In other words: The biological CEO and executive command center of your brain.",
+        example: "This directed approach heavily recruits the prefrontal cortex—the command center responsible for executive function...",
+        vi: "Vỏ não trước trán (trung khu điều hành ý thức cấp cao)"
+      },
+      {
+        id: "g-13",
+        term: "Psychophysiological coherence",
+        pos: "noun phrase",
+        category: "Scientific",
+        def: "A physiological state characterized by increased synchronization, harmony, and order across cognitive, cardiac, and neurological subsystems.",
+        plain: "In other words: When your heart rhythms, respiration rate, and brain waves beat in total harmony.",
+        example: "...you induce what researchers term psychophysiological coherence.",
+        vi: "Sự liên kết / Đồng bộ tâm - sinh lý"
+      },
+      {
+        id: "g-14",
+        term: "Default Mode Network (DMN)",
+        pos: "noun phrase",
+        category: "Neuroscience",
+        def: "An interconnected network of brain structures active when an individual is not focused on the external environment, known for self-referential chatter.",
+        plain: "In other words: The background mental chatterbox that dwells on worries, regrets, and the ego.",
+        example: "The default mode network (DMN), responsible for mind-wandering and self-referential rumination, quiets down.",
+        vi: "Mạng lưới mặc định của não bộ (DMN - chủ trì suy nghĩ lan man)"
+      },
+      {
+        id: "g-15",
+        term: "Rumination",
+        pos: "noun",
+        category: "Psychology",
+        def: "The focused attention on the symptoms of one's distress, and on its possible causes and consequences, as opposed to its solutions.",
+        plain: "In other words: Repeatedly chewing over stressful or negative thoughts in an endless loop.",
+        example: "...responsible for mind-wandering and self-referential rumination, quiets down.",
+        vi: "Sự suy nghĩ luẩn quẩn / Nhai lại nỗi lo âu"
+      },
+      {
+        id: "g-16",
+        term: "Catastrophize",
+        pos: "verb",
+        category: "Psychology",
+        def: "To view, predict, or present a situation as considerably worse, more disastrous, or more dangerous than it actually is.",
+        plain: "In other words: Automatically assuming the absolute worst-case scenario will occur.",
+        example: "They survive only by replaying past regrets or catastrophizing future scenarios.",
+        vi: "Thảm kịch hóa / Trầm trọng hóa viễn cảnh tương lai"
+      },
+      {
+        id: "g-17",
+        term: "Conscious agency",
+        pos: "noun phrase",
+        category: "Mindset",
+        def: "The capacity and active awareness of a sentient individual to initiate choices and exercise intentional control over their inner state.",
+        plain: "In other words: Your genuine personal power to make deliberate choices instead of reacting on autopilot.",
+        example: "This is not philosophical speculation, but a functional understanding of conscious agency.",
+        vi: "Quyền năng hành động có ý thức / Chủ quyền tâm trí"
+      },
+      {
+        id: "g-18",
+        term: "Somatic",
+        pos: "adjective",
+        category: "Scientific",
+        def: "Relating to the physical body, especially as distinct from the mind or abstract thought.",
+        plain: "In other words: Anything experienced physically in the muscles, nerves, or flesh of the body.",
+        example: "Your body releases pent-up somatic tension, respiration deepens naturally...",
+        vi: "Thuộc về thể xác / Cơ thể sinh học"
+      },
+      {
+        id: "g-19",
+        term: "Internal dissonance",
+        pos: "noun phrase",
+        category: "Psychology",
+        def: "An uncomfortable mental conflict that occurs when beliefs, feelings, or internal intentions contradict one another.",
+        plain: "In other words: An agonizing tug-of-war where your heart and mind clash with opposing emotions.",
+        example: "Most people live in a state of chronic internal dissonance. They consciously think about what they want, but emotionally feel the pain or lack...",
+        vi: "Sự bất hòa / Xung đột nội tâm"
+      },
+      {
+        id: "g-20",
+        term: "Parasympathetic nervous system",
+        pos: "noun phrase",
+        category: "Scientific",
+        def: "The branch of the autonomic nervous system that conserves energy by decelerating heart rate and promoting cellular digestion and repair.",
+        plain: "In other words: Your body's biological brake pedal that initiates calm, deep rest, and healing.",
+        example: "This immediately triggers the parasympathetic nervous system—the branch dedicated to rest, cellular repair, and regeneration.",
+        vi: "Hệ thần kinh đối giao cảm (phó giao cảm - phục hồi năng lượng)"
+      },
+      {
+        id: "g-21",
+        term: "Synaptogenesis",
+        pos: "noun",
+        category: "Neuroscience",
+        def: "The biological formation of synapses between neurons within the central nervous system.",
+        plain: "In other words: The rapid physical creation of brand-new neurological pathways in the brain.",
+        example: "...your brain immediately initiates synaptogenesis—forging new neural circuitry.",
+        vi: "Quá trình hình thành khớp nối thần kinh mới (synapse)"
+      },
+      {
+        id: "g-22",
+        term: "Long-term potentiation (LTP)",
+        pos: "noun phrase",
+        category: "Neuroscience",
+        def: "A persistent strengthening of synapses based on recent patterns of activity, producing a long-lasting increase in signal transmission.",
+        plain: "In other words: The biological glue that locks a memory or emotional state deeply into permanent hardware.",
+        example: "Research also underscores the mechanism of long-term potentiation (LTP)—the process by which synaptic connections strengthen...",
+        vi: "Hiệu ứng tăng cường dẫn truyền dài hạn (LTP)"
+      },
+      {
+        id: "g-23",
+        term: "Gamma waves",
+        pos: "noun phrase",
+        category: "Neuroscience",
+        def: "High-frequency electroencephalographic brain rhythms (typically 30–80 Hz) associated with heightened perception, memory, and peak insight.",
+        plain: "In other words: Ultra-fast, synchronized brainwave bursts occurring during peak moments of revelation.",
+        example: "As coherence peaks, the brain generates high-amplitude gamma wave bursts...",
+        vi: "Sóng não Gamma (tần số cao biểu thị trạng thái thấu suốt)"
+      },
+      {
+        id: "g-24",
+        term: "Somatic anchor",
+        pos: "noun phrase",
+        category: "Psychology",
+        def: "A distinct tactile or physical cue deliberately associated with a specific neuro-emotional state to trigger it on command.",
+        plain: "In other words: A physical touch (such as putting your hand on your heart) that locks in a positive feeling.",
+        example: "This physical touch creates a somatic anchor, integrating the neurochemical shift...",
+        vi: "Điểm neo thể chất (cử chỉ vật lý neo giữ cảm xúc)"
+      },
+      {
+        id: "g-25",
+        term: "Heart Rate Variability (HRV)",
+        pos: "noun phrase",
+        category: "Scientific",
+        def: "The physiological measure of variation in time between consecutive heartbeats, serving as a primary index of neurocardiac health and calm.",
+        plain: "In other words: The healthy rhythm of time between your heartbeats indicating high adaptability and poise.",
+        example: "In this state, your heart rate variability, respiration, and brainwave patterns synchronize...",
+        vi: "Độ biến thiên nhịp tim (HRV)"
+      },
+      {
+        id: "g-26",
+        term: "Synchronicity",
+        pos: "noun",
+        category: "Concepts",
+        def: "The simultaneous occurrence of events which appear significantly related but have no discoverable causal connection.",
+        plain: "In other words: Meaningful coincidences that come together so perfectly they feel orchestrated.",
+        example: "...where answers, synchronicity, and opportunities emerge organically.",
+        vi: "Sự trùng hợp ngẫu nhiên đầy ý nghĩa (đồng hiện tính)"
+      },
+      {
+        id: "g-27",
+        term: "Beginner’s mind (Shoshin)",
+        pos: "noun phrase",
+        category: "Mindset",
+        def: "A Zen philosophical attitude of openness, eagerness, and absence of preconceptions when approaching any practice, regardless of experience.",
+        plain: "In other words: Viewing your daily practice with fresh, curious eyes just like a complete novice.",
+        example: "The secret is approaching every activation with what Zen philosophy and cognitive scientists call a 'beginner’s mind' (shoshin).",
+        vi: "Tâm thế người mới bắt đầu (Sơ tâm - Shoshin)"
+      },
+      {
+        id: "g-28",
+        term: "Ebbs and flows",
+        pos: "idiom",
+        category: "Idioms",
+        def: "A recurrent pattern of incoming and outgoing, waxing and waning, decline and resurgence.",
+        plain: "In other words: The natural rhythm of highs and lows that everyone experiences in life.",
+        example: "That reliability makes it an indispensable asset for mastering the ebbs and flows of everyday life.",
+        vi: "Những thăng trầm / Bước thăng giáng của cuộc sống thường nhật"
+      }
+    ];
+
+    /* -------------------------------------------------------------
+       3. STATE MANAGEMENT
+       ------------------------------------------------------------- */
+    const state = {
+      currentRoute: 'overview', // 'overview' | 'glossary' | 'intro' | 'sec-1' ... 'sec-10'
+      cardLanguages: {},        // Map of cardKey -> 'en' | 'vi'
+      overviewCardLangs: {},    // Map of secId -> 'en' | 'vi'
+      glossaryFilter: 'all',    // 'all' | 'Neuroscience' | 'Psychology' | 'Scientific' | 'Mindset' | 'Concepts'
+      glossarySearch: '',
+      glossaryRevealed: {},     // Map of termId -> boolean
+      globalMode: 'en'          // 'en' | 'vi'
+    };
+
+    /* -------------------------------------------------------------
+       4. ROUTING & TEMPLATING ENGINE
+       ------------------------------------------------------------- */
+    function getRoute() {
+      const hash = window.location.hash.replace('#', '').trim();
+      return hash || 'overview';
+    }
+
+    function initRouter() {
+      window.addEventListener('hashchange', () => {
+        state.currentRoute = getRoute();
+        render();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      state.currentRoute = getRoute();
+      render();
+    }
+
+    function render() {
+      const root = document.getElementById('app-root');
+      const navBackBtn = document.getElementById('nav-back-btn');
+      const navGlossaryBtn = document.getElementById('nav-glossary-btn');
+
+      // Update persistent navbar indicators
+      if (state.currentRoute === 'overview') {
+        navBackBtn.classList.add('hidden');
+      } else {
+        navBackBtn.classList.remove('hidden');
+      }
+
+      if (state.currentRoute === 'glossary') {
+        navGlossaryBtn.classList.add('bg-slate-200', 'dark:bg-slate-800', 'font-bold');
+      } else {
+        navGlossaryBtn.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'font-bold');
+      }
+
+      // Route Dispatch
+      if (state.currentRoute === 'overview') {
+        root.innerHTML = renderOverview();
+      } else if (state.currentRoute === 'glossary') {
+        root.innerHTML = renderGlossary();
+      } else {
+        const targetSection = appData.sections.find(s => s.id === state.currentRoute);
+        if (targetSection) {
+          root.innerHTML = renderSectionPage(targetSection);
+        } else {
+          root.innerHTML = `<div class="py-20 text-center">
+            <h2 class="text-2xl font-bold mb-2">Section Not Found</h2>
+            <a href="#overview" class="text-brand-600 underline">Return to Overview</a>
+          </div>`;
+        }
+      }
+    }
+
+    /* -------------------------------------------------------------
+       VIEW 1: OVERVIEW HUB (PAGE 1)
+       ------------------------------------------------------------- */
+    function renderOverview() {
+      const { titleEn, titleVi, subEn, subVi } = appData.meta;
+      
+      const sectionCards = appData.sections.map((sec, idx) => {
+        const isVi = state.overviewCardLangs[sec.id] === 'vi';
+        const displayTitle = isVi ? sec.titleVi : sec.titleEn;
+        const displayDesc = isVi ? sec.descVi : sec.descEn;
+        const pCount = sec.paragraphs.length;
+
+        return `
+          <div onclick="navigateTo('${sec.id}')" 
+               class="group relative bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200/90 dark:border-slate-800/90 hover:border-brand-500/60 dark:hover:border-brand-500/60 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 cursor-pointer flex flex-col justify-between">
+            
+            <div>
+              <!-- Top Row: Badge & Flip Toggle -->
+              <div class="flex items-center justify-between mb-4">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold tracking-wide uppercase bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                  Part ${sec.num}
+                </span>
+
+                <!-- Local EN/VI Heading Switch Button (e.stopPropagation prevents card navigation) -->
+                <button onclick="toggleOverviewCardLang(event, '${sec.id}')" 
+                        title="Toggle heading language" 
+                        class="px-2.5 py-1 text-xs font-semibold rounded-md bg-teal-50 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-900 border border-teal-200/80 dark:border-teal-800 transition-colors flex items-center gap-1 z-10">
+                  <span>${isVi ? '🇻🇳 VI' : '🇬🇧 EN'}</span>
+                  <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                </button>
+              </div>
+
+              <!-- Heading -->
+              <h3 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors leading-snug mb-3">
+                ${displayTitle}
+              </h3>
+
+              <!-- Summary hint -->
+              <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed">
+                ${displayDesc}
+              </p>
+            </div>
+
+            <!-- Bottom Row: Meta -->
+            <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+              <span class="flex items-center gap-1 font-medium">
+                <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                ${pCount} Interactive Units
+              </span>
+              <span class="font-bold text-brand-600 dark:text-brand-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Read Module &rarr;
+              </span>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <!-- Hero Header -->
+        <section class="mb-12 text-center max-w-3xl mx-auto pt-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/70 border border-teal-200 dark:border-teal-800 text-teal-800 dark:text-teal-300 text-xs sm:text-sm font-semibold mb-6">
+            <span class="w-2 h-2 rounded-full bg-teal-500 animate-ping"></span>
+            Dual-Language Interactive Masterclass
+          </div>
+
+          <!-- English Main Title -->
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-950 dark:text-white leading-[1.15] mb-4">
+            ${titleEn}
+          </h1>
+
+          <!-- Vietnamese Title -->
+          <h2 class="text-xl sm:text-2xl font-serif italic font-normal text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+            ${titleVi}
+          </h2>
+
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto">
+            ${subEn}
+          </p>
+
+          <!-- Glossary Quick Jump Banner -->
+          <div class="mt-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-teal-500/10 via-brand-500/10 to-emerald-500/10 border border-teal-200/80 dark:border-teal-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-md">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-900 dark:text-white text-base">Bilingual Academic Glossary Included</h4>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Master 28 advanced cognitive, neuroscience, and psychology terms with examples and hidden definitions.</p>
+              </div>
+            </div>
+            <a href="#glossary" class="whitespace-nowrap px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-teal-600 hover:bg-teal-700 text-white shadow-md shadow-teal-600/20 transition-all flex items-center gap-1.5 self-stretch sm:self-auto justify-center">
+              <span>Explore Glossary</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </section>
+
+        <!-- Section Navigation Grid -->
+        <section>
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Curriculum Modules (11 Parts)</h2>
+            <span class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Click any card to read</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            ${sectionCards}
+          </div>
+        </section>
+      `;
+    }
+
+    /* -------------------------------------------------------------
+       VIEW 2: INDIVIDUAL SECTION READING VIEW (PAGE 2 THROUGH N)
+       ------------------------------------------------------------- */
+    function renderSectionPage(section) {
+      // Find previous and next sections
+      const currentIndex = appData.sections.findIndex(s => s.id === section.id);
+      const prevSection = currentIndex > 0 ? appData.sections[currentIndex - 1] : null;
+      const nextSection = currentIndex < appData.sections.length - 1 ? appData.sections[currentIndex + 1] : null;
+
+      // Section title toggle state
+      const isHeaderVi = state.overviewCardLangs[section.id] === 'vi';
+
+      // Build Interactive Paragraph Cards
+      const paragraphCards = section.paragraphs.map((p, pIndex) => {
+        const cardKey = `${section.id}-p-${pIndex}`;
+        const activeLang = state.cardLanguages[cardKey] || state.globalMode || 'en';
+        const isVi = activeLang === 'vi';
+
+        // Format bullets or line breaks if any
+        const enHtml = escapeHtml(p.en).replace(/\n\n/g, '<br/><br/>').replace(/•/g, '&bull;');
+        const viHtml = escapeHtml(p.vi).replace(/\n\n/g, '<br/><br/>').replace(/•/g, '&bull;');
+
+        return `
+          <div class="group relative bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 dark:hover:border-brand-500/50 shadow-sm hover:shadow-md transition-all duration-300"
+               id="${cardKey}">
+            
+            <!-- Card Toolbar -->
+            <div class="flex items-center justify-between mb-5 select-none border-b border-slate-100 dark:border-slate-800 pb-3">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xs font-bold text-slate-500 dark:text-slate-400">
+                  ${pIndex + 1}
+                </span>
+                <span class="text-xs uppercase font-bold tracking-wider ${isVi ? 'text-amber-600 dark:text-amber-400' : 'text-brand-600 dark:text-brand-400'}">
+                  ${isVi ? '🇻🇳 Tiếng Việt' : '🇬🇧 English'}
+                </span>
+              </div>
+
+              <!-- Flip / Reveal Toggle -->
+              <div class="flex items-center gap-2">
+                <!-- Text-to-Speech English button -->
+                <button onclick="speakText('${cardKey}', '${escapeForSpeech(p.en)}')" 
+                        title="Listen to English audio" 
+                        class="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+                </button>
+
+                <button onclick="toggleCardLang('${cardKey}')" 
+                        class="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors flex items-center gap-1.5 border border-slate-200 dark:border-slate-700">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                  <span>${isVi ? 'Show English' : 'Xem Tiếng Việt'}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card Content Body (Click to flip) -->
+            <div onclick="toggleCardLang('${cardKey}')" class="cursor-pointer">
+              <!-- English Text -->
+              <div class="${isVi ? 'hidden' : 'block'} text-lg sm:text-[19px] text-slate-800 dark:text-slate-100 leading-relaxed font-sans select-text">
+                ${enHtml}
+              </div>
+
+              <!-- Vietnamese Text -->
+              <div class="${isVi ? 'block' : 'hidden'} text-lg sm:text-[19px] text-teal-950 dark:text-teal-100 leading-relaxed font-serif select-text">
+                ${viHtml}
+              </div>
+            </div>
+
+            <!-- Subtle Flip Prompt -->
+            <div class="mt-4 pt-3 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 border-t border-slate-100 dark:border-slate-800/60 select-none">
+              <span>Click paragraph card to toggle translation</span>
+              <span class="italic font-mono">${isVi ? 'Bản dịch Tiếng Việt' : 'Original English'}</span>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <article class="max-w-4xl mx-auto">
+          
+          <!-- Breadcrumb & Navigation Bar -->
+          <div class="flex items-center justify-between gap-4 mb-6 text-sm text-slate-500 dark:text-slate-400">
+            <a href="#overview" class="inline-flex items-center gap-1 hover:text-brand-600 dark:hover:text-brand-400 font-medium">
+              &larr; Back to Curriculum Hub
+            </a>
+            <span class="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+              Module ${section.num} of 10
+            </span>
+          </div>
+
+          <!-- Section Main Header Card -->
+          <div class="bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-950 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm mb-8">
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-50 dark:bg-brand-950/70 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
+                Chapter ${section.num}
+              </span>
+              
+              <!-- Switch Header Language -->
+              <button onclick="toggleOverviewCardLang(event, '${section.id}')" 
+                      class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center gap-1.5 shadow-sm">
+                <span>Header: ${isHeaderVi ? '🇻🇳 Vietnamese' : '🇬🇧 English'}</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+              </button>
+            </div>
+
+            <!-- Dynamic Header Title -->
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-2">
+              ${isHeaderVi ? section.titleVi : section.titleEn}
+            </h1>
+            <p class="text-base sm:text-lg font-serif italic text-slate-600 dark:text-slate-400">
+              ${isHeaderVi ? section.titleEn : section.titleVi}
+            </p>
+
+            <!-- Quick Action Toolbar for This Section -->
+            <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
+              <div class="text-slate-500 dark:text-slate-400">
+                Showing ${section.paragraphs.length} interactive paragraph cards
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="setSectionAllLang('${section.id}', 'en')" class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 font-medium transition-colors">
+                  All English
+                </button>
+                <button onclick="setSectionAllLang('${section.id}', 'vi')" class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 font-medium transition-colors">
+                  All Tiếng Việt
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paragraphs Stack -->
+          <div class="space-y-6">
+            ${paragraphCards}
+          </div>
+
+          <!-- Bottom Pager Controls -->
+          <nav class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              ${prevSection ? `
+                <a href="#${prevSection.id}" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold text-sm text-slate-800 dark:text-slate-200 transition-colors shadow-sm">
+                  &larr; Part ${prevSection.num}: ${truncateText(prevSection.titleEn, 28)}
+                </a>
+              ` : `
+                <a href="#overview" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-semibold text-sm text-slate-500">
+                  &larr; Return to Overview
+                </a>
+              `}
+            </div>
+
+            <div>
+              ${nextSection ? `
+                <a href="#${nextSection.id}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 font-semibold text-sm text-white shadow-md shadow-teal-600/20 transition-all">
+                  <span>Next Part ${nextSection.num}: ${truncateText(nextSection.titleEn, 28)}</span>
+                  &rarr;
+                </a>
+              ` : `
+                <a href="#glossary" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 font-semibold text-sm text-white shadow-md shadow-teal-600/20 transition-all">
+                  <span>Go to Learner Glossary (Final Page)</span>
+                  &rarr;
+                </a>
+              `}
+            </div>
+          </nav>
+
+        </article>
+      `;
+    }
+
+    /* -------------------------------------------------------------
+       VIEW 3: INTERACTIVE LEARNER GLOSSARY (FINAL PAGE)
+       ------------------------------------------------------------- */
+    function renderGlossary() {
+      // Filter list based on search and category filter
+      const filtered = glossaryData.filter(item => {
+        const matchesCategory = state.glossaryFilter === 'all' || item.category === state.glossaryFilter;
+        const matchesQuery = !state.glossarySearch || 
+          item.term.toLowerCase().includes(state.glossarySearch.toLowerCase()) ||
+          item.def.toLowerCase().includes(state.glossarySearch.toLowerCase()) ||
+          item.vi.toLowerCase().includes(state.glossarySearch.toLowerCase());
+        return matchesCategory && matchesQuery;
+      });
+
+      const categories = ['all', 'Neuroscience', 'Psychology', 'Scientific', 'Mindset', 'Concepts', 'Idioms'];
+
+      const categoryPills = categories.map(cat => {
+        const isActive = state.glossaryFilter === cat;
+        return `
+          <button onclick="setGlossaryFilter('${cat}')" 
+                  class="px-3.5 py-1.5 rounded-full text-xs font-semibold capitalize transition-all ${
+                    isActive 
+                      ? 'bg-teal-600 text-white shadow-sm' 
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  }">
+            ${cat}
+          </button>
+        `;
+      }).join('');
+
+      const cardsHtml = filtered.map(item => {
+        const isRevealed = !!state.glossaryRevealed[item.id];
+        return `
+          <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 dark:hover:border-brand-500/50 shadow-sm flex flex-col justify-between transition-all">
+            
+            <div>
+              <!-- Term & Category Header -->
+              <div class="flex items-start justify-between gap-2 mb-3">
+                <div>
+                  <h3 class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                    ${item.term}
+                  </h3>
+                  <span class="inline-block text-xs font-semibold italic text-brand-600 dark:text-brand-400">
+                    ${item.pos}
+                  </span>
+                </div>
+
+                <span class="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
+                  ${item.category}
+                </span>
+              </div>
+
+              <!-- Academic Definition -->
+              <div class="mb-4">
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">Academic Definition</span>
+                <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
+                  ${item.def}
+                </p>
+              </div>
+
+              <!-- Plain English Explanation -->
+              <div class="mb-4 bg-teal-50/50 dark:bg-teal-950/30 p-3 rounded-xl border border-teal-100 dark:border-teal-900/60">
+                <span class="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 block mb-1">In Plain English (B1/B2)</span>
+                <p class="text-xs sm:text-sm text-teal-900 dark:text-teal-200 leading-relaxed">
+                  ${item.plain}
+                </p>
+              </div>
+
+              <!-- Context in Document -->
+              <div class="mb-5">
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">Example in Context</span>
+                <blockquote class="text-xs sm:text-sm italic text-slate-600 dark:text-slate-400 pl-3 border-l-2 border-brand-500/60 leading-relaxed">
+                  "${item.example}"
+                </blockquote>
+              </div>
+            </div>
+
+            <!-- Reveal Vietnamese Translation Box -->
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+              <button onclick="toggleGlossaryReveal('${item.id}')" 
+                      class="w-full py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${
+                        isRevealed 
+                          ? 'bg-amber-50 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800' 
+                          : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300'
+                      }">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${isRevealed ? 'M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18' : 'M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z'}"/></svg>
+                <span>${isRevealed ? 'Hide Vietnamese' : 'Reveal Vietnamese / Xem nghĩa'}</span>
+              </button>
+
+              ${isRevealed ? `
+                <div class="mt-3 p-3 rounded-xl bg-amber-50/70 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-800/80 text-amber-950 dark:text-amber-200 text-xs sm:text-sm font-serif leading-relaxed animate-fadeIn">
+                  <div class="font-bold text-[11px] uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-0.5">Thuật ngữ Tiếng Việt:</div>
+                  ${item.vi}
+                </div>
+              ` : ''}
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="max-w-5xl mx-auto">
+          
+          <!-- Glossary Hero -->
+          <div class="text-center max-w-2xl mx-auto mb-10 pt-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-200 dark:border-teal-800 mb-4">
+              Advanced Language & Scientific Framework
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3">
+              Interactive Learner Glossary
+            </h1>
+            <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+              Master 28 specialized vocabulary items, neurobiological phenomena, and idiomatic expressions extracted directly from this masterclass.
+            </p>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm mb-8 space-y-4">
+            <!-- Search Bar -->
+            <div class="relative">
+              <svg class="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              <input type="text" 
+                     id="glossary-search-input" 
+                     value="${state.glossarySearch}"
+                     oninput="handleGlossarySearch(this.value)"
+                     placeholder="Search target term, academic definition, or Vietnamese equivalent..."
+                     class="w-full pl-11 pr-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all" />
+              ${state.glossarySearch ? `
+                <button onclick="handleGlossarySearch('')" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs">Clear</button>
+              ` : ''}
+            </div>
+
+            <!-- Category Pills -->
+            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <span class="text-xs font-semibold text-slate-400 mr-1">Filter Domain:</span>
+              ${categoryPills}
+            </div>
+
+            <!-- Counter -->
+            <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center justify-between pt-1">
+              <span>Showing <strong>${filtered.length}</strong> of <strong>${glossaryData.length}</strong> core terms</span>
+              <button onclick="revealAllGlossary(true)" class="text-teal-600 dark:text-teal-400 hover:underline">Reveal all Vietnamese</button>
+            </div>
+          </div>
+
+          <!-- Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            ${cardsHtml.length > 0 ? cardsHtml : `
+              <div class="col-span-full py-16 text-center text-slate-500">
+                <p class="text-base font-semibold mb-2">No vocabulary terms match your search filter.</p>
+                <button onclick="resetGlossaryFilters()" class="px-4 py-2 rounded-xl bg-teal-600 text-white text-xs font-bold">Reset Filters</button>
+              </div>
+            `}
+          </div>
+
+        </div>
+      `;
+    }
+
+    /* -------------------------------------------------------------
+       5. INTERACTION LOGIC & EVENT HANDLERS
+       ------------------------------------------------------------- */
+    function navigateTo(route) {
+      window.location.hash = `#${route}`;
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeIcons();
+    }
+
+    function updateThemeIcons() {
+      const isDark = document.documentElement.classList.contains('dark');
+      document.getElementById('theme-sun').classList.toggle('hidden', !isDark);
+      document.getElementById('theme-moon').classList.toggle('hidden', isDark);
+    }
+
+    function toggleGlobalLanguage() {
+      state.globalMode = state.globalMode === 'en' ? 'vi' : 'en';
+      document.getElementById('global-lang-indicator').textContent = state.globalMode === 'en' ? 'All: EN' : 'All: VI';
+
+      // Set all paragraph cards in the current section
+      if (state.currentRoute !== 'overview' && state.currentRoute !== 'glossary') {
+        const sec = appData.sections.find(s => s.id === state.currentRoute);
+        if (sec) {
+          sec.paragraphs.forEach((_, idx) => {
+            state.cardLanguages[`${sec.id}-p-${idx}`] = state.globalMode;
+          });
+        }
+      } else if (state.currentRoute === 'overview') {
+        appData.sections.forEach(s => {
+          state.overviewCardLangs[s.id] = state.globalMode;
+        });
+      }
+      render();
+    }
+
+    function toggleCardLang(cardKey) {
+      const current = state.cardLanguages[cardKey] || state.globalMode || 'en';
+      state.cardLanguages[cardKey] = current === 'en' ? 'vi' : 'en';
+      render();
+    }
+
+    function toggleOverviewCardLang(event, secId) {
+      if (event) event.stopPropagation();
+      const current = state.overviewCardLangs[secId] || 'en';
+      state.overviewCardLangs[secId] = current === 'en' ? 'vi' : 'en';
+      render();
+    }
+
+    function setSectionAllLang(secId, lang) {
+      const sec = appData.sections.find(s => s.id === secId);
+      if (sec) {
+        sec.paragraphs.forEach((_, idx) => {
+          state.cardLanguages[`${secId}-p-${idx}`] = lang;
+        });
+      }
+      render();
+    }
+
+    function handleGlossarySearch(val) {
+      state.glossarySearch = val;
+      render();
+      // Keep focus in input
+      const input = document.getElementById('glossary-search-input');
+      if (input) {
+        input.focus();
+        input.setSelectionRange(val.length, val.length);
+      }
+    }
+
+    function setGlossaryFilter(cat) {
+      state.glossaryFilter = cat;
+      render();
+    }
+
+    function toggleGlossaryReveal(id) {
+      state.glossaryRevealed[id] = !state.glossaryRevealed[id];
+      render();
+    }
+
+    function revealAllGlossary(status) {
+      glossaryData.forEach(item => {
+        state.glossaryRevealed[item.id] = status;
+      });
+      render();
+    }
+
+    function resetGlossaryFilters() {
+      state.glossaryFilter = 'all';
+      state.glossarySearch = '';
+      render();
+    }
+
+    // Text-To-Speech helper for English pronunciation
+    function speakText(key, text) {
+      if (!('speechSynthesis' in window)) {
+        alert('Web Speech API is not supported in this browser.');
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const clean = text.replace(/•/g, '').trim();
+      const utterance = new SpeechSynthesisUtterance(clean);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.95;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function truncateText(str, len) {
+      if (!str) return '';
+      return str.length > len ? str.substring(0, len) + '…' : str;
+    }
+
+    function escapeHtml(string) {
+      return String(string)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function escapeForSpeech(string) {
+      return String(string).replace(/'/g, "\\'").replace(/"/g, '&quot;').replace(/\n/g, ' ');
+    }
+
+    /* -------------------------------------------------------------
+       6. APPLICATION BOOTSTRAP
+       ------------------------------------------------------------- */
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check stored theme or default system preference
+      const storedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      updateThemeIcons();
+
+      // Initialize hash routing
+      initRouter();
+    });
+  </script>
+</body>
+</html>
