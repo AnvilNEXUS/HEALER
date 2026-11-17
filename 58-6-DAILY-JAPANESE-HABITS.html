@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healthy Habits & Anti-Aging Guidelines | Bilingual Reader (58)</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Plus Jakarta Sans, Newsreader, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Base Typography & Custom Utilities */
+    :root {
+      --reading-font-size: 1.2rem; /* ~19.2px default body size */
+      --reading-line-height: 1.78;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .reading-text {
+      font-size: var(--reading-font-size);
+      line-height: var(--reading-line-height);
+    }
+
+    /* Jitter-free 3D / Cross-fade Flip Card Architecture
+       Uses CSS Grid cell stacking so both English & Vietnamese faces occupy
+       the exact same layout grid cell, automatically adapting to the taller face
+       with zero layout shift or height jump. */
+    .flip-card-stage {
+      perspective: 1400px;
+    }
+
+    .flip-card-inner {
+      display: grid;
+      grid-template-areas: "face";
+      position: relative;
+      width: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .flip-card-face {
+      grid-area: face;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transition: opacity 0.35s ease, transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Default (English Active) */
+    .flip-card-inner:not(.is-flipped) .face-en {
+      opacity: 1;
+      transform: rotateX(0deg);
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    .flip-card-inner:not(.is-flipped) .face-vi {
+      opacity: 0;
+      transform: rotateX(-180deg);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Flipped (Vietnamese Active) */
+    .flip-card-inner.is-flipped .face-en {
+      opacity: 0;
+      transform: rotateX(180deg);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .flip-card-inner.is-flipped .face-vi {
+      opacity: 1;
+      transform: rotateX(0deg);
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    /* View fade-in animation */
+    @keyframes viewFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-view {
+      animation: viewFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Custom subtle scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.4);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(100, 116, 139, 0.6);
+    }
+  </style>
+</head>
+
+<body class="bg-stone-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white transition-colors duration-300">
+
+  <!-- =====================================================================
+       PERSISTENT TOP NAVIGATION BAR
+  ====================================================================== -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/90 dark:bg-slate-900/90 border-b border-stone-200/80 dark:border-slate-800 transition-colors duration-300">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Left: Back to Overview Button / Brand -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button
+          id="nav-back-btn"
+          onclick="navigateTo('overview')"
+          class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm sm:text-base font-semibold transition-all duration-200 border border-stone-200 dark:border-slate-700 bg-stone-100/80 hover:bg-emerald-50 hover:border-emerald-300 hover:text-emerald-800 dark:bg-slate-800 dark:hover:bg-emerald-950/60 dark:hover:border-emerald-700 dark:hover:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          title="Return to Document Overview"
+        >
+          <svg class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          <span id="nav-back-label">← Back to Overview</span>
+        </button>
+
+        <!-- Quick Section Jump Dropdown on Desktop -->
+        <div class="relative hidden md:block">
+          <select
+            id="quick-jump-select"
+            onchange="navigateTo(this.value)"
+            aria-label="Jump to section"
+            class="appearance-none bg-stone-100 dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-sm font-medium rounded-xl pl-3 pr-8 py-2 cursor-pointer hover:border-emerald-400 dark:hover:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-colors"
+          >
+            <option value="overview">Jump to Section...</option>
+            <optgroup label="Part 1: 6 Daily Japanese Habits">
+              <option value="part-1">All of Part 1 (1.1 – 1.6)</option>
+              <option value="sec-1-1">1.1 Minimize carbohydrates</option>
+              <option value="sec-1-2">1.2 Walk for 15 minutes after eating</option>
+              <option value="sec-1-3">1.3 Live slowly and relax in the evening</option>
+              <option value="sec-1-4">1.4 Get exposed to infrared rays</option>
+              <option value="sec-1-5">1.5 Drink a full glass of water</option>
+              <option value="sec-1-6">1.6 Strength train twice a week</option>
+            </optgroup>
+            <optgroup label="Part 2: 3 Causes of Facial Aging">
+              <option value="part-2">All of Part 2 (2.1 – 2.3)</option>
+              <option value="sec-2-1">2.1 Overall facial sagging</option>
+              <option value="sec-2-2">2.2 Wrinkles and eye bags</option>
+              <option value="sec-2-3">2.3 Deep laugh lines and sagging</option>
+            </optgroup>
+            <optgroup label="Vocabulary">
+              <option value="glossary">Interactive Learner Glossary (30 Terms)</option>
+            </optgroup>
+          </select>
+          <svg class="w-4 h-4 text-slate-400 pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Global EN/VI Switch, Font Size, Glossary Jump, Light/Dark Mode -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        
+        <!-- Global Language Toggle Switch (EN / VI) -->
+        <div
+          class="inline-flex items-center p-1 rounded-xl bg-stone-200/80 dark:bg-slate-800 border border-stone-300/60 dark:border-slate-700"
+          role="group"
+          aria-label="Global Language Switch"
+        >
+          <button
+            id="global-lang-en"
+            onclick="setGlobalLanguage('EN')"
+            class="px-2.5 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-bold tracking-wide transition-all duration-200"
+            title="Set primary display language to English"
+          >
+            EN
+          </button>
+          <button
+            id="global-lang-vi"
+            onclick="setGlobalLanguage('VI')"
+            class="px-2.5 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-bold tracking-wide transition-all duration-200"
+            title="Chuyển ngôn ngữ hiển thị chính sang Tiếng Việt"
+          >
+            VI
+          </button>
+        </div>
+
+        <!-- Font Size Adjuster (Desktop/Tablet) -->
+        <div class="hidden sm:inline-flex items-center rounded-xl bg-stone-100 dark:bg-slate-800 border border-stone-200 dark:border-slate-700 p-1">
+          <button
+            onclick="adjustFontSize(-1)"
+            class="px-2 py-1 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 rounded-lg transition-colors"
+            title="Decrease reading text size"
+            aria-label="Decrease text size"
+          >
+            A-
+          </button>
+          <span class="text-stone-300 dark:text-slate-700 select-none">|</span>
+          <button
+            onclick="adjustFontSize(1)"
+            class="px-2 py-1 text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 rounded-lg transition-colors"
+            title="Increase reading text size"
+            aria-label="Increase text size"
+          >
+            A+
+          </button>
+        </div>
+
+        <!-- Quick Navigation Jump to Glossary -->
+        <button
+          id="nav-glossary-btn"
+          onclick="navigateTo('glossary')"
+          class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 bg-amber-500/15 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300 border border-amber-400/40 hover:bg-amber-500/25 dark:hover:bg-amber-500/30 focus:outline-none focus:ring-2 focus:ring-amber-500"
+          title="Open Interactive B2/C1 Learner Glossary"
+        >
+          <svg class="w-4 h-4 shrink-0 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+          </svg>
+          <span>Glossary</span>
+          <span class="hidden sm:inline-flex items-center justify-center px-1.5 py-0.5 text-[11px] font-mono font-bold rounded-full bg-amber-500/20 text-amber-900 dark:text-amber-200">30</span>
+        </button>
+
+        <!-- Light / Dark Theme Toggle Button -->
+        <button
+          id="theme-toggle-btn"
+          onclick="toggleTheme()"
+          class="p-2 sm:p-2.5 rounded-xl bg-stone-100 dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-emerald-400 dark:hover:border-emerald-500 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          aria-label="Toggle Light or Dark Mode"
+          title="Toggle Light / Dark Mode"
+        >
+          <!-- Sun icon (shown in dark mode) -->
+          <svg id="theme-icon-sun" class="w-5 h-5 hidden text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+          </svg>
+          <!-- Moon icon (shown in light mode) -->
+          <svg id="theme-icon-moon" class="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       MAIN SPA CONTENT CONTAINER (Centered max-w-4xl)
+  ====================================================================== -->
+  <main id="app-root" class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <!-- Dynamic views injected by JavaScript -->
+  </main>
+
+  <!-- =====================================================================
+       FOOTER
+  ====================================================================== -->
+  <footer class="border-t border-stone-200/80 dark:border-slate-800/80 bg-white/60 dark:bg-slate-900/60 py-8 mt-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500 dark:text-slate-400">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+        <span class="font-mono text-xs sm:text-sm">Document Reference: 58 - 6 DAILY JAPANESE HABITS - YOUTH</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <button onclick="navigateTo('overview')" class="hover:text-emerald-600 dark:hover:text-emerald-400 underline underline-offset-4">Overview</button>
+        <button onclick="navigateTo('part-1')" class="hover:text-emerald-600 dark:hover:text-emerald-400 underline underline-offset-4">Part 1</button>
+        <button onclick="navigateTo('part-2')" class="hover:text-emerald-600 dark:hover:text-emerald-400 underline underline-offset-4">Part 2</button>
+        <button onclick="navigateTo('glossary')" class="hover:text-emerald-600 dark:hover:text-emerald-400 underline underline-offset-4">Glossary (30)</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       APPLICATION DATA & VANILLA JAVASCRIPT LOGIC
+  ====================================================================== -->
+  <script>
+    /***********************************************************************
+     * 1. VERBATIM BILINGUAL DOCUMENT CONTENT (ZERO PLACEHOLDERS)
+     ***********************************************************************/
+    const DOCUMENT_DATA = {
+      reference: "Document Reference: 58 - 6 DAILY JAPANESE HABITS - YOUTH",
+      bannerTag: "BILINGUAL REFERENCE MATERIAL",
+      titleEN: "Healthy Habits & Anti-Aging Guidelines",
+      titleVI: "Hướng Dẫn Thói Quen Lành Mạnh & Chống Lão Hóa",
+      subtitleEN: "Part 1: 6 Habits That Help Japanese People Stay Young at 80 & Part 2: 3 Causes That Make You Look 10 Years Older",
+      subtitleVI: "Phần 1: 6 Thói Quen Giúp Người Nhật Trẻ Lâu Ở Tuổi 80 & Phần 2: 3 Nguyên Nhân Khiến Ngoại Hình Già Hơn 10 Tuổi",
+      parts: [
+        {
+          id: "part-1",
+          partNumber: "Part 1",
+          partNumberVI: "Phần 1",
+          titleEN: "Part 1: 6 Habits That Help Japanese People Stay Young at 80",
+          titleVI: "Phần 1: 6 Thói Quen Giúp Người Nhật Trẻ Lâu Ở Tuổi 80",
+          descriptionEN: "Explore six science-backed daily lifestyle habits regarding nutrition, post-meal movement, evening relaxation, infrared light exposure, morning hydration, and strength training.",
+          descriptionVI: "Khám phá 6 thói quen sinh hoạt hằng ngày dựa trên cơ sở khoa học về dinh dưỡng, vận động sau ăn, thư giãn buổi tối, tiếp xúc tia hồng ngoại, uống nước buổi sáng và rèn luyện cơ bắp.",
+          sections: [
+            {
+              id: "sec-1-1",
+              code: "1.1",
+              partId: "part-1",
+              icon: "🌾",
+              categoryEN: "Habit 1 of 6 • Nutrition & Glycation",
+              categoryVI: "Thói quen 1/6 • Dinh dưỡng & Đường hóa",
+              headingEN: "1.1 Minimize carbohydrates (starches and sugars)",
+              headingVI: "1.1 Giảm thiểu carbohydrate (tinh bột và đường)",
+              rawHeadingEN: "Minimize carbohydrates (starches and sugars):",
+              rawHeadingVI: "Giảm thiểu carbohydrate (tinh bột và đường):",
+              paragraphEN: "Consuming too much starch and sugar causes blood sugar spikes, generating free radicals and triggering glycation, which accelerates the aging process. This condition severely destroys collagen, causes sagging skin, and increases the risk of dark spots by 1.3 times with just 50g of added starch/sugar. To remedy this, cut your white rice intake in half, avoid eating white rice for dinner, switch to eating more vegetables and fruits, or replace it with brown rice and whole wheat bread.",
+              paragraphVI: "Việc tiêu thụ quá nhiều tinh bột và đường sẽ làm đường huyết tăng vọt, tạo ra gốc tự do và kích hoạt hiện tượng đường hóa thúc đẩy quá trình lão hóa. Tình trạng này tàn phá collagen nghiêm trọng, làm da chảy xệ và làm tăng nguy cơ sạm nám lên 1,3 lần chỉ với 50g tinh bột/đường nạp thêm. Để khắc phục, hãy giảm một nửa lượng cơm trắng, tránh ăn cơm trắng vào bữa tối, chuyển sang ăn nhiều rau củ quả hoặc thay thế bằng gạo lứt và bánh mì nguyên cám.",
+              sentences: [
+                {
+                  en: "Consuming too much starch and sugar causes blood sugar spikes, generating free radicals and triggering glycation, which accelerates the aging process.",
+                  vi: "Việc tiêu thụ quá nhiều tinh bột và đường sẽ làm đường huyết tăng vọt, tạo ra gốc tự do và kích hoạt hiện tượng đường hóa thúc đẩy quá trình lão hóa."
+                },
+                {
+                  en: "This condition severely destroys collagen, causes sagging skin, and increases the risk of dark spots by 1.3 times with just 50g of added starch/sugar.",
+                  vi: "Tình trạng này tàn phá collagen nghiêm trọng, làm da chảy xệ và làm tăng nguy cơ sạm nám lên 1,3 lần chỉ với 50g tinh bột/đường nạp thêm."
+                },
+                {
+                  en: "To remedy this, cut your white rice intake in half, avoid eating white rice for dinner, switch to eating more vegetables and fruits, or replace it with brown rice and whole wheat bread.",
+                  vi: "Để khắc phục, hãy giảm một nửa lượng cơm trắng, tránh ăn cơm trắng vào bữa tối, chuyển sang ăn nhiều rau củ quả hoặc thay thế bằng gạo lứt và bánh mì nguyên cám."
+                }
+              ]
+            },
+            {
+              id: "sec-1-2",
+              code: "1.2",
+              partId: "part-1",
+              icon: "🚶",
+              categoryEN: "Habit 2 of 6 • Post-Meal Activity",
+              categoryVI: "Thói quen 2/6 • Vận động sau bữa ăn",
+              headingEN: "1.2 Walk for 15 minutes after eating",
+              headingVI: "1.2 Đi bộ 15 phút sau khi ăn",
+              rawHeadingEN: "Walk for 15 minutes after eating:",
+              rawHeadingVI: "Đi bộ 15 phút sau khi ăn:",
+              paragraphEN: "Exercising immediately after a meal helps muscles use the recently consumed sugar, preventing sudden blood sugar spikes. You should walk for about 20 minutes (equivalent to 2000 steps) or do squats in place right during the \"golden window\" of 15 minutes after eating. This habit helps stabilize blood sugar, slows down the aging process throughout the body, and significantly reduces intense post-meal drowsiness.",
+              paragraphVI: "Vận động ngay sau bữa ăn giúp cơ bắp sử dụng lượng đường vừa nạp vào, ngăn ngừa tình trạng đường huyết tăng đột ngột. Bạn nên đi bộ khoảng 20 phút (tương đương 2000 bước) hoặc tập squat tại chỗ ngay trong \"khung giờ vàng\" 15 phút sau khi ăn. Thói quen này giúp ổn định đường huyết, làm chậm quá trình lão hóa trên toàn cơ thể và giảm đáng kể cảm giác buồn ngủ dữ dội sau bữa ăn.",
+              sentences: [
+                {
+                  en: "Exercising immediately after a meal helps muscles use the recently consumed sugar, preventing sudden blood sugar spikes.",
+                  vi: "Vận động ngay sau bữa ăn giúp cơ bắp sử dụng lượng đường vừa nạp vào, ngăn ngừa tình trạng đường huyết tăng đột ngột."
+                },
+                {
+                  en: "You should walk for about 20 minutes (equivalent to 2000 steps) or do squats in place right during the \"golden window\" of 15 minutes after eating.",
+                  vi: "Bạn nên đi bộ khoảng 20 phút (tương đương 2000 bước) hoặc tập squat tại chỗ ngay trong \"khung giờ vàng\" 15 phút sau khi ăn."
+                },
+                {
+                  en: "This habit helps stabilize blood sugar, slows down the aging process throughout the body, and significantly reduces intense post-meal drowsiness.",
+                  vi: "Thói quen này giúp ổn định đường huyết, làm chậm quá trình lão hóa trên toàn cơ thể và giảm đáng kể cảm giác buồn ngủ dữ dội sau bữa ăn."
+                }
+              ]
+            },
+            {
+              id: "sec-1-3",
+              code: "1.3",
+              partId: "part-1",
+              icon: "🌙",
+              categoryEN: "Habit 3 of 6 • Nervous System & Sleep",
+              categoryVI: "Thói quen 3/6 • Hệ thần kinh & Giấc ngủ",
+              headingEN: "1.3 Live slowly and relax in the evening",
+              headingVI: "1.3 Sống chậm và thư giãn vào buổi tối",
+              rawHeadingEN: "Live slowly and relax in the evening:",
+              rawHeadingVI: "Sống chậm và thư giãn vào buổi tối:",
+              paragraphEN: "Sleep quality impacts aging even more deeply than diet. Engaging in intense activities, staying out late, or using electronic devices in the evening stimulates the sympathetic nervous system (the gas pedal), increasing free radicals, AGEs, and inflammatory responses that ravage the body. Instead, finish busy tasks 2 hours before bedtime, limit blue light, listen to music, practice yoga, or meditate to activate the parasympathetic nervous system (the brakes), helping the body relax and recover.",
+              paragraphVI: "Chất lượng giấc ngủ tác động đến lão hóa sâu sắc hơn cả chế độ ăn uống. Việc hoạt động mạnh, đi chơi khuya hay dùng thiết bị điện tử vào buổi tối sẽ kích thích hệ thần kinh giao cảm (chiếc chân ga), làm tăng gốc tự do, AGEs và các phản ứng viêm nhiễm tàn phá cơ thể. Thay vào đó, hãy hoàn thành công việc bận rộn 2 tiếng trước khi ngủ, hạn chế ánh sáng xanh, nghe nhạc, tập yoga hoặc thiền để hệ thần kinh phó giao cảm (chiếc phanh) hoạt động, giúp cơ thể thả lỏng và phục hồi.",
+              sentences: [
+                {
+                  en: "Sleep quality impacts aging even more deeply than diet.",
+                  vi: "Chất lượng giấc ngủ tác động đến lão hóa sâu sắc hơn cả chế độ ăn uống."
+                },
+                {
+                  en: "Engaging in intense activities, staying out late, or using electronic devices in the evening stimulates the sympathetic nervous system (the gas pedal), increasing free radicals, AGEs, and inflammatory responses that ravage the body.",
+                  vi: "Việc hoạt động mạnh, đi chơi khuya hay dùng thiết bị điện tử vào buổi tối sẽ kích thích hệ thần kinh giao cảm (chiếc chân ga), làm tăng gốc tự do, AGEs và các phản ứng viêm nhiễm tàn phá cơ thể."
+                },
+                {
+                  en: "Instead, finish busy tasks 2 hours before bedtime, limit blue light, listen to music, practice yoga, or meditate to activate the parasympathetic nervous system (the brakes), helping the body relax and recover.",
+                  vi: "Thay vào đó, hãy hoàn thành công việc bận rộn 2 tiếng trước khi ngủ, hạn chế ánh sáng xanh, nghe nhạc, tập yoga hoặc thiền để hệ thần kinh phó giao cảm (chiếc phanh) hoạt động, giúp cơ thể thả lỏng và phục hồi."
+                }
+              ]
+            },
+            {
+              id: "sec-1-4",
+              code: "1.4",
+              partId: "part-1",
+              icon: "☀️",
+              categoryEN: "Habit 4 of 6 • Infrared Light & Melatonin",
+              categoryVI: "Thói quen 4/6 • Tia hồng ngoại & Melatonin",
+              headingEN: "1.4 Get exposed to infrared rays to boost melatonin production",
+              headingVI: "1.4 Tiếp xúc với tia hồng ngoại để tăng sinh melatonin",
+              rawHeadingEN: "Get exposed to infrared rays to boost melatonin production:",
+              rawHeadingVI: "Tiếp xúc với tia hồng ngoại để tăng sinh melatonin:",
+              paragraphEN: "Melatonin is not only a sleep hormone but also a powerful antioxidant (twice as strong as vitamin E), which helps protect mitochondria, fight inflammation, and prevent cancer. Most melatonin resides in the mitochondria, and its production is strongly stimulated by infrared rays from sunlight and natural firelight. You should sunbathe in the morning, sit under tree canopies to receive indirect infrared rays, and replace artificial light (LED lights, screens) at night with light from firewood, candles, or incandescent bulbs.",
+              paragraphVI: "Melatonin không chỉ là hormone giấc ngủ mà còn là một chất chống oxy hóa mạnh (mạnh gấp đôi vitamin E), giúp bảo vệ ti thể, chống viêm và phòng ngừa ung thư. Phần lớn melatonin nằm trong ti thể và được kích thích sản xuất mạnh mẽ bởi tia hồng ngoại từ ánh nắng mặt trời và ánh lửa tự nhiên. Bạn nên tắm nắng buổi sáng, ngồi dưới tán cây để nhận tia hồng ngoại gián tiếp, và thay thế ánh sáng nhân tạo (đèn LED, màn hình) vào ban đêm bằng ánh sáng từ lửa củi, nến hoặc đèn sợi đốt.",
+              sentences: [
+                {
+                  en: "Melatonin is not only a sleep hormone but also a powerful antioxidant (twice as strong as vitamin E), which helps protect mitochondria, fight inflammation, and prevent cancer.",
+                  vi: "Melatonin không chỉ là hormone giấc ngủ mà còn là một chất chống oxy hóa mạnh (mạnh gấp đôi vitamin E), giúp bảo vệ ti thể, chống viêm và phòng ngừa ung thư."
+                },
+                {
+                  en: "Most melatonin resides in the mitochondria, and its production is strongly stimulated by infrared rays from sunlight and natural firelight.",
+                  vi: "Phần lớn melatonin nằm trong ti thể và được kích thích sản xuất mạnh mẽ bởi tia hồng ngoại từ ánh nắng mặt trời và ánh lửa tự nhiên."
+                },
+                {
+                  en: "You should sunbathe in the morning, sit under tree canopies to receive indirect infrared rays, and replace artificial light (LED lights, screens) at night with light from firewood, candles, or incandescent bulbs.",
+                  vi: "Bạn nên tắm nắng buổi sáng, ngồi dưới tán cây để nhận tia hồng ngoại gián tiếp, và thay thế ánh sáng nhân tạo (đèn LED, màn hình) vào ban đêm bằng ánh sáng từ lửa củi, nến hoặc đèn sợi đốt."
+                }
+              ]
+            },
+            {
+              id: "sec-1-5",
+              code: "1.5",
+              partId: "part-1",
+              icon: "💧",
+              categoryEN: "Habit 5 of 6 • Morning Hydration & Digestion",
+              categoryVI: "Thói quen 5/6 • Cấp nước buổi sáng & Tiêu hóa",
+              headingEN: "1.5 Drink a full glass of water in one go upon waking up",
+              headingVI: "1.5 Uống một mạch hết một cốc nước khi thức dậy",
+              rawHeadingEN: "Drink a full glass of water in one go upon waking up:",
+              rawHeadingVI: "Uống một mạch hết một cốc nước khi thức dậy:",
+              paragraphEN: "The body loses a lot of water during sleep, causing blood to thicken and circulation to be poor in the morning, which damages cells and accelerates aging. Drinking a glass of about 200ml of water continuously in one go right after waking up creates a signal to wake up the intestines, stimulates bowel movements to push out stagnant waste, and prevents constipation as well as colon cancer. This action also helps shift the nervous system into a sympathetic state to start a new day alert.",
+              paragraphVI: "Cơ thể mất nhiều nước khi ngủ, khiến máu bị đặc lại và tuần hoàn kém vào buổi sáng, làm tế bào tổn thương và đẩy nhanh lão hóa. Việc uống một cốc nước khoảng 200ml liên tục thành một mạch ngay khi dậy sẽ tạo tín hiệu đánh thức ruột, kích thích nhu động ruột đẩy phân tồn đọng ra ngoài và ngăn ngừa táo bón cũng như ung thư đại tràng. Hành động này cũng giúp chuyển đổi hệ thần kinh sang trạng thái giao cảm để bắt đầu một ngày mới tỉnh táo.",
+              sentences: [
+                {
+                  en: "The body loses a lot of water during sleep, causing blood to thicken and circulation to be poor in the morning, which damages cells and accelerates aging.",
+                  vi: "Cơ thể mất nhiều nước khi ngủ, khiến máu bị đặc lại và tuần hoàn kém vào buổi sáng, làm tế bào tổn thương và đẩy nhanh lão hóa."
+                },
+                {
+                  en: "Drinking a glass of about 200ml of water continuously in one go right after waking up creates a signal to wake up the intestines, stimulates bowel movements to push out stagnant waste, and prevents constipation as well as colon cancer.",
+                  vi: "Việc uống một cốc nước khoảng 200ml liên tục thành một mạch ngay khi dậy sẽ tạo tín hiệu đánh thức ruột, kích thích nhu động ruột đẩy phân tồn đọng ra ngoài và ngăn ngừa táo bón cũng như ung thư đại tràng."
+                },
+                {
+                  en: "This action also helps shift the nervous system into a sympathetic state to start a new day alert.",
+                  vi: "Hành động này cũng giúp chuyển đổi hệ thần kinh sang trạng thái giao cảm để bắt đầu một ngày mới tỉnh táo."
+                }
+              ]
+            },
+            {
+              id: "sec-1-6",
+              code: "1.6",
+              partId: "part-1",
+              icon: "💪",
+              categoryEN: "Habit 6 of 6 • Muscle Preservation",
+              categoryVI: "Thói quen 6/6 • Duy trì khối cơ",
+              headingEN: "1.6 Strength train twice a week",
+              headingVI: "1.6 Tập luyện cơ bắp hai lần mỗi tuần",
+              rawHeadingEN: "Strength train twice a week:",
+              rawHeadingVI: "Tập luyện cơ bắp hai lần mỗi tuần:",
+              paragraphEN: "After the age of 30, lower body muscles will naturally atrophy by about 1% per year if not exercised. Because muscles act as a sugar storage reservoir, muscle loss causes sugar to accumulate in the blood and leads to high blood sugar. Maintain simple exercises targeting large muscle groups, such as push-ups, crunches, and squats at home for about 15 to 20 minutes per session, twice a week, to build muscle, stabilize blood sugar, and prevent the risk of being bedridden in old age.",
+              paragraphVI: "Sau 30 tuổi, cơ bắp phần thân dưới sẽ tự nhiên teo đi khoảng 1% mỗi năm nếu không vận động. Vì cơ bắp là kho dự trữ đường, việc mất cơ sẽ khiến đường tích tụ trong máu và gây đường huyết cao. Hãy duy trì các bài tập đơn giản nhắm vào nhóm cơ lớn như chống đẩy, gập bụng, squat tại nhà khoảng 15 đến 20 phút mỗi buổi, 2 lần/tuần để tăng cơ, ổn định đường huyết và phòng ngừa nguy cơ nằm một chỗ khi về già.",
+              sentences: [
+                {
+                  en: "After the age of 30, lower body muscles will naturally atrophy by about 1% per year if not exercised.",
+                  vi: "Sau 30 tuổi, cơ bắp phần thân dưới sẽ tự nhiên teo đi khoảng 1% mỗi năm nếu không vận động."
+                },
+                {
+                  en: "Because muscles act as a sugar storage reservoir, muscle loss causes sugar to accumulate in the blood and leads to high blood sugar.",
+                  vi: "Vì cơ bắp là kho dự trữ đường, việc mất cơ sẽ khiến đường tích tụ trong máu và gây đường huyết cao."
+                },
+                {
+                  en: "Maintain simple exercises targeting large muscle groups, such as push-ups, crunches, and squats at home for about 15 to 20 minutes per session, twice a week, to build muscle, stabilize blood sugar, and prevent the risk of being bedridden in old age.",
+                  vi: "Hãy duy trì các bài tập đơn giản nhắm vào nhóm cơ lớn như chống đẩy, gập bụng, squat tại nhà khoảng 15 đến 20 phút mỗi buổi, 2 lần/tuần để tăng cơ, ổn định đường huyết và phòng ngừa nguy cơ nằm một chỗ khi về già."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "part-2",
+          partNumber: "Part 2",
+          partNumberVI: "Phần 2",
+          titleEN: "Part 2: 3 Causes That Make You Look 10 Years Older",
+          titleVI: "Phần 2: 3 Nguyên Nhân Khiến Ngoại Hình Già Hơn 10 Tuổi",
+          descriptionEN: "Understand the anatomical and lifestyle factors behind facial aging—including bone mass reduction, screen-induced eye strain, and posture-related laugh lines—along with practical remedies.",
+          descriptionVI: "Tìm hiểu các yếu tố giải phẫu và lối sống gây lão hóa khuôn mặt—bao gồm suy giảm mật độ xương, mỏi mắt do màn hình và rãnh cười do tư thế—cùng các giải pháp khắc phục thiết thực.",
+          sections: [
+            {
+              id: "sec-2-1",
+              code: "2.1",
+              partId: "part-2",
+              icon: "🧬",
+              categoryEN: "Cause 1 of 3 • Bone Mass & Ligaments",
+              categoryVI: "Nguyên nhân 1/3 • Khối lượng xương & Dây chằng",
+              headingEN: "2.1 Overall facial sagging",
+              headingVI: "2.1 Chảy xệ toàn bộ khuôn mặt",
+              rawHeadingEN: "Overall facial sagging:",
+              rawHeadingVI: "Chảy xệ toàn bộ khuôn mặt:",
+              paragraphEN: "Facial sagging is caused by the reduction of facial bone mass with age, the loosening of ligaments connecting the bone and skin, along with the loss of facial fat. People who have a thin face when they are young are often more prone to sagging as they age, therefore special care is needed to maintain a youthful appearance.",
+              paragraphVI: "Khuôn mặt chảy xệ do sự tiêu giảm khối lượng xương mặt theo tuổi tác, sự lỏng lẻo của các dây chằng nối giữa xương và da, cùng với sự suy giảm mỡ trên mặt. Những người có khuôn mặt gầy từ khi còn trẻ thường dễ bị chảy xệ hơn khi lớn tuổi, do đó cần đặc biệt chú ý chăm sóc để duy trì sự trẻ trung.",
+              sentences: [
+                {
+                  en: "Facial sagging is caused by the reduction of facial bone mass with age, the loosening of ligaments connecting the bone and skin, along with the loss of facial fat.",
+                  vi: "Khuôn mặt chảy xệ do sự tiêu giảm khối lượng xương mặt theo tuổi tác, sự lỏng lẻo của các dây chằng nối giữa xương và da, cùng với sự suy giảm mỡ trên mặt."
+                },
+                {
+                  en: "People who have a thin face when they are young are often more prone to sagging as they age, therefore special care is needed to maintain a youthful appearance.",
+                  vi: "Những người có khuôn mặt gầy từ khi còn trẻ thường dễ bị chảy xệ hơn khi lớn tuổi, do đó cần đặc biệt chú ý chăm sóc để duy trì sự trẻ trung."
+                }
+              ]
+            },
+            {
+              id: "sec-2-2",
+              code: "2.2",
+              partId: "part-2",
+              icon: "👁️",
+              categoryEN: "Cause 2 of 3 • Periorbital Skin & Circulation",
+              categoryVI: "Nguyên nhân 2/3 • Vùng da quanh mắt & Tuần hoàn",
+              headingEN: "2.2 Wrinkles and eye bags",
+              headingVI: "2.2 Nếp nhăn và bọng mắt",
+              rawHeadingEN: "Wrinkles and eye bags:",
+              rawHeadingVI: "Nếp nhăn và bọng mắt:",
+              paragraphEN: "The skin around the eyes is very thin, sensitive, and prone to dryness. Prolonged habits of using computers and phones reduce blood circulation around the eyes, leading to a lack of nutrients and oxygen, which causes wrinkles to form rapidly. To improve this, you can make a DIY mask using egg whites and yolks (rich in vitamin A, natural retinol, D, E, K, and B-group vitamins) combined with unsweetened yogurt. Applying this mask twice a week in the evening and adding more eggs to your meals will help fade wrinkles from the inside out.",
+              paragraphVI: "Vùng da quanh mắt rất mỏng, nhạy cảm và dễ bị khô. Thói quen dùng máy tính và điện thoại kéo dài làm giảm tuần hoàn máu quanh mắt, thiếu hụt dinh dưỡng và oxy, khiến nếp nhăn hình thành nhanh chóng. Để cải thiện, bạn có thể tự làm mặt nạ từ lòng trắng và lòng đỏ trứng gà (chứa nhiều vitamin A, retinol tự nhiên, D, E, K và nhóm B) kết hợp với sữa chua không đường. Đắp mặt nạ này 2 lần/tuần vào buổi tối và bổ sung thêm trứng vào bữa ăn sẽ giúp làm mờ nếp nhăn từ trong ra ngoài.",
+              sentences: [
+                {
+                  en: "The skin around the eyes is very thin, sensitive, and prone to dryness.",
+                  vi: "Vùng da quanh mắt rất mỏng, nhạy cảm và dễ bị khô."
+                },
+                {
+                  en: "Prolonged habits of using computers and phones reduce blood circulation around the eyes, leading to a lack of nutrients and oxygen, which causes wrinkles to form rapidly.",
+                  vi: "Thói quen dùng máy tính và điện thoại kéo dài làm giảm tuần hoàn máu quanh mắt, thiếu hụt dinh dưỡng và oxy, khiến nếp nhăn hình thành nhanh chóng."
+                },
+                {
+                  en: "To improve this, you can make a DIY mask using egg whites and yolks (rich in vitamin A, natural retinol, D, E, K, and B-group vitamins) combined with unsweetened yogurt.",
+                  vi: "Để cải thiện, bạn có thể tự làm mặt nạ từ lòng trắng và lòng đỏ trứng gà (chứa nhiều vitamin A, retinol tự nhiên, D, E, K và nhóm B) kết hợp với sữa chua không đường."
+                },
+                {
+                  en: "Applying this mask twice a week in the evening and adding more eggs to your meals will help fade wrinkles from the inside out.",
+                  vi: "Đắp mặt nạ này 2 lần/tuần vào buổi tối và bổ sung thêm trứng vào bữa ăn sẽ giúp làm mờ nếp nhăn từ trong ra ngoài."
+                }
+              ]
+            },
+            {
+              id: "sec-2-3",
+              code: "2.3",
+              partId: "part-2",
+              icon: "🧘",
+              categoryEN: "Cause 3 of 3 • Facial Hydration & Posture",
+              categoryVI: "Nguyên nhân 3/3 • Độ ẩm da & Tư thế cơ thể",
+              headingEN: "2.3 Deep laugh lines and sagging",
+              headingVI: "2.3 Rãnh cười hằn sâu và chảy xệ",
+              rawHeadingEN: "Deep laugh lines and sagging:",
+              rawHeadingVI: "Rãnh cười hằn sâu và chảy xệ:",
+              paragraphEN: "Laugh lines are prone to appearing early mainly due to dry skin and a hunched posture. Dry skin causes small wrinkles to appear every time you make an expression, gradually etching deeply into lines. A hunched posture, slouching, or bowing your head while using a phone causes gravity to pull the face downward, causing sagging and reducing blood flow throughout the body. This needs to be improved by moisturizing well, supplementing with vitamins C and E, being constantly mindful of correcting your sitting posture, and practicing back and abdominal muscle exercises.",
+              paragraphVI: "Rãnh cười dễ xuất hiện sớm chủ yếu do da khô và tư thế gù lưng. Làn da khô khiến các nếp nhăn nhỏ xuất hiện mỗi khi tạo biểu cảm và dần khắc sâu thành rãnh. Tư thế gù lưng, khom người hoặc cúi đầu khi dùng điện thoại làm trọng lực kéo khuôn mặt xuống dưới, gây chảy xệ và giảm lưu lượng máu toàn thân. Cần cải thiện bằng cách dưỡng ẩm tốt, bổ sung vitamin C, E, luôn ý thức điều chỉnh tư thế ngồi và tập các bài tập cơ lưng, cơ bụng.",
+              sentences: [
+                {
+                  en: "Laugh lines are prone to appearing early mainly due to dry skin and a hunched posture.",
+                  vi: "Rãnh cười dễ xuất hiện sớm chủ yếu do da khô và tư thế gù lưng."
+                },
+                {
+                  en: "Dry skin causes small wrinkles to appear every time you make an expression, gradually etching deeply into lines.",
+                  vi: "Làn da khô khiến các nếp nhăn nhỏ xuất hiện mỗi khi tạo biểu cảm và dần khắc sâu thành rãnh."
+                },
+                {
+                  en: "A hunched posture, slouching, or bowing your head while using a phone causes gravity to pull the face downward, causing sagging and reducing blood flow throughout the body.",
+                  vi: "Tư thế gù lưng, khom người hoặc cúi đầu khi dùng điện thoại làm trọng lực kéo khuôn mặt xuống dưới, gây chảy xệ và giảm lưu lượng máu toàn thân."
+                },
+                {
+                  en: "This needs to be improved by moisturizing well, supplementing with vitamins C and E, being constantly mindful of correcting your sitting posture, and practicing back and abdominal muscle exercises.",
+                  vi: "Cần cải thiện bằng cách dưỡng ẩm tốt, bổ sung vitamin C, E, luôn ý thức điều chỉnh tư thế ngồi và tập các bài tập cơ lưng, cơ bụng."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+
+    /***********************************************************************
+     * 2. INTERACTIVE LEARNER GLOSSARY (30 B2/C1 TERMS EXTRACTED FROM TEXT)
+     ***********************************************************************/
+    const GLOSSARY_TERMS = [
+      {
+        id: "term-1",
+        term: "blood sugar spike",
+        phonetic: "/blʌd ˈʃʊɡər spaɪk/",
+        pos: "noun phrase",
+        sectionId: "sec-1-1",
+        sectionLabel: "1.1 & 1.2",
+        definition: "A rapid, sharp increase in the concentration of glucose in the bloodstream, typically occurring shortly after consuming high-carbohydrate foods.",
+        plainEnglish: "In other words, it is when the amount of sugar in your blood shoots up very fast right after eating sweet or starchy food.",
+        example: "Consuming too much starch and sugar causes blood sugar spikes, generating free radicals and triggering glycation, which accelerates the aging process.",
+        vietnamese: "Sự tăng vọt đường huyết / Đường huyết tăng đột ngột"
+      },
+      {
+        id: "term-2",
+        term: "free radicals",
+        phonetic: "/ˌfriː ˈrædɪkəlz/",
+        pos: "noun (plural)",
+        sectionId: "sec-1-1",
+        sectionLabel: "1.1 & 1.3",
+        definition: "Unstable molecules produced during cellular metabolism that contain unpaired electrons and cause oxidative damage to cells, proteins, and DNA.",
+        plainEnglish: "In other words, these are harmful, unstable molecules inside the body that damage healthy cells and make you age faster.",
+        example: "Consuming too much starch and sugar causes blood sugar spikes, generating free radicals and triggering glycation, which accelerates the aging process.",
+        vietnamese: "Gốc tự do"
+      },
+      {
+        id: "term-3",
+        term: "glycation",
+        phonetic: "/ɡlaɪˈkeɪʃən/",
+        pos: "noun",
+        sectionId: "sec-1-1",
+        sectionLabel: "1.1",
+        definition: "A biochemical process in which excess sugar molecules bond chemically to proteins or lipids (such as collagen) without enzymatic control, stiffening tissues.",
+        plainEnglish: "In other words, it is a damaging reaction where extra sugar sticks to skin proteins like collagen, making skin stiff, wrinkled, and aged.",
+        example: "Consuming too much starch and sugar causes blood sugar spikes, generating free radicals and triggering glycation, which accelerates the aging process.",
+        vietnamese: "Hiện tượng đường hóa"
+      },
+      {
+        id: "term-4",
+        term: "accelerate",
+        phonetic: "/əkˈseləreɪt/",
+        pos: "verb",
+        sectionId: "sec-1-1",
+        sectionLabel: "1.1 & 1.5",
+        definition: "To cause a biological, chemical, or physical process to happen faster or earlier than it naturally would.",
+        plainEnglish: "In other words, to speed something up or make it happen much more quickly.",
+        example: "The body loses a lot of water during sleep, causing blood to thicken and circulation to be poor in the morning, which damages cells and accelerates aging.",
+        vietnamese: "Thúc đẩy / Đẩy nhanh"
+      },
+      {
+        id: "term-5",
+        term: "sagging",
+        phonetic: "/ˈsæɡɪŋ/",
+        pos: "noun / adjective",
+        sectionId: "sec-2-1",
+        sectionLabel: "1.1, 2.1 & 2.3",
+        definition: "The condition of sinking, drooping, or hanging downward due to loss of structural support, elasticity, or gravitational pull.",
+        plainEnglish: "In other words, when skin or facial tissue loses firmness and hangs downward instead of staying tight.",
+        example: "This condition severely destroys collagen, causes sagging skin, and increases the risk of dark spots by 1.3 times with just 50g of added starch/sugar.",
+        vietnamese: "Sự chảy xệ / Làm da chảy xệ"
+      },
+      {
+        id: "term-6",
+        term: "remedy",
+        phonetic: "/ˈremədi/",
+        pos: "verb",
+        sectionId: "sec-1-1",
+        sectionLabel: "1.1",
+        definition: "To set right, correct, or counteract an undesirable physical condition or problematic situation.",
+        plainEnglish: "In other words, to fix, solve, or improve a problem.",
+        example: "To remedy this, cut your white rice intake in half, avoid eating white rice for dinner, switch to eating more vegetables and fruits...",
+        vietnamese: "Khắc phục / Chữa trị"
+      },
+      {
+        id: "term-7",
+        term: "golden window",
+        phonetic: "/ˈɡoʊldən ˈwɪndoʊ/",
+        pos: "idiom / noun phrase",
+        sectionId: "sec-1-2",
+        sectionLabel: "1.2",
+        definition: "A brief, optimal period of time during which taking a specific action yields the highest possible benefit or effectiveness.",
+        plainEnglish: "In other words, the best and most effective short period of time to do something before the opportunity passes.",
+        example: "You should walk for about 20 minutes (equivalent to 2000 steps) or do squats in place right during the \"golden window\" of 15 minutes after eating.",
+        vietnamese: "\"Khung giờ vàng\" (khoảng thời gian tối ưu nhất)"
+      },
+      {
+        id: "term-8",
+        term: "stabilize",
+        phonetic: "/ˈsteɪbəlaɪz/",
+        pos: "verb",
+        sectionId: "sec-1-2",
+        sectionLabel: "1.2 & 1.6",
+        definition: "To make a fluctuating physiological level (such as blood glucose) steady and prevent extreme rises or drops.",
+        plainEnglish: "In other words, to keep something steady, balanced, and under control.",
+        example: "This habit helps stabilize blood sugar, slows down the aging process throughout the body, and significantly reduces intense post-meal drowsiness.",
+        vietnamese: "Làm ổn định / Giữ ổn định"
+      },
+      {
+        id: "term-9",
+        term: "drowsiness",
+        phonetic: "/ˈdraʊzinəs/",
+        pos: "noun",
+        sectionId: "sec-1-2",
+        sectionLabel: "1.2",
+        definition: "A state of strong sleepiness, lethargy, and reduced mental alertness, often experienced after a heavy meal.",
+        plainEnglish: "In other words, feeling very sleepy, heavy-eyed, and tired during the day.",
+        example: "This habit helps stabilize blood sugar, slows down the aging process throughout the body, and significantly reduces intense post-meal drowsiness.",
+        vietnamese: "Cảm giác buồn ngủ / Sự uể oải buồn ngủ"
+      },
+      {
+        id: "term-10",
+        term: "sympathetic nervous system",
+        phonetic: "/ˌsɪmpəˈθetɪk ˈnɜːrvəs ˈsɪstəm/",
+        pos: "noun phrase",
+        sectionId: "sec-1-3",
+        sectionLabel: "1.3 & 1.5",
+        definition: "The branch of the autonomic nervous system that prepares the body for intense physical activity, alertness, or 'fight-or-flight' responses.",
+        plainEnglish: "In other words, the body's 'gas pedal' system that makes you alert, active, and ready for action, but can cause stress if overused at night.",
+        example: "Engaging in intense activities, staying out late, or using electronic devices in the evening stimulates the sympathetic nervous system (the gas pedal)...",
+        vietnamese: "Hệ thần kinh giao cảm"
+      },
+      {
+        id: "term-11",
+        term: "parasympathetic nervous system",
+        phonetic: "/ˌpærəsɪmpəˈθetɪk ˈnɜːrvəs ˈsɪstəm/",
+        pos: "noun phrase",
+        sectionId: "sec-1-3",
+        sectionLabel: "1.3",
+        definition: "The branch of the autonomic nervous system responsible for 'rest-and-digest' functions, slowing the heart rate and promoting cellular recovery.",
+        plainEnglish: "In other words, the body's natural 'brakes' that help you calm down, rest, digest food, and heal while relaxing or sleeping.",
+        example: "...listen to music, practice yoga, or meditate to activate the parasympathetic nervous system (the brakes), helping the body relax and recover.",
+        vietnamese: "Hệ thần kinh phó giao cảm"
+      },
+      {
+        id: "term-12",
+        term: "inflammatory response",
+        phonetic: "/ɪnˈflæmətɔːri rɪˈspɑːns/",
+        pos: "noun phrase",
+        sectionId: "sec-1-3",
+        sectionLabel: "1.3",
+        definition: "A biological reaction of body tissues to harmful stimuli, which when chronic or excessive contributes to tissue damage and aging.",
+        plainEnglish: "In other words, swelling, irritation, and internal stress reactions in the body that damage cells over time.",
+        example: "...increasing free radicals, AGEs, and inflammatory responses that ravage the body.",
+        vietnamese: "Phản ứng viêm nhiễm"
+      },
+      {
+        id: "term-13",
+        term: "ravage",
+        phonetic: "/ˈrævɪdʒ/",
+        pos: "verb",
+        sectionId: "sec-1-3",
+        sectionLabel: "1.3",
+        definition: "To cause severe, widespread, and destructive damage to something over time.",
+        plainEnglish: "In other words, to badly damage, ruin, or wear down the body.",
+        example: "...increasing free radicals, AGEs, and inflammatory responses that ravage the body.",
+        vietnamese: "Tàn phá / Phá hủy nặng nề"
+      },
+      {
+        id: "term-14",
+        term: "antioxidant",
+        phonetic: "/ˌæntiˈɑːksɪdənt/",
+        pos: "noun",
+        sectionId: "sec-1-4",
+        sectionLabel: "1.4",
+        definition: "A substance that inhibits oxidation and neutralizes harmful free radicals, thereby preventing cellular damage.",
+        plainEnglish: "In other words, a protective molecule that shields your cells from damage and slows down aging.",
+        example: "Melatonin is not only a sleep hormone but also a powerful antioxidant (twice as strong as vitamin E), which helps protect mitochondria...",
+        vietnamese: "Chất chống oxy hóa"
+      },
+      {
+        id: "term-15",
+        term: "mitochondria",
+        phonetic: "/ˌmaɪtəˈkɑːndriə/",
+        pos: "noun (plural)",
+        sectionId: "sec-1-4",
+        sectionLabel: "1.4",
+        definition: "Organelles found in large numbers in most cells, responsible for respiration and energy production (often called the powerhouses of the cell).",
+        plainEnglish: "In other words, the tiny 'power plants' inside your cells that create energy to keep your body working.",
+        example: "Most melatonin resides in the mitochondria, and its production is strongly stimulated by infrared rays from sunlight and natural firelight.",
+        vietnamese: "Ti thể (nhà máy năng lượng của tế bào)"
+      },
+      {
+        id: "term-16",
+        term: "reside in",
+        phonetic: "/rɪˈzaɪd ɪn/",
+        pos: "phrasal verb",
+        sectionId: "sec-1-4",
+        sectionLabel: "1.4",
+        definition: "To be present, situated, or stored predominantly within a particular place or structure.",
+        plainEnglish: "In other words, to live in, stay in, or be located inside something.",
+        example: "Most melatonin resides in the mitochondria, and its production is strongly stimulated by infrared rays from sunlight and natural firelight.",
+        vietnamese: "Nằm trong / Cư trú ở / Tồn tại trong"
+      },
+      {
+        id: "term-17",
+        term: "tree canopy",
+        phonetic: "/triː ˈkænəpi/",
+        pos: "noun phrase",
+        sectionId: "sec-1-4",
+        sectionLabel: "1.4",
+        definition: "The upper layer or leafy roof formed by the crowns of trees, providing shade and filtering sunlight.",
+        plainEnglish: "In other words, the shady roof of leaves and branches above you when you sit under a tree.",
+        example: "You should sunbathe in the morning, sit under tree canopies to receive indirect infrared rays...",
+        vietnamese: "Tán cây / Vòm lá cây"
+      },
+      {
+        id: "term-18",
+        term: "incandescent bulb",
+        phonetic: "/ˌɪnkænˈdesənt bʌlb/",
+        pos: "noun phrase",
+        sectionId: "sec-1-4",
+        sectionLabel: "1.4",
+        definition: "An electric light bulb that produces warm light by heating a wire filament until it glows, emitting thermal and infrared radiation similar to firelight.",
+        plainEnglish: "In other words, a traditional warm-glowing light bulb with a heated wire inside (unlike modern blue-toned LED lights).",
+        example: "...and replace artificial light (LED lights, screens) at night with light from firewood, candles, or incandescent bulbs.",
+        vietnamese: "Đèn sợi đốt (bóng đèn dây tóc)"
+      },
+      {
+        id: "term-19",
+        term: "in one go",
+        phonetic: "/ɪn wʌn ɡoʊ/",
+        pos: "idiom / phrase",
+        sectionId: "sec-1-5",
+        sectionLabel: "1.5",
+        definition: "In a single, continuous action without stopping or pausing.",
+        plainEnglish: "In other words, doing something all at once without taking breaks.",
+        example: "Drinking a glass of about 200ml of water continuously in one go right after waking up creates a signal to wake up the intestines...",
+        vietnamese: "Uống một mạch / Làm một hơi liên tục"
+      },
+      {
+        id: "term-20",
+        term: "bowel movements",
+        phonetic: "/ˈbaʊəl ˈmuːvmənts/",
+        pos: "noun phrase",
+        sectionId: "sec-1-5",
+        sectionLabel: "1.5",
+        definition: "The physiological contractions of the intestinal muscles (peristalsis) that move digested waste through the digestive tract for elimination.",
+        plainEnglish: "In other words, the natural wave-like movements of your gut that push waste out of your body.",
+        example: "...creates a signal to wake up the intestines, stimulates bowel movements to push out stagnant waste, and prevents constipation as well as colon cancer.",
+        vietnamese: "Nhu động ruột / Sự bài tiết của ruột"
+      },
+      {
+        id: "term-21",
+        term: "stagnant",
+        phonetic: "/ˈstæɡnənt/",
+        pos: "adjective",
+        sectionId: "sec-1-5",
+        sectionLabel: "1.5",
+        definition: "Not flowing or moving; remaining trapped or inactive in one place for too long.",
+        plainEnglish: "In other words, stuck in one place and not moving out as it should.",
+        example: "...stimulates bowel movements to push out stagnant waste, and prevents constipation as well as colon cancer.",
+        vietnamese: "Tồn đọng / Ứ đọng"
+      },
+      {
+        id: "term-22",
+        term: "atrophy",
+        phonetic: "/ˈætrəfi/",
+        pos: "verb",
+        sectionId: "sec-1-6",
+        sectionLabel: "1.6",
+        definition: "To gradually waste away, shrink, or decline in size and strength due to aging, lack of use, or disease.",
+        plainEnglish: "In other words, when muscles get smaller and weaker over time because they are not being used.",
+        example: "After the age of 30, lower body muscles will naturally atrophy by about 1% per year if not exercised.",
+        vietnamese: "Teo đi / Suy giảm (cơ bắp)"
+      },
+      {
+        id: "term-23",
+        term: "reservoir",
+        phonetic: "/ˈrezərvwɑːr/",
+        pos: "noun",
+        sectionId: "sec-1-6",
+        sectionLabel: "1.6",
+        definition: "A large natural or biological storage space where a substance (such as glucose/glycogen) is held in reserve for future use.",
+        plainEnglish: "In other words, a storage tank or warehouse inside the body that holds extra sugar safely.",
+        example: "Because muscles act as a sugar storage reservoir, muscle loss causes sugar to accumulate in the blood and leads to high blood sugar.",
+        vietnamese: "Kho dự trữ / Bể chứa"
+      },
+      {
+        id: "term-24",
+        term: "accumulate",
+        phonetic: "/əˈkjuːmjəleɪt/",
+        pos: "verb",
+        sectionId: "sec-1-6",
+        sectionLabel: "1.6",
+        definition: "To gradually gather, build up, or increase in quantity over time in a specific location.",
+        plainEnglish: "In other words, to pile up or build up more and more over time.",
+        example: "Because muscles act as a sugar storage reservoir, muscle loss causes sugar to accumulate in the blood and leads to high blood sugar.",
+        vietnamese: "Tích tụ / Tích lũy"
+      },
+      {
+        id: "term-25",
+        term: "bedridden",
+        phonetic: "/ˈbedrɪdən/",
+        pos: "adjective",
+        sectionId: "sec-1-6",
+        sectionLabel: "1.6",
+        definition: "Confined to bed and unable to walk or care for oneself independently due to severe weakness, illness, or advanced age.",
+        plainEnglish: "In other words, being so weak or frail that you have to stay in bed all the time and cannot get up on your own.",
+        example: "...to build muscle, stabilize blood sugar, and prevent the risk of being bedridden in old age.",
+        vietnamese: "Nằm liệt giường / Nằm một chỗ khi về già"
+      },
+      {
+        id: "term-26",
+        term: "ligaments",
+        phonetic: "/ˈlɪɡəmənts/",
+        pos: "noun (plural)",
+        sectionId: "sec-2-1",
+        sectionLabel: "2.1",
+        definition: "Tough, fibrous bands of connective tissue that connect bones to other bones or anchor facial skin to underlying bone structure.",
+        plainEnglish: "In other words, strong elastic bands inside the body that hold bones and skin firmly in place.",
+        example: "Facial sagging is caused by the reduction of facial bone mass with age, the loosening of ligaments connecting the bone and skin, along with the loss of facial fat.",
+        vietnamese: "Các dây chằng"
+      },
+      {
+        id: "term-27",
+        term: "prone to",
+        phonetic: "/proʊn tuː/",
+        pos: "adjective phrase",
+        sectionId: "sec-2-1",
+        sectionLabel: "2.1, 2.2 & 2.3",
+        definition: "Having a natural tendency or increased likelihood of experiencing a particular (usually unwanted) condition.",
+        plainEnglish: "In other words, likely to suffer from or easily affected by something.",
+        example: "People who have a thin face when they are young are often more prone to sagging as they age, therefore special care is needed to maintain a youthful appearance.",
+        vietnamese: "Dễ bị / Có xu hướng dễ mắc phải"
+      },
+      {
+        id: "term-28",
+        term: "prolonged",
+        phonetic: "/prəˈlɔːŋd/",
+        pos: "adjective",
+        sectionId: "sec-2-2",
+        sectionLabel: "2.2",
+        definition: "Continuing for a very long time, especially longer than is healthy, normal, or desirable.",
+        plainEnglish: "In other words, lasting for a very long period of time without stopping.",
+        example: "Prolonged habits of using computers and phones reduce blood circulation around the eyes, leading to a lack of nutrients and oxygen...",
+        vietnamese: "Kéo dài (trong thời gian dài)"
+      },
+      {
+        id: "term-29",
+        term: "hunched posture / slouching",
+        phonetic: "/hʌntʃt ˈpɑːstʃər / ˈslaʊtʃɪŋ/",
+        pos: "noun phrase",
+        sectionId: "sec-2-3",
+        sectionLabel: "2.3",
+        definition: "A stooped, rounded-shoulder body position in which the spine bends forward and the head tilts downward instead of remaining upright.",
+        plainEnglish: "In other words, sitting or standing with your back bent forward and shoulders rounded instead of sitting up straight.",
+        example: "A hunched posture, slouching, or bowing your head while using a phone causes gravity to pull the face downward, causing sagging and reducing blood flow throughout the body.",
+        vietnamese: "Tư thế gù lưng, khom người"
+      },
+      {
+        id: "term-30",
+        term: "etch",
+        phonetic: "/etʃ/",
+        pos: "verb",
+        sectionId: "sec-2-3",
+        sectionLabel: "2.3",
+        definition: "To carve, cut, or impress lines permanently and deeply into a surface over time.",
+        plainEnglish: "In other words, when fine lines gradually press deeper and deeper into the skin until they become permanent creases.",
+        example: "Dry skin causes small wrinkles to appear every time you make an expression, gradually etching deeply into lines.",
+        vietnamese: "Khắc sâu / Hằn sâu (thành rãnh)"
+      }
+    ];
+
+    /***********************************************************************
+     * 3. APPLICATION STATE MANAGEMENT
+     ***********************************************************************/
+    const STATE = {
+      currentView: 'overview',      // 'overview' | 'part-1' | 'part-2' | 'sec-1-1'..'sec-2-3' | 'glossary'
+      globalLang: 'EN',             // 'EN' | 'VI'
+      fontScaleStep: 0,             // -1, 0, 1, 2
+      overviewCardLangs: {},        //Per-card language overrides on Overview: { 'sec-1-1': 'EN' | 'VI' }
+      sectionTitleLangs: {},        //Per-section title language override on Reading Pages
+      readingCardFlips: {},         //Per-paragraph/sentence card state on Reading Pages
+      sideBySideMode: false,        //Optional side-by-side comparison toggle on reading pages
+      glossarySearch: '',
+      glossaryPosFilter: 'ALL',
+      glossaryPartFilter: 'ALL',
+      glossaryRevealed: {}          // { 'term-1': true/false }
+    };
+
+    // Helper: Get flattened array of all 9 sections
+    function getAllSections() {
+      return DOCUMENT_DATA.parts.flatMap(p => p.sections);
+    }
+
+    // Helper: Find a section by ID
+    function getSectionById(secId) {
+      return getAllSections().find(s => s.id === secId) || null;
+    }
+
+    // Helper: Escape HTML for safe rendering
+    function escapeHTML(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    /***********************************************************************
+     * 4. THEME & FONT SIZE MANAGEMENT
+     ***********************************************************************/
+    function initTheme() {
+      const savedTheme = localStorage.getItem('bilingual_app_theme_58');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      updateThemeIcons();
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('bilingual_app_theme_58', isDark ? 'dark' : 'light');
+      updateThemeIcons();
+    }
+
+    function updateThemeIcons() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const sun = document.getElementById('theme-icon-sun');
+      const moon = document.getElementById('theme-icon-moon');
+      if (sun && moon) {
+        sun.classList.toggle('hidden', !isDark);
+        moon.classList.toggle('hidden', isDark);
+      }
+    }
+
+    function adjustFontSize(delta) {
+      STATE.fontScaleStep = Math.max(-1, Math.min(3, STATE.fontScaleStep + delta));
+      const sizes = {
+        '-1': '1.08rem', // ~17.3px
+        '0': '1.2rem',   // ~19.2px (default)
+        '1': '1.32rem',  // ~21.1px
+        '2': '1.45rem',  // ~23.2px
+        '3': '1.6rem'    // ~25.6px (presentation mode)
+      };
+      document.documentElement.style.setProperty('--reading-font-size', sizes[String(STATE.fontScaleStep)]);
+    }
+
+    /***********************************************************************
+     * 5. GLOBAL LANGUAGE SWITCH & ROUTING
+     ***********************************************************************/
+    function setGlobalLanguage(lang) {
+      STATE.globalLang = lang;
+      // Reset per-card overrides so everything syncs cleanly to the global toggle
+      STATE.overviewCardLangs = {};
+      STATE.sectionTitleLangs = {};
+      STATE.readingCardFlips = {};
+      updateTopNavUI();
+      renderCurrentView();
+    }
+
+    function updateTopNavUI() {
+      const enBtn = document.getElementById('global-lang-en');
+      const viBtn = document.getElementById('global-lang-vi');
+      if (enBtn && viBtn) {
+        if (STATE.globalLang === 'EN') {
+          enBtn.className = "px-2.5 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 bg-emerald-600 text-white shadow-sm";
+          viBtn.className = "px-2.5 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white";
+        } else {
+          viBtn.className = "px-2.5 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 bg-emerald-600 text-white shadow-sm";
+          enBtn.className = "px-2.5 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white";
+        }
+      }
+
+      const backBtn = document.getElementById('nav-back-btn');
+      const backLabel = document.getElementById('nav-back-label');
+      if (backBtn && backLabel) {
+        const isOverview = STATE.currentView === 'overview';
+        backLabel.textContent = STATE.globalLang === 'VI'
+          ? (isOverview ? 'Trang Tổng Quan' : '← Về Tổng Quan')
+          : (isOverview ? 'Overview Hub' : '← Back to Overview');
+
+        if (isOverview) {
+          backBtn.classList.add('opacity-80');
+        } else {
+          backBtn.classList.remove('opacity-80');
+        }
+      }
+
+      const selectEl = document.getElementById('quick-jump-select');
+      if (selectEl) {
+        selectEl.value = STATE.currentView;
+      }
+    }
+
+    function navigateTo(viewId, scrollToTop = true) {
+      if (!viewId) viewId = 'overview';
+      STATE.currentView = viewId;
+      if (window.location.hash !== `#${viewId}`) {
+        history.pushState(null, '', `#${viewId}`);
+      }
+      updateTopNavUI();
+      renderCurrentView();
+      if (scrollToTop) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '') || 'overview';
+      if (hash !== STATE.currentView) {
+        STATE.currentView = hash;
+        updateTopNavUI();
+        renderCurrentView();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    /***********************************************************************
+     * 6. VIEW RENDERING DISPATCHER
+     ***********************************************************************/
+    function renderCurrentView() {
+      const root = document.getElementById('app-root');
+      if (!root) return;
+
+      const view = STATE.currentView;
+      if (view === 'overview') {
+        root.innerHTML = renderOverviewPage();
+      } else if (view === 'glossary') {
+        root.innerHTML = renderGlossaryPage();
+      } else if (view === 'part-1' || view === 'part-2') {
+        root.innerHTML = renderPartReadingPage(view);
+      } else if (view.startsWith('sec-')) {
+        const section = getSectionById(view);
+        if (section) {
+          root.innerHTML = renderSectionReadingPage(section);
+        } else {
+          root.innerHTML = renderOverviewPage();
+        }
+      } else {
+        root.innerHTML = renderOverviewPage();
+      }
+    }
+
+    /***********************************************************************
+     * 7. PAGE 1: OVERVIEW / NAVIGATION HUB
+     ***********************************************************************/
+    function toggleOverviewCardLang(event, secId) {
+      // Prevent card click navigation when clicking the corner EN/VI toggle button
+      event.stopPropagation();
+      const currentLang = STATE.overviewCardLangs[secId] || STATE.globalLang;
+      const nextLang = currentLang === 'EN' ? 'VI' : 'EN';
+      STATE.overviewCardLangs[secId] = nextLang;
+
+      // Smoothly update just this card in the DOM without full page re-render
+      const section = getSectionById(secId);
+      if (!section) return;
+
+      const headingEl = document.getElementById(`overview-card-heading-${secId}`);
+      const subEl = document.getElementById(`overview-card-sub-${secId}`);
+      const previewEl = document.getElementById(`overview-card-preview-${secId}`);
+      const badgeEl = document.getElementById(`overview-card-lang-btn-${secId}`);
+      const ctaEl = document.getElementById(`overview-card-cta-${secId}`);
+
+      if (headingEl) {
+        headingEl.classList.add('opacity-0', 'translate-y-1');
+        setTimeout(() => {
+          headingEl.textContent = nextLang === 'EN' ? section.headingEN : section.headingVI;
+          if (subEl) {
+            subEl.textContent = nextLang === 'EN' ? section.headingVI : section.headingEN;
+          }
+          if (previewEl) {
+            previewEl.textContent = nextLang === 'EN' ? section.paragraphEN : section.paragraphVI;
+          }
+          if (ctaEl) {
+            ctaEl.textContent = nextLang === 'EN' ? 'Open Section →' : 'Mở bài đọc →';
+          }
+          if (badgeEl) {
+            badgeEl.innerHTML = `
+              <span class="${nextLang === 'EN' ? 'text-emerald-700 dark:text-emerald-300 font-bold' : 'text-slate-400'}">EN</span>
+              <span class="text-slate-300 dark:text-slate-600">/</span>
+              <span class="${nextLang === 'VI' ? 'text-emerald-700 dark:text-emerald-300 font-bold' : 'text-slate-400'}">VI</span>
+            `;
+          }
+          headingEl.classList.remove('opacity-0', 'translate-y-1');
+        }, 120);
+      }
+    }
+
+    function renderOverviewPage() {
+      const isVI = STATE.globalLang === 'VI';
+
+      const partsHTML = DOCUMENT_DATA.parts.map((part, partIdx) => {
+        const cardsHTML = part.sections.map((sec) => {
+          const cardLang = STATE.overviewCardLangs[sec.id] || STATE.globalLang;
+          const primaryHeading = cardLang === 'EN' ? sec.headingEN : sec.headingVI;
+          const secondaryHeading = cardLang === 'EN' ? sec.headingVI : sec.headingEN;
+          const previewText = cardLang === 'EN' ? sec.paragraphEN : sec.paragraphVI;
+          const ctaText = cardLang === 'EN' ? 'Open Section →' : 'Mở bài đọc →';
+
+          return `
+            <article
+              onclick="navigateTo('${sec.id}')"
+              role="button"
+              tabindex="0"
+              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigateTo('${sec.id}');}"
+              class="group relative rounded-2xl bg-white dark:bg-slate-900 border border-stone-200/90 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-emerald-500/60 dark:hover:border-emerald-500/60 transition-all duration-300 cursor-pointer flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            >
+              <div>
+                <!-- Card Top Bar: Section Number Badge + Corner EN/VI Toggle Button -->
+                <div class="flex items-start justify-between gap-3 mb-4">
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/70 dark:border-emerald-800/70">
+                    <span class="text-base" aria-hidden="true">${sec.icon}</span>
+                    <span class="font-mono text-xs font-bold text-emerald-800 dark:text-emerald-300">SECTION ${sec.code}</span>
+                  </div>
+
+                  <!-- Corner EN/VI Toggle Button with e.stopPropagation() -->
+                  <button
+                    id="overview-card-lang-btn-${sec.id}"
+                    type="button"
+                    onclick="toggleOverviewCardLang(event, '${sec.id}')"
+                    class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-mono bg-stone-100 hover:bg-emerald-100/80 dark:bg-slate-800 dark:hover:bg-emerald-950 border border-stone-200 dark:border-slate-700 transition-colors z-10"
+                    title="Toggle this card between English and Vietnamese"
+                  >
+                    <span class="${cardLang === 'EN' ? 'text-emerald-700 dark:text-emerald-300 font-bold' : 'text-slate-400'}">EN</span>
+                    <span class="text-slate-300 dark:text-slate-600">/</span>
+                    <span class="${cardLang === 'VI' ? 'text-emerald-700 dark:text-emerald-300 font-bold' : 'text-slate-400'}">VI</span>
+                  </button>
+                </div>
+
+                <!-- Card Heading (Default EN, or toggled language) -->
+                <h3
+                  id="overview-card-heading-${sec.id}"
+                  class="font-display text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-all duration-200 leading-snug mb-1.5"
+                >
+                  ${escapeHTML(primaryHeading)}
+                </h3>
+
+                <!-- Subtle Subtitle in Complementary Language -->
+                <p
+                  id="overview-card-sub-${sec.id}"
+                  class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4"
+                >
+                  ${escapeHTML(secondaryHeading)}
+                </p>
+
+                <!-- Verbatim Excerpt Preview -->
+                <p
+                  id="overview-card-preview-${sec.id}"
+                  class="text-sm sm:text-base text-slate-600 dark:text-slate-300 line-clamp-3 leading-relaxed"
+                >
+                  ${escapeHTML(previewText)}
+                </p>
+              </div>
+
+              <!-- Card Footer Action -->
+              <div class="mt-5 pt-4 border-t border-stone-100 dark:border-slate-800/80 flex items-center justify-between text-xs sm:text-sm font-semibold text-emerald-700 dark:text-emerald-400">
+                <span>${sec.sentences.length} ${isVI ? 'câu song ngữ' : 'bilingual sentences'}</span>
+                <span id="overview-card-cta-${sec.id}" class="group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                  ${ctaText}
+                </span>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        return `
+          <section class="mb-12 sm:mb-16">
+            <!-- Part Header Banner -->
+            <div class="rounded-2xl bg-gradient-to-r ${partIdx === 0 ? 'from-emerald-900 via-teal-900 to-slate-900' : 'from-slate-900 via-indigo-950 to-slate-900'} text-white p-6 sm:p-8 mb-6 shadow-md">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <span class="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-white/15 text-emerald-200 mb-2">
+                    ${escapeHTML(part.partNumber)} / ${escapeHTML(part.partNumberVI)}
+                  </span>
+                  <h2 class="font-display text-2xl sm:text-3xl font-extrabold leading-tight">
+                    ${escapeHTML(isVI ? part.titleVI : part.titleEN)}
+                  </h2>
+                  <p class="text-emerald-100/90 text-sm sm:text-base mt-1 font-medium">
+                    ${escapeHTML(isVI ? part.titleEN : part.titleVI)}
+                  </p>
+                </div>
+                <button
+                  onclick="navigateTo('${part.id}')"
+                  class="shrink-0 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white text-slate-900 hover:bg-emerald-50 font-bold text-sm shadow-sm transition-all"
+                >
+                  <span>${isVI ? 'Đọc toàn bộ ' + part.partNumberVI : 'Read Full ' + part.partNumber}</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Section Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+              ${cardsHTML}
+            </div>
+          </section>
+        `;
+      }).join('');
+
+      return `
+        <div class="animate-view">
+          <!-- Main Bilingual Document Hero Header -->
+          <div class="rounded-3xl bg-white dark:bg-slate-900 border border-stone-200/90 dark:border-slate-800 p-6 sm:p-10 mb-10 shadow-sm relative overflow-hidden">
+            <div class="absolute -right-12 -top-12 w-56 h-56 rounded-full bg-emerald-500/5 dark:bg-emerald-500/10 pointer-events-none"></div>
+
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300/50 dark:border-emerald-800">
+                ${escapeHTML(DOCUMENT_DATA.bannerTag)}
+              </span>
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-stone-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                ${escapeHTML(DOCUMENT_DATA.reference)}
+              </span>
+            </div>
+
+            <!-- Prominent Dual-Language Main Title -->
+            <h1 class="font-display text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-3">
+              ${escapeHTML(DOCUMENT_DATA.titleEN)}
+            </h1>
+            <p class="font-display text-xl sm:text-2xl font-bold text-emerald-700 dark:text-emerald-400 mb-6">
+              ${escapeHTML(DOCUMENT_DATA.titleVI)}
+            </p>
+
+            <div class="p-4 sm:p-5 rounded-2xl bg-stone-50 dark:bg-slate-800/60 border border-stone-200/70 dark:border-slate-700/70 space-y-1.5 text-sm sm:text-base">
+              <p class="font-semibold text-slate-800 dark:text-slate-200">
+                <span class="inline-block w-8 font-mono text-xs font-bold text-emerald-700 dark:text-emerald-400">EN</span>
+                ${escapeHTML(DOCUMENT_DATA.subtitleEN)}
+              </p>
+              <p class="font-medium text-slate-600 dark:text-slate-300">
+                <span class="inline-block w-8 font-mono text-xs font-bold text-emerald-700 dark:text-emerald-400">VI</span>
+                ${escapeHTML(DOCUMENT_DATA.subtitleVI)}
+              </p>
+            </div>
+
+            <!-- Interactive Instructions Bar -->
+            <div class="mt-6 pt-5 border-t border-stone-200/70 dark:border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">i</span>
+                <span>
+                  ${isVI
+                    ? 'Nhấn nút EN/VI ở góc thẻ để đổi ngôn ngữ tiêu đề, hoặc nhấn vào thân thẻ để mở trang đọc chi tiết.'
+                    : 'Click the corner EN/VI button on any card to flip its heading, or click anywhere on the card body to open that section.'}
+                </span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button
+                  onclick="navigateTo('sec-1-1')"
+                  class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-sm transition-colors"
+                >
+                  ${isVI ? 'Bắt đầu đọc từ Phần 1.1 →' : 'Start Reading at 1.1 →'}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Render All Parts & Section Cards -->
+          ${partsHTML}
+
+          <!-- Featured Glossary Quick-Access Banner -->
+          <section
+            onclick="navigateTo('glossary')"
+            role="button"
+            tabindex="0"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigateTo('glossary');}"
+            class="group rounded-3xl bg-gradient-to-br from-amber-500/15 via-orange-500/10 to-emerald-500/15 dark:from-amber-500/20 dark:via-slate-900 dark:to-emerald-500/20 border-2 border-amber-400/50 dark:border-amber-500/40 p-6 sm:p-8 cursor-pointer hover:shadow-xl hover:border-amber-500 transition-all duration-300"
+          >
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div class="space-y-2 max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-900 dark:text-amber-200 text-xs font-mono font-bold uppercase tracking-wider">
+                  <span>📚 B2 / C1 Language Learner Resource</span>
+                </div>
+                <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">
+                  ${isVI ? 'Từ Điển Thuật Ngữ Tương Tác (30 Từ Vựng Trọng Tâm)' : 'Interactive Learner Glossary (30 Key Terms & Idioms)'}
+                </h2>
+                <p class="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
+                  ${isVI
+                    ? 'Khám phá 30 thuật ngữ chuyên ngành, khái niệm sinh học và cụm từ nâng cao trích xuất trực tiếp từ tài liệu — kèm định nghĩa học thuật, giải thích tiếng Anh đơn giản, câu ví dụ ngữ cảnh và nút mở nghĩa Tiếng Việt.'
+                    : 'Master 30 specialized biological terms, health concepts, and idioms extracted directly from this document—complete with academic definitions, plain-English explanations, verbatim context examples, and interactive Vietnamese reveal toggles.'}
+                </p>
+              </div>
+              <div class="shrink-0">
+                <span class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-amber-600 group-hover:bg-amber-700 text-white font-bold text-sm sm:text-base shadow-md transition-all">
+                  <span>${isVI ? 'Mở Từ Điển Ngay' : 'Explore Glossary'}</span>
+                  <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    /***********************************************************************
+     * 8. INTERACTIVE PARAGRAPH & SENTENCE CARD COMPONENT HELPERS
+     ***********************************************************************/
+    function toggleReadingCard(cardKey, event) {
+      if (event) event.stopPropagation();
+      const currentlyFlipped = getCardFlipState(cardKey);
+      const nextFlipped = !currentlyFlipped;
+      STATE.readingCardFlips[cardKey] = nextFlipped;
+
+      const innerEl = document.getElementById(`flip-inner-${cardKey}`);
+      const badgeEl = document.getElementById(`flip-badge-${cardKey}`);
+      const btnLabelEl = document.getElementById(`flip-btn-label-${cardKey}`);
+
+      if (innerEl) {
+        innerEl.classList.toggle('is-flipped', nextFlipped);
+      }
+      if (badgeEl) {
+        if (nextFlipped) {
+          badgeEl.textContent = 'VI • TIẾNG VIỆT';
+          badgeEl.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300/60 dark:border-amber-700 transition-colors';
+        } else {
+          badgeEl.textContent = 'EN • ENGLISH';
+          badgeEl.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300/60 dark:border-emerald-700 transition-colors';
+        }
+      }
+      if (btnLabelEl) {
+        btnLabelEl.textContent = nextFlipped
+          ? 'Switch to English / Xem Tiếng Anh'
+          : 'Reveal Vietnamese / Xem Tiếng Việt';
+      }
+    }
+
+    function getCardFlipState(cardKey) {
+      if (typeof STATE.readingCardFlips[cardKey] === 'boolean') {
+        return STATE.readingCardFlips[cardKey];
+      }
+      return STATE.globalLang === 'VI';
+    }
+
+    function toggleSectionTitleLang(secId) {
+      const current = STATE.sectionTitleLangs[secId] || STATE.globalLang;
+      const next = current === 'EN' ? 'VI' : 'EN';
+      STATE.sectionTitleLangs[secId] = next;
+
+      const sec = getSectionById(secId);
+      if (!sec) return;
+      const titleEl = document.getElementById(`sec-header-title-${secId}`);
+      const subEl = document.getElementById(`sec-header-sub-${secId}`);
+      const btnTextEl = document.getElementById(`sec-header-toggle-text-${secId}`);
+
+      if (titleEl) {
+        titleEl.textContent = next === 'EN' ? sec.headingEN : sec.headingVI;
+      }
+      if (subEl) {
+        subEl.textContent = next === 'EN' ? sec.headingVI : sec.headingEN;
+      }
+      if (btnTextEl) {
+        btnTextEl.textContent = next === 'EN' ? 'Title: EN (Switch to VI)' : 'Tiêu đề: VI (Đổi sang EN)';
+      }
+    }
+
+    function toggleSideBySideMode() {
+      STATE.sideBySideMode = !STATE.sideBySideMode;
+      renderCurrentView();
+    }
+
+    function flipAllSectionCards(secId, toVietnamese) {
+      const sec = getSectionById(secId);
+      if (!sec) return;
+      STATE.readingCardFlips[`main-${sec.id}`] = toVietnamese;
+      sec.sentences.forEach((_, idx) => {
+        STATE.readingCardFlips[`sent-${sec.id}-${idx}`] = toVietnamese;
+      });
+      renderCurrentView();
+    }
+
+    // Renders a jitter-free interactive flip card for a verbatim paragraph or sentence
+    function renderInteractiveBilingualCard({ cardKey, labelEN, labelVI, textEN, textVI, isPrimary = false }) {
+      const isFlipped = getCardFlipState(cardKey);
+
+      if (STATE.sideBySideMode) {
+        return `
+          <div class="rounded-3xl bg-white dark:bg-slate-900 border ${isPrimary ? 'border-2 border-emerald-500/50 dark:border-emerald-500/40 shadow-md' : 'border-stone-200 dark:border-slate-800 shadow-sm'} p-6 sm:p-8 transition-all">
+            <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-stone-100 dark:border-slate-800">
+              <span class="font-mono text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                ${escapeHTML(labelEN)} / ${escapeHTML(labelVI)}
+              </span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                EN + VI Side-by-Side
+              </span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              <div class="space-y-2">
+                <div class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">TIẾNG ANH (ENGLISH)</div>
+                <p class="reading-text text-slate-900 dark:text-slate-100 font-normal">
+                  ${escapeHTML(textEN)}
+                </p>
+              </div>
+              <div class="space-y-2 md:border-l md:border-stone-200 dark:md:border-slate-800 md:pl-6">
+                <div class="text-xs font-mono font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider">TIẾNG VIỆT (VIETNAMESE)</div>
+                <p class="reading-text text-slate-900 dark:text-slate-100 font-normal">
+                  ${escapeHTML(textVI)}
+                </p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      const activeBadgeText = isFlipped ? 'VI • TIẾNG VIỆT' : 'EN • ENGLISH';
+      const activeBadgeClass = isFlipped
+        ? 'bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border-amber-300/60 dark:border-amber-700'
+        : 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border-emerald-300/60 dark:border-emerald-700';
+
+      const toggleBtnText = isFlipped
+        ? 'Switch to English / Xem Tiếng Anh'
+        : 'Reveal Vietnamese / Xem Tiếng Việt';
+
+      return `
+        <div
+          onclick="toggleReadingCard('${cardKey}', event)"
+          role="button"
+          tabindex="0"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleReadingCard('${cardKey}', event);}"
+          class="flip-card-stage group cursor-pointer rounded-3xl bg-white dark:bg-slate-900 border ${isPrimary ? 'border-2 border-emerald-500/50 dark:border-emerald-500/40 shadow-md hover:shadow-xl' : 'border-stone-200/90 dark:border-slate-800 shadow-sm hover:shadow-md'} p-6 sm:p-8 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          aria-label="Interactive bilingual paragraph card. Click to flip between English and Vietnamese."
+        >
+          <!-- Card Header: Type Label + Active Language State Badge -->
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-5 pb-3.5 border-b border-stone-100 dark:border-slate-800/80">
+            <span class="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              ${escapeHTML(labelEN)}
+            </span>
+
+            <!-- Active Language Indicator Badge (EN or VI) -->
+            <span
+              id="flip-badge-${cardKey}"
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold border transition-colors ${activeBadgeClass}"
+            >
+              ${activeBadgeText}
+            </span>
+          </div>
+
+          <!-- Jitter-free Grid-Stacked 3D Flip Body -->
+          <div id="flip-inner-${cardKey}" class="flip-card-inner ${isFlipped ? 'is-flipped' : ''}">
+            <!-- Face 1: English Paragraph -->
+            <div class="flip-card-face face-en">
+              <p class="reading-text text-slate-900 dark:text-slate-100 font-normal">
+                ${escapeHTML(textEN)}
+              </p>
+            </div>
+
+            <!-- Face 2: Vietnamese Paragraph -->
+            <div class="flip-card-face face-vi">
+              <p class="reading-text text-slate-900 dark:text-slate-100 font-normal">
+                ${escapeHTML(textVI)}
+              </p>
+            </div>
+          </div>
+
+          <!-- Card Footer: Dedicated Reveal/Flip Button -->
+          <div class="mt-6 pt-4 border-t border-stone-100 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-3">
+            <span class="text-xs text-slate-400 dark:text-slate-500">
+              Click anywhere on card to flip language
+            </span>
+
+            <button
+              type="button"
+              onclick="toggleReadingCard('${cardKey}', event)"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-stone-100 group-hover:bg-emerald-600 group-hover:text-white dark:bg-slate-800 dark:group-hover:bg-emerald-600 text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm"
+            >
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+              </svg>
+              <span id="flip-btn-label-${cardKey}">${toggleBtnText}</span>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    /***********************************************************************
+     * 9. PAGES 2..N: INDIVIDUAL SECTION READING PAGE
+     ***********************************************************************/
+    function renderSectionReadingPage(sec) {
+      const allSections = getAllSections();
+      const currentIdx = allSections.findIndex(s => s.id === sec.id);
+      const prevSec = currentIdx > 0 ? allSections[currentIdx - 1] : null;
+      const nextSec = currentIdx < allSections.length - 1 ? allSections[currentIdx + 1] : null;
+      const parentPart = DOCUMENT_DATA.parts.find(p => p.id === sec.partId);
+
+      const headerLang = STATE.sectionTitleLangs[sec.id] || STATE.globalLang;
+      const primaryHeading = headerLang === 'EN' ? sec.headingEN : sec.headingVI;
+      const secondaryHeading = headerLang === 'EN' ? sec.headingVI : sec.headingEN;
+      const toggleBtnText = headerLang === 'EN' ? 'Title: EN (Switch to VI)' : 'Tiêu đề: VI (Đổi sang EN)';
+
+      // Primary Verbatim Full Paragraph Card
+      const mainCardHTML = renderInteractiveBilingualCard({
+        cardKey: `main-${sec.id}`,
+        labelEN: `Verbatim Full Paragraph • Section ${sec.code}`,
+        labelVI: `Đoạn văn nguyên bản • Mục ${sec.code}`,
+        textEN: sec.paragraphEN,
+        textVI: sec.paragraphVI,
+        isPrimary: true
+      });
+
+      // Sentence-by-Sentence Interactive Cards
+      const sentenceCardsHTML = sec.sentences.map((sent, idx) =>
+        renderInteractiveBilingualCard({
+          cardKey: `sent-${sec.id}-${idx}`,
+          labelEN: `Sentence ${idx + 1} of ${sec.sentences.length}`,
+          labelVI: `Câu ${idx + 1} / ${sec.sentences.length}`,
+          textEN: sent.en,
+          textVI: sent.vi,
+          isPrimary: false
+        })
+      ).join('');
+
+      // Find Glossary Terms linked to this section
+      const sectionTerms = GLOSSARY_TERMS.filter(t => t.sectionId === sec.id || t.sectionLabel.includes(sec.code));
+      const sectionTermsHTML = sectionTerms.map(t => `
+        <button
+          onclick="openGlossaryTerm('${t.id}')"
+          class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-50/90 hover:bg-amber-100 dark:bg-amber-950/40 dark:hover:bg-amber-900/50 border border-amber-300/60 dark:border-amber-800/70 text-left transition-all"
+        >
+          <span class="font-bold text-sm text-amber-900 dark:text-amber-200">${escapeHTML(t.term)}</span>
+          <span class="text-xs font-mono text-amber-700/80 dark:text-amber-400">(${escapeHTML(t.pos)})</span>
+        </button>
+      `).join('');
+
+      return `
+        <div class="animate-view space-y-8">
+          <!-- Section Page Header -->
+          <div class="rounded-3xl bg-white dark:bg-slate-900 border border-stone-200/90 dark:border-slate-800 p-6 sm:p-9 shadow-sm">
+            <!-- Breadcrumb & Part Context -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <div class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-700 dark:text-emerald-400">
+                <span>${sec.icon}</span>
+                <button onclick="navigateTo('${parentPart.id}')" class="hover:underline">
+                  ${escapeHTML(STATE.globalLang === 'VI' ? parentPart.titleVI : parentPart.titleEN)}
+                </button>
+              </div>
+              <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-stone-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                Section ${currentIdx + 1} of ${allSections.length}
+              </span>
+            </div>
+
+            <!-- Large Fluid Section Heading + Inline Language Toggle Button -->
+            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+              <div class="space-y-2">
+                <h1
+                  id="sec-header-title-${sec.id}"
+                  class="font-display text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight"
+                >
+                  ${escapeHTML(primaryHeading)}
+                </h1>
+                <p
+                  id="sec-header-sub-${sec.id}"
+                  class="font-display text-lg sm:text-xl font-semibold text-emerald-700 dark:text-emerald-400"
+                >
+                  ${escapeHTML(secondaryHeading)}
+                </p>
+              </div>
+
+              <!-- Inline Heading Language Toggle Button -->
+              <button
+                type="button"
+                onclick="toggleSectionTitleLang('${sec.id}')"
+                class="shrink-0 inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-stone-100 hover:bg-emerald-50 dark:bg-slate-800 dark:hover:bg-emerald-950/70 text-slate-700 dark:text-slate-200 border border-stone-200 dark:border-slate-700 transition-colors"
+              >
+                <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
+                </svg>
+                <span id="sec-header-toggle-text-${sec.id}">${toggleBtnText}</span>
+              </button>
+            </div>
+
+            <!-- Reading Toolbar: Flip All EN / Flip All VI / Side-by-Side Toggle -->
+            <div class="mt-6 pt-5 border-t border-stone-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+              <div class="flex flex-wrap items-center gap-2">
+                <button
+                  onclick="flipAllSectionCards('${sec.id}', false)"
+                  class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-stone-100 hover:bg-emerald-100 dark:bg-slate-800 dark:hover:bg-emerald-950/70 text-slate-700 dark:text-slate-200 transition-colors"
+                >
+                  Show All English (EN)
+                </button>
+                <button
+                  onclick="flipAllSectionCards('${sec.id}', true)"
+                  class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-stone-100 hover:bg-amber-100 dark:bg-slate-800 dark:hover:bg-amber-950/70 text-slate-700 dark:text-slate-200 transition-colors"
+                >
+                  Show All Vietnamese (VI)
+                </button>
+              </div>
+
+              <button
+                onclick="toggleSideBySideMode()"
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold border ${STATE.sideBySideMode ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-stone-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-stone-200 dark:border-slate-700'} transition-colors"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125z" />
+                </svg>
+                <span>${STATE.sideBySideMode ? 'Dual-Column Mode: ON' : 'Side-by-Side (EN + VI)'}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Primary Interactive Verbatim Paragraph Card -->
+          <section class="space-y-3">
+            <h2 class="font-display text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 px-1">
+              Full Verbatim Paragraph Card (Click to Flip EN ↔ VI)
+            </h2>
+            ${mainCardHTML}
+          </section>
+
+          <!-- Sentence-by-Sentence Interactive Study Breakdown -->
+          <section class="space-y-4 pt-2">
+            <div class="flex items-center justify-between px-1">
+              <h2 class="font-display text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                Sentence-by-Sentence Breakdown (${sec.sentences.length} Sentences)
+              </h2>
+            </div>
+            <div class="space-y-4">
+              ${sentenceCardsHTML}
+            </div>
+          </section>
+
+          <!-- Key Vocabulary in This Section -->
+          ${sectionTerms.length > 0 ? `
+            <section class="rounded-3xl bg-white dark:bg-slate-900 border border-stone-200/90 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white">
+                  Key Vocabulary in Section ${sec.code}
+                </h3>
+                <button onclick="navigateTo('glossary')" class="text-xs sm:text-sm font-semibold text-amber-700 dark:text-amber-400 hover:underline">
+                  View all 30 terms in Glossary →
+                </button>
+              </div>
+              <div class="flex flex-wrap gap-2.5">
+                ${sectionTermsHTML}
+              </div>
+            </section>
+          ` : ''}
+
+          <!-- Bottom Pagination: Previous / Back to Overview / Next Section -->
+          <nav class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4" aria-label="Section Pagination">
+            ${prevSec ? `
+              <button
+                onclick="navigateTo('${prevSec.id}')"
+                class="group p-5 rounded-2xl bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 hover:border-emerald-500 text-left transition-all flex items-center gap-4"
+              >
+                <span class="p-2.5 rounded-xl bg-stone-100 dark:bg-slate-800 group-hover:bg-emerald-600 group-hover:text-white transition-colors">←</span>
+                <div class="overflow-hidden">
+                  <div class="text-xs font-mono uppercase text-slate-400">Previous Section</div>
+                  <div class="font-display font-bold text-slate-900 dark:text-white truncate">${escapeHTML(prevSec.headingEN)}</div>
+                </div>
+              </button>
+            ` : `
+              <button
+                onclick="navigateTo('overview')"
+                class="group p-5 rounded-2xl bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 hover:border-emerald-500 text-left transition-all flex items-center gap-4"
+              >
+                <span class="p-2.5 rounded-xl bg-stone-100 dark:bg-slate-800 group-hover:bg-emerald-600 group-hover:text-white transition-colors">←</span>
+                <div>
+                  <div class="text-xs font-mono uppercase text-slate-400">Overview</div>
+                  <div class="font-display font-bold text-slate-900 dark:text-white">Back to Main Hub</div>
+                </div>
+              </button>
+            `}
+
+            ${nextSec ? `
+              <button
+                onclick="navigateTo('${nextSec.id}')"
+                class="group p-5 rounded-2xl bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 hover:border-emerald-500 text-right transition-all flex items-center justify-between gap-4"
+              >
+                <div class="overflow-hidden flex-1">
+                  <div class="text-xs font-mono uppercase text-slate-400">Next Section</div>
+                  <div class="font-display font-bold text-slate-900 dark:text-white truncate">${escapeHTML(nextSec.headingEN)}</div>
+                </div>
+                <span class="p-2.5 rounded-xl bg-stone-100 dark:bg-slate-800 group-hover:bg-emerald-600 group-hover:text-white transition-colors">→</span>
+              </button>
+            ` : `
+              <button
+                onclick="navigateTo('glossary')"
+                class="group p-5 rounded-2xl bg-amber-500/10 dark:bg-amber-500/15 border border-amber-400/50 hover:border-amber-500 text-right transition-all flex items-center justify-between gap-4"
+              >
+                <div class="flex-1">
+                  <div class="text-xs font-mono uppercase text-amber-700 dark:text-amber-300">Final Step</div>
+                  <div class="font-display font-bold text-slate-900 dark:text-white">Interactive Learner Glossary (30 Terms)</div>
+                </div>
+                <span class="p-2.5 rounded-xl bg-amber-600 text-white">→</span>
+              </button>
+            `}
+          </nav>
+        </div>
+      `;
+    }
+
+    /***********************************************************************
+     * 10. PART COMPLETE READING VIEW (#part-1 AND #part-2)
+     ***********************************************************************/
+    function renderPartReadingPage(partId) {
+      const part = DOCUMENT_DATA.parts.find(p => p.id === partId);
+      if (!part) return renderOverviewPage();
+
+      const isVI = STATE.globalLang === 'VI';
+      const sectionsCardsHTML = part.sections.map(sec => {
+        return `
+          <div class="space-y-3">
+            <div class="flex items-center justify-between px-1">
+              <button
+                onclick="navigateTo('${sec.id}')"
+                class="group inline-flex items-center gap-2 text-left"
+              >
+                <span class="text-xl">${sec.icon}</span>
+                <h2 class="font-display text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  ${escapeHTML(isVI ? sec.headingVI : sec.headingEN)}
+                </h2>
+              </button>
+              <button
+                onclick="navigateTo('${sec.id}')"
+                class="text-xs font-semibold text-emerald-700 dark:text-emerald-400 hover:underline shrink-0"
+              >
+                Open Sentence View →
+              </button>
+            </div>
+            ${renderInteractiveBilingualCard({
+              cardKey: `main-${sec.id}`,
+              labelEN: sec.headingEN,
+              labelVI: sec.headingVI,
+              textEN: sec.paragraphEN,
+              textVI: sec.paragraphVI,
+              isPrimary: true
+            })}
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="animate-view space-y-8">
+          <div class="rounded-3xl bg-white dark:bg-slate-900 border border-stone-200/90 dark:border-slate-800 p-6 sm:p-9 shadow-sm">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 mb-3">
+              ${escapeHTML(part.partNumber)} Complete Reading Mode
+            </span>
+            <h1 class="font-display text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight mb-2">
+              ${escapeHTML(part.titleEN)}
+            </h1>
+            <p class="font-display text-lg sm:text-xl font-bold text-emerald-700 dark:text-emerald-400 mb-5">
+              ${escapeHTML(part.titleVI)}
+            </p>
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-stone-100 dark:border-slate-800">
+              <span class="text-sm text-slate-500 dark:text-slate-400">
+                Click any paragraph card below to flip between English and Vietnamese, or enable Side-by-Side mode.
+              </span>
+              <button
+                onclick="toggleSideBySideMode()"
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold border ${STATE.sideBySideMode ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-stone-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-stone-200 dark:border-slate-700'} transition-colors"
+              >
+                <span>${STATE.sideBySideMode ? 'Dual-Column Mode: ON' : 'Side-by-Side (EN + VI)'}</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-8">
+            ${sectionsCardsHTML}
+          </div>
+        </div>
+      `;
+    }
+
+    /***********************************************************************
+     * 11. FINAL PAGE: INTERACTIVE LEARNER GLOSSARY (30 B2/C1 TERMS)
+     ***********************************************************************/
+    function openGlossaryTerm(termId) {
+      STATE.glossarySearch = '';
+      STATE.glossaryPosFilter = 'ALL';
+      STATE.glossaryPartFilter = 'ALL';
+      STATE.glossaryRevealed[termId] = true;
+      navigateTo('glossary', false);
+      setTimeout(() => {
+        const el = document.getElementById(`glossary-card-${termId}`);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.add('ring-4', 'ring-amber-500');
+          setTimeout(() => el.classList.remove('ring-4', 'ring-amber-500'), 2200);
+        }
+      }, 100);
+    }
+
+    function toggleGlossaryVietnamese(termId) {
+      STATE.glossaryRevealed[termId] = !STATE.glossaryRevealed[termId];
+      const revealBox = document.getElementById(`glossary-vi-box-${termId}`);
+      const btnLabel = document.getElementById(`glossary-vi-btn-${termId}`);
+      if (revealBox && btnLabel) {
+        const isShown = STATE.glossaryRevealed[termId];
+        revealBox.classList.toggle('hidden', !isShown);
+        btnLabel.textContent = isShown
+          ? 'Hide Vietnamese / Ẩn nghĩa Tiếng Việt'
+          : 'Reveal Vietnamese / Xem nghĩa';
+      }
+    }
+
+    function setAllGlossaryRevealed(revealState) {
+      GLOSSARY_TERMS.forEach(t => {
+        STATE.glossaryRevealed[t.id] = revealState;
+      });
+      renderGlossaryGridOnly();
+    }
+
+    function handleGlossarySearch(val) {
+      STATE.glossarySearch = val;
+      renderGlossaryGridOnly();
+    }
+
+    function handleGlossaryPosFilter(pos) {
+      STATE.glossaryPosFilter = pos;
+      renderGlossaryGridOnly();
+      updateGlossaryFilterButtons();
+    }
+
+    function updateGlossaryFilterButtons() {
+      const filters = ['ALL', 'noun', 'verb', 'adjective', 'idiom'];
+      filters.forEach(f => {
+        const btn = document.getElementById(`pos-filter-btn-${f}`);
+        if (btn) {
+          const active = STATE.glossaryPosFilter === f;
+          btn.className = active
+            ? 'px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-amber-600 text-white shadow-sm transition-all'
+            : 'px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-stone-200 dark:hover:bg-slate-700 transition-all';
+        }
+      });
+    }
+
+    function getFilteredGlossaryTerms() {
+      const q = STATE.glossarySearch.trim().toLowerCase();
+      return GLOSSARY_TERMS.filter(item => {
+        const matchesPos =
+          STATE.glossaryPosFilter === 'ALL' ||
+          item.pos.toLowerCase().includes(STATE.glossaryPosFilter.toLowerCase());
+
+        const matchesQuery =
+          !q ||
+          item.term.toLowerCase().includes(q) ||
+          item.definition.toLowerCase().includes(q) ||
+          item.plainEnglish.toLowerCase().includes(q) ||
+          item.vietnamese.toLowerCase().includes(q) ||
+          item.sectionLabel.toLowerCase().includes(q);
+
+        return matchesPos && matchesQuery;
+      });
+    }
+
+    function renderGlossaryGridOnly() {
+      const container = document.getElementById('glossary-cards-container');
+      const countEl = document.getElementById('glossary-count-label');
+      if (!container) return;
+
+      const filtered = getFilteredGlossaryTerms();
+      if (countEl) {
+        countEl.textContent = `Showing ${filtered.length} of ${GLOSSARY_TERMS.length} terms`;
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full rounded-3xl bg-white dark:bg-slate-900 border border-stone-200 dark:border-slate-800 p-12 text-center">
+            <p class="text-lg font-semibold text-slate-700 dark:text-slate-300 mb-2">No matching vocabulary terms found.</p>
+            <button
+              onclick="STATE.glossarySearch='';STATE.glossaryPosFilter='ALL';renderCurrentView();"
+              class="mt-2 px-4 py-2 rounded-xl bg-amber-600 text-white text-sm font-bold"
+            >
+              Reset Filters
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map((item, idx) => {
+        const isRevealed = !!STATE.glossaryRevealed[item.id];
+        return `
+          <article
+            id="glossary-card-${item.id}"
+            class="rounded-3xl bg-white dark:bg-slate-900 border border-stone-200/90 dark:border-slate-800 p-6 sm:p-7 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-5"
+          >
+            <div class="space-y-4">
+              <!-- 1. Target Term in Bold + Phonetic + Part of Speech + Section Link -->
+              <div class="flex items-start justify-between gap-3 border-b border-stone-100 dark:border-slate-800 pb-4">
+                <div>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
+                      ${escapeHTML(item.term)}
+                    </h3>
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-300 border border-amber-300/60 dark:border-amber-800">
+                      ${escapeHTML(item.pos)}
+                    </span>
+                  </div>
+                  <p class="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+                    ${escapeHTML(item.phonetic)}
+                  </p>
+                </div>
+
+                <button
+                  onclick="navigateTo('${item.sectionId}')"
+                  class="shrink-0 px-2.5 py-1 rounded-lg text-xs font-mono font-semibold bg-stone-100 hover:bg-emerald-100 dark:bg-slate-800 dark:hover:bg-emerald-950 text-slate-600 dark:text-slate-300 transition-colors"
+                  title="Jump to Section ${escapeHTML(item.sectionLabel)}"
+                >
+                  Sec ${escapeHTML(item.sectionLabel)} ↗
+                </button>
+              </div>
+
+              <!-- 2. Academic / Contextual Definition -->
+              <div>
+                <div class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1">
+                  Academic / Contextual Definition
+                </div>
+                <p class="text-base text-slate-800 dark:text-slate-200 leading-relaxed">
+                  ${escapeHTML(item.definition)}
+                </p>
+              </div>
+
+              <!-- 3. Plain-English Explanation (Accessible to B1/B2 Learners) -->
+              <div class="p-3.5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/60 dark:border-emerald-900/60">
+                <div class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-400 mb-1">
+                  Plain-English Explanation
+                </div>
+                <p class="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed">
+                  ${escapeHTML(item.plainEnglish)}
+                </p>
+              </div>
+
+              <!-- 4. Verbatim Example in Context from the Document -->
+              <div class="pl-3.5 border-l-2 border-stone-300 dark:border-slate-700">
+                <div class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1">
+                  Example in Context (Document Verbatim)
+                </div>
+                <p class="font-serif italic text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+                  "${escapeHTML(item.example)}"
+                </p>
+              </div>
+            </div>
+
+            <!-- 5. Vietnamese Equivalent (Hidden by default behind toggle button) -->
+            <div class="pt-3 border-t border-stone-100 dark:border-slate-800">
+              <div
+                id="glossary-vi-box-${item.id}"
+                class="${isRevealed ? '' : 'hidden'} mb-3 p-3.5 rounded-2xl bg-amber-50 dark:bg-amber-950/50 border border-amber-300/70 dark:border-amber-800/80 transition-all"
+              >
+                <div class="text-xs font-mono font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400 mb-0.5">
+                  Vietnamese Equivalent / Nghĩa Tiếng Việt
+                </div>
+                <div class="text-lg font-bold text-slate-900 dark:text-white">
+                  ${escapeHTML(item.vietnamese)}
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onclick="toggleGlossaryVietnamese('${item.id}')"
+                class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-stone-100 hover:bg-amber-500 hover:text-white dark:bg-slate-800 dark:hover:bg-amber-600 text-slate-700 dark:text-slate-200 transition-colors"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                <span id="glossary-vi-btn-${item.id}">
+                  ${isRevealed ? 'Hide Vietnamese / Ẩn nghĩa Tiếng Việt' : 'Reveal Vietnamese / Xem nghĩa'}
+                </span>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function renderGlossaryPage() {
+      setTimeout(() => {
+        renderGlossaryGridOnly();
+        updateGlossaryFilterButtons();
+      }, 0);
+
+      return `
+        <div class="animate-view space-y-8">
+          <!-- Glossary Header -->
+          <div class="rounded-3xl bg-white dark:bg-slate-900 border border-stone-200/90 dark:border-slate-800 p-6 sm:p-10 shadow-sm">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 text-xs font-mono font-bold uppercase tracking-wider mb-3">
+              <span>Interactive Learner Glossary • B2 / C1 Level</span>
+            </div>
+            <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
+              Specialized Vocabulary & Anti-Aging Concepts
+            </h1>
+            <p class="font-display text-lg sm:text-xl font-bold text-amber-700 dark:text-amber-400 mb-4">
+              Từ Điển Thuật Ngữ Tương Tác Dành Cho Người Học (30 Từ & Cụm Từ Trọng Tâm)
+            </p>
+            <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+              Each vocabulary card includes its part of speech, an academic definition, a simplified plain-English explanation, the verbatim sentence from the document, and a toggleable Vietnamese translation for active recall testing.
+            </p>
+
+            <!-- Search & Filter Controls -->
+            <div class="mt-6 pt-6 border-t border-stone-200/80 dark:border-slate-800 space-y-4">
+              <div class="flex flex-col sm:flex-row gap-3">
+                <div class="relative flex-1">
+                  <input
+                    type="search"
+                    value="${escapeHTML(STATE.glossarySearch)}"
+                    oninput="handleGlossarySearch(this.value)"
+                    placeholder="Search terms, definitions, or Vietnamese meanings..."
+                    class="w-full pl-10 pr-4 py-3 rounded-2xl bg-stone-100 dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm sm:text-base"
+                  />
+                  <svg class="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                  </svg>
+                </div>
+
+                <!-- Bulk Reveal / Hide Vietnamese Buttons -->
+                <div class="flex items-center gap-2 shrink-0">
+                  <button
+                    onclick="setAllGlossaryRevealed(true)"
+                    class="px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-amber-500/15 hover:bg-amber-500/25 text-amber-900 dark:text-amber-200 border border-amber-400/40 transition-colors"
+                  >
+                    Reveal All VI
+                  </button>
+                  <button
+                    onclick="setAllGlossaryRevealed(false)"
+                    class="px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-stone-100 hover:bg-stone-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
+                  >
+                    Hide All VI
+                  </button>
+                </div>
+              </div>
+
+              <!-- Part of Speech Filter Pills -->
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div class="flex flex-wrap items-center gap-2">
+                  <button id="pos-filter-btn-ALL" onclick="handleGlossaryPosFilter('ALL')">All (30)</button>
+                  <button id="pos-filter-btn-noun" onclick="handleGlossaryPosFilter('noun')">Nouns</button>
+                  <button id="pos-filter-btn-verb" onclick="handleGlossaryPosFilter('verb')">Verbs</button>
+                  <button id="pos-filter-btn-adjective" onclick="handleGlossaryPosFilter('adjective')">Adjectives</button>
+                  <button id="pos-filter-btn-idiom" onclick="handleGlossaryPosFilter('idiom')">Idioms / Phrases</button>
+                </div>
+                <span id="glossary-count-label" class="text-xs font-mono text-slate-500 dark:text-slate-400">
+                  Showing 30 of 30 terms
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Glossary Cards Grid -->
+          <div id="glossary-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Populated by renderGlossaryGridOnly() -->
+          </div>
+        </div>
+      `;
+    }
+
+    /***********************************************************************
+     * 12. INITIALIZATION ON WINDOW LOAD
+     ***********************************************************************/
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      const initialHash = window.location.hash.replace('#', '');
+      if (initialHash) {
+        STATE.currentView = initialHash;
+      }
+      updateTopNavUI();
+      renderCurrentView();
+    });
+  </script>
+</body>
+</html>
