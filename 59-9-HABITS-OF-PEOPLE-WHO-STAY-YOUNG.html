@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9 Actions of People Who Stay Young and Disease-Free | Bilingual Reader</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Newsreader"', 'Georgia', 'serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Smooth Perspective & Flip Card Mechanics without Layout Jitter */
+    .flip-stage {
+      perspective: 1400px;
+    }
+    .flip-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      transform-style: preserve-3d;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .flip-face {
+      grid-area: 1 / 1 / 2 / 2;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .flip-inner[data-active-lang="en"] .face-en {
+      opacity: 1;
+      transform: rotateX(0deg);
+      pointer-events: auto;
+      z-index: 2;
+    }
+    .flip-inner[data-active-lang="en"] .face-vi {
+      opacity: 0;
+      transform: rotateX(-180deg);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .flip-inner[data-active-lang="vi"] .face-en {
+      opacity: 0;
+      transform: rotateX(180deg);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .flip-inner[data-active-lang="vi"] .face-vi {
+      opacity: 1;
+      transform: rotateX(0deg);
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    /* Side-by-Side Bilingual Mode Override */
+    .bilingual-split .flip-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      transform: none !important;
+    }
+    @media (min-width: 768px) {
+      .bilingual-split .flip-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.75rem;
+      }
+    }
+    .bilingual-split .flip-face {
+      grid-area: auto !important;
+      opacity: 1 !important;
+      transform: none !important;
+      pointer-events: auto !important;
+      position: relative !important;
+    }
+    .bilingual-split .face-vi {
+      border-top: 1px dashed rgba(16, 185, 129, 0.35);
+      padding-top: 1rem;
+    }
+    @media (min-width: 768px) {
+      .bilingual-split .face-vi {
+        border-top: none;
+        border-left: 1px dashed rgba(16, 185, 129, 0.35);
+        padding-top: 0;
+        padding-left: 1.75rem;
+      }
+    }
+
+    /* Reading Typography Scales */
+    .reading-text-normal {
+      font-size: 1.2rem; /* 19.2px */
+      line-height: 1.8;
+    }
+    .reading-text-large {
+      font-size: 1.375rem; /* 22px */
+      line-height: 1.85;
+    }
+    .reading-text-xl {
+      font-size: 1.55rem; /* 24.8px */
+      line-height: 1.9;
+    }
+
+    /* View fade animation */
+    .view-animate {
+      animation: viewFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes viewFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.4);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(16, 185, 129, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-stone-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300 selection:bg-brand-500/20 selection:text-brand-700 dark:selection:text-brand-300">
+
+  <!-- Persistent Top Navigation Bar -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/85 dark:bg-slate-900/85 border-b border-stone-200/80 dark:border-slate-800 transition-colors duration-300">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Left: Back to Overview Button / Brand -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button
+          id="nav-back-btn"
+          onclick="navigateTo('overview')"
+          class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm sm:text-base font-semibold transition-all duration-200 bg-stone-100 hover:bg-brand-50 text-slate-700 hover:text-brand-700 dark:bg-slate-800 dark:hover:bg-brand-950/60 dark:text-slate-200 dark:hover:text-brand-300 border border-stone-200/80 dark:border-slate-700 shadow-sm active:scale-95"
+          title="Back to Overview Hub"
+        >
+          <svg class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
+          </svg>
+          <span id="nav-back-label">← Back to Overview</span>
+        </button>
+
+        <!-- Section Jump Dropdown on Desktop -->
+        <div class="hidden lg:block relative">
+          <select
+            id="quick-section-select"
+            onchange="if(this.value) navigateTo(this.value)"
+            aria-label="Jump to section"
+            class="appearance-none bg-stone-100/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 text-sm font-medium rounded-xl pl-3.5 pr-8 py-2 border border-stone-200 dark:border-slate-700 hover:border-brand-400 dark:hover:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/40 transition-colors cursor-pointer"
+          >
+            <!-- Populated dynamically -->
+          </select>
+          <svg class="w-4 h-4 text-slate-400 pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right Controls: Global Language Switch, Font Size, Glossary Jump, Theme Toggle -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Global EN / VI Language Switch -->
+        <div
+          class="inline-flex items-center bg-stone-100 dark:bg-slate-800 p-1 rounded-xl border border-stone-200 dark:border-slate-700"
+          role="group"
+          aria-label="Global Language Toggle"
+        >
+          <button
+            id="global-lang-en"
+            onclick="setGlobalLanguage('en')"
+            class="px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-1.5"
+          >
+            <span>EN</span>
+            <span class="hidden md:inline font-medium text-xs opacity-80">English</span>
+          </button>
+          <button
+            id="global-lang-vi"
+            onclick="setGlobalLanguage('vi')"
+            class="px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-1.5"
+          >
+            <span>VI</span>
+            <span class="hidden md:inline font-medium text-xs opacity-80">Tiếng Việt</span>
+          </button>
+        </div>
+
+        <!-- Quick Navigation to Glossary -->
+        <button
+          id="nav-glossary-btn"
+          onclick="navigateTo('glossary')"
+          class="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 bg-amber-500/10 hover:bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/30 active:scale-95"
+        >
+          <svg class="w-4 h-4 shrink-0 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+          </svg>
+          <span id="nav-glossary-label">Glossary</span>
+          <span class="hidden sm:inline-flex items-center justify-center px-1.5 py-0.5 text-[11px] rounded-md bg-amber-500/20 text-amber-900 dark:text-amber-200 font-semibold">30</span>
+        </button>
+
+        <!-- Text Size Cycle Button for Presentation Mode -->
+        <button
+          id="font-size-btn"
+          onclick="cycleFontSize()"
+          class="p-2 sm:px-2.5 sm:py-2 rounded-xl bg-stone-100 hover:bg-stone-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-stone-200 dark:border-slate-700 transition-colors text-xs font-bold"
+          title="Adjust Reading Font Size (Presentation Mode)"
+          aria-label="Adjust Reading Font Size"
+        >
+          <span id="font-size-indicator">Aa</span>
+        </button>
+
+        <!-- Light / Dark Theme Toggle -->
+        <button
+          id="theme-toggle-btn"
+          onclick="toggleTheme()"
+          class="p-2 sm:p-2.5 rounded-xl bg-stone-100 hover:bg-stone-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-stone-200 dark:border-slate-700 transition-colors active:scale-95"
+          title="Toggle Light/Dark Mode"
+          aria-label="Toggle Light/Dark Mode"
+        >
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg id="theme-icon-sun" class="w-5 h-5 hidden text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg id="theme-icon-moon" class="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: OVERVIEW HUB                       -->
+    <!-- ========================================== -->
+    <section id="view-overview" data-view="overview" class="view-animate space-y-10">
+      
+      <!-- Hero Banner displaying both English and Vietnamese titles prominently -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-900 via-brand-800 to-teal-900 text-white p-6 sm:p-10 shadow-xl border border-brand-700/50">
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-brand-400/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-amber-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 space-y-5">
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/15 text-brand-100 backdrop-blur-sm border border-white/20">
+              <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+              Bilingual Interactive Reader • EN-01 &amp; SRT-VN
+            </span>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-black/25 text-stone-200 border border-white/10">
+              11 Sections • 33 Verbatim Paragraphs
+            </span>
+          </div>
+
+          <!-- Dual Language Main Document Titles -->
+          <div class="space-y-3">
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+              9 Actions of People Who Stay Young and Disease-Free
+            </h1>
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-brand-200 leading-snug">
+              9 hành động của những người trẻ lâu không bệnh tật
+            </h2>
+            <p class="text-sm sm:text-base font-medium text-brand-100/90 pt-1 flex items-center gap-2">
+              <svg class="w-5 h-5 text-brand-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+              </svg>
+              <span>Subtitle: <strong>9 Habits of People Who Stay Young and Disease-Free</strong> (Based on Molly Maloof's mitochondrial science)</span>
+            </p>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="pt-3 flex flex-wrap items-center gap-3">
+            <button
+              onclick="navigateTo('sec-0')"
+              class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-brand-900 hover:bg-brand-50 font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95"
+            >
+              <span id="hero-start-btn-text">Start Reading from Introduction</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+              </svg>
+            </button>
+            <button
+              onclick="flipAllOverviewCards()"
+              class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm sm:text-base border border-white/20 backdrop-blur-sm transition-all active:scale-95"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/>
+              </svg>
+              <span id="hero-flip-cards-text">Flip All Card Titles (EN/VI)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Glossary Quick Access Banner -->
+      <div
+        onclick="navigateTo('glossary')"
+        role="button"
+        tabindex="0"
+        onkeydown="if(event.key==='Enter' || event.key===' ') { event.preventDefault(); navigateTo('glossary'); }"
+        class="group cursor-pointer rounded-2xl p-5 sm:p-6 bg-gradient-to-r from-amber-50 via-orange-50/70 to-amber-50 dark:from-amber-950/40 dark:via-slate-900 dark:to-amber-950/30 border-2 border-amber-300/80 dark:border-amber-700/60 hover:border-amber-500 dark:hover:border-amber-500 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+      >
+        <div class="flex items-start sm:items-center gap-4">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+            </svg>
+          </div>
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-800 dark:text-amber-300">
+                B2 / C1 Vocabulary Hub
+              </span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">30 Key Terms</span>
+            </div>
+            <h3 id="glossary-banner-title" class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
+              Interactive Learner Glossary &amp; Biological Concepts
+            </h3>
+            <p id="glossary-banner-desc" class="text-sm sm:text-base text-slate-600 dark:text-slate-300">
+              Explore 30 essential terms with academic definitions, plain-English explanations, verbatim context examples, and toggleable Vietnamese meanings.
+            </p>
+          </div>
+        </div>
+        <div class="self-end sm:self-center shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm shadow transition-all group-hover:translate-x-1">
+          <span id="glossary-banner-cta">Open Glossary</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Section Navigation Grid Header -->
+      <div class="space-y-2">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <h2 id="overview-grid-heading" class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
+            Document Sections (Click a card to read, or toggle EN/VI in the corner)
+          </h2>
+          <span id="overview-grid-sub" class="text-sm font-medium text-slate-500 dark:text-slate-400">
+            11 Chapters • Verbatim Bilingual Alignment
+          </span>
+        </div>
+      </div>
+
+      <!-- Section Cards Grid -->
+      <div id="overview-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- Populated by JavaScript -->
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2..12: SECTION READING VIEW           -->
+    <!-- ========================================== -->
+    <section id="view-section" data-view="section" class="hidden view-animate space-y-8">
+      
+      <!-- Section Header Card -->
+      <div class="rounded-3xl bg-white dark:bg-slate-900 p-6 sm:p-8 border border-stone-200/90 dark:border-slate-800 shadow-sm space-y-5">
+        
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <span id="section-badge" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-brand-500/15 text-brand-700 dark:text-brand-300 border border-brand-500/20">
+              Section 1 of 11
+            </span>
+            <span id="section-para-count-badge" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-stone-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+              5 Paragraphs
+            </span>
+          </div>
+
+          <!-- Inline Section Title Language Toggle Button -->
+          <button
+            id="section-header-lang-btn"
+            onclick="toggleSectionHeaderLang()"
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-stone-100 hover:bg-brand-50 text-slate-700 hover:text-brand-700 dark:bg-slate-800 dark:hover:bg-brand-950/60 dark:text-slate-200 dark:hover:text-brand-300 border border-stone-200 dark:border-slate-700 transition-all active:scale-95"
+          >
+            <svg class="w-4 h-4 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"/>
+            </svg>
+            <span id="section-header-lang-label">Switch Heading to VI</span>
+          </button>
+        </div>
+
+        <!-- Primary & Secondary Section Titles -->
+        <div class="space-y-2">
+          <h1 id="section-main-title" class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight transition-all duration-200">
+            <!-- Populated dynamically -->
+          </h1>
+          <p id="section-sub-title" class="text-base sm:text-lg font-medium text-slate-500 dark:text-slate-400">
+            <!-- Populated dynamically -->
+          </p>
+        </div>
+
+        <!-- Reader Toolbar: Flip All Paragraphs & Side-by-Side Mode -->
+        <div class="pt-3 border-t border-stone-200/80 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+          <p id="reader-instruction-hint" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59"/>
+            </svg>
+            <span>Click any paragraph card or its toggle button to flip between English and Vietnamese.</span>
+          </p>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <button
+              onclick="flipAllSectionParagraphs()"
+              class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-brand-50 hover:bg-brand-100 text-brand-800 dark:bg-brand-950/60 dark:hover:bg-brand-900/70 dark:text-brand-300 border border-brand-200 dark:border-brand-800/70 transition-all active:scale-95"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/>
+              </svg>
+              <span id="btn-flip-all-paras">Flip All Cards</span>
+            </button>
+
+            <button
+              id="btn-split-mode"
+              onclick="toggleSplitMode()"
+              class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-stone-100 hover:bg-stone-200 text-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 border border-stone-200 dark:border-slate-700 transition-all active:scale-95"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125z"/>
+              </svg>
+              <span id="btn-split-mode-label">Side-by-Side View: Off</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Paragraph Cards Container -->
+      <div id="section-paragraphs-container" class="space-y-6">
+        <!-- Populated dynamically -->
+      </div>
+
+      <!-- Bottom Section Pagination Navigation -->
+      <div class="pt-6 border-t border-stone-200 dark:border-slate-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+        <button
+          id="prev-section-btn"
+          onclick="navigateAdjacentSection(-1)"
+          class="flex-1 flex items-center gap-3 p-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-stone-100 dark:hover:bg-slate-800/90 border border-stone-200 dark:border-slate-800 transition-all text-left group"
+        >
+          <div class="w-10 h-10 rounded-xl bg-stone-100 dark:bg-slate-800 group-hover:bg-brand-500 group-hover:text-white flex items-center justify-center shrink-0 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+            </svg>
+          </div>
+          <div class="min-w-0">
+            <div id="prev-section-label" class="text-xs font-bold uppercase tracking-wider text-slate-400">Previous Section</div>
+            <div id="prev-section-title" class="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-100 truncate">Introduction</div>
+          </div>
+        </button>
+
+        <button
+          id="next-section-btn"
+          onclick="navigateAdjacentSection(1)"
+          class="flex-1 flex items-center justify-end gap-3 p-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-stone-100 dark:hover:bg-slate-800/90 border border-stone-200 dark:border-slate-800 transition-all text-right group"
+        >
+          <div class="min-w-0">
+            <div id="next-section-label" class="text-xs font-bold uppercase tracking-wider text-slate-400">Next Section</div>
+            <div id="next-section-title" class="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-100 truncate">Secret Number 8</div>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-stone-100 dark:bg-slate-800 group-hover:bg-brand-500 group-hover:text-white flex items-center justify-center shrink-0 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 13: INTERACTIVE LEARNER GLOSSARY      -->
+    <!-- ========================================== -->
+    <section id="view-glossary" data-view="glossary" class="hidden view-animate space-y-8">
+      
+      <!-- Glossary Header Banner -->
+      <div class="rounded-3xl bg-gradient-to-br from-amber-500/15 via-orange-500/10 to-stone-100 dark:from-amber-950/50 dark:via-slate-900 dark:to-slate-900 p-6 sm:p-8 border border-amber-300/70 dark:border-amber-800/60 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-amber-500 text-white">
+            B2 / C1 English-Vietnamese Lexicon
+          </span>
+          <button
+            onclick="toggleAllGlossaryTranslations()"
+            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white dark:bg-slate-800 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-700 shadow-sm hover:bg-amber-50 transition-all active:scale-95"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span id="glossary-reveal-all-label">Reveal All Vietnamese Meanings</span>
+          </button>
+        </div>
+
+        <h1 id="glossary-main-heading" class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Interactive Learner Glossary (30 Specialized Terms)
+        </h1>
+        <p id="glossary-sub-heading" class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+          Master the biological, medical, and high-utility academic vocabulary from the text. Each card includes a contextual definition, a simplified B1/B2 explanation, the exact sentence from the reading, and a hidden Vietnamese translation for active recall.
+        </p>
+
+        <!-- Search and POS Filter Bar -->
+        <div class="pt-2 flex flex-col sm:flex-row gap-3">
+          <div class="relative flex-1">
+            <svg class="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+            </svg>
+            <input
+              id="glossary-search-input"
+              type="text"
+              oninput="renderGlossaryCards()"
+              placeholder="Search term, definition, or Vietnamese equivalent..."
+              class="w-full pl-11 pr-4 py-3 rounded-xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 border border-stone-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm sm:text-base"
+            />
+          </div>
+          <div class="flex flex-wrap gap-1.5" id="glossary-pos-filters">
+            <button onclick="setGlossaryPosFilter('all')" data-pos="all" class="pos-filter-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amber-500 text-white">All (30)</button>
+            <button onclick="setGlossaryPosFilter('noun')" data-pos="noun" class="pos-filter-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-stone-200 dark:border-slate-700">Nouns</button>
+            <button onclick="setGlossaryPosFilter('verb')" data-pos="verb" class="pos-filter-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-stone-200 dark:border-slate-700">Verbs / Phrasal</button>
+            <button onclick="setGlossaryPosFilter('adjective')" data-pos="adjective" class="pos-filter-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-stone-200 dark:border-slate-700">Adjectives / Adv</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Glossary Cards Grid -->
+      <div id="glossary-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- Populated dynamically -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-16 border-t border-stone-200/80 dark:border-slate-800/80 py-8 text-center text-sm text-slate-500 dark:text-slate-400">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>
+        <strong>9 Actions of People Who Stay Young and Disease-Free</strong> • Complete Verbatim Bilingual Edition (EN-01 &amp; SRT-VN)
+      </p>
+      <div class="flex items-center gap-4">
+        <button onclick="navigateTo('overview')" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium underline underline-offset-4">Overview</button>
+        <button onclick="navigateTo('glossary')" class="hover:text-amber-600 dark:hover:text-amber-400 font-medium underline underline-offset-4">Glossary (30)</button>
+        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium">↑ Top</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- APPLICATION DATA & INTERACTIVE CONTROLLER (VANILLA JAVASCRIPT)    -->
+  <!-- ================================================================= -->
+  <script>
+    /**
+     * 1. COMPLETE VERBATIM DOCUMENT CONTENT (11 Sections, 33 Paragraph Pairs)
+     * Zero truncation, zero omission. Exact EN-01 and SRT-VN text pairs.
+     */
+    const DOCUMENT_SECTIONS = [
+      {
+        id: 'sec-0',
+        badgeEn: 'Introduction',
+        badgeVi: 'Mở Đầu',
+        titleEn: '9 Actions of People Who Stay Young and Disease-Free',
+        subtitleEn: '9 Habits of People Who Stay Young and Disease-Free',
+        titleVi: '9 hành động của những người trẻ lâu không bệnh tật',
+        subtitleVi: '9 Habits of People Who Stay Young and Disease-Free',
+        paragraphs: [
+          {
+            en: `Welcome to Tom's channel. Today, Tom will share with you nine secrets to achieving a healthy body, a long life, and remaining disease-free. This information references the book by author Molly Maluf. This book focuses on various methods to boost energy, extend lifespan, and ward off diseases. How can your body become healthy and youthful from the inside out? How healthy are you, and how long will your lifespan extend? How youthful is your internal body? Can you easily defeat diseases or not? All of this is related to mitochondria. You can imagine each mitochondrion as a tiny battery that generates energy for your cells. How many mitochondria does your body have? How will you increase their numbers, and most importantly, how do you make them work efficiently? So, let's begin today's story with Tom. Here are the nine most powerful scientifically-backed secrets to boost your mitochondria and gain abundant energy.`,
+            vi: `Xin chào quý vị đã đến với kênh của Tom. Hôm nay Tom sẽ chia sẻ đến bạn chín bí quyết để có một cơ thể khỏe mạnh, sống lâu và không bệnh tật. Tham khảo kiến thức từ quyển sách của tác giả Molly Maluf. Cuốn sách này tập trung nhiều phương pháp để tăng năng lượng, kéo dài tuổi thọ và tránh xa bệnh tật. Làm thế nào để cơ thể bạn trở nên khỏe mạnh và trẻ trung từ bên trong? Việc bạn khỏe mạnh đến mức nào, tuổi thọ của bạn kéo dài bao lâu? Cơ thể bên trong bạn trẻ trung như thế nào? Bạn có thể dễ dàng đánh bại được bệnh tật hay không? Tất cả đều liên quan đến ti thể. Quý vị có thể hình dung rằng mỗi ti thể giống như một viên pin nhỏ tạo năng lượng cho tế bào của bạn. Cơ thể quý vị có bao nhiêu ti thể? Bạn sẽ làm như thế nào để tăng số lượng chúng lên và quan trọng nhất làm cách nào để chúng làm việc một cách hiệu quả? Vậy quý vị hãy bắt đầu câu chuyện hôm nay cùng Tom nhé. Chín bí quyết khoa học mạnh mẽ nhất để tăng cường ti thể và có được nguồn năng lượng dội rào.`
+          }
+        ]
+      },
+      {
+        id: 'sec-1',
+        badgeEn: 'Secret #9',
+        badgeVi: 'Bí Quyết #9',
+        titleEn: 'Secret Number 9: Tricking the Brain When Exercising the Body',
+        subtitleEn: 'Mindful movement & activating cellular energy in everyday tasks',
+        titleVi: 'Bí Quyết Thứ 9: Đánh Lừa Bộ Não Khi Vận Động Cơ Thể',
+        subtitleVi: 'Coi mọi cử động cơ thể hàng ngày như một bài tập thể dục',
+        paragraphs: [
+          {
+            en: `The ninth secret to having a healthy body, living long, and being disease-free is tricking the brain when moving the body. And the first method to increase mitochondrial power, which Tom thinks we all know, is physical activity. This approach is very familiar, isn't it? However, rest assured. In this video, Tom will not introduce methods that everyone already knows. Tom would like to reiterate the title of this method: Tricking the brain when moving the body. When do you think you are exercising your body? Is it when you take some time early in the morning to go out to the yard for a workout, or in the afternoon after work when you hit the gym, or when you set aside time to jog every day?`,
+            vi: `Bí quyết thứ chín để có một cơ thể khỏe mạnh, sống lâu và không bệnh tật đó chính là đánh lừa bộ não khi vận động cơ thể. Và phương pháp đầu tiên để gia tăng sức mạnh ti thể mà Tom nghĩ tất cả chúng ta đều biết đó chính là vận động. Cách làm này quá quen thuộc đúng không quý vị? Tuy nhiên quý vị yên tâm nhé. Trong video này Tom sẽ không giới thiệu những cách mà ai cũng biết rồi. Tom xin nhắc lại tiêu đề của phương pháp này. Bánh lựa bộ não khi vận động cơ thể. Quý vị nghĩ vận động cơ thể là khi nào? Có phải là lúc sáng sớm bạn tranh thủ thời gian ra sân tập thể dục hay buổi chiều sau khi đi làm bạn tranh thủ vào phòng tập GM hay quý vị dành thời gian để chạy bộ mỗi ngày?`
+          },
+          {
+            en: `Of course, if you can do those things, that is wonderful. However, if you currently don't have a habit of exercising, don't have time to jog or work out, are having overwhelmingly busy days, or even if you already exercise but want your body to be even healthier, what should we do? That is to treat every bodily movement as an exercise. For example, when you walk between your room and the bathroom, when doing chores, when carrying things, or when standing up and sitting down, think of every movement as a workout. According to a study by Stanford University, if we treat every bodily movement as a physical exercise, the body will boost its energy consumption higher than normal. You know, mitochondria are like workers producing energy for your body. Suppose today the mitochondrial worker produces 10 units of energy for you. But if the boss—you—does not move and just lies in one place, these 10 units will go unused and be wasted.`,
+            vi: `Tất nhiên nếu bạn có thể làm được những điều trên thì thật tuyệt vời. Tuy nhiên, nếu bạn hiện tại không có thói quen vận động, không có thời gian để chạy bộ hay tập thể dục, bạn đang có những ngày quá bận rộn hoặc cho dù bạn đã tập thể dục nhưng vẫn muốn cơ thể khỏe mạnh nhiều hơn nữa, vậy chúng ta nên làm thế nào? Đó chính là coi muội cử động cơ thể như một bài tập. Ví dụ như khi bạn đi lại giữa phòng và nhà vệ sinh, khi làm việc nhà, khi bưng bê đồ đạc hay khi đứng lên ngồi xuống, bạn hãy nghĩ rằng mỗi cử động đều là một bài vận động. Theo nghiên cứu của Đại học Stanford, nếu chúng ta coi mọi cử động của cơ thể như bài tập thể dục, cơ thể sẽ thúc đẩy tiêu thụ năng lượng cao hơn bình thường. Quý vị biết đấy, ti thể giống như những nhân viên sản xuất năng lượng cho cơ thể bạn. Giả sử hôm nay nhân viên ti thể sản xuất 10 Văng lượng cho bạn. Nhưng nếu ông chủ là bạn không vận động và nằm một chỗ, 10 V này không được sử dụng và bị lãng phí.`
+          },
+          {
+            en: `Upon discovering that the energy they produced is being wasted, the mitochondrial worker will think, "Goodness, I worked so hard, but the product I made is being wasted and unused by the boss." What do you think he will do then? The mitochondria will immediately become lazy. They will slow down and reduce energy production because you are resting all day. It's just like when you put effort into cooking a nutritious meal for your husband, but he complains and refuses to eat it. If this situation continues for many days, you will eventually just serve him a bowl of instant noodles. Because if your husband isn't going to eat, why bother cooking so much, right? Our bodies work the exact same way. The more we rest and stay inactive, the lazier the mitochondria become, and they stop generating energy. The result is that even though you rest a lot, your body becomes increasingly tired, lacks energy, and becomes more susceptible to various diseases. Conversely, when you are active, your body requires a lot of energy. At this point, the mitochondria inside you, even if they want to be lazy, will be pulled out of their resting state and start working actively to generate energy.`,
+            vi: `Khi phát hiện năng lượng mình sản xuất bị lãng phí, anh nhân viên ti thể sẽ nghĩ, trời ạ, mình làm việc cực nhọc nhưng sản phẩm làm ra lại bị ông chủ lãng phí không sử dụng. Bạn nghĩ lúc này anh ta sẽ làm gì? Ti thể sẽ trở nên lười biếng ngay lập tức. Anh ta làm việc chậm lại và giảm sản xuất năng lượng vì bạn nghỉ ngơi cả ngày. Giống như khi quý vị nỗ lực nấu một mâm cơm bổ dưỡng cho chồng nhưng ông ấy lại chê không ăn. Nếu tình trạng này kéo dài nhiều ngày, cuối cùng bạn cũng sẽ chỉ dọn ra một bát mì tôm. Vì chồng bạn chẳng ăn thì nấu nhiều làm gì đúng không nào? Cơ thể chúng ta cũng vậy. Nếu chúng ta càng nghỉ ngơi không vận động, ti thể càng lười biếng và ngừng tạo năng lượng. Kết quả là dù nghỉ ngơi rất nhiều, cơ thể lại càng ngày càng mệt mỏi, thiếu năng lượng và bắt đầu dễ dẫn đến nhiều bệnh tật. Ngược lại khi vận động, cơ thể cần rất nhiều năng lượng. Lúc này, ti thể bên trong bạn dù muốn lười cũng sẽ bị kéo ra khỏi trạng thái nghỉ ngơi và bắt đầu làm việc tích cực để tạo năng lượng.`
+          },
+          {
+            en: `That is why the more you build a habit of staying active, the more vigorously your mitochondria will function, and your body will increasingly have more energy to live positively and stay away from illnesses. And the good news for us is that many studies have proven that it's not just formal workouts; even everyday movements are enough to activate the mitochondria to work vigorously. In a study involving hotel housekeepers, a group of employees was asked to consciously view their daily work tasks as physical exercise. They considered making beds, wiping tables, and washing glasses as physical workouts for the body. When they consciously recognized their daily movements as exercise, their bodies boosted energy consumption, their mitochondrial levels increased, and these employees became healthier than usual.`,
+            vi: `Đó là lý do tại sao quý vị càng có thói quen vận động, ti thể càng hoạt động mạnh và cơ thể của bạn sẽ càng ngày càng có nhiều năng lượng để sống tích cực và tránh xa bệnh tật. Và tin vui cho chúng ta là nhiều nghiên cứu chứng minh rằng không chỉ việc vận động, ngay cả những cử động hàng ngày cũng đủ để kích hoạt ti thể làm việc tích cực. Trong một nghiên cứu với nhân viên dọn phòng khách sạn, nhóm nhân viên được yêu cầu rằng hãy ý thức công việc hàng ngày của họ như bài tập thể dục. Họ xem việc dọn giường, lau bàn, rửa ly tách là những bài vận động cho cơ thể. Khi ý thức được công việc cử động hàng ngày là bài tập thể dục, cơ thể họ tăng cường tiêu thụ năng lượng, mức tiể tăng cao và những nhân viên này trở nên khỏe mạnh hơn thường ngày.`
+          },
+          {
+            en: `Therefore, even if you don't have time to exercise, as long as you are mindful and treat every movement in your daily life as a workout, you are activating your mitochondria to become increasingly robust. You will notice that sluggish, slow, and low-energy actions each day will be replaced by vigorous movements that help increase energy for your mitochondria. This is the eighth secret for you to have a healthy and youthful body from the inside, extend your lifespan, and stay away from diseases. You can generate energy for your body even on busy days when you cannot officially exercise.`,
+            vi: `Vậy nên cho dù quý vị không có thời gian vận động, chỉ cần bạn ý thức và xem mỗi cử động trong sinh hoạt hàng ngày như một bài tập, bạn đang kích hoạt ti thể ngày càng khỏe mạnh. Quý vị sẽ thấy những hành động lừ đừ, chậm chạp, không có năng lượng mỗi ngày sẽ được thay thế bằng những cử động khỏe khoắn giúp gia tăng năng lượng cho ti thể. Đây là bí quyết thứ tám để bạn có cơ thể khỏe mạnh và trẻ trung từ bên trong, kéo dài tuổi thọ và tránh xa bệnh tật. Bạn có thể tạo năng lượng cho cơ thể ngay cả trong những ngày bận rộn không thể tập thể dục.`
+          }
+        ]
+      },
+      {
+        id: 'sec-2',
+        badgeEn: 'Secret #8',
+        badgeVi: 'Bí Quyết #8',
+        titleEn: 'Secret Number 8: Coughing 10 Times a Day',
+        subtitleEn: 'Boosting oxygen intake, expelling carbon dioxide, and calming the nervous system',
+        titleVi: 'Bí Quyết Thứ 8: Ho 10 Lần Mỗi Ngày',
+        subtitleVi: 'Tăng cường oxy, thải carbon dioxide và điều hòa hệ thần kinh tự chủ',
+        paragraphs: [
+          {
+            en: `The eighth secret to increasing energy, prolonging lifespan, and avoiding diseases is coughing 10 times a day. Oh, hearing this, you must be starting to feel it's a bit strange, right? Rest assured, the nine secrets Tom is introducing today are unconventional ways to boost mitochondria, but they are highly effective biologically. Even if you are in good health, intentionally coughing about 10 times a day will help you have more energy and avoid fatigue. Are you wondering why intentionally coughing helps keep the body healthy? To live, humans need oxygen. Tom will dive deeper into why your body needs oxygen to sustain life. The reason is that the mitochondria in your cells demand oxygen. Mitochondria create the energy for life, and the raw material they need to produce this energy is oxygen. In other words, if you supply oxygen efficiently through breathing, your mitochondria will produce powerful energy.`,
+            vi: `Bí quyết thứ tám để tăng năng lượng, kéo dài tuổi thọ và tránh xa bệnh tật. Ho 10 lần mỗi ngày. Ồ, quý vị nghe đến đây đã bắt đầu cảm thấy kỳ lạ rồi đúng không? Bạn yên tâm, chín bí quyết hôm nay Tom giới thiệu đến bạn là những cách gia tăng ti thể không quen thuộc nhưng cực kỳ hiệu quả về mặt sinh học. Dù bạn đang có sức khỏe tốt, việc cố ý ho khoảng 10 lần mỗi ngày sẽ giúp bạn có nhiều năng lượng hơn và không bị mệt mỏi. Quý vị có thắc mắc tại sao cố ý ho lại giúp cơ thể khỏe mạnh? Để sống được, con người cần có oxy. Tom sẽ đi sâu vào vấn đề tại sao cơ thể bạn lại cần oxy để duy trì sự sống. Lý do là ti thể trong tế bào của bạn đòi hỏi oxy. Ti thể tạo năng lượng cho sự sống và nguyên liệu để ti thể tạo ra được năng lượng chính là oxy. Nói cách khác, nếu bạn cung cấp oxy hiệu quả thông qua hít thở, ti thể sẽ tạo ra năng lượng mạnh mẽ.`
+          },
+          {
+            en: `That is why the book's author recommends that you intentionally cough a few times a day. This might be a bit surprising for many of us, right? Usually, we only cough when we have a cold or poor health. And those non-stop coughing fits, Tom admits, are truly exhausting. However, when you are healthy, intentionally coughing a few times a day is exactly how you supply oxygen to your cells. When coughing, you don't just exhale; between coughs, you inhale a large amount of air. As a result, your respiratory muscles are strengthened, your lung capacity increases, and your oxygen absorption capability is enhanced. Additionally, every time you intentionally cough, carbon dioxide is continuously expelled. When carbon dioxide accumulates in the body, the environment inside the cells leans towards acidity. Your mitochondria will lose their strength in an acidic environment. Therefore, if you expel carbon dioxide through intentional coughing, your mitochondria will become healthier.`,
+            vi: `Chính vì vậy, tác giả quyển sách khuyến nghị rằng bạn hãy cố ý ho vài lần trong ngày. Việc này có thể hơi bất ngờ với nhiều người chúng ta phải không? Thường chỉ khi bị cảm hoặc sức khỏe kém chúng ta mới bị ho. Và những cơn ho không ngừng đó, Tom công nhận đúng là rất mệt. Thế nhưng khi bạn khỏe mạnh, việc cố ý ho vài lần trong ngày chính là cách bạn cung cấp oxy cho tề bảo. Khi ho, bạn không chỉ thở ra, giữa các lần ho, bạn hít vào rất nhiều không khí. Nhờ đó, cơ hô hấp được tăng cường, dung tích phổi của bạn tăng lên và khả năng hấp thụ oxy được nâng cao. Ngoài ra, mỗi khi cố ý ho, cacbon dioxit được thải ra liên tục. Khi cacbonioxit tích tụ trong cơ thể, môi trường bên trong tế bào sẽ nghiêng về tính axit. Ti thể của bạn sẽ giảm sức mạnh trong môi trường axit. Do đó, nếu bạn thải cacbon dioxit thông qua cý ho, ti thể trở nên khỏe mạnh hơn.`
+          },
+          {
+            en: `Furthermore, coughing has the surprising benefit of regulating the autonomic nervous system. When you intentionally cough, you automatically stimulate the autonomic nervous system and enhance the function of the parasympathetic nervous system. When the parasympathetic nervous system is active, your body escapes from stress and anxiety, returning to a state of relaxation. Damaged cells will be repaired, and the energy within your cells will increase. Intentionally coughing about 10 times a day brings many unexpected benefits. Cough slowly, without rushing. Between coughs, take deep breaths. After finishing, you will notice your breathing has become deeper. In the long run, your lungs and respiratory muscles will be strengthened, your mitochondria will grow stronger, and energy will overflow in your body. This is a habit that will help you build a healthy body and extend your lifespan.`,
+            vi: `Hơn nữa, ho có lợi ích bất ngờ là điều hòa hệ thần kinh tự trụ. Khi cố ý ho, bạn tự động kích thích hệ thần kinh tự trụ và nâng cao chức năng của hệ thần kinh phó giao cảm. Vào lúc hệ thần kinh phó giao cảm hoạt động, cơ thể bạn sẽ thoát ra khỏi sự căng thẳng và lo ầu, quay về trạng thái thư giãn. Các tế bào hư hỏng sẽ được sự chữa và năng lượng trong tế bào được tăng lên. Cố ý ho khoảng 10 lần mỗi ngày, mang lại rất nhiều lợi ích bất ngờ. Ho từ, không gấp gáp. Giữa những lần ho, bạn hãy hít thở sâu. Sau khi kết thúc, bạn sẽ thấy hơi thở của mình trở nên sâu hơn. Về lâu dài, phổi và cơ hô hấp của bạn được tăng cường, ti thể mạnh mẽ hơn và năng lượng sẽ tràn đầy trong cơ thể. Đây là một thói quen sẽ giúp quý vị xây dựng một cơ thể khỏe mạnh và kéo dài tuổi thọ.`
+          }
+        ]
+      },
+      {
+        id: 'sec-3',
+        badgeEn: 'Secret #7',
+        badgeVi: 'Bí Quyết #7',
+        titleEn: 'Secret Number 7: Eating This Spice Every Day (Himalayan Pink Salt)',
+        subtitleEn: 'Essential trace minerals & natural iodine for thyroid and mitochondrial proliferation',
+        titleVi: 'Bí Quyết Thứ 7: Ăn Loại Gia Vị Này Mỗi Ngày (Muối Hồng Himalaya)',
+        subtitleVi: 'Bổ sung khoáng chất tự nhiên và iốt kích hoạt ti thể khỏe mạnh',
+        paragraphs: [
+          {
+            en: `Dear viewers, let's join Tom in exploring the seventh most powerful science-backed secret to boosting energy, extending lifespan, and warding off diseases. Eating this spice every day keeps your cells healthy and prolongs your life. Among culinary ingredients, there is a powerful spice that will help you activate your mitochondria, creating a highly energetic and fatigue-free body. That is Himalayan pink salt. Surely many of you are already familiar with this type of rock salt. This is a salt packed with precious minerals. So why is it able to activate robust health inside your body?`,
+            vi: `Quý vị thân mến, hãy cùng Tom đến với bí quyết thứ bảy mạnh mẽ nhất theo khoa học để tăng năng lượng, kéo dài tuổi thọ và tránh xa bệnh tật. Ăn loại gia vị này mỗi ngày giúp tế bào khỏe mạnh và một tuổi thọ kéo dài. Trong các món ăn, có một loại gia vị có tác dụng mạnh mẽ sẽ giúp quý vị kích hoạt ti thể, tạo ra một cơ thể có nhiều năng lượng và không mệt mỏi. Đó chính là muối hồng Himalaya. Chắc nhiều quý vị đã biết loại muối đá này. Đây là loại muối chứa nhiều khoáng chất quý giá. Vậy tại sao nó lại kích hoạt được thể khỏe mạnh bên trong cơ thể bạn?`
+          },
+          {
+            en: `Pink salt contains all the minerals needed to activate mitochondria. This type of salt is rich in minerals like iron, magnesium, zinc, and manganese. In our daily meals, we don't always ingest an adequate amount of these minerals. However, your mitochondria require a variety of minerals to produce energy. Tom can say this is the most powerful salt to help generate energy for your cells. Additionally, Himalayan pink salt contains a small amount of iodine. As you may know, iodine is famously known as the raw material for thyroid hormones, and these hormones have the fantastic function of increasing the number of healthy mitochondria. This means that by consuming Himalayan pink salt, you support healthy thyroid hormones, which in turn leads to the proliferation of mitochondria. The iodine in Himalayan pink salt comes from a natural source, making it much easier to absorb compared to synthetic iodine. This rock salt can be considered a potent spice that helps you create healthy mitochondria, generate a highly energetic body, and reduce the risk of illness. You will want to incorporate this natural, mineral-rich salt into your daily menu for long-term health.`,
+            vi: `Muối hồng có đầy đủ tất cả những khoáng chất kích hoạt tỳ thệ. Loại muối này chứa nhiều khoáng chất như sát, ma, kẽm, mangan. Trong bữa ăn hàng ngày không phải lúc nào chúng ta nạp được đầy đủ những khoáng chất này. Nhưng tiể của bạn lại cần nhiều loại khoáng chất để sản sinh năng lượng. Tom có thể nói đây là loại muối mạnh nhất để hỗ trợ tạo năng lượng cho tế bào của bạn. Ngoài ra, muối hồng Himalaya cũng chứa một lượng nhỏ iốt. Quý vị cũng biết iost nổi tiếng là nguyên liệu của hócmôn tuyến giáp và hóc môn này có chức năng tuyệt vời là tăng số lượng tiể khỏe mạnh. Nghĩa là bằng cách tiêu thụ muối hồng Himalaya, nó hỗ trợ cho học môn tuyến giáp khỏe mạnh và điều đó dẫn đến sự tăng sinh của ti thể. Yốt trong muối hồng Himalaya có nguồn gốc tự nhiên nên dễ hấp thụ hơn nhiều so với yost tổng hợp. Loại mối đá này có thể coi là một loại gia vị mạnh mẽ giúp bạn tạo ra ti thể khỏe mạnh, tạo ra một cơ thể nhiều năng lượng và giảm nguy cơ bệnh tật. Quý vị sẽ muốn đưa loại muối chứa nhiều khoáng chất tự nhiên này vào thực đơn mỗi ngày để có sức khỏe lâu dài.`
+          }
+        ]
+      },
+      {
+        id: 'sec-4',
+        badgeEn: 'Secret #6',
+        badgeVi: 'Bí Quyết #6',
+        titleEn: 'Secret Number 6: Walking While Holding Your Breath',
+        subtitleEn: 'Simulating high-altitude training to multiply oxygen-carrying red blood cells',
+        titleVi: 'Bí Quyết Thứ 6: Đi Bộ Trong Khi Nín Thở',
+        subtitleVi: 'Phương pháp hô hấp giúp tăng vọt hồng cầu và hiệu quả sử dụng oxy',
+        paragraphs: [
+          {
+            en: `The sixth most powerful science-backed secret to having a healthy body, living a long life, and being disease-free is: Walking while holding your breath. You didn't hear that wrong. Tom just said walking while holding your breath. That's right, many of you are probably thinking, "Oh, this is another bizarre method. Tom, is it really effective?" However, rest assured, this is a world-renowned breathing method that helps strengthen mitochondria. Let's explore it with Tom. As Tom mentioned, mitochondria need oxygen to produce energy, and the transporter that delivers oxygen to the mitochondria is the red blood cells in your blood. You can imagine red blood cells as delivery workers bringing oxygen to the mitochondria. From there, the mitochondria will generate energy to keep you healthy, less fatigued, and clear of chronic diseases.`,
+            vi: `Bí quyết thứ sáu, mạnh mẽ nhất theo khoa học để có một cơ thể khỏe mạnh, sống lâu và không bệnh tật. Đi bộ trong khi nín thở. Quý vị không nghe nhầm đâu. Tom vừa nói là đi bộ trong khi nín thở. Đúng vậy, chắc nhiều quý vị đang nghĩ ôi lại là một phương pháp kỳ lạ quá. Tom ơi, có thực sự hiệu quả không? Tuy nhiên quý vị yên tâm, đây là phương pháp hô hấp giúp tăng cường ti thể rất nổi tiếng trên thế giới. Hãy cùng Tom tìm hiểu nhé. Như Tom đã nói, ti thể cần oxy để tạo năng lượng và thứ vận chuyển oxy đến ti thể chính là hồng cầu trong máu. Bạn có thể hình dung hồng cầu như nhân viên vận chuyển đưa oxy đến ti thể. Từ đó, ti thể sẽ tạo năng lượng giúp bạn khỏe mạnh, ít mệt mỏi và tránh xa các bệnh mạn tính.`
+          },
+          {
+            en: `Therefore, dear viewers, to have a youthful and disease-free body, you not only need healthy mitochondria but also a high number of healthy red blood cells to transport oxygen. So, how should we go about increasing the amount of healthy red blood cells in our blood? Have you ever heard about how professional marathon runners are trained? They will train, live, walk, exercise, and run in high-altitude areas with thin air. Wow! Why are marathon runners trained at such high altitudes? It's because they intentionally put themselves in a temporarily oxygen-deprived environment. When in a temporarily low-oxygen environment like high-altitude mountainous areas where the air is thin, the body will try to make the most out of the scarce oxygen available. At that time, just by breathing in a little oxygen, the number of red blood cells in the blood will skyrocket to help the body utilize that oxygen to its fullest.`,
+            vi: `Vậy nên quý vị thân mến, để có cơ thể trẻ trung và ít bệnh tật, bạn không chỉ cần ti thể khỏe mạnh mà còn cần nhiều hồng cầu khỏe mạnh để vận chuyển oxy. Vậy chúng ta nên làm như thế nào để tăng lượng hồng cầu khỏe mạnh trong máu? Quý vị đã từng nghe cách các vận động viên maraton chuyên nghiệp được huấn luyện chưa? Họ sẽ huấn luyện, ăn ở, đi bộ, tập thể dục và chạy ở những nơi có độ cao lớn với không khí loãng. Chà! Tại sao các vận động viên marathon lại được huấn luyện tại những nơi có độ cao như thế nhỉ? Đó là vì họ cố ý đặt bản thân vào môi trường thiếu oxy tạm thời. Khi ở trong môi trường thiếu oxy tạm thời như vùng cao như trên núi, những nơi có không khí loãng, cơ thể sẽ cố gắng tận dụng tối đa oxy ít ỏi. Khi đó, chỉ cần hít một chút oxy, lượng hồng cầu trong máu sẽ tăng vọt để giúp cơ thể sử dụng tối đa oxy đó.`
+          },
+          {
+            en: `Imagine, for instance, that each red blood cell is a delivery worker who can only carry one package of oxygen to the mitochondria to generate energy. When the body needs more oxygen, it will maximize the number of red blood cell workers to transport as much oxygen as possible. To achieve full effectiveness, the training and living courses of these marathon runners will last for at least 3 weeks. For us modern folks, wanting healthy red blood cells but having to live on a mountain for three weeks... Oh, that's very difficult, isn't it? Recently, altitude training masks have appeared on the market that can simulate a low-oxygen environment. By wearing this training mask and performing interval exercises, the goal is to create a low-oxygen, thin-air environment similar to being on a mountain. However, this method requires using a finger pulse oximeter to monitor oxygen levels. From Tom's perspective, it seems quite difficult to execute and rather expensive.`,
+            vi: `Quý vị hãy tưởng tượng, chẳng hạn mỗi hồng cầu như một nhân viên vận chuyến chỉ chở được một kiện hàng oxy đến tiể để tạo ra năng lượng. Khi cơ thể cần nhiều oxy hơn, cơ thể sẽ tăng số lượng nhân viên hồng cầu lên tối đa để vận chuyển được nhiều oxy nhất có thể. Để đạt hiệu quả đầy đủ thì những khoa huấn luyện sinh hoạt của những vận động viên marathon này sẽ kéo dài ít nhất 3 tuần. Đối với chúng ta, những người hiện đại muốn có những hồng cầu khỏe mạnh mà cần phải sống trên núi trong ba tuần. Ôi, việc này rất khó đúng không quý vị? Gần đây đã xuất hiện các loại mặt nạ huấn luyện độ cao có thể tái tạo môi trường oxy thấp. Bằng cách đeo mặt nạ huấn luyện này, thực hiện những bài tập nắt quãng, mục đích là nhằm tạo ra môi trường có không khí loãng và oxy thấp tương tự như trên núi. Tuy nhiên, phương pháp này đòi hỏi phải sử dụng máy đo oxy sung đeo ngón tay để theo dõi nồng độ oxy. Theo Tom thấy nó khá khó thực hiện và tốn kém.`
+          },
+          {
+            en: `So how can regular people like us, who still go to work and go about our daily lives, create healthy red blood cells to keep our bodies resilient, energetic, and free from disease without having to live on a mountain or wear expensive workout masks? Here, Tom will introduce you to the Wim Hof method, which combines deep breathing and breath-holding. This Wim Hof breathing method is simple, and you can practice it while taking your daily outdoor walks. While walking, try to hold your breath and take as many steps as possible. When you reach your breath-holding limit, exhale, continue walking, and breathe normally. Keep breathing normally until your breath stabilizes. After that, hold your breath again and continue walking. By simply repeating this four times, the red blood cells in your body will surge, and your oxygen utilization efficiency will improve. The Wim Hof method is highly renowned for preventing diseases and extending lifespan. With this method, you and Tom can easily practice it during our daily walks. We don't need to go live on a mountain for three weeks. Very simple, right? This is truly an easy-to-execute method, and you will feel its massive benefits.`,
+            vi: `Vậy thì làm như thế nào để những người bình thường như chúng ta vẫn đi làm và sinh hoạt hàng ngày? Không cần phải lên núi sống hay đeo mặt nạ vận động đắt tiền mà vẫn tạo ra được những hòng cầu khỏe mạnh để giúp cơ thể dẻo dai, có nhiều năng lượng và tránh xa bệnh tật. Đây, Tom sẽ giới thiệu đến bạn Wimhof kết hợp giữa việc hít thở sâu và nín thở. Phương pháp hô hấp Wimhof này đơn giản và quý vị có thể thực hiện khi đang đi bộ ngoài trời hàng ngày. Khi đang đi bộ, bạn hãy thử nín thở và đi bộ càng nhiều bước càng tốt. Và khi nín thở đến giới hạn, bạn hãy thở ra tiếp tục đi bộ và hô hấp bình thường. Bạn tiếp tục hít thở bình thường cho đến khi hơi thở trở nên ổn định. Sau đó, hãy lại nghín thở và tiếp tục đi bộ. Chỉ cần lặp lại bốn lần như vậy, hồng cầu trong cơ thể bạn sẽ tăng vọt và hiệu quả sử dụng oxy sẽ được cải thiện. Phương pháp Wimhof rất nổi tiếng trong việc năng ngừa bệnh tật và kéo dài tuổi thọ. Với phương pháp này, Thom và quý vị có thể thực hiện trong khi đi bộ hàng ngày. Chúng ta không cần phải lên núi sống ba tuần. Rất đơn giản đúng không quý vị? Đây thực sự là phương pháp dễ thực hiện và bạn sẽ cảm nhận được hiệu quả rất lớn.`
+          }
+        ]
+      },
+      {
+        id: 'sec-5',
+        badgeEn: 'Secret #5',
+        badgeVi: 'Bí Quyết #5',
+        titleEn: 'Secret Number 5: Keeping Your Chin Parallel to the Ground',
+        subtitleEn: 'Correcting modern posture to decompress the lungs and restore 100% blood oxygen saturation',
+        titleVi: 'Bí Quyết Thứ 5: Giữ Cằm Song Song Với Mặt Đất',
+        subtitleVi: 'Điều chỉnh tư thế mỗi 20 phút để giải phóng phổi và cung cấp đủ oxy cho ti thể',
+        paragraphs: [
+          {
+            en: `The fifth secret to boosting energy, extending lifespan, and avoiding illness is: About every 20 minutes, keep your chin parallel to the ground. By now, having watched this far, you must have heard Tom mention many times that mitochondria critically need oxygen to produce energy. That's right; to keep your body healthy and full of energy, you must always supply enough oxygen to your mitochondria. However, in our modern world today, we have developed habits that cause our bodies to be oxygen-deprived for almost the entire day. The most common oxygen-depriving habit that modern people fall into is poor posture. The more modern life becomes with electronic devices, the easier it is for human posture to deteriorate. You have probably seen a device called a pulse oximeter. The device looks like this. People clip it onto their fingers to measure the oxygen saturation in their blood. This device was widely used, especially during the COVID-19 pandemic. The ideal blood oxygen saturation measured by this device is 100%, meaning there is adequate oxygen circulating in the blood. But many modern people fail to achieve this value. Even when sitting relaxed and breathing normally, their oxygen levels still drop below 100%.`,
+            vi: `Bí quyết thứ năm để tăng năng lượng, kéo dài tuổi thọ và tránh xa bệnh tật. Cứ khoảng 20 phút một lần giữ cằm song song với mặt đất. Chắc chắn khi đã xem đến đây, quý vị đã nghe Tom nói nhiều lần rằng ti thể rất cần oxy để tạo năng lượng. Đúng vậy, để giữ cơ thể khỏe khoắn và tràn đầy năng lượng, bạn phải luôn cung cấp đủ oxy cho ti thể. Nhưng nơi hiện đại chúng ta hiện nay lại đang có những thói quen khiến cơ thể thiếu oxy hầu như suốt cả ngày. Thói quen gây thiếu oxy dễ bị mắc phải nhất của người hiện đại đó chính là tư thế xấu. Cuộc sống càng hiện đại với các thiết bị điện tử, tư thế con người càng dễ trở nên xấu đi. Quý vị chắc đã thấy thiết bị gọi là máy đo oxy sung. Thiết bị trông như thế này. Người ta kẹp nó vào ngón tay để đo nồng độ oxy trong máu. Thiết bị này được sử dụng rất nhiều, nhất là trong thời kỳ đại dịch Covid. Nồng độ oxy lý tưởng trong máu đo được bằng máy này là 100%, nghĩa là có đủ oxy lưu thông trong máu. Nhưng nhiều người hiện đại không đạt được giá trị này. Ngay cả khi đang ngồi thư giãn và thở bình thường, nồng độ oxy vẫn xuống dưới 100%.`
+          },
+          {
+            en: `Why was it easy for people to achieve 100% oxygen saturation 30 years ago, while today many cannot reach this number? The main reason is poor posture. With poor posture, the spine curves and the body leans forward. In this position, our lungs are compressed. Your lungs act like an oxygen suction pump. When the lungs are compressed, no matter how much you breathe, you simply cannot inhale a lot of oxygen. Consequently, poor posture causes oxygen levels to drop, failing to provide enough oxygen to the mitochondria. Or, Tom can say it the other way around: simply by maintaining proper posture, you are gradually helping your mitochondria become healthy again. The method to maintain good posture is very simple. Pay attention to keeping your chin parallel to the ground. With just this simple conscious effort, your spine will straighten out, and you will breathe easily. If you are not used to it yet, you can set a timer and readjust your chin position every 20 minutes. By maintaining the correct posture, not only do you breathe easier and supply enough oxygen to your mitochondria, but you also boost testosterone secretion and improve your mental state.`,
+            vi: `Tại sao 30 năm trước người ta dễ dàng đạt 100% oxy còn bây giờ nhiều người lại không thể đạt được con số này? Nguyên nhân chính là do tư thế xấu. Khi tư thế xấu, cột sống cong lại và cơ thể niêng về phía trước. Trong tư thế này, phổi của chúng ta bị ép lại. Phổi của bạn đóng vai trò như máy bơm hút oxy. Khi phổi bị ép lại, dù bạn có hô hấp cũng không thể hít vào nhiều oxy được. Chính vì vậy, tư thế xấu khiến nồng độ oxy giảm và không thể cung cấp đủ oxy cho ti thể. Hay tom có thể nói ngược lại, chỉ cần giữ tư thế đúng là quý vị đang giúp tiể dần khỏe mạnh trở lại. Phương pháp giữ tư thế đúng rất đơn giản. Quý vị hãy chú ý dư cằm song song với mặt đất. Chỉ cần ý thức đơn giản như vậy, cột sống của bạn sẽ thẳng và bạn sẽ hít thở dễ dàng. Nếu quý vị chưa quen, bạn có thể đặt hẹn giờ và điều chỉnh lại vị trí cằm sau mỗi 20 phút. Khi giữ từ thấy đúng, bạn không chỉ hít thở dễ dàng và cung cấp đủ oxy cho ti thể mà còn tăng tiết testosterone và cải thiện tinh thần.`
+          },
+          {
+            en: `When the mind is tired, stress easily accumulates and damages mitochondria. You will notice that people with good posture are often less fatigued and more energetic because they supply adequate oxygen to their bodies, their mitochondria are healthy, and they experience less stress than those with poor posture. Initially, many of us might find keeping a straight posture somewhat strenuous, but that could just be a signal indicating that your posture has been very bad all along. Perhaps the body is sending a signal that you lack oxygen, and it is whispering a plea for you to make improvements for a healthier future. Our bodies are very smart. Are you sometimes listening to the signals your body is trying to send you? The long-term benefits of improving your posture are truly massive, so it is absolutely worth a try, don't you think?`,
+            vi: `Khi tinh thần mệt mỏi, stress dễ tích tụ và làm tổn thương ti thể. Quý vị sẽ thấy những người có tư thế tốt thường ít mệt mỏi và tràn đầy năng lượng hơn bởi vì họ cung cấp đủ oxy cho cơ thể, ti thể của họ khỏe mạnh và họ ít bị căng thẳng hơn những người có tư thế xấu. Trong thời gian đầu, nhiều người chúng ta có thể thấy việc giữ tư thế thẳng hơi vất vả nhưng đó có thể là tín hiệu cho thấy tư thế của bạn từ trước đến giờ đang rất xấu. Có thể cơ thể đang gửi tín hiệu rằng bạn thiếu oxy và nó đang thì thầm mong bạn hãy cải thiện để tương lai được khỏe mạnh hơn. Cơ thể của chúng ta rất thông minh. Đôi khi quý vị có đang lắng nghe những tín hiệu mà cơ thể của bạn đang cố gắng gửi đến không? Lợi ích của việc cải thiện tư thế thực sự rất lớn về lâu dài, vì vậy hoàn toàn đáng để thử, đúng không quý vị?`
+          }
+        ]
+      },
+      {
+        id: 'sec-6',
+        badgeEn: 'Secret #4',
+        badgeVi: 'Bí Quyết #4',
+        titleEn: 'Secret Number 4: Skipping Stones on a Pond or River',
+        subtitleEn: 'Engaging Fast-Twitch (FT) muscle fibers and activating the longevity enzyme AMPK',
+        titleVi: 'Bí Quyết Thứ 4: Ném Đá Xuống Ao Sông',
+        subtitleVi: 'Sử dụng cơ bùng nổ FT và kích hoạt enzyme trường thọ AMPK',
+        paragraphs: [
+          {
+            en: `The fourth most powerful science-backed secret to having a healthy body, a long life, and remaining disease-free is skipping stones on a pond or river. When you were young, if your house was near a river or pond, did you ever skip stones across the water? Or have you ever watched a movie and seen fathers teaching their children how to make stones skip across the water's surface? If you have done that, then at that moment, you unintentionally activated your mitochondria to forge a youthful and healthy body. Surprised, aren't you? Why is the act of throwing stones into a pond or river such an excellent method to activate mitochondria? Our muscles come in various types. Some relate to endurance, and others relate to explosive movements. Inside your muscles, there is a type called Fast-Twitch (FT) muscle fibers. These are the muscles associated with explosive movements. Many studies have proven that the contraction of FT muscles significantly enhances the synthesis of mitochondria. When you perform explosive movements like skipping stones on a river or throwing a ball in an empty field, you are utilizing your FT muscles. This activates a type of protein enzyme called AMPK, which in turn promotes the proliferation of mitochondria.`,
+            vi: `Bí quyết thứ tư mạnh mẽ nhất theo khoa học để có một cơ thể khỏe mạnh, sống lâu và không bệnh tật đó là ném đá xuống ao sông. Khi còn nhỏ, nếu nhà bạn ở gần sông hoặc ao, bạn đã từng ném đá xuống sông bao giờ chưa? Hay bạn đã từng xem phim, thấy hình ảnh những ông bố dạy con mình ném đá nảy dài trên mặt nước chưa? Nếu quý vị đã từng làm vậy thì lúc đó bạn đã vô tình kích hoạt thi thể để tạo ra một cơ thể trẻ trung và khỏe mạnh đấy. Quý vị ơi, bạn có ngạc nhiên không? Tại sao hành động ném đá xuống ao hoặc sông lại là một phương pháp tuyệt vời để kích hoạt ti thể? Cửa bắc của chúng ta có nhiều loại khác nhau. Loại cơ quan đến sức bền và loại cơ quan đến động tác bùng nộ. Trong cơ bắc của quý vị có một loại gọi là cơ FT. Đây là loại cơ liên quan đến động tác bùng nổ. Nhiều nghiên cứu đã chứng minh rằng sự co thắt của cơ FT sẽ tăng cường đáng kể quá trình tổng hợp ti thể. Khi bạn thực hiện những động tác bùng nổ như ném đa sống sông hay ném bóng ở bãi đất trống, bạn đã sử dụng cơ FT. Việc này sẽ kích hoạt một loại enzyme protein là AMPK và thúc đẩy gia tăng ti thể.`
+          },
+          {
+            en: `You might be wondering, what is AMPK? Because explaining it would be quite academic and hard to understand, Tom will keep it simple. AMPK is a type of protein kinase enzyme in your body. We all possess this enzyme, but not everyone can activate it. However, people who live long and maintain a youthful appearance for a long time are those who frequently activate this enzyme. If AMPK is consistently active, you can prevent chronic diseases and even cancer. This enzyme is frequently mentioned in studies related to longevity and prolonging youthfulness. Scientists study what kind of nutrition and lifestyles help activate it to achieve long-lasting bodily youthfulness. Tom will go into detail on this topic in another video focusing on nutrition for inner rejuvenation. But for today, you already know one way to activate AMPK to build a youthful and healthy body. That is performing explosive movements like throwing objects far away. Are you feeling surprised?`,
+            vi: `Có thể quý vị đang thắc mắc AMPK là gì? Vì nếu giải thích sẽ hơi mang tính học thuật và khó hiểu nên Tom sẽ nói đơn giản. AMPK là loại enzyme protein kinase trong cơ thể bạn. Tất cả chúng ta đều có enzyme này nhưng không phải ai cũng kích hoạt được nó. Tuy nhiên, những người sống lâu và có vẻ ngoài trẻ trung lâu dài là những người thường xuyên kích hoạt enzyme này. Nếu AMPK hoạt động thường xuyên, bạn có thể ngăn ngừa những căn bệnh mãn tính và cả ủng thư. Enzyme này được nhắc đến rất nhiều trong các nghiên cứu về trường thọ và kéo dài sự trẻ trung. Các nhà khoa học nghiên cứu về loại dinh dưỡng và lối sống nào giúp kích hoạt để có cơ thể trẻ trung lâu dài. Tom sẽ giới thiệu chi tiết về chủ đề này trong video khác chuyên về dinh dưỡng giúp trẻ hóa bên trong. Còn hôm nay bạn đã biết một cách để kích hoạt AMPK tạo ra một cơ thể chạy chung và khỏe mạnh. Đó là thực hiện những động tác bùng nổ như ném đồ vật ra xa. Quý vị có cảm thấy bất ngờ không?`
+          },
+          {
+            en: `When it comes to explosive movements, there are muscle exercises like the bench press. However, this exercise carries a risk of injury if performed by the elderly. Moreover, Tom knows that not everyone enjoys going to the gym, and commuting to a fitness center can be quite a hassle, making it unsuitable for the vast majority of people. However, if it's just skipping stones on a river or throwing a ball in an empty field, this is an exercise you can easily do on the weekends. Performing explosive movements like throwing objects far away isn't simply just a throwing motion; it is a full-body exercise that activates the longevity enzyme and increases healthy mitochondria. Now, imagine the action of throwing an object far away—what does your body look like? We cannot throw far if we just stand straight and use only our arm to throw, right? To throw far, you pull your leg back, firmly stabilize your torso, and utilize your entire body. Thus, although the act of throwing an object is easy to perform, it is actually a highly complex full-body exercise.`,
+            vi: `Khi nhắc đến động tác bùng nổ, có những bài tập cơ như bench press. Tuy nhiên, bài tập này có nguy cơ chấn thương nếu người cao tuổi thực hiện. Hơn nữa, Thòm biết không phải ai cũng thích tập GM và việc đến phòng tập cũng khá phiền phức, không phù hợp với đại đa số mọi người. Tuy nhiên, nếu chỉ là ném đá xuống sông hay ném bóng ở bãi đất trống, đây là bài tập quý vị có thể thực hiện dễ dàng vào cuối tuần. Việc thực hiện những động tác bùng nổ như ném đồ vật ra xa không phải đơn giản chỉ là động tác ném mà nó còn là một bài tập toàn thân để kích hoạt enzyme trường thọ và làm gia tăng ti thể khỏe mạnh. Nào quý vị, bạn hãy thử tưởng tượng động tác ném đồ vật ra xa, cơ thể bạn sẽ như thế nào? Chúng ta không thể ném xa nếu chỉ đứng thẳng và dùng tay ném phải không? Để ném xa, bạn sẽ rút chân lại, cố định thân chắc chắn và sử dụng toàn bộ cơ thể. Như vậy, động tác ném đồ vật tuy có thể thực hiện dễ dàng nhưng thực ra lại là bài tập toàn thân rất phức tạp.`
+          },
+          {
+            en: `Through this movement, not only your FT muscles but also your nervous system is stimulated. You will activate your sympathetic nervous system and increase the secretion of neurotransmitters like noradrenaline. And the increase of these neurotransmitters is also known to promote mitochondrial biogenesis. However, Tom wants to note that throwing objects randomly in cramped spaces is very dangerous if it hits someone. And please do not throw stones at the neighbor's dog. This disrupts public order and is very cruel to the dog. If you live near an empty lot or a football field, you might want to try throwing a ball there. Or if you live near a river or a pond, try skipping stones across the water during your morning walk. Just like that, the effectiveness of your morning stroll will skyrocket.`,
+            vi: `Thông qua động tác này, không chỉ cơ FT mà cả hệ thần kinh của bạn cũng được kích thích. Bạn sẽ kích hoạt hệ thần kinh giao cảm và tăng tiết các chất dẫn truyền thần kinh như no adrenaline. Và sự gia tăng các chất dẫn truyền thần kinh này cũng được biết là thúc đẩy sự sinh sôi của ti thể. Tuy nhiên, Thom muốn lưu ý rằng nếu ném đồ vật lung tung ở nơi chật hẹp sẽ rất nguy hiểm khi trúng người. Và đừng ném đá vào chó nhà hàng xóm. Điều này vừa mất trật tự công cộng vừa rất tội nghiệp cho chú chó. Nếu quý vị sống gần nơi có bãi đất trống hoặc sân bóng, bạn có thể muốn thử ném bóng ở đó. Hoặc nếu sống gần sông hay ao, quý vị hãy thử ném đá xuống sông trong lúc đi dạo buổi sáng. Chỉ cần thế thôi, hiệu quả của việc đi dạ buổi sáng sẽ tăng vọt.`
+          }
+        ]
+      },
+      {
+        id: 'sec-7',
+        badgeEn: 'Secret #3',
+        badgeVi: 'Bí Quyết #3',
+        titleEn: 'Secret Number 3: Avoiding Pesticides and Dangerous Toxins',
+        subtitleEn: 'Protecting mitochondrial DNA and choosing nutrient-dense organic produce',
+        titleVi: 'Bí Quyết Thứ 3: Tránh Thuốc Trừ Sâu, Chất Độc Nguy Hiểm',
+        subtitleVi: 'Bảo vệ DNA ti thể và ưu tiên thực phẩm hữu cơ giàu dinh dưỡng',
+        paragraphs: [
+          {
+            en: `The third most powerful science-backed secret to having a healthy body, living a long life, and remaining disease-free is avoiding pesticides and dangerous toxins that destroy mitochondria. Yes, ladies and gentlemen, it is precisely about avoiding dangerous toxins from pesticides. Modern society is very convenient and has freed us from a life of self-sufficiency. However, the flip side is that the market is flooded with substances that destroy the precious mitochondria in our bodies. As you know, when mitochondria are destroyed, the risk of disease skyrockets, the immune system weakens, and the risk of cancer increases. Alcohol, processed foods like sausages, or prolonged stress all impair mitochondrial function. However, these are not the worst offenders. Among them, the things that cause the most damage to mitochondria are pesticides and insecticides. Particularly, organophosphate insecticides and pyrethroids are the absolute worst. We should limit our exposure to them as much as possible.`,
+            vi: `Bí quyết thứ ba mạnh mẽ nhất theo khoa học để có một cơ thể khỏe mạnh, sống lâu và không bệnh tật đó là tránh thuốc trừ sâu, chất độc nguy hiểm, phá hủy ti thể. Vâng, thưa quý vị, chính là tránh chất độc nguy hiểm từ thuốc trừ sâu. Xã hội hiện đại rất tiện lợi và giúp chúng ta thoát khỏi cuộc sống tự cùng tự cấp. Tuy nhiên, mặt trái của nó là thị trường tràn ngập các chất phá hủy ti thể quý giá trong cơ thể. Quý vị cũng biết khi tiể bị phá hủy, nguy cơ bệnh tật tăng cao, hề miễn dịch suy yếu và nguy cơ ung thư gia tăng. Rượu, thực phẩm chế biến sẵn như xúc xích hay căng thẳng kéo dài, tất cả đều làm giảm chức năng ti thể. Tuy nhiên, đây chưa phải là thứ tệ nhất. Trong số đó, thứ gây tổn thương ti thể nhiều nhất đó là thuốc trừ sâu và thuốc diệt côn trùng. Đặc biệt là thuốc diệt côn trùng hữu cơ lân và pyetroid là loại tệ nhất. Chúng ta nên hạn chế tiếp xúc với chúng nhiều nhất có thể.`
+          },
+          {
+            en: `These types of chemicals block enzyme activity and disrupt the electron transport chain of the mitochondria. Or to put it more simply, pesticides render mitochondria completely incapable of producing energy. Conversely, limiting exposure to pesticides and herbicides will allow your mitochondria to stay healthy and generate more energy efficiently. Furthermore, these toxic insecticides possess the terrifying power to destroy the very DNA of the mitochondria. When mitochondrial DNA is destroyed, mitochondria cannot multiply in number. As you already know, mitochondria are like workers in a factory producing energy for the body. If the number of these workers doesn't increase, you won't be able to expand the factory's scale to generate more energy. This means your body will cap its energy production at a limited level, unable to generate more, making it extremely difficult to improve your stamina.`,
+            vi: `Những loại thuốc này ngăn chặn hoạt động của enzyme, kích hoạt chuỗi truyền điện tử của ti thể. Hay tom sẽ nói đơn giản hơn, thuốc trừ sâu khiến tiể thể hoàn toàn không thể sản sinh năng lượng. Ngược lại, việc hạn chế tiếp xúc với thuốc trừ sâu và diệt cỏ sẽ khiến tiể của bạn được khỏe mạnh và tạo ra nhiều năng lượng hơn một cách hiệu quả. Ngoài ra, những loại thuốc diệt côn trùng độc hại còn có sức mạnh đáng sợ là phá hủy chính DNA của ti thể. Khi DNA trong ti thể bị phá hủy, ti thể không thể tăng số lượng. Quý vị đã biết, ti thể như những công nhân trong nhà máy sản xuất năng lượng cho cơ thể. Nếu số lượng công nhân này không tăng lên, bạn sẽ không thể mở rộng quy mô nhà máy để tạo thêm được nhiều năng lượng. Tức là cơ thể bạn sẽ dừng sản sinh năng lượng ở một mức độ giới hạn, không thể gia tăng thêm và thể lực của bạn cũng sẽ khó được cải thiện.`
+          },
+          {
+            en: `If a person wants to improve their stamina, desires a body brimming with energy, and wishes to be healthy and disease-free, yet constantly exposes themselves to an environment filled with pesticides and insecticides... Conversely, their risk of illness in old age will surge. If you don't come into direct contact with pesticides, that is truly something to be glad about. The remaining thing we can do is limit our indirect exposure to them. All the vegetables you buy outside run the risk of having been treated with pesticides. Do any of you think, "If I eat it, I die; if I don't eat it, I also die"? What is it that you truly care about here? It is figuring out how to live healthily and steer clear of the pain caused by illnesses. How to maintain a youthful body to enjoy an active lifestyle, whether you are currently young or already in your senior years. Limiting exposure to pesticides is a lifestyle choice that helps you achieve that goal.`,
+            vi: `Nếu một người muốn cải thiện thể lực, muốn có cơ thể tràn đầy năng lượng, muốn khỏe mạnh và không bệnh tật, nhưng lại đặt bản thân vào môi trường thường xuyên tiếp xúc với thuốc trừ sâu và thuốc diệt côn trùng. Ngược lại, nguy cơ bệnh tật khi về già sẽ tăng cao. Nếu bạn không tiếp xúc trực tiếp với thuốc trừ sâu, đó thực sự là một điều đáng mừng. Việc còn lại chúng ta có thể làm là hạn chế tiếp xúc gián tiếp với chúng. Tất cả những loại rau bạn mua bên ngoài đều có nguy cơ đã được sử dụng thuốc trừ sâu. Có quý vị nào nghĩ rằng ăn cũng chết mà không ăn cũng chết không nào? Thực ra điều quý vị đang quan tâm là gì? Đó là làm như thế nào để bạn sống khỏe mạnh, tránh xa những đau đớn vì bệnh tật. Làm sao có một cơ thể trẻ trung để tận hưởng cuộc sống năng động dù bạn đang còn trẻ hay đã về già. Hạn chế tiếp xúc với thuốc trừ sâu là một lối sống giúp bạn đạt được mục tiêu đó.`
+          },
+          {
+            en: `If you buy vegetables that might have been treated with pesticides, please wash them thoroughly and soak them in salt water or a baking soda solution. After about 15 minutes, the baking soda will significantly reduce the amount of pesticides on the surface of the vegetables, eliminating many of the toxic elements clinging to them. If you have the opportunity, try to eat more organic foods and home-grown vegetables. Tom will take a few minutes to share some information with you about organic vegetables, referenced from the book "The Cancer Resolution" by author Mark Lintern. Before 1940, almost everyone consumed organic food free from pesticides. However, since 1940, organic food has gradually been replaced by non-organic food. The cancer rate also spiked astonishingly from this point in time, right when agriculture transitioned to farming with pesticides and chemical additives.`,
+            vi: `Nếu mua rau có nguy cơ dùng thuốc trừ sâu, quý vị hãy rửa sạch sẽ, nâm trong nước muối hoặc nâm trong bột baking soda. Sau khoảng 15 phút, bột baking soda sẽ giúp giảm được đáng kể lượng thuốc trừ sâu ở bề mặt của các loại rau cụ. loại bỏ được nhiều các thành phần độc hại bám trên rau. Nếu có cơ hội, quý vị hãy cố gắng ăn nhiều thực phẩm hữu cơ, các loại giàu nhà trồng. Thom sẽ dành vài phút để chia sẻ đến quý vị thông tin về rau củ hữu cơ được tham khảo từ cuốn sách The Cancer Resolution, tạm dịch là giải pháp cho ung thư của tác giả Mark Linton. Trước năm 1940, hầu như mọi người đều tiêu thụ thực phẩm hữu cơ không chứa thuốc trừ sâu. Và kể từ năm 1940, thực phẩm hữu cơ dần bị thay thế bởi thực phẩm phi hữu cơ. Tỷ lệ ung thư cũng tăng mạnh đáng kinh ngạc từ thời điểm này, đúng lúc nông nghiệp chuyển sang canh tác bằng thuốc trừ sâu và chất phụ ra.`
+          },
+          {
+            en: `A 2003 study showed that food containing pesticides was 35% to 80% less nutritious than the organic food consumed in the 1940s. In some cases, certain vitamins completely disappeared. In other words, our bodies today receive fewer nutrients and fewer plant-based antibiotics (phytonutrients) compared to before 1940. Researchers found that potatoes had lost nearly 100% of their vitamin A and 57% of their vitamin C. Broccoli suffered an 80% reduction. The copper content in vegetables has also plummeted compared to 1940, a year when agriculture hadn't widely adopted pesticide use. The same goes for tomatoes; 10 tomatoes in 1991 contained only the equivalent amount of copper as a single tomato in 1940. So, everyone, in your mind, what is the benefit of eating organic vegetables? It doesn't just simply help you limit pesticide exposure, but it also supplies much more nutrition to your body. Imagine having to eat 10 pesticide-grown tomatoes in 1991 just to absorb the same amount of copper found in one organically grown tomato from 1940. Even though organic vegetables and home-grown produce might be more expensive and visually less appealing than conventional vegetables, sometimes we need to focus on internal quality rather than quantity and superficial appearance, right?`,
+            vi: `Một nghiên cứu năm 2003 cho thấy thực phẩm chứa thuốc trừ sâu kém dinh dưỡng hơn từ 35 đến 80% so với thực phẩm hữu cơ được tiêu thụ vào những năm 1940. Trong một số trường hợp một số loại vitamin hoàn toàn biến mất. Nói cách khác, cơ thể chúng ta ngày nay nhận ít dượng chất và ít chất kháng sinh thực vật hơn so với trước năm 1940. Các nhà nghiên cứu phát hiện khoai tây đã mất gần như 100% vitamin A và 57% vitamin C. Bông cải xanh bị giảm mất 80%. Hàm lượng đồng trong rau củ cũng đã giảm mạnh so với năm 1940, vốn là năm nông nghiệp chưa phổ biến sử dụng thuốc trừ sâu. Và đối với cà chua cũng vậy, 10 quả cà chua vào năm 1991 có lượng đồng tương đương với chỉ một quả cà chua năm 1940. Quý vị ơi, trong hình dung của bạn, việc ăn rau củ hữu cơ có tác dụng gì? Nó không chỉ đơn giản là giúp quý vị hạn chế tiếp xúc với thuốc trừ sâu mà bạn còn cung cấp nhiều dinh dưỡng cho cơ thể hơn. Quý vị hãy tưởng tượng bạn phải ăn 10 quả cà chua được trồng với thuốc trừ sâu năm 1991 mới nạp lực lượng đồng chỉ bằng một quả cà chua được trồng hữu cơ năm 1940. Dù rau hữu cơ, các loại rau nhà chồng có lại đắt hơn và vẻ ngoài kém hơn rau thông thường. Nhưng đôi khi chúng ta cần tập trung vào chất lượng bên trong hơn là số lượng và vẻ bề ngoài, đúng không quý vị?`
+          }
+        ]
+      },
+      {
+        id: 'sec-8',
+        badgeEn: 'Secret #2',
+        badgeVi: 'Bí Quyết #2',
+        titleEn: 'Secret Number 2: The Daily Tongue-Scraping Method',
+        subtitleEn: 'Stimulating the vagus nerve, boosting nitric oxide via nasal breathing, and balancing the oral-gut microbiome',
+        titleVi: 'Bí Quyết Thứ 2: Phương Pháp Trải Lưỡi Một Lần Mỗi Ngày',
+        subtitleVi: 'Kích thích dây thần kinh phế vị, tăng nitric oxide và cân bằng hệ vi sinh khoang miệng - đường ruột',
+        paragraphs: [
+          {
+            en: `The second most powerful science-backed secret to having a healthy body, a long life, and remaining disease-free is the method of scraping your tongue once a day. Do you have a daily habit of scraping your tongue alongside brushing your teeth? Tom hopes you will add a tongue-scraping routine to your mornings to activate healthy mitochondria in your body. When scraping your tongue, do you sometimes feel a gag reflex? Actually, that gagging sensation is the very evidence that your vagus nerve is being stimulated. The vagus nerve is a type of parasympathetic nerve. Stimulating this nerve will promote the synthesis of healthy mitochondria. And as you already know, the more healthy mitochondria you have, the more energy your body possesses, keeping you youthful and disease-free.`,
+            vi: `Bí quyết thứ hai mạnh mẽ nhất theo khoa học để có một cơ thể khỏe mạnh, sống lâu và không bệnh tật đó là phương pháp trải lưỡi một lần mỗi ngày. Quý vị có thói quen trải lưỡi hàng ngày cùng với đánh răng không? T mong rằng bạn hãy bổ sung thêm thói quen trải lưỡi vào mỗi buổi sáng để kích hoạt ti thể khỏe mạnh trong cơ thể. Khi trải lưỡi, quý vị có bị cảm giác nôn nấc khi chải lưỡi không nào? Thực ra trạng thái nôn nấc đó chính là bằng chứng cho thấy dây thần kinh phế vị của bạn đang được kích thích. Dây thần kinh phế vị là một loại dây thần kinh phó giao cảm. Việc kích thích dây thần kinh này sẽ thúc đẩy sự tổng hợp ti thể khỏe mạnh. Và như quý vị đã biết, càng nhiều ti thể khỏe mạnh, cơ thể bạn càng có nhiều năng lượng, trẻ trung và ít bệnh tật.`
+          },
+          {
+            en: `Furthermore, scraping the tongue also helps reduce cortisol, which is the stress hormone. Moreover, it was recently discovered that scraping the tongue helps regulate breathing and improves oxygen levels in the body. If there is a thick layer of coating on the tongue, it inhibits our ability to breathe through the nose. This causes the oxygen levels in the body to drop. Conversely, simply removing the dirty layer on your tongue with a daily scraping habit makes nasal breathing much easier. When you increase nasal breathing, nitric oxide is produced, your blood vessels dilate, and more oxygen is distributed throughout your bloodstream. The final benefit Tom wants you to know is that the habit of cleaning your tongue will help improve your gut environment. The dirty layer on the tongue contains a large number of harmful bacteria. Just as your gut has a microbiome, our oral cavity also hosts a community of bacteria, comprising both beneficial and harmful microbes.`,
+            vi: `Hơn nữa, trái lưỡi còn giúp giảm cortisol là hómôn gây căng thẳng. Ngoài ra, gần đây người ta phát hiện ra rằng trải lưỡi giúp điều hòa hô hấp và cải thiện lượng oxy trong cơ thể. Nếu có nhiều lấp vặn trên lưỡi, cơ thể chúng ta sẽ thúc bể hít thở bằng mũi. Điều này khiến lượng oxy trong cơ thể giảm. Ngược lại, chỉ cần bạn loại bỏ lớp bẩn trên lưỡi bằng thói quen chạy lưỡi mỗi ngày khiến cho việc hô hấp bằng mũi trở nên dễ dàng hơn. Khi quý vị tăng cường hít thở bằng mũi, lượng nitric oxide sẽ được tạo ra, mạch máu của bạn giãn nở và nhiều oxy sẽ được phân phối trong máu. Lợi ích cuối cùng to muốn bạn biết là thói quen làm sạch lưỡi sẽ giúp cải thiện môi trường ruột. Lớp bẩn trên lưỡi có chứa một lượng lớn vi khuẩn có hại. Nếu trong ruột của bạn có một hệ vi khuẩn thì trong khoang miệng của chúng ta cũng chứa một cộng đồng vi khuẩn bao gồm vi khuẩn có lợi và vi khuẩn có hại.`
+          },
+          {
+            en: `The bacterial microbiome in the oral cavity will affect your gut health. If the oral microbiome loses its balance and harmful bacteria dominate, the harmful bacteria in your gut will also increase. Therefore, cleaning your tongue every day will support a healthy gut. However, scraping your tongue too frequently will have the opposite effect. It will completely eradicate the bacterial diversity in the oral cavity and cause an imbalance. Excessive tongue cleaning is actually counterproductive. Please limit yourself to scraping your tongue just once a day, either in the morning or in the evening.`,
+            vi: `Hệ vi khuẩn trong khoang miệng sẽ ảnh hưởng đến sức khỏe đường ruột. Nếu hệ vi khuẩn trong khoang miệng mất cân bằng và vi khuẩn có hại chiếm ưu thế, đường ruột cũng sẽ tăng vi khuẩn có hại. Vì vậy, làm sạch lưỡi mỗi ngày sẽ hỗ trợ cho bạn có một đường ruột khỏe mạnh. Tuy nhiên, trải lưỡi quá thường xuyên lại có tác dụng ngược. Nó sẽ loại bỏ hoàn toàn sự đa dạng vi khuẩn trong khoang miệng và gây mất cân bằng. Làm sạch lưỡi quá mức ngược lại không tốt. Quý vị hãy giới hạn chỉ nên trái lưỡi một lần mỗi ngày hoặc là vào buổi sáng hoặc là vào buổi tối nhé.`
+          }
+        ]
+      },
+      {
+        id: 'sec-9',
+        badgeEn: 'Secret #1',
+        badgeVi: 'Bí Quyết #1',
+        titleEn: 'Secret Number 1: Tapping Acupressure Points with Your Fingers',
+        subtitleEn: 'Stimulating Dantian & Baihui acupressure points to lower cortisol and repair cells',
+        titleVi: 'Bí Quyết Thứ 1: Dùng Ngón Tay Gõ Vào Huyệt',
+        subtitleVi: 'Kỹ thuật tapping vào huyệt Đan Điền và Bách Hội giúp giảm stress và phục hồi tế bào',
+        paragraphs: [
+          {
+            en: `The final secret to having a healthy body, living long, and being disease-free is the method of using your fingers to tap on the acupressure point below the navel to further increase healthy mitochondria. Acupuncture is a highly effective method. However, acupuncture is not suitable for those who cannot tolerate pain, and it is also time-consuming to commute to. Not all of us can manage to visit an acupuncture clinic on a weekly basis. Many studies show that you can achieve a similar effect through a simpler method, which is the tapping technique—using your own fingers to tap on acupressure points. Numerous studies have indicated that tapping on these points helps reduce the secretion of cortisol, a stress hormone. For a long time, Eastern medicine has shown that tapping acupressure points helps regulate energy, and today, from a scientific perspective, tapping these points helps reduce stress, activates the parasympathetic nervous system, shifts the body from a state of stress to relaxation, and repairs damaged cells.`,
+            vi: `Bí quyết cuối cùng để có một cơ thể khỏe mạnh, sống lâu và không bệnh tật đó là phương pháp dùng ngón tay gõ vào huyệt dưới rốn để gia tăng thêm tiể khỏe mạnh. Châm cứu là một phương pháp rất hiệu quả. Tuy nhiên, việc châm cứu không phù hợp với những quý vị không chịu được đau và cũng tốn kém thời gian đi lại. Không phải tất cả chúng ta ai cũng có thể đến phòng chấm cứu hàng tuần được. Nhiều nguyên cứu cho thấy bạn có thể đạt hiệu quả tương tự bằng phương pháp đơn giản hơn, đó là kỹ thuật tapping, phương pháp tự gõ vào huyệt bằng ngón tay. Nhiều nghiên cứu đã chỉ ra rằng việc gõ vào huyệt sẽ giúp dạng tiết cortisol là một loại hormôn gây stress. Từ lâu trong đông y cho thấy gõ vào huyệt giúp kiểm soát năng lượng và hiện nay dưới góc nhìn khoa học, việc gõ vào huyệt sẽ giúp giảm stress, kích hoạt hệ thần pinh phó giao cảm, đưa cơ thể từ trạng thái căng thẳng sang thư giãn và sửa chữa tế bào hư họng.`
+          },
+          {
+            en: `Specifically, if you gently tap on energy-regulating areas like the Baihui or Dantian, it will yield massive results. The Dantian is the area below the navel, while the Baihui is the highest point on the crown of your head. Every day, try setting aside some time to use your middle finger to gently tap on those areas. Doing this just 10 times a day will help increase blood circulation throughout your entire body and improve your energy circulation. This tapping technique is best performed before going to sleep. Tom would like to further note that among the body's acupressure points, the areas that help strengthen the parasympathetic nervous system are the middle of the neck or the back of the hand. If you want to boost your energy, gently tap on the top of your head or the area below your navel. In the evening, when you want to relax before bed, use your hand to tap on the middle of your neck or the back of your hand.`,
+            vi: `Đặc biệt, nếu quý vị gõ nhẹ vào những vùng điều hòa năng lượng như bách hội hoặc đan điền sẽ đưa đến hiệu quả rất lớn. Đan điền là vùng giới rốn, còn bách hội chính là điểm cao nhất trên đỉnh đầu của bạn. Mỗi ngày quý vị hãy thử dành thời gian dùng ngón giữa gõ nhẹ vào những vùng đó thử xem nhé. Chỉ cần làm 10 lần mỗi ngày cũng giúp tăng lưu thông máu toàn thân và cải thiện tuần hoàn năng lượng. Kỹ thuật tháp này nên thực hiện trước khi đi ngủ. Thò muốn lưu ý thêm trong các huyệt của cơ thể, vùng giúp tăng cường hệ thần kinh phó giao cảm là vùng giữa cổ hoặc mu bàn tay. Nếu quý vị muốn nâng cao năng lượng, bạn hãy gõ nhẹ vào vùng định đầu hoặc vùng dưới rốn. Vào buổi tối, khi muốn thư giãn trước khi ngủ, bạn hãy dùng tay gõ vào vùng giữa cổ hoặc mu bàn tay.`
+          }
+        ]
+      },
+      {
+        id: 'sec-10',
+        badgeEn: 'Conclusion',
+        badgeVi: 'Tổng Kết',
+        titleEn: 'Conclusion',
+        subtitleEn: 'A complete recap of all 9 mitochondrial-boosting daily habits',
+        titleVi: 'Tổng Kết',
+        subtitleVi: 'Điểm lại toàn bộ 9 bí quyết nâng cao ti thể và xây dựng cơ thể khỏe mạnh',
+        paragraphs: [
+          {
+            en: `Dear viewers, let's review all nine secrets with Tom to boost mitochondria, increase energy, and build a healthy, disease-free body. Treat every daily movement as a physical exercise. Intentionally cough 10 times a day. Add Himalayan pink salt, which contains minerals that activate mitochondria, to your daily meals. Walk while holding your breath. About every 20 minutes, pay attention to your chin position once. Or you can just do it whenever you happen to remember. Adjust your chin to be parallel to the ground. Compared to not doing it at all, practicing this even a little bit creates an accumulative effect, gradually and steadily helping you intake more oxygen for the body. Perform explosive movements like skipping stones on a pond or throwing objects far away. Limit exposure to pesticides and insecticides to avoid toxins that destroy mitochondria. And if possible, eat more organic foods. Cultivate the habit of scraping your tongue once a day. Use the tapping method. Use your fingers to tap on acupressure points to circulate blood flow and activate the parasympathetic nervous system. Thank you for tuning in, and see you in Tom's comprehensive health-building videos next week.`,
+            vi: `Quý vị thân mến, cùng Tom xem lại một lượt tất cả chín bí quyết để nâng cao ti thể, tăng cường năng lượng, xây dựng một cơ thể khỏe mạnh, không bệnh tật nhé. Coi mỗi hành động sinh hoạt hàng ngày là một bài tập thể dục. Cố ý ho 10 lần mỗi ngày. Thêm muối hồng Himalaya chứa các khoáng chất kích hoạt ti thể vào bữa ăn mỗi ngày. Đi bộ trong khi nín thở. Cứ khoảng 20 phút chú ý đến vị trí cằm một lần. Hoặc quý vị chỉ thực hiện vào những nút nhớ ra cũng được. Quý vị hãy điều chỉnh cằm song song với mặt đất. So với việc không thực hiện. Việc thực hiện dù ít nhưng theo hiệu quả tích lũy, nó sẽ dần dần từng chút một giúp quý vị nạp nhiều oxy cho cơ thể. Thực hiện động tác bùng nổ như ném đá xuống ao hay ném đồ vật ra xa. Hạn chế tiếp xúc với thuốc trừ sâu và thuốc diệt côn trùng để tránh chất độc phá hủy ti thể. Và nếu có thể hãy ăn nhiều hơn các thực phẩm hữu cơ. Thói quen trải lưỡi một lần mỗi ngày. Sử dụng phương pháp topping. Dùng ngón tay gõ vào các huyệt để tuần hoàn mạch máu và kích hoạt thần kinh phó giao cảm. Cảm ơn quý vị đã theo dõi và hẹn gặp lại bạn vào những video xây dựng sức khỏe toàn diện của Tom trong tuần tới.`
+          }
+        ]
+      }
+    ];
+
+    /**
+     * 2. INTERACTIVE LEARNER GLOSSARY (30 B2/C1 Specialized Terms & Concepts)
+     */
+    const GLOSSARY_TERMS = [
+      {
+        term: 'mitochondria',
+        pos: 'noun (plural)',
+        posCategory: 'noun',
+        sectionRef: 'Introduction',
+        definition: 'Organelles found in large numbers in most cells, in which the biochemical processes of respiration and energy production occur.',
+        plainEnglish: 'In other words, tiny "power plants" or batteries inside your cells that turn oxygen and nutrients into energy your body can use.',
+        example: 'You can imagine each mitochondrion as a tiny battery that generates energy for your cells.',
+        vietnamese: 'Ti thể (nhà máy sản xuất năng lượng của tế bào)'
+      },
+      {
+        term: 'lifespan',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Introduction',
+        definition: 'The length of time for which a person or organism lives or functions.',
+        plainEnglish: 'In other words, the total number of years a person stays alive.',
+        example: 'This book focuses on various methods to boost energy, extend lifespan, and ward off diseases.',
+        vietnamese: 'Tuổi thọ / Vòng đời'
+      },
+      {
+        term: 'ward off',
+        pos: 'phrasal verb',
+        posCategory: 'verb',
+        sectionRef: 'Introduction',
+        definition: 'To prevent someone or something unpleasant or dangerous from harming or affecting you.',
+        plainEnglish: 'In other words, to protect yourself against something bad, like an illness, and keep it away.',
+        example: 'This book focuses on various methods to boost energy, extend lifespan, and ward off diseases.',
+        vietnamese: 'Tránh xa / Ngăn ngừa / Đẩy lùi (bệnh tật)'
+      },
+      {
+        term: 'reiterate',
+        pos: 'verb',
+        posCategory: 'verb',
+        sectionRef: 'Secret #9',
+        definition: 'To say something again or a number of times, typically for emphasis or clarity.',
+        plainEnglish: 'In other words, to repeat an important point so the listener remembers it clearly.',
+        example: 'Tom would like to reiterate the title of this method: Tricking the brain when moving the body.',
+        vietnamese: 'Nhắc lại / Lặp lại để nhấn mạnh'
+      },
+      {
+        term: 'susceptible',
+        pos: 'adjective',
+        posCategory: 'adjective',
+        sectionRef: 'Secret #9',
+        definition: 'Likely or liable to be influenced or harmed by a particular thing.',
+        plainEnglish: 'In other words, easily affected or harmed by sickness or disease.',
+        example: 'The result is that even though you rest a lot, your body becomes increasingly tired, lacks energy, and becomes more susceptible to various diseases.',
+        vietnamese: 'Dễ mắc phải / Dễ bị tổn thương hoặc ảnh hưởng bởi'
+      },
+      {
+        term: 'vigorously',
+        pos: 'adverb',
+        posCategory: 'adjective',
+        sectionRef: 'Secret #9',
+        definition: 'In a way that involves physical strength, effort, orhigh energy.',
+        plainEnglish: 'In other words, working very actively, strongly, and with lots of energy.',
+        example: 'That is why the more you build a habit of staying active, the more vigorously your mitochondria will function.',
+        vietnamese: 'Một cách mạnh mẽ, tích cực, tràn đầy sinh lực'
+      },
+      {
+        term: 'mindful',
+        pos: 'adjective',
+        posCategory: 'adjective',
+        sectionRef: 'Secret #9',
+        definition: 'Conscious or aware of something; deliberately paying attention to the present activity.',
+        plainEnglish: 'In other words, actively noticing and thinking about what you are doing right now.',
+        example: 'Therefore, even if you don\'t have time to exercise, as long as you are mindful and treat every movement in your daily life as a workout, you are activating your mitochondria to become increasingly robust.',
+        vietnamese: 'Có ý thức / Chú tâm / Lưu tâm'
+      },
+      {
+        term: 'sluggish',
+        pos: 'adjective',
+        posCategory: 'adjective',
+        sectionRef: 'Secret #9',
+        definition: 'Slow-moving or inactive; lacking energy or alertness.',
+        plainEnglish: 'In other words, feeling slow, tired, and having very low energy.',
+        example: 'You will notice that sluggish, slow, and low-energy actions each day will be replaced by vigorous movements that help increase energy for your mitochondria.',
+        vietnamese: 'Lừ đừ / Chậm chạp / Uể oải'
+      },
+      {
+        term: 'unconventional',
+        pos: 'adjective',
+        posCategory: 'adjective',
+        sectionRef: 'Secret #8',
+        definition: 'Not based on or conforming to what is generally done or believed.',
+        plainEnglish: 'In other words, unusual or different from normal, everyday methods.',
+        example: 'Rest assured, the nine secrets Tom is introducing today are unconventional ways to boost mitochondria, but they are highly effective biologically.',
+        vietnamese: 'Khác thường / Không theo lối mòn quen thuộc'
+      },
+      {
+        term: 'fatigue',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Secret #8',
+        definition: 'Extreme tiredness resulting from mental or physical exertion or illness.',
+        plainEnglish: 'In other words, a deep feeling of exhaustion and lack of energy.',
+        example: 'Even if you are in good health, intentionally coughing about 10 times a day will help you have more energy and avoid fatigue.',
+        vietnamese: 'Sự mệt mỏi / Kiệt sức'
+      },
+      {
+        term: 'lung capacity',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Secret #8',
+        definition: 'The total volume of air that the lungs can hold when fully inflated.',
+        plainEnglish: 'In other words, how much air your lungs are able to take in during a deep breath.',
+        example: 'As a result, your respiratory muscles are strengthened, your lung capacity increases, and your oxygen absorption capability is enhanced.',
+        vietnamese: 'Dung tích phổi'
+      },
+      {
+        term: 'autonomic nervous system',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Secret #8',
+        definition: 'The part of the nervous system responsible for control of the bodily functions not consciously directed, such as breathing, the heartbeat, and digestive processes.',
+        plainEnglish: 'In other words, the automatic control system in your body that manages things like heart rate and digestion without you thinking about them.',
+        example: 'Furthermore, coughing has the surprising benefit of regulating the autonomic nervous system.',
+        vietnamese: 'Hệ thần kinh tự chủ (hệ thần kinh thực vật)'
+      },
+      {
+        term: 'parasympathetic nervous system',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Secret #8',
+        definition: 'The branch of the autonomic nervous system that conserves energy as it slows the heart rate, increases intestinal and gland activity, and relaxes sphincter muscles.',
+        plainEnglish: 'In other words, the "rest and digest" part of your nervous system that calms your body down and helps cells repair.',
+        example: 'When the parasympathetic nervous system is active, your body escapes from stress and anxiety, returning to a state of relaxation.',
+        vietnamese: 'Hệ thần kinh phó giao cảm (giúp thư giãn và phục hồi)'
+      },
+      {
+        term: 'ingest',
+        pos: 'verb',
+        posCategory: 'verb',
+        sectionRef: 'Secret #7',
+        definition: 'To take food, drink, or another substance into the body by swallowing or absorbing it.',
+        plainEnglish: 'In other words, to eat or drink something so it enters your body.',
+        example: 'In our daily meals, we don\'t always ingest an adequate amount of these minerals.',
+        vietnamese: 'Nạp vào / Tiêu thụ (thức ăn, khoáng chất)'
+      },
+      {
+        term: 'proliferation',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Secret #7',
+        definition: 'Rapid reproduction of a cell, part, or organism; a rapid increase in numbers.',
+        plainEnglish: 'In other words, a fast growth or multiplication in the number of healthy cells or mitochondria.',
+        example: 'This means that by consuming Himalayan pink salt, you support healthy thyroid hormones, which in turn leads to the proliferation of mitochondria.',
+        vietnamese: 'Sự tăng sinh / Sự sinh sôi nhanh chóng'
+      },
+      {
+        term: 'chronic',
+        pos: 'adjective',
+        posCategory: 'adjective',
+        sectionRef: 'Secret #6',
+        definition: '(Of an illness) persisting for a long time or constantly recurring.',
+        plainEnglish: 'In other words, long-lasting health problems that develop slowly over time, such as diabetes or heart disease.',
+        example: 'From there, the mitochondria will generate energy to keep you healthy, less fatigued, and clear of chronic diseases.',
+        vietnamese: 'Mạn tính / Kéo dài dai dẳng (bệnh mạn tính)'
+      },
+      {
+        term: 'oxygen-deprived',
+        pos: 'adjective',
+        posCategory: 'adjective',
+        sectionRef: 'Secret #6',
+        definition: 'Lacking an adequate supply of oxygen needed for normal biological function.',
+        plainEnglish: 'In other words, not getting enough oxygen.',
+        example: 'It\'s because they intentionally put themselves in a temporarily oxygen-deprived environment.',
+        vietnamese: 'Thiếu oxy'
+      },
+      {
+        term: 'skyrocket',
+        pos: 'verb',
+        posCategory: 'verb',
+        sectionRef: 'Secret #6',
+        definition: 'To increase very steeply or rapidly.',
+        plainEnglish: 'In other words, to shoot up or rise to a much higher level very quickly.',
+        example: 'At that time, just by breathing in a little oxygen, the number of red blood cells in the blood will skyrocket to help the body utilize that oxygen to its fullest.',
+        vietnamese: 'Tăng vọt / Tăng mạnh đột biến'
+      },
+      {
+        term: 'resilient',
+        pos: 'adjective',
+        posCategory: 'adjective',
+        sectionRef: 'Secret #6',
+        definition: 'Able to withstand or recover quickly from difficult conditions, illness, or physical stress.',
+        plainEnglish: 'In other words, strong, flexible, and able to bounce back quickly from tiredness or sickness.',
+        example: 'So how can regular people like us, who still go to work and go about our daily lives, create healthy red blood cells to keep our bodies resilient, energetic, and free from disease...?',
+        vietnamese: 'Dẻo dai / Kiên cường / Có sức chống chịu tốt'
+      },
+      {
+        term: 'oxygen saturation',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Secret #5',
+        definition: 'The fraction of oxygen-saturated hemoglobin relative to total hemoglobin in the blood.',
+        plainEnglish: 'In other words, the percentage of oxygen being carried in your blood right now (ideally near 100%).',
+        example: 'People clip it onto their fingers to measure the oxygen saturation in their blood.',
+        vietnamese: 'Độ bão hòa oxy trong máu (nồng độ oxy trong máu)'
+      },
+      {
+        term: 'deteriorate',
+        pos: 'verb',
+        posCategory: 'verb',
+        sectionRef: 'Secret #5',
+        definition: 'To become progressively worse over time.',
+        plainEnglish: 'In other words, to slowly get worse or weaker.',
+        example: 'The more modern life becomes with electronic devices, the easier it is for human posture to deteriorate.',
+        vietnamese: 'Xấu đi / Suy giảm / Xuống cấp'
+      },
+      {
+        term: 'strenuous',
+        pos: 'adjective',
+        posCategory: 'adjective',
+        sectionRef: 'Secret #5',
+        definition: 'Requiring or using great physical effort or exertion.',
+        plainEnglish: 'In other words, tiring and taking a lot of physical effort to do.',
+        example: 'Initially, many of us might find keeping a straight posture somewhat strenuous, but that could just be a signal indicating that your posture has been very bad all along.',
+        vietnamese: 'Vất vả / Đòi hỏi nhiều nỗ lực thể chất'
+      },
+      {
+        term: 'Fast-Twitch (FT) muscle fibers',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Secret #4',
+        definition: 'Skeletal muscle fibers that contract rapidly and powerfully during short bursts of high-intensity activity.',
+        plainEnglish: 'In other words, the muscles your body uses for quick, explosive actions like throwing, jumping, or sprinting.',
+        example: 'Inside your muscles, there is a type called Fast-Twitch (FT) muscle fibers. These are the muscles associated with explosive movements.',
+        vietnamese: 'Sợi cơ co rút nhanh (cơ FT chuyên cho động tác bùng nổ)'
+      },
+      {
+        term: 'rejuvenation',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Secret #4',
+        definition: 'The action or process of giving new energy or vigor to something; restoring youthful appearance or function.',
+        plainEnglish: 'In other words, making your body feel and work like it is young again.',
+        example: 'Tom will go into detail on this topic in another video focusing on nutrition for inner rejuvenation.',
+        vietnamese: 'Sự trẻ hóa'
+      },
+      {
+        term: 'mitochondrial biogenesis',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Secret #4',
+        definition: 'The cellular process by which new mitochondria are produced and synthesized within the cell.',
+        plainEnglish: 'In other words, the process where your body creates brand-new mitochondria inside your cells.',
+        example: 'And the increase of these neurotransmitters is also known to promote mitochondrial biogenesis.',
+        vietnamese: 'Quá trình sinh tổng hợp (tạo mới) ti thể'
+      },
+      {
+        term: 'electron transport chain',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Secret #3',
+        definition: 'A series of protein complexes inside mitochondria that transfer electrons to generate ATP (cellular energy).',
+        plainEnglish: 'In other words, the final assembly line inside mitochondria that actually creates energy for your cells.',
+        example: 'These types of chemicals block enzyme activity and disrupt the electron transport chain of the mitochondria.',
+        vietnamese: 'Chuỗi truyền điện tử (trong ti thể)'
+      },
+      {
+        term: 'stamina',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Secret #3',
+        definition: 'The ability to sustain prolonged physical or mental effort.',
+        plainEnglish: 'In other words, physical staying power and endurance so you don\'t get tired quickly.',
+        example: 'This means your body will cap its energy production at a limited level, unable to generate more, making it extremely difficult to improve your stamina.',
+        vietnamese: 'Thể lực / Sức bền'
+      },
+      {
+        term: 'phytonutrients',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Secret #3',
+        definition: 'Natural bioactive compounds produced by plants that promote human health and protect cells from damage.',
+        plainEnglish: 'In other words, protective natural nutrients found in colorful fruits and vegetables.',
+        example: 'In other words, our bodies today receive fewer nutrients and fewer plant-based antibiotics (phytonutrients) compared to before 1940.',
+        vietnamese: 'Dưỡng chất thực vật (chất kháng sinh tự nhiên từ thực vật)'
+      },
+      {
+        term: 'vagus nerve',
+        pos: 'noun',
+        posCategory: 'noun',
+        sectionRef: 'Secret #2',
+        definition: 'Thetenth cranial nerve, which interfaces with parasympathetic control of the heart, lungs, and digestive tract.',
+        plainEnglish: 'In other words, the main calming nerve that connects your brain to your throat, heart, lungs, and gut.',
+        example: 'Actually, that gagging sensation is the very evidence that your vagus nerve is being stimulated.',
+        vietnamese: 'Dây thần kinh phế vị (dây thần kinh sọ số X)'
+      },
+      {
+        term: 'counterproductive',
+        pos: 'adjective',
+        posCategory: 'adjective',
+        sectionRef: 'Secret #2',
+        definition: 'Having the opposite of the desired effect.',
+        plainEnglish: 'In other words, doing more harm than good by producing the exact opposite result of what you wanted.',
+        example: 'Excessive tongue cleaning is actually counterproductive.',
+        vietnamese: 'Phản tác dụng / Có tác dụng ngược'
+      }
+    ];
+
+    /**
+     * 3. UI TRANSLATION DICTIONARY FOR GLOBAL EN/VI SWITCH
+     */
+    const UI_STRINGS = {
+      en: {
+        backToOverview: '← Back to Overview',
+        overviewActive: 'Overview Hub',
+        glossaryBtn: 'Glossary',
+        heroStartBtn: 'Start Reading from Introduction',
+        heroFlipCards: 'Flip All Card Titles (EN/VI)',
+        glossaryBannerTitle: 'Interactive Learner Glossary & Biological Concepts',
+        glossaryBannerDesc: 'Explore 30 essential terms with academic definitions, plain-English explanations, verbatim context examples, and toggleable Vietnamese meanings.',
+        glossaryBannerCta: 'Open Glossary',
+        overviewGridHeading: 'Document Sections (Click a card to read, or toggle EN/VI in the corner)',
+        overviewGridSub: '11 Chapters • Verbatim Bilingual Alignment',
+        readerInstruction: 'Click any paragraph card or its toggle button to flip between English and Vietnamese.',
+        flipAllParas: 'Flip All Cards',
+        splitModeOff: 'Side-by-Side View: Off',
+        splitModeOn: 'Side-by-Side View: On',
+        prevSection: 'Previous Section',
+        nextSection: 'Next Section',
+        backToHubCard: 'Return to Overview Hub',
+        goToGlossaryCard: 'Go to Learner Glossary',
+        revealVi: 'Reveal Vietnamese / Xem Tiếng Việt',
+        revealEn: 'Show English / Xem Tiếng Anh',
+        activeLangEn: 'EN • English',
+        activeLangVi: 'VI • Tiếng Việt',
+        readSectionCta: 'Read Section →',
+        paragraphsCount: (n) => `${n} ${n === 1 ? 'Paragraph' : 'Paragraphs'}`,
+        sectionCounter: (idx, total) => `Section ${idx + 1} of ${total}`,
+        switchHeaderToVi: 'Switch Heading to VI',
+        switchHeaderToEn: 'Switch Heading to EN'
+      },
+      vi: {
+        backToOverview: '← Về Trang Tổng Quan',
+        overviewActive: 'Trang Tổng Quan',
+        glossaryBtn: 'Từ Điển (Glossary)',
+        heroStartBtn: 'Bắt Đầu Đọc Từ Phần Mở Đầu',
+        heroFlipCards: 'Đổi Ngôn Ngữ Tiêu Đề Thẻ (EN/VI)',
+        glossaryBannerTitle: 'Từ Điển Học Tập Tương Tác & Thuật Ngữ Sinh Học',
+        glossaryBannerDesc: 'Khám phá 30 thuật ngữ quan trọng (B2/C1) với định nghĩa học thuật, giải thích tiếng Anh dễ hiểu, câu ví dụ nguyên văn và nghĩa tiếng Việt.',
+        glossaryBannerCta: 'Mở Từ Điển',
+        overviewGridHeading: 'Danh Mục Các Phần (Nhấn vào thẻ để đọc, hoặc bấm nút góc thẻ để đổi EN/VI)',
+        overviewGridSub: '11 Phần • Song Ngữ Nguyên Văn 100%',
+        readerInstruction: 'Nhấn vào bất kỳ thẻ đoạn văn nào hoặc nút chuyển đổi để lật giữa Tiếng Anh và Tiếng Việt.',
+        flipAllParas: 'Lật Tất Cả Thẻ',
+        splitModeOff: 'Chế Độ Song Song: Tắt',
+        splitModeOn: 'Chế Độ Song Song: Bật',
+        prevSection: 'Phần Trước',
+        nextSection: 'Phần Tiếp Theo',
+        backToHubCard: 'Quay Về Trang Tổng Quan',
+        goToGlossaryCard: 'Đến Trang Từ Điển',
+        revealVi: 'Xem Tiếng Việt / Reveal Vietnamese',
+        revealEn: 'Xem Tiếng Anh / Show English',
+        activeLangEn: 'EN • Tiếng Anh',
+        activeLangVi: 'VI • Tiếng Việt',
+        readSectionCta: 'Đọc Phần Này →',
+        paragraphsCount: (n) => `${n} Đoạn văn`,
+        sectionCounter: (idx, total) => `Phần ${idx + 1} / ${total}`,
+        switchHeaderToVi: 'Đổi Tiêu Đề Sang VI',
+        switchHeaderToEn: 'Đổi Tiêu Đề Sang EN'
+      }
+    };
+
+    /**
+     * 4. APPLICATION STATE
+     */
+    const state = {
+      currentView: 'overview', // 'overview' | 'sec-0'..'sec-10' | 'glossary'
+      globalLang: 'en',        // 'en' | 'vi'
+      overviewCardLangs: {},   // { 'sec-0': 'en', ... }
+      sectionHeaderLang: 'en', // 'en' | 'vi'
+      paragraphLangs: {},      // { 'sec-0-p0': 'en', ... }
+      splitMode: false,        // boolean: show EN & VI side-by-side
+      fontSizeIndex: 0,        // 0: normal (19.2px), 1: large (22px), 2: xl (24.8px)
+      glossaryPosFilter: 'all',
+      glossaryRevealed: {},    // { 0: true/false }
+      allGlossaryRevealed: false
+    };
+
+    const FONT_CLASSES = ['reading-text-normal', 'reading-text-large', 'reading-text-xl'];
+    const FONT_LABELS = ['Aa', 'Aa+', 'Aa++'];
+
+    /**
+     * Initialize default card languages
+     */
+    function initDefaultLangs(lang) {
+      DOCUMENT_SECTIONS.forEach((sec) => {
+        state.overviewCardLangs[sec.id] = lang;
+        sec.paragraphs.forEach((_, pIdx) => {
+          state.paragraphLangs[`${sec.id}-p${pIdx}`] = lang;
+        });
+      });
+      state.sectionHeaderLang = lang;
+    }
+
+    /**
+     * 5. THEME MANAGEMENT (Light / Dark Mode)
+     */
+    function initTheme() {
+      const savedTheme = localStorage.getItem('bilingual_reader_theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      updateThemeIcons();
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('bilingual_reader_theme', isDark ? 'dark' : 'light');
+      updateThemeIcons();
+    }
+
+    function updateThemeIcons() {
+      const isDark = document.documentElement.classList.contains('dark');
+      document.getElementById('theme-icon-sun').classList.toggle('hidden', !isDark);
+      document.getElementById('theme-icon-moon').classList.toggle('hidden', isDark);
+    }
+
+    /**
+     * 6. FONT SIZE CYCLING FOR PRESENTATION MODE
+     */
+    function cycleFontSize() {
+      state.fontSizeIndex = (state.fontSizeIndex + 1) % FONT_CLASSES.length;
+      document.getElementById('font-size-indicator').textContent = FONT_LABELS[state.fontSizeIndex];
+      const paras = document.querySelectorAll('.para-reading-body');
+      paras.forEach((el) => {
+        FONT_CLASSES.forEach((cls) => el.classList.remove(cls));
+        el.classList.add(FONT_CLASSES[state.fontSizeIndex]);
+      });
+    }
+
+    /**
+     * 7. GLOBAL LANGUAGE TOGGLE
+     */
+    function setGlobalLanguage(lang) {
+      state.globalLang = lang;
+      initDefaultLangs(lang);
+      updateGlobalLangUI();
+      populateQuickJumpSelect();
+
+      // Re-render current active view
+      if (state.currentView === 'overview') {
+        renderOverviewCards();
+      } else if (state.currentView.startsWith('sec-')) {
+        renderSectionView(state.currentView);
+      } else if (state.currentView === 'glossary') {
+        renderGlossaryCards();
+      }
+    }
+
+    function updateGlobalLangUI() {
+      const enBtn = document.getElementById('global-lang-en');
+      const viBtn = document.getElementById('global-lang-vi');
+      const t = UI_STRINGS[state.globalLang];
+
+      if (state.globalLang === 'en') {
+        enBtn.className = 'px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-1.5 bg-brand-600 text-white shadow-sm';
+        viBtn.className = 'px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white';
+      } else {
+        viBtn.className = 'px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-1.5 bg-brand-600 text-white shadow-sm';
+        enBtn.className = 'px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white';
+      }
+
+      // Update static UI labels
+      document.getElementById('nav-back-label').textContent = state.currentView === 'overview' ? t.overviewActive : t.backToOverview;
+      document.getElementById('nav-glossary-label').textContent = t.glossaryBtn;
+      document.getElementById('hero-start-btn-text').textContent = t.heroStartBtn;
+      document.getElementById('hero-flip-cards-text').textContent = t.heroFlipCards;
+      document.getElementById('glossary-banner-title').textContent = t.glossaryBannerTitle;
+      document.getElementById('glossary-banner-desc').textContent = t.glossaryBannerDesc;
+      document.getElementById('glossary-banner-cta').textContent = t.glossaryBannerCta;
+      document.getElementById('overview-grid-heading').textContent = t.overviewGridHeading;
+      document.getElementById('overview-grid-sub').textContent = t.overviewGridSub;
+      document.getElementById('reader-instruction-hint').querySelector('span').textContent = t.readerInstruction;
+      document.getElementById('btn-flip-all-paras').textContent = t.flipAllParas;
+      document.getElementById('btn-split-mode-label').textContent = state.splitMode ? t.splitModeOn : t.splitModeOff;
+    }
+
+    /**
+     * 8. SPA ROUTING & VIEW MANAGEMENT
+     */
+    function navigateTo(viewId, updateHash = true) {
+      if (updateHash) {
+        if (window.location.hash !== `#${viewId}`) {
+          history.pushState(null, '', `#${viewId}`);
+        }
+      }
+
+      state.currentView = viewId;
+      const viewOverview = document.getElementById('view-overview');
+      const viewSection = document.getElementById('view-section');
+      const viewGlossary = document.getElementById('view-glossary');
+
+      viewOverview.classList.add('hidden');
+      viewSection.classList.add('hidden');
+      viewGlossary.classList.add('hidden');
+
+      const t = UI_STRINGS[state.globalLang];
+      const backLabel = document.getElementById('nav-back-label');
+
+      if (viewId === 'overview') {
+        viewOverview.classList.remove('hidden');
+        backLabel.textContent = t.overviewActive;
+        renderOverviewCards();
+      } else if (viewId === 'glossary') {
+        viewGlossary.classList.remove('hidden');
+        backLabel.textContent = t.backToOverview;
+        renderGlossaryCards();
+      } else if (viewId.startsWith('sec-')) {
+        viewSection.classList.remove('hidden');
+        backLabel.textContent = t.backToOverview;
+        state.sectionHeaderLang = state.globalLang;
+        renderSectionView(viewId);
+      }
+
+      const selectEl = document.getElementById('quick-section-select');
+      if (selectEl) {
+        selectEl.value = viewId;
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function populateQuickJumpSelect() {
+      const selectEl = document.getElementById('quick-section-select');
+      if (!selectEl) return;
+      const isVi = state.globalLang === 'vi';
+      let html = `<option value="overview">${isVi ? '📍 Trang Tổng Quan (Overview)' : '📍 Overview Hub'}</option>`;
+      DOCUMENT_SECTIONS.forEach((sec) => {
+        const title = isVi ? sec.titleVi : sec.titleEn;
+        html += `<option value="${sec.id}">${title}</option>`;
+      });
+      html += `<option value="glossary">${isVi ? '📚 Từ Điển Học Tập (30 Thuật Ngữ)' : '📚 Learner Glossary (30 Terms)'}</option>`;
+      selectEl.innerHTML = html;
+      selectEl.value = state.currentView;
+    }
+
+    /**
+     * 9. OVERVIEW HUB RENDERING & CARD INTERACTIVITY
+     */
+    function renderOverviewCards() {
+      const grid = document.getElementById('overview-cards-grid');
+      const t = UI_STRINGS[state.globalLang];
+
+      grid.innerHTML = DOCUMENT_SECTIONS.map((sec, idx) => {
+        const cardLang = state.overviewCardLangs[sec.id] || state.globalLang;
+        const isVi = cardLang === 'vi';
+        const heading = isVi ? sec.titleVi : sec.titleEn;
+        const subheading = isVi ? sec.titleEn : sec.titleVi;
+        const badge = isVi ? sec.badgeVi : sec.badgeEn;
+        const rawPreview = isVi ? sec.paragraphs[0].vi : sec.paragraphs[0].en;
+        const previewSnippet = rawPreview.length > 155 ? rawPreview.slice(0, 155) + '…' : rawPreview;
+
+        // Span full width on first (Introduction) and last (Conclusion) cards on 2-col layout
+        const spanClass = (idx === 0 || idx === DOCUMENT_SECTIONS.length - 1) ? 'md:col-span-2' : '';
+
+        return `
+          <article
+            onclick="navigateTo('${sec.id}')"
+            role="button"
+            tabindex="0"
+            onkeydown="if(event.key==='Enter' || event.key===' ') { event.preventDefault(); navigateTo('${sec.id}'); }"
+            class="${spanClass} group relative rounded-2xl bg-white dark:bg-slate-900 p-6 border border-stone-200/90 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between gap-4 cursor-pointer"
+          >
+            <!-- Top Row: Badge & Corner EN/VI Flip Toggle Button -->
+            <div class="flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-extrabold uppercase tracking-wider bg-brand-500/10 text-brand-700 dark:text-brand-300 border border-brand-500/20">
+                  ${badge}
+                </span>
+                <span class="text-xs font-semibold text-slate-400 dark:text-slate-500">
+                  ${t.paragraphsCount(sec.paragraphs.length)}
+                </span>
+              </div>
+
+              <!-- Corner Language Toggle Button with e.stopPropagation() -->
+              <button
+                type="button"
+                onclick="toggleOverviewCardLang(event, '${sec.id}')"
+                class="z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all duration-200 border shadow-sm active:scale-90 ${
+                  isVi
+                    ? 'bg-amber-500/15 text-amber-800 dark:text-amber-300 border-amber-400/50 hover:bg-amber-500/25'
+                    : 'bg-brand-500/10 text-brand-800 dark:text-brand-300 border-brand-400/40 hover:bg-brand-500/20'
+                }"
+                title="Toggle this card between English and Vietnamese"
+              >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/>
+                </svg>
+                <span>${isVi ? 'VI ⇄ EN' : 'EN ⇄ VI'}</span>
+              </button>
+            </div>
+
+            <!-- Card Body: Title, Secondary Title, and Preview -->
+            <div class="space-y-2">
+              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors leading-snug">
+                ${heading}
+              </h3>
+              <p class="text-xs sm:text-sm font-semibold text-slate-400 dark:text-slate-500">
+                ${subheading}
+              </p>
+              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 pt-1 leading-relaxed line-clamp-2 font-serif">
+                ${previewSnippet}
+              </p>
+            </div>
+
+            <!-- Card Footer CTA -->
+            <div class="pt-3 border-t border-stone-100 dark:border-slate-800/80 flex items-center justify-between text-xs sm:text-sm font-bold text-brand-600 dark:text-brand-400">
+              <span>${isVi ? 'Đang hiển thị: Tiếng Việt' : 'Showing: English'}</span>
+              <span class="inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                ${t.readSectionCta}
+              </span>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function toggleOverviewCardLang(event, secId) {
+      // Mandatory requirement: prevent card click navigation when toggling card corner EN/VI button
+      event.stopPropagation();
+      const current = state.overviewCardLangs[secId] || state.globalLang;
+      state.overviewCardLangs[secId] = current === 'en' ? 'vi' : 'en';
+      renderOverviewCards();
+    }
+
+    function flipAllOverviewCards() {
+      const anyEn = DOCUMENT_SECTIONS.some((s) => (state.overviewCardLangs[s.id] || state.globalLang) === 'en');
+      const targetLang = anyEn ? 'vi' : 'en';
+      DOCUMENT_SECTIONS.forEach((s) => {
+        state.overviewCardLangs[s.id] = targetLang;
+      });
+      renderOverviewCards();
+    }
+
+    /**
+     * 10. SECTION READING PAGES (Pages 2..12)
+     */
+    function renderSectionView(secId) {
+      const secIndex = DOCUMENT_SECTIONS.findIndex((s) => s.id === secId);
+      if (secIndex === -1) return;
+      const section = DOCUMENT_SECTIONS[secIndex];
+      const t = UI_STRINGS[state.globalLang];
+
+      // Update Section Header
+      document.getElementById('section-badge').textContent = t.sectionCounter(secIndex, DOCUMENT_SECTIONS.length);
+      document.getElementById('section-para-count-badge').textContent = t.paragraphsCount(section.paragraphs.length);
+      updateSectionHeaderTitles(section);
+
+      // Render Interactive Paragraph Flip Cards
+      const container = document.getElementById('section-paragraphs-container');
+      container.classList.toggle('bilingual-split', state.splitMode);
+
+      const fontSizeClass = FONT_CLASSES[state.fontSizeIndex];
+
+      container.innerHTML = section.paragraphs.map((para, pIdx) => {
+        const key = `${section.id}-p${pIdx}`;
+        const activeLang = state.paragraphLangs[key] || state.globalLang;
+        const isVi = activeLang === 'vi';
+
+        return `
+          <article
+            id="card-${key}"
+            onclick="handleParagraphCardClick(event, '${key}')"
+            class="flip-stage group relative rounded-3xl bg-white dark:bg-slate-900 p-6 sm:p-8 border-2 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer ${
+              isVi
+                ? 'border-amber-400/60 dark:border-amber-500/40'
+                : 'border-stone-200/90 dark:border-slate-800 hover:border-brand-400/70 dark:hover:border-brand-600/60'
+            }"
+          >
+            <!-- Card Top Metadata Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-5 border-b border-stone-100 dark:border-slate-800/90">
+              <div class="flex items-center gap-2.5">
+                <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-extrabold bg-stone-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                  P${pIdx + 1}
+                </span>
+                <!-- Active Language Badge -->
+                <span
+                  id="badge-${key}"
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold tracking-wide transition-colors ${
+                    isVi
+                      ? 'bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-400/40'
+                      : 'bg-brand-500/15 text-brand-800 dark:text-brand-300 border border-brand-400/40'
+                  }"
+                >
+                  <span class="w-2 h-2 rounded-full ${isVi ? 'bg-amber-500' : 'bg-brand-500'}"></span>
+                  <span id="badge-text-${key}">${isVi ? t.activeLangVi : t.activeLangEn}</span>
+                </span>
+              </div>
+
+              <!-- Dedicated Flip / Toggle Translation Button -->
+              <button
+                type="button"
+                onclick="toggleParagraphCard(event, '${key}')"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 shadow-sm active:scale-95 ${
+                  isVi
+                    ? 'bg-brand-600 hover:bg-brand-700 text-white'
+                    : 'bg-amber-500 hover:bg-amber-600 text-white'
+                }"
+              >
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/>
+                </svg>
+                <span id="btn-text-${key}">${isVi ? t.revealEn : t.revealVi}</span>
+              </button>
+            </div>
+
+            <!-- Dual-Face Grid Stack (Zero Layout Jitter) -->
+            <div id="inner-${key}" class="flip-inner" data-active-lang="${activeLang}">
+              
+              <!-- English Face -->
+              <div class="flip-face face-en space-y-2">
+                <div class="text-[11px] font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">
+                  English Original (EN-01)
+                </div>
+                <p class="para-reading-body ${fontSizeClass} font-serif text-slate-800 dark:text-slate-100 tracking-normal">
+                  ${para.en}
+                </p>
+              </div>
+
+              <!-- Vietnamese Face -->
+              <div class="flip-face face-vi space-y-2">
+                <div class="text-[11px] font-extrabold uppercase tracking-widest text-amber-600 dark:text-amber-400">
+                  Bản Tiếng Việt (SRT-VN)
+                </div>
+                <p class="para-reading-body ${fontSizeClass} font-serif text-slate-800 dark:text-slate-100 tracking-normal">
+                  ${para.vi}
+                </p>
+              </div>
+
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      // Update Bottom Previous / Next Section Buttons
+      const prevBtn = document.getElementById('prev-section-btn');
+      const nextBtn = document.getElementById('next-section-btn');
+
+      if (secIndex === 0) {
+        document.getElementById('prev-section-label').textContent = t.backToOverview;
+        document.getElementById('prev-section-title').textContent = t.backToHubCard;
+        prevBtn.onclick = () => navigateTo('overview');
+      } else {
+        const prevSec = DOCUMENT_SECTIONS[secIndex - 1];
+        document.getElementById('prev-section-label').textContent = t.prevSection;
+        document.getElementById('prev-section-title').textContent = state.globalLang === 'vi' ? prevSec.titleVi : prevSec.titleEn;
+        prevBtn.onclick = () => navigateTo(prevSec.id);
+      }
+
+      if (secIndex === DOCUMENT_SECTIONS.length - 1) {
+        document.getElementById('next-section-label').textContent = t.glossaryBtn;
+        document.getElementById('next-section-title').textContent = t.goToGlossaryCard;
+        nextBtn.onclick = () => navigateTo('glossary');
+      } else {
+        const nextSec = DOCUMENT_SECTIONS[secIndex + 1];
+        document.getElementById('next-section-label').textContent = t.nextSection;
+        document.getElementById('next-section-title').textContent = state.globalLang === 'vi' ? nextSec.titleVi : nextSec.titleEn;
+        nextBtn.onclick = () => navigateTo(nextSec.id);
+      }
+    }
+
+    function updateSectionHeaderTitles(section) {
+      const isVi = state.sectionHeaderLang === 'vi';
+      const t = UI_STRINGS[state.globalLang];
+
+      document.getElementById('section-main-title').textContent = isVi ? section.titleVi : section.titleEn;
+      document.getElementById('section-sub-title').textContent = isVi ? section.titleEn : section.titleVi;
+      document.getElementById('section-header-lang-label').textContent = isVi ? t.switchHeaderToEn : t.switchHeaderToVi;
+    }
+
+    function toggleSectionHeaderLang() {
+      const section = DOCUMENT_SECTIONS.find((s) => s.id === state.currentView);
+      if (!section) return;
+      state.sectionHeaderLang = state.sectionHeaderLang === 'en' ? 'vi' : 'en';
+      updateSectionHeaderTitles(section);
+    }
+
+    function handleParagraphCardClick(event, key) {
+      // Do not flip if user is highlighting/selecting text to copy
+      const selection = window.getSelection();
+      if (selection && selection.toString().trim().length > 0) return;
+      toggleParagraphCard(event, key);
+    }
+
+    function toggleParagraphCard(event, key) {
+      event.stopPropagation();
+      const current = state.paragraphLangs[key] || state.globalLang;
+      const nextLang = current === 'en' ? 'vi' : 'en';
+      state.paragraphLangs[key] = nextLang;
+      updateSingleParagraphCardDOM(key, nextLang);
+    }
+
+    function updateSingleParagraphCardDOM(key, lang) {
+      const isVi = lang === 'vi';
+      const t = UI_STRINGS[state.globalLang];
+
+      const inner = document.getElementById(`inner-${key}`);
+      const card = document.getElementById(`card-${key}`);
+      const badge = document.getElementById(`badge-${key}`);
+      const badgeText = document.getElementById(`badge-text-${key}`);
+      const btnText = document.getElementById(`btn-text-${key}`);
+
+      if (inner) inner.setAttribute('data-active-lang', lang);
+
+      if (card) {
+        card.className = `flip-stage group relative rounded-3xl bg-white dark:bg-slate-900 p-6 sm:p-8 border-2 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer ${
+          isVi
+            ? 'border-amber-400/60 dark:border-amber-500/40'
+            : 'border-stone-200/90 dark:border-slate-800 hover:border-brand-400/70 dark:hover:border-brand-600/60'
+        }`;
+      }
+
+      if (badge) {
+        badge.className = `inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold tracking-wide transition-colors ${
+          isVi
+            ? 'bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-400/40'
+            : 'bg-brand-500/15 text-brand-800 dark:text-brand-300 border border-brand-400/40'
+        }`;
+        const dot = badge.querySelector('span:first-child');
+        if (dot) dot.className = `w-2 h-2 rounded-full ${isVi ? 'bg-amber-500' : 'bg-brand-500'}`;
+      }
+
+      if (badgeText) badgeText.textContent = isVi ? t.activeLangVi : t.activeLangEn;
+
+      if (btnText) {
+        btnText.textContent = isVi ? t.revealEn : t.revealVi;
+        const btn = btnText.parentElement;
+        if (btn) {
+          btn.className = `inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 shadow-sm active:scale-95 ${
+            isVi
+              ? 'bg-brand-600 hover:bg-brand-700 text-white'
+              : 'bg-amber-500 hover:bg-amber-600 text-white'
+          }`;
+        }
+      }
+    }
+
+    function flipAllSectionParagraphs() {
+      const section = DOCUMENT_SECTIONS.find((s) => s.id === state.currentView);
+      if (!section) return;
+      const anyEn = section.paragraphs.some((_, pIdx) => (state.paragraphLangs[`${section.id}-p${pIdx}`] || state.globalLang) === 'en');
+      const targetLang = anyEn ? 'vi' : 'en';
+
+      section.paragraphs.forEach((_, pIdx) => {
+        const key = `${section.id}-p${pIdx}`;
+        state.paragraphLangs[key] = targetLang;
+        updateSingleParagraphCardDOM(key, targetLang);
+      });
+    }
+
+    function toggleSplitMode() {
+      state.splitMode = !state.splitMode;
+      const container = document.getElementById('section-paragraphs-container');
+      const t = UI_STRINGS[state.globalLang];
+      if (container) {
+        container.classList.toggle('bilingual-split', state.splitMode);
+      }
+      const btnLabel = document.getElementById('btn-split-mode-label');
+      if (btnLabel) {
+        btnLabel.textContent = state.splitMode ? t.splitModeOn : t.splitModeOff;
+      }
+    }
+
+    function navigateAdjacentSection(offset) {
+      const idx = DOCUMENT_SECTIONS.findIndex((s) => s.id === state.currentView);
+      if (idx === -1) return;
+      const targetIdx = idx + offset;
+      if (targetIdx >= 0 && targetIdx < DOCUMENT_SECTIONS.length) {
+        navigateTo(DOCUMENT_SECTIONS[targetIdx].id);
+      }
+    }
+
+    /**
+     * 11. INTERACTIVE LEARNER GLOSSARY RENDERING & FILTERS
+     */
+    function setGlossaryPosFilter(pos) {
+      state.glossaryPosFilter = pos;
+      document.querySelectorAll('.pos-filter-btn').forEach((btn) => {
+        const active = btn.getAttribute('data-pos') === pos;
+        btn.className = active
+          ? 'pos-filter-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amber-500 text-white shadow-sm'
+          : 'pos-filter-btn px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-stone-200 dark:border-slate-700 hover:border-amber-400';
+      });
+      renderGlossaryCards();
+    }
+
+    function renderGlossaryCards() {
+      const grid = document.getElementById('glossary-cards-grid');
+      const searchInput = document.getElementById('glossary-search-input');
+      const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+
+      const filtered = GLOSSARY_TERMS.map((item, index) => ({ ...item, originalIndex: index })).filter((item) => {
+        const matchesPos = state.glossaryPosFilter === 'all' || item.posCategory === state.glossaryPosFilter;
+        const matchesSearch =
+          !query ||
+          item.term.toLowerCase().includes(query) ||
+          item.definition.toLowerCase().includes(query) ||
+          item.plainEnglish.toLowerCase().includes(query) ||
+          item.vietnamese.toLowerCase().includes(query);
+        return matchesPos && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="md:col-span-2 rounded-2xl bg-white dark:bg-slate-900 p-10 text-center border border-stone-200 dark:border-slate-800">
+            <p class="text-lg font-bold text-slate-700 dark:text-slate-300">No vocabulary terms match your filter.</p>
+            <button onclick="document.getElementById('glossary-search-input').value=''; setGlossaryPosFilter('all');" class="mt-3 px-4 py-2 rounded-xl bg-amber-500 text-white font-bold text-sm">Reset Filters</button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map((item) => {
+        const idx = item.originalIndex;
+        const isRevealed = !!state.glossaryRevealed[idx];
+
+        return `
+          <article class="rounded-2xl bg-white dark:bg-slate-900 p-6 border border-stone-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between gap-4">
+            <div class="space-y-3.5">
+              
+              <!-- Term Header & POS Badge -->
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                    ${item.term}
+                  </h3>
+                  <span class="inline-block mt-1 px-2.5 py-0.5 rounded-md text-xs font-bold uppercase tracking-wider bg-amber-500/15 text-amber-800 dark:text-amber-300">
+                    ${item.pos}
+                  </span>
+                </div>
+                <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-stone-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 shrink-0">
+                  ${item.sectionRef}
+                </span>
+              </div>
+
+              <!-- Academic / Contextual Definition -->
+              <div class="space-y-1">
+                <div class="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                  Academic / Contextual Definition
+                </div>
+                <p class="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed">
+                  ${item.definition}
+                </p>
+              </div>
+
+              <!-- Plain-English Explanation (B1/B2 accessible) -->
+              <div class="p-3.5 rounded-xl bg-brand-50/70 dark:bg-brand-950/30 border border-brand-200/60 dark:border-brand-800/40 space-y-1">
+                <div class="text-[11px] font-extrabold uppercase tracking-wider text-brand-700 dark:text-brand-300">
+                  Plain-English Explanation (B1/B2)
+                </div>
+                <p class="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed">
+                  ${item.plainEnglish}
+                </p>
+              </div>
+
+              <!-- Verbatim Example in Context -->
+              <div class="space-y-1">
+                <div class="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                  Example in Context
+                </div>
+                <blockquote class="pl-3 border-l-2 border-amber-400 italic font-serif text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                  "${item.example}"
+                </blockquote>
+              </div>
+            </div>
+
+            <!-- Toggleable Vietnamese Meaning Footer -->
+            <div class="pt-3 border-t border-stone-100 dark:border-slate-800">
+              <button
+                type="button"
+                onclick="toggleGlossaryTerm(${idx})"
+                class="w-full flex items-center justify-between px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all ${
+                  isRevealed
+                    ? 'bg-amber-500/15 text-amber-900 dark:text-amber-200 border border-amber-400/50'
+                    : 'bg-stone-100 hover:bg-amber-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-stone-200 dark:border-slate-700'
+                }"
+              >
+                <span class="truncate pr-2">
+                  ${isRevealed ? `🇻🇳 ${item.vietnamese}` : 'Reveal Vietnamese / Xem nghĩa'}
+                </span>
+                <span class="text-xs underline shrink-0 opacity-80">
+                  ${isRevealed ? 'Hide' : 'Show'}
+                </span>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function toggleGlossaryTerm(idx) {
+      state.glossaryRevealed[idx] = !state.glossaryRevealed[idx];
+      renderGlossaryCards();
+    }
+
+    function toggleAllGlossaryTranslations() {
+      state.allGlossaryRevealed = !state.allGlossaryRevealed;
+      GLOSSARY_TERMS.forEach((_, idx) => {
+        state.glossaryRevealed[idx] = state.allGlossaryRevealed;
+      });
+      const label = document.getElementById('glossary-reveal-all-label');
+      if (label) {
+        label.textContent = state.allGlossaryRevealed ? 'Hide All Vietnamese Meanings' : 'Reveal All Vietnamese Meanings';
+      }
+      renderGlossaryCards();
+    }
+
+    /**
+     * 12. INITIALIZATION & HASH ROUTING LISTENER
+     */
+    function handleHashChange() {
+      const rawHash = window.location.hash.replace('#', '').trim();
+      const validSec = DOCUMENT_SECTIONS.some((s) => s.id === rawHash);
+      if (rawHash === 'overview' || rawHash === 'glossary' || validSec) {
+        navigateTo(rawHash, false);
+      } else {
+        navigateTo('overview', false);
+      }
+    }
+
+    window.addEventListener('hashchange', handleHashChange);
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      initDefaultLangs('en');
+      updateGlobalLangUI();
+      populateQuickJumpSelect();
+      handleHashChange();
+    });
+  </script>
+</body>
+</html>
