@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARTICLES ZAPPER - JENNIE Cosmic 2027</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Merriweather', serif;
+        }
+        
+        /* 3D Flip Card CSS */
+        .flip-container {
+            perspective: 1500px;
+        }
+        .flip-card-inner {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+        .flip-card-front, .flip-card-back {
+            grid-area: 1 / 1;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .flip-card-back {
+            transform: rotateX(180deg);
+        }
+        .flip-card-inner.flipped {
+            transform: rotateX(180deg);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-darkBg dark:text-gray-200 transition-colors duration-300 antialiased min-h-screen">
+    
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white/90 dark:bg-darkCard/90 backdrop-blur-md shadow-sm transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <button id="nav-back-btn" class="hidden flex items-center gap-2 text-primary hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 font-medium transition-colors" onclick="navigate('home')">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to Overview
+                </button>
+                <span id="nav-logo" class="font-serif font-bold text-xl text-gray-900 dark:text-white cursor-pointer" onclick="navigate('home')">Cosmic 2027</span>
+            </div>
+            
+            <div class="flex items-center gap-3 md:gap-6">
+                <button onclick="navigate('glossary')" class="flex items-center gap-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-indigo-400 transition-colors font-medium">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <span class="hidden md:inline">Glossary</span>
+                </button>
+                
+                <div class="w-px h-6 bg-gray-300 dark:bg-gray-600"></div>
+
+                <button id="global-lang-toggle" onclick="toggleGlobalLang()" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300 hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-colors font-semibold text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                    <span id="global-lang-label">EN / VI</span>
+                </button>
+
+                <button onclick="toggleTheme()" class="p-2 rounded-full text-gray-500 hover:bg-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="icon-sun" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <svg id="icon-moon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main id="app-content" class="max-w-4xl mx-auto px-4 py-8 pb-20"></main>
+
+    <!-- Application Logic and Data -->
+    <script>
+        // Data Extraction from JENNIE File "2027 COSMIC" and "2027 COSMIC - EN"
+        const docData = {
+            title: {
+                en: "2027 COSMIC: Spiritual Forecast 2027: The Cosmic Zero-Point, the Immortal 6th Root Race & the 4D Trap Before Ascending to 5D![cite: 1]",
+                vi: "2027 COSMIC: Dự Báo Tâm Linh 2027: Điểm Không Độ Vũ Trụ, Chủng Người Thứ 6 Bất Tử & Cái Bẫy 4D Trước Khi Lên 5D![cite: 1]"
+            },
+            sections: [
+                {
+                    id: "intro",
+                    title: {
+                        en: "Introduction: Three Esoteric Codes on the Threshold of the 2027 Grand Cycle[cite: 1]",
+                        vi: "Mở Đầu: Ba Mật Mã Huyền Học Trước Ngưỡng Cửa Đại Vận 2027[cite: 1]"
+                    },
+                    paragraphs: [
+                        {
+                            en: "A few days ago, several of you messaged Jenny asking about the mysterious prophecies that have been surfacing everywhere lately. Why are astronomers and esoteric circles worldwide stunned by an event called the Cosmic Zero-Point—a phenomenon that only repeats once every 320 years—leaving many worried that the world is about to enter a blank void that resets everything back to zero?[cite: 1]",
+                            vi: "Mấy hôm trước có một số bạn nhắn tin hỏi Jenny về những lời tiên chi kỳ bí đang dồn dập xuất hiện trong những ngày gần đây. Rằng tại sao giới thiên văn và giới huyền học toàn cầu lại đang chấn động trước một sự kiện gọi là điểm không độ của vũ trụ 320 năm mới lặp lại một lần. Và khiến cho nhiều người lo sợ rằng phải chăng thế giới sắp bước vào một vùng trắng xóa đưa mọi thứ trở về con số không.[cite: 1]"
+                        },
+                        {
+                            en: "And why are rumors spreading everywhere that starting in 2027, a Sixth Root Race called the Spiritually Awakened Humans (Linh Giác Nhân) will emerge on Earth—beings with immortal Light Bodies who remain eternally youthful and can read another person's mind with a single glance?[cite: 1]",
+                            vi: "Hoặc là tại sao khắp nơi lại rộ lên thông tin là từ năm 2027 trên trái đất sẽ xuất hiện chủng người thứ sáu tên Linh Giác Nhân. Mang cơ thể ánh sáng bất tử, trẻ mãi không già và có thể đọc thấu tâm ý của người khác chỉ qua một ánh nhìn.[cite: 1]"
+                        },
+                        {
+                            en: "Even stranger is the warning about the Fourth-Dimensional Trap—also known as 4D—standing right before the gateway to the Fifth Dimension (5D), or Earth's ascension into 5D, causing tens of thousands of spiritual practitioners to suddenly experience vivid, surreal dreams, hear whispering voices in their ears, or suffer intense emotional swings as if trapped in an invisible labyrinth.[cite: 1]",
+                            vi: "Và kỳ lạ hơn cả đó là lời cảnh báo về cái bẫy chiều không gian thứ tư hay còn gọi là 4D nằm chắn ngay trước cửa ngõ lên chiều không gian thứ năm 5D hay là trái đất thăng lên 5D khiến cho hàng vạn người đang tu tập bỗng gặp giấc mộng kỳ ảo, nghe thấy những âm thanh thì thầm bên tai hoặc là cảm xúc của bạn bị trồi sụt dữ dội như là lạc vào một mê cung vô hình.[cite: 1]"
+                        },
+                        {
+                            en: "In truth, these really are the greatest esoteric codes behind the massive shift in consciousness on the threshold of the approaching 2027 Grand Cycle. Yet what is truly hidden behind astronomical milestones like the Cosmic Zero-Point—known as Zero Degrees Aries—which appears only once every 320 years? Jenny will explore these mysteries with you in today's video, so be sure to watch all the way to the end—and welcome back to Jenny's YouTube channel.[cite: 1]",
+                            vi: "Thì thật ra mà nói những điều đó đúng thật là những mật mã huyền học lớn nhất cho những cuộc đại chuyển giao tâm thức trước ngưỡng cửa đại vận 2027 sắp đến đây. Nhưng mà điều gì đang thật sự ẩn giấu đằng sau những sự kiện thiên văn như là điểm không độ vũ trụ gọi là không độ Bạch Dương 320 năm mới xuất hiện một lần kia như vậy. Thì Jenny sẽ cùng các bạn tìm hiểu những bí ẩn đó trong video ngày hôm nay nên các bạn phải nhớ theo dõi đến hết video nhé và chào mừng các bạn đã quay trở lại với kênh YouTube của Jenny.[cite: 1]"
+                        }
+                    ]
+                },
+                {
+                    id: "secret-1",
+                    title: {
+                        en: "The First Secret: The 320-Year Cosmic Zero-Point (Zero Degrees Aries)[cite: 1]",
+                        vi: "Bí Mật Thứ Nhất: Điểm Không Độ Vũ Trụ (Không Độ Bạch Dương) 320 Năm[cite: 1]"
+                    },
+                    paragraphs: [
+                        {
+                            en: "In my reading of countless studies—from ancient esoteric scrolls of Mesopotamia to hidden scriptures kept in Himalayan monasteries—past masters passed down a magnificent secret about a cosmic clock. Precisely once every 320 years, the major celestial bodies governing the evolution of human consciousness complete a grand cycle and arrive at the exact point of origin known as the Cosmic Zero-Point, or Zero Degrees Aries.[cite: 1]",
+                            vi: "Khi mà Jenny đọc rất nhiều nghiên cứu từ các cuộn mật thư cổ đại ở thời Lưỡng Hà đến kinh văn ẩn mật trong các tu viện trên dãy Himalaya. Các bậc chân sư từng truyền lại một điều bí mật kỳ vĩ về một chiếc đồng hồ vũ trụ mà cứ đúng 320 năm một lần thì những đại tinh cầu nắm giữ vận vận tâm thức của loại sẽ quay trọn một đại chu kỳ và chạm đúng vào tọa độ khởi nguyên mang tên là điểm không độ của vũ trụ hay còn gọi là không độ Bạch Dương.[cite: 1]"
+                        },
+                        {
+                            en: "Esoteric history also records that every time this 320-year Zero-Point opens, an entire old world order closes to give birth to a completely new civilization. And 2027 is the next 320-year rendezvous, ushering in an era known as the Age of Awakening Consciousness and the Unseen Dimensions.[cite: 1]",
+                            vi: "Lịch sử huyền học cũng ghi nhận rằng cứ mỗi lần mà điểm không 320 năm mới mở ra như vậy thì cả một trật tự thế giới cũ đều khép lại để khai sinh ra một nền văn minh hoàn toàn mới. Và năm 2027 chính là điểm hẹn 320 năm tiếp theo mở ra một kỷ nguyên gọi là kỷ nguyên đánh thức thần thức và các chiều không gian vô hình.[cite: 1]"
+                        },
+                        {
+                            en: "To understand this first, let us return to the concept of \"True Emptiness, Wondrous Existence\" in the Heart Sutra and ancient esoteric scriptures. This helps us realize that the Zero-Point coordinate is not a void of annihilation; rather, it is a primordial rift between two eras, containing two mystical esoteric phenomena that are actively unfolding on Earth right now.[cite: 1]",
+                            vi: "Và đầu tiên để hiểu được điều này thì chúng ta quay trở về với khái niệm chân không diệu hữu trong Bát Nhã Tâm Kinh và các mật điển cổ xưa. Để hiểu được rằng tọa độ không độ này không phải là một vùng hư vô hủy diệt mà đó còn gọi là một khe nứt khởi nguyên giữa hai kỷ nguyên, nơi ẩn chứa hai hiện tượng huyền học kỳ bí đang trực tiếp diễn ra trên trái đất.[cite: 1]"
+                        },
+                        {
+                            en: "1. Unlocking the Cosmic Memory Library and Awakening Ancient Souls. The first mystical phenomenon is the unlocking of the Cosmic Memory Library and the awakening of ancient souls. According to Yogacara (Consciousness-Only) Buddhism, every memory and every piece of esoteric wisdom from tens of thousands of years ago is stored within the Storehouse Consciousness—the Alaya-vijnana—of both the universe and every individual soul, meaning you.[cite: 1]",
+                            vi: "1. Mở Khóa Thư Viện Ký Ức Vũ Trụ Và Thức Tỉnh Những Linh Hồn Cổ Đại. Và hiện tượng huyền bí thứ nhất gọi là sự mở khóa thư viện ký ức vũ trụ và thức tỉnh những linh hồn cổ đại. Vì theo duy thức học của Phật giáo thì mọi ký ức, mọi tri thức huyền môn từ hàng vạn năm trước đều được lưu trữ trong kho tàng thức A Lại Da Thức của vũ trụ và của mỗi linh hồn tức là của bạn.[cite: 1]"
+                        },
+                        {
+                            en: "For the past three centuries, that treasury remained sealed behind the veil of physical time; however, at the exact moment the cosmic clock strikes the zero mark on the threshold of 2027, those ancient seals can unlock simultaneously. That is why many of you have recently dreamed of ancient temples, mysterious sacred scripts, or unfamiliar lands that nevertheless feel so deeply familiar they bring you to tears. Or perhaps you have suddenly grasped profound laws of astrology, energy, and karma without anyone ever having taught you. The reason is that all of your past-life gifts are being summoned back by the Zero-Point.[cite: 1]",
+                            vi: "Và suốt ba thế kỷ qua khi mà kho tàng ấy bị lớp vỏ thời gian vật chất niêm phong lại nhưng đúng vào thời khắc kim đồng hồ vũ trụ chạm về vạch không độ trước thềm 2027 thì lớp phong ấn cổ xưa có thể đồng loạt mở khóa. Và đó là lý do mà gần đây nhiều bạn trong mơ bỗng thấy những ngôi đền cổ đại, những mật tự kỳ bí hoặc là những miền đất lạ nhưng mà lại cảm giác vô cùng thân thuộc đến nỗi rơi nước mắt. Hay là có bạn bỗng nhiên thấu hiểu các quy luật chiêm tinh, năng lượng, nhân quả sâu thẳm dù chưa từng có ai chỉ dạy. Lý do là bởi vì toàn bộ thiên phú tiền kiếp của bạn đang được điểm không độ triệu hồi trở lại.[cite: 1]"
+                        },
+                        {
+                            en: "2. The Zero-Latency Effect and the Code of Cosmic Synchronicity. The second mystical phenomenon at the Zero-Point is called the Zero-Latency Effect and the code for synchronizing with the universe. This means that as the astronomical clock touches the zero mark leading into 2027, the time gap between an intention sent out from your consciousness and the universe's response shrinks to zero.[cite: 1]",
+                            vi: "2. Hiệu Ứng Đổi Trễ Bằng Không Và Mật Mã Đồng Bộ Hóa Với Vũ Trụ. Và hiện tượng huyền bí thứ hai tại điểm không độ gọi là hiệu ứng đổi trễ bằng không và mật mã để đồng bộ hóa với vũ trụ. Điều này có nghĩa là khi kim đồng hồ thiên văn chạm về vật 0 trước thềm 2027 thì khoảng cách thời gian giữa một ý niệm phát ra từ tâm thức và sự hồi đáp của vũ trụ sẽ thu hẹp về con số 0.[cite: 1]"
+                        },
+                        {
+                            en: "As a result, many of you have noticed lately that whenever you glance at the clock by chance, you catch mysterious repeating number sequences like 00:00, 11:11, or 22:22. Or you briefly think of someone you lost touch with years ago and suddenly run into them; or you need an answer to a question, and just a few hours later it appears in the most unexpected form. Opportunities find their way right to your doorstep, as though an unseen hand were orchestrating everything.[cite: 1]",
+                            vi: "Nên là nhiều bạn gần đây cảm thấy là mỗi lần vô tình nhìn đồng hồ bạn sẽ bắt gặp thấy các cặp số lặp lại kỳ bí như là 00 hay là 1111 hoặc 2222 hoặc là vừa thoáng nghĩ về một người đã mất liên lạc nhiều năm thì bỗng nhiên gặp lại người đó hoặc là cần một lời giải đáp nào đó thì chỉ vài giờ sau nó sẽ xuất hiện dưới một hình thức mà bạn không ngờ đến nhất. Cơ duyên tự tìm đến trước mắt bạn như là có một bàn tay vô hình nào đó đang sắp đặt mọi thứ vậy.[cite: 1]"
+                        },
+                        {
+                            en: "Have any of you recently had dreams or strange experiences involving an ancient land, felt time stretching and contracting erratically, or encountered miraculous coincidences like these? Because every person has their own unique story and experience, in addition to the grounding affirmations you usually comment beneath Jenny's YouTube videos, please share your own experiences, thoughts, and feelings in the comments below so Jenny can read them too.[cite: 1]",
+                            vi: "Không biết là thời gian gần đây có bạn nào từng gặp những giấc mơ hay là có những trải nghiệm kỳ lạ về một vùng đất cổ xưa hoặc là cảm giác thời gian đang co giãn thất thường hoặc là những sự trùng hợp nhiệm màu nào như vậy chưa? Bởi vì mỗi người đều có một câu chuyện và trải nghiệm rất riêng cho nên là bên cạnh những câu khẳng định giúp cho bạn định tâm mà bạn hay comment bên dưới YouTube của Jenny đó thì các bạn hãy bình luận chia sẻ thêm những trải nghiệm, những suy nghĩ, cảm nhận riêng của chính bạn ở bên dưới để Jenny có thể cùng đọc được nhé.[cite: 1]"
+                        }
+                    ]
+                },
+                {
+                    id: "secret-2",
+                    title: {
+                        en: "The Second Secret: The Birth of the Sixth Root Race (Spiritually Awakened Humans)[cite: 1]",
+                        vi: "Bí Mật Thứ Hai: Sự Khai Sinh Của Chủng Người Thứ Sáu (Linh Giác Nhân)[cite: 1]"
+                    },
+                    paragraphs: [
+                        {
+                            en: "An important reason Jenny wants to hear about this is that having such extraordinary experiences connects directly to the most mysterious prophecies in ancient Tibetan palm-leaf manuscripts and esoteric histories of prehistoric civilizations. That brings us to the second secret: the emergence of the Sixth Root Race—the Spiritually Awakened Humans (Linh Giác Nhân).[cite: 1]",
+                            vi: "Và lý do quan trọng mà Jenny muốn biết điều này đó là bởi vì một số người có những trải nghiệm đặc biệt như thế cũng có liên quan đến những lời tiên tri huyền bí nhất trong các cuộn kinh lá bối cổ đại ở Tây Tạng và huyền sử về những nền văn minh tiền sử. Đó chính là sự khai sinh của chủng người thứ sáu linh giác nhanh mà chúng ta sẽ nói đến trong bí mật thứ hai.[cite: 1]"
+                        },
+                        {
+                            en: "According to ancient esoteric texts, the evolutionary history of humanity on Earth has already passed through five great eras of five Root Races. At the dawn of ancient civilizations we often hear about, such as Lemuria or Atlantis tens of thousands of years ago, humans once possessed light, subtle energetic bodies with an expanded mind's eye—or third eye—allowing them to commune directly with nature and the cosmos, listening to the rhythm of the stars without needing words.[cite: 1]",
+                            vi: "Vì theo các thư tịch huyền học cổ xưa thì lịch sử tiến hóa của con người trên trái đất đã đi qua năm đại kỷ nguyên của năm chủng tộc gốc. Vào thuở bình minh của các nền văn minh cổ đại như chúng ta vẫn hay nghe nói là Lemuria hay là người Atlantis hàng vạn năm trước con người từng mang cơ thể năng lượng thanh nhẹ, có con mắt tâm thức hay là con mắt thứ ba mở rộng để thấu cảm trực tiếp với thiên nhiên, với vũ trụ, lắng nghe được nhịp điệu của các vì sao mà không cần lời nói.[cite: 1]"
+                        },
+                        {
+                            en: "Modern humanity is known as the Fifth Root Race. Over the past several thousand years as the Fifth Root Race, humans have operated with only two physical biological DNA strands, while those extraordinary light-encoded genetic strands of old were sealed away, lying dormant deep within the body. Yet ancient esoteric scriptures prophesied that when humanity reaches this intersection—the radiant moments where the peak of Solar Cycle 25 merges with the wave of energy pouring from the Zero-Point into Earth's magnetic field—these high-frequency energetic pulses will unlock all the light-code DNA strands that have slumbered for tens of thousands of years, giving birth to the Sixth Root Race, the Spiritually Awakened Humans, endowed with three miraculous abilities:[cite: 1]",
+                            vi: "Con người chúng ta hiện tại gọi là chủng người thứ năm. Khi bước sang chủng người thứ năm này hàng ngàn năm qua, con người chỉ hoạt động với hai chuỗi xoắn sinh học vật lý, còn những chuỗi mã gen ánh sáng siêu phàm ngày xưa đều đã bị niêm phong vẫn ngủ đông đằng sau bên trong cơ thể. Thế nhưng các mật điện cổ đại đã tiên tri rằng khi nhân loại tiến tới giao điểm, những thời khắc bức xạ mà đỉnh chu kỳ mặt trời thứ 25 kết hợp cùng luồng sóng từ điểm 0 độ dội xuống từ trường trái đất thì những xung động năng lượng tần số cao này sẽ mở khóa toàn bộ các chuỗi mã gen ánh sáng đã ngủ yên hàng vạn năm, khai sinh ra chủng người thứ sáu gọi là linh giác nhân với ba huyền năng kỳ diệu:[cite: 1]"
+                        },
+                        {
+                            en: "The first ability is the crystallization of the Light Body and nonverbal thought transmission. This corresponds closely to descriptions of the Realm of Streaming Radiance (Abhasvara Heaven) in ancient Buddhist scriptures, where noble beings communicate through light and waves of consciousness. Upon stepping into the frequency of the Spiritually Awakened Humans, their pineal gland—or third eye—is fully activated. Reaching this pivotal milestone, they gain the ability to perceive the auric frequency bands surrounding all things, so simply by looking into one another's eyes, they can transmit thoughts directly and fully sense another's inner mind without using spoken sound—what we commonly call telepathy.[cite: 1]",
+                            vi: "Huyền năng thứ nhất gọi là sự kết tinh cơ thể ánh sáng, còn gọi là quang thể và khả năng truyền ý niệm không cần lời nói. Cho nên thấy điều này thì rất tương ứng với mô tả về cõi Quang Âm Thiên trong kinh điển của Phật giáo cổ đại, nơi các bậc thiện hữu giao tiếp với nhau bằng ánh sáng và sóng tâm thức. Khi bước sang tần số linh giác nhân bởi vì tuyến tùng hay con mắt thứ ba của họ đã được kích hoạt hoàn toàn. Và khi bước sang cột mốc quan trọng, linh giác nhân có thể có khả năng nhìn thấy các dải tần số hào quang bao quanh vạn vật nên chỉ cần nhìn vào ánh mắt nhau là có thể truyền hẳn ý niệm và thấu cảm trọn vẹn tâm ý đối phương mà không cần dùng đến ngôn ngữ âm thanh là cái mà chúng ta vẫn hay gọi là thần giao cách cảm đó.[cite: 1]"
+                        },
+                        {
+                            en: "Their second ability is the mechanism of absorbing cosmic light-energy and ageless rejuvenation. Why do ancient esoteric scrolls describe the Sixth Root Race as having luminous countenances and remaining forever young? Because instead of drawing energy solely from dense, physical food as we of the Fifth Root Race do, the cellular structure of the Spiritually Awakened Humans can directly absorb particles of cosmic radiance, vital life force, and pure universal light through the crown of the head. In truth, this is nothing new: in hidden valleys of the Himalayas, true masters recorded accounts of practitioners who unlocked this spiritual-awakening frequency. They could live for hundreds of years amidst snow and ice with their hair still dark and youthful, their bodies constantly radiating warmth and a pure fragrance thanks to the endless circulation of cosmic vitality, bringing biological aging nearly to a halt.[cite: 1]",
+                            vi: "Và huyền năng thứ hai của họ là cơ chế hấp thụ khí quang của vũ trụ và trẻ hóa vượt thời gian. Bởi vì tại sao các mật thư cổ đại lại miêu tả chủng người thứ sáu mang dung mạo phát sáng, trẻ mãi không già? Đó chính là bởi vì thay vì bạn chỉ nạp năng lượng từ thức ăn của vật chất thô nặng như chủng tử người thứ năm chúng ta thì cấu trúc tế bào của linh giác nhân lại có khả năng hấp thụ trực tiếp các hạt khí quang và sinh khí, ánh sáng thuần khí trong vũ trụ thông qua đỉnh đầu. Thật ra điều này không hề xa lạ bởi vì trong các thung lũng ẩn mật trên dãy Himalaya có các bậc chân sư từng ghi chép về những hành giả mở khóa được tần số linh giác này. Họ có thể sống hàng trăm năm giữa băng tuyết mà mái tóc vẫn xanh, cơ thể vẫn luôn tỏa ra hơi ấm và hương thơm thanh khiết nhờ dòng sinh khí của vũ trụ tuần hoàn bất tận như vậy và khiến cho sự lão hóa sinh học cơ thể của họ gần như dừng lại.[cite: 1]"
+                        },
+                        {
+                            en: "The third ability unlocks the most astonishing secret—one that so many of you wonder about: why the Sixth Root Race is called the immortal race. It lies in the power to transfer consciousness across the veil of forgetfulness, preserving 100% of one's memories across lifetimes. Put simply, in secret Tibetan esoteric texts, modern humans fear death because whenever you cross into a new lifetime, you must pass through a veil of forgetfulness—what East Asian tradition calls drinking Meng Po's Soup. This wipes clean every memory of your past life. By contrast, the Sixth Root Race—the Spiritually Awakened Humans—can unlock continuous soul memory across time, known as past-life recall, much like reincarnated living Buddhas in Tibet. You may also have recently heard the astonishing story of a young royal grandson in Bhutan. At just three years old, he could recall in crystal-clear detail his past life hundreds of years ago as a great translator, finding his way back to his exact monastery, identifying his prayer beads and ritual implements, and calling his former disciples by their exact names. This is because as their consciousness steps into a new journey, it retains 100% of the memories, wisdom, and gifts from one life to the next, transforming existence into an unbroken, immortal stream.[cite: 1]",
+                            vi: "Và huyền năng thứ ba giúp giải mã một bí mật chấn động nhất mà nghe rất nhiều các bạn hay thắc mắc đó là vì sao chủng người thứ sáu được gọi là chủng người bất tử. Đó chính là bởi vì năng lực chuyển di thần thức xuyên qua màn sương quên lãng, tức là giữ trọn được 100% ký ức qua nhiều kiếp sống. Bạn có thể hiểu đơn giản như thế này trong những văn bản mật truyền Tây Tạng thì con người hiện tại sở dĩ sợ cái chết là bởi vì khi bạn bước qua kiếp sống mới đều phải đi qua một cái gọi là màn sương quên lãng hay là trong phương Đông chúng ta hay gọi là phải uống canh Mạnh Bà. Điều này khiến cho chúng ta bị xóa trắng toàn bộ ký ức của kiếp trước. Nhưng mà chủng người thứ sáu, chủng linh giác nhân họ có thể mở khóa được bộ nhớ linh hồn liên tục xuyên thời gian hay còn gọi là túc mạng thông giống như các vị Phật sống tái sinh ở Tây Tạng. Hay gần đây là các bạn sẽ nghe thấy những câu chuyện chấn động về một vị gọi là hoàng tôn ở Bhutan. Ngài vừa lên ba tuổi đã có thể nhớ van vách tiền kiếp hàng trăm năm trước của mình là một bậc đại dịch giả tên là có thể tự tìm lại đúng tu viện, tìm được chuỗi tràng hạt pháp khí và gọi được đúng tên các đệ tử cũ của ngài. Lý do là bởi vì thần thức của các vị này khi bước sang hành trình mới vẫn có thể giữ nguyên vẹn được 100% ký ức, trí tuệ và thiên phú từ kiếp trước sang kiếp sau, biến sự sống thành một dòng chảy bất tử không bao giờ đứt đoạn.[cite: 1]"
+                        }
+                    ]
+                },
+                {
+                    id: "secret-3",
+                    title: {
+                        en: "The Third Secret: The Fourth-Dimensional (4D) Trap Before Ascending to 5D[cite: 1]",
+                        vi: "Bí Mật Thứ Ba: Cái Bẫy Chiều Không Gian Thứ Tư (4D) Trước Khi Lên 5D[cite: 1]"
+                    },
+                    paragraphs: [
+                        {
+                            en: "Yet on the journey of elevating consciousness from 3D to the luminous realm of 5D, why do ancient esoteric scriptures repeatedly warn of an enchanting space standing right in the middle, called the Fourth-Dimensional Trap—or the 4D dimension? Jenny notices that whenever people talk about Earth's great shift in 2027, many only think in terms of leaping straight from the third dimension (3D)—the tangible physical world—directly up into the fifth dimension (5D), the realm of lucid wisdom, bliss, and freedom.[cite: 1]",
+                            vi: "Tuy nhiên, trên hành trình nâng tâm thức từ 3D lên cõi sáng 5D, tại sao các mật điện cổ đại lại hay cảnh báo về một vùng không gian đầy mê hoặc nằm chánh ở chính giữa mang tên là cái bẫy chiều không gian thứ tư hay còn gọi là chiều không gian 4D. Bởi vì Jenny thấy là khi nhắc đến các cuộc đại chuyển mình của trái đất năm 2027, nhiều người chỉ nghĩ đến những từ như là bước nhảy từ chiều không gian thứ ba 3D là thế giới vật chất hữu hình lên thẳng chiều không gian 5D là cõi giới của trí tuệ sáng suốt và phúc lạc của tự do.[cite: 1]"
+                        },
+                        {
+                            en: "However, ancient Tibetan esoteric texts and Buddhist teachings on the planes of existence reveal a grander mystery. Between our 3D ground and the 5D sky lies a wondrous intermediate realm through which every soul must pass. That is the fourth dimension, or 4D—which many commonly know as the astral plane.[cite: 1]",
+                            vi: "Thế nhưng các mật điện cổ đại Tây Tạng và giáo lý nhà Phật về các tầng cõi vũ trụ đã tiết lộ một bí ẩn kỳ vĩ hơn. Là giữa mặt đất 3D của chúng ta và bầu trời 5D luôn tồn tại một vùng không gian huyền diệu mà mọi linh hồn đều phải bước qua. Đó chính là chiều không gian thứ tư hay còn gọi là 4D hay nhiều người vẫn quen gọi đó là cõi trung giới đó.[cite: 1]"
+                        },
+                        {
+                            en: "To put it simply, the moment you step into this fourth dimension, the wall separating past, present, and future unlocks instantly, transforming this realm into a crystal palace or a tunnel of light overflowing with miracles and psychic powers. Here, you might suddenly dream of the future down to the finest detail, receive signals from unseen Dharma protectors, or reconnect with deep karmic bonds from many past lifetimes.[cite: 1]",
+                            vi: "Thì bạn có thể hiểu đơn giản là ngay khi bước vào chiều không gian thứ tư này, bức tường ngăn cách giữa quá khứ, hiện tại và tương lai lập tức được mở khóa, biến nơi đây thành một cung điện pha lê hay là một đường hầm ánh sáng ngập tràn phép màu và thần thông nơi mà bạn có thể bỗng nằm mơ thấy được trước tương lai chuẩn xác đến từng chi tiết hoặc là bạn nhận được tín hiệu từ các vị hộ pháp vô hình hoặc gặp lại được những nhân duyên sâu nặng từ nhiều kiếp trước của bạn.[cite: 1]"
+                        },
+                        {
+                            en: "Yet it is precisely this wonder that creates the 4D trap standing right at the gateway to the higher 5D realm. In reality, Jenny knows many people who are new to spiritual practice—people who, upon first brushing against higher planes or this 4D astral realm, suddenly gain the ability to look at anyone and foresee upcoming events in their lives. Instead of moving forward, however, they become intoxicated with using that prophetic gift to pronounce people's fates and bask in the adoration of crowds, causing their soul and spiritual growth to stall forever at that transit waystation.[cite: 1]",
+                            vi: "Tuy nhiên cũng chính cái sự huyền diệu ấy lại tạo nên một cái bẫy ở chiều không gian 4D này nằm chánh ngay cửa ngõ của cõi giới 5D cao hơn. Bởi vì thực tế là Jenny biết có nhiều bạn khi mới thực hành tâm linh, có những người khi mới chạm vào được những tầng giới cao hơn hay là những tầng trung giới 4D như vậy, bỗng nhiên là họ có cái năng lực là nhìn thấy ai cũng đọc thấu được biến cố sắp xảy ra với người đó. Nhưng mà thay vì đi tiếp, họ lại say sưa dùng cái khả năng tiên tri đó để phán số mệnh và tận hưởng sự sùng bái của đám đông khiến cho linh hồn và các bậc của họ dừng mãi ở chạm trung truyện đó.[cite: 1]"
+                        },
+                        {
+                            en: "Others, living peacefully and believing they have finally healed, suddenly meet a complete stranger and feel their heart tighten as if they had known this person for hundreds of years. That happens because during meditation or dreams, the 4D time portal cracks open a fragment of memory and an unfinished vow from a past life, prompting them to throw caution to the wind and rush headlong into resuming an old romance—failing to realize it may actually be a karmic entanglement.[cite: 1]",
+                            vi: "Có một số người khác đang yên ổn tưởng đã được chữa lành rồi thì bỗng nhiên gặp một người xa lạ mà tim thắt lại như là đã quen từ hàng trăm năm trước. Đó là bởi vì khi trong những buổi thiền định hay trong những giấc mơ cổng thời gian 4D hé mở một tí ký ức và một lời thề đang dang dở từ kiếp trước thì họ có thể liền bất chấp tất cả mà lao vào viết tiếp đoạn tình duyên cũ mà không nhận ra đó có thể là một nghiệp duyên.[cite: 1]"
+                        },
+                        {
+                            en: "To resolve this, the Buddha taught in the Shurangama Sutra that a person of great wisdom receives every miraculous spiritual sign with a humble heart, using compassion and mindfulness to gently untangle past-life karmic debts—turning the fourth dimension and your intuitive gifts into a bridge, a vehicle of light that carries your soul and consciousness straight into higher realms of freedom.[cite: 1]",
+                            vi: "Nên để hóa giải được điều này, trong kinh Thủ Lăng Nghiêm Đức Phật cũng có dạy rằng người có đại trí tuệ sẽ đón nhận mọi linh ứng kỳ diệu bằng trái tim khiêm nhường, lấy từ bi và chánh niệm để tháo gỡ trọn vẹn những duyên nợ tiền kiếp, biến chiều không gian thứ tư, biến những khả năng linh cảm của bạn thành một cây cầu, một phương tiện ánh sáng đưa linh hồn, đưa tâm thức của bạn bước thẳng vào những cảnh giới tự do cao cấp hơn.[cite: 1]"
+                        }
+                    ]
+                },
+                {
+                    id: "resonance",
+                    title: {
+                        en: "Method of Resonance: The Principle of the Unity of Heaven and Humanity in Every Breath[cite: 1]",
+                        vi: "Phương Pháp Cộng Hưởng: Đạo Lý Thiên Nhân Hợp Nhất Trong Từng Hơi Thở[cite: 1]"
+                    },
+                    paragraphs: [
+                        {
+                            en: "The next question is: once we fully understand all three of these grand esoteric codes, how can we resonate fully with this current of awakening every day and welcome the 2027 Grand Cycle in the best possible way? According to the principle of the Unity of Heaven and Humanity in ancient esoteric philosophy, a wondrous truth emerges: the once-in-320-years Cosmic Zero-Point, the imprint of the Sixth Root Race of Spiritually Awakened Humans, and the multidimensional portal from 4D to 5D unfolding across the vast cosmos are always resonating directly with the miraculous microcosm within you in every single breath.[cite: 1]",
+                            vi: "Vậy câu hỏi tiếp theo là khi đã thấu suốt cả ba mật mã huyền cơ kỳ vĩ này thì làm thế nào để mỗi ngày chúng ta có thể đều cộng hưởng trọn vẹn với dòng chảy thức tỉnh này và đón nhận đại vận 2027 một cách tốt đẹp nhất. Theo đạo lý thiên nhân hợp nhất trong huyền học cổ đại đã chỉ ra một sự thật kỳ diệu là khi sự kiện điểm không độ vũ trụ 320 năm mới mở một lần ấn ký của chủng người thứ sáu linh giác nhân cùng với cánh cổng không gian đa chiều từ 4D lên 5D trên bầu trời bao la như vậy sẽ luôn cộng hưởng trực tiếp với tiểu vũ trụ màu nhiệm bên trong chính bạn ở mỗi hơi thở.[cite: 1]"
+                        },
+                        {
+                            en: "This means that every night, when you close your bedroom door and sit quietly—placing your hand over your heart, breathing deeply, and letting go of every resentment from the passing day—that is the exact moment you attune directly to the Cosmic Zero-Point. From there, you can receive that primal stream of vitality that arrives once every 320 years, awakening your soul's finest past-life gifts. And it is out of those quiet pauses that true wisdom blossoms, allowing you to step back into daily life with an awakened gaze and cultivate compassion through every word and action toward those around you.[cite: 1]",
+                            vi: "Nghĩa là mỗi đêm khi khép lại cánh cửa phòng, khi mà giây phút bạn có thể ngồi yên đặt tay lên tim mình, hít thở thật sâu và có thể buông xuống toàn bộ mọi oán giận của ngày cũ chính là lúc bạn có thể đồng điệu trực tiếp với điểm không độ của vũ trụ này. Từ đó thì bạn có thể đón được luồng sinh khí nguyên sơ mà 320 năm mới có một lần đánh thức được những thiên phú tiền tốt đẹp nhất của linh hồn bạn và chính từ những khoảng lặng ấy thì trí tuệ mới mở ra, bạn mới có thể bước ra đời thường với ánh nhìn tỉnh giác và nuôi dưỡng được lòng từ bi qua từng lời nói, từng hành động với mọi người xung quanh.[cite: 1]"
+                        },
+                        {
+                            en: "That is also the energetic source—the imperishable spiritual seed of the Sixth Root Race, the Spiritually Awakened Humans. It will ignite within every cell of your body, guiding you through the multidimensional 4D portal with greater humility and ease, and leading you straight toward a brighter destiny in 2027.[cite: 1]",
+                            vi: "Đó cũng chính là nguồn năng lượng hay là chủng tử nghiệp bất diệt của chủng người thứ sáu minh giác nhanh. Nó sẽ bừng sáng trong từng tế bào của bạn, giúp bạn đi qua cổng thời gian đa chiều 4D với tâm thế khiêm nhường, tự tại hơn và bước thẳng đến vận mệnh tốt đẹp hơn của bạn trong năm 2027.[cite: 1]"
+                        }
+                    ]
+                },
+                {
+                    id: "closing",
+                    title: {
+                        en: "Closing Message and Affirmation for Welcoming the New 2027 Cycle[cite: 1]",
+                        vi: "Lời Kết Và Câu Khẳng Định Đón Vận Mới 2027[cite: 1]"
+                    },
+                    paragraphs: [
+                        {
+                            en: "One final thing Jenny wants to share is that in this vast universe, nothing is ever an accidental coincidence. Having the good fortune to come across this video and listen all the way through Jenny's message to this very moment is a synchronous signal from the deepest layer of your subconscious—signaling that your soul is ready to lift its old seals, awaken its original spiritual intuition, and step onto the brightest timeline of the 2027 Grand Cycle.[cite: 1]",
+                            vi: "Và điều cuối cùng mà Jenny muốn nói đó là trong vũ trụ bao la này không có điều gì là trùng hợp ngẫu nhiên, cho nên việc bạn có thể hữu duyên nghe được video này, lắng nghe trọn vẹn mọi lời chia sẻ của Jenny đến tận giây phút này chính là tín hiệu đồng bộ từ tầng sâu thẳm trong tiềm thức của bạn, báo hiệu rằng linh hồn của bạn đã sẵn sàng gỡ bỏ những phong ấn cũ, đánh thức trí tuệ linh giác nguyên bản và bước sang dòng thời gian tươi sáng nhất của đại vận 2027.[cite: 1]"
+                        },
+                        {
+                            en: "Finally, to anchor this energetic imprint, leave an affirmation in the comments below so we can resonate together with everyone watching and with Jenny: I awaken to welcome the new 2027 cycle so that together we can connect and radiate this wholesome field of energy to everyone.[cite: 1]",
+                            vi: "Cuối cùng để lưu giữ được dấu ấn năng lượng này thì bạn hãy comment bình luận xuống bên dưới một câu khẳng định để cùng cộng hưởng năng lượng với mọi người đang theo dõi video và với Jenny nhé, là tôi tỉnh thức đón vận mới 2027 để cùng nhau kết nối và lan tỏa trường năng lượng thiện lành này với mọi người nhé.[cite: 1]"
+                        },
+                        {
+                            en: "And that is everything Jenny wanted to share with you in today's video. If you have any questions or thoughts you would like to share with Jenny and everyone else, feel free to leave them in the comments below—Jenny always reads every single comment. See you all in the next videos.[cite: 1]",
+                            vi: "Và đó là tất cả những gì mà Jenny muốn chia sẻ với các bạn trong video ngày hôm nay. Nếu như các bạn có những thắc mắc hay có những suy nghĩ nào muốn cho Jenny và mọi người cùng biết thì có thể comment xuống bên dưới video. Jenny luôn đọc hết các comment và bình luận của mọi người. Và hẹn gặp lại các bạn trong những video lần sau.[cite: 1]"
+                        }
+                    ]
+                }
+            ],
+            glossary: [
+                { term: "Prophecy", pos: "noun", def: "A prediction of what will happen in the future.", plain: "A warning or guess about what is coming.", context: "mysterious prophecies that have been surfacing everywhere...[cite: 1]", vi: "Lời tiên tri" },
+                { term: "Esoteric", pos: "adjective", def: "Intended for or likely to be understood by only a small number of people with a specialized knowledge or interest.", plain: "Secret or highly specialized knowledge.", context: "esoteric circles worldwide stunned by an event...[cite: 1]", vi: "Huyền học / Bí truyền" },
+                { term: "Astronomer", pos: "noun", def: "An expert in or student of astronomy.", plain: "A scientist who studies stars and planets.", context: "Why are astronomers and esoteric circles worldwide stunned...[cite: 1]", vi: "Nhà thiên văn học" },
+                { term: "Phenomenon", pos: "noun", def: "A fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question.", plain: "An event or occurrence that is unusual.", context: "a phenomenon that only repeats once every 320 years...[cite: 1]", vi: "Hiện tượng" },
+                { term: "Root Race", pos: "noun", def: "In esoteric cosmology, a major evolutionary stage of human consciousness.", plain: "A broad evolutionary stage of humanity in spiritual beliefs.", context: "a Sixth Root Race called the Spiritually Awakened Humans...[cite: 1]", vi: "Chủng tộc gốc" },
+                { term: "Labyrinth", pos: "noun", def: "A complicated irregular network of passages or paths in which it is difficult to find one's way; a maze.", plain: "A confusing maze you can get lost in.", context: "as if trapped in an invisible labyrinth...[cite: 1]", vi: "Mê cung" },
+                { term: "Threshold", pos: "noun", def: "The magnitude or intensity that must be exceeded for a certain reaction, phenomenon, result, or condition to occur or be manifested.", plain: "The starting point or edge of something new.", context: "on the threshold of the approaching 2027 Grand Cycle.[cite: 1]", vi: "Ngưỡng cửa" },
+                { term: "Scroll", pos: "noun", def: "A roll of parchment or paper for writing or painting on.", plain: "An old rolled-up document.", context: "from ancient esoteric scrolls of Mesopotamia...[cite: 1]", vi: "Cuộn mật thư" },
+                { term: "Monastery", pos: "noun", def: "A building or buildings occupied by a community of monks living under religious vows.", plain: "A place where monks live and study.", context: "hidden scriptures kept in Himalayan monasteries...[cite: 1]", vi: "Tu viện" },
+                { term: "Primordial", pos: "adjective", def: "Existing at or from the beginning of time; primeval.", plain: "Ancient, from the very beginning of time.", context: "it is a primordial rift between two eras...[cite: 1]", vi: "Khởi nguyên / Sơ khai" },
+                { term: "Rift", pos: "noun", def: "A crack, split, or break in something.", plain: "A break or gap.", context: "it is a primordial rift between two eras...[cite: 1]", vi: "Khe nứt" },
+                { term: "Synchronicity", pos: "noun", def: "The simultaneous occurrence of events which appear significantly related but have no discernible causal connection.", plain: "Meaningful coincidences.", context: "the code for synchronizing with the universe...[cite: 1]", vi: "Sự đồng bộ" },
+                { term: "Orchestrate", pos: "verb", def: "Plan or coordinate the elements of (a situation) to produce a desired effect.", plain: "To carefully organize or control a situation.", context: "as though an unseen hand were orchestrating everything.[cite: 1]", vi: "Sắp đặt / Điều khiển" },
+                { term: "Dormant", pos: "adjective", def: "Having normal physical functions suspended or slowed down for a period of time; in or as if in a deep sleep.", plain: "Asleep or inactive for now.", context: "were sealed away, lying dormant deep within the body.[cite: 1]", vi: "Ngủ đông / Tiềm ẩn" },
+                { term: "Endow", pos: "verb", def: "Provide with a quality, ability, or asset.", plain: "To give a special gift or ability to someone.", context: "Spiritually Awakened Humans, endowed with three miraculous abilities...[cite: 1]", vi: "Ban cho / Phú cho" },
+                { term: "Crystallization", pos: "noun", def: "The process of solidifying into a highly structured form.", plain: "Taking clear and solid form.", context: "The first ability is the crystallization of the Light Body...[cite: 1]", vi: "Sự kết tinh" },
+                { term: "Telepathy", pos: "noun", def: "The supposed communication of thoughts or ideas by means other than the known senses.", plain: "Mind reading.", context: "without using spoken sound—what we commonly call telepathy.[cite: 1]", vi: "Thần giao cách cảm" },
+                { term: "Rejuvenation", pos: "noun", def: "The action or process of making someone or something look or feel better, younger, or more vital.", plain: "Looking and feeling young again.", context: "absorbing cosmic light-energy and ageless rejuvenation.[cite: 1]", vi: "Sự trẻ hóa" },
+                { term: "Luminous", pos: "adjective", def: "Full of or shedding light; bright or shining, especially in the dark.", plain: "Glowing with light.", context: "describe the Sixth Root Race as having luminous countenances...[cite: 1]", vi: "Phát sáng / Tỏa sáng" },
+                { term: "Vitality", pos: "noun", def: "The state of being strong and active; energy.", plain: "Energy and life force.", context: "thanks to the endless circulation of cosmic vitality...[cite: 1]", vi: "Sinh khí" },
+                { term: "Reincarnate", pos: "verb", def: "Cause (someone) to undergo rebirth in another body.", plain: "To be born again into a new life.", context: "much like reincarnated living Buddhas in Tibet.[cite: 1]", vi: "Tái sinh" },
+                { term: "Implement", pos: "noun", def: "A tool, utensil, or other piece of equipment, especially as used for a particular purpose.", plain: "A tool or instrument.", context: "identifying his prayer beads and ritual implements...[cite: 1]", vi: "Pháp khí / Dụng cụ" },
+                { term: "Enchanting", pos: "adjective", def: "Delightfully charming or attractive.", plain: "Magical and very attractive.", context: "warn of an enchanting space standing right in the middle...[cite: 1]", vi: "Đầy mê hoặc" },
+                { term: "Intoxicated", pos: "adjective", def: "Exhilarated or stupefied by or as if by alcohol or a drug (or in this case, power/success).", plain: "Overly excited and blind to reason.", context: "they become intoxicated with using that prophetic gift...[cite: 1]", vi: "Say sưa / Mê muội" }
+            ]
+        };
+
+        // Application State
+        let globalLang = 'en'; 
+        const appContent = document.getElementById('app-content');
+
+        // Dark Mode Logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // Global Language Toggle
+        function toggleGlobalLang() {
+            globalLang = globalLang === 'en' ? 'vi' : 'en';
+            renderCurrentView(); // Re-render to update default states
+        }
+
+        // Internal toggle used by individual cards
+        function toggleCardLang(event, cardInnerId, indicatorId, sourceLang) {
+            event.stopPropagation();
+            const inner = document.getElementById(cardInnerId);
+            const indicator = document.getElementById(indicatorId);
+            
+            inner.classList.toggle('flipped');
+            if (inner.classList.contains('flipped')) {
+                indicator.textContent = sourceLang === 'en' ? 'VI' : 'EN';
+                indicator.classList.replace('bg-blue-100', 'bg-red-100');
+                indicator.classList.replace('text-blue-800', 'text-red-800');
+                indicator.classList.replace('dark:bg-blue-900', 'dark:bg-red-900');
+                indicator.classList.replace('dark:text-blue-200', 'dark:text-red-200');
+            } else {
+                indicator.textContent = sourceLang.toUpperCase();
+                indicator.classList.replace('bg-red-100', 'bg-blue-100');
+                indicator.classList.replace('text-red-800', 'text-blue-800');
+                indicator.classList.replace('dark:bg-red-900', 'dark:bg-blue-900');
+                indicator.classList.replace('dark:text-red-200', 'dark:text-blue-200');
+            }
+        }
+
+        function toggleSectionCardLang(event, sectionId) {
+            event.stopPropagation();
+            const el = document.getElementById(`section-title-${sectionId}`);
+            const current = el.getAttribute('data-current-lang');
+            const target = current === 'en' ? 'vi' : 'en';
+            
+            const section = docData.sections.find(s => s.id === sectionId);
+            el.textContent = section.title[target];
+            el.setAttribute('data-current-lang', target);
+        }
+
+        // Router
+        function navigate(path) {
+            window.location.hash = path;
+        }
+
+        function handleRoute() {
+            const hash = window.location.hash.slice(1) || 'home';
+            renderView(hash);
+        }
+
+        function renderCurrentView() {
+            handleRoute();
+        }
+
+        // View Renderer
+        function renderView(hash) {
+            window.scrollTo(0,0);
+            const backBtn = document.getElementById('nav-back-btn');
+            const logo = document.getElementById('nav-logo');
+            
+            if (hash === 'home') {
+                backBtn.classList.add('hidden');
+                logo.classList.remove('hidden');
+                renderHome();
+            } else if (hash === 'glossary') {
+                backBtn.classList.remove('hidden');
+                logo.classList.add('hidden', 'md:block');
+                renderGlossary();
+            } else {
+                backBtn.classList.remove('hidden');
+                logo.classList.add('hidden', 'md:block');
+                renderSection(hash);
+            }
+        }
+
+        // Render Home (Overview)
+        function renderHome() {
+            const titleHtml = `
+                <div class="text-center mb-12 mt-8">
+                    <h1 class="text-3xl md:text-5xl font-bold font-serif mb-4 leading-tight">${docData.title[globalLang]}</h1>
+                    <p class="text-gray-500 dark:text-gray-400 italic">Select a section to begin reading.</p>
+                </div>
+            `;
+
+            let sectionsHtml = '<div class="grid grid-cols-1 md:grid-cols-2 gap-6">';
+            
+            docData.sections.forEach(sec => {
+                const titleStr = sec.title[globalLang];
+                sectionsHtml += `
+                    <div onclick="navigate('${sec.id}')" class="group cursor-pointer bg-white dark:bg-darkCard border border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 relative">
+                        <div class="absolute top-4 right-4">
+                            <button onclick="toggleSectionCardLang(event, '${sec.id}')" class="text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1 rounded transition-colors shadow-sm">
+                                ↻ Lang
+                            </button>
+                        </div>
+                        <h3 id="section-title-${sec.id}" data-current-lang="${globalLang}" class="text-xl font-bold font-serif mb-2 pr-14 group-hover:text-primary transition-colors">${titleStr}</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-1 mt-4">
+                            Read Section <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </p>
+                    </div>
+                `;
+            });
+
+            // Add Glossary Quick Access Card
+            sectionsHtml += `
+                    <div onclick="navigate('glossary')" class="group cursor-pointer bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-6 shadow-sm hover:shadow-xl hover:border-primary transition-all duration-300 relative md:col-span-2">
+                        <div class="flex items-center gap-4">
+                            <div class="p-4 bg-white dark:bg-darkCard rounded-full shadow-sm">
+                                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold font-serif mb-1 group-hover:text-primary transition-colors">Interactive Learner Glossary</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Master 24+ B2/C1 academic and esoteric terms extracted from this forecast.</p>
+                            </div>
+                        </div>
+                    </div>
+            `;
+            sectionsHtml += '</div>';
+
+            appContent.innerHTML = titleHtml + sectionsHtml;
+        }
+
+        // Render Individual Section
+        function renderSection(sectionId) {
+            const section = docData.sections.find(s => s.id === sectionId);
+            if (!section) {
+                appContent.innerHTML = `<div class="text-center mt-20"><h2 class="text-2xl font-bold">Section not found.</h2></div>`;
+                return;
+            }
+
+            const isEnFirst = globalLang === 'en';
+            
+            let html = `
+                <div class="mb-10 text-center relative">
+                    <h2 class="text-3xl md:text-4xl font-bold font-serif mb-6 leading-tight">${section.title[globalLang]}</h2>
+                    <hr class="w-16 h-1 mx-auto bg-primary border-0 rounded">
+                </div>
+                <div class="space-y-6">
+            `;
+
+            section.paragraphs.forEach((p, index) => {
+                const frontText = isEnFirst ? p.en : p.vi;
+                const backText = isEnFirst ? p.vi : p.en;
+                const indicatorText = isEnFirst ? 'EN' : 'VI';
+                
+                html += `
+                    <div class="flip-container w-full group cursor-pointer" onclick="toggleCardLang(event, 'flip-inner-${index}', 'lang-badge-${index}', '${globalLang}')">
+                        <div id="flip-inner-${index}" class="flip-card-inner">
+                            <!-- FRONT -->
+                            <div class="flip-card-front bg-white dark:bg-darkCard border border-gray-200 dark:border-gray-700 rounded-xl p-6 md:p-8 shadow-sm group-hover:shadow-md transition-shadow relative">
+                                <span id="lang-badge-${index}" class="absolute top-4 right-4 text-[10px] font-bold px-2 py-1 rounded bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 uppercase tracking-wide">
+                                    ${indicatorText}
+                                </span>
+                                <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 pr-8">${frontText}</p>
+                                <div class="mt-4 flex items-center justify-between text-sm text-gray-400 dark:text-gray-500">
+                                    <span>Click to reveal ${isEnFirst ? 'Vietnamese' : 'English'}</span>
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                                </div>
+                            </div>
+                            <!-- BACK -->
+                            <div class="flip-card-back bg-gray-50 dark:bg-slate-800 border border-indigo-200 dark:border-indigo-800 rounded-xl p-6 md:p-8 shadow-sm group-hover:shadow-md transition-shadow relative">
+                                <span class="absolute top-4 right-4 text-[10px] font-bold px-2 py-1 rounded bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 uppercase tracking-wide">
+                                    ${isEnFirst ? 'VI' : 'EN'}
+                                </span>
+                                <p class="text-lg md:text-xl text-gray-800 dark:text-gray-200 pr-8 font-medium">${backText}</p>
+                                <div class="mt-4 flex items-center justify-between text-sm text-indigo-400">
+                                    <span>Click to revert</span>
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `
+                </div>
+                <div class="mt-12 text-center">
+                    <button onclick="navigate('home')" class="px-6 py-3 bg-white dark:bg-darkCard border border-gray-300 dark:border-gray-600 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                        ← Back to Overview
+                    </button>
+                </div>
+            `;
+            
+            appContent.innerHTML = html;
+        }
+
+        // Render Glossary
+        function renderGlossary() {
+            let html = `
+                <div class="mb-12 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">Interactive Learner Glossary</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Master specialized esoteric and academic vocabulary from the text.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            `;
+
+            docData.glossary.forEach((item, index) => {
+                html += `
+                    <div class="bg-white dark:bg-darkCard border border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-baseline gap-3 mb-2">
+                                <h3 class="text-2xl font-bold font-serif text-gray-900 dark:text-white">${item.term}</h3>
+                                <span class="text-sm italic text-gray-500 dark:text-gray-400">${item.pos}</span>
+                            </div>
+                            <p class="text-gray-800 dark:text-gray-200 font-medium mb-2">${item.def}</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 pb-4 border-b border-gray-100 dark:border-gray-800">
+                                <strong>In other words:</strong> ${item.plain}
+                            </p>
+                            <blockquote class="text-sm italic text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border-l-4 border-primary mb-4">
+                                "${item.context}"
+                            </blockquote>
+                        </div>
+                        <div class="mt-auto">
+                            <button onclick="document.getElementById('vi-term-${index}').classList.toggle('hidden'); this.classList.toggle('bg-indigo-50'); this.classList.toggle('dark:bg-indigo-900/30')" class="w-full text-left flex justify-between items-center py-2 px-4 rounded border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors font-semibold text-gray-700 dark:text-gray-300">
+                                Reveal Vietnamese
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div id="vi-term-${index}" class="hidden mt-3 text-center text-lg font-bold text-primary bg-indigo-50 dark:bg-indigo-900/20 py-3 rounded border border-indigo-100 dark:border-indigo-800">
+                                ${item.vi}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `
+                </div>
+                <div class="mt-12 text-center">
+                    <button onclick="navigate('home')" class="px-6 py-3 bg-white dark:bg-darkCard border border-gray-300 dark:border-gray-600 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                        ← Back to Overview
+                    </button>
+                </div>
+            `;
+            
+            appContent.innerHTML = html;
+        }
+
+        // Initialization
+        window.addEventListener('hashchange', handleRoute);
+        
+        // Initial Theme Check
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        // Start App
+        handleRoute();
+    </script>
+</body>
+</html>

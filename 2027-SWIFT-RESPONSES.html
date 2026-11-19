@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2027 SWIFT RESPONSES - Bilingual App</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        darkbg: '#0f172a',
+                        darkcard: '#1e293b',
+                        brand: '#3b82f6'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for Flip Cards and Transitions -->
+    <style>
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        .rotate-y-minus-180 { transform: rotateY(-180deg); }
+        
+        .card-wrapper {
+            display: grid;
+        }
+        .card-front, .card-back {
+            grid-area: 1 / 1;
+        }
+        .flipped .card-front { transform: rotateY(-180deg); }
+        .flipped .card-back { transform: rotateY(0deg); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-darkbg dark:text-slate-200 font-sans transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Persistent Navigation -->
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-darkbg/80 border-b border-slate-200 dark:border-slate-700 shadow-sm transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Back Button (Hidden on Overview) -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#overview" id="nav-back-btn" class="hidden text-brand hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center gap-2 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Back to Overview
+                    </a>
+                    <span id="nav-brand" class="text-xl font-serif font-bold text-slate-900 dark:text-white">Articles Zapper</span>
+                </div>
+                
+                <!-- Controls -->
+                <div class="flex items-center space-x-4">
+                    <a href="#glossary" class="text-sm font-medium bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 px-3 py-1.5 rounded-md transition-colors">
+                        Glossary
+                    </a>
+                    
+                    <!-- Global EN/VI Toggle -->
+                    <button id="global-lang-toggle" onclick="toggleGlobalLanguage()" class="relative inline-flex h-8 w-16 items-center rounded-full bg-slate-300 dark:bg-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 dark:focus:ring-offset-darkbg">
+                        <span class="sr-only">Toggle Language</span>
+                        <span id="global-lang-knob" class="inline-block h-6 w-6 transform rounded-full bg-white transition duration-300 ease-in-out translate-x-1 flex items-center justify-center text-[10px] font-bold text-slate-800 shadow-md">EN</span>
+                    </button>
+
+                    <!-- Light/Dark Mode Toggle -->
+                    <button onclick="toggleTheme()" class="p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors focus:outline-none">
+                        <svg id="theme-icon-dark" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-icon-light" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 2.32a1 1 0 011.415 0l.707.707a1 1 0 01-1.414 1.415l-.707-.707a1 1 0 010-1.415zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zm-2.32 4.22a1 1 0 010 1.415l-.707.707a1 1 0 01-1.415-1.414l.707-.707a1 1 0 011.415 0zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-4.22-2.32a1 1 0 01-1.415 0l-.707-.707a1 1 0 011.414-1.415l.707.707a1 1 0 010 1.415zM2 10a1 1 0 011-1h1a1 1 0 110 2H3a1 1 0 01-1-1zm2.32-4.22a1 1 0 010-1.415l.707-.707a1 1 0 011.415 1.414l-.707.707a1 1 0 01-1.415 0zM10 5a5 5 0 100 10 5 5 0 000-10z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow w-full max-w-4xl mx-auto p-4 md:p-8">
+        <div id="app-root"></div>
+    </main>
+
+    <!-- Application Data & Logic -->
+    <script>
+        // Content Payload extracting verbatim text and mapping to structure
+        const documentData = {
+            title: {
+                en: '2027 Grand Cycle Forecast: Suddenly Falling into a "Deep, Unceasing Slumber," Praying for Miraculously Swift Responses & Dreaming of the Exact Same Image?[cite: 1]',
+                vi: 'Dự Báo Đại Vận 2027: Đột Nhiên "Ngủ Li Bì", Cầu Xin Linh Ứng Nhanh Đáng Sợ & Mơ Cùng 1 Hình Ảnh?[cite: 1]'
+            },
+            sections: [
+                {
+                    id: 'section-1',
+                    heading: {
+                        en: 'Introduction: The Hidden Purification and Audit on the Eve of the 2027 Grand Cycle[cite: 1]',
+                        vi: 'Mở Đầu: Cuộc Thanh Lọc Và Kiểm Toán Ngầm Trước Thềm Đại Vận 2027[cite: 1]'
+                    },
+                    content: [
+                        {
+                            type: 'p',
+                            en: 'Have you noticed lately how strangely our circadian rhythms, nightly dreams, and even the speed at which cause and effect manifest have been operating around us? Most people assume they have to wait until we enter the 2027 Grand Cycle for their destiny, their lives, or this world to truly change.[cite: 1]',
+                            vi: 'Không biết dạo gần đây các bạn có nhận ra là nhịp sinh học hay là những giấc mơ mỗi đêm và cả tốc độ ứng nghiệm nhân quả đang vận hành quanh chúng ta rất kỳ lạ không? Bởi vì đa số mọi người đang đều nghĩ rằng phải đợi bước sang đại vận năm 2027 thì vận mệnh hay là cuộc sống hay thế giới này mới thực sự thay đổi.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'Yet the truth is the exact opposite. Just as you must thoroughly clean a new house and settle any outstanding debts before moving in, the Buddhist law of cause and effect works the exact same way. Right now, the universe and the unseen realms are quietly activating a purification process to resolve karmic debts once and for all within each person\'s consciousness—and it is genuinely happening.[cite: 1]',
+                            vi: 'Nhưng sự thật thì hoàn toàn ngược lại. Vì giống như trước khi mà bạn muốn dọn vào một ngôi nhà mới thì bạn buộc phải dọn dẹp sạch sẽ ngôi nhà đó trước và phải trả dứt điểm món nợ còn tồn đọng đúng không? Thì theo quy luật nhân quả của nhà Phật cũng vậy. Ngay từ bây giờ, khi mà vũ trụ và các cõi vô hình đang âm thầm kích hoạt một cuộc thanh lọc và để giải quyết dứt điểm nợ nghiệp ngay bên trong tâm thức của mỗi người và điều đó đang thực sự xảy ra.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'It is precisely this covert audit and cleansing that is producing three strange phenomena that have left millions bewildered over the past several weeks—accompanied by three shocking truths behind them.[cite: 1]',
+                            vi: 'Và chính vì cuộc kiểm toán và thanh tẩy ngầm này đang tạo ra ba hiện tượng kỳ lạ khiến cho hàng triệu người hoang mang suốt nhiều tuần lễ vừa qua. Và đi kèm theo đó cũng là ba sự thật chấn động phía sau.[cite: 1]'
+                        }
+                    ]
+                },
+                {
+                    id: 'section-2',
+                    heading: {
+                        en: 'Three Strange Phenomena and the Truth Behind Them[cite: 1]',
+                        vi: 'Ba Hiện Tượng Kỳ Lạ Và Sự Thật Phía Sau[cite: 1]'
+                    },
+                    content: [
+                        {
+                            type: 'h3',
+                            en: '1. Unexplained Lethargic Sleep and Repaying Karma in Dreams[cite: 1]',
+                            vi: '1. Hiện Tượng Ngủ Li Bì Và Trả Nghiệp Trong Giấc Mơ[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'First, many people are suddenly falling into a state of deep, lethargic sleep where no amount of rest ever feels like enough. You go to the doctor, yet no medical condition is found—you are completely healthy. Still, within that deep slumber, millions of people are simultaneously seeing eerily repetitive images.[cite: 1]',
+                            vi: 'Thứ nhất, là nhiều người đột nhiên rơi vào trạng thái ngủ li bì, ngủ bao nhiêu cũng không thấy đủ. Bạn đi khám thì không thấy ra bệnh lý gì, hoàn toàn khỏe mạnh. Nhưng mà ngay trong giấc ngủ sâu ấy thì có thể nói rằng hàng triệu người đang cùng thấy những hình ảnh lặp đi lặp lại đến đáng sợ.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'The truth is that this is when the unseen realms temporarily switch off your waking consciousness to summon your spiritual consciousness to audit your karmic ledger and carry out spiritual work, while also allowing those with wholesome karmic roots to pay off major calamities right inside their sleep. This is likely a novel concept that very few people have ever heard of: instead of enduring bloody accidents in waking reality, you can discharge your karma directly within your dreams.[cite: 1]',
+                            vi: 'Bởi vì sự thật đó chính là lúc cõi vô hình đang tạm ngắt ý thức ban ngày của bạn để triệu tập thân thức của bạn đi đối chiếu sổ nghiệp, đi làm việc, đồng thời cũng cho phép những người có căn lành được trả bớt đại nạn ngay trong giấc ngủ. Đây hẳn là một điều mới lạ mà có thể rất ít người được nghe nói tới. Bởi vì thay vì phải chịu tai nạn đổ máu ngoài đời thực thì bạn có thể trả nghiệp ngay trong giấc ngủ của mình.[cite: 1]'
+                        },
+                        {
+                            type: 'h3',
+                            en: '2. Eerily Swift Responses to Prayers and the Trap of Advancing Future Merit[cite: 1]',
+                            vi: '2. Cầu Xin Linh Ứng Nhanh Đáng Sợ Và Bẫy Ứng Trước Phước Báu[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'The second strange phenomenon Jenny wants to discuss involves prayers for money, fame, wealth, status, or superiority over others. Recently, these wishes have suddenly been answered with terrifying speed. Whatever you ask for, you receive—so swiftly it feels like a miracle. Many who do not understand assume they are simply being pampered by higher powers.[cite: 1]',
+                            vi: 'Và sự kỳ lạ thứ hai mà Jenny muốn nói tới đó là những lời cầu xin về tiền bạc, về danh vọng, về tài sản, về địa vị hay là muốn hơn người. Những thời gian gần đây thì bỗng nhiên lại được linh ứng nhanh đến mức đáng sợ. Bạn cầu gì cũng được nấy. Nó nhanh chóng đến mức như là một phép màu. Nhiều người không hiểu thì nghĩ rằng bạn đang được bề trên chiều chuộng.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'However, there is a secret Jenny wants to reveal to you in today\'s video. It is because the teaching era of Maitreya Buddha has arrived, causing cause and effect to manifest at lightning speed. Combined with the mechanism of exposing desire, this means that those who pray out of greed will have their wishes granted immediately. In reality, though, you are merely drawing an advance on your own merit, only to end up empty-handed once you cross into the 2027 Grand Cycle.[cite: 1]',
+                            vi: 'Nhưng có một bí mật mà Jenny muốn tiết lộ với các bạn trong video hôm nay. Đó là bởi vì thời đại giáo hóa của Đức Phật Di Lặc đã đến. Nó khiến cho nhân quả sẽ hiện lộ cực nhanh. Kết hợp với cơ chế phơi bày dục vọng. Nghĩa là kẻ cầu xin bằng lòng tham sẽ được đáp ứng ngay lập tức. Nhưng thực chất là bạn chỉ đang tự ứng trước phước báu của mình để rồi trắng tay khi bước qua những đại vận 2027.[cite: 1]'
+                        },
+                        {
+                            type: 'h3',
+                            en: '3. 89th-Minute Collapses and the Mechanism of Transforming Heavy Karma into Light[cite: 1]',
+                            vi: '3. Sự Đổ Vỡ Phút 89 Và Cơ Chế Chuyển Nghiệp Nặng Thành Nhẹ[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'The third point Jenny wants to address today is the quiet heartbreak felt by many decent, kind-hearted people. Many wonder why, while greedy seekers are having every wish fulfilled in a flash, virtuous people who prepare their plans meticulously watch everything suddenly shatter right at the 89th minute—as if someone, or some unseen force, were deliberately working against them.[cite: 1]',
+                            vi: 'Và điều thứ ba mà Jenny muốn nói tới trong hôm nay đó là những nỗi nghẹn ngào của nhiều người sống tử tế. Vì có nhiều người cho rằng trong khi mà những kẻ tham cầu đang được đáp ứng nhanh chóng mọi mong ước của họ như chớp như vậy. Thì tại sao những người thiện lành, những người chuẩn bị kế hoạch kỹ lưỡng nhưng mà cứ đến đúng phút 89 thì lại đột ngột vỡ tan tành. Cứ có một ai đó, một thế lực nào đó cố tình chống đối bạn vậy.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'The truth is that this collapse is not bad luck at all; rather, it is the Buddhist mechanism of transforming heavy karma into light karma. Simply put, it happens when celestial beings, Dharma protectors, your tutelary deities, and the accumulated merit of your ancestors raise an invisible hand to halt events at the 89th minute—using a minor setback at minute 89 to save you from stepping into a massive karmic trap at minute 90.[cite: 1]',
+                            vi: 'Thì sự thật là cú đổ vỡ đó hoàn toàn không phải là vận xui. Mà đó là cơ chế chuyển nghiệp nặng thành nhẹ của Phật pháp. Bạn có thể hiểu đơn giản đó là khi mà chư thiên hay là các vị hộ pháp bổn tôn cùng phước đức của tổ tiên bạn đang muốn dựng lên một bàn tay vô hình chặn đứng phút 89. Dùng mọi sự đổ vỡ nhỏ ở phút 89 đó để cứu bạn khỏi bước vào cái bẫy nghiệp lực lớn ở phút 90.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'These are the three crucial factors Jenny will explore regarding the 2027 Great Merit Audit and how they operate under the Law of Consciousness Amplification. Please stay with Jenny until the very end of this video—and welcome back to Jenny\'s YouTube channel.[cite: 1]',
+                            vi: 'Thì đây là ba yếu tố quan trọng mà Jenny sẽ nói đến trong cuộc đại kiểm toán công đức 2027 và với video này dưới tác động của quy luật khuếch đại tâm thức. Thì các bạn hãy cùng Jenny theo dõi đến hết video này nhé. Và chào mừng các bạn đã quay trở lại với kênh YouTube của Jenny.[cite: 1]'
+                        }
+                    ]
+                },
+                {
+                    id: 'section-3',
+                    heading: {
+                        en: 'In-Depth Decoding: Mechanisms of Consciousness and Karma[cite: 1]',
+                        vi: 'Giải Mã Chuyên Sâu: Cơ Chế Tâm Thức Và Nhân Quả[cite: 1]'
+                    },
+                    content: [
+                        {
+                            type: 'h3',
+                            en: 'Why the Unseen Realms Temporarily Switch Off Waking Consciousness and Three Common Dreams[cite: 1]',
+                            vi: 'Tại Sao Cõi Vô Hình Tạm Ngắt Ý Thức Ban Ngày Và Ba Giấc Mơ Phổ Biến?[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'Through nearly 10 years of practicing Master Dolores Cannon\'s quantum healing hypnosis regression—which guides people into the deepest delta brainwaves to connect with their higher selves—combined with insights from consciousness studies and Buddhism, Jenny has observed a profoundly mysterious law.[cite: 1]',
+                            vi: 'Qua gần 10 năm thực hành thôi miên hồi quy lượng tử của bậc thầy Dolores Cannon khi mà nó có thể giúp đưa con người vào sóng não delta sâu nhất để kết nối với những bản thể cao hơn của bạn. Kết hợp với những góc nhìn về tâm thức và Phật giáo thì Jenny nhận thấy có một quy luật rất huyền nhiệm thế này.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'During the day, when your eyes are open and your mind is calculating in brainwave frequencies like beta and theta, your ego—or sense of self—constantly erects a thick defensive wall. This wall blocks your nervous system from receiving the new frequencies of 2027, while simultaneously locking shut the Alaya consciousness (the storehouse consciousness), where all your karmic seeds from countless past lives are kept. Consequently, the unseen realms are forced to temporarily switch off your waking consciousness, plunging you into a state of deep lethargy where no amount of sleep feels sufficient.[cite: 1]',
+                            vi: 'Đó là ban ngày, khi mà bạn mở mắt tính toán những tần số sóng não như beta, theta thì cái tôi hay là bản ngã của bạn sẽ luôn dựng nên một bức tường phòng vệ dày đặc. Bức tường này nó sẽ ngăn cách hệ thần kinh tiếp nhận tần số mới của năm 2027. Nó cũng vừa khóa chặt kho A lại gia thức, chính là nơi cất giữ mọi hạt giống nghiệp lực của bạn từ nhiều đời nhiều kiếp trước. Chính vì vậy, cõi vô hình buộc phải tạm ngắt ý thức ban ngày của bạn khiến cho bạn rơi vào cảnh ngủ li bì, ngủ bao nhiêu cũng không thấy đủ.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'It is just like having an iPhone that must turn its screen completely black and enter standby mode before it can update to a new operating system or software version. Similarly, those bouts of what you call extreme sleepiness lately are the moments when the screen of your waking mind is turned off so your spiritual consciousness can carry out two tasks: first, upgrading your energetic nervous system for 2027; and second, delivering the boundless compassion of the Dharma by allowing those with wholesome roots to pay off heavy karma right inside their dreams.[cite: 1]',
+                            vi: 'Nó giống hệt như việc bạn có một chiếc điện thoại iPhone và phải tắt màn hình tối đen, về chế độ chờ thì mới cập nhật được hệ điều hành mới hay phiên bản mới vậy. Tương tự như vậy, những cơn mà bạn gọi là ngủ li bì gần đây chính là lúc mà màn hình tâm thức của bạn bị tắt đi để cho thần thức thực hiện hai nhiệm vụ. Một là nâng cấp hệ thần kinh năng lượng cho năm 2027 và hai là mang tới sự từ bi vô hạn của Phật pháp. Chính là cho phép những người có căn lành được trả bớt nghiệp nặng ngay trong giấc mơ.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'To put it simply, some people carry debts from past lives that are due to be settled before 2027. Ordinarily, you would have to repay them in waking life through bloody accidents, severe bedridden illnesses, or devastating losses. Yet thanks to your merit and good fortune, beings in the unseen realms, spiritual masters, or your tutelary deities and Dharma protectors place you into deep slumber, allowing your spiritual consciousness to experience that fear and pain within a dream in order to erase major calamities in real life.[cite: 1]',
+                            vi: 'Bạn có thể hiểu đơn giản thế này là có những người có những món nợ từ tiền kiếp đáng lẽ phải trả trước năm 2027. Bạn phải trả ở ngoài đời bằng những tai nạn đổ máu hay là những cơn ốm nặng liệt giường hoặc là những mất mát lớn. Nhưng mà nhờ vào phước đức và phúc khí của bạn thì các bậc ở cõi vô hình, các bậc thầy tâm linh hay là các vị bổn tôn, hộ pháp của bạn đã đưa bạn vào những cơn ngủ li bì và cho phép thần thức hay là tâm thức của chúng ta trải qua những nỗi sợ hãi và đau đớn đó ngay trong giấc mơ để xóa bớt những đại nạn ngoài đời thực.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'This mechanism of repaying karma through dreams explains why millions of people are repeatedly experiencing visions so vivid and lifelike that they wake up with a pounding heart or tears soaking their pillow. The three most common dream images Jenny hears about are:[cite: 1]',
+                            vi: 'Và chính vì cơ chế trả nghiệp qua giấc mơ này đã giải thích vì sao hàng triệu người liên tục mơ thấy những hình ảnh sống động như thực đến nỗi mà khi bạn mở mắt ra tim vẫn đập mạnh hoặc là nước mắt có thể rơi ướt gối. Và có những hình ảnh giấc mơ mà Jenny được nghe kể nhiều nhất đó là:[cite: 1]'
+                        },
+                        {
+                            type: 'bullet',
+                            en: '- First, while fast asleep, you suddenly dream of missing a step and plunging into an abyss, jolting your body awake. Or you dream of trying to flee and scream, only for your legs to feel heavy as lead and your throat frozen mute. According to Buddhist karmic teachings, this is the exact moment your consciousness finishes a karmic test and snaps back into your physical body, forcing seeds of fear and resentment stored in your Alaya consciousness out to the surface.[cite: 1]',
+                            vi: '- Thứ nhất là khi bạn đang ngủ say thì bỗng mơ thấy mình bước hụt chân rơi xuống một vực thẳm làm cho cơ thể giật bắn mình tỉnh giấc. Hoặc là một giấc mơ bạn muốn chạy thoát, muốn hét lên mà chân nặng như đeo chì, cổ họng thì cứng đờ không thể nói. Thì theo giải thích của nghiệp quả Phật giáo, đó chính là khoảnh khắc mà tâm thức của bạn vừa trả xong bài khảo nghiệm nợ nghiệp rồi quay về cơ thể. Ép những hạt giống sợ hãi và oán hận trong kho A lại gia thức bật ra ngoài.[cite: 1]'
+                        },
+                        {
+                            type: 'bullet',
+                            en: '- Second, you dream of standing amid scenery that feels both unfamiliar and strangely known, or reuniting with deceased grandparents or people from your distant past who simply stand silently, smile, and fade away. Dreaming of grandparents is a sign that ancestral merit is shielding you, whereas encountering figures from your past allows your spiritual consciousness to settle lingering emotional debts so you can cross into 2027 unburdened.[cite: 1]',
+                            vi: '- Hoặc là hình ảnh giấc mơ thứ hai là bạn thấy mình đứng giữa một khung cảnh vừa lạ vừa quen. Hoặc là gặp lại ông bà đã khuất hay là người cũ từ rất lâu. Chỉ đứng nhìn im lặng, mỉm cười rồi họ tan biến. Cái này có thể giải thích là việc mơ thấy ông bà là tín hiệu phước đức tổ tiên đang che chở cho bạn. Còn gặp lại người cũ chính là để cho thần thức hay là tâm thức của chúng ta trả nốt những món nợ ân tình quá khứ giúp cho bạn nhẹ gánh bước qua năm 2027.[cite: 1]'
+                        },
+                        {
+                            type: 'bullet',
+                            en: '- Third, you dream of a vast expanse of water or of walking across bridges bathed in light. In Buddhism, water and light symbolize washing away karmic hindrances within the collective field of consciousness, enabling you to sleep deeply and wake up around 3:00 or 4:00 AM with a crystal-clear mind.[cite: 1]',
+                            vi: '- Và giấc mơ thứ ba là bạn mơ thấy một vùng nước mênh mông hoặc là bạn bước qua những cây cầu ngập ánh sáng. Thì trong Phật giáo nước và ánh sáng là biểu tượng gột rửa nghiệp chướng trong trường tâm thức tập thể giúp cho bạn có thể ngủ sâu và tỉnh giấc lúc 3-4h sáng với một tâm trí trong vắt.[cite: 1]'
+                        },
+                        {
+                            type: 'h3',
+                            en: 'The Era of Maitreya Buddha, Exponential Acceleration, and the Mechanism of Exposing Desire[cite: 1]',
+                            vi: 'Thời Đại Đức Phật Di Lặc, Tốc Độ Lũy Thừa Và Cơ Chế Phơi Bày Dục Vọng[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'Still, many may ask: if our spiritual consciousness has to repay karma so rigorously at night, why have daytime prayers lately been answered with such frightening speed? That brings us to the second trap: drawing an advance on your merit.[cite: 1]',
+                            vi: 'Thế nhưng nhiều người cũng có thể hỏi rằng nếu như ban đêm thần thức phải đi trả nghiệp khắc khe như vậy, tại sao ban ngày mọi lời cầu xin gần đây lại linh ứng đến mức nhanh đáng sợ như thế? Thì chúng ta phải đến với cái bẫy thứ hai là phước báu ứng trước.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'Recently, Jenny has heard many people say that the moment they set an intention to pray for wealth or manifest money, fame, and status, the results arrive like lightning. According to the esoteric currents of Buddhism, this is because the teaching era of Maitreya Buddha has arrived. And the era of Maitreya Buddha carries one paramount quality you must remember: speed. Everything operates rapidly. As a result, karmic outcomes and cause-and-effect manifest far faster than they ever did in the past.[cite: 1]',
+                            vi: 'Vì dạo gần đây Jenny thấy có nhiều người nói rằng khi mà họ vừa khởi tâm cầu xin tiền tài hay là muốn manifest hiển lộ tiền tài, danh lợi thì kết quả lại đến nhanh như chớp. Bởi vì theo dòng chảy huyền cơ của Phật giáo thì thời đại giáo hóa của Đức Phật Di Lặc đã đến. Và thời kỳ giáo hóa của Đức Phật Di Lặc có một tính chất, một đặc điểm quan trọng bậc nhất mà bạn phải ghi nhớ đó là chữ nhanh. Mọi thứ đều vận hành rất nhanh. Vì vậy, nghiệp quả và nhân quả cũng sẽ hiển thị, hiển lộ rất nhanh, nhanh hơn ngày xưa rất nhiều.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'Let Jenny give you a simple example. In the past, if you wanted a glass of orange juice, you had to get an orange and squeeze it yourself before you could drink it. Today, all you need is an effervescent vitamin C tablet or a ready-made bottle of orange juice, and you have a drink right away. In other words, the process of getting results has been shortened, and everything you obtain comes much faster, doesn\'t it?[cite: 1]',
+                            vi: 'Để Jenny lấy một ví dụ dễ hiểu thế này. Là lúc trước nếu như bạn muốn uống một ly nước cam thì bạn phải có một quả cam, bạn vắt lấy nước thì mới có nước cam để uống. Còn bây giờ, bạn chỉ cần một viên sủi C hoặc là một chai nước cam có sẵn là bạn đã có nước để uống. Tức là quá trình để bạn có kết quả được rút ngắn lại và mọi thứ bạn có được sẽ nhanh hơn, đúng vậy không?[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'In today\'s era of explosive AI growth—and in the time ahead—everything will accelerate even further at an exponential rate, no longer merely multiplicative as before. Look at this example: in the old days before the internet, a single remark you made only affected a handful of people around you. When the internet era opened up in 2000, your words could reach millions of listeners. Now, as AI continues to advance, you can use AI not just to publish a single post, but to generate thousands or millions of posts reaching millions of others. Consequently, your reach and karmic impact multiply accordingly, and cause and effect return many times faster.[cite: 1]',
+                            vi: 'Và ở thời đại bùng nổ AI như hiện nay và thời gian sắp tới sẽ lại càng làm cho mọi thứ vận hành nhanh hơn nữa, theo cấp độ lũy thừa, chứ không còn là cấp số nhân như trước đây. Các bạn hãy nhìn một ví dụ thế này. Ngày xưa, khi mà chưa có internet, thì một câu nói của bạn chỉ ảnh hưởng đến vài người xung quanh. Nhưng mà thời đại internet năm 2000 mở ra thì có thể ảnh hưởng đến hàng triệu người nghe thấy lời nói của bạn. Còn bây giờ, khi AI càng phát triển, bạn có thể sử dụng AI để đăng không chỉ một bài mà tạo ra hàng nghìn, hàng triệu bài đăng và tiếp cận đến hàng triệu người khác. Và vì thế, mức độ ảnh hưởng và nghiệp lực cũng sẽ tăng theo và kết quả là nhân quả cũng đến nhanh hơn nhiều lần.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'Upon that foundation of exponential speed, on the eve of the 2027 Great Merit Audit, the unseen realms have activated a mechanism known as the exposure of desire. Under the law of resonance, when someone prays out of bottomless greed—such as wanting effortless wealth without work or wanting to manipulate others—that greedy intention attracts low-frequency energy currents to assist them, allowing their desires to materialize with terrifying speed so that the full extent of their greed is laid bare.[cite: 1]',
+                            vi: 'Và chính trên nền tảng tốc độ lũy thừa đó thì trước thềm đại kiểm toán công đức 2027 này thì ở cõi vô hình đã mở ra cơ chế gọi là phơi bày dục vọng. Theo quy luật đồng tần số, khi một người khởi tâm cầu xin từ lòng tham không đáy, chẳng hạn như bạn muốn ngồi mát ăn bát vàng hay muốn thao túng người khác, thì cái tâm tham đó sẽ thu hút các luồng năng lượng tần số thấp đến trợ lực cho bạn. Cho phép ước muốn của bạn thành sự thật nhanh đến đáng sợ, để phơi bày trọn vẹn lòng tham của bạn.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'Yet that is only an unsustainable sweet fruit. Under the law of conservation of merit, when you have not sown any new merit but pray for instant gratification—like dropping an effervescent vitamin C tablet into water—where does that energy come from? It comes from you personally signing an order to drain your future merit and advance it into the present, withdrawing directly from your own Alaya consciousness.[cite: 1]',
+                            vi: 'Thế nhưng đó chỉ là quả ngọt không bền vững. Bởi vì vẫn theo quy luật bảo toàn phước đức, khi bạn chưa gieo thêm công đức mới mà đã cầu xin muốn có ngay như kiểu thả một viên sủi C vào nước, thì nguồn năng lượng đó lấy từ đâu? Đó chính là do bạn vừa tự tay ký lệnh để rút sạch những phước đức tương lai của bạn, ứng trước cho hiện tại. Lấy từ kho A lại gia thức của chính mình.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'Therefore, once you consume all your merit ahead of schedule, when the 2027 Great Merit Audit arrives and the cosmic bank closes its books at that same exponential speed, your merit balance crashes into the red. With insufficient new merit to cover the deficit, you risk overnight collapse and losing everything. Likewise, anyone who performs good deeds with a bargaining mindset—demanding that higher powers pay them back tenfold—is pushing themselves into this exact same trap of withdrawing merit in advance.[cite: 1]',
+                            vi: 'Cho nên khi bạn hưởng cạn hết phước đức trước hạn, rồi đến kỳ đại kiểm toán công đức 2027, ngân hàng vũ trụ chốt sổ cũng theo tốc độ lũy thừa tài sản công đức của bạn âm sập, phước đức mới không đủ để bù vào thì sẽ khiến cho bạn bị sụp đổ trắng tay chỉ sau một đêm. Tương tự như vậy với những ai mà đang làm phước với tâm mặc cả đổi chác, đòi bề trên phải trả lại gấp 10 lần, thì cũng là đều đang tự đẩy mình vào cái bẫy rút phước ứng trước này.[cite: 1]'
+                        },
+                        {
+                            type: 'h3',
+                            en: 'Two Profound Reasons Behind the Sudden 89th-Minute Braking[cite: 1]',
+                            vi: 'Hai Lý Do Sâu Xa Đằng Sau Cú Phanh Gấp Ở Phút 89[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'At this point, many of you are surely wondering: if greedy seekers receive swift responses because they can draw advances on their future merit, why do honest, sincere people like me prepare a plan that is 99% complete, only for it to suddenly collapse at the 89th minute? For instance, perhaps you have cried your eyes out when a project into which you poured your heart and soul—already 99% finalized—was abruptly canceled by a client or partner at the 89th minute, or a romantic relationship you thought was securely in your hands shattered at the final second.[cite: 1]',
+                            vi: 'Và đến đây chắc hẳn nhiều bạn cũng sẽ hỏi rằng nếu như kẻ tham cầu mà được linh ứng nhanh vì có thể rút những phước đức ứng trước cho hiện tại, vậy tại sao những người sống đàng hoàng, chân thật như mình chuẩn bị kế hoạch 99% thành công rồi nhưng đến phút 89 lại đột ngột đổ vỡ như vậy? Chẳng hạn như nếu bạn đã từng khóc cạn nước mắt khi một dự án bạn dốc hết tâm huyết, chốt 99% xong rồi, nhưng mà tới đúng phút 89 thì khách hàng, đối tác lại hủy ngang, hay là một mối nhân duyên tình cảm tưởng cầm chắc trong tay thì bỗng tan vỡ ngay vào giây cuối cùng.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'Today, Jenny can tell you to immediately stop bemoaning your fate or blaming higher powers. Instead, place a hand over your chest and breathe a sigh of relief, because the most sacred karmic secret behind those collapses is not bad luck at all. Rather, it is the 89th-minute resolution mechanism—the profoundly miraculous moment when invisible hands or unseen forces intercept karmic momentum at minute 89 through the law of transforming heavy karma into light karma, saving you from stepping into a massive karmic trap at minute 90.[cite: 1]',
+                            vi: 'Thì hôm nay Jenny có thể nói bạn hãy dừng ngay việc than thân trách phận hay là trách móc các đấng bề trên. Và bạn có thể đặt tay lên ngực và thở phào nhẹ nhõm bởi vì bí mật nhân quả thiêng liêng nhất nằm sau những cú đổ vỡ ấy hoàn toàn không phải vận xui, mà đó chính là cơ chế hóa giải phút 89, khoảnh khắc mà những bàn tay vô hình hay những thế lực vô hình chặn đứng nghiệp lực phút 89 cho bạn thông qua quy luật chuyển hóa nghiệp nặng thành nhẹ để cứu bạn khỏi bước vào cái bẫy nghiệp lớn ở phút 90 này là cực kỳ vi diệu.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'You might also ask why the unseen realms or higher powers do not stop you at the 10th minute, instead waiting all the way until the 89th minute to slam the brakes and sweep everything out of your hands. There are two profound reasons for this:[cite: 1]',
+                            vi: 'Hoặc bạn cũng có thể hỏi là tại sao cõi vô hình hay là các đấng bề trên không cản bạn từ phút thứ 10 mà phải đợi đến tận phút 89 mới giật phanh, gạt hết mọi thứ khỏi tay bạn. Thì đó có hai lý do sâu xa thế này:[cite: 1]'
+                        },
+                        {
+                            type: 'bullet',
+                            en: '1. First, it allows you to fully settle old karmic debts from the past. Naturally, when our ego is captivated by a glamorous exterior, being stopped at the very beginning would leave you unconvinced and resistant. So the universe, higher powers, your tutelary deities, and Dharma protectors let you go right up to the 89th minute so that your invested effort repays old karmic debts with those people or situations—while giving you the chance to recognize the hidden cracks yourself.[cite: 1]',
+                            vi: '1. Thứ nhất, đó là để bạn trả được dứt điểm những món nợ duyên cũ trong quá khứ. Vì theo lý lẽ thông thường, khi mà bản ngã chúng ta đang bị vẻ ngoài hào nhoáng thu hút, nếu cản từ đầu thì bạn sẽ không phục, nên vũ trụ hay là các đấng bề trên, bổn tôn, hộ pháp của bạn, các vị muốn để bạn đi sát đến phút 89 để công sức của bạn bỏ ra và trả hết những món nợ duyên cũ với những con người hay là sự việc đó. Đồng thời để bạn nhận ra, tự nhận ra những vết nứt ngầm.[cite: 1]'
+                        },
+                        {
+                            type: 'bullet',
+                            en: '2. Second—and perhaps most moving of all—it is a lifesaving intervention by your Dharma protectors and ancestral merit. What you cannot see is that at the 90th minute, behind that door of apparent success, lies a nest of shared collective karma with unscrupulous people, a hidden debt, or a disguised advance on merit. Had that deal been signed at minute 90, the law of cause and effect would have bound you to share their heavy karma, likely plunging you into an exponential spiral of bankruptcy, lawsuits, or betrayal upon entering the 2027 cycle.[cite: 1]',
+                            vi: '2. Và điều thứ hai cũng là điều có thể gây xúc động mạnh mẽ nhất. Đó chính là vì sự ra tay cứu mạng của chư vị hộ pháp và phước đức tổ tiên. Bởi vì bạn không biết rằng ở phút 90 kia, ở đằng sau cánh cửa thành công kia, thực chất lại là một ổ cộng nghiệp chung của những kẻ bất chính hay là một khoản nợ hoặc là một loại phước ứng trước trá hình. Cho nên nếu như giao dịch đó được ký kết ở phút 90, thì theo luật nhân quả bạn sẽ phải gánh chung nghiệp nặng với những người đó. Và rất có thể khi bước sang chu kỳ năm 2027, bạn sẽ rơi vào vòng xoáy phá sản, kiện tụng hoặc bị phản bội theo cấp độ lũy thừa.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'Thus, in that life-or-death threshold between the 89th and 90th minutes, the accumulated merit of your ancestors and the deep reservoir of hidden virtue passed down by your forebears—resonating with your own remaining good fortune—manifest as these invisible hands and unseen forces. These benevolent beings execute the shift from heavy karma to light, trading a minor loss to ransom you from an unforeseen catastrophe. Put more deeply, that sudden collapse happens because they willingly expend a portion of merit to trigger a breakdown at the exact 89th minute, severing harmful ties and knocking you off a fatal path before the karmic trap snaps shut at minute 90.[cite: 1]',
+                            vi: 'Cho nên ngay vào khoảnh khắc sinh tử giữa phút 89 và 90 đó, chỉ có phước đức của tổ tiên và kho âm đức sâu dày của ông bà để lại cho bạn, cộng hưởng với phần phước báu hay là phúc khí còn lại của bạn đã hóa thành những bàn tay hay thế lực vô hình này. Và chính chư vị ấy đã thực hiện bước chuyển nghiệp nặng thành nhẹ, lấy sự hao hụt nhỏ để thế mạng cho những tai họa lớn mà bạn không lường trước được. Hay nói cách khác và sâu hơn, là sự cố đổ vỡ đó chính là do các vị chấp nhận đốt đi một phần phước báu để tạo ra sự cố đổ vỡ vào đúng phút 89, cắt đứt đi những mối duyên xấu, hất bạn văng ra khỏi con đường tử địa trước khi mà bẫy nghiệp lực sập xuống vào phút 90.[cite: 1]'
+                        }
+                    ]
+                },
+                {
+                    id: 'section-4',
+                    heading: {
+                        en: 'The Law of Consciousness Amplification and Three Self-Mastery Keys for 2027[cite: 1]',
+                        vi: 'Quy Luật Khuếch Đại Tâm Thức Và Ba Chìa Khóa Tự Thân Cho Năm 2027[cite: 1]'
+                    },
+                    content: [
+                        {
+                            type: 'p',
+                            en: 'Yet do not celebrate too soon—remember this warning: the reservoir of ancestral merit and your own remaining good fortune cannot be spent forever if you stubbornly keep your eyes shut and floor the gas toward dark paths. Stepping into the 2027 Grand Cycle, you must awaken on your own and cultivate foundational merit.[cite: 1]',
+                            vi: 'Nhưng bạn cũng đừng vội mừng mà hãy nhớ đến một lời cảnh tỉnh này là kho phước đức và phước báu của tổ tiên và phần phúc khí còn lại của bạn không thể cứ xài mãi. Nếu như bạn cứ cố chấp nhắm mắt đạp ga vào những chỗ tối, bởi vì bước vào đại vận 2027 này, bạn buộc phải tự mình thức tỉnh và tích lũy công đức gốc.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'The question, then, is how we can generate merit through our own inner strength in the upcoming year of 2027. The answer lies in the 2027 Law of Consciousness Amplification. As the Buddha taught, all realms of fortune and misfortune are created by the mind.[cite: 1]',
+                            vi: 'Vậy câu hỏi là làm sao để chúng ta có thể bằng chính nội lực của mình tạo ra công đức trong năm 2027 sắp đến. Vậy câu trả lời nằm ở quy luật khuếch đại tâm thức 2027 này. Bởi vì như Đức Phật đã dạy, mọi cảnh giới họa phúc đều do tâm tạo ra.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'The essence of the Law of Consciousness Amplification in this age of exponential speed acts just like a colossal cosmic magnifying glass. It magnifies thousands of times over whatever karmic seeds already reside within your Alaya consciousness. This means that if your consciousness harbors seeds of greedy craving, it will amplify them into the mechanism of exposing desire, ensnaring you in traps of advancing future merit as mentioned earlier. Conversely, if your consciousness—your Alaya consciousness—contains seeds of sincerity and gratitude toward your roots, it will amplify them into a protective field of Dharma protectors, spiritual masters, and tutelary deities, activating the 89th-minute resolution mechanism and opening a sustainable flow of merit for you.[cite: 1]',
+                            vi: 'Bản chất của quy luật khuếch đại tâm thức là trong thời đại tốc độ lũy thừa giống hệt như là một tấm kính lúp khổng lồ của vũ trụ. Nó có thể phóng đại gấp hàng ngàn lần những hạt giống nghiệp lực đang có sẵn trong kho A lại gia thức của bạn. Nghĩa là nếu như trong tâm thức của bạn có những hạt giống tham cầu, nó sẽ khuếch đại thành cơ chế phơi bày dục vọng, sẽ khiến cho bạn mắc vào những cái bẫy ứng trước phước đức. Như đã nói, ngược lại, nếu như trong tâm thức hay trong kho A lại gia thức của chúng ta có những hạt giống chân thật và biết ơn nguồn cội, nó có thể khuếch đại thành một trường bảo hộ của các vị hộ pháp, của các bậc thầy, của bổn tôn và có thể kích hoạt được chế độ hóa giải phút 89 và mở ra dòng chảy phước đức bền vững cho bạn.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'To achieve this, the power of transformation rests entirely within the following three keys of self-cultivation.[cite: 1]',
+                            vi: 'Muốn có được như vậy thì quyền năng chuyển hóa chỉ nằm trọn ở ba chìa khóa tự thân sau đây.[cite: 1]'
+                        },
+                        {
+                            type: 'h3',
+                            en: 'The First Key: Repentance and Cleansing Karmic Seeds During Sleep[cite: 1]',
+                            vi: 'Chìa Khóa Thứ Nhất: Sám Hối Và Làm Sạch Hạt Giống Nghiệp Lực Trong Giấc Ngủ[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'The first key is repentance and cleansing karmic seeds during sleep. The practice is very simple: every night before closing your eyes, place your hand over your chest, breathe deeply, and set this intention:[cite: 1]',
+                            vi: 'Chìa khóa thứ nhất, đó là sám hối và làm sạch những hạt giống nghiệp lực trong giấc ngủ. Để thực hành thì rất đơn giản, mỗi tối trước khi nhắm mắt, hãy đặt tay lên ngực và hít thở sâu cùng khởi niệm:[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: '"For all past mistakes, attachments, and lingering resentments within my consciousness, I sincerely repent and release them here and now. Tonight, may my spiritual consciousness rest and be purified in the light of wisdom and compassion."[cite: 1]',
+                            vi: '"Mọi lỗi lầm, mọi chấp niệm và oán giận cũ trong tâm thức, tôi xin thành tâm sám hối và buông xuống tại đây. Đêm nay thần thức tôi được nghỉ ngơi và thanh lọc trong ánh sáng của trí tuệ và từ bi."[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'This is a vital affirmation, so be sure to write it down in full and feel free to comment it below to resonate together. When you proactively cleanse your consciousness every night like this, your spiritual consciousness will no longer have to undergo forced karmic repayment through bouts of deep lethargy or sudden falling jolts in your dreams.[cite: 1]',
+                            vi: 'Đây là một câu niệm rất quan trọng, cho nên các bạn nhớ phải ghi chép lại đầy đủ và có thể comment xuống bên dưới để cùng cộng hưởng nhé. Bởi vì khi bạn chủ động làm sạch được tâm thức mỗi tối như vậy thì thần thức sẽ không còn phải trả nghiệp cưỡng bức qua những cơn ngủ li bì hay là những cú giật mình hụt chân trong giấc mơ nữa.[cite: 1]'
+                        },
+                        {
+                            type: 'h3',
+                            en: 'The Second Key: Stop Advancing Merit and Cultivate Secret Virtue in Solitude[cite: 1]',
+                            vi: 'Chìa Khóa Thứ Hai: Dừng Ứng Trước Phước Đức, Tích Lũy Ân Đức Trong Phòng Kín[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'The second key is to stop borrowing or drawing advances on your merit, and instead shift toward accumulating quiet virtue in the privacy of your own room. This means putting an end to all forceful demands or transactional bargaining in your prayers to higher powers.[cite: 1]',
+                            vi: 'Và chìa khóa thứ hai đó là hãy dừng vay mượn, dừng ứng trước phước đức, mà hãy chuyển sang tích lũy ân đức trong phòng kín. Điều này có nghĩa là bạn hãy chấm dứt mọi lời cầu xin thúc ép hay là mặc cả đổi chác với các đấng bề trên.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'Instead, maintain kind and wholesome speech both online and in daily life, perform small acts of goodness, and offer silent blessings without needing anyone to know. Remember that in the exponential speed of the 2027 era, a single pure, benevolent thought arising in private carries ten thousand times more power to build good fortune than ostentatious charity done for public display.[cite: 1]',
+                            vi: 'Thay vào đó, bạn hãy giữ lời nói thiện lành trên mạng, ở ngoài cuộc sống, bạn có thể làm việc thiện, những việc nhỏ thôi, và chúc phúc âm thầm, không cần ai biết đến. Vì hãy nhớ rằng trong thời đại tốc độ lũy thừa 2027, thì một niệm thiện trong sáng khởi lên trong phòng kín có sức nặng bồi đắp phúc khí lớn gấp vạn lần những việc thiện phô trương bên ngoài.[cite: 1]'
+                        },
+                        {
+                            type: 'h3',
+                            en: 'The Third Key: Cultivate Gratitude Before an 89th-Minute Collapse and Dedicate Merit to Ancestors[cite: 1]',
+                            vi: 'Chìa Khóa Thứ Ba: Khởi Tâm Biết Ơn Trước Cú Đổ Vỡ Phút 89 Và Hồi Hướng Cho Tổ Tiên[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'The third key—and also the most important one—is to awaken a heart of gratitude in the face of an 89th-minute sudden braking, meaning you dedicate blessings back to your ancestors. When a plan falls apart at the last moment, instead of harboring resentment that could deplete your remaining good fortune, place your hand over your heart and quietly say:[cite: 1]',
+                            vi: 'Chìa khóa thứ ba cũng là một chìa khóa quan trọng nhất, đó là hãy khởi tâm biết ơn trước cú fun phút 89, nghĩa là hãy hồi hướng phúc lành cho tổ tiên của bạn. Đó là khi một kế hoạch đổ vỡ vào phút chót, thay vì oán trách sẽ có thể làm hao tổn phần phúc khí còn lại của bạn, thì bạn hãy đặt tay lên tim và thầm nói:[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: '"I am grateful to the Dharma protectors, grateful to the invisible hands and the accumulated merit of my ancestors and lineage for using that small collapse to save me from a great calamity at the 90th minute, and I dedicate all wholesome merit back to my grandparents and ancestors."[cite: 1]',
+                            vi: '"Con biết ơn chư vị hộ pháp, con biết ơn những bàn tay vô hình, những phúc đức của tổ tiên dòng họ đã lấy sự đổ vỡ nhỏ đó để cứu con khỏi đại nạn ở phút 90, và con xin hồi hướng mọi công đức thiện lành về cho ông bà, tổ tiên."[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'The very instant you shift from resentment to gratitude at the 89th minute, your merit examination is immediately marked as passed, and a safer, more worthy new path will automatically open before you.[cite: 1]',
+                            vi: 'Và ngay khoảnh khắc mà bạn chuyển từ oán trách sang tri ơn ở phút 89, bài kiểm tra công đức của bạn sẽ lập tức được chấm đậu, và một con đường mới an toàn hơn, xứng đáng hơn sẽ tự động được mở ra cho bạn.[cite: 1]'
+                        }
+                    ]
+                },
+                {
+                    id: 'section-5',
+                    heading: {
+                        en: 'Final Message and Affirmation to Welcome the 2027 Grand Cycle[cite: 1]',
+                        vi: 'Lời Nhắn Nhủ Và Khẳng Định Đón Đại Vận 2027[cite: 1]'
+                    },
+                    content: [
+                        {
+                            type: 'p',
+                            en: 'Finally, Jenny wants to share that the fact you have listened all the way through today\'s heart-to-heart message is a synchronous signal sent by your tutelary deities, spiritual masters, higher self, and the flow of ancestral merit to awaken inner steadiness within you on the threshold of the 2027 Grand Cycle. If you are ready to master your consciousness, feel free to comment this affirmation below:[cite: 1]',
+                            vi: 'Và điều cuối cùng mà Jenny muốn nói đó là việc bạn lắng nghe trọn vẹn những lời tâm sự của Jenny ngày hôm nay, đó là tín hiệu đồng bộ mà các vị bổn tôn, các bậc thầy tâm linh hay là những bản thể cao hơn cùng dòng chảy phúc đức tổ tiên gửi đến cho bạn để đánh thức được sự vững chãi bên trong bạn trước thềm đại vận 2027. Và nếu như các bạn đã sẵn sàng làm chủ tâm thức của mình thì cũng có thể comment xuống bên dưới câu khẳng này:[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: '"Grateful for the blessing of minute 89, steadfast in heart to welcome the 2027 Grand Cycle" — so we can anchor these frequencies of mindfulness and peace together.[cite: 1]',
+                            vi: '"Biết phúc 89 vững tâm đón đại vận 2027" — để cùng nhau neo giữ những tần số tỉnh thức và bình an này nhé.[cite: 1]'
+                        },
+                        {
+                            type: 'p',
+                            en: 'That is everything Jenny wanted to share with you in today\'s video. May you always keep the inner lamp of wisdom burning brightly and calmly welcome every blessing of the new cycle. Goodbye, and see you in the next videos.[cite: 1]',
+                            vi: 'Và đó là tất cả những gì mà Johnny muốn chia sẻ với các bạn trong video ngày hôm nay. Chúc các bạn luôn giữ vững ngọn đèn trí tuệ bên trong và bình thản đón nhận mọi phúc lành của chu kỳ mới. Xin chào và hẹn gặp lại các bạn trong những video tiếp theo.[cite: 1]'
+                        }
+                    ]
+                }
+            ],
+            glossary: [
+                { term: 'Circadian rhythms', pos: 'Noun', defEn: 'Physical, mental, and behavioral changes that follow a 24-hour cycle.', plainEn: 'Your body\'s internal clock regulating sleep and wakefulness.', example: '...strangely our circadian rhythms... have been operating around us?[cite: 1]', vi: 'Nhịp sinh học[cite: 1]' },
+                { term: 'Grand Cycle', pos: 'Noun', defEn: 'A significant, overarching period of time in spiritual or cosmic evolution.', plainEn: 'A major new era or timeline for humanity.', example: '...we enter the 2027 Grand Cycle for their destiny...[cite: 1]', vi: 'Đại vận[cite: 1]' },
+                { term: 'Purification process', pos: 'Noun', defEn: 'The act of extracting something from a substance or soul to make it pure.', plainEn: 'A deep spiritual cleansing to remove bad energy.', example: '...quietly activating a purification process to resolve karmic debts...[cite: 1]', vi: 'Cuộc thanh lọc[cite: 1]' },
+                { term: 'Karmic debts', pos: 'Noun', defEn: 'Unresolved actions from past lives or earlier in this life that require balancing.', plainEn: 'Spiritual dues you owe for past mistakes.', example: '...resolve karmic debts once and for all...[cite: 1]', vi: 'Nợ nghiệp / Nợ duyên[cite: 1]' },
+                { term: 'Consciousness', pos: 'Noun', defEn: 'The state of being awake and aware of one\'s surroundings; the spiritual mind.', plainEn: 'Your deep awareness and soul memory.', example: '...within each person\'s consciousness...[cite: 1]', vi: 'Tâm thức[cite: 1]' },
+                { term: 'Covert audit', pos: 'Noun', defEn: 'A secret, hidden examination or evaluation of one\'s actions or merit.', plainEn: 'A secret check on your spiritual balance.', example: 'It is precisely this covert audit and cleansing...[cite: 1]', vi: 'Cuộc kiểm toán ngầm[cite: 1]' },
+                { term: 'Lethargic', pos: 'Adjective', defEn: 'Affected by lethargy; sluggish and apathetic.', plainEn: 'Extremely tired and lacking energy.', example: '...state of deep, lethargic sleep...[cite: 1]', vi: 'Li bì[cite: 1]' },
+                { term: 'Waking consciousness', pos: 'Noun', defEn: 'The state of awareness during standard daytime hours.', plainEn: 'Your normal awake mind.', example: '...temporarily switch off your waking consciousness...[cite: 1]', vi: 'Ý thức ban ngày[cite: 1]' },
+                { term: 'Wholesome karmic roots', pos: 'Noun phrase', defEn: 'Good foundational merit accumulated over time.', plainEn: 'A history of being a good person.', example: '...those with wholesome karmic roots...[cite: 1]', vi: 'Căn lành[cite: 1]' },
+                { term: 'Calamities', pos: 'Noun', defEn: 'Events causing great and often sudden damage or distress; a disaster.', plainEn: 'Terrible disasters or accidents.', example: '...pay off major calamities right inside their sleep.[cite: 1]', vi: 'Đại nạn[cite: 1]' },
+                { term: 'Exposing desire', pos: 'Verb/Noun phrase', defEn: 'Revealing or laying bare one\'s true cravings and greed.', plainEn: 'Showing what you really crave deep down.', example: '...mechanism of exposing desire...[cite: 1]', vi: 'Phơi bày dục vọng[cite: 1]' },
+                { term: 'Dharma protectors', pos: 'Noun', defEn: 'Celestial beings or spiritual forces that guard the teachings and practitioners.', plainEn: 'Spiritual bodyguards.', example: '...celestial beings, Dharma protectors, your tutelary deities...[cite: 1]', vi: 'Chư vị hộ pháp[cite: 1]' },
+                { term: 'Tutelary deities', pos: 'Noun', defEn: 'A deity or spirit who is a guardian, patron, or protector of a particular place, person, or lineage.', plainEn: 'Guardian spirits of your family or self.', example: '...your tutelary deities...[cite: 1]', vi: 'Bổn tôn[cite: 1]' },
+                { term: 'Quantum healing hypnosis', pos: 'Noun phrase', defEn: 'A technique to access deeper states of consciousness and past lives.', plainEn: 'A deep meditation therapy to see past lives.', example: '...practicing Master Dolores Cannon\'s quantum healing hypnosis...[cite: 1]', vi: 'Thôi miên hồi quy lượng tử[cite: 1]' },
+                { term: 'Delta brainwaves', pos: 'Noun', defEn: 'High amplitude brain waves associated with deep sleep.', plainEn: 'The brain state of very deep, dreamless sleep.', example: '...deepest delta brainwaves to connect with their higher selves...[cite: 1]', vi: 'Sóng não delta[cite: 1]' },
+                { term: 'Alaya consciousness', pos: 'Noun', defEn: 'The eighth consciousness in Buddhism, the storehouse of all karmic seeds.', plainEn: 'The ultimate storage vault of your soul\'s history.', example: '...locking shut the Alaya consciousness (the storehouse consciousness)...[cite: 1]', vi: 'Kho A lại gia thức[cite: 1]' },
+                { term: 'Collective field', pos: 'Noun', defEn: 'A shared energetic space connecting multiple consciousnesses.', plainEn: 'The invisible web connecting everyone\'s minds.', example: '...within the collective field of consciousness...[cite: 1]', vi: 'Trường tâm thức tập thể[cite: 1]' },
+                { term: 'Exponential acceleration', pos: 'Noun phrase', defEn: 'An increase in speed that becomes more and more rapid.', plainEn: 'Speeding up faster and faster over time.', example: 'Exponential Acceleration, and the Mechanism of Exposing Desire[cite: 1]', vi: 'Tốc độ lũy thừa[cite: 1]' },
+                { term: 'Esoteric currents', pos: 'Noun', defEn: 'Hidden, mystical, or specialized spiritual energetic flows.', plainEn: 'Secret spiritual energies.', example: 'According to the esoteric currents of Buddhism...[cite: 1]', vi: 'Dòng chảy huyền cơ[cite: 1]' },
+                { term: 'Law of resonance', pos: 'Noun', defEn: 'The principle that like energy attracts like energy.', plainEn: 'You attract what you feel and think.', example: 'Under the law of resonance, when someone prays out of bottomless greed...[cite: 1]', vi: 'Quy luật đồng tần số[cite: 1]' },
+                { term: 'Conservation of merit', pos: 'Noun phrase', defEn: 'The principle that spiritual credit cannot be created from nothing; it must be earned.', plainEn: 'You can\'t spend good karma you haven\'t earned.', example: 'Under the law of conservation of merit...[cite: 1]', vi: 'Quy luật bảo toàn phước đức[cite: 1]' },
+                { term: 'Foundational merit', pos: 'Noun', defEn: 'The core, essential good karma needed for spiritual stability.', plainEn: 'Your base level of good deeds.', example: '...awaken on your own and cultivate foundational merit.[cite: 1]', vi: 'Công đức gốc[cite: 1]' },
+                { term: 'Repentance', pos: 'Noun', defEn: 'Sincere regret or remorse for past wrongs.', plainEn: 'Deeply apologizing from the heart.', example: 'The first key is repentance and cleansing karmic seeds...[cite: 1]', vi: 'Sám hối[cite: 1]' },
+                { term: 'Secret virtue', pos: 'Noun phrase', defEn: 'Good deeds performed in private without seeking recognition.', plainEn: 'Doing good things when no one is watching.', example: '...accumulating quiet virtue in the privacy of your own room.[cite: 1]', vi: 'Ân đức trong phòng kín[cite: 1]' },
+                { term: 'Synchronous signal', pos: 'Noun phrase', defEn: 'A meaningful coincidence in time that holds significant spiritual alignment.', plainEn: 'A sign that you are on the right path at the right time.', example: '...is a synchronous signal sent by your tutelary deities...[cite: 1]', vi: 'Tín hiệu đồng bộ[cite: 1]' },
+                { term: 'Higher self', pos: 'Noun', defEn: 'An ethereal, higher-dimensional aspect of a person\'s consciousness.', plainEn: 'Your truest, wisest spirit.', example: '...spiritual masters, higher self, and the flow of ancestral merit...[cite: 1]', vi: 'Bản thể cao hơn / Siêu thức[cite: 1]' }
+            ]
+        };
+
+        // State Management
+        let globalLang = 'en';
+        
+        // Theme Management
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                document.getElementById('theme-icon-dark').classList.remove('hidden');
+                document.getElementById('theme-icon-light').classList.add('hidden');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                document.getElementById('theme-icon-dark').classList.add('hidden');
+                document.getElementById('theme-icon-light').classList.remove('hidden');
+            }
+        }
+
+        // Initialize Theme
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-icon-light').classList.remove('hidden');
+        } else {
+            document.getElementById('theme-icon-dark').classList.remove('hidden');
+        }
+
+        // Language Management
+        function toggleGlobalLanguage() {
+            globalLang = globalLang === 'en' ? 'vi' : 'en';
+            
+            // Update knob UI
+            const knob = document.getElementById('global-lang-knob');
+            if(globalLang === 'vi') {
+                knob.classList.add('translate-x-9');
+                knob.classList.remove('translate-x-1');
+                knob.innerText = 'VI';
+            } else {
+                knob.classList.remove('translate-x-9');
+                knob.classList.add('translate-x-1');
+                knob.innerText = 'EN';
+            }
+
+            // Sync all interactive cards to the global language
+            const cards = document.querySelectorAll('.card-wrapper');
+            cards.forEach(card => {
+                if (globalLang === 'vi') {
+                    card.classList.add('flipped');
+                } else {
+                    card.classList.remove('flipped');
+                }
+            });
+            
+            // Sync overview cards and headers if applicable
+            renderRoute();
+        }
+
+        // Render Functions
+        function createCard(enText, viText, isHeading = false) {
+            const isFlipped = globalLang === 'vi' ? 'flipped' : '';
+            const textSize = isHeading ? 'text-2xl font-serif font-bold text-brand dark:text-blue-400' : 'text-lg md:text-xl leading-relaxed md:leading-loose';
+            
+            return `
+            <div class="card-wrapper perspective-1000 cursor-pointer mb-6" onclick="this.classList.toggle('flipped')">
+               <div class="card-inner grid transition-transform duration-500 transform-style-3d ${isFlipped}">
+                  <div class="card-front col-start-1 row-start-1 backface-hidden bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
+                     <span class="inline-block px-2 py-1 mb-4 text-xs font-bold tracking-wider text-blue-800 bg-blue-100 dark:text-blue-200 dark:bg-blue-900/50 rounded uppercase">EN</span>
+                     <div class="${textSize}">${enText}</div>
+                  </div>
+                  <div class="card-back col-start-1 row-start-1 rotate-y-180 backface-hidden bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
+                     <span class="inline-block px-2 py-1 mb-4 text-xs font-bold tracking-wider text-teal-800 bg-teal-100 dark:text-teal-200 dark:bg-teal-900/50 rounded uppercase">VI</span>
+                     <div class="${textSize}">${viText}</div>
+                  </div>
+               </div>
+            </div>`;
+        }
+
+        function renderOverview() {
+            document.getElementById('nav-back-btn').classList.add('hidden');
+            document.getElementById('nav-brand').classList.remove('hidden');
+
+            const titleText = documentData.title[globalLang];
+            
+            let html = `
+                <header class="text-center mb-12 mt-6">
+                    <h1 class="text-3xl md:text-5xl font-serif font-bold leading-tight mb-4 transition-colors duration-300">
+                        ${titleText}
+                    </h1>
+                    <p class="text-slate-500 dark:text-slate-400">Select a section below to begin reading.</p>
+                </header>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            `;
+
+            documentData.sections.forEach((sec, idx) => {
+                const headingText = sec.heading[globalLang];
+                html += `
+                    <div onclick="window.location.hash = '${sec.id}'" class="group relative bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 rounded-2xl p-6 cursor-pointer hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4">
+                            <span class="text-4xl opacity-5 group-hover:opacity-10 transition-opacity font-serif font-bold text-slate-900 dark:text-white">0${idx + 1}</span>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold mb-3 pr-8 text-slate-800 dark:text-slate-100 group-hover:text-brand transition-colors">
+                            ${headingText}
+                        </h3>
+                        <p class="text-brand dark:text-blue-400 font-medium text-sm flex items-center gap-1 opacity-80 group-hover:opacity-100">
+                            Read section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </p>
+                    </div>
+                `;
+            });
+
+            html += `
+                </div>
+                
+                <div onclick="window.location.hash = 'glossary'" class="relative bg-gradient-to-br from-brand to-indigo-600 rounded-2xl p-8 cursor-pointer hover:shadow-xl transition-all duration-300 text-white transform hover:-translate-y-1 mb-12">
+                    <h3 class="text-2xl font-serif font-bold mb-2 flex items-center gap-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        Interactive Learner Glossary
+                    </h3>
+                    <p class="text-blue-100">Master 24 specialized terms and academic concepts extracted directly from the text.</p>
+                </div>
+            `;
+
+            document.getElementById('app-root').innerHTML = html;
+        }
+
+        function renderSection(sectionId) {
+            document.getElementById('nav-back-btn').classList.remove('hidden');
+            document.getElementById('nav-brand').classList.add('hidden');
+
+            const section = documentData.sections.find(s => s.id === sectionId);
+            if (!section) return renderOverview();
+
+            let html = `
+                <header class="mb-10 text-center">
+                    <h1 class="text-3xl md:text-4xl font-serif font-bold mb-6">${section.heading[globalLang]}</h1>
+                    <div class="h-1 w-20 bg-brand mx-auto rounded-full"></div>
+                </header>
+                <div class="space-y-6">
+            `;
+
+            section.content.forEach(block => {
+                if (block.type === 'h3') {
+                    html += createCard(block.en, block.vi, true);
+                } else if (block.type === 'bullet') {
+                    html += `<div class="pl-4 border-l-4 border-slate-200 dark:border-slate-700">
+                        ${createCard(block.en, block.vi, false)}
+                    </div>`;
+                } else {
+                    html += createCard(block.en, block.vi, false);
+                }
+            });
+
+            html += `</div>
+                <div class="mt-12 text-center">
+                    <a href="#overview" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium rounded-full hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Return to Overview
+                    </a>
+                </div>
+            `;
+
+            document.getElementById('app-root').innerHTML = html;
+        }
+
+        function renderGlossary() {
+            document.getElementById('nav-back-btn').classList.remove('hidden');
+            document.getElementById('nav-brand').classList.add('hidden');
+
+            let html = `
+                <header class="mb-10 text-center">
+                    <h1 class="text-3xl md:text-4xl font-serif font-bold mb-4">Vocabulary Glossary</h1>
+                    <p class="text-slate-600 dark:text-slate-400">Click any card to reveal the Vietnamese translation.</p>
+                </header>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            `;
+
+            documentData.glossary.forEach(term => {
+                const isFlipped = globalLang === 'vi' ? 'flipped' : '';
+                
+                html += `
+                <div class="card-wrapper perspective-1000 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner grid transition-transform duration-500 transform-style-3d ${isFlipped} h-full">
+                        
+                        <!-- Front (English) -->
+                        <div class="card-front col-start-1 row-start-1 backface-hidden bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-sm flex flex-col h-full">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">${term.term}</h3>
+                                    <span class="text-xs font-semibold uppercase tracking-wider text-brand dark:text-blue-400">${term.pos}</span>
+                                </div>
+                                <span class="text-xs font-bold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">EN</span>
+                            </div>
+                            
+                            <div class="flex-grow space-y-3">
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Academic Definition</h4>
+                                    <p class="text-sm text-slate-800 dark:text-slate-200">${term.defEn}</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">In other words...</h4>
+                                    <p class="text-sm text-slate-800 dark:text-slate-200">${term.plainEn}</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Context</h4>
+                                    <p class="text-sm italic text-slate-600 dark:text-slate-400">"${term.example}"</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 text-center">
+                                <span class="text-xs font-medium text-brand dark:text-blue-400 flex items-center justify-center gap-1">
+                                    Reveal Vietnamese
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Back (Vietnamese) -->
+                        <div class="card-back col-start-1 row-start-1 rotate-y-180 backface-hidden bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-sm flex flex-col h-full items-center justify-center text-center">
+                            <span class="inline-block px-2 py-1 mb-4 text-xs font-bold tracking-wider text-teal-800 bg-teal-100 dark:text-teal-200 dark:bg-teal-900/50 rounded uppercase">VI</span>
+                            <h3 class="text-3xl font-serif font-bold text-brand dark:text-blue-400 mb-2">${term.vi}</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">Vietnamese Equivalent</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                `;
+            });
+
+            html += `</div>`;
+            document.getElementById('app-root').innerHTML = html;
+        }
+
+        function renderRoute() {
+            const hash = window.location.hash || '#overview';
+            if (hash === '#overview') {
+                renderOverview();
+            } else if (hash === '#glossary') {
+                renderGlossary();
+            } else if (hash.startsWith('#section-')) {
+                renderSection(hash.substring(1));
+            } else {
+                renderOverview();
+            }
+            window.scrollTo(0, 0);
+        }
+
+        // Init App
+        window.addEventListener('hashchange', renderRoute);
+        renderRoute();
+    </script>
+</body>
+</html>

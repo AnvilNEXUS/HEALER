@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2027 Soul Migration - Interactive Bilingual Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Smooth Transitions */
+        .fade-swap-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        .fade-swap-item {
+            grid-row: 1;
+            grid-column: 1;
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+        }
+        .fade-inactive {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            pointer-events: none;
+        }
+        .fade-active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        /* Interactive Card Hover Effects */
+        .interactive-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .interactive-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .dark .interactive-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Glassmorphism Nav */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300 font-sans min-h-screen flex flex-col">
+
+    <!-- Persistent Navigation -->
+    <nav class="glass-nav fixed top-0 w-full z-50 transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <button id="btn-back" onclick="app.navigate('overview')" class="hidden group flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-500 transition-colors">
+                    <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    <span class="hidden sm:inline">Back to Overview</span>
+                </button>
+                <div id="nav-title" class="font-bold text-lg tracking-tight hidden sm:block truncate max-wxs text-slate-800 dark:text-white">
+                    2027 SOUL MIGRATION
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2 sm:gap-4">
+                <button onclick="app.navigate('glossary')" class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                    Glossary
+                </button>
+                <button onclick="app.toggleGlobalLang()" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300 border border-brand-200 dark:border-brand-800 hover:bg-brand-100 dark:hover:bg-brand-900/50 transition-colors text-sm font-bold">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                    <span id="global-lang-indicator">EN / VI</span>
+                </button>
+                <button onclick="app.toggleTheme()" class="p-2 rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="icon-sun" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <svg id="icon-moon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Application Container -->
+    <main id="app-root" class="flex-grow pt-24 pb-16 px-4 sm:px-6 w-full max-w-4xl mx-auto">
+        <!-- Views will be injected here by JavaScript -->
+    </main>
+
+    <!-- Data & Application Logic -->
+    <script>
+        const documentData = {
+            docTitleEN: "2027 Spiritual Forecast: The Largest \"Soul Migration,\" Sudden \"Memory Loss\" & Earth Splitting into Two Realms?",
+            docTitleVI: "Dự Báo Tâm Linh 2027: Cuộc \"Di Cư Linh Hồn\" Lớn Nhất, Đột Nhiên \"Mất Ký Ức\" & Trái Đất Tách 2 Cõi?",
+            sections: [
+                {
+                    id: "sec-1",
+                    headEN: "Introduction: The Great Sifting of Consciousness Ahead of 2027",
+                    headVI: "Mở Đầu: Cuộc Đại Sàng Lọc Tâm Thức Trước Thềm Năm 2027",
+                    paragraphs: [
+                        {
+                            en: "Lately, many of you have been messaging me about some very strange phenomena happening to yourselves and the people around you as we approach 2027. For instance, why are so many people suddenly undergoing a complete personality change—as if another soul has just stepped into their body—after a severe illness or a major life crisis? Or why are people who were living perfectly peaceful lives suddenly feeling restless, wanting to sell their homes, leave the city behind, and retreat to the woods?",
+                            vi: "Gần đây có rất nhiều bạn hay nhắn tin hỏi Jenny về những hiện tượng rất kỳ lạ đang xảy ra với chính bản thân họ và những người xung quanh trước thềm năm 2027. Chẳng hạn như là tại sao có nhiều người đột nhiên đổi hẳn tính cách như thể có một linh hồn khác vừa bước vào thân xác đó. Chẳng hạn như sau một căn bạo bệnh hay là một biến cố lớn trong cuộc sống hoặc là đang yên lành thì họ lại bồn chồn muốn bán nhà, bỏ phố về rừng."
+                        },
+                        {
+                            en: "Or why are so many people experiencing sudden memory blackouts of things they just did—like driving with a completely blank mind, unable to remember which intersections they passed, forgetting what they just ate, or picking up their phone and drawing a total blank on what they meant to do? Even stranger is the talk that Earth is quietly splitting into two realms, leaving you with a constant sense of déjà vu—that uncanny feeling of \"This scene looks so familiar; I've seen this somewhere before\"—or sitting at the same dinner table with someone and suddenly feeling like strangers from two completely different worlds.",
+                            vi: "Hoặc là tại sao có nhiều người hay gặp tình trạng như đột nhiên quên sạch những việc mà mình vừa làm, như là lái xe mà đầu óc thì trống rỗng, không nhớ là mình đã đi qua ngã tư nào hay là mình vừa mới ăn gì, vừa mới cầm điện thoại lên định làm gì thì cũng không thể nhớ được. Và kỳ lạ hơn là một thông tin về việc trái đất đang âm thầm bị tách làm hai cõi khiến cho bạn liên tục cảm giác kiểu mình thấy cảnh này thật quen thuộc, mình từng thấy cảnh đó ở đâu rồi. Hoặc là hai người ngồi chung một mâm cơm mà lại đột nhiên trở nên xa lạ như thể hai người ở hai thế giới khác nhau."
+                        },
+                        {
+                            en: "All of these are signs of a great sifting of consciousness right on the threshold of the 2027 spiritual grand cycle. So what is really happening behind these mysterious phenomena? Welcome back to Jenny's YouTube channel.",
+                            vi: "Thì tất cả những điều đó chính là dấu hiệu của một cuộc đại sàng lọc tâm thức trước ngưỡng cửa đại vận tâm linh 2027. Vậy thì chuyện gì đang thực sự xảy ra đằng sau những hiện tượng kỳ bí đó? Thì chào mừng các bạn đã quay trở lại với kênh YouTube của Jenny."
+                        }
+                    ]
+                },
+                {
+                    id: "sec-2",
+                    headEN: "The First Secret: The \"Soul Migration\" and Awakening Past-Life Spiritual Awareness",
+                    headVI: "Bí Mật Thứ Nhất: Cuộc \"Di Cư Linh Hồn\" Và Đánh Thức Tầng Linh Giác Tiền Kiếp",
+                    paragraphs: [
+                        {
+                            en: "Over nearly ten years of practicing master Dolores Cannon's quantum regression hypnosis—guiding people into deep theta brainwaves to connect with their superconscious or higher consciousness—combined with Buddhist Consciousness-Only (Yogacara) teachings, I have observed a deeply mystical truth about souls migrating ahead of 2027. Across thousands of deep regression sessions, a startling secret about Earth's transitional period has come to light: on the eve of 2027, millions of soul contracts from the old cycle have officially come to a close.",
+                            vi: "Suốt gần 10 năm qua khi mà thực hành việc làm thôi miên hồi quy lượng tử của bậc thầy Dolores Cannon, khi bạn có thể đưa con người vào sóng não theta sâu để kết nối với siêu thức hay là tâm thức của họ kết hợp với những kiến thức về duy thức học Phật giáo, Jenny nhận thấy có một sự thật đầy huyền bí về việc các linh hồn đang di cư trước năm 2027. Bởi vì khi mà tìm hiểu qua hàng ngàn ca thôi miên về hồi quy sâu, có một bí mật chấn động về giai đoạn chuyển giao trái đất đã được hé lộ. Đó là trước thềm năm 2027 có hàng triệu hợp đồng linh hồn của chu kỳ cũ đã thức khép lại."
+                        },
+                        {
+                            en: "This means that when someone goes through a life-threatening high fever, a near-death accident or crisis, or a night of such unbearable anguish that they feel a deep urge to close the chapter on their old life, an extraordinarily rare event unfolds in the unseen realms right at that threshold between life and death. It is called the awakening of past-life spiritual awareness—unlocking memories that were sealed away the moment you were born.",
+                            vi: "Nghĩa là khi một người đã trải qua một cơn sốt cao thập tử nhất sinh hoặc là một tai nạn, một biến cố nào đó thoát chết trong gang tấc hoặc là một đêm đau khổ tột cùng đến mức là bạn muốn khởi lên một ý niệm muốn khép lại cuộc đời cũ chẳng hạn thì ngay tại khoảnh khắc ranh giới sinh tử ấy ở cõi vô hình đã diễn ra một sự kiện vô cùng hy hữu. Nó gọi là đánh thức tầng linh giác tiền kiếp. Đây chính là những ký ức mà bạn bị niêm phong từ lúc mới chào đời."
+                        },
+                        {
+                            en: "That is also why so many people lately wake up from a severe illness or major life upheaval and leave their entire family astonished. Suddenly, they have completely lost their taste for dishes they loved for thirty years, or they look around their own familiar room and feel like a stranger staying in a rental. They might look at someone who once caused them unbearable, agonizing heartbreak and feel complete indifference, as if no karmic tie had ever existed between them. Stranger still, they suddenly grasp the most profound spiritual and universal laws without ever having read a single page on the subject.",
+                            vi: "Và đó cũng là lý do vì sao mà gần đây nhiều người sau một trận ốm nặng hay là một biến cố lớn thức dậy thì bỗng khiến cho cả gia đình ngỡ ngàng như là họ đột nhiên quên hẳn mùi vị những món ăn mà họ từng mê mệt suốt 30 năm rồi nhìn căn phòng quen thuộc mà thấy lạ lẫm như là đang đi ở trọ hoặc họ nhìn người từng làm họ khổ đau, đau khổ muốn sống đi chết lại nhưng mà lòng bây giờ lại dửng dưng như chưa từng có một chút duyên nợ nào. Thậm chí kỳ lạ hơn là họ bỗng nhiên thấu hiểu những quy luật về tâm linh và vũ trụ sâu sắc nhất mà trước đó chưa từng đọc qua một trang sách nào."
+                        },
+                        {
+                            en: "The answer behind this phenomenon isn't spiritual possession or an ordinary psychological shift. Rather, it is because the old self—the one carrying all the karmic debts of the previous cycle—has finished its lessons and stepped back, making way for a higher, ancient aspect of their consciousness, their Higher Self. Carrying the memories and wisdom of past lives, this Higher Self is officially stepping forward to guide your life into 2027.",
+                            vi: "Thì câu trả lời cho hiện tượng này không phải là họ bị ma nhập hay là chỉ thay đổi về tâm lý thông thường đâu mà đó là bởi vì con người cũ, con người mà mang đầy nợ nghiệp của chu kỳ trước của họ đã hoàn tất bài học và đã lùi lại phía sau nhường chỗ cho một phần tâm thức cổ xưa cao hơn hay là higher self của họ mang những ký ức, những trí tuệ của tiền kiếp đang chính thức bước ra dẫn dắt cuộc đời bạn vào năm 2027."
+                        }
+                    ]
+                },
+                {
+                    id: "sec-3",
+                    headEN: "Two Hidden Truths Behind the Urge to \"Sell the House and Leave the City for the Woods\"",
+                    headVI: "Hai Huyền Cơ Đằng Sau Mong Muốn \"Bán Nhà, Bỏ Phố Về Rừng\"",
+                    paragraphs: [
+                        {
+                            en: "Similarly, the phenomenon where many people suddenly feel suffocated and long to sell their house and leave the city they have called home for decades actually conceals two completely opposite spiritual truths:",
+                            vi: "Tương tự như vậy với hiện tượng mà nhiều người đang đột nhiên bỗng cảm thấy ngột ngạt, chỉ muốn bán nhà, rời bỏ thành phố mà mình đã từng gắn bó suốt hàng chục năm thì điều này lại ẩn chứa hai huyền cơ hoàn toàn trái ngược nhau:"
+                        },
+                        {
+                            en: "The first case is that your karmic affinity with your old land has run its course—in other words, your fortune and karmic debts tied to the place where you currently live have been fulfilled. According to ancient laws of feng shui and karmic connection, every region has its own distinct energy currents. Once you have finished paying off your karmic dues in your old home, a feeling of restlessness naturally arises, or a string of disruptions involving your living situation or career occurs back-to-back, nudging you to move to a new place whose energy field aligns better with your 2027 destiny.",
+                            vi: "Trường hợp thứ nhất đó là bạn đã hết duyên với đất cũ hay nói cách khác là bạn đã hết lộc, hết duyên nợ với mảnh đất mà bạn đang ở. Và theo quy luật phong thủy cũng như là nhân duyên của người xưa, mỗi vùng đất đều có những mặt năng lượng riêng. Khi bạn đã trả xong nợ duyên tại nơi ở cũ thì cuộc sống của bạn sẽ tự nhiên nảy sinh cảm giác bứt bối hoặc là những chuyện trục trặc liên quan đến vấn đề nơi ở hoặc là công việc của bạn liên tiếp xảy ra để đẩy bạn chuyển đến một vùng đất mới có trường năng lượng khớp với vận mệnh năm 2027 của bạn hơn."
+                        },
+                        {
+                            en: "The second case, however, is a trap known as escapism. Many people whose hearts are still brimming with resentment want to run away from their responsibilities, assuming that simply selling their house and moving to the woods will bring them peace. Yet as the Buddha taught in the Vimalakirti Sutra: \"When the mind is pure, the Buddha-land is pure.\" That means if your heart has not yet let go of anger and resentment, changing your address—even flying off to pristine pine-covered hills—won't change a thing. As long as you are still wearing that same cloak of greed, anger, and delusion, all your karmic lessons and karmic creditors will remain right there with you.",
+                            vi: "Bên cạnh đó trường hợp thứ hai thì nó lại là một cái bẫy gọi là chạy trốn. Nhiều người tâm khi mà vẫn còn đầy oán hận, muốn trốn tránh trách nhiệm nhưng lại tưởng là chỉ cần bán nhà bỏ phố về rừng là tìm được bình yên. Thế nhưng mà Đức Phật đã từng dạy trong kinh Duy Ma Cật là tâm tịnh tắc Phật độ tịnh. Nghĩa là khi tâm chưa buông bỏ được sân hận, việc mà bạn có đổi chỗ ở hay là dù bạn có bay lên đồi thông trong lành nhưng nếu mà bạn vẫn mặc nguyên chiếc áo với tâm tham sân si ấy trên người thì mọi bài học nghiệp quả những oan gia trái chủ vẫn sẽ còn như cũ."
+                        }
+                    ]
+                },
+                {
+                    id: "sec-4",
+                    headEN: "The Second Secret: Sudden \"Memory Loss\" and \"Time Gaps\"",
+                    headVI: "Bí Mật Thứ Hai: Hiện Tượng Đột Nhiên \"Mất Ký Ức\" Và \"Khoảng Trống Thời Gian\"",
+                    paragraphs: [
+                        {
+                            en: "So the question is: when this inner layer of consciousness awakens, why does the brain begin experiencing this second mysterious symptom—sudden memory lapses and falling into gaps in time?",
+                            vi: "Vậy câu hỏi là tại sao khi mà phần tâm thức bên trong được đánh thức, tại sao bộ não lại xuất hiện triệu chứng kỳ bí thứ hai, đó là đột nhiên bị biến mất những ký ức và rơi vào tình trạng khoảng trống thời gian."
+                        }
+                    ]
+                },
+                {
+                    id: "sec-5",
+                    headEN: "1. The Mechanism of \"Wiping the Reel of Past Grievances\" in the Storehouse Consciousness (Alaya-vijnana)",
+                    headVI: "1. Cơ Chế \"Xóa Trắng Thước Phim Oan Trái\" Trong Kho A Lại Da Thức",
+                    paragraphs: [
+                        {
+                            en: "For instance, over the past few months, you might have repeatedly startled yourself by opening the refrigerator only to forget what you wanted to grab, blanking immediately on what you ate for lunch, or picking up your phone to call someone and completely forgetting who it was. Strangest of all, when you try to recall events from a few years ago that once brought you crushing pain, your mind goes completely foggy—as if someone has wiped those memories clean.",
+                            vi: "Chẳng hạn như nếu vài tháng gần đây bạn liên tục rơi vào tình trạng như là giật mình vì mà mình vừa mở tủ lạnh ra nhưng mà đã quên mình định lấy cái gì hay là trưa nay mình vừa ăn gì thì cũng quên ngay luôn, vừa cầm điện thoại đang định gọi cho ai đó nhưng lại quên không nhớ đó là ai. Và kỳ lạ nhất đó là khi bạn cố nhớ lại những chuyện từng làm mình đau khổ tột cùng cách đây vài năm thì bây giờ lại thấy đầu óc mờ đặt như là bị ai xóa trắng những ký ức đó vậy."
+                        },
+                        {
+                            en: "The truth is that behind all of this lies an extraordinarily miraculous protective mechanism. First, you need to understand that all the memories of sorrow and resentment held in your Alaya-vijnana (storehouse consciousness) are not merely past recollections; they are invisible transmitting cords binding your soul tightly to the karmic creditors who once hurt you. Every time you recall bitter words or the faces of those who betrayed you in the past, you broadcast a signal inviting that karmic debt back to collect from you again in the new cycle.",
+                            vi: "Thì sự thật là đằng sau những việc đó chính là một cơ chế bảo hộ vô cùng huyền diệu. Bởi vì đầu tiên bạn cần hiểu rằng tất cả những ký ức như đau buồn, oán giận mà bạn đang giữ trong kho A Lại Da Thức của bạn không chỉ là những kỷ niệm mà đó là một sợi dây phát sóng vô hình nối chặt linh hồn của bạn với những oan gia trái chủ từng làm đau khổ đối với bạn. Nghĩa là mỗi lần bạn nhớ lại những câu nói cay độc hay là những gương mặt phản bội bạn trong quá khứ là một lần bạn tự phát đi tín hiệu mời gọi món nợ nghiệp quả đó quay trở lại đòi tiếp bạn trong chu kỳ mới."
+                        },
+                        {
+                            en: "As we draw closer to 2027—when Solar Cycle 25 reaches its peak and karmic fruition happens swiftly and instantaneously—holding onto vivid memories of old grudges allows those karmic creditors to immediately trace that energetic memory cord straight back to you. Therefore, for those who have lived virtuously in recent times, the unseen realms, your tutelary guardians, and your spiritual teachers activate a mechanism called wiping the reel of past grievances. It automatically blurs and fades heavy memories from your brain—like pulling the plug and severing the tracking lines so that karmic creditors from the old cycle can no longer lock onto your frequency as you cross into 2027.",
+                            vi: "Thế nên mà khi tiến sát vào năm 2027 này, thời điểm chu kỳ mặt trời thứ 25 đạt đỉnh và tốc độ trả quả đang diễn ra một cách nhanh chóng tức thì nên nếu như bạn còn nhớ rõ từng mối hận cũ thì những oan gia trái chủ đó sẽ lập tức dò theo được sợi dây ký ức năng lượng để tìm đến bạn. Vì vậy đối với những người mà thời gian qua đã biết sống thiện lành, cõi vô hình hay là các vị bổn tôn, các bậc thầy tâm linh của bạn để kích hoạt những cơ chế gọi là xóa trắng thước phim oan trái. Nghĩa là nó sẽ tự động làm mờ và xóa bớt những ký ức nặng nề trong não bộ của chúng ta, giống như việc bạn rút phích cắm và cắt đứt những sợi dây định vị để những oan gia của chu kỳ cũ không còn dò được tần số của bạn khi bạn bước sang năm 2027 nữa."
+                        }
+                    ]
+                },
+                {
+                    id: "sec-6",
+                    headEN: "2. \"Unconscious Gaps\" While Driving and Flash Summons to the Unseen Realms",
+                    headVI: "2. \"Khoảng Trống Vô Thức\" Khi Lái Xe Và Sự Triệu Tập Chớp Nhoáng Ở Cõi Vô Hình",
+                    paragraphs: [
+                        {
+                            en: "A second mysterious phenomenon many of you have shared with me is driving home along long stretches of road with a completely blank mind—unable to remember which intersections you passed—or sitting in a daze as though you had vanished from reality for dozens of minutes or even hours.",
+                            vi: "Một hiện tượng huyền bí thứ hai mà Jenny được nghe các bạn nói lại đó là việc các bạn hay khi mà lái xe về nhà, đi trên những quãng đường dài mà hoàn toàn trống rỗng, đầu óc mình trống rỗng không nhớ là mình đã đi qua ngã tư nào hoặc là bạn ngồi thẫn thờ như là bạn vừa biến mất khỏi thực tại vài giờ hay vài chục phút vậy."
+                        },
+                        {
+                            en: "In some cases, deep regression hypnosis sessions offer an explanation that has stunned consciousness researchers: during those brief moments when your mind goes blank and you can't recall a thing, your spirit or consciousness has actually been summoned in a flash to the unseen realms right in the middle of the day—either to untangle a life-or-death karmic knot or to receive guidance steering you away from a hidden catastrophe.",
+                            vi: "Thì việc này có thể giải thích trong một số trường hợp ở các ca thôi miên hồi quy sâu. Nó hé lộ một sự thật làm rúng động giới nghiên cứu tâm thức. Đó là trong những phút ngắn ngủi mà đầu óc của bạn trống rỗng, không nhớ được điều gì đó thì thực chất là thần thức của bạn hay tâm thức của bạn vừa được triệu tập chớp nhoáng ở cõi vô hình ngay giữa ban ngày để hóa giải một nút thắt sinh tử hoặc để chỉ dẫn tránh cho bạn một đại nạn ngầm nào đó."
+                        },
+                        {
+                            en: "The clearest evidence is how many people, during one of those unconscious gaps, spontaneously turn down a different street, pause to do something unexpected, or abruptly turn back home to fetch some random item, delaying themselves by around ten minutes—only to hear the shocking news on TV or the radio moments later that a serious accident just happened on the exact stretch of road they avoided.",
+                            vi: "Và bằng chứng rõ rệt nhất là rất nhiều người trong khoảng trống vô thức đó bỗng nhiên tự nhiên rẽ sang một con đường khác, bạn làm một việc gì đó khác hoặc bạn đột nhiên quay xe về nhà, lấy một món đồ không đâu vào đâu cả và làm trễ mất khoảng 10 phút chẳng hạn. Thì để rồi ngay sau đó bạn mới bàng hoàng hay tin trên tivi hay là ở radio là đúng đoạn đường mình vừa tránh được lại xảy ra một tai nạn nghiêm trọng."
+                        },
+                        {
+                            en: "The reason for this is that the frequencies and energies of higher realms surpass the storage capacity of the ordinary physical brain. The very instant your consciousness returns to your body after pulling you out of danger, every memory from those few minutes is completely sealed and locked away, leaving you with nothing more than a bewildered feeling, as though you had just woken up from a dream.",
+                            vi: "Lý do cho điều này đó là bởi vì những tần số và năng lượng ở cõi giới cao vượt quá khả năng lưu trữ của não bộ thông thường nên ngay khi mà giây phút thần thức của bạn quay trở lại cơ thể sau khi đã cứu bạn thoát nạn thì toàn bộ những ký ức trong vài phút ấy sẽ bị niêm phong khóa lại hoàn toàn và chỉ để lại cho bạn một cảm giác ngơ ngác như là bạn vừa tỉnh mộng sau một giấc mơ."
+                        }
+                    ]
+                },
+                {
+                    id: "sec-7",
+                    headEN: "The Third Secret: Earth Splitting into Two Realms and the \"Frequency Phase-Shift\" Phenomenon",
+                    headVI: "Bí Mật Thứ Ba: Trái Đất Tách Làm Hai Cõi Và Hiện Tượng \"Lệch Pha Tần Số\"",
+                    paragraphs: [
+                        {
+                            en: "All of these phenomena lead straight to our third secret—the most mysterious one in today's video: Earth splitting into two realms. Many people still assume that if 2027 onward—or Earth's ascension into 5D—marks the great sifting of humanity, there must be some miracle that physically lifts good people off the ground to fly away and live on another planet, while those living out of alignment are left behind on this old Earth.",
+                            vi: "Và chính tất cả những hiện tượng này dẫn thẳng đến một bí mật thứ ba là hiện tượng kỳ bí nhất trong video ngày hôm nay. Đó gọi là trái đất tách làm hai cõi. Bởi vì trong tâm thức của nhiều người hiện vẫn còn đang nghĩ rằng nếu như năm 2027 trở đi hay là khi mà trái đất thăng lên 5D chẳng hạn là năm mà các đại sàng lọc của nhân loại xảy ra thì chẳng lẽ có một phép màu nào đó khiến cho con người được tự nhiên bốc lên, những người lương thiện được bay lên hành tinh khác ở, còn những người sống lỗi thì sẽ phải ở lại trái đất cũ này hay sao?"
+                        },
+                        {
+                            en: "In truth, that is just how we think when we are still caught in what we call 3D physical logic. The reality pointed to by both Buddhism and quantum scientists is ten thousand times more awe-inspiring: all of us will still have our feet planted on this same physical earth, still share this same physical ground, and even live under the exact same roof—yet Earth is genuinely splitting into two invisible realms layered right on top of each other.",
+                            vi: "Nhưng đó thật ra chỉ là những suy nghĩ của bạn khi bạn còn bị vướng mắc ở cái gọi là vật lý 3D. Còn sự thật mà nhà Phật hay là các nhà khoa học lượng tử chỉ ra thì nó còn kỳ vĩ hơn gấp vạn lần. Đó là tất cả chúng ta sẽ vẫn cùng đạp chân ở trên mặt đất vật lý này, vẫn sống chung ở mặt đất vật lý này, thậm chí sống chung dưới một mái nhà. Nhưng mà trái đất đang thực sự tách làm hai cõi giới vô hình xếp chồng lên nhau."
+                        },
+                        {
+                            en: "The first sign confirming this is a recurring feeling of déjà vu—this scene is so familiar; I've seen this somewhere before—happening over and over again. You might be sitting in a conversation or walking into an unfamiliar room or place, and suddenly you freeze because you know with absolute certainty that you have seen it before, that you have lived through this exact moment down to the finest detail. You might even know the very next sentence the person across from you is about to say. Has anyone watching experienced something like this? Leave a comment down below so everyone and I can hear your story.",
+                            vi: "Dấu hiệu đầu tiên để bạn có thể xác nhận điều này đó là bạn sẽ thường xuyên có những cảm giác như cảnh này thật quen thuộc, mình đã từng gặp ở đâu rồi. Nó sẽ lặp lại liên tục. Chẳng hạn như bạn đang ngồi nói chuyện hay là bạn đang bước vào một căn phòng lạ, một nơi chốn nào đó lạ thì đột nhiên bạn khựng lại vì biết chắc chắn rằng mình đã từng thấy nó rồi, mình từng sống qua cái khoảnh khắc này không sai một chi tiết nào rồi. Thậm chí là bạn còn có thể biết trước cả câu tiếp theo mà người đối diện sắp mở miệng nói. Không biết là ở đây có bạn nào từng trải qua trường hợp như thế này không? Hãy comment xuống bên dưới để Jenny và mọi người cùng biết nhé."
+                        },
+                        {
+                            en: "The secret behind this phenomenon is that during your nights of deep sleep leading up to 2027, your consciousness has been quietly stepping ahead into the future to rehearse and preview new timelines—parallel timelines—to see which forks in the road are the safest and most peaceful paths toward the success and goals you have set within your subconscious. So when you physically step onto that exact milestone or location in waking life, your subconscious memory clicks into place with reality, sending out a confirmation signal that you have officially stepped onto the peaceful track—into the 2027 cycle you already saw within.",
+                            vi: "Bí mật của hiện tượng này nằm ở chỗ đó là trong những đêm mà bạn ngủ sâu trước thềm 2027 thần thức hay là tâm thức của bạn đã âm thầm đi trước vào tương lai để diễn tập và kiểm duyệt các dòng thời gian mới. Đó là các dòng thời gian song song để xem xem những ngã rẽ nào là an toàn và bình an nhất để dẫn đến những thành công, những mục tiêu mà bạn đã đặt trước trong tiềm thức. Vì vậy khi ở ngoài đời thực bạn bước chân chạm đúng vào cột mốc đó hay là vị trí đó thì ký ức tiềm thức của bạn lập tức khớp vào thực tại, nó phát ra tín hiệu xác nhận rằng bạn đã chính thức bước sang đường ray bình an hay là bước vào chu kỳ của năm 2027 mà bạn đã thấy trước trong tiềm thức."
+                        }
+                    ]
+                },
+                {
+                    id: "sec-8",
+                    headEN: "Three Everyday Signs of \"Frequency Phase-Shift\"",
+                    headVI: "Ba Hiện Tượng \"Lệch Pha Tần Số\" Giữa Đời Thường",
+                    paragraphs: [
+                        {
+                            en: "As each soul steps onto a different track, an unprecedented and mysterious phenomenon begins unfolding right in everyday life, known as frequency phase-shift. It makes two people feel as though they inhabit two completely different worlds. You can verify this for yourself by observing three strange occurrences happening right around you:",
+                            vi: "Khi mà mỗi linh hồn bước sang một đường ray khác nhau thì một hiện tượng kỳ bí cũng chưa từng có đã xảy ra ở ngay giữa đời thường đó là hiện tượng tên lệch pha tần số. Nó khiến cho hai người như ở hai thế giới khác nhau vậy. Bạn có thể tự kiểm chứng điều này qua việc quan sát ba hiện tượng lạ lùng đang diễn ra ngay xung quanh bạn:"
+                        },
+                        {
+                            en: "First is the phenomenon of the invisible veil. You may have people you were very close to for ten or twenty years who live just a few blocks away in the same city. Yet over the past few months, you somehow just cannot manage to meet up—every time you schedule a get-together, something bizarre pops up at the last minute to block it, or you walk right past each other on the street without noticing, as if an invisible mist were veiling your eyes. That happens because the two of you have shifted into different frequency realms, so invisible magnetic fields or energetic boundaries are automatically fading the other person's presence out of your world.",
+                            vi: "Thứ nhất là hiện tượng che mắt vô hình. Nghĩa là có những người mà bạn từng rất thân suốt 10 năm, 20 năm ở cách nhau chỉ vài con phố trong cùng một thành phố. Nhưng mà vài tháng gần đây thì tự nhiên không tài nào bạn gặp được nhau, cứ lên lịch hẹn là đúng phút chót có chuyện lạ cản bước hoặc là đi lướt qua nhau ở ngoài đường nhưng mà dường như có một màn sương vô hình che mắt không nhìn thấy được đối phương. Thì đó là vì hai người đã tách sang hai cõi tần số khác nhau, thế nên từ trường vô hình hay là những kết giới đó đang tự động làm mờ đi sự hiện diện của người kia ra khỏi thế giới của bạn."
+                        },
+                        {
+                            en: "Second is sharing the same roof while living in two different worlds. This appears most often between spouses or family members sitting less than a meter apart across the dinner table, yet when they look into each other's eyes, they feel like complete strangers from different planets. One person simply longs for a gentle life of harmony and letting go, while the other opens their mouth only to calculate, compete, and snap in frustration. Even though you speak the exact same language, you can no longer truly understand one another.",
+                            vi: "Hoặc hiện tượng thứ hai đó là chung một máy nhà nhưng mà ở hai thế giới. Điều này xuất hiện nhiều nhất ở các cặp vợ chồng hay là người thân khi mà ngồi đối diện nhau qua mâm cơm chưa đầy 1 m thế nhưng khi nhìn vào mắt nhau lại thấy xa lạ như là người dưng từ hành tinh khác vậy. Kiểu như một người thì chỉ mong muốn cuộc sống hiền hòa buông xả còn người kia thì mở miệng ra là tính toán hơn thua và gắt gỏng. Nghĩa là giờ đây khi mà các bạn có thể nói cùng một ngôn ngữ nhưng mà người nghe không còn hiểu được nhau nữa."
+                        },
+                        {
+                            en: "And third is the phenomenon of two skies of destiny over the same patch of ground. This can happen within the same company, neighborhood, or small community amid the shifts of 2027. People who still hold onto greed and envy step out their front door only to encounter misfortune, deception, and dead ends, as though walking through a dark realm. Meanwhile, someone right beside them—at the very next desk or in the house next door—keeps meeting helpful benefactors who guide their way, watching bad turns miraculously transform into blessings, as if wrapped in an invisible circle of protective light.",
+                            vi: "Và thứ ba là hiện tượng hai bầu trời số phận trên cùng một mảnh đất. Điều này thì có thể xảy ra ở cùng một công ty hay là một khu vực một xóm nhỏ trước những biến động năm 2027. Đó là những người khi còn giữ tâm tham lam đố kỵ thì họ bước ra cửa là có thể gặp xui rủi, lừa lọc bế tắc như đang đi giữa những cái cõi tối tăm. Còn một người ở ngay bên cạnh, ngồi ngay bàn bên cạnh hay là ngôi nhà bên cạnh lại có thể liên tục gặp được quý nhân đưa đường chỉ lối, chuyện dữ hóa lành một cách kỳ diệu như đang được bao bọc trong một vòng tròn ánh sáng bảo hộ vô hình vậy."
+                        }
+                    ]
+                },
+                {
+                    id: "sec-9",
+                    headEN: "Three Personal Keys to Anchor Your Frequency of Consciousness for 2027",
+                    headVI: "Ba Chìa Khóa Tự Thân Để Giữ Vững Tần Số Tâm Thức Năm 2027",
+                    paragraphs: [
+                        {
+                            en: "In Buddhism, there is a law stating that the outer world manifests according to the inner mind. So the question is: standing before a historic great divergence like this, what do you need to do through your own inner strength to keep your consciousness anchored in the deepest peace? The answer is that the sole passport determining whether you step into the bright realm of prosperity or descend into the dark realm of chaos in 2027 rests entirely on the frequency of your own consciousness right now. Everything you can practice on your own comes down to these three keys.",
+                            vi: "Thì trong Phật giáo đó là quy luật gọi là cảnh giới bên ngoài sẽ biến hiện theo tâm thức bên trong. Nên câu hỏi ở đây là khi đứng trước một cuộc đại phân luồng lịch sử như thế này thì bạn cần phải làm gì bằng chính nội lực tự thân của mình để có thể giữ vững được thần thức tâm thức của mình một cách bình an nhất. Thế thì câu trả lời đó là tấm vé thông hành duy nhất quyết định bạn có bước vào được cõi sáng của sự thịnh vượng hay là bước xuống cõi tối hỗn loạn năm 2027 sẽ nằm trọn ở tần số tâm thức của chính bạn ngay lúc này. Và các phương pháp để bạn có thể tự thân thực hành nằm trọn ở ba chìa khóa sau."
+                        }
+                    ]
+                },
+                {
+                    id: "sec-10",
+                    headEN: "Key One: Practice Three Mindful Breaths",
+                    headVI: "Chìa Khóa Thứ Nhất: Thực Hành Ba Hơi Thở Chánh Niệm",
+                    paragraphs: [
+                        {
+                            en: "First, practice three mindful breaths to bring your mind back to the present moment. Whenever you catch your thoughts drifting or your memory slipping, pause for thirty seconds. Place your hand over your chest, take three deep breaths, and silently tell yourself: I am fully present right here in this very moment. I guarantee that those three breaths will immediately draw back your scattered energy and help you reclaim mastery over your own mind.",
+                            vi: "Thứ nhất, đó là thực hành ba hơi thở chánh niệm để đưa tâm trí của bạn quay trở về với hiện tại. Nghĩa là mỗi khi mà thấy đầu óc mình lơ đễnh, quên trước quên sau thì hãy dừng lại 30 giây. Bạn có thể đặt tay lên ngực, hít thở sâu ba hơi và thầm nhủ trong đầu là: tôi đang có mặt trọn vẹn ngay tại phút giây này. Thì Jenny đảm bảo là sau ba hơi thở đó sẽ thu hồi ngay nguồn năng lượng đang phân tán của bạn, giúp cho bạn làm chủ lại được tâm trí của mình."
+                        }
+                    ]
+                },
+                {
+                    id: "sec-11",
+                    headEN: "Key Two: Proactively Clear Emotional Clutter Before Sleep",
+                    headVI: "Chìa Khóa Thứ Hai: Chủ Động Dọn Rác Cảm Xúc Trước Khi Đi Ngủ",
+                    paragraphs: [
+                        {
+                            en: "Second, proactively clear out emotional clutter before going to sleep instead of waiting for your brain to become overloaded. Every night when you lie down in bed, take a deep breath and set an intention to let go—releasing every harsh remark and every unpleasant incident from the day, restoring clarity to your consciousness so that you can wake up the next morning with your sharpest intuition.",
+                            vi: "Và thứ hai là bạn hãy chủ động dọn rác cảm xúc trước khi đi ngủ. Thay vì đợi bộ não của mình quá tải, nghĩa là mỗi tối khi đặt lưng xuống giường thì hãy hít thở sâu và khởi lên một niệm buông bỏ, buông bỏ hết mọi câu nói hay là mọi chuyện bất như ý trong ngày, trả lại sự trong trẻo cho tâm thức để sáng hôm sau bạn có thể thức dậy với trực giác sáng suốt nhất."
+                        }
+                    ]
+                },
+                {
+                    id: "sec-12",
+                    headEN: "Key Three: Remain Non-Judgmental and Compassionate Toward Those on a Different Frequency",
+                    headVI: "Chìa Khóa Thứ Ba: Giữ Tâm Không Phán Xét Và Từ Bi Trước Những Người Lệch Tần Số",
+                    paragraphs: [
+                        {
+                            en: "Third—and this is something I remind you of in every single video—hold a non-judgmental, compassionate heart toward those on a different frequency. Even when you see that your relatives or friends no longer share your perspective, do not look down on them, do not force them to be like you, and do not argue to prove who is right. The very moment you grow angry, you drag your own frequency straight down. The rule is to respect each person's individual journey, keep your words gentle, and quietly wish them peace. Only when your own heart is at peace will the place where you stand naturally become a realm of goodness.",
+                            vi: "Và điều thứ ba cũng là điều mà Jenny luôn nhắc các bạn trong mọi video đó là hãy giữ tâm không phán xét và từ bi trước những người lệch tần số. Đó là khi dù thấy người thân hay là bạn bè của mình không còn chung góc nhìn với mình nữa thì cũng đừng coi thường, cũng đừng ép họ giống như mình và đừng tranh cãi hơn thua. Bởi khoảnh khắc mà bạn nổi giận nghĩa là bạn đang tự kéo tụt tần số của mình xuống thấp. Thì quy tắc là hãy tôn trọng hành trình riêng của mỗi người, giữ lời nói của mình hiền hòa và chỉ âm thầm chúc bình an cho họ. Chỉ khi tâm bạn cũng được bình an thì nơi bạn đứng sẽ tự khắc là cõi lành."
+                        }
+                    ]
+                },
+                {
+                    id: "sec-13",
+                    headEN: "Closing Thoughts and Affirmation for Welcoming 2027",
+                    headVI: "Lời Kết Và Câu Khẳng Định Đón Năm 2027",
+                    paragraphs: [
+                        {
+                            en: "Finally, the fact that you have listened all the way through today's video is a synchronicity signaling that your soul is ready to step onto the brightest timeline of 2027. So if you are ready to take mastery of your own consciousness, feel free to leave this affirmation in the comments below: When the mind is at peace, all things are at peace. Let's anchor this frequency of awakening and goodness together.",
+                            vi: "Và cuối cùng là việc bạn đã lắng nghe trọn vẹn những lời chia sẻ của video ngày hôm nay là tín hiệu đồng bộ báo hiệu rằng linh hồn của bạn đang sẵn sàng bước sang dòng thời gian tươi sáng nhất của 2027. Nên nếu như bạn cũng sẵn sàng làm chủ tâm thức của mình thì cũng có thể comment xuống bên dưới một câu khẳng định như thế này là: tâm an vạn sự an để cùng nhau neo giữ tần số tỉnh thức và thiện lành này nhé."
+                        },
+                        {
+                            en: "That is everything I wanted to share with you in today's video. Thank you for being here with me, and I wish you the strength to always keep the bright lamp of wisdom burning steadily within your consciousness. For now, goodbye, and I will see you in the next video.",
+                            vi: "Và đó là tất cả những điều Khánh Vy muốn chia sẻ với các bạn trong video ngày hôm nay. Cảm ơn các bạn đã cùng đồng hành và chúc các bạn luôn giữ vững ngọn đèn trí tuệ sáng ngời trong tâm thức của mình. Còn bây giờ xin chào và hẹn gặp lại các bạn trong những video tiếp theo."
+                        }
+                    ]
+                }
+            ],
+            glossary: [
+                { term: "Phenomena", pos: "noun", def: "A fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question.", plain: "Observable events, often strange or remarkable.", example: "Lately, many of you have been messaging me about some very strange phenomena...", vi: "Những hiện tượng" },
+                { term: "Consciousness", pos: "noun", def: "The state of being awake and aware of one's surroundings; the awareness or perception of something.", plain: "The mind's awareness of itself and the world.", example: "All of these are signs of a great sifting of consciousness right on the threshold...", vi: "Tâm thức" },
+                { term: "Threshold", pos: "noun", def: "The magnitude or intensity that must be exceeded for a certain reaction, phenomenon, result, or condition to occur.", plain: "The starting point or doorway to a new era.", example: "...right on the threshold of the 2027 spiritual grand cycle.", vi: "Ngưỡng cửa / Thềm" },
+                { term: "Migration", pos: "noun", def: "Movement from one part of something to another.", plain: "A large-scale move or shift.", example: "The Largest \"Soul Migration,\" Sudden \"Memory Loss\"...", vi: "Sự di cư" },
+                { term: "Regression", pos: "noun", def: "A return to a former or less developed state.", plain: "Going backward in time or memory.", example: "...practicing master Dolores Cannon's quantum regression hypnosis...", vi: "Sự hồi quy" },
+                { term: "Superconscious", pos: "noun", def: "A level of awareness beyond normal human consciousness.", plain: "The highest, most connected part of the mind.", example: "...to connect with their superconscious or higher consciousness...", vi: "Siêu thức" },
+                { term: "Escapism", pos: "noun", def: "The tendency to seek distraction and relief from unpleasant realities.", plain: "Running away from problems instead of facing them.", example: "The second case, however, is a trap known as escapism.", vi: "Chạy trốn / Lảng tránh" },
+                { term: "Resentment", pos: "noun", def: "Bitter indignation at having been treated unfairly.", plain: "Holding a grudge or feeling bitter.", example: "...if your heart has not yet let go of anger and resentment...", vi: "Sự sân hận / Oán hận" },
+                { term: "Delusion", pos: "noun", def: "An idiosyncratic belief or impression that is firmly maintained despite being contradicted by reality.", plain: "Believing things that aren't true; ignorance.", example: "...wearing that same cloak of greed, anger, and delusion...", vi: "Sự si mê / Ảo tưởng" },
+                { term: "Storehouse Consciousness", pos: "noun", def: "In Yogacara Buddhism, the foundational consciousness containing all karmic seeds (Alaya-vijnana).", plain: "The deep mind where all past memories and karmas are kept.", example: "...held in your Alaya-vijnana (storehouse consciousness) are not merely past recollections...", vi: "Kho A Lại Da Thức" },
+                { term: "Grievance", pos: "noun", def: "A real or imagined wrong or other cause for complaint or protest.", plain: "A feeling of resentment over something unfair.", example: "...activate a mechanism called wiping the reel of past grievances.", vi: "Nỗi oan trái / Bất bình" },
+                { term: "Karmic Creditor", pos: "noun", def: "In Buddhism, a being to whom one owes a karmic debt from past actions.", plain: "Someone from the past who you owe an energetic debt to.", example: "...binding your soul tightly to the karmic creditors who once hurt you.", vi: "Oan gia trái chủ" },
+                { term: "Fruition", pos: "noun", def: "The point at which a plan or project is realized.", plain: "The moment when karma ripens or results appear.", example: "...when Solar Cycle 25 reaches its peak and karmic fruition happens swiftly...", vi: "Sự ứng nghiệm / Đơm hoa kết trái" },
+                { term: "Catastrophe", pos: "noun", def: "An event causing great and often sudden damage or suffering.", plain: "A massive disaster or tragedy.", example: "...or to receive guidance steering you away from a hidden catastrophe.", vi: "Đại nạn / Thảm họa" },
+                { term: "Ascension", pos: "noun", def: "The act of rising to an important position or a higher level.", plain: "Moving up to a higher spiritual dimension.", example: "...if 2027 onward—or Earth's ascension into 5D—marks the great sifting...", vi: "Sự thăng lên / Thăng thiên" },
+                { term: "Multidimensional", pos: "noun/adj", def: "Of or involving several dimensions or aspects.", plain: "Existing across many different realms or planes.", example: "...guiding you through the multidimensional 4D portal...", vi: "Đa chiều không gian" },
+                { term: "Synchronicity", pos: "noun", def: "The simultaneous occurrence of events that appear significantly related but have no discernible causal connection.", plain: "Meaningful coincidences.", example: "...listened all the way through today's video is a synchronicity signaling...", vi: "Sự đồng bộ" },
+                { term: "Subconscious", pos: "noun", def: "Of or concerning the part of the mind of which one is not fully aware but which influences one's actions.", plain: "The deep mind that stores automatic thoughts.", example: "...toward the success and goals you have set within your subconscious.", vi: "Tiềm thức" },
+                { term: "Clutter", pos: "noun", def: "A collection of things lying about in an untidy mass.", plain: "A messy collection of unnecessary things (like bad thoughts).", example: "Second, proactively clear out emotional clutter before going to sleep...", vi: "Rác (cảm xúc) / Mớ lộn xộn" },
+                { term: "Intuition", pos: "noun", def: "The ability to understand something immediately, without the need for conscious reasoning.", plain: "A deep, unexplainable gut feeling.", example: "...wake up the next morning with your sharpest intuition.", vi: "Trực giác" },
+                { term: "Compassionate", pos: "adj", def: "Feeling or showing sympathy and concern for others.", plain: "Caring deeply about others' suffering.", example: "...hold a non-judgmental, compassionate heart toward those on a different frequency.", vi: "Từ bi" },
+                { term: "Affinity", pos: "noun", def: "A spontaneous or natural liking or sympathy for someone or something.", plain: "A natural karmic connection or bond.", example: "The first case is that your karmic affinity with your old land has run its course...", vi: "Duyên / Duyên nợ" },
+                { term: "Uncanny", pos: "adj", def: "Strange or mysterious, especially in an unsettling way.", plain: "Weirdly familiar or unnatural.", example: "...leaving you with a constant sense of déjà vu—that uncanny feeling of...", vi: "Kỳ lạ / Bí ẩn" },
+                { term: "Déjà vu", pos: "noun", def: "A feeling of having already experienced the present situation.", plain: "The feeling that you've seen this exact scene before.", example: "...leaving you with a constant sense of déjà vu...", vi: "Cảm giác quen thuộc / Đã từng trải qua" }
+            ]
+        };
+
+        const app = {
+            currentView: 'overview',
+            globalLang: 'en',
+            root: document.getElementById('app-root'),
+
+            init() {
+                this.render();
+            },
+
+            navigate(viewId) {
+                this.currentView = viewId;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                this.updateNav();
+                this.render();
+            },
+
+            toggleGlobalLang() {
+                this.globalLang = this.globalLang === 'en' ? 'vi' : 'en';
+                document.getElementById('global-lang-indicator').innerText = this.globalLang === 'en' ? 'EN / VI' : 'VI / EN';
+                this.render();
+            },
+
+            toggleTheme() {
+                const html = document.documentElement;
+                if (html.classList.contains('dark')) {
+                    html.classList.remove('dark');
+                } else {
+                    html.classList.add('dark');
+                }
+            },
+
+            toggleCardLang(event, buttonEl = null) {
+                // If button was clicked directly (overview headers)
+                if (buttonEl) {
+                    event.stopPropagation();
+                    const stateObj = buttonEl.dataset;
+                    stateObj.current = stateObj.current === 'en' ? 'vi' : 'en';
+                    const targetEl = document.getElementById(buttonEl.dataset.target);
+                    if(targetEl) {
+                        targetEl.innerText = buttonEl.dataset[stateObj.current];
+                    }
+                    buttonEl.innerText = stateObj.current.toUpperCase();
+                    return;
+                }
+
+                // Interactive paragraph card toggling
+                const card = event.currentTarget;
+                const enDiv = card.querySelector('.lang-en');
+                const viDiv = card.querySelector('.lang-vi');
+                const badge = card.querySelector('.badge-lang');
+                
+                if (card.dataset.active === 'en') {
+                    card.dataset.active = 'vi';
+                    enDiv.classList.replace('fade-active', 'fade-inactive');
+                    viDiv.classList.replace('fade-inactive', 'fade-active');
+                    badge.innerText = 'VI';
+                    badge.classList.replace('bg-brand-100', 'bg-amber-100');
+                    badge.classList.replace('text-brand-700', 'text-amber-700');
+                    badge.classList.replace('dark:bg-brand-900', 'dark:bg-amber-900');
+                    badge.classList.replace('dark:text-brand-300', 'dark:text-amber-300');
+                } else {
+                    card.dataset.active = 'en';
+                    viDiv.classList.replace('fade-active', 'fade-inactive');
+                    enDiv.classList.replace('fade-inactive', 'fade-active');
+                    badge.innerText = 'EN';
+                    badge.classList.replace('bg-amber-100', 'bg-brand-100');
+                    badge.classList.replace('text-amber-700', 'text-brand-700');
+                    badge.classList.replace('dark:bg-amber-900', 'dark:bg-brand-900');
+                    badge.classList.replace('dark:text-amber-300', 'dark:text-brand-300');
+                }
+            },
+
+            toggleGlossaryTerm(event) {
+                const card = event.currentTarget;
+                const viText = card.querySelector('.vi-translation');
+                const toggleHint = card.querySelector('.toggle-hint');
+                
+                if(viText.classList.contains('hidden')) {
+                    viText.classList.remove('hidden');
+                    toggleHint.innerText = 'Hide Vietnamese';
+                } else {
+                    viText.classList.add('hidden');
+                    toggleHint.innerText = 'Reveal Vietnamese / Xem nghĩa';
+                }
+            },
+
+            updateNav() {
+                const btnBack = document.getElementById('btn-back');
+                const navTitle = document.getElementById('nav-title');
+                
+                if (this.currentView === 'overview') {
+                    btnBack.classList.add('hidden');
+                    navTitle.innerText = "2027 SOUL MIGRATION";
+                } else if (this.currentView === 'glossary') {
+                    btnBack.classList.remove('hidden');
+                    navTitle.innerText = "Learner Glossary";
+                } else {
+                    btnBack.classList.remove('hidden');
+                    navTitle.innerText = "Reading Section";
+                }
+            },
+
+            render() {
+                if (this.currentView === 'overview') {
+                    this.root.innerHTML = this.renderOverview();
+                } else if (this.currentView === 'glossary') {
+                    this.root.innerHTML = this.renderGlossary();
+                } else {
+                    const section = documentData.sections.find(s => s.id === this.currentView);
+                    if (section) {
+                        this.root.innerHTML = this.renderSection(section);
+                    } else {
+                        this.root.innerHTML = `<div class="text-center mt-20 text-red-500">Section not found.</div>`;
+                    }
+                }
+            },
+
+            renderOverview() {
+                let cardsHtml = documentData.sections.map((sec, idx) => {
+                    const displayTitle = this.globalLang === 'en' ? sec.headEN : sec.headVI;
+                    return `
+                        <div onclick="app.navigate('${sec.id}')" class="interactive-card cursor-pointer bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col justify-between h-full relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-brand-500 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
+                            
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-xs font-bold tracking-wider text-slate-400 dark:text-slate-500 uppercase">Section ${idx + 1}</span>
+                                <button onclick="app.toggleCardLang(event, this)" 
+                                        data-en="${sec.headEN}" 
+                                        data-vi="${sec.headVI}"
+                                        data-target="heading-${sec.id}"
+                                        data-current="${this.globalLang}"
+                                        class="px-2 py-1 text-xs font-bold rounded bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+                                    ${this.globalLang.toUpperCase()}
+                                </button>
+                            </div>
+                            <h3 id="heading-${sec.id}" class="text-xl font-serif font-bold text-slate-800 dark:text-slate-100 leading-snug">
+                                ${displayTitle}
+                            </h3>
+                            <div class="mt-6 flex items-center text-brand-600 dark:text-brand-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                Read Section <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                const pageTitle = this.globalLang === 'en' ? documentData.docTitleEN : documentData.docTitleVI;
+
+                return `
+                    <div class="space-y-10 animate-[fadeIn_0.4s_ease-out]">
+                        <header class="text-center mb-12">
+                            <p class="text-brand-600 dark:text-brand-400 font-bold tracking-widest uppercase text-sm mb-3">Interactive Bilingual Guide</p>
+                            <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold leading-tight text-slate-900 dark:text-white">
+                                ${pageTitle}
+                            </h1>
+                            <p class="mt-4 text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Select a section below to start reading. Tap any paragraph while reading to instantly flip between English and Vietnamese.</p>
+                        </header>
+                        
+                        <!-- Glossary Quick Access -->
+                        <div onclick="app.navigate('glossary')" class="interactive-card cursor-pointer bg-gradient-to-r from-brand-600 to-brand-800 dark:from-brand-800 dark:to-brand-950 rounded-2xl p-6 sm:p-8 text-white flex flex-col sm:flex-row items-center justify-between shadow-lg">
+                            <div>
+                                <h2 class="text-2xl font-bold mb-2">Interactive Learner Glossary</h2>
+                                <p class="text-brand-100 opacity-90 max-w-xl">Master 24 advanced academic concepts and idioms extracted directly from the text to elevate your B2/C1 English proficiency.</p>
+                            </div>
+                            <div class="mt-6 sm:mt-0 whitespace-nowrap bg-white text-brand-800 px-6 py-3 rounded-full font-bold shadow-md hover:bg-brand-50 transition-colors">
+                                Access Glossary →
+                            </div>
+                        </div>
+
+                        <!-- Section Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            ${cardsHtml}
+                        </div>
+                    </div>
+                `;
+            },
+
+            renderSection(section) {
+                const displayTitle = this.globalLang === 'en' ? section.headEN : section.headVI;
+                const altTitle = this.globalLang === 'en' ? section.headVI : section.headEN;
+
+                let paragraphsHtml = section.paragraphs.map((p, idx) => {
+                    const enActive = this.globalLang === 'en';
+                    const activeClass = enActive ? 'fade-active' : 'fade-inactive';
+                    const inactiveClass = enActive ? 'fade-inactive' : 'fade-active';
+                    
+                    const badgeText = enActive ? 'EN' : 'VI';
+                    const badgeColor = enActive ? 'bg-brand-100 text-brand-700 dark:bg-brand-900 dark:text-brand-300' : 'bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300';
+
+                    return `
+                        <div onclick="app.toggleCardLang(event)" data-active="${this.globalLang}" class="group interactive-card cursor-pointer bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-700 relative">
+                            <div class="absolute top-4 right-4 z-10">
+                                <span class="badge-lang px-2.5 py-1 text-[10px] font-black rounded uppercase tracking-widest ${badgeColor} transition-colors duration-300">
+                                    ${badgeText}
+                                </span>
+                            </div>
+                            <div class="fade-swap-grid text-[18px] sm:text-[20px] font-serif leading-[1.8] text-slate-700 dark:text-slate-300 mt-2">
+                                <div class="lang-en ${enActive ? 'fade-active' : 'fade-inactive'}">
+                                    ${p.en}
+                                </div>
+                                <div class="lang-vi ${enActive ? 'fade-inactive' : 'fade-active'}">
+                                    ${p.vi}
+                                </div>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700/50 flex justify-center opacity-40 group-hover:opacity-100 transition-opacity">
+                                <span class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Tap to translate</span>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                return `
+                    <div class="animate-[fadeIn_0.4s_ease-out] max-w-3xl mx-auto pb-20">
+                        <header class="mb-10 text-center">
+                            <h1 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-white leading-tight mb-4">
+                                ${displayTitle}
+                            </h1>
+                            <p class="text-sm font-serif italic text-slate-500 dark:text-slate-400">
+                                ${altTitle}
+                            </p>
+                        </header>
+                        <div class="space-y-6">
+                            ${paragraphsHtml}
+                        </div>
+                    </div>
+                `;
+            },
+
+            renderGlossary() {
+                let glossaryHtml = documentData.glossary.map(item => `
+                    <div onclick="app.toggleGlossaryTerm(event)" class="interactive-card cursor-pointer bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col h-full">
+                        <div class="p-6 flex-grow">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-bold text-brand-700 dark:text-brand-400">${item.term}</h3>
+                                <span class="text-xs font-medium px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 rounded">${item.pos}</span>
+                            </div>
+                            <div class="space-y-3">
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-1">Definition</p>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">${item.def}</p>
+                                </div>
+                                <div class="pl-3 border-l-2 border-brand-200 dark:border-brand-800">
+                                    <p class="text-sm font-semibold text-slate-700 dark:text-slate-300">In other words...</p>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400 italic">${item.plain}</p>
+                                </div>
+                                <div class="bg-slate-50 dark:bg-slate-900/50 p-3 rounded-lg border border-slate-100 dark:border-slate-700/50">
+                                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Context</p>
+                                    <p class="text-sm font-serif text-slate-700 dark:text-slate-300 leading-relaxed">"${item.example}"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-900/80 border-t border-slate-100 dark:border-slate-700 p-4 text-center">
+                            <p class="toggle-hint text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Reveal Vietnamese / Xem nghĩa</p>
+                            <p class="vi-translation hidden text-lg font-serif font-bold text-slate-800 dark:text-white">${item.vi}</p>
+                        </div>
+                    </div>
+                `).join('');
+
+                return `
+                    <div class="animate-[fadeIn_0.4s_ease-out]">
+                        <header class="mb-12 text-center max-w-2xl mx-auto">
+                            <h1 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-white mb-4">Learner Glossary</h1>
+                            <p class="text-slate-600 dark:text-slate-400">Master 24 advanced academic terms extracted from the text. Tap any card to reveal the Vietnamese translation.</p>
+                        </header>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            ${glossaryHtml}
+                        </div>
+                    </div>
+                `;
+            }
+        };
+
+        // Initialize application on load
+        document.addEventListener('DOMContentLoaded', () => {
+            app.init();
+            
+            // System preference for Dark Mode
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
+        });
+    </script>
+</body>
+</html>
